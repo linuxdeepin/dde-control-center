@@ -7,7 +7,7 @@
 #include "searchwidget.h"
 #include "widgets/utils.h"
 #include "mainmodule.h"
-#include "utils.h"
+#include "globalutils.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>

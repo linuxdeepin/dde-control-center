@@ -6,7 +6,7 @@
 #include "pwqualitymanager.h"
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
-#include "src/frame/utils.h"
+#include "globalutils.h"
 
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"

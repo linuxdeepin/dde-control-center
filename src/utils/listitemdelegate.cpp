@@ -66,7 +66,8 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             opt.displayAlignment = Qt::AlignLeft;
         }
     } else {
-        decorationRect = QRect();
+        decorationRect = QRect(opt.rect.topLeft(), opt.decorationSize);
+        opt.displayAlignment = Qt::AlignLeft;
     }
     int fontHeight = opt.widget->fontMetrics().height();
     QString text;

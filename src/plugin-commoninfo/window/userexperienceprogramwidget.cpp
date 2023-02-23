@@ -3,7 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "userexperienceprogramwidget.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
-#include "src/frame/utils.h"
+#include "globalutils.h"
 #include "widgets/switchwidget.h"
 
 #include <DTipLabel>

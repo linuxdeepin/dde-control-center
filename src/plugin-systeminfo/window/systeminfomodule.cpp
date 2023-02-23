@@ -10,7 +10,7 @@
 #include "widgets/titlevalueitem.h"
 #include "interface/pagemodule.h"
 #include "interface/vlistmodule.h"
-#include "src/frame/utils.h"
+#include "globalutils.h"
 
 #include "operation/systeminfowork.h"
 #include "operation/systeminfomodel.h"

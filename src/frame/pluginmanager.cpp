@@ -6,7 +6,7 @@
 
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
-#include "utils.h"
+#include "globalutils.h"
 
 #include <QCoreApplication>
 #include <QDebug>

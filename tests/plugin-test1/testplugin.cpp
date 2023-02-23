@@ -94,7 +94,7 @@ Test1ModuleObject::Test1ModuleObject()
     lstModule1->appendChild(labelModule1);
 
     // 添加VList子项，再添加一个带有附加按钮的子项
-    PageModule *lstModule2 = new PageModule("menuSpeci2", "特殊菜单2", module);
+    PageModule *lstModule2 = new PageModule("menuSpeci2", "特殊菜单2", QIcon::fromTheme("dcc_mail"), module);
     module->appendChild(lstModule2);
 
     LabelModule *module2_1 = new LabelModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);

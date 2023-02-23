@@ -23,3 +23,4 @@ ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
 QString GetUrlByModule(ModuleObject *const module);
 
 }
+

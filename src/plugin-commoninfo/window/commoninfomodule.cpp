@@ -5,7 +5,7 @@
 #include "interface/pagemodule.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
-#include "src/frame/utils.h"
+#include "globalutils.h"
 
 #include "bootwidget.h"
 #include "userexperienceprogramwidget.h"

@@ -100,6 +100,7 @@ set(Interface_Name dcc-interface)
 file(GLOB_RECURSE Interface_SRCS
     "include/interface/*.h"
     "src/interface/*.cpp"
+    "src/utils/*.cpp"
 )
 add_library(${Interface_Name} SHARED
     ${Interface_SRCS}
@@ -108,6 +109,7 @@ add_library(${Interface_Name} SHARED
 set(Interface_Includes
     Qt5::Widgets
     include/interface
+    src/utils
 )
 set(Interface_Libraries
     Qt5::Widgets
@@ -202,6 +204,7 @@ add_executable(${Control_Center_Name}
 target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
 
 set(Control_Center_Includes
+    src/utils
     ${DtkWidget_INCLUDE_DIRS}
     Qt5::Widgets
     Qt5::DBus
@@ -306,6 +309,7 @@ if (UNITTEST)
     file(GLOB_RECURSE Plugin_Test1_SRCS
         "tests/plugin-test1/*.h"
         "tests/plugin-test1/*.cpp"
+        "tests/plugin-test1/qrc/defapp.qrc"
     )
 
     add_library(${Plugin_Test1_Name} MODULE
@@ -377,6 +381,7 @@ if (BUILD_PLUDIN)
 
     set(SystemInfo_Includes
         src/plugin-systeminfo
+        src/utils
         ${DtkWidget_INCLUDE_DIRS}
         Qt5::Widgets
         Qt5::DBus

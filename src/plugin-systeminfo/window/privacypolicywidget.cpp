@@ -3,7 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "privacypolicywidget.h"
 #include "widgets/titlelabel.h"
-#include "src/frame/utils.h"
+#include "globalutils.h"
 
 #include <DFontSizeManager>
 #include <DTipLabel>

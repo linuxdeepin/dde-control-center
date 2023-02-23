@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "moduledatamodel.h"
+#include "listitemdelegate.h"
 #include "vlistmodule.h"
 #include "pagemodule.h"
 #include "hlistmodule.h"
@@ -113,7 +114,7 @@ public:
         QObject::connect(q, &VListModule::currentModuleChanged, m_splitter, [this](ModuleObject *child) {
             onCurrentModuleChanged(child);
         });
-
+        view->setItemDelegate(new ListItemDelegate(view));
         view->setModel(model);
         view->setFrameShape(QFrame::NoFrame);
         view->setAutoScroll(true);

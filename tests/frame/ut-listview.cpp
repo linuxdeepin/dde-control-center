@@ -5,7 +5,7 @@
 
 #include "interface/moduleobject.h"
 #include "src/frame/listview.h"
-#include "src/frame/listitemdelegate.h"
+#include "src/utils/listitemdelegate.h"
 #include "src/interface/moduledatamodel.h"
 
 using namespace DCC_NAMESPACE;
