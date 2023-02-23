@@ -99,7 +99,7 @@ void DefAppModule::active()
 }
 
 DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category, const QString &name, const QString &displayName, const QString &icon,  DefAppModel *model, DefAppWorker *work)
-    : PageModule(name, displayName, icon, nullptr)
+    : PageModule(name, displayName, QVariant::fromValue(icon), nullptr)
     , m_category(category)
     , m_model(model)
     , m_work(work)

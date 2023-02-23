@@ -4,12 +4,12 @@
 #ifndef DEFAPPPLUGIN_H
 #define DEFAPPPLUGIN_H
 
+#include "defappworker.h"
 #include "interface/vlistmodule.h"
 #include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 
 class DefAppModel;
-class DefAppWorker;
 // 默认程序插件
 class DefAppPlugin : public DCC_NAMESPACE::PluginInterface
 {
