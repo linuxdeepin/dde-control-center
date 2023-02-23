@@ -1,28 +1,28 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "listitemdelegate.h"
 
-#include <QPainter>
-#include <QIcon>
-#include <QVariant>
-#include <QDebug>
-#include <QApplication>
-#include <QAbstractItemView>
-
+#include <DGuiApplicationHelper>
 #include <DPalette>
 #include <DPaletteHelper>
-#include <DStyleOption>
 #include <DStyle>
+#include <DStyleOption>
 #include <DStyledItemDelegate>
-#include <DGuiApplicationHelper>
+
+#include <QAbstractItemView>
+#include <QApplication>
+#include <QDebug>
+#include <QIcon>
+#include <QPainter>
+#include <QVariant>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
-#    define USE_DCIICON
+#  define USE_DCIICON
 #endif
 
 #ifdef USE_DCIICON
-#    include <DDciIcon>
+#  include <DDciIcon>
 #endif
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -33,7 +33,9 @@ ListItemDelegate::ListItemDelegate(QAbstractItemView *parent)
 {
 }
 
-void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void ListItemDelegate::paint(QPainter *painter,
+                             const QStyleOptionViewItem &option,
+                             const QModelIndex &index) const
 {
     painter->save();
 
@@ -41,12 +43,12 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     initStyleOption(&opt, index);
 
     bool isIconMode = option.decorationAlignment == Qt::AlignCenter;
-    bool isBeginning = (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::Beginning) || (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::OnlyOne);
+    bool isBeginning = (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::Beginning)
+            || (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::OnlyOne);
     // 选择高亮背景
     if (opt.state & QStyle::State_Selected) {
-        QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                ? QPalette::Normal
-                : QPalette::Disabled;
+        QPalette::ColorGroup cg =
+                (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
         opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
     }
 
@@ -55,14 +57,23 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     QRect decorationRect;
     if (index.data(Qt::DecorationRole).isValid()) {
         if (isBeginning && isIconMode) {
-            decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 15), opt.decorationSize);
+            decorationRect =
+                    QRect(opt.rect.topLeft()
+                                  + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 15),
+                          opt.decorationSize);
             opt.displayAlignment = Qt::AlignCenter;
         } else if (isBeginning) {
             opt.decorationSize += QSize(4, 4);
-            decorationRect = QRect(opt.rect.topLeft() + QPoint(8, (opt.rect.height() - opt.decorationSize.height()) / 2), opt.decorationSize);
+            decorationRect = QRect(
+                    opt.rect.topLeft()
+                            + QPoint(8, (opt.rect.height() - opt.decorationSize.height()) / 2),
+                    opt.decorationSize);
             opt.displayAlignment = Qt::AlignLeft;
         } else {
-            decorationRect = QRect(opt.rect.topLeft() + QPoint(8, (opt.rect.height() - opt.decorationSize.height()) / 2), opt.decorationSize);
+            decorationRect = QRect(
+                    opt.rect.topLeft()
+                            + QPoint(8, (opt.rect.height() - opt.decorationSize.height()) / 2),
+                    opt.decorationSize);
             opt.displayAlignment = Qt::AlignLeft;
         }
     } else {
@@ -75,11 +86,18 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     value = index.data(Qt::DisplayRole);
     if (value.isValid() && !value.isNull()) {
         if (isBeginning && isIconMode) {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 40), QSize(opt.rect.width(), -1));
+            displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 40),
+                                QSize(opt.rect.width(), -1));
         } else if (isBeginning || isIconMode) {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight + 5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
+            displayRect = QRect(opt.rect.topLeft()
+                                        + QPoint(decorationRect.width() + 18,
+                                                 (opt.rect.height() / 2 - fontHeight + 5)),
+                                QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         } else {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() - fontHeight) / 2), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
+            displayRect = QRect(opt.rect.topLeft()
+                                        + QPoint(decorationRect.width() + 18,
+                                                 (opt.rect.height() - fontHeight) / 2),
+                                QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
     }
     QString tipText;
@@ -89,8 +107,11 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     // draw the item
     drawBackground(style, painter, opt);
     // 图标的绘制用也可能会使用这些颜色
-    QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
-    painter->setPen(opt.palette.color(cg, (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+    QPalette::ColorGroup cg =
+            (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    painter->setPen(opt.palette.color(
+            cg,
+            (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
 
     drawDecoration(painter, opt, decorationRect);
 
@@ -110,7 +131,9 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     painter->restore();
 }
 
-void ListItemDelegate::drawBackground(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option) const
+void ListItemDelegate::drawBackground(const QStyle *style,
+                                      QPainter *painter,
+                                      const QStyleOptionViewItem &option) const
 {
     DStyleOptionBackgroundGroup boption;
     boption.init(option.widget);
@@ -127,7 +150,10 @@ void ListItemDelegate::drawBackground(const QStyle *style, QPainter *painter, co
         boption.directions = Qt::Vertical;
     }
 
-    style->drawPrimitive(static_cast<QStyle::PrimitiveElement>(DStyle::PE_ItemBackground), &boption, painter, option.widget);
+    style->drawPrimitive(static_cast<QStyle::PrimitiveElement>(DStyle::PE_ItemBackground),
+                         &boption,
+                         painter,
+                         option.widget);
 }
 
 bool drawDciIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect)
@@ -157,11 +183,20 @@ bool drawDciIcon(QPainter *painter, const QStyleOptionViewItem &option, const QR
             dciMode = DDciIcon::Disabled;
         }
 
-        DDciIcon::Theme theme = DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType ? DDciIcon::Dark : DDciIcon::Light;
+        DDciIcon::Theme theme =
+                DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType
+                ? DDciIcon::Dark
+                : DDciIcon::Light;
 
         painter->save();
         painter->setBrush(Qt::NoBrush);
-        icon.paint(painter, rect, painter->device() ? painter->device()->devicePixelRatioF() : qApp->devicePixelRatio(), theme, dciMode, option.decorationAlignment);
+        icon.paint(painter,
+                   rect,
+                   painter->device() ? painter->device()->devicePixelRatioF()
+                                     : qApp->devicePixelRatio(),
+                   theme,
+                   dciMode,
+                   option.decorationAlignment);
         painter->restore();
         return true;
     }
@@ -169,7 +204,9 @@ bool drawDciIcon(QPainter *painter, const QStyleOptionViewItem &option, const QR
     return false;
 }
 
-void ListItemDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void ListItemDelegate::drawDecoration(QPainter *painter,
+                                      const QStyleOptionViewItem &option,
+                                      const QRect &rect) const
 {
     if (option.features & QStyleOptionViewItem::HasDecoration
         && !drawDciIcon(painter, option, rect)) {
@@ -197,12 +234,17 @@ void ListItemDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewI
     }
 }
 
-void ListItemDelegate::drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void ListItemDelegate::drawDisplay(const QStyle *style,
+                                   QPainter *painter,
+                                   const QStyleOptionViewItem &option,
+                                   const QRect &rect) const
 {
     DStyle::viewItemDrawText(style, painter, &option, rect);
 }
 
-void ListItemDelegate::drawEllipse(QPainter *painter, const QStyleOptionViewItem &option, const int message) const
+void ListItemDelegate::drawEllipse(QPainter *painter,
+                                   const QStyleOptionViewItem &option,
+                                   const int message) const
 {
     if (message <= 0)
         return;
@@ -217,7 +259,10 @@ void ListItemDelegate::drawEllipse(QPainter *painter, const QStyleOptionViewItem
     painter->drawEllipse(option.rect.center() + QPoint(option.rect.width() / 2 - 30, 0), 7, 7);
 }
 
-void ListItemDelegate::drawFocus(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void ListItemDelegate::drawFocus(const QStyle *style,
+                                 QPainter *painter,
+                                 const QStyleOptionViewItem &option,
+                                 const QRect &rect) const
 {
     if ((option.state & QStyle::State_HasFocus) == 0 || !rect.isValid())
         return;
@@ -226,9 +271,10 @@ void ListItemDelegate::drawFocus(const QStyle *style, QPainter *painter, const Q
     o.rect = rect;
     o.state |= QStyle::State_KeyboardFocusChange;
     o.state |= QStyle::State_Item;
-    QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-            ? QPalette::Normal
-            : QPalette::Disabled;
-    o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
+    QPalette::ColorGroup cg =
+            (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    o.backgroundColor = option.palette.color(
+            cg,
+            (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
     style->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter, option.widget);
 }

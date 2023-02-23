@@ -1,12 +1,13 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "globalutils.h"
+
 #include "interface/moduleobject.h"
 
+#include <QCryptographicHash>
 #include <QDebug>
 #include <QFile>
-#include <QCryptographicHash>
 
 using namespace DCC_NAMESPACE;
 
@@ -79,4 +80,3 @@ QString DCC_NAMESPACE::GetUrlByModule(ModuleObject *const module)
     }
     return url.join('/');
 }
-
