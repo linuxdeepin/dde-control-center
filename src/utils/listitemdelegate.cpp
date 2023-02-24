@@ -81,7 +81,6 @@ void ListItemDelegate::paint(QPainter *painter,
         opt.displayAlignment = Qt::AlignLeft;
     }
     int fontHeight = opt.widget->fontMetrics().height();
-    QString text;
     QRect displayRect;
     value = index.data(Qt::DisplayRole);
     if (value.isValid() && !value.isNull()) {
@@ -100,7 +99,6 @@ void ListItemDelegate::paint(QPainter *painter,
                                 QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
     }
-    QString tipText;
     QRect tipRect = displayRect.translated(0, opt.widget->fontMetrics().lineSpacing() + 3);
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
