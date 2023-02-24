@@ -1,16 +1,18 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MODULEDATAMODEL_H
 #define MODULEDATAMODEL_H
 
-#include <QAbstractItemModel>
 #include "interface/namespace.h"
+
+#include <QAbstractItemModel>
 
 class QSignalMapper;
 
 namespace DCC_NAMESPACE {
 class ModuleObject;
+
 class ModuleDataModel : public QAbstractItemModel
 {
     Q_OBJECT
@@ -20,7 +22,8 @@ public:
     void setModuleObject(ModuleObject *const module);
     QModelIndex index(DCC_NAMESPACE::ModuleObject *module) const;
     // Basic functionality:
-    QModelIndex index(int row, int column,
+    QModelIndex index(int row,
+                      int column,
                       const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &index) const override;
 
@@ -39,6 +42,6 @@ private:
     QList<ModuleObject *> m_data;
     ModuleObject *m_parentObject;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MODULEDATAMODEL_H
