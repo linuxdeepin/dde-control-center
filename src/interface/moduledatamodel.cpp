@@ -1,7 +1,8 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "moduledatamodel.h"
+
 #include "interface/moduleobject.h"
 
 #include <dstyleoption.h>
@@ -137,11 +138,14 @@ void ModuleDataModel::setModuleObject(ModuleObject *const module)
 
     connect(m_parentObject, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
-    connect(m_parentObject, &ModuleObject::childStateChanged, this, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-        Q_UNUSED(flag)
-        Q_UNUSED(state)
-        onDataChanged(tmpChild);
-    });
+    connect(m_parentObject,
+            &ModuleObject::childStateChanged,
+            this,
+            [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                Q_UNUSED(flag)
+                Q_UNUSED(state)
+                onDataChanged(tmpChild);
+            });
 }
 
 QModelIndex ModuleDataModel::index(ModuleObject *module) const
