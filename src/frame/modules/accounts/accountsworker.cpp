@@ -142,10 +142,6 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
 
 void AccountsWorker::getUOSID(QString &uosid)
 {
-    if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface invalid: (getUOSID)" << m_syncHelperInter->lastError().message();
-        return;
-    }
     QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
     if (retUOSID.error().message().isEmpty()) {
         uosid = retUOSID.value();
