@@ -54,8 +54,13 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return data->displayName();
-    case Qt::DecorationRole:
+    case Qt::DecorationRole: {
+        auto icon = data->icon();
+        if (icon.type() == QVariant::String) {
+            return QIcon::fromTheme(icon.toString());
+        }
         return data->icon();
+    }
     case Qt::StatusTipRole:
         return data->description();
     case Dtk::RightActionListRole:
