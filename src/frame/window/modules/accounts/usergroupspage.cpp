@@ -9,8 +9,10 @@
 #include <DApplicationHelper>
 
 #include <QVBoxLayout>
-
 #include <QMouseEvent>
+#include <QScrollArea>
+#include <QScrollBar>
+
 #include <grp.h>
 
 using namespace dcc;
@@ -226,6 +228,11 @@ void UserGroupsPage::addGroupItem()
     userInfoItem->setEditTitle(true);
     userInfoItem->setShowIcon(true);
     m_isAddItem = true;
+
+    connect(m_contentArea->verticalScrollBar(),&QScrollBar::rangeChanged,this,[this](int min, int max){
+        m_contentArea->verticalScrollBar()->setValue(max);
+        disconnect(m_contentArea->verticalScrollBar(),&QScrollBar::rangeChanged,this,nullptr);
+    });
 }
 
 void UserGroupsPage::onItemEdit()
@@ -279,7 +286,7 @@ void UserGroupsPage::initWidget()
     vLayout->setContentsMargins(10, 0, 10, 0);
 //    vLayout->addWidget(m_groupListView);
     vLayout->addWidget(m_listGrp);
-    vLayout->addWidget(m_addBtn);
+    qobject_cast<QVBoxLayout*>(layout())->addWidget(m_addBtn);
     m_layout->addLayout(vLayout);
 
     mainWidget->setLayout(m_layout);
