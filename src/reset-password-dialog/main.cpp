@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
     DApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(true);
     a.setOrganizationName("deepin");
+    a.setAttribute(Qt::AA_EnableHighDpiScaling);
+    a.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     QCommandLineParser parser;
     parser.addHelpOption();
