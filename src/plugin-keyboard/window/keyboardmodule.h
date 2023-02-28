@@ -14,7 +14,7 @@ namespace DCC_NAMESPACE {
 class KeyboardWidget;
 class GeneralKBSettingWidget;
 class KBLayoutSettingWidget;
-class SystemLanguageWidget;
+class SystemLanguagePage;
 class SystemLanguageSettingWidget;
 class ShortCutSettingWidget;
 class CustomContent;
@@ -86,25 +86,6 @@ private:
     KeyboardModel *m_model;
     KeyboardWorker *m_worker;
 };
-
-#ifndef DCC_DISABLE_LANUGAGE
-class SystemLanguageSettingModule : public ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit SystemLanguageSettingModule(KeyboardModel *model, KeyboardWorker *worker, QObject *parent = nullptr)
-      : ModuleObject(parent), m_model(model), m_worker(worker){}
-    virtual QWidget *page() override;
-
-public Q_SLOTS:
-    void onPushSystemLanguageSetting();
-    void onAddLocale(const QModelIndex &index);
-
-private:
-    KeyboardModel *m_model;
-    KeyboardWorker *m_worker;
-};
-#endif
 
 class ShortCutSettingMenuModule : public PageModule
 {

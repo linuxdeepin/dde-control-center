@@ -8,8 +8,7 @@
 #include "keyboardlayoutdialog.h"
 #include "shortcutsettingwidget.h"
 #ifndef DCC_DISABLE_LANUGAGE
-#include "systemlanguagewidget.h"
-#include "systemlanguagesettingdialog.h"
+#include "systemlanguagepage.h"
 #endif
 #include "widgets/settingshead.h"
 #include "operation/keyboardwork.h"
@@ -67,11 +66,7 @@ ModuleObject *KeyboardPlugin::module()
     moduleInterface->appendChild(moduleKeyBoard);
 
 #ifndef DCC_DISABLE_LANUGAGE
-    //二级菜单--系统语言
-    ModuleObject *moduleSystemLanguageSetting = new PageModule("keyboardLanguage", tr("Language"));
-    SystemLanguageSettingModule *systemLanguageSettingModule = new SystemLanguageSettingModule(moduleInterface->model(), moduleInterface->worker());
-    moduleSystemLanguageSetting->appendChild(systemLanguageSettingModule);
-    moduleInterface->appendChild(moduleSystemLanguageSetting);
+    moduleInterface->appendChild(new SystemLanguagePage(moduleInterface->model(), moduleInterface->worker()));
 #endif
 
     //二级菜单--快捷键
@@ -184,35 +179,6 @@ QWidget *KBLayoutSettingModule::page()
     w->setFocus();
     return w;
 }
-
-#ifndef DCC_DISABLE_LANUGAGE
-QWidget *SystemLanguageSettingModule::page()
-{
-    m_worker->refreshLang();
-    SystemLanguageWidget *w = new SystemLanguageWidget(m_model);
-    w->setVisible(false);
-    connect(w, &SystemLanguageWidget::onSystemLanguageAdded, this, &SystemLanguageSettingModule::onPushSystemLanguageSetting);
-    connect(w, &SystemLanguageWidget::delLocalLang, m_worker, &KeyboardWorker::deleteLang);
-    connect(w, &SystemLanguageWidget::setCurLang, m_worker, &KeyboardWorker::setLang);
-    connect(m_model, &KeyboardModel::onSetCurLangFinish, w, &SystemLanguageWidget::onSetCurLang);
-    w->setVisible(true);
-    return w;
-}
-
-void SystemLanguageSettingModule::onPushSystemLanguageSetting()
-{
-    SystemLanguageSettingDialog *systemLanguageSettingDialog = new SystemLanguageSettingDialog(m_model);
-    connect(systemLanguageSettingDialog, &SystemLanguageSettingDialog::click, this, &SystemLanguageSettingModule::onAddLocale);
-    systemLanguageSettingDialog->setAttribute(Qt::WA_DeleteOnClose);
-    systemLanguageSettingDialog->exec();
-}
-
-void SystemLanguageSettingModule::onAddLocale(const QModelIndex &index)
-{
-    QVariant var = index.data(SystemLanguageSettingDialog::KeyRole);
-    m_worker->addLang(var.toString());
-}
-#endif
 
 QWidget *ShortCutSettingModule::page()
 {
