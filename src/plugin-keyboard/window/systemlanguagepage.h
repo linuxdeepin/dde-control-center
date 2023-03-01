@@ -46,21 +46,20 @@ class SystemLanguagePage : public PageModule
     Q_OBJECT
 public:
     explicit SystemLanguagePage(KeyboardModel *model,
-                                  KeyboardWorker *worker,
-                                  QWidget *parent = nullptr);
+                                KeyboardWorker *worker,
+                                QWidget *parent = nullptr);
 Q_SIGNALS:
     void languageAdded();
     void onSystemLanguageAdded();
     void delLocalLang(const QString &localLang);
     void setCurLang(const QString &curLang);
+    void onSetCurLang(int value);
     void addLanguage(const QString &localeLang);
     void defaultChanged(const QString &curLang);
     void editSystemLangeSetText(const QString &text);
     void editSystemLangeSetVisible(const bool visible);
-public Q_SLOTS:
     void onEditClicked();
-
-    void onSetCurLang(int value);
+public Q_SLOTS:
     void onPushSystemLanguageSetting();
     void onAddLocale(const QModelIndex &index);
 

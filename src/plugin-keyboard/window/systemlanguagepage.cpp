@@ -22,8 +22,8 @@ DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 SystemLanguagePage::SystemLanguagePage(KeyboardModel *model,
-                                           KeyboardWorker *worker,
-                                           QWidget *parent)
+                                       KeyboardWorker *worker,
+                                       QWidget *parent)
     : PageModule("keyboardLanguage", tr("Language"))
     , m_model(model)
     , m_worker(worker)
@@ -45,11 +45,6 @@ SystemLanguagePage::SystemLanguagePage(KeyboardModel *model,
                 }
             });
     connect(m_model, &KeyboardModel::curLangChanged, this, &SystemLanguagePage::defaultChanged);
-    QStringList localLangList = m_model->localLang();
-    for (int i = 0; i < localLangList.size(); i++) {
-        emit addLanguage(localLangList[i]);
-    }
-    onSetCurLang(m_model->getLangChangedState());
 
     initUI();
 }
@@ -89,6 +84,18 @@ DCommandLinkButton *SystemLanguagePage::initTitleBtn()
             [=](const bool visible) {
                 editSystemLang->setVisible(visible);
             });
+    connect(this, &SystemLanguagePage::onSetCurLang, this, [=](int value) {
+        editSystemLang->setEnabled(!value);
+    });
+    connect(editSystemLang, &QPushButton::clicked, this, [=] {
+        m_bEdit = !m_bEdit;
+        if (m_bEdit) {
+            editSystemLang->setText(tr("Done"));
+        } else {
+            editSystemLang->setText(tr("Edit"));
+        }
+        emit onEditClicked();
+    });
     return editSystemLang;
 }
 
@@ -139,6 +146,35 @@ SystemLanguageListView *SystemLanguagePage::initListView()
             item->setCheckState(Qt::Unchecked);
         }
     }
+    auto addlang = [=](const QString &localeLang) {
+        if (m_sysLanglist.contains(localeLang))
+            return;
+
+        // 去除最后一个item
+        DStandardItem *endItem = nullptr;
+        if (langItemModel->rowCount() > 0) {
+            endItem = dynamic_cast<DStandardItem *>(
+                    langItemModel->takeItem(langItemModel->rowCount() - 1, 0));
+            langItemModel->removeRow(langItemModel->rowCount() - 1);
+        }
+
+        DStandardItem *item = new DStandardItem(localeLang);
+        langItemModel->appendRow(item);
+
+        // 添加最后一个item
+        if (endItem != nullptr) {
+            langItemModel->appendRow(endItem);
+        }
+
+        langListview->adjustSize();
+        langListview->update();
+        m_sysLanglist << localeLang;
+        emit editSystemLangeSetVisible(m_sysLanglist.size() > 1);
+    };
+    QStringList localLangList = m_model->localLang();
+    for (int i = 0; i < localLangList.size(); i++) {
+        addlang(localLangList[i]);
+    }
     connect(this, &SystemLanguagePage::defaultChanged, this, [=](const QString &curLang) {
         qDebug() << "curLang is " << curLang;
         int row_count = langItemModel->rowCount();
@@ -188,42 +224,49 @@ SystemLanguageListView *SystemLanguagePage::initListView()
             &DFloatingButton::clicked,
             this,
             &SystemLanguagePage::onSystemLanguageAdded);
-    connect(this, &SystemLanguagePage::addLanguage, this, [=](const QString &localeLang) {
-        if (m_sysLanglist.contains(localeLang))
-            return;
-
-        // 去除最后一个item
-        DStandardItem *endItem = nullptr;
-        if (langItemModel->rowCount() > 0) {
-            endItem = dynamic_cast<DStandardItem *>(
-                    langItemModel->takeItem(langItemModel->rowCount() - 1, 0));
-            langItemModel->removeRow(langItemModel->rowCount() - 1);
+    connect(this, &SystemLanguagePage::addLanguage, this, addlang);
+    connect(this, &SystemLanguagePage::onSetCurLang, this, [=](int value) {
+        langListview->setEnabled(!value);
+    });
+    connect(this, &SystemLanguagePage::onEditClicked, this, [=] {
+        if (m_bEdit) {
+            int row_count = langItemModel->rowCount();
+            for (int i = 0; i < row_count - 1; ++i) {
+                DStandardItem *item = dynamic_cast<DStandardItem *>(langItemModel->item(i, 0));
+                if (item && (item->checkState() == Qt::Unchecked)) {
+                    DViewItemAction *iconAction =
+                            new DViewItemAction(Qt::AlignCenter | Qt::AlignRight,
+                                                QSize(),
+                                                QSize(),
+                                                true);
+                    iconAction->setIcon(
+                            DStyle::standardIcon(qApp->style(), DStyle::SP_DeleteButton));
+                    item->setActionList(Qt::RightEdge, { iconAction });
+                    connect(iconAction,
+                            &DViewItemAction::triggered,
+                            this,
+                            [this, item, langItemModel, langListview] {
+                                m_sysLanglist.removeOne(item->text());
+                                int idx = langItemModel->indexFromItem(item).row();
+                                Q_EMIT delLocalLang(item->text());
+                                langItemModel->removeRow(idx);
+                                langListview->adjustSize();
+                                langListview->update();
+                                emit editSystemLangeSetVisible(m_sysLanglist.size() > 1);
+                            });
+                }
+            }
+        } else {
+            int row_count = langItemModel->rowCount();
+            for (int i = 0; i < row_count; ++i) {
+                DStandardItem *item = dynamic_cast<DStandardItem *>(langItemModel->item(i, 0));
+                if (item && (item->checkState() == Qt::Unchecked)) {
+                    item->setActionList(Qt::RightEdge, {});
+                }
+            }
         }
-
-        DStandardItem *item = new DStandardItem(localeLang);
-        langItemModel->appendRow(item);
-
-        // 添加最后一个item
-        if (endItem != nullptr) {
-            langItemModel->appendRow(endItem);
-        }
-
-        langListview->adjustSize();
-        langListview->update();
-        m_sysLanglist << localeLang;
-        emit editSystemLangeSetVisible(m_sysLanglist.size() > 1);
     });
     return langListview;
-}
-
-void SystemLanguagePage::onEditClicked()
-{
-    m_bEdit = !m_bEdit;
-}
-
-void SystemLanguagePage::onSetCurLang(int value)
-{
-    qDebug() << "m_langListview & m_editSystemLang" << value;
 }
 
 void SystemLanguagePage::onPushSystemLanguageSetting()
