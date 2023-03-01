@@ -60,6 +60,7 @@ ModuleObject *KeyboardPlugin::module()
     //键盘布局
     KBLayoutSettingModule *kBLayoutSettingModule = new KBLayoutSettingModule(moduleInterface->model(), moduleInterface->worker());
     kBLayoutSettingModule->setName("keyboardLayout");
+    kBLayoutSettingModule->setDisplayName(tr("keyboard Layout"));
     kBLayoutSettingModule->setDescription(tr("Keyboard Layout"));
     kBLayoutSettingModule->addContentText(tr("Keyboard Layout"));
 

@@ -45,7 +45,6 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setAccessibleName("SystemLanguageWidget_langListview");
     m_langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_langListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_langListview->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_langListview->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_langListview->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_langListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
