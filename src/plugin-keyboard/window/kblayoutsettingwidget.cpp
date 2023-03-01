@@ -43,7 +43,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setModel(m_kbLayoutModel);
     m_kbLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_kbLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_kbLayoutListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_kbLayoutListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_kbLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
