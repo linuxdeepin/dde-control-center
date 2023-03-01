@@ -28,7 +28,6 @@ SystemLanguagePage::SystemLanguagePage(KeyboardModel *model,
     , m_model(model)
     , m_worker(worker)
 {
-    m_worker->refreshLang();
     connect(this, &SystemLanguagePage::delLocalLang, m_worker, &KeyboardWorker::deleteLang);
     connect(this, &SystemLanguagePage::setCurLang, m_worker, &KeyboardWorker::setLang);
     connect(m_model, &KeyboardModel::onSetCurLangFinish, this, &SystemLanguagePage::onSetCurLang);
@@ -101,6 +100,7 @@ DCommandLinkButton *SystemLanguagePage::initTitleBtn()
 
 SystemLanguageListView *SystemLanguagePage::initListView()
 {
+    m_worker->refreshLang();
     SystemLanguageListView *langListview = new SystemLanguageListView();
     langListview->setAccessibleName("SystemLanguageWidget_langListview");
     langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -133,19 +133,6 @@ SystemLanguageListView *SystemLanguagePage::initListView()
 
     langListview->setEnabled(isenabled);
 
-    // INFO: onDefault
-    QString curLang = m_model->curLang();
-
-    qDebug() << "curLang is " << curLang;
-    int row_count = langItemModel->rowCount();
-    for (int i = 0; i < row_count; ++i) {
-        QStandardItem *item = langItemModel->item(i, 0);
-        if (item && (item->text() == curLang)) {
-            item->setCheckState(Qt::Checked);
-        } else {
-            item->setCheckState(Qt::Unchecked);
-        }
-    }
     auto addlang = [=](const QString &localeLang) {
         if (m_sysLanglist.contains(localeLang))
             return;
@@ -171,10 +158,26 @@ SystemLanguageListView *SystemLanguagePage::initListView()
         m_sysLanglist << localeLang;
         emit editSystemLangeSetVisible(m_sysLanglist.size() > 1);
     };
+
     QStringList localLangList = m_model->localLang();
     for (int i = 0; i < localLangList.size(); i++) {
         addlang(localLangList[i]);
     }
+
+    // INFO: onDefault
+    QString curLang = m_model->curLang();
+
+    qDebug() << "curLang is " << curLang;
+    int row_count = langItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = langItemModel->item(i, 0);
+        if (item && (item->text() == curLang)) {
+            item->setCheckState(Qt::Checked);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
+
     connect(this, &SystemLanguagePage::defaultChanged, this, [=](const QString &curLang) {
         qDebug() << "curLang is " << curLang;
         int row_count = langItemModel->rowCount();
@@ -252,7 +255,7 @@ SystemLanguageListView *SystemLanguagePage::initListView()
                                 langItemModel->removeRow(idx);
                                 langListview->adjustSize();
                                 langListview->update();
-                                emit editSystemLangeSetVisible(m_sysLanglist.size() > 1);
+                                Q_EMIT editSystemLangeSetVisible(m_sysLanglist.size() > 1);
                             });
                 }
             }
