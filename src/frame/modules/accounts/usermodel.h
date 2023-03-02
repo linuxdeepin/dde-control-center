@@ -52,6 +52,8 @@ public:
     void setIsSecurityHighLever(bool isSecurityHighLever);
 
     bool isDomainUser(const QString &userName);
+    bool isDisabledGroup(const QString &groupName);
+    void setDisabledGroups(const QStringList &groups);
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
@@ -78,6 +80,8 @@ private:
     bool m_isADUserLogind;
 #endif
     bool m_isSecurityHighLever;
+    //gourp Gid < 1000, can't edit
+    QStringList m_DisabledGroups;
 };
 
 } // namespace accounts

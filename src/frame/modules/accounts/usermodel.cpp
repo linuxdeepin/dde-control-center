@@ -6,6 +6,8 @@
 
 #include <QtDBus>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 using namespace dcc::accounts;
 
@@ -160,6 +162,16 @@ bool UserModel::isDomainUser(const QString &userName)
     }
 
     return false;
+}
+
+bool UserModel::isDisabledGroup(const QString &groupName)
+{
+    return m_DisabledGroups.contains(groupName);
+}
+
+void UserModel::setDisabledGroups(const QStringList &groups)
+{
+    m_DisabledGroups = groups;
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN

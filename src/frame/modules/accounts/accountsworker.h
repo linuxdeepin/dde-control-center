@@ -100,6 +100,7 @@ public Q_SLOTS:
     void deleteGroup(const QString &group);
     void createGroup(const QString &group, uint32_t gid, bool isSystem);
     void modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid);
+    void getGroupInfoByName(const QString &groupName, QString &resInfoJson);
 
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
@@ -125,7 +126,6 @@ private:
 
 private:
     Accounts *m_accountsInter;
-    QDBusInterface *m_accountsQInter;
     QDBusInterface *m_syncHelperInter;
     QDBusInterface *m_userQInter;
     Fingerprint *m_fingerPrint;

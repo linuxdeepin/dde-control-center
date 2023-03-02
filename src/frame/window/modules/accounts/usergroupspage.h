@@ -38,6 +38,7 @@ public:
     bool onNameEditFinished();
 
     void setEditStatus(bool status);
+    void setCanEdit(bool canEdit);
 
     void showAlertMessage(const QString &errMsg);
     void setInGroup(bool inGroup) {
@@ -78,6 +79,7 @@ private:
     DPalette m_currentpa;
     bool m_isInGroup;
     bool m_editStatus;
+    bool m_canEdit;
 };
 
 class UserGroupsPage : public dcc::ContentWidget
@@ -92,6 +94,7 @@ Q_SIGNALS:
     void requestDeleteGroup(const QString &group);
     void requestCreateGroup(const QString &group, uint32_t gid, bool isSystem);
     void requestModifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid);
+    void requestGetGroupInfo(const QString &groupName, QString &resInfoJson);
 
 private Q_SLOTS:
     void changeUserGroup(const QStringList &groups);

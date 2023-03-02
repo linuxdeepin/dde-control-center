@@ -135,6 +135,7 @@ void UserGroupsPage::onGidChanged(const QString &gid)
         bool value = false;
         do {
             if (item->getTitle() == m_groupName) {
+                item->setCanEdit(false);
                 break;
             }
             if (item->getTitle() == Sudo) {
@@ -158,8 +159,12 @@ void UserGroupsPage::onGidChanged(const QString &gid)
                     }
                 }
             }
+
         } while (0);
         item->setEnabled(value);
+        //gid < 1000
+        if (m_userModel->isDisabledGroup(item->getTitle()))
+            item->setCanEdit(false);
     }
 }
 
@@ -301,6 +306,7 @@ void UserGroupsPage::initData()
     m_listGrp->clear();
     m_vecItem.clear();
     for (QString item : userGroup) {
+        QString groupInfo;
         GroupItem *it = new GroupItem(item);
         it->setCheckable(false);
         // 退出等保后，之前等保用户的用户组信息并没有被清除, 需要进行对应处理
@@ -352,6 +358,7 @@ UserGroupsInfoItem::UserGroupsInfoItem(QWidget *parent)
     , m_currentpa(DApplicationHelper::instance()->palette(this))
     , m_isInGroup(false)
     , m_editStatus(false)
+    , m_canEdit(true)
 {
     setFixedHeight(36);
 
@@ -489,12 +496,23 @@ bool UserGroupsInfoItem::onNameEditFinished()
 void UserGroupsInfoItem::setEditStatus(bool status)
 {
     m_editStatus = status;
-    m_removeBtn->setVisible(status);
-    m_editBtn->setVisible(!status);
     if (m_isInGroup)
         m_checkedBtn->setVisible(!status);
     else
         m_checkedBtn->setVisible(false);
+    if (m_canEdit) {
+        m_removeBtn->setVisible(status);
+        m_editBtn->setVisible(!status);
+    }
+}
+
+void UserGroupsInfoItem::setCanEdit(bool canEdit)
+{
+    m_canEdit = canEdit;
+    if (!m_canEdit) {
+        m_removeBtn->setVisible(false);
+        m_editBtn->setVisible(false);
+    }
 }
 
 void UserGroupsInfoItem::showAlertMessage(const QString &errMsg)

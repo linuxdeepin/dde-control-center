@@ -39,7 +39,6 @@ const QString Auditadm_u = "auditadm_u";
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
-    , m_accountsQInter(new QDBusInterface("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", "com.deepin.daemon.Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
     , m_userQInter(new QDBusInterface("com.deepin.daemon.Accounts", QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), "com.deepin.daemon.Accounts.User", QDBusConnection::systemBus(), this))
     , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
@@ -115,6 +114,26 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
     QDBusPendingReply<QStringList> reply = *watch;
     if (!watch->isError()) {
         m_userModel->setAllGroups(reply.value());
+
+        QStringList disabledGroups;
+        QJsonDocument jsonDocument;
+        QJsonObject jsonObject;
+        QString info;
+
+        foreach (auto name, reply.value()) {
+            getGroupInfoByName(name, info);
+            jsonDocument = QJsonDocument::fromJson(info.toLocal8Bit());
+            jsonObject = jsonDocument.object();
+
+            bool res = false;
+            int gid = jsonObject.value("Gid").toString().toInt(&res);
+            if (res && 1000 > gid) {
+                if (!disabledGroups.contains(name))
+                    disabledGroups.append(name);
+            }
+        }
+        m_userModel->setDisabledGroups(disabledGroups);
+
     } else {
         qDebug() << "getAllGroupsResult error." << watch->error();
     }
@@ -235,7 +254,7 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
 
 void AccountsWorker::deleteGroup(const QString &group)
 {
-    QDBusPendingCall call = m_accountsQInter->asyncCall("DeleteGroup", group, true);
+    QDBusPendingCall call = m_accountsInter->asyncCall("DeleteGroup", group, true);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
@@ -246,7 +265,7 @@ void AccountsWorker::deleteGroup(const QString &group)
 
 void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSystem)
 {
-    QDBusPendingCall call = m_accountsQInter->asyncCall("CreateGroup", group, gid, isSystem);
+    QDBusPendingCall call = m_accountsInter->asyncCall("CreateGroup", group, gid, isSystem);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
@@ -257,13 +276,26 @@ void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSyst
 
 void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid)
 {
-    QDBusPendingCall call = m_accountsQInter->asyncCall("ModifyGroup",oldGroup, newGroup, gid);
+    QDBusPendingCall call = m_accountsInter->asyncCall("ModifyGroup",oldGroup, newGroup, gid);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
             qDebug() << Q_FUNC_INFO << call->error().message();
         }
     });
+}
+
+void AccountsWorker::getGroupInfoByName(const QString &groupName, QString &resInfoJson)
+{
+    QString info;
+    QDBusReply<QString> call = m_accountsInter->call("GetGroupInfoByName",groupName);
+    if (call.error().message().isEmpty()) {
+        resInfoJson = call.value();
+    } else {
+        qWarning() << "getGroupInfo failed:" << call.error().message();
+        resInfoJson.clear();
+        return;
+    }
 }
 
 bool AccountsWorker::hasOpenSecurity()
