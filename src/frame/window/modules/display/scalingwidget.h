@@ -58,6 +58,7 @@ private:
     QWidget *m_tipWidget;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_tipLabel;
     dcc::widgets::TitledSliderItem *m_slider;
+    bool m_isWayland;
     QStringList m_scaleList;
 };
 

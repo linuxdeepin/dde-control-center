@@ -27,6 +27,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     , m_tipWidget(new QWidget(this))
     , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling"), this))
     , m_slider(new TitledSliderItem(QString(), this))
+    , m_isWayland(qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
 {
     //初始化列表无法进行静态翻译
     //~ contents_path /display/Display Scaling
@@ -94,26 +95,28 @@ void ScalingWidget::addSlider()
 void ScalingWidget::onResolutionChanged()
 {
     QStringList fscaleList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
-    for (auto moni : m_displayModel->monitorList()) {
-        if (!moni->enable()) {
-            continue;
+    if (!m_isWayland) {
+        for (auto moni : m_displayModel->monitorList()) {
+            if (!moni->enable()) {
+                continue;
+            }
+            auto tmode = moni->currentMode();
+            // 后端传入currentMode值可能为0
+            if (tmode.width() == 0 || tmode.height() == 0) {
+                return;
+            }
+            auto ts = getScaleList(tmode);
+            fscaleList = ts.size() < fscaleList.size() ? ts : fscaleList;
         }
-        auto tmode = moni->currentMode();
-        // 后端传入currentMode值可能为0
-        if (tmode.width() == 0 || tmode.height() == 0) {
-            return;
-        }
-        auto ts = getScaleList(tmode);
-        fscaleList = ts.size() < fscaleList.size() ? ts : fscaleList;
-    }
 
-    //如果仅一个缩放值可用
-    if (fscaleList.size() <= 1) {
-        fscaleList.clear();
-        fscaleList.append(QStringList() << "1.0" << "1.0");
-        m_tipWidget->setVisible(true);
-    } else {
-        m_tipWidget->setVisible(false);
+        //如果仅一个缩放值可用
+        if (fscaleList.size() <= 1) {
+            fscaleList.clear();
+            fscaleList.append(QStringList() << "1.0" << "1.0");
+            m_tipWidget->setVisible(true);
+        } else {
+            m_tipWidget->setVisible(false);
+        }
     }
 
     m_scaleList = fscaleList;
