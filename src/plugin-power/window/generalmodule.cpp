@@ -184,12 +184,14 @@ void GeneralModule::initUI()
             int maxBacklight = m_work->getMaxBacklightBrightness();
             sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
             sldLowerBrightness->slider()->setValue(m_model->powerSavingModeLowerBrightnessThreshold() / 10);
+            sldLowerBrightness->setValueLiteral(QString("%1%").arg(m_model->powerSavingModeLowerBrightnessThreshold()));
             connect(m_model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, sldLowerBrightness, [sldLowerBrightness](const uint dLevel) {
                 sldLowerBrightness->slider()->blockSignals(true);
                 sldLowerBrightness->slider()->setValue(dLevel / 10);
                 sldLowerBrightness->slider()->blockSignals(false);
             });
-            connect(sldLowerBrightness->slider(), &DCCSlider::valueChanged, this, [this] (int value) {
+            connect(sldLowerBrightness->slider(), &DCCSlider::valueChanged, this, [=] (int value) {
+                sldLowerBrightness->setValueLiteral(annotions[value -1]);
                 Q_EMIT requestSetPowerSavingModeLowerBrightnessThreshold(value * 10);
             });
             return sldLowerBrightness;

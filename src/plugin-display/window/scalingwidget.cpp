@@ -65,6 +65,7 @@ void ScalingWidget::addSlider()
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
         if (value > 0 && value <= m_scaleList.size()
             && m_displayModel->uiScale() != m_scaleList[value - 1].toFloat()) {
+            m_slider->setValueLiteral(QString("%1").arg(m_scaleList[value -1].toFloat()));
             Q_EMIT requestUiScaleChange(m_scaleList[value - 1].toFloat());
         }
     });
