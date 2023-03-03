@@ -79,6 +79,7 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
         transparentSlider->slider()->blockSignals(true);
         transparentSlider->slider()->setValue(value.first);
         transparentSlider->slider()->blockSignals(false);
+        transparentSlider->setValueLiteral(QString("%1").arg(value.first));
     };
     onOpacityChanged(m_model->opacity());
     connect(m_model, &PersonalizationModel::onOpacityChanged, transparentSlider, onOpacityChanged);
@@ -118,10 +119,13 @@ QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
     auto onWindowRadiusChanged = [winRoundSlider](int radius) {
         if (radius <= 0) {
             winRoundSlider->slider()->setValue(0);
+            winRoundSlider->setValueLiteral("0");
         } else if (radius <= 8) {
             winRoundSlider->slider()->setValue(1);
+            winRoundSlider->setValueLiteral("1");
         } else {
             winRoundSlider->slider()->setValue(2);
+            winRoundSlider->setValueLiteral("2");
         }
     };
     onWindowRadiusChanged(m_model->windowRadius());

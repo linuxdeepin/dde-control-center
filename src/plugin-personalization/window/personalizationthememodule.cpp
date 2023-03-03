@@ -401,6 +401,7 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
         fontSizeSlider->slider()->blockSignals(true);
         fontSizeSlider->slider()->setValue(fontSize);
         fontSizeSlider->slider()->blockSignals(false);
+        fontSizeSlider->setValueLiteral(QString("%1").arg(fontSize));
     };
     fontSizeChanged(m_model->getFontSizeModel()->getFontSize());
     connect(m_model->getFontSizeModel(), &FontSizeModel::sizeChanged, fontSizeSlider, fontSizeChanged);
