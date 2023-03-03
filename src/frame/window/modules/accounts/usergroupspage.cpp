@@ -178,20 +178,23 @@ void UserGroupsPage::cancelAddGroup()
 
 void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
 {
-    m_isItemEditting = false;
     QString oldGroup = item->getTitle();
-    QString newGroup = group;
-    if (oldGroup == newGroup)
-        return;
-    if (group.isEmpty()) {
+    QString newGroup = group.trimmed();
+    if (newGroup.isEmpty()) {
         item->showAlertMessage(tr("please enter group name!"));
         return;
     }
+    if (oldGroup == newGroup)
+        return;
+    if (32 < newGroup.length()) {
+        item->showAlertMessage(tr("the name is longer than 32 characters!"));//todo :TX
+        return;
+    }
     QStringList userGroup = m_userModel->getAllGroups();
-    if (userGroup.contains(group)) {
+    if (userGroup.contains(newGroup)) {
         item->showAlertMessage(tr("also has this group!"));
         return;
-    } else if (QRegExp("\\d*").exactMatch(group)) {     //check the numeric
+    } else if (QRegExp("\\d*").exactMatch(newGroup)) {     //check the numeric
         item->showAlertMessage(tr("can't set all numeric group name!"));
         return;
     }
@@ -202,9 +205,9 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
         m_listGrp->setFocus();
         return;
     }
+    m_isItemEditting = false;
     // Nodify group
     Q_EMIT requestModifyGroup(oldGroup,newGroup,0);
-    item->setVisible(false);
     m_listGrp->setFocus();
 }
 
@@ -364,6 +367,7 @@ UserGroupsInfoItem::UserGroupsInfoItem(QWidget *parent)
 
     m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_editBtn->setFlat(true);//设置背景透明
+    m_editBtn->setFocusPolicy(Qt::NoFocus);
 //    m_editBtn->setVisible(false);
 
     m_editTitle->setClearButtonEnabled(false);
