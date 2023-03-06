@@ -1,24 +1,28 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationdesktopmodule.h"
-#include "widgets/itemmodule.h"
-#include "widgets/settingsgroupmodule.h"
-#include "widgets/horizontalmodule.h"
+
+#include "dccslider.h"
 #include "personalizationmodel.h"
 #include "personalizationworker.h"
-#include "dccslider.h"
 #include "titledslideritem.h"
+#include "widgets/horizontalmodule.h"
+#include "widgets/itemmodule.h"
+#include "widgets/settingsgroupmodule.h"
 
-#include <DSysInfo>
 #include <DSwitchButton>
+#include <DSysInfo>
+
 #include <QComboBox>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
-PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent)
+PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel *model,
+                                                           PersonalizationWorker *work,
+                                                           QObject *parent)
     : PageModule("desktop", tr("Desktop"), parent)
     , m_model(model)
     , m_work(work)
@@ -28,17 +32,35 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
         SettingsGroupModule *group = new SettingsGroupModule("windowGroup", tr("Window"));
         appendChild(group);
         if (!qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
-            group->appendChild(new ItemModule("windowEffect", tr("Window Effect"), this, &PersonalizationDesktopModule::initWindowEffect));
+            group->appendChild(new ItemModule("windowEffect",
+                                              tr("Window Effect"),
+                                              this,
+                                              &PersonalizationDesktopModule::initWindowEffect));
 
-        ItemModule *itemMinimizeEffect = new ItemModule("minimizeEffect", tr("Window Minimize Effect"), this, &PersonalizationDesktopModule::initMiniEffect);
+        ItemModule *itemMinimizeEffect =
+                new ItemModule("minimizeEffect",
+                               tr("Window Minimize Effect"),
+                               this,
+                               &PersonalizationDesktopModule::initMiniEffect);
         group->appendChild(itemMinimizeEffect);
         HorizontalModule *hor = new HorizontalModule(QString(), QString());
         appendChild(hor);
-        hor->appendChild(new ItemModule("transparencyEffect", tr("Transparency"), this, &PersonalizationDesktopModule::initTransparentEffect, false));
-        hor->appendChild(new ItemModule("roundedEffect", tr("Rounded Corner"), this, &PersonalizationDesktopModule::initRoundEffect, false));
+        hor->appendChild(new ItemModule("transparencyEffect",
+                                        tr("Transparency"),
+                                        this,
+                                        &PersonalizationDesktopModule::initTransparentEffect,
+                                        false));
+        hor->appendChild(new ItemModule("roundedEffect",
+                                        tr("Rounded Corner"),
+                                        this,
+                                        &PersonalizationDesktopModule::initRoundEffect,
+                                        false));
         itemMinimizeEffect->setVisible(m_model->is3DWm());
         hor->setVisible(m_model->is3DWm());
-        connect(m_model, &PersonalizationModel::wmChanged, itemMinimizeEffect, &ItemModule::setVisible);
+        connect(m_model,
+                &PersonalizationModel::wmChanged,
+                itemMinimizeEffect,
+                &ItemModule::setVisible);
         connect(m_model, &PersonalizationModel::wmChanged, hor, &ItemModule::setVisible);
     }
 }
@@ -64,7 +86,7 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
     transparentSlider->slider()->setOrientation(Qt::Horizontal);
     transparentSlider->setObjectName("Transparency");
 
-    //设计效果图变更：增加左右图标
+    // 设计效果图变更：增加左右图标
     transparentSlider->setLeftIcon(QIcon::fromTheme("transparency_low"));
     transparentSlider->setRightIcon(QIcon::fromTheme("transparency_high"));
     transparentSlider->setIconSize(QSize(24, 24));
@@ -83,8 +105,14 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
     };
     onOpacityChanged(m_model->opacity());
     connect(m_model, &PersonalizationModel::onOpacityChanged, transparentSlider, onOpacityChanged);
-    connect(transparentSlider->slider(), &DCCSlider::valueChanged, m_work, &PersonalizationWorker::setOpacity);
-    connect(transparentSlider->slider(), &DCCSlider::sliderMoved, m_work, &PersonalizationWorker::setOpacity);
+    connect(transparentSlider->slider(),
+            &DCCSlider::valueChanged,
+            m_work,
+            &PersonalizationWorker::setOpacity);
+    connect(transparentSlider->slider(),
+            &DCCSlider::sliderMoved,
+            m_work,
+            &PersonalizationWorker::setOpacity);
     return transparentSlider;
 }
 
@@ -94,8 +122,14 @@ QWidget *PersonalizationDesktopModule::initMiniEffect(ModuleObject *module)
     cmbMiniEffect->addItem(tr("Scale"));
     cmbMiniEffect->addItem(tr("Magic Lamp"));
     cmbMiniEffect->setCurrentIndex(m_model->miniEffect());
-    connect(cmbMiniEffect, qOverload<int>(&QComboBox::currentIndexChanged), m_work, &PersonalizationWorker::setMiniEffect);
-    connect(m_model, &PersonalizationModel::onMiniEffectChanged, cmbMiniEffect, &QComboBox::setCurrentIndex);
+    connect(cmbMiniEffect,
+            qOverload<int>(&QComboBox::currentIndexChanged),
+            m_work,
+            &PersonalizationWorker::setMiniEffect);
+    connect(m_model,
+            &PersonalizationModel::onMiniEffectChanged,
+            cmbMiniEffect,
+            &QComboBox::setCurrentIndex);
     return cmbMiniEffect;
 }
 
@@ -129,7 +163,10 @@ QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
         }
     };
     onWindowRadiusChanged(m_model->windowRadius());
-    connect(m_model, &PersonalizationModel::onWindowRadiusChanged, sliderRound, onWindowRadiusChanged);
+    connect(m_model,
+            &PersonalizationModel::onWindowRadiusChanged,
+            sliderRound,
+            onWindowRadiusChanged);
     connect(winRoundSlider->slider(), &DCCSlider::valueChanged, this, [=](int value) {
         int val = value;
         switch (value) {

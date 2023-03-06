@@ -1,23 +1,24 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/titledslideritem.h"
+
 #include "widgets/accessibleinterface.h"
-
-#include <QLabel>
-#include <QSlider>
-#include <QPixmap>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QDebug>
-#include <QFile>
-#include <QIcon>
-#include <QTimer>
-
 #include "widgets/dccslider.h"
 
+#include <QDebug>
+#include <QFile>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QLabel>
+#include <QPixmap>
+#include <QSlider>
+#include <QTimer>
+#include <QVBoxLayout>
+
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(TitledSliderItem,"TitledSliderItem");
+SET_FORM_ACCESSIBLE(TitledSliderItem, "TitledSliderItem");
+
 TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     : SettingsItem(parent)
     , m_titleLabel(new QLabel(title))
