@@ -203,6 +203,7 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
         Q_EMIT requestCreateGroup(newGroup, 0, false);
         item->setVisible(false);
         m_listGrp->setFocus();
+        cancelAddGroup();
         return;
     }
     m_isItemEditting = false;
