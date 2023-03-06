@@ -384,7 +384,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
     if (m_model->displayMode() == EXTEND_MODE) {
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
-                QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), true); });
+                requestSetMainwindowRect(m_model->primaryMonitor(), true);
                 continue;
             }
 
