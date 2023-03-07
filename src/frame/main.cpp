@@ -12,11 +12,24 @@
 #include <DApplicationSettings>
 #include <DApplicationHelper>
 
+#include <QStringList>
 #include <QIcon>
 #include <QScreen>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
+
+QStringList defaultpath()
+{
+    QStringList path;
+#ifdef QT_DEBUG
+    path.append(qApp->applicationDirPath());
+#else
+    path.append(DCC_NAMESPACE::PLUGIN_DIRECTORY);
+    path.append(DCC_NAMESPACE::OLD_PLUGIN_DIRECTORY);
+#endif
+    return path;
+}
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +42,7 @@ int main(int argc, char *argv[])
     QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
     QCommandLineOption dbusOption(QStringList() << "d" << "dbus" , "startup on dbus");
     QCommandLineOption pageOption("p", "specified module page", "page");
+    QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Control Center");
@@ -38,9 +52,11 @@ int main(int argc, char *argv[])
     parser.addOption(toggleOption);
     parser.addOption(dbusOption);
     parser.addOption(pageOption);
+    parser.addOption(pluginDir);
     parser.process(*app);
 
     const QString &reqPage = parser.value(pageOption);
+    const QString &refPluginDir = parser.value(pluginDir);
 
     if (!app->setSingleInstance(app->applicationName())) {
         if (parser.isSet(toggleOption)) {
@@ -102,7 +118,20 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
-    mw.loadModules(!parser.isSet(dbusOption));
+    if (!refPluginDir.isEmpty()) {
+        mw.loadModules(true, { refPluginDir } );
+        QDBusConnection conn = QDBusConnection::sessionBus();
+        if (!conn.registerService("org.deepin.dde.ControlCenter1") ||
+            !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
+            qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
+            if (!parser.isSet(showOption))
+                return -1;
+        }
+        mw.show();
+        return app->exec();
+    }
+
+    mw.loadModules(!parser.isSet(dbusOption),defaultpath());
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("org.deepin.dde.ControlCenter1") ||

@@ -283,10 +283,10 @@ void MainWindow::updateModuleConfig(const QString &key)
     }
 }
 
-void MainWindow::loadModules(bool async)
+void MainWindow::loadModules(bool async, const QStringList &dirs)
 {
     onAddModule(m_rootModule);
-    m_pluginManager->loadModules(m_rootModule, async);
+    m_pluginManager->loadModules(m_rootModule, async, dirs);
     showModule(m_rootModule);
 }
 
