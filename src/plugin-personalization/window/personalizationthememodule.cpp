@@ -11,13 +11,10 @@
 #include "personalizationworker.h"
 #include "settingsgroupmodule.h"
 #include "titledslideritem.h"
-#include "widgets/dcclistview.h"
 #include "widgets/globalthemelistview.h"
 #include "widgets/itemmodule.h"
 #include "widgets/personalizationthemelist.h"
 #include "widgets/ringcolorwidget.h"
-#include "widgets/themeitempic.h"
-#include "widgets/widgetmodule.h"
 
 #include <DGuiApplicationHelper>
 #include <DLabel>
@@ -462,11 +459,11 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
-    auto fontSizeChanged = [fontSizeSlider](int fontSize) {
+    auto fontSizeChanged = [fontSizeSlider, annotions](int fontSize) {
         fontSizeSlider->slider()->blockSignals(true);
         fontSizeSlider->slider()->setValue(fontSize);
         fontSizeSlider->slider()->blockSignals(false);
-        fontSizeSlider->setValueLiteral(QString("%1").arg(fontSize));
+        fontSizeSlider->setValueLiteral(annotions[fontSize]);
     };
     fontSizeChanged(m_model->getFontSizeModel()->getFontSize());
     connect(m_model->getFontSizeModel(),
