@@ -4,9 +4,10 @@
 #pragma once
 
 #include "interface/namespace.h"
-
+#include "utils.h"
 #include <QFuture>
 #include <QObject>
+#include <optional>
 
 class QPluginLoader;
 
@@ -33,7 +34,7 @@ class PluginManager : public QObject
     Q_OBJECT
 public:
     explicit PluginManager(QObject *parent = nullptr);
-    void loadModules(ModuleObject *root, bool async = true);
+    void loadModules(ModuleObject *root, bool async = true, const QStringList &dirs = {PLUGIN_DIRECTORY});
     bool loadFinished() const;
 
 public Q_SLOTS:

@@ -57,7 +57,7 @@ public:
      */
     void showPage(const QString &url);
     QString getAllModule() const;
-    void loadModules(bool async);
+    void loadModules(bool async,const QStringList &dirs);
 
     QString GrandSearchSearch(const QString json);
     bool GrandSearchStop(const QString json);
