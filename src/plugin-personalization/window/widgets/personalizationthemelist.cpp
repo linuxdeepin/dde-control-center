@@ -99,28 +99,34 @@ void PersonalizationThemeList::onAddItem(const QJsonObject &json)
     if (m_jsonMap.values().contains(json))
         return;
 
-    const QString &title = json["Id"].toString();
-    m_jsonMap.insert(title, json);
+    const QString &id = json["Id"].toString();
+    const QString &name = json["Name"].toString();
+
+    m_jsonMap.insert(id, json);
 
     DStandardItem *item = new DStandardItem;
 
     // translations
     if (json["type"] == "gtk") {
-        if (title == "deepin") {
+        if (id == "deepin") {
             item->setText(tr("Light"));
-        } else if (title == "deepin-dark") {
+        } else if (id == "deepin-dark") {
             item->setText(tr("Dark"));
-        } else if (title == "deepin-auto") {
+        } else if (id == "deepin-auto") {
             item->setText(tr("Auto"));
         } else {
-            item->setText(title);
+            item->setText(id);
         }
+    } else if (json["type"] == "icon") {
+        // icon use "name" as title
+        item->setText(id == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : name);
     } else {
-        item->setText(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
+        // cursor use "id" as title
+        item->setText(id == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : id);
     }
 
-    item->setData(title, IDRole); // set id data
-    item->setCheckState(title == m_model->getDefault() ? Qt::Checked : Qt::Unchecked);
+    item->setData(id, IDRole); // set id data
+    item->setCheckState(id == m_model->getDefault() ? Qt::Checked : Qt::Unchecked);
     qobject_cast<QStandardItemModel *>(m_listview->model())->appendRow(item);
 }
 
