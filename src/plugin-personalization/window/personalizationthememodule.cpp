@@ -37,7 +37,7 @@ DCORE_USE_NAMESPACE
 // clang-format off
 #define CUSTOM_ACTIVE_COLOR "CUSTOM"
 const QList<QString> ACTIVE_COLORS = {
-    "#D8316C",
+    "#DF4187",
     "#FF5D00",
     "#F8CB00",
     "#23C400",
