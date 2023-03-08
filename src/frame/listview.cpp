@@ -528,7 +528,7 @@ void ListView::paintEvent(QPaintEvent *e)
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
     for (QVector<QModelIndex>::const_iterator it = toBeRendered.constBegin(); it != end; ++it) {
         Q_ASSERT((*it).isValid());
-        option.rect = visualRect(*it);
+        option.rect = visualRect(*it).adjusted(1, 1, -1, -1);
 
         option.state = state;
         if (selections && selections->isSelected(*it))
