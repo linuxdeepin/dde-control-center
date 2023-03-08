@@ -35,7 +35,7 @@ ModuleObject *Test1Plugin::module()
 }
 
 Test1ModuleObject::Test1ModuleObject()
-    : HListModule("firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"))
+    : HListModule("firstmenu", tr("主菜单很长很长很长很长很长很长很长........................"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"))
 {
     // 根节点继承于HListModule
     //-----------正常树构建----------
