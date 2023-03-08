@@ -3,6 +3,12 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mouseworker.h"
+
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QDBusInterface>
+
 using namespace dcc;
 using namespace dcc::mouse;
 const QString Service = "com.deepin.daemon.InputDevices";
@@ -112,6 +118,27 @@ void MouseWorker::setPalmMinz(int palmMinz)
 void MouseWorker::setScrollSpeed(uint speed)
 {
     m_model->setScrollSpeed(speed);
+}
+
+void MouseWorker::setDeviceList(QString deviceList)
+{
+    // X11下默认都支持
+    if (!qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
+        return m_model->setSupportDisbleWhileTyping(true);
+
+    // wayland下，获取所有的触摸板的设备
+    QJsonDocument json = QJsonDocument::fromJson(deviceList.toLocal8Bit());
+    QJsonArray array = json.array();
+    for (const QJsonValue device : array) {
+        QJsonObject deviceObject = device.toObject();
+        int touchPadId = deviceObject.value("Id").toInt();
+        // 获取当前是否支持输入时禁用触摸板，只要有一个支持，就认为它支持
+        QDBusInterface dbusInter("org.kde.KWin", QString("/org/kde/KWin/InputDevice/event%1").arg(touchPadId), "org.kde.KWin.InputDevice");
+        if (dbusInter.property("supportsDisableWhileTyping").toBool())
+            return m_model->setSupportDisbleWhileTyping(true);
+    }
+
+    m_model->setSupportDisbleWhileTyping(false);
 }
 
 

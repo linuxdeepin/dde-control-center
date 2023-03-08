@@ -42,6 +42,7 @@ public Q_SLOTS:
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
     void setScrollSpeed(uint speed);
+    void setDeviceList(QString deviceList);
 
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
@@ -77,6 +78,7 @@ Q_SIGNALS:
     void requestSetAccelProfile(const bool state);
     void requestSetTouchpadMotionAcceleration(const double &value);
     void requestSetTrackPointMotionAcceleration(const double &value);
+    void requestChangedSupportDisableWhileTyping(const bool state);
 
 private:
     int converToDouble(int value);

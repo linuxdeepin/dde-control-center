@@ -111,14 +111,15 @@ void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
 
-    connect(model, &MouseModel::tpadExistChanged, m_disInTyping,&SwitchWidget::setVisible);
+    connect(model, &MouseModel::tpadExistChanged, this, &GeneralSettingWidget::onDisInTypingVisibleChanged);
     connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
     connect(model, &MouseModel::doubleSpeedChanged, this, &GeneralSettingWidget::onDoubleClickSpeedChanged);
     connect(model, &MouseModel::scrollSpeedChanged, this, &GeneralSettingWidget::onScrollSpeedChanged);
+    connect(model, &MouseModel::supportDisbaleWhileTypingChanged, this, &GeneralSettingWidget::onDisInTypingVisibleChanged);
     m_leftHand->setChecked(model->leftHandState());
     m_disInTyping->setChecked(model->disIfTyping());
-    m_disInTyping->setVisible(model->tpadExist());
+    m_disInTyping->setVisible(model->tpadExist() && model->supportDisableWhileTyping());
     onDoubleClickSpeedChanged(model->doubleSpeed());
     onScrollSpeedChanged(model->scrollSpeed());
 }
@@ -136,4 +137,9 @@ void GeneralSettingWidget::onScrollSpeedChanged(uint speed)
     m_scrollSpeedSlider->slider()->blockSignals(true);
     m_scrollSpeedSlider->slider()->setValue(static_cast<int>(speed));
     m_scrollSpeedSlider->slider()->blockSignals(false);
+}
+
+void GeneralSettingWidget::onDisInTypingVisibleChanged()
+{
+    m_disInTyping->setVisible(m_mouseModel->tpadExist() && m_mouseModel->supportDisableWhileTyping());
 }

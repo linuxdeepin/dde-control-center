@@ -76,6 +76,9 @@ public:
     uint scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(uint speed);
 
+    bool supportDisableWhileTyping() const { return m_supportDisableWhileTyping; };
+    void setSupportDisbleWhileTyping(const bool state);
+
 Q_SIGNALS:
     void leftHandStateChanged(bool state);
     void disIfTypingStateChanged(bool state);
@@ -96,6 +99,7 @@ Q_SIGNALS:
     void tapClickChanged(bool tapclick);
     void touchpadEnableChanged(const bool touchpadEnable);
     void scrollSpeedChanged(uint speed);
+    void supportDisbaleWhileTypingChanged(bool supportDisableWhileTyping);
 
 private:
     bool m_leftHandState;
@@ -111,6 +115,7 @@ private:
     bool m_tapclick;
     bool m_touchpadEnable;
     bool m_systemTouchpadExist;
+    bool m_supportDisableWhileTyping;
     int  m_doubleSpeed;
     int  m_mouseMoveSpeed;
     int  m_tpadMoveSpeed;

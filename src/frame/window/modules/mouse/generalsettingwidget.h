@@ -40,6 +40,7 @@ Q_SIGNALS:
 private:
     void onDoubleClickSpeedChanged(int speed);
     void onScrollSpeedChanged(uint speed);
+    void onDisInTypingVisibleChanged();
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;

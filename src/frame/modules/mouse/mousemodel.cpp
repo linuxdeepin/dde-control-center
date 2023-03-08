@@ -19,6 +19,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_disTpad(false)
     , m_palmDetect(false)
     , m_tapclick(false)
+    , m_supportDisableWhileTyping(true)
     , m_doubleSpeed(1)
     , m_mouseMoveSpeed(1)
     , m_tpadMoveSpeed(1)
@@ -229,4 +230,14 @@ void MouseModel::setScrollSpeed(uint speed)
     m_scrollSpeed = speed;
 
     Q_EMIT scrollSpeedChanged(speed);
+}
+
+void MouseModel::setSupportDisbleWhileTyping(const bool state)
+{
+    if (m_supportDisableWhileTyping == state)
+        return;
+
+    m_supportDisableWhileTyping = state;
+
+    Q_EMIT supportDisbaleWhileTypingChanged(state);
 }

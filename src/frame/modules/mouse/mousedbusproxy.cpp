@@ -51,6 +51,7 @@ void MouseDBusProxy::active()
     m_worker->setPalmDetect(m_dbusTouchPad->palmDetect());
     m_worker->setPalmMinWidth(m_dbusTouchPad->palmMinWidth());
     m_worker->setPalmMinz(m_dbusTouchPad->palmMinZ());
+    m_worker->setDeviceList(m_dbusTouchPad->deviceList());
 
     // initial redpoint settings
     m_worker->setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
@@ -88,6 +89,7 @@ void MouseDBusProxy::init()
     connect(m_dbusTouchPad, &TouchPad::PalmDetectChanged, m_worker, &MouseWorker::setPalmDetect);
     connect(m_dbusTouchPad, &TouchPad::PalmMinWidthChanged, m_worker, &MouseWorker::setPalmMinWidth);
     connect(m_dbusTouchPad, &TouchPad::PalmMinZChanged, m_worker, &MouseWorker::setPalmMinz);
+    connect(m_dbusTouchPad, &TouchPad::DeviceListChanged, m_worker, &MouseWorker::setDeviceList);
 
     QDBusConnection::systemBus().connect(SystemTouchpadService, SystemTouchpadPath, "org.freedesktop.DBus.Properties", "PropertiesChanged", this, SLOT(onSystemTouchpadEnableChanged(QString, QVariantMap, QStringList)));
 
