@@ -93,7 +93,7 @@ public:
         }
         height = emptySZ.height() - 9;
         m_size = QSize(totalWidth, height);
-        q->setFixedHeight(m_size.height() + 2);
+        q->setFixedHeight(m_size.height() + 4);
 
         if (totalWidth > q->viewport()->width()) {
             m_xOffset = 0;
@@ -118,7 +118,7 @@ public:
     QRect rectForIndex(const QModelIndex &index) const
     {
         Q_Q(const TabView);
-        QRect rect(0, 0, 0, m_size.height());
+        QRect rect(0, 2, 0, m_size.height());
         int indexRow = index.row();
         if (indexRow < 0 || indexRow >= m_itemX.size()) {
             rect = QRect();
@@ -126,7 +126,7 @@ public:
             rect.setWidth(m_itemX.at(0));
         } else {
             rect.setLeft(m_itemX.at(indexRow - 1));
-            rect.setRight(m_itemX.at(indexRow));
+            rect.setRight(m_itemX.at(indexRow) - 1);
         }
 
         return rect.translated(q->contentsMargins().left() + m_xOffset, q->contentsMargins().top() + m_yOffset);
@@ -206,6 +206,7 @@ TabView::TabView(QWidget *parent)
     setMouseTracking(true);
     setContentsMargins(0, 0, 0, 0);
     setFrameStyle(QFrame::NoFrame);
+    viewport()->setAutoFillBackground(false);
 }
 
 TabView::~TabView()
@@ -452,9 +453,6 @@ void TabView::paintEvent(QPaintEvent *e)
     const bool enabled = (state & QStyle::State_Enabled) != 0;
     option.decorationAlignment = Qt::AlignLeft;
 
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(e->rect(), palette().color(QPalette::Window));
-
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
     for (QVector<QModelIndex>::const_iterator it = toBeRendered.constBegin(); it != end; ++it) {
         Q_ASSERT((*it).isValid());
@@ -481,15 +479,19 @@ void TabView::paintEvent(QPaintEvent *e)
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
 
         painter.save();
+        painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(Qt::NoPen);
         painter.setBrush(QBrush(palette().color(QPalette::Base)));
-        if (it == toBeRendered.constBegin()) {
+        QRect maskRect = option.rect.adjusted(0, -2, 0, 2);
+        if (it->row() == 0) {
             painter.drawRoundedRect(option.rect.adjusted(-2, -2, 0, 2), 8, 8);
+            maskRect.adjust(6, 0, 0, 0);
         }
-        if (it == end - 1) {
+        if (it->row() == itemModel->rowCount() - 1) {
             painter.drawRoundedRect(option.rect.adjusted(0, -2, 2, 2), 8, 8);
+            maskRect.adjust(0, 0, -6, 0);
         }
-        painter.drawRect(option.rect.adjusted(0, -2, 0, 2));
+        painter.drawRect(maskRect);
         painter.restore();
 
         itemDelegate(*it)->paint(&painter, option, *it);
