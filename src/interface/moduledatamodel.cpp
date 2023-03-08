@@ -9,6 +9,8 @@
 
 #include <QSignalMapper>
 
+#include <algorithm>
+
 using namespace DCC_NAMESPACE;
 
 ModuleDataModel::ModuleDataModel(QObject *parent)
@@ -111,6 +113,11 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
     beginInsertRows(QModelIndex(), row, row);
     m_data.insert(row, module);
     endInsertRows();
+    ModuleObject *maxOne =
+            *std::max_element(m_data.begin(), m_data.end(), [](ModuleObject *a, ModuleObject *b) {
+                return a->displayName().length() > b->displayName().length();
+            });
+    emit newModuleDislayNameLen(maxOne->displayName().length());
 }
 
 void ModuleDataModel::onRemovedChild(ModuleObject *const module)

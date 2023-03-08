@@ -32,6 +32,8 @@ public:
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
+signals:
+    void newModuleDislayNameLen(int);
 
 public slots:
     void onDataChanged(QObject *obj);

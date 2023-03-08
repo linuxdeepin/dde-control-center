@@ -1,17 +1,22 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
+#include "mainmodule.h"
+
 #include "listitemdelegate.h"
 #include "listview.h"
-#include "mainmodule.h"
-#include "src/interface/moduledatamodel.h"
 #include "pagemodule.h"
+#include "src/interface/moduledatamodel.h"
+
+#include <dguiapplicationhelper.h>
+
+#include <DPlatformTheme>
 
 #include <QHBoxLayout>
 #include <QSplitter>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 3, 0)
-#    define USE_SIDEBAR
+#  define USE_SIDEBAR
 #endif
 
 using namespace DCC_NAMESPACE;
@@ -19,11 +24,14 @@ using namespace DCC_NAMESPACE;
 const int NavViewMaximumWidth = QWIDGETSIZE_MAX;
 const int NavViewMinimumWidth = 160;
 
-const QSize ListViweItemIconSize_IconMode(84, 84);
-const QSize ListViweItemSize_IconMode(280, 84);
-const QSize ListViweItemIconSize_ListMode(32, 32);
-const QSize ListViweItemSize_ListMode(168, 48);
-
+const QSize ListViewItemIconSize_IconMode(84, 84);
+const QSize ListViewItemGridSize_IconMode(280, 84);
+const QSize ListViewItemIconSize_ListMode(32, 32);
+const QSize ListViewItemGridSize_ListMode(168, 48);
+const int ListView_ListMode_MaxWidth = 400;
+const int ListView_IconMode_MaxWidth = 500;
+// mainly about icon and margin
+const int ExtraWidth = 40;
 namespace DCC_NAMESPACE {
 class MainModulePrivate
 {
@@ -34,10 +42,23 @@ public:
         , m_layout(nullptr)
     {
     }
-    ListView *createListView(QWidget *parentWidget)
+
+    ListView *createListView(QWidget *parentWidget, bool isSizebar = false)
     {
         Q_Q(MainModule);
+        const QSize viewGridSize =
+                isSizebar ? ListViewItemGridSize_ListMode : ListViewItemGridSize_IconMode;
+        const QSize viewIconSize =
+                isSizebar ? ListViewItemIconSize_ListMode : ListViewItemIconSize_IconMode;
+        const int viewMaxWidth =
+                isSizebar ? ListView_ListMode_MaxWidth : ListView_IconMode_MaxWidth;
+        int CharWidth =
+                Dtk::Gui::DGuiApplicationHelper::instance()->applicationTheme()->fontPointSize();
+        const int elementCharWidth = CharWidth == 0 ? 11 : CharWidth;
+        // const QSize viewIconSize =
         ListView *view = new ListView(parentWidget);
+        view->setGridSize(viewGridSize);
+        view->setIconSize(viewIconSize);
         ListItemDelegate *delegate = new ListItemDelegate(view);
         view->setItemDelegate(delegate);
         ModuleDataModel *model = new ModuleDataModel(view);
@@ -59,7 +80,18 @@ public:
             if (obj)
                 obj->trigger();
         };
-
+        QObject::connect(model,
+                         &ModuleDataModel::newModuleDislayNameLen,
+                         view,
+                         [view, viewGridSize, viewIconSize,viewMaxWidth, elementCharWidth](int len) {
+                             QSize gradSize = view->gridSize();
+                             const int elementWidth = len * elementCharWidth + viewIconSize.width() + ExtraWidth;
+                             if (gradSize.width() < elementWidth
+                                 && elementWidth < viewMaxWidth) {
+                                 view->setGridSize(
+                                         QSize(elementWidth, viewGridSize.height()));
+                             }
+                         });
         QObject::connect(view, &ListView::activated, view, &ListView::clicked);
         QObject::connect(view, &ListView::clicked, view, onClicked);
         return view;
@@ -71,8 +103,6 @@ public:
             return;
         if (child && ModuleObject::IsVisible(child)) {
             m_sidebarWidget->setViewMode(ListView::ListMode);
-            m_sidebarWidget->setIconSize(ListViweItemIconSize_ListMode);
-            m_sidebarWidget->setGridSize(ListViweItemSize_ListMode);
             m_sidebarWidget->setContentsMargins(10, 0, 10, 0);
             m_sidebarWidget->setSpacing(10);
             m_sidebarWidget->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -91,22 +121,21 @@ public:
                 delete item;
             }
             m_sidebarWidget->setVisible(true);
+            int sizebar = m_sidebarWidget->gridSize().width();
 #ifdef USE_SIDEBAR
             m_mainWindow->setSidebarWidget(m_sidebarWidget);
-            m_mainWindow->setSidebarWidth(180);
+            m_mainWindow->setSidebarWidth(sizebar);
             m_mainWindow->setSidebarVisible(true);
             m_mainWindow->setSidebarExpanded(true);
 #else
             m_layout->addWidget(m_sidebarWidget);
-            m_sidebarWidget->setFixedWidth(200);
+            m_sidebarWidget->setFixedWidth(sizebar);
 #endif
             m_layout->addWidget(child->activePage());
             m_view->setVisible(false);
             m_sidebarWidget->setFocus();
         } else {
             m_view->setViewMode(ListView::IconMode);
-            m_view->setIconSize(ListViweItemIconSize_IconMode);
-            m_view->setGridSize(ListViweItemSize_IconMode);
             m_view->setContentsMargins(0, 0, 0, 0);
             m_view->setSpacing(20);
             m_view->setAlignment(Qt::AlignHCenter);
@@ -141,11 +170,14 @@ public:
         QWidget *parentWidget = new QWidget();
         m_layout = new QHBoxLayout;
         parentWidget->setLayout(m_layout);
-        QObject::connect(q, &MainModule::currentModuleChanged, parentWidget, [this](ModuleObject *child) {
-            onCurrentModuleChanged(child);
-        });
+        QObject::connect(q,
+                         &MainModule::currentModuleChanged,
+                         parentWidget,
+                         [this](ModuleObject *child) {
+                             onCurrentModuleChanged(child);
+                         });
         m_view = createListView(parentWidget);
-        m_sidebarWidget = createListView(parentWidget);
+        m_sidebarWidget = createListView(parentWidget, true);
 #ifdef USE_SIDEBAR
         m_mainWindow->setSidebarWidget(m_sidebarWidget);
 #endif
@@ -162,7 +194,7 @@ private:
     QHBoxLayout *m_layout;
     DTK_WIDGET_NAMESPACE::DMainWindow *m_mainWindow;
 };
-}
+} // namespace DCC_NAMESPACE
 
 MainModule::MainModule(DTK_WIDGET_NAMESPACE::DMainWindow *parent)
     : ModuleObject(parent)
@@ -172,9 +204,7 @@ MainModule::MainModule(DTK_WIDGET_NAMESPACE::DMainWindow *parent)
     d->m_mainWindow = parent;
 }
 
-MainModule::~MainModule()
-{
-}
+MainModule::~MainModule() { }
 
 QWidget *MainModule::page()
 {
