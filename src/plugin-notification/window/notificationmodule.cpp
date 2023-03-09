@@ -24,18 +24,7 @@ QString NotificationPlugin::name() const
 
 ModuleObject *NotificationPlugin::module()
 {
-    //一级菜单--通知
-    PageModule *moduleInterface = new PageModule();
-    moduleInterface->setName("notification");
-    moduleInterface->setDisplayName(tr("Notification"));
-    moduleInterface->setDescription(tr("Notification"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));
-    moduleInterface->setNoScroll();
-    moduleInterface->setNoStretch();
-
-    NotificationModule *displayModule = new NotificationModule(moduleInterface);
-    moduleInterface->appendChild(displayModule);
-    return moduleInterface;
+    return new NotificationModule;
 }
 
 QString NotificationPlugin::location() const
@@ -54,6 +43,10 @@ NotificationModule::NotificationModule(QObject *parent)
     , m_systemNotifyWidget(nullptr)
     , m_softwaremodel(new QStandardItemModel(this))
 {
+    setName("notification");
+    setDisplayName(tr("Notification"));
+    setDescription(tr("Notification"));
+    setIcon(QIcon::fromTheme("dcc_nav_notification"));
     if (m_model) {
         delete m_model;
     }
