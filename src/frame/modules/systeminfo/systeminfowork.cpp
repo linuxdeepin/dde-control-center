@@ -50,22 +50,37 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "com.deepin.license.Info", this);
 #endif
 
+    QString validFrequency = "CurrentSpeed";
     QDBusInterface Interface("com.deepin.daemon.SystemInfo",
                              "/com/deepin/daemon/SystemInfo",
                              "org.freedesktop.DBus.Properties",
                              QDBusConnection::sessionBus());
-    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CurrentSpeed");
+    QDBusMessage replyCPU = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUHardware");
+    QList<QVariant> outArgsCPU = replyCPU.arguments();
+    if (outArgsCPU.count()) {
+        QString cpuHardware = outArgsCPU.at(0).value<QDBusVariant>().variant().toString();
+        qInfo() << Q_FUNC_INFO << "Current cpuHardware:" << cpuHardware;
+        if (cpuHardware == "PANGU") {
+            validFrequency = "CPUMaxMHz";
+        }
+    }
+    double cpuMaxMhz = 0.0;
+    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", validFrequency);
     QList<QVariant> outArgs = reply.arguments();
-    double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (outArgs.count()) {
+        cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    }
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
         if (DSysInfo::cpuModelName().isEmpty()){
             QDBusMessage replyCpuInfo = Interface.call("Get", "com.deepin.daemon.SystemInfo", "Processor");
             QList<QVariant> outArgsCpuInfo = replyCpuInfo.arguments();
-            QString processor = outArgsCpuInfo.at(0).value<QDBusVariant>().variant().toString();
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(processor)
-                                  .arg(cpuMaxMhz / 1000));
+            if (outArgsCpuInfo.count()) {
+                QString processor = outArgsCpuInfo.at(0).value<QDBusVariant>().variant().toString();
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(processor)
+                                      .arg(cpuMaxMhz / 1000));
+            }
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
                                   .arg(cpuMaxMhz / 1000));
