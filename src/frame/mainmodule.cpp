@@ -128,6 +128,7 @@ public:
             m_view->clearSelection();
             m_sidebarWidget->setVisible(false);
 #ifdef USE_SIDEBAR
+            m_mainWindow->setSidebarWidth(100);
             m_mainWindow->setSidebarExpanded(false);
             m_mainWindow->setSidebarVisible(false);
 #endif
