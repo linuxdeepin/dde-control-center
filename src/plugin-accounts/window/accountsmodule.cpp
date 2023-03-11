@@ -270,6 +270,9 @@ QWidget *AccountsModule::initAvatar(ModuleObject *module)
     avatar->setFixedSize(120, 120);
     avatar->setArrowed(false);
     auto updateUser = [avatar](User *user, User *oldUser) {
+        if (!user) {
+            return;
+        }
         if (oldUser)
             disconnect(oldUser, 0, avatar, 0);
 
@@ -287,6 +290,9 @@ QWidget *AccountsModule::initFullName(ModuleObject *module)
     DLabel *fullName = new DLabel();
     fullName->setContentsMargins(0, 6, 0, 6);
     fullName->setElideMode(Qt::ElideRight);
+    if (!m_curUser) {
+        return fullName;
+    }
     DFontSizeManager::instance()->bind(fullName, DFontSizeManager::T5);
     setFullname(m_curUser->fullname(), fullName);
     connect(module, &ModuleObject::displayNameChanged, fullName, [this, fullName](const QString &name) {
@@ -306,6 +312,10 @@ QWidget *AccountsModule::initFullNameEdit(ModuleObject *module)
     inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
     inputLineEdit->lineEdit()->installEventFilter(this);
     DFontSizeManager::instance()->bind(inputLineEdit, DFontSizeManager::T5);
+
+    if (!m_curUser) {
+        return inputLineEdit;
+    }
 
     connect(inputLineEdit, &DLineEdit::textEdited, inputLineEdit, [inputLineEdit](const QString &userFullName) {
         /* 90401:在键盘输入下禁止冒号的输入，粘贴情况下自动识别冒号自动删除 */
@@ -336,6 +346,7 @@ QWidget *AccountsModule::initFullNameEdit(ModuleObject *module)
             onEditingFinished(false, inputLineEdit);
         }
     });
+
 
     inputLineEdit->setAlert(false);
     inputLineEdit->setText(m_curUser->fullname());
@@ -379,6 +390,9 @@ QWidget *AccountsModule::initAccountType(ModuleObject *module)
 {
     QComboBox *asAdministrator = new QComboBox();
     asAdministrator->addItems({ tr("Standard User"), tr("Administrator") });
+    if (!m_curUser) {
+        return asAdministrator;
+    }
     auto updateType = [asAdministrator, this]() {
         asAdministrator->blockSignals(true);
         asAdministrator->setCurrentIndex(isSystemAdmin(m_curUser));
@@ -404,6 +418,10 @@ QWidget *AccountsModule::initValidityDays(ModuleObject *module)
         validityDaysBox->setValue(value);
         validityDaysBox->setAlert(false);
     });
+
+    if (!m_curUser) {
+        return validityDaysBox;
+    }
     connect(validityDaysBox, &QSpinBox::editingFinished, this, [this, validityDaysBox]() {
         if (validityDaysBox->lineEdit()->text().isEmpty()) {
             validityDaysBox->setValue(m_curUser->passwordAge());
@@ -446,6 +464,9 @@ QWidget *AccountsModule::initName(ModuleObject *module)
     QLabel *shortName = new QLabel();
     shortName->setEnabled(false);
     auto updateName = [shortName](User *user, User *oldUser) {
+        if (!user) {
+            return; 
+        }
         if (oldUser)
             disconnect(oldUser, 0, shortName, 0);
 
@@ -553,6 +574,9 @@ void AccountsModule::onModifyIcon()
     avatarListDialog->deleteLater();
     if (avatarListDialog->exec() == QDialog::Accepted) {
         QString avatarpath = avatarListDialog->getAvatarPath();
+        if (!m_curUser) {
+            return;
+        }
         if (!avatarpath.isEmpty() && avatarpath != m_curUser->currentAvatar())
             m_worker->setAvatar(m_curUser, avatarpath);
     }
