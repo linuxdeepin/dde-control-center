@@ -1,22 +1,25 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "notificationmodule.h"
-#include "notificationwidget.h"
+
+#include "appnotifywidget.h"
 #include "interface/pagemodule.h"
+#include "itemmodule.h"
+#include "src/plugin-notification/operation/model/appitemmodel.h"
 #include "src/plugin-notification/operation/notificationmodel.h"
 #include "src/plugin-notification/operation/notificationworker.h"
-#include "src/plugin-notification/operation/model/appitemmodel.h"
 #include "systemnotifywidget.h"
-#include "appnotifywidget.h"
+#include "vlistmodule.h"
 
-#include <DListView>
-
-#include <DStandardItem>
 #include <QApplication>
+#include <QBoxLayout>
+#include <QFile>
+#include <QSvgRenderer>
 
 Q_DECLARE_METATYPE(QMargins)
 using namespace DCC_NAMESPACE;
+
 QString NotificationPlugin::name() const
 {
     return QStringLiteral("notification");
@@ -32,16 +35,12 @@ QString NotificationPlugin::location() const
     return "7";
 }
 
-
 NotificationModule::NotificationModule(QObject *parent)
-    : ModuleObject(parent)
+    : HListModule(parent)
     , m_model(nullptr)
     , m_worker(nullptr)
-    , m_notificationWidget(nullptr)
-    , m_contentLayout(nullptr)
-    , m_appNotifyWidget(nullptr)
-    , m_systemNotifyWidget(nullptr)
-    , m_softwaremodel(new QStandardItemModel(this))
+    , m_appNotify(new VListModule(tr("AppNotify"), tr("AppNotify"), this))
+    , m_appNameList{}
 {
     setName("notification");
     setDisplayName(tr("Notification"));
@@ -52,15 +51,12 @@ NotificationModule::NotificationModule(QObject *parent)
     }
     m_model = new NotificationModel(this);
     m_worker = new NotificationWorker(m_model, this);
-
     connect(m_model, &NotificationModel::appListAdded, this, &NotificationModule::onAppListAdded);
-    connect(m_model, &NotificationModel::appListRemoved, this, &NotificationModule::onAppListRemoved);
-}
-
-NotificationModule::~NotificationModule()
-{
-    m_worker->deleteLater();
-    m_model->deleteLater();
+    // clang-format off
+    connect(m_model, &NotificationModel::appListRemoved,
+            this, &NotificationModule::onAppListRemoved);
+    // clang-format on
+    initUi();
 }
 
 void NotificationModule::active()
@@ -69,87 +65,56 @@ void NotificationModule::active()
         m_worker->active(true);
 }
 
-QWidget *NotificationModule::page()
+void NotificationModule::initUi()
 {
-    QWidget *w = new QWidget();
-    m_notificationWidget = new NotificationWidget(m_model, m_softwaremodel);
-    m_contentLayout = new QHBoxLayout;
-    m_contentLayout->setSpacing(0);
-    m_contentLayout->setContentsMargins(0, 0, 0, 0);
-    m_contentLayout->insertWidget(0, m_notificationWidget);
-    m_notificationWidget->setVisible(false);
-    connect(m_notificationWidget, &NotificationWidget::requestShowSystem, this, &NotificationModule::showSystemNotify);
-    connect(m_notificationWidget, &NotificationWidget::requestShowApp, this, &NotificationModule::showAppNotify);
-    m_notificationWidget->setVisible(true);
-    m_notificationWidget->showDefaultWidget();
+    ModuleObject *systemNotify = new PageModule(tr("SystemNotify"), tr("SystemNotify"), this);
+    systemNotify->appendChild(new ItemModule(
+            "SystemNotify",
+            "SystemNotify",
+            [this](ModuleObject *module) {
+                auto sysNotifyWidget = new SystemNotifyWidget(m_model->getSystemModel());
+                connect(sysNotifyWidget,
+                        &SystemNotifyWidget::requestSetSysSetting,
+                        m_worker,
+                        &NotificationWorker::setSystemSetting);
+                return sysNotifyWidget;
+            },
+            false));
+    appendChild(systemNotify);
 
-    w->setLayout(m_contentLayout);
-    return w;
-}
-
-void NotificationModule::showSystemNotify()
-{
-    m_contentLayout->removeWidget(m_appNotifyWidget);
-    if(m_appNotifyWidget) {
-        delete m_appNotifyWidget;
-        m_appNotifyWidget = nullptr;
-    }
-
-    m_contentLayout->removeWidget(m_systemNotifyWidget);
-    if(m_systemNotifyWidget) {
-        delete m_systemNotifyWidget;
-        m_systemNotifyWidget = nullptr;
-    }
-
-    m_systemNotifyWidget = new SystemNotifyWidget(m_model->getSystemModel());
-    m_contentLayout->insertWidget(1, m_systemNotifyWidget);
-    m_systemNotifyWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    connect(m_systemNotifyWidget, &SystemNotifyWidget::requestSetSysSetting, m_worker, &NotificationWorker::setSystemSetting);
-}
-
-void NotificationModule::showAppNotify(int index)
-{
-    m_contentLayout->removeWidget(m_appNotifyWidget);
-    if(m_appNotifyWidget) {
-        delete m_appNotifyWidget;
-        m_appNotifyWidget = nullptr;
-    }
-
-    m_contentLayout->removeWidget(m_systemNotifyWidget);
-    if(m_systemNotifyWidget) {
-        delete m_systemNotifyWidget;
-        m_systemNotifyWidget = nullptr;
-    }
-
-    m_appNotifyWidget = new AppNotifyWidget(m_model->getAppModel(index));
-    m_contentLayout->insertWidget(1, m_appNotifyWidget);
-    m_appNotifyWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    connect(m_appNotifyWidget, &AppNotifyWidget::requestSetAppSetting, m_worker, &NotificationWorker::setAppSetting);
+    appendChild(m_appNotify);
 }
 
 void NotificationModule::onAppListAdded(AppItemModel *item)
 {
     QString softName = item->getAppName();
-    QIcon icon = NotificationWidget::getAppIcon(item->getIcon(), QSize(32, 32));
-    DTK_WIDGET_NAMESPACE::DStandardItem *dItem = new DTK_WIDGET_NAMESPACE::DStandardItem(icon, softName);
-    dItem->setData(QVariant::fromValue(QMargins(10, 8, 10, 8)), Dtk::MarginsRole);
-    m_softwaremodel->appendRow(dItem);
+    QIcon icon = QIcon::fromTheme(item->getIcon());
+    m_appNameList.append(softName);
+    PageModule *newpage = new PageModule(softName, softName, icon, nullptr);
+    newpage->appendChild(new ItemModule(
+                                 softName,
+                                 softName,
+                                 [item, this](ModuleObject *module) {
+                                     auto notifyWidget = new AppNotifyWidget(item);
+                                     notifyWidget->setSizePolicy(QSizePolicy::Expanding,
+                                                                 QSizePolicy::Expanding);
+                                     connect(notifyWidget,
+                                             &AppNotifyWidget::requestSetAppSetting,
+                                             m_worker,
+                                             &NotificationWorker::setAppSetting);
+                                     return notifyWidget;
+                                 },
+                                 false),
+                         false);
+    m_appNotify->appendChild(newpage);
 }
 
 void NotificationModule::onAppListRemoved(AppItemModel *item)
 {
-    for (int i = m_softwaremodel->rowCount() - 1; i >= 0; --i) {
-        if (m_softwaremodel->item(i)->text() == item->getAppName()) {
-            m_softwaremodel->removeRow(i);
-            break;
-        }
-    }
-}
 
-void NotificationModule::deactive()
-{
-    m_notificationWidget = nullptr;
-    m_appNotifyWidget = nullptr;
-    m_systemNotifyWidget = nullptr;
-    m_contentLayout = nullptr;
+    int index = m_appNameList.indexOf(item->getAppName());
+    if (index >= 0) {
+        m_appNameList.removeAt(index);
+        m_appNotify->removeChild(index);
+    }
 }

@@ -6,6 +6,7 @@
 #include "interface/namespace.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
+#include "interface/hlistmodule.h"
 
 #include <QObject>
 #include <QPointer>
@@ -21,7 +22,7 @@ class NotificationWidget;
 class AppNotifyWidget;
 class SystemNotifyWidget;
 class AppItemModel;
-
+class VListModule;
 class NotificationPlugin : public PluginInterface
 {
     Q_OBJECT
@@ -33,32 +34,21 @@ public:
     virtual QString location() const override;
 };
 
-class NotificationModule: public ModuleObject
-{
+class NotificationModule  : public DCC_NAMESPACE::HListModule {
     Q_OBJECT
 public:
     explicit NotificationModule(QObject *parent = nullptr);
-    virtual ~NotificationModule() override;
     virtual void active() override;
-    virtual void deactive() override;
-
-    virtual QWidget *page() override;
+private Q_SLOTS:
+    void initUi();
     NotificationWorker *work() { return m_worker; }
     NotificationModel *model() { return m_model; }
-
-private Q_SLOTS:
-    void showSystemNotify();
-    void showAppNotify(int index);
     void onAppListAdded(AppItemModel *item);
     void onAppListRemoved(AppItemModel *item);
-
 private:
     NotificationModel *m_model;
     NotificationWorker *m_worker;
-    QPointer<NotificationWidget> m_notificationWidget;
-    QHBoxLayout *m_contentLayout;
-    AppNotifyWidget *m_appNotifyWidget;
-    SystemNotifyWidget *m_systemNotifyWidget;
-    QStandardItemModel *m_softwaremodel;
+    VListModule *m_appNotify;
+    QStringList m_appNameList;
 };
 }
