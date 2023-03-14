@@ -1,12 +1,15 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "interface/namespace.h"
+#include "utils.h"
 
 #include <QFuture>
 #include <QObject>
+
+#include <optional>
 
 class QPluginLoader;
 
@@ -14,7 +17,7 @@ namespace DCC_NAMESPACE {
 class ModuleObject;
 class PluginInterface;
 class LayoutManager;
-}
+} // namespace DCC_NAMESPACE
 
 struct PluginData
 {
@@ -26,14 +29,15 @@ struct PluginData
 
 Q_DECLARE_METATYPE(PluginData)
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 class PluginManager : public QObject
 {
     Q_OBJECT
 public:
     explicit PluginManager(QObject *parent = nullptr);
-    void loadModules(ModuleObject *root, bool async = true);
+    void loadModules(ModuleObject *root,
+                     bool async = true,
+                     const QStringList &dirs = { PLUGIN_DIRECTORY });
     bool loadFinished() const;
 
 public Q_SLOTS:
@@ -48,8 +52,8 @@ private:
     void initModules(const PluginData &data);
     void insertChild(bool force);
 
-    QList<PluginData> m_datas;      //cache for other plugin
-    ModuleObject *m_rootModule;     //root module from MainWindow
+    QList<PluginData> m_datas;  // cache for other plugin
+    ModuleObject *m_rootModule; // root module from MainWindow
     bool m_loadAllFinished;
     QFuture<PluginData> m_future;
 };

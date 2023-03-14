@@ -22,9 +22,6 @@
 
 using namespace DCC_NAMESPACE;
 
-const QString PLUGIN_DIRECTORY = QStringLiteral(DefaultModuleDirectory);
-const QString OLD_PLUGIN_DIRECTORY = QStringLiteral("/usr/lib/dde-control-center/modules/");
-
 bool compareVersion(const QString &targetVersion, const QString &baseVersion)
 {
     const QStringList &version1 = baseVersion.split(".");
@@ -140,7 +137,7 @@ PluginManager::PluginManager(QObject *parent)
     qRegisterMetaType<PluginData>("PluginData");
 }
 
-void PluginManager::loadModules(ModuleObject *root, bool async)
+void PluginManager::loadModules(ModuleObject *root, bool async, const QStringList &dirs)
 {
     if (!root)
         return;
@@ -150,16 +147,13 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
         initModules(data);
     });
 
-    QDir pluginDir(PLUGIN_DIRECTORY);
-#ifdef QT_DEBUG
-    pluginDir.setPath(qApp->applicationDirPath());
-#endif
-    if (!pluginDir.exists()) {
-        qWarning() << "plugin directory not exists";
-        return;
+    QFileInfoList pluginList;
+    for (const auto &dir : dirs) {
+        QDir plugindir(dir);
+        if (plugindir.exists()) {
+            pluginList += plugindir.entryInfoList();
+        }
     }
-
-    auto pluginList = pluginDir.entryInfoList();
 #ifndef QT_DEBUG
     if (PLUGIN_DIRECTORY != OLD_PLUGIN_DIRECTORY) {
         QDir oldPluginDir(OLD_PLUGIN_DIRECTORY);

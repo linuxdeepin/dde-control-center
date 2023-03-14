@@ -1,11 +1,12 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "interface/namespace.h"
 
 #include <dtkcore_global.h>
+
 #include <DMainWindow>
 
 #include <QDBusContext>
@@ -27,22 +28,19 @@ class QBoxLayout;
 class QScrollArea;
 class QAbstractItemView;
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 
 class ModuleObject;
 class PluginManager;
 class SearchWidget;
+
 /**************forward declaring end*****************/
 
 class MainWindow : public Dtk::Widget::DMainWindow, protected QDBusContext
 {
     Q_OBJECT
 public:
-    enum class UrlType {
-        Name,
-        DisplayName
-    };
+    enum class UrlType { Name, DisplayName };
     explicit MainWindow(QWidget *parent = nullptr);
     virtual ~MainWindow() override;
 
@@ -57,11 +55,11 @@ public:
      */
     void showPage(const QString &url);
     QString getAllModule() const;
-    void loadModules(bool async);
+    void loadModules(bool async, const QStringList &dirs);
 
     QString GrandSearchSearch(const QString json);
-    bool GrandSearchStop(const QString json);
-    bool GrandSearchAction(const QString json);
+    bool GrandSearchStop(const QString &json);
+    bool GrandSearchAction(const QString &json);
 
 protected:
     void changeEvent(QEvent *event) override;
@@ -72,13 +70,16 @@ private:
     void openManual();
     void initUI();
     void initConfig();
-    void configModule(QString url,ModuleObject *module);
+    void configModule(QString url, ModuleObject *module);
     void toHome();
     void updateMainView();
     void clearPage(QWidget *const widget);
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
-    ModuleObject *findModule(ModuleObject *const module, const QString &url, const UrlType &uType, bool fuzzy = true);
+    ModuleObject *findModule(ModuleObject *const module,
+                             const QString &url,
+                             const UrlType &uType,
+                             bool fuzzy = true);
     void showModule(ModuleObject *const module);
     void resizeCurrentModule(int size);
 
@@ -91,17 +92,15 @@ private Q_SLOTS:
     void updateModuleConfig(const QString &key);
 
 private:
-    Dtk::Widget::DIconButton            *m_backwardBtn;         //回退按钮
-    Dtk::Core::DConfig                  *m_dconfig;             //配置
-    SearchWidget                        *m_searchWidget;        //搜索框
-    ModuleObject                        *m_rootModule;
-    QList<ModuleObject *>               m_currentModule;
-    PluginManager                       *m_pluginManager;
+    Dtk::Widget::DIconButton *m_backwardBtn; // 回退按钮
+    Dtk::Core::DConfig *m_dconfig;           // 配置
+    SearchWidget *m_searchWidget;            // 搜索框
+    ModuleObject *m_rootModule;
+    QList<ModuleObject *> m_currentModule;
+    PluginManager *m_pluginManager;
 
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
 };
 
 } // namespace DCC_NAMESPACE
-
-
