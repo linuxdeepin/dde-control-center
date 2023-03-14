@@ -60,7 +60,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     if (outArgsCPU.count()) {
         QString cpuHardware = outArgsCPU.at(0).value<QDBusVariant>().variant().toString();
         qInfo() << Q_FUNC_INFO << "Current cpuHardware:" << cpuHardware;
-        if (cpuHardware == "PANGU") {
+        if (cpuHardware.contains("PANGU")) {
             validFrequency = "CPUMaxMHz";
         }
     }
