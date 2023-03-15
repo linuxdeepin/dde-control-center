@@ -114,7 +114,7 @@ public:
                 module->setContentsMargins(60, 0, 60, 0);
                 module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH + 60 * 2);
             }
-            while (!m_layout->isEmpty()) {
+            while (m_layout->count() != 0) {
                 QLayoutItem *item = m_layout->takeAt(0);
                 if (item->widget() && item->widget() != m_view && item->widget() != m_sidebarWidget)
                     delete item->widget();
