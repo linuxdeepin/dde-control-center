@@ -7,8 +7,10 @@
 #include <QObject>
 #include <QDebug>
 
+// INFO: https://github.com/bluez/bluez/blob/master/src/dbus-common.c#L53-L115
+// Take here as reference
 static const QMap<QString, QString> deviceType2Icon {
-    { "unknow", "other" },
+    { "unknown", "other" },
     { "computer", "pc" },
     { "phone", "phone" },
     { "video-display", "vidicon" },
@@ -18,7 +20,9 @@ static const QMap<QString, QString> deviceType2Icon {
     { "input-mouse", "mouse" },
     { "input-gaming", "other" },
     { "input-tablet", "touchpad" },
-    { "audio-card", "pheadset" },
+    { "audio-card", "other" },
+    { "audio-headset", "pheadset" },
+    { "audio-headphones", "pheadset" },
     { "network-wireless", "lan" },
     { "camera-video", "vidicon" },
     { "printer", "print" },
