@@ -44,5 +44,5 @@ DESKTOP_TS_DIR=translations/desktop/
 # keyboard_language 无源文件，直接修改keyboard_language_en.ts
 
 # 推送翻译
-tx push -s -b m23
+tx push -s --branch m23
 cd ${CURRENT_DIR}
