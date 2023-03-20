@@ -1194,6 +1194,10 @@
         <translation>མཐེབ་གཞོང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>བརྡ་ཐོ།</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>རྒྱུད་ཁོངས་ཀྱི་བརྡ་ཐོ།</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>ཉེར་སྤྱོད་བརྡ་ཐོ།</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

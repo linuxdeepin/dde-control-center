@@ -1194,6 +1194,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>යතුරුපුවරු පිරිසැලසුම</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>දැනුම්දීම්</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>පද්ධති දැනුම්දීම්</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>යෙදවුම් දැනුම්දීම්</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

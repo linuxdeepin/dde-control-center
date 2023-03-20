@@ -1194,6 +1194,10 @@
         <translation>键盘设置</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>键盘布局</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>应用通知</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
+        <source>SystemNotify</source>
         <translation>系统通知</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>应用通知</translation>
     </message>
 </context>
 <context>

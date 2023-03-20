@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Samenwerkingsinstellingen</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Muis en toetsenbord delen</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Deel je muis en toetsenbord tussen apparaten</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Klembord delen</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Opslaglocatie van gedeelde bestanden</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Deel gekopieerde inhoud tussen apparaten</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Oké</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Computersamenwerking</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Apparaatoriëntatie</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>Bovenaan</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Onderaan</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>Links</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Mijn apparaten</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Andere apparaten</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1194,10 @@
         <translation>Toetsenbordinstellingen</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Toetsenbordindeling</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Toetsenbordindeling</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>AppNotify</translation>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>Meldingen</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>Systeemmeldingen</translation>
+        <translation>Melding</translation>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>Programmameldingen</translation>
+        <source>SystemNotify</source>
+        <translation>SystemNotify</translation>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Taal toevoegen</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3091,7 +3092,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Herstellen</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3210,7 +3211,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Samenwerkingsinstellingen</translation>
     </message>
 </context>
 <context>
@@ -3400,11 +3401,11 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Computer</translation>
     </message>
     <message>
         <source>Version</source>

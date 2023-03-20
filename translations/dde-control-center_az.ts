@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Birgə iş ayarları</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Siçan və klaviaturadan birgə istifadə</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Cihazlarınızda siçan və klaviaturadan birgə istifadə edin</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Mübadilə yaddaşından birgə istifadə</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Paylaşılan faylları saxlamaq üçün yer</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Ciahazlarınızda mübadilə yaddaşını birgə istifadə edin</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>İmtina edirəm</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Təsdiq edirəm</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>PC ilə birgə iş</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Cihazın dönmə istiqaməti</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>Yuxarıda</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>Sağda</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıda</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>Solda</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Cihazlarım</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Digər cihazlar</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1194,10 @@
         <translation>Klaviatura ayarları</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Klaviatura qatı</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>Bildiriş</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>Sistem bildirişləri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>Tətbiq bildirişləri</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Dil əlavə edin</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3100,7 +3101,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Sıfırlayın</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3219,7 +3220,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Birgə iş ayarları</translation>
     </message>
 </context>
 <context>
@@ -3409,11 +3410,11 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>İş masası</translation>
     </message>
     <message>
         <source>Version</source>
