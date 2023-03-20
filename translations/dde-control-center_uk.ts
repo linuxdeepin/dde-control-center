@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Параметри співпраці</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Спільне використання миші і клавіатури</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Спільне використання миші і клавіатури між пристроями</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Спільне використання буфера обміну</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Шлях зберігання для спільних файлів</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Спільне використання скопійованих даних між пристроями</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Підтвердити</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Взаємодія ПК</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Орієнтація пристрою</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>Згори</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>Праворуч</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Знизу</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>Ліворуч</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Мої пристрої</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Інші пристрої</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1194,10 @@
         <translation>Налаштування клавіатури</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Розкладка клавіатури</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Розкладка клавіатури</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>AppNotify</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Сповіщення</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>Сповіщення системи</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Сповіщення програм</translation>
+        <source>SystemNotify</source>
+        <translation>SystemNotify</translation>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Додати мову</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3101,7 +3102,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Скинути</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3220,7 +3221,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Параметри співпраці</translation>
     </message>
 </context>
 <context>
@@ -3410,11 +3411,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Робоча станція</translation>
     </message>
     <message>
         <source>Version</source>

@@ -1194,6 +1194,10 @@
         <translation>كۇنۇپكا تاختىسى تەڭشىكى</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>ئۇقتۇرۇش</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>سىستېما ئۇقتۇرۇشى</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>ئەپ ئۇقتۇرۇشى</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2517,7 +2518,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>يورۇقلۇقنى ئاپتوماتىك تۆۋەنلىتىش</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -2626,7 +2627,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ئۈستەليۈزى نۇسخىسى</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2707,7 +2708,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>سىنبەلگە تەڭشىكى</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -2719,7 +2720,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>خەت تەڭشىكى</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -2812,14 +2813,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>شەخسىيەت ۋە بىخەتەرلىك</translation>
     </message>
 </context>
 <context>
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>سۈرەت ئۈسكۈنىسى</translation>
     </message>
     <message>
         <source>Microphone</source>
@@ -2827,7 +2828,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>ئىشلەتكۈچى ھۆججەت قىسقۇچى</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2835,7 +2836,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننى سۈرەت تۇتۇش</translation>
     </message>
 </context>
 <context>
@@ -2911,35 +2912,35 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>كامېرانى ئىشلىتىش ھوقۇقى تەلەپ قىلغان ئەپلەر:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>مىكروفوننى ئىشلىتىش ھوقۇقى تەلەپ قىلغان ئەپلەر:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>ئىشلەتكۈچى ھۆججەت قىسقۇچىنى ئوقۇش ھوقۇقى تەلەپ قىلغان ئەپلەر:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>كالىندارنى ئوقۇش ھوقۇقى تەلەپ قىلغان ئەپلەر:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننى سۈرەت تۇتۇش ھوقۇقى تەلەپ قىلغان ئەپلەر:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>ھازىرچە ھېچقانداق ئەپ كامېرا ئىشلىتىش ھوقۇقى تەلەپ قىلمىدى</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>ھازىرچە ھېچقانداق ئەپ مىكروفون ئىشلىتىش ھوقۇقى تەلەپ قىلمىدى</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>ھازىرچە ھېچقانداق ئەپ ئىشلەتكۈچى ھۆججەت قىسقۇچىنى ئوقۇش ھوقۇقى تەلەپ قىلمىدى</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>

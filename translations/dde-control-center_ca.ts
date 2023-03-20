@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de la col·laboració</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Comparteix el ratolí i el teclat.</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Comparteix el ratolí i el teclat entre dispositius.</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Comparteix el porta-retalls.</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Camí d&apos;emmagatzematge per a fitxers compartits</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Comparteix el contingut copiat entre dispositius.</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Col·laboració de PC</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientació del dispositiu</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>A dalt</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>A la dreta</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>A baix</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>A l&apos;esquerra</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Els meus dispositius</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Altres dispositius</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1194,10 @@
         <translation>Configuració del teclat</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Disposició del teclat</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Disposició del teclat</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>Notificació d&apos;aplicació</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Notificació</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>Notificacions del sistema</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Notificacions d&apos;aplicacions</translation>
+        <source>SystemNotify</source>
+        <translation>Notificació del sistema</translation>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix-hi una llengua</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2185,7 +2186,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Mantén-lo visible</translation>
+        <translation>Mantén-ho visible</translation>
     </message>
     <message>
         <source>Keep hidden</source>
@@ -3100,7 +3101,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Restableix</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3219,7 +3220,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de la col·laboració</translation>
     </message>
 </context>
 <context>
@@ -3409,11 +3410,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escriptori</translation>
     </message>
     <message>
         <source>Version</source>

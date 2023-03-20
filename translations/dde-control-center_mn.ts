@@ -1194,6 +1194,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Гарын байршил</translation>
     </message>
@@ -1384,20 +1388,17 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
     <message>
-        <source>Notification</source>
-        <translation>Мэдэгдэл</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
+        <source>AppNotify</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
+        <source>Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>SystemNotify</source>
         <translation type="unfinished"/>
     </message>
 </context>

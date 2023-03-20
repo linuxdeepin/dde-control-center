@@ -1194,6 +1194,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation type="unfinished"/>
     </message>
@@ -1384,20 +1388,17 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>App Notifications</source>
+        <source>SystemNotify</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3086,11 +3087,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cancel</source>
+        <source>Reset</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
+        <source>Save</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3119,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
         <translation type="unfinished"/>
     </message>
 </context>

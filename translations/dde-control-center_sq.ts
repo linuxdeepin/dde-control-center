@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Bashkëpunimi</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Nda mi dhe tastierë</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Përdorni miun dhe tastierën tuaj nëpër pajisje</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Nda të papastrën</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Shteg depozitimi për kartela të ndara</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Përdoreni nëpër pajisje lëndën e kopjuar </translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Bashkëpunim Me PC</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientim Pajisjeje</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>Në krye</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Në fund</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisjet e Mia</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje të Tjera</translation>
     </message>
 </context>
 <context>
@@ -1115,7 +1115,7 @@
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1192,6 +1192,10 @@
     <message>
         <source>Keyboard Settings</source>
         <translation>Rregullime Tastiere</translation>
+    </message>
+    <message>
+        <source>keyboard Layout</source>
+        <translation>Skemë tastiere</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1296,7 +1300,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Bashkëpunim Në Shumë Ekranë</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Njoftim</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>Njoftime Sistemi</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Njoftime Aplikacionesh</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Gjuhë</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3219,7 +3220,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Bashkëpunimi</translation>
     </message>
 </context>
 <context>
@@ -3409,11 +3410,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3557,7 +3558,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -3636,7 +3637,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>

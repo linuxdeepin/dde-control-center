@@ -62,11 +62,11 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Všechny soubory (*)</translation>
     </message>
 </context>
 <context>
@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení spolupráce</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Sdílet myš a klávesnici</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Sdílet myš a klávesnici napříč zařízeními</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Sdílet schránku</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Umístění sdílených souborů</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Sdílet zkopírovaný obsah napříč zařízeními</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Potvrdit</translation>
     </message>
 </context>
 <context>
@@ -683,47 +683,47 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Spolupráce s více obrazovkami</translation>
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Spolupráce s počítačem</translation>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Připojit k</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat zařízení pro spolupráci</translation>
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Natočení zařízení</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>Nahoře</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>Napravo</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Dole</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>Nalevo</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Má zařízení</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Ostatní zařízení</translation>
     </message>
 </context>
 <context>
@@ -1079,7 +1079,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení klávesnice</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1191,6 +1191,10 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
+        <translation>Nastavení klávesnice</translation>
+    </message>
+    <message>
+        <source>keyboard Layout</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1296,7 +1300,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identifikovat</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>Upozornění</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>Upozornění ze systému</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>Upozorňování z aplikací</translation>
+        <source>SystemNotify</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1811,7 +1812,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Smlouvy a zásady ochrany osobních údajů</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Přidat jazyk</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2142,7 +2143,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit nedávné aplikace na panelu</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2517,7 +2518,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Snížit jas</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -2707,7 +2708,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení ikon</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -2719,7 +2720,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení textu</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -2812,7 +2813,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Ochrana osobních údajů a zabezpečení</translation>
     </message>
 </context>
 <context>
@@ -2827,7 +2828,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>Složky uživatele</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2835,7 +2836,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Záznam obrazovky</translation>
     </message>
 </context>
 <context>
@@ -2911,43 +2912,43 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace mohou přistupovat k fotoaparátu:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace mohou přistupovat k mikrofonu:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace mohou přistupovat ke složkám:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace mohou přistupovat ke kalendáři:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace mohou přistupovat k záznamu obrazovky:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Žádné aplikace nevyžadují přístup k fotoaparátu</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>Žádné aplikace nevyžadují přístup k mikrofonu</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>Žádné aplikace nevyžadují přístup ke složkám</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>Žádné aplikace nevyžadují přístup ke kalendáři</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Žádné aplikace nevyžadují přístup k záznamu obrazovky</translation>
     </message>
 </context>
 <context>
@@ -3070,7 +3071,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Při nastavení hlasitosti na více než 100 % (softwarově), může být zvuk zkreslený a dojít k poškození reproduktorů</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3101,7 +3102,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3163,11 +3164,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Uložit nastavení obrazovky?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení bude vráceno za %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -3220,7 +3221,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení spolupráce</translation>
     </message>
 </context>
 <context>
@@ -3410,11 +3411,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pracovní plocha</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3558,11 +3559,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Obrazovka a uspání</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Vypnout monitor po</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3570,7 +3571,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Počítač bude uspán po</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3582,15 +3583,15 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Při stisknutí tlačítka napájení</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Nízký stav nabití akumulátoru</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Upozornění na nízkou úroveň nabití akumulátoru</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3602,7 +3603,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Správa akumulátoru</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3637,11 +3638,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Obrazovka a uspání</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Vypnout monitor po</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3649,7 +3650,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Počítač bude uspán po</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3657,7 +3658,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Při stisknutí tlačítka napájení</translation>
     </message>
     <message>
         <source>Shut down</source>

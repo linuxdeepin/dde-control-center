@@ -1194,6 +1194,10 @@
         <translation>Keyboard Settings</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>keyboard Layout</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Keyboard Layout</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>AppNotify</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Notification</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>System Notifications</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>App Notifications</translation>
+        <source>SystemNotify</source>
+        <translation>SystemNotify</translation>
     </message>
 </context>
 <context>
@@ -3101,7 +3102,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Reset</translation>
     </message>
     <message>
         <source>Save</source>

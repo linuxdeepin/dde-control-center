@@ -1194,6 +1194,10 @@
         <translation>Billentyűzet beállításai</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Billentyűzetkiosztás</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Billentyűzetkiosztás</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>Alkalmazás értesítések</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Értesítések</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>Rendszerértesítések</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Alkalmazásértesítések</translation>
+        <source>SystemNotify</source>
+        <translation>Rendszer értesítések</translation>
     </message>
 </context>
 <context>
@@ -2846,7 +2847,7 @@ időformátum</translation>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Vezérlőközpont</translation>
+        <translation>Vezérlőpult</translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -3721,7 +3722,7 @@ lecsukásakor</translation>
     <name>main</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>A Vezérlőközpont lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
+        <translation>A Vezérlőpult lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
     </message>
 </context>
 <context>

@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Por favor escaneé otros dedos</translation>
+        <translation>Escanee otros dedos</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -1194,6 +1194,10 @@
         <translation>Configuración de Teclado</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Distribución del teclado</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Distribución del teclado</translation>
     </message>
@@ -1384,21 +1388,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>Notificación de la aplicación</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>Notificaciones</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
-        <translation>Notificaciones</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Notificaciones de las aplicaciones</translation>
+        <source>SystemNotify</source>
+        <translation>Notificación del sistema</translation>
     </message>
 </context>
 <context>
@@ -1864,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Añadir idioma</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2124,7 +2125,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Show Dock</source>
-        <translation>Mostrar el dock</translation>
+        <translation>Mostrar el muelle</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -2140,7 +2141,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation>Mostrar aplicaciones recientes en el Dock</translation>
+        <translation>Mostrar aplicaciones recientes en el muelle</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2152,7 +2153,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Seleccionar los iconos que aparecen en el Dock</translation>
+        <translation>Seleccione los iconos que aparecerán en el muelle</translation>
     </message>
     <message>
         <source>Fashion mode</source>
@@ -2294,7 +2295,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Escaneé los bordes de su huella dactilar</translation>
+        <translation>Escanee los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
@@ -2352,7 +2353,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>FormatSettingModule</name>
     <message>
         <source>Time Format</source>
-        <translation>Formato de Hora</translation>
+        <translation>Formato de hora</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -3087,7 +3088,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation>Ajustes de Hora</translation>
+        <translation>Ajustes de hora</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3099,7 +3100,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3131,7 +3132,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Day</source>
-        <translation>Dia</translation>
+        <translation>Día</translation>
     </message>
 </context>
 <context>

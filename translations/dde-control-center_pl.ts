@@ -464,7 +464,7 @@
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>Zresetuj hasło</translation>
+        <translation>Resetuj hasło</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
@@ -515,7 +515,7 @@
     </message>
     <message>
         <source>Password not match</source>
-        <translation>Hasło nie pasuje</translation>
+        <translation>Hasła nie pasują do siebie</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1194,10 @@
         <translation>Ustawienia klawiatury</translation>
     </message>
     <message>
+        <source>keyboard Layout</source>
+        <translation>Układ klawiatury</translation>
+    </message>
+    <message>
         <source>Keyboard Layout</source>
         <translation>Układ klawiatury</translation>
     </message>
@@ -1221,7 +1225,7 @@
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>Zresetuj hasło</translation>
+        <translation>Resetuj hasło</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -1376,29 +1380,26 @@
     </message>
     <message>
         <source>Extend</source>
-        <translation>Rozwiń</translation>
+        <translation>Rozszerz</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Tylko w %1</translation>
+        <translation>Tylko na %1</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>Powiadomienie aplikacji</translation>
+    </message>
     <message>
         <source>Notification</source>
-        <translation>Powiadomienia</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
-    <message>
-        <source>System Notifications</source>
-        <translation>Powiadomienia systemowe</translation>
+        <translation>Powiadomienie</translation>
     </message>
     <message>
-        <source>App Notifications</source>
-        <translation>Powiadomienia aplikacji</translation>
+        <source>SystemNotify</source>
+        <translation>Powiadomienie systemowe</translation>
     </message>
 </context>
 <context>
@@ -1738,7 +1739,7 @@
     <name>dccV23::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation>Zresetuj skrót</translation>
+        <translation>Resetuj skrót</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2634,7 +2635,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Window Effect</source>
-        <translation>Efekt okna</translation>
+        <translation>Efekty okna</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -2827,7 +2828,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>User Folders</source>
-        <translation>Katalogi użytkownika</translation>
+        <translation>Foldery użytkownika</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2919,7 +2920,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation>Aplikacje mające dostęp do katalogów:</translation>
+        <translation>Aplikacje mające dostęp do folderów użytkownika:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
@@ -2939,7 +2940,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation>Brak aplikacji żądających dostępu do katalogów</translation>
+        <translation>Brak aplikacji żądających dostępu do folderów użytkownika</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
@@ -3101,7 +3102,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Resetuj</translation>
     </message>
     <message>
         <source>Save</source>
