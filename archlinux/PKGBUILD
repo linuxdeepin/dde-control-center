@@ -2,6 +2,9 @@ pkgname=deepin-control-center-git
 _pkgname=deepin-control-center
 pkgver=5.4.47.r673.g52c86a908
 pkgrel=1
+sourcename=deepin-control-center
+sourcetars=("$sourcename"_"$pkgver".tar.xz)
+sourcedir="$sourcename"
 pkgdesc='New control center for linux deepin'
 arch=('x86_64' 'aarch64')
 url="https://github.com/linuxdeepin/dde-control-center"
@@ -25,14 +28,14 @@ conflicts=('deepin-control-center')
 provides=('deepin-control-center')
 optdepends=('deepin-network-core-git' 'networkmanager-qt')
 groups=('deepin-git')
-source=("source.tar.gz")
+source=("${sourcetars[@]}")
 sha512sums=('SKIP')
 prepare() {
-    cd $deepin_source_name
+    cd $sourcedir
 }
 
 build() {
-  cd $deepin_source_name
+  cd $sourcedir
   cmake -GNinja \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DDISABLE_UPDATE=ON \
@@ -43,6 +46,6 @@ build() {
 }
 
 package() {
-  cd $deepin_source_name
+  cd $sourcedir
   DESTDIR="$pkgdir" ninja install
 }
