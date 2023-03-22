@@ -37,8 +37,7 @@ UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, 
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_editBtn(new DCommandLinkButton(tr("Edit")))
     , m_addBtn(new DCommandLinkButton(tr("Add UserGroup")))
-    , m_isItemEditting(false)
-    , m_isAddItem(false)
+    , m_groupPageStatus(Normal)
 {
     initWidget();
     initData();
@@ -78,12 +77,8 @@ void UserGroupsPage::changeUserGroup(const QStringList &groups)
 
 void UserGroupsPage::GroupClicked(UserGroupsInfoItem *item, const QString &groupName)
 {
-    if (m_isAddItem)
+    if (Normal != groupPageStatus() || !item->isEnabled())
         return;
-    if (m_isItemEditting || !item->isEnabled()) {
-        m_isItemEditting = false;
-        return;
-    }
     QStringList curUserGroup;
     int row_count = m_vecItem.count();
     for (int i = 0; i < row_count; ++i) {
@@ -170,14 +165,17 @@ void UserGroupsPage::onGidChanged(const QString &gid)
 
 void UserGroupsPage::cancelAddGroup()
 {
-    m_isAddItem = false;
-    m_isItemEditting = false;
+    setGroupPageStatus(Normal);
     m_vecItem.pop_back();
     onGidChanged(m_curUser->gid());
 }
 
 void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
 {
+    QTimer::singleShot(0,this,[=] () { // GroupClicked need this status to skip onec click;
+        if (ItemEditting == groupPageStatus())
+            setGroupPageStatus(Normal);
+    });
     QString oldGroup = item->getTitle();
     QString newGroup = group.trimmed();
     if (newGroup.isEmpty()) {
@@ -206,7 +204,6 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
         cancelAddGroup();
         return;
     }
-    m_isItemEditting = false;
     // Nodify group
     Q_EMIT requestModifyGroup(oldGroup,newGroup,0);
     m_listGrp->setFocus();
@@ -219,7 +216,7 @@ void UserGroupsPage::removeClicked(UserGroupsInfoItem *item, QString group)
 
 void UserGroupsPage::addGroupItem()
 {
-    if (m_isItemEditting || m_isAddItem || m_editBtn->text() == tr("Done"))
+    if (Normal != groupPageStatus() || m_editBtn->text() == tr("Done"))
         return;
     foreach (auto var, m_vecItem) {
         var->setEnabled(false);
@@ -236,7 +233,7 @@ void UserGroupsPage::addGroupItem()
     connect(userInfoItem, &UserGroupsInfoItem::editTextFinished, this, &UserGroupsPage::editTextFinished);
     userInfoItem->setEditTitle(true);
     userInfoItem->setShowIcon(true);
-    m_isAddItem = true;
+    setGroupPageStatus(ItemAdding);
 
     connect(m_contentArea->verticalScrollBar(),&QScrollBar::rangeChanged,this,[this](int min, int max){
         m_contentArea->verticalScrollBar()->setValue(max);
@@ -246,13 +243,12 @@ void UserGroupsPage::addGroupItem()
 
 void UserGroupsPage::onItemEdit()
 {
-    m_isItemEditting = true;
+    setGroupPageStatus(ItemEditting);
 }
 
 void UserGroupsPage::onGroupListChanged(const QStringList &value)
 {
-    m_isItemEditting = false;
-    m_isAddItem = false;
+    setGroupPageStatus(Normal);
     m_editBtn->setText(tr("Edit"));
     initData();
 }
@@ -278,17 +274,17 @@ void UserGroupsPage::initWidget()
     m_layout->addLayout(layoutGroupTip);
 
     connect(m_editBtn, &DCommandLinkButton::clicked, this, [this] {
-        if (m_isItemEditting) {
-            m_isItemEditting = false;
-            return;
-        }
-        if (m_isAddItem)
+        if (ItemAdding == groupPageStatus() || ItemEditting == groupPageStatus())
             return;
         bool isEdit = m_editBtn->text() == tr("Edit");
         foreach (auto var, m_vecItem) {
             var->setEditStatus(isEdit);
         }
-        m_editBtn->setText(isEdit ? tr("Done") : tr("Edit"));
+        if (isEdit) {
+            setGroupPageStatus(ItemListEditting);
+        } else {
+            setGroupPageStatus(Normal);
+        }
     });
 
     QVBoxLayout *vLayout = new QVBoxLayout(this);
@@ -568,4 +564,36 @@ void UserGroupsInfoItem::leaveEvent(QEvent *event)
 //    DApplicationHelper::instance()->setPalette(this, m_currentpa);
 //    m_editBtn->hide();
     QFrame::leaveEvent(event);
+}
+
+UserGroupsPage::GroupPageStatus UserGroupsPage::groupPageStatus() const
+{
+    return m_groupPageStatus;
+}
+
+void UserGroupsPage::setGroupPageStatus(GroupPageStatus newGroupPageStatus)
+{
+    if (m_groupPageStatus == newGroupPageStatus)
+        return;
+
+    switch (newGroupPageStatus) {
+    case Normal:
+        m_addBtn->setEnabled(true);
+        m_editBtn->setEnabled(true);
+        m_editBtn->setText(tr("Edit"));
+        break;
+    case ItemEditting:
+    case ItemAdding:
+        m_addBtn->setEnabled(false);
+        m_editBtn->setEnabled(false);
+        break;
+    case ItemListEditting:
+        m_addBtn->setEnabled(false);
+        m_editBtn->setEnabled(true);
+        m_editBtn->setText(tr("Done"));
+        break;
+    default:
+        break;
+    }
+    m_groupPageStatus = newGroupPageStatus;
 }

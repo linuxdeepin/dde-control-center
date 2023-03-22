@@ -89,6 +89,16 @@ public:
     explicit UserGroupsPage(dcc::accounts::User *user, dcc::accounts::UserModel *userModel, dcc::ContentWidget *parent = nullptr);
     ~UserGroupsPage();
 
+    typedef enum {
+        Normal,
+        ItemEditting,
+        ItemAdding,
+        ItemListEditting
+    }GroupPageStatus;
+
+    GroupPageStatus groupPageStatus() const;
+    void setGroupPageStatus(GroupPageStatus newGroupPageStatus);
+
 Q_SIGNALS:
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requestDeleteGroup(const QString &group);
@@ -129,8 +139,7 @@ private:
     QVector<UserGroupsInfoItem*> m_vecItem;
     DCommandLinkButton *m_editBtn;
     DCommandLinkButton *m_addBtn;
-    bool m_isItemEditting;
-    bool m_isAddItem;
+    GroupPageStatus m_groupPageStatus;
 };
 }
 }
