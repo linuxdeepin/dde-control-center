@@ -5,6 +5,7 @@
 #pragma once
 
 #include "interface/moduleinterface.h"
+#include "window/dconfigwatcher.h"
 
 #include <QGSettings>
 #include <QObject>
@@ -75,6 +76,7 @@ private:
     double m_nBatteryPercentage;
     QGSettings *m_powerSetting;
     MainWindow *m_pMainWindow;
+    DConfig *m_dconfig;
 };
 
 } // namespace power

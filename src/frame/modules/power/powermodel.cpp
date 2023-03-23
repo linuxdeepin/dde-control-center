@@ -41,6 +41,8 @@ PowerModel::PowerModel(QObject *parent)
     , m_isSuspend(false)
     , m_isHibernate(false)
     , m_isShutdown(false)
+    , m_isPowerBtnTurnOffMonitor(true)
+    , m_isLidTurnOffMonitor(true)
     , m_powerPlan("")
     , m_isHighPerformanceSupported(false)
     , m_isBalanceSupported(false)
@@ -362,5 +364,21 @@ void PowerModel::setShutdown(bool shutdown)
         m_isShutdown = shutdown;
 
         Q_EMIT shutdownChanged(shutdown);
+    }
+}
+
+void PowerModel::setPowerBtnTurnOffMonitor(bool turnOffMonitor)
+{
+    if (m_isPowerSaveSupported != turnOffMonitor) {
+        m_isPowerSaveSupported = turnOffMonitor;
+        Q_EMIT powerBtnTurnOffMonitorChanged(turnOffMonitor);
+    }
+}
+
+void PowerModel::setLidTurnOffMonitor(bool turnOffMonitor)
+{
+    if (m_isLidTurnOffMonitor != turnOffMonitor) {
+        m_isLidTurnOffMonitor = turnOffMonitor;
+        Q_EMIT lidTurnOffMonitorChanged(turnOffMonitor);
     }
 }

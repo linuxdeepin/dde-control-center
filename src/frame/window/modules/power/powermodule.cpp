@@ -33,6 +33,7 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
     , m_powerSetting(nullptr)
+    , m_dconfig(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     GSettingWatcher::instance()->insertState("general");
@@ -90,6 +91,20 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
             qWarning() << " not contains the key : " << key;
         }
     });
+
+    m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::power);
+    if (m_dconfig && m_dconfig->isValid()) {
+        m_model->setPowerBtnTurnOffMonitor(m_dconfig->value("powerBtnTurnOffMonitor", true).toBool());
+        m_model->setLidTurnOffMonitor(m_dconfig->value("lidTurnOffMonitor", true).toBool());
+
+        connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString &key) {
+            if (key == "powerBtnTurnOffMonitor") {
+                m_model->setPowerBtnTurnOffMonitor(m_dconfig->value("powerBtnTurnOffMonitor", true).toBool());
+            } else if (key == "lidTurnOffMonitor") {
+                m_model->setLidTurnOffMonitor(m_dconfig->value("lidTurnOffMonitor", true).toBool());
+            }
+        });
+    }
 
     addChildPageTrans();
     initSearchData();

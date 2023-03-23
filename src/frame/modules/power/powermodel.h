@@ -123,6 +123,12 @@ public:
     inline bool getShutdown() const { return m_isShutdown; }
     void setShutdown(bool shutdown);
 
+    inline bool getPowerBtnTurnOffMonitor() const { return  m_isPowerSaveSupported;}
+    void setPowerBtnTurnOffMonitor(bool turnOffMonitor);
+
+    inline bool getLidTurnOffMonitor() const { return  m_isLidTurnOffMonitor;}
+    void setLidTurnOffMonitor(bool turnOffMonitor);
+
     inline QString getPowerPlan() const { return m_powerPlan; }
     void setPowerPlan(const QString &powerPlan);
 
@@ -176,6 +182,8 @@ Q_SIGNALS:
     void highPerformaceSupportChanged(bool value);
     void balanceSupportChanged(bool value);
     void powerSaveSupportChanged(bool value);
+    void powerBtnTurnOffMonitorChanged(bool value);
+    void lidTurnOffMonitorChanged(bool value);
 
 private:
     bool m_lidPresent;//以此判断是否为笔记本
@@ -212,6 +220,8 @@ private:
     bool m_isSuspend;
     bool m_isHibernate;
     bool m_isShutdown;
+    bool m_isPowerBtnTurnOffMonitor;
+    bool m_isLidTurnOffMonitor;
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;

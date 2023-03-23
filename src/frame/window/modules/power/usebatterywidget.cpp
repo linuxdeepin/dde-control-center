@@ -247,6 +247,18 @@ void UseBatteryWidget::setModel(const PowerModel *model)
         setCloseLid(model, model->batteryLidClosedAction());
     });
 
+    connect(m_model, &PowerModel::powerBtnTurnOffMonitorChanged, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
+
+    connect(m_model, &PowerModel::lidTurnOffMonitorChanged, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
+
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
 
@@ -423,13 +435,22 @@ void UseBatteryWidget::updatePowerButtonActionList()
     if (m_model->getHibernate()) {
         options.insert(PowerModel::Hibernate, tr("Hibernate"));
     }
-    options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
+    if (m_model->getPowerBtnTurnOffMonitor()) {
+        options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
+    }
     options.insert(PowerModel::ShowSessionUI, tr("Do nothing"));
     setComboxOption(m_cmbPowerBtn, options);
     m_cmbPowerBtn->addBackground();
     // 合盖操作无关机选项
     if (m_model->getShutdown()) {
         options.remove(PowerModel::Shutdown);
+    }
+    if (m_model->getLidTurnOffMonitor()) {
+        if (!options.contains(PowerModel::TurnOffScreen)) {
+            options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
+        }
+    } else {
+        options.remove(PowerModel::TurnOffScreen);
     }
     setComboxOption(m_cmbCloseLid, options);
     m_cmbCloseLid->addBackground();

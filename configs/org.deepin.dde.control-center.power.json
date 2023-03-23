@@ -1,0 +1,29 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "powerBtnTurnOffMonitor": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "power_btn_turn_off_monitor",
+            "name[zh_CN]": "按电源键时是否允许关闭显示器",
+            "description[zh_CN]": "如果启用该配置，则可以设置在按下电源键时关闭显示器",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "lidTurnOffMonitor": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "lid_turn_off_monitor",
+            "name[zh_CN]": "合盖时是否允许关闭显示器",
+            "description[zh_CN]": "如果启用该配置，则可以设置在合盖时关闭显示器",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+}
+
