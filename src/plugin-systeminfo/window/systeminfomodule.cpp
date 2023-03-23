@@ -52,14 +52,16 @@ void SystemInfoModule::initChildModule()
     appendChild(moduleAboutPc);
 
     moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", "", this, &SystemInfoModule::initLogoModule));
-    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer || (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer || DSysInfo::uosType() == DSysInfo::UosType::UosDesktop || DSysInfo::uosType() == DSysInfo::UosType::UosTypeUnknown) {
         moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));
-        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
-        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
+        if (DSysInfo::uosType() != DSysInfo::UosType::UosTypeUnknown) {
+            moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
+            moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
+        }
     }
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("edition", tr("Edition"), this, &SystemInfoModule::initEditionModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("type", tr("Type"), this, &SystemInfoModule::initTypeModule));
-    if (!IS_COMMUNITY_SYSTEM && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
+    if (!(IS_COMMUNITY_SYSTEM || DSysInfo::UosEditionUnknown == DSysInfo::uosEditionType()) && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
         moduleAboutPc->appendChild(new WidgetModule<TitleAuthorizedItem>("authorization", tr("Authorization"), this, &SystemInfoModule::initAuthorizationModule));
     }
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
