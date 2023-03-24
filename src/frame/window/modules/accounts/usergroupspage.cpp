@@ -176,6 +176,7 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
         if (ItemEditting == groupPageStatus())
             setGroupPageStatus(Normal);
     });
+    setFocus();
     QString oldGroup = item->getTitle();
     QString newGroup = group.trimmed();
     if (newGroup.isEmpty()) {
@@ -200,13 +201,11 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
         // Create group
         Q_EMIT requestCreateGroup(newGroup, 0, false);
         item->setVisible(false);
-        m_listGrp->setFocus();
         cancelAddGroup();
         return;
     }
     // Nodify group
     Q_EMIT requestModifyGroup(oldGroup,newGroup,0);
-    m_listGrp->setFocus();
 }
 
 void UserGroupsPage::removeClicked(UserGroupsInfoItem *item, QString group)
