@@ -1,23 +1,24 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundeffectspage.h"
 
 #include "soundmodel.h"
+#include "widgets/dcclistview.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titlelabel.h"
-#include "widgets/dcclistview.h"
 
 #include <DIconButton>
 #include <DListView>
+
+#include <QLabel>
+#include <QListView>
+#include <QScroller>
+#include <QSound>
+#include <QStandardItem>
+#include <QStandardItemModel>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <QListView>
-#include <QLabel>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QSound>
-#include <QScroller>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -52,7 +53,6 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setViewportMargins(0, 0, 0, 0);
     m_effectList->setItemSpacing(1);
 
-
     QMargins itemMargins(m_effectList->itemMargins());
     itemMargins.setLeft(14);
     m_effectList->setItemMargins(itemMargins);
@@ -82,7 +82,10 @@ void SoundEffectsPage::setModel(SoundModel *model)
         m_effectList->setVisible(on);
     });
 
-    connect(m_sw, &SwitchWidget::checkedChanged, this, &SoundEffectsPage::requestSwitchSoundEffects);
+    connect(m_sw,
+            &SwitchWidget::checkedChanged,
+            this,
+            &SoundEffectsPage::requestSwitchSoundEffects);
     m_effectList->setVisible(m_model->enableSoundEffect());
     initList();
 }
@@ -108,14 +111,13 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
     int intervalal = 300;
     m_aniTimer->setInterval(intervalal);
     aniAction->setVisible(true);
-    connect(m_aniTimer, &QTimer::timeout, this, [ = ] {
+    connect(m_aniTimer, &QTimer::timeout, this, [=] {
         auto aniIdx = (m_aniDuration / intervalal) % 3 + 1;
         auto icon = QIcon::fromTheme("dcc_volume" + QString::number(aniIdx));
         aniAction->setIcon(icon);
 
         m_aniDuration += intervalal;
-        if (m_aniDuration > AnimationDuration)
-        {
+        if (m_aniDuration > AnimationDuration) {
             aniAction->setVisible(false);
             m_aniTimer->stop();
             m_aniDuration = 0;
@@ -134,44 +136,48 @@ void SoundEffectsPage::initList()
     m_effectList->setModel(m_listModel);
     connect(m_effectList, &DListView::clicked, this, &SoundEffectsPage::startPlay);
     connect(m_effectList, &DListView::activated, m_effectList, &QListView::clicked);
-    connect(m_model, &SoundModel::soundEffectDataChanged, this,
-    [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
-        for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
-            auto ite = m_model->soundEffectMap().at(idx);
-            if (ite.second != effect) {
-                continue;
-            }
+    connect(m_model,
+            &SoundModel::soundEffectDataChanged,
+            this,
+            [=](DDesktopServices::SystemSoundEffect effect, const bool enable) {
+                for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
+                    auto ite = m_model->soundEffectMap().at(idx);
+                    if (ite.second != effect) {
+                        continue;
+                    }
 
-            auto items = static_cast<DStandardItem *>(m_listModel->item(idx));
-            if (items == nullptr || items->actionList(Qt::Edge::RightEdge).count() < 2) {
-                qWarning() << "items or items->actionList data is valid.";
-                continue;
-            }
-            auto action = items->actionList(Qt::Edge::RightEdge)[1];
-            auto checkstatus = enable ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-            auto icon = DStyle::standardIcon(style(), checkstatus);
-            action->setIcon(icon);
-            m_effectList->update(items->index());
-            break;
-        }
-    });
+                    auto items = static_cast<DStandardItem *>(m_listModel->item(idx));
+                    if (items == nullptr || items->actionList(Qt::Edge::RightEdge).count() < 2) {
+                        qWarning() << "items or items->actionList data is valid.";
+                        continue;
+                    }
+                    auto action = items->actionList(Qt::Edge::RightEdge)[1];
+                    auto checkstatus =
+                            enable ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
+                    auto icon = DStyle::standardIcon(style(), checkstatus);
+                    action->setIcon(icon);
+                    m_effectList->update(items->index());
+                    break;
+                }
+            });
 
-    QTimer::singleShot(0, this, [ = ] {
+    QTimer::singleShot(0, this, [=] {
         QSize size(16, 16);
         DStandardItem *item = nullptr;
         for (auto se : m_model->soundEffectMap()) {
             item = new DStandardItem(se.first);
             item->setFontSize(DFontSizeManager::T8);
             auto action = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            auto checkstatus = m_model->queryEffectData(se.second) ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+            auto checkstatus = m_model->queryEffectData(se.second) ? DStyle::SP_IndicatorChecked
+                                                                   : DStyle::SP_IndicatorUnchecked;
             auto icon = DStyle::standardIcon(style(), checkstatus);
             action->setIcon(icon);
             auto aniAction = new DViewItemAction(Qt::AlignVCenter, size, size);
             aniAction->setVisible(false);
-            item->setActionList(Qt::Edge::RightEdge, {aniAction, action});
+            item->setActionList(Qt::Edge::RightEdge, { aniAction, action });
             m_listModel->appendRow(item);
 
-            connect(action, &DViewItemAction::triggered, this, [ = ] {
+            connect(action, &DViewItemAction::triggered, this, [=] {
                 auto isSelected = m_model->queryEffectData(se.second);
                 this->requestSetEffectAble(se.second, !isSelected);
                 requestRefreshList();
