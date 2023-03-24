@@ -1,13 +1,14 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "bluetoothworker.h"
+
 #include "bluetoothdbusproxy.h"
 
 #include <QDBusObjectPath>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
 #include <QTimer>
 
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
@@ -17,6 +18,7 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     , m_connectingAudioDevice(false)
     , m_state(m_bluetoothDBusProxy->state())
 {
+    // clang-format off
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::StateChanged, this, &BluetoothWorker::onStateChanged);
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
@@ -86,15 +88,14 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     //因为异步的数据获取使控制中心设置了蓝牙模块不可见，
     //而出现没办法显示蓝牙模块
     refresh(true);
+    // clang-format on
 }
 
-BluetoothWorker::~BluetoothWorker()
-{
-}
+BluetoothWorker::~BluetoothWorker() { }
 
 void BluetoothWorker::onStateChanged(uint state)
 {
-    //当蓝牙状态由0变成大于0时，强制刷新蓝牙列表
+    // 当蓝牙状态由0变成大于0时，强制刷新蓝牙列表
     if (!m_state && state > 0)
         refresh(true);
 
@@ -141,14 +142,17 @@ void BluetoothWorker::disconnectDevice(const BluetoothDevice *device)
 
 void BluetoothWorker::ignoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device)
 {
-    m_bluetoothDBusProxy->RemoveDevice(QDBusObjectPath(adapter->id()), QDBusObjectPath(device->id()));
+    m_bluetoothDBusProxy->RemoveDevice(QDBusObjectPath(adapter->id()),
+                                       QDBusObjectPath(device->id()));
     qDebug() << "ignore device: " << device->name();
 }
 
 void BluetoothWorker::connectDevice(const BluetoothDevice *device, const BluetoothAdapter *adapter)
 {
     // INFO: when is headset, not connect twice
-    if (device && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones") && device->state() == BluetoothDevice::StateAvailable) {
+    if (device
+        && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones")
+        && device->state() == BluetoothDevice::StateAvailable) {
         return;
     }
     for (const BluetoothAdapter *a : m_model->adapters()) {
@@ -292,12 +296,14 @@ void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
 {
     m_bluetoothDBusProxy->Confirm(path, value);
 }
+
 void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
 {
     m_bluetoothDBusProxy->SetAdapterDiscovering(path, enable);
 }
 
-void BluetoothWorker::onRequestSetDiscoverable(const BluetoothAdapter *adapter, const bool &discoverable)
+void BluetoothWorker::onRequestSetDiscoverable(const BluetoothAdapter *adapter,
+                                               const bool &discoverable)
 {
     QDBusObjectPath path(adapter->id());
     m_bluetoothDBusProxy->SetAdapterDiscoverable(path, discoverable);

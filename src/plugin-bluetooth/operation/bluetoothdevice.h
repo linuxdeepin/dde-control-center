@@ -1,11 +1,11 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_BLUETOOTH_DEVICE_H
 #define DCC_BLUETOOTH_DEVICE_H
 
-#include <QObject>
 #include <QDebug>
+#include <QObject>
 
 // INFO: when meet problem, view the link underline
 // https://github.com/bluez/bluez/blob/master/src/dbus-common.c#L53-L115
@@ -27,31 +27,41 @@ public:
     explicit BluetoothDevice(QObject *parent = nullptr);
 
     inline QString id() const { return m_id; }
+
     void setId(const QString &id);
 
     inline QString address() const { return m_address; }
+
     void setAddress(const QString &addr);
 
     inline QString name() const { return m_name; }
+
     void setName(const QString &name);
 
     inline QString alias() const { return m_alias; }
+
     void setAlias(const QString &alias);
 
     inline bool paired() const { return m_paired; }
+
     void setPaired(bool paired);
 
     inline State state() const { return m_state; }
+
     void setState(const State &state, bool connectState);
 
     inline bool trusted() const { return m_trusted; }
+
     void setTrusted(bool trusted);
 
     inline bool connecting() const { return m_connecting; }
+
     void setConnecting(bool connecting);
 
     inline QString deviceType() const { return m_deviceType; }
+
     void setDeviceType(const QString &deviceType);
+
     inline bool connectState() const { return m_connectState; }
 
     bool canSendFile() const;
