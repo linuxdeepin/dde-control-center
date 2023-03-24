@@ -148,9 +148,9 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
         if (!device->deviceType().isEmpty())
-            return QIcon::fromTheme(QString("buletooth_%1").arg(device->deviceType()));
+            return QIcon::fromTheme(device->deviceType());
         else
-            return QIcon::fromTheme(QString("buletooth_other"));
+            return QIcon::fromTheme(QString("bluetooth_other"));
     case Dtk::RightActionListRole:
         return m_data.at(row)->item->data(role);
     default:
@@ -180,7 +180,8 @@ Qt::ItemFlags BluetoothDeviceModel::flags(const QModelIndex &index) const
     Qt::ItemFlags flag = QAbstractItemModel::flags(index);
     int row = index.row();
     const BluetoothDevice *device = m_data.at(row)->device;
-    if (device && device->deviceType() == "pheadset" && device->state() == BluetoothDevice::StateAvailable)
+    // INFO: when is headset, not connect twice
+    if (device && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones") && device->state() == BluetoothDevice::StateAvailable)
         flag.setFlag(Qt::ItemIsEnabled, false);
     return flag | Qt::ItemIsEditable;
 }

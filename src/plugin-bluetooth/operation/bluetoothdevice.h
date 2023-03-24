@@ -7,28 +7,8 @@
 #include <QObject>
 #include <QDebug>
 
-// INFO: https://github.com/bluez/bluez/blob/master/src/dbus-common.c#L53-L115
-// Take here as reference
-static const QMap<QString, QString> deviceType2Icon {
-    { "unknown", "other" },
-    { "computer", "pc" },
-    { "phone", "phone" },
-    { "video-display", "vidicon" },
-    { "multimedia-player", "tv" },
-    { "scanner", "scaner" },
-    { "input-keyboard", "keyboard" },
-    { "input-mouse", "mouse" },
-    { "input-gaming", "other" },
-    { "input-tablet", "touchpad" },
-    { "audio-card", "other" },
-    { "audio-headset", "pheadset" },
-    { "audio-headphones", "pheadset" },
-    { "network-wireless", "lan" },
-    { "camera-video", "vidicon" },
-    { "printer", "print" },
-    { "camera-photo", "camera" },
-    { "modem", "other" }
-};
+// INFO: when meet problem, view the link underline
+// https://github.com/bluez/bluez/blob/master/src/dbus-common.c#L53-L115
 
 class BluetoothDevice : public QObject
 {
