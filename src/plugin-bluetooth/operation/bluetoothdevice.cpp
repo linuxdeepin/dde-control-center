@@ -76,7 +76,7 @@ void BluetoothDevice::setConnecting(bool connecting)
 
 void BluetoothDevice::setDeviceType(const QString &deviceType)
 {
-    m_deviceType = deviceType2Icon[deviceType];
+    m_deviceType = deviceType;
 }
 
 bool BluetoothDevice::canSendFile() const

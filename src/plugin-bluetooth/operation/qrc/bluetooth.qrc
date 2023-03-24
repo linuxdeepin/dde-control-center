@@ -2,24 +2,7 @@
     <qresource prefix="/icons/deepin/builtin">
         <file>icons/dcc_nav_bluetooth_42px.svg</file>
         <file>icons/dcc_nav_bluetooth_84px.svg</file>
-        <file>texts/buletooth_camera_16px.svg</file>
-        <file>texts/buletooth_laptop_16px.svg</file>
-        <file>texts/buletooth_pad_16px.svg</file>
-        <file>texts/buletooth_phone_16px.svg</file>
-        <file>texts/buletooth_tv_16px.svg</file>
-        <file>texts/buletooth_clang_16px.svg</file>
-        <file>texts/buletooth_microphone_16px.svg</file>
-        <file>texts/buletooth_pc_16px.svg</file>
-        <file>texts/buletooth_print_16px.svg</file>
-        <file>texts/buletooth_vidicon_16px.svg</file>
-        <file>texts/buletooth_keyboard_16px.svg</file>
-        <file>texts/buletooth_mouse_16px.svg</file>
-        <file>texts/buletooth_pen_16px.svg</file>
-        <file>texts/buletooth_scaner_16px.svg</file>
-        <file>texts/buletooth_lan_16px.svg</file>
-        <file>texts/buletooth_other_16px.svg</file>
-        <file>texts/buletooth_pheadset_16px.svg</file>
-        <file>texts/buletooth_touchpad_16px.svg</file>
+        <file>texts/bluetooth_other_16px.svg</file>
         <file>texts/dcc_edit_12px.svg</file>
         <file>texts/dcc_refresh_12px.svg</file>
     </qresource>

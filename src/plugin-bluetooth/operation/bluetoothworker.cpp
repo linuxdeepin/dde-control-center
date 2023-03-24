@@ -147,9 +147,8 @@ void BluetoothWorker::ignoreDevice(const BluetoothAdapter *adapter, const Blueto
 
 void BluetoothWorker::connectDevice(const BluetoothDevice *device, const BluetoothAdapter *adapter)
 {
-    if (device->deviceType() == "audio-card"
-        && device->state() == BluetoothDevice::StateAvailable
-        && device->deviceType() == "pheadset") {
+    // INFO: when is headset, not connect twice
+    if (device && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones") && device->state() == BluetoothDevice::StateAvailable) {
         return;
     }
     for (const BluetoothAdapter *a : m_model->adapters()) {
