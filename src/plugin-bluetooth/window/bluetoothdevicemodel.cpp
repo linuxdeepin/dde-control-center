@@ -1,20 +1,20 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "bluetoothdevicemodel.h"
 
 #include "bluetoothadapter.h"
 
-#include <QPainter>
-#include <QStyleOptionViewItem>
-#include <QModelIndex>
-#include <QWidget>
+#include <DDesktopServices>
+#include <DSpinner>
+
 #include <QApplication>
 #include <QLineEdit>
-
-#include <DSpinner>
-#include <DDesktopServices>
+#include <QModelIndex>
+#include <QPainter>
+#include <QStyleOptionViewItem>
+#include <QWidget>
 
 DWIDGET_USE_NAMESPACE
 
@@ -28,11 +28,14 @@ struct BluetoothDeviceItemAction
     DSpinner *loadingIndicator;
     DViewItemActionList actionList;
     DStandardItem *item;
+
     explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
-        , spinnerAction(new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
+        , spinnerAction(
+                  new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
         , textAction(new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true))
-        , spaceAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false))
+        , spaceAction(
+                  new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false))
         , iconAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true))
         , loadingIndicator(nullptr)
         , item(new DStandardItem())
@@ -45,12 +48,14 @@ struct BluetoothDeviceItemAction
         spinnerAction->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, actionList);
     }
+
     ~BluetoothDeviceItemAction()
     {
         delete item;
         if (loadingIndicator)
             delete loadingIndicator;
     }
+
     void setLoading(bool isLoading, QWidget *parentView)
     {
         if (spinnerAction->isVisible() == isLoading)
@@ -62,7 +67,12 @@ struct BluetoothDeviceItemAction
                 loadingIndicator = new DSpinner(parentWidget);
                 loadingIndicator->setFixedSize(24, 24);
                 spinnerAction->setWidget(loadingIndicator);
-                loadingIndicator->connect(loadingIndicator, &QWidget::destroyed, loadingIndicator, [this]() { loadingIndicator = nullptr; });
+                loadingIndicator->connect(loadingIndicator,
+                                          &QWidget::destroyed,
+                                          loadingIndicator,
+                                          [this]() {
+                                              loadingIndicator = nullptr;
+                                          });
             }
             loadingIndicator->setParent(parentWidget);
             loadingIndicator->start();
@@ -76,7 +86,9 @@ struct BluetoothDeviceItemAction
     Q_DISABLE_COPY(BluetoothDeviceItemAction)
 };
 
-BluetoothDeviceModel::BluetoothDeviceModel(const BluetoothAdapter *adapter, bool paired, QWidget *parent)
+BluetoothDeviceModel::BluetoothDeviceModel(const BluetoothAdapter *adapter,
+                                           bool paired,
+                                           QWidget *parent)
     : QAbstractItemModel(parent)
     , m_paired(paired)
     , m_adapter(adapter)
@@ -89,8 +101,16 @@ BluetoothDeviceModel::BluetoothDeviceModel(const BluetoothAdapter *adapter, bool
             addDevice(device);
         }
     }
-    connect(adapter, &BluetoothAdapter::deviceAdded, this, &BluetoothDeviceModel::addDevice, Qt::QueuedConnection);
-    connect(adapter, &BluetoothAdapter::deviceRemoved, this, &BluetoothDeviceModel::removeDevice, Qt::QueuedConnection);
+    connect(adapter,
+            &BluetoothAdapter::deviceAdded,
+            this,
+            &BluetoothDeviceModel::addDevice,
+            Qt::QueuedConnection);
+    connect(adapter,
+            &BluetoothAdapter::deviceRemoved,
+            this,
+            &BluetoothDeviceModel::removeDevice,
+            Qt::QueuedConnection);
 }
 
 BluetoothDeviceModel::~BluetoothDeviceModel()
@@ -110,6 +130,7 @@ QModelIndex BluetoothDeviceModel::index(const BluetoothDevice *device)
     }
     return QModelIndex();
 }
+
 // Basic functionality:
 QModelIndex BluetoothDeviceModel::index(int row, int column, const QModelIndex &parent) const
 {
@@ -118,6 +139,7 @@ QModelIndex BluetoothDeviceModel::index(int row, int column, const QModelIndex &
         return QModelIndex();
     return createIndex(row, column, const_cast<BluetoothDevice *>(m_data.at(row)->device));
 }
+
 QModelIndex BluetoothDeviceModel::parent(const QModelIndex &index) const
 {
     Q_UNUSED(index)
@@ -129,6 +151,7 @@ int BluetoothDeviceModel::rowCount(const QModelIndex &parent) const
     Q_UNUSED(parent)
     return m_data.size();
 }
+
 int BluetoothDeviceModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
@@ -161,7 +184,8 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
 bool BluetoothDeviceModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (index.isValid() && role == Qt::EditRole) {
-        const BluetoothDevice *device = static_cast<const BluetoothDevice *>(index.internalPointer());
+        const BluetoothDevice *device =
+                static_cast<const BluetoothDevice *>(index.internalPointer());
         QString devAlias = value.toString();
         QString devName(device->name());
         if (devAlias.isEmpty()) {
@@ -181,7 +205,9 @@ Qt::ItemFlags BluetoothDeviceModel::flags(const QModelIndex &index) const
     int row = index.row();
     const BluetoothDevice *device = m_data.at(row)->device;
     // INFO: when is headset, not connect twice
-    if (device && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones") && device->state() == BluetoothDevice::StateAvailable)
+    if (device
+        && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones")
+        && device->state() == BluetoothDevice::StateAvailable)
         flag.setFlag(Qt::ItemIsEnabled, false);
     return flag | Qt::ItemIsEditable;
 }
@@ -194,6 +220,7 @@ void BluetoothDeviceModel::addDevice(const BluetoothDevice *device)
         }
     }
 
+    // clang-format off
     connect(device, &BluetoothDevice::pairedChanged, this, &BluetoothDeviceModel::onPairedChanged, Qt::UniqueConnection);
     if (device->paired() != m_paired)
         return;
@@ -214,6 +241,7 @@ void BluetoothDeviceModel::addDevice(const BluetoothDevice *device)
             }
         }
     });
+    // clang-format on
     m_allData.append(item);
     if (m_showAnonymous || !device->name().isEmpty()) {
         beginInsertRows(QModelIndex(), 0, 0);
@@ -312,7 +340,9 @@ BluetoothDeviceDelegate::BluetoothDeviceDelegate(QAbstractItemView *parent)
 {
 }
 
-QWidget *BluetoothDeviceDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+QWidget *BluetoothDeviceDelegate::createEditor(QWidget *parent,
+                                               const QStyleOptionViewItem &option,
+                                               const QModelIndex &index) const
 {
     if (!index.isValid())
         return nullptr;
