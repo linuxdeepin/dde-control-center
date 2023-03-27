@@ -49,4 +49,4 @@ lupdateProject recovery ../abrecovery
 # reset-pasword-dialog
 lupdateProject reset-password-dialog ../src/reset-password-dialog
 
-tx push -s -b m20
+tx push -s --branch m20

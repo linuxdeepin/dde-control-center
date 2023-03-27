@@ -528,6 +528,16 @@ set(NOTIFICATION_FILES
     window/modules/notification/appnotifywidget.cpp
 )
 
+set(PRIVACY_FILES
+    modules/privacy/applicationitem.cpp
+    modules/privacy/privacysecuritydataproxy.cpp
+    modules/privacy/privacysecuritymodel.cpp
+    modules/privacy/privacysecurityworker.cpp
+    window/modules/privacy/permissioninfowidget.cpp
+    window/modules/privacy/permissionlistwidget.cpp
+    window/modules/privacy/privacymodule.cpp
+)
+
 set(SRCS
         ${MODULE_FILES}
         ${FRAME_FILES}
@@ -550,6 +560,7 @@ set(SRCS
         ${SYSTEMINFO_FILES}
         ${PERSONALIZATION_FILES}
         ${NOTIFICATION_FILES}
+        ${PRIVACY_FILES}
 )
 
 if (DEFINED DISABLE_AUTHENTICATION)
@@ -578,6 +589,7 @@ set(QRC
         window/icons/dde-control-center-icons.qrc
         window/modules/datetime/datetime.qrc
         window/modules/update/dccv20update.qrc
+        modules/privacy/privacy.qrc
 )
 
 if (DEFINED DISABLE_AUTHENTICATION)

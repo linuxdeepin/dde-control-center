@@ -1,0 +1,18 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "permissionBlacklist": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "permission_blacklist",
+            "name[zh_CN]": "权限黑名单",
+            "description[zh_CN]": "权限黑名单缓存",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+}
+

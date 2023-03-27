@@ -13,6 +13,7 @@
 #include "modules/keyboard/keyboardmodule.h"
 #include "modules/power/powermodule.h"
 #include "modules/sound/soundmodule.h"
+#include "modules/privacy/privacymodule.h"
 #ifndef DISABLE_SYS_UPDATE
 #include "modules/update/updatemodule.h"
 #endif
@@ -368,6 +369,7 @@ void MainWindow::initAllModule(const QString &m)
         { new MouseModule(this), tr("Mouse")},
         { new WacomModule(this), tr("Drawing Tablet")},
         { new KeyboardModule(this), tr("Keyboard and Language")},
+        { new PrivacyModule(this), tr("Privacy and Security")},
 #ifndef DISABLE_SYS_UPDATE
         { new UpdateModule(this), tr("Updates")},
 #endif

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-14.4%" y="-16.7%" width="128.8%" height="133.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="37.9679618%" id="linearGradient-2">
+            <stop stop-color="#00B8FF" offset="0%"></stop>
+            <stop stop-color="#2E5DFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="11.7957837%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#CEF5FF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="1.25" y="4" width="25.25" height="10.375" rx="2.25"></rect>
+        <filter x="-5.9%" y="-14.5%" width="111.9%" height="128.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-4.0%" y="-9.6%" width="107.9%" height="119.3%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="117.588869%" gradientTransform="translate(0.500000,0.000000),scale(0.657658,1.000000),rotate(84.614674),translate(-0.500000,-0.000000)" id="radialGradient-7">
+            <stop stop-color="#48D5FF" offset="0%"></stop>
+            <stop stop-color="#0083F6" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="桌面版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="控制中心-安全隐私" transform="translate(-228.000000, -149.000000)">
+            <g id="控制中心" transform="translate(10.000000, 15.000000)">
+                <g id="分组-7" transform="translate(208.000000, 70.000000)">
+                    <g id="-mockplus-" transform="translate(10.000000, 64.000000)">
+                        <g id="place/folder" transform="translate(2.125000, 5.625000)">
+                            <g id="Group-2" filter="url(#filter-1)" transform="translate(-0.000000, 0.000000)">
+                                <path d="M15.5,1.4375 C15.8795171,2.31038935 16.740668,2.875 17.692492,2.875 L24.25,2.875 C26.1829966,2.875 27.75,4.44200338 27.75,6.375 L27.75,20.5 C27.75,22.4329966 26.1829966,24 24.25,24 L3.5,24 C1.56700338,24 2.36723813e-16,22.4329966 0,20.5 L0,3.5 C-2.36723813e-16,1.56700338 1.56700338,3.55085719e-16 3.5,0 L13.307508,0 C14.259332,-1.06302566e-15 15.1204829,0.564610647 15.5,1.4375 Z" id="Mask" fill="url(#linearGradient-2)"></path>
+                                <g id="Rectangle">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                                    <use fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-4"></use>
+                                </g>
+                                <g id="Group" transform="translate(0.000000, 5.750000)" fill="url(#radialGradient-7)">
+                                    <path d="M0,0 L27.75,0 L27.75,14.75 C27.75,16.6829966 26.1829966,18.25 24.25,18.25 L3.5,18.25 C1.56700338,18.25 2.36723813e-16,16.6829966 0,14.75 L0,0 L0,0 Z" id="Rectangle"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

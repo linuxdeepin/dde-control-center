@@ -36,7 +36,7 @@ UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, 
     , m_groupItemModel(new QStandardItemModel(this))
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_editBtn(new DCommandLinkButton(tr("Edit")))
-    , m_addBtn(new DCommandLinkButton(tr("Add UserGroup")))
+    , m_addBtn(new DCommandLinkButton(tr("Add User Group")))
     , m_groupPageStatus(Normal)
 {
     initWidget();
@@ -180,21 +180,21 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
     QString oldGroup = item->getTitle();
     QString newGroup = group.trimmed();
     if (newGroup.isEmpty()) {
-        item->showAlertMessage(tr("please enter group name!"));
+        item->showAlertMessage(tr("Enter a group name please!"));
         return;
     }
     if (oldGroup == newGroup)
         return;
     if (32 < newGroup.length()) {
-        item->showAlertMessage(tr("the name is longer than 32 characters!"));//todo :TX
+        item->showAlertMessage(tr("Group names should be no more than 32 characters"));//todo :TX
         return;
     }
     QStringList userGroup = m_userModel->getAllGroups();
     if (userGroup.contains(newGroup)) {
-        item->showAlertMessage(tr("also has this group!"));
+        item->showAlertMessage(tr("The group name has been used"));
         return;
     } else if (QRegExp("\\d*").exactMatch(newGroup)) {     //check the numeric
-        item->showAlertMessage(tr("can't set all numeric group name!"));
+        item->showAlertMessage(tr("Group names cannot only have numbers"));
         return;
     }
     if (oldGroup.isEmpty()) {
