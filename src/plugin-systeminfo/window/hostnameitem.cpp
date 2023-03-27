@@ -3,15 +3,23 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "hostnameitem.h"
 #include "dtkwidget_global.h"
+#include <dguiapplicationhelper.h>
 
 #include <DDesktopServices>
 #include <DLabel>
 
-#include <qevent.h>
-#include <qvalidator.h>
-#include <qtoolbutton.h>
-
+#include <QEvent>
+#include <QKeyEvent>
+#include <QValidator>
+#include <QToolButton>
+#include <QDir>
 DWIDGET_USE_NAMESPACE
+
+// if there is lid, it is laptop
+inline bool islaptop()
+{
+    return QDir("/proc/acpi/button/lid").exists();
+}
 
 HostNameEdit::HostNameEdit(QWidget *parent)
     : DLineEdit(parent)
@@ -45,10 +53,11 @@ bool HostNameEdit::eventFilter(QObject *obj, QEvent *event)
 
 HostNameItem::HostNameItem(QWidget *parent)
     : SettingsItem(parent)
-    , m_hostNameTitleLabel(new QLabel(tr("Computer Name") + ':', this))
+    , m_computerLabel(new QLabel(this))
     , m_hostNameLabel(new DLabel(this))
     , m_hostNameBtn(new QToolButton(this))
     , m_hostNameLineEdit(new HostNameEdit(this))
+    , m_iconName{islaptop() ? "icon_about_laptop" : "icon_about_pc"}
 {
     initUI();
 }
@@ -91,63 +100,54 @@ void HostNameItem::resizeEvent(QResizeEvent *event)
 void HostNameItem::initUI()
 {
     // 添加主机名称
-    QHBoxLayout *hostNameLayout = new QHBoxLayout(this);
-    setLayout(hostNameLayout);
-    m_hostNameTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    hostNameLayout->addWidget(m_hostNameTitleLabel);
-    hostNameLayout->addStretch();
+    QVBoxLayout *hostNameLayout = new QVBoxLayout(this);
+    hostNameLayout->setSpacing(0);
+    hostNameLayout->setMargin(0);
+    m_computerLabel->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    m_computerLabel->setPixmap(QIcon::fromTheme(m_iconName).pixmap(200,200));
 
+    hostNameLayout->addWidget(m_computerLabel);
+
+    QHBoxLayout *editHostLayout = new QHBoxLayout;
     m_hostNameLabel->setForegroundRole(DPalette::TextTips);
-    m_hostNameLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    hostNameLayout->addWidget(m_hostNameLabel);
 
     m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_hostNameBtn->setIconSize(QSize(12, 12));
     m_hostNameBtn->setFixedSize(36, 36);
-    hostNameLayout->addWidget(m_hostNameBtn);
 
     QRegExp regx("^[A-Za-z0-9-]{0,64}$");
     QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
     m_hostNameLineEdit->lineEdit()->setValidator(validator);
-    m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
-    m_hostNameLineEdit->lineEdit()->setAlignment(Qt::AlignRight);
+    m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignHCenter);
+    m_hostNameLineEdit->lineEdit()->setAlignment(Qt::AlignHCenter);
     m_hostNameLineEdit->setFixedHeight(36);
     m_hostNameLineEdit->lineEdit()->setTextMargins(0,0,0,0);
-    // lineEdit 无边框 透明背景
-    DStyle::setFocusRectVisible(m_hostNameLineEdit->lineEdit(), false);
-    QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
-    palette.setColor(QPalette::Button, Qt::transparent);
-    m_hostNameLineEdit->lineEdit()->setPalette(palette);
-    hostNameLayout->addWidget(m_hostNameLineEdit);
     m_hostNameLineEdit->hide();
 
+    editHostLayout->addStretch();
+    editHostLayout->addWidget(m_hostNameLabel);
+    editHostLayout->addWidget(m_hostNameBtn);
+    editHostLayout->addWidget(m_hostNameLineEdit);
+    editHostLayout->addStretch();
+
+    hostNameLayout->addLayout(editHostLayout);
+
+    setContentsMargins(0, 0, 0, 30);
     //点击编辑按钮
     connect(m_hostNameBtn, &QToolButton::clicked, this, &HostNameItem::onToolButtonButtonClicked);
     connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, &HostNameItem::onFocusChanged);
     connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, &HostNameItem::onTextEdited);
     connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, &HostNameItem::onAlertChanged);
     connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, &HostNameItem::onEditingFinished);
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [this] {
+        m_computerLabel->setPixmap(QIcon::fromTheme(m_iconName).pixmap(200,200));
+    });
+
 }
 
-QString HostNameItem::getElidedText(const QString &string)
+QString HostNameItem::getElidedText(const QString &hostname)
 {
-    const QString &titleText = m_hostNameTitleLabel->text();
-    QFontMetrics titleFontMetrics(m_hostNameTitleLabel->font());
-    int titleFontWidth = titleFontMetrics.boundingRect(titleText).width();
-
-    int hostnameWidth = width() - titleFontWidth - m_hostNameBtn->width();
-    QString retTxt = string;
-    if (retTxt.isEmpty())
-        return retTxt;
-
-    QFontMetrics fontMetrics(font());
-    int fontWidth = fontMetrics.boundingRect(string).width();
-
-    if (fontWidth > hostnameWidth) {
-        retTxt = m_hostNameLabel->fontMetrics().elidedText(string, Qt::ElideRight, hostnameWidth, 0);
-    }
-
-    return retTxt;
+    return  m_hostNameLabel->fontMetrics().elidedText(hostname, Qt::ElideRight, m_computerLabel->width(), 0);
 }
 
 void HostNameItem::onEditingFinished()

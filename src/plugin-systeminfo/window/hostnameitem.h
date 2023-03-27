@@ -47,11 +47,12 @@ private:
     void onEditingFinished();
 
 private:
-    QLabel *m_hostNameTitleLabel;
+    QLabel *m_computerLabel;
     Dtk::Widget::DLabel *m_hostNameLabel;
     QToolButton *m_hostNameBtn;
     HostNameEdit *m_hostNameLineEdit;
     QString m_alertMessage;
     QString m_hostname;//保存计算机的全名
-    QString m_hostnameEdit;//保存编辑时的数据
+    QString m_hostnameEdit;//保存编辑时的数
+    QString m_iconName; //
 };

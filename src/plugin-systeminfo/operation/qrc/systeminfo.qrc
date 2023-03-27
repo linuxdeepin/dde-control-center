@@ -6,6 +6,10 @@
         <file>actions/dcc_protocol_32px.svg</file>
         <file>actions/dcc_version_32px.svg</file>
         <file>texts/dcc_edit_12px.svg</file>
+        <file>light/icons/icon_about_pc_128px.svg</file>
+        <file>light/icons/icon_about_laptop_128px.svg</file>
+        <file>dark/icons/icon_about_pc_128px.svg</file>
+        <file>dark/icons/icon_about_laptop_128px.svg</file>
     </qresource>
     <qresource prefix="/systeminfo">
         <file>gpl/gpl-3.0-zh_CN-body.txt</file>
