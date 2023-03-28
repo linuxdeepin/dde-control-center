@@ -247,3 +247,27 @@ void DisplayModel::checkAllSupportFillModes()
     }
     m_allSupportFillModes = true;
 }
+
+void DisplayModel::setBuiltinMonitor(const QString value)
+{
+    if (m_builtinMonitor != value) {
+        m_builtinMonitor = value;
+        Q_EMIT builtMonitorChanged(value);
+    }
+}
+
+void DisplayModel::setSupportLabc(const bool value)
+{
+    if (m_supportLabc != value) {
+        m_supportLabc = value;
+        Q_EMIT supportLabcChanged(value);
+    }
+}
+
+void DisplayModel::setAutoBacklightEnabled(const bool value)
+{
+    if (m_autoBacklightEnabled != value) {
+        m_autoBacklightEnabled = value;
+        Q_EMIT autoBacklightEnabledChanged(value);
+    }
+}

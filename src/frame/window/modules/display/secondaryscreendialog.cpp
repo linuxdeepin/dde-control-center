@@ -129,6 +129,14 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name(), this);
         slideritem->addBackground();
+        bool isAutoCheckVisible = (m_monitor->name() == m_model->getBuiltinMonitor() && m_model->getSupportLabc());
+        slideritem->setAutoBrightnessVisible(isAutoCheckVisible);
+        //仅对支持“自动调节亮度”关联信号(支持光杆硬件)
+        if (isAutoCheckVisible) {
+            slideritem->setAutoBrightnessChecked(m_model->getAutoBacklightEnabled());
+            connect(slideritem, &TitledSliderItem::notifyCheckStateChanged, m_model, &DisplayModel::notifyUserSetAutoBacklightEnabledChanged);
+            connect(m_model, &DisplayModel::autoBacklightEnabledChanged, slideritem, &TitledSliderItem::setAutoBrightnessChecked);
+        }
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = static_cast<int>(m_model->maxBacklightBrightness());
         if (maxBacklight == 0) {

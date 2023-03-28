@@ -206,6 +206,15 @@ void BrightnessWidget::addSlider()
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name(), this);
         slideritem->setAccessibleName("BrightnessWidget_TitledSliderItem");
         slideritem->addBackground();
+        qInfo() << Q_FUNC_INFO << monList[i]->name() << m_displayModel->getBuiltinMonitor();
+        bool isAutoCheckVisible = (monList[i]->name() == m_displayModel->getBuiltinMonitor() && m_displayModel->getSupportLabc());
+        slideritem->setAutoBrightnessVisible(isAutoCheckVisible);
+        //仅对支持“自动调节亮度”关联信号(支持光感硬件)
+        if (isAutoCheckVisible) {
+            slideritem->setAutoBrightnessChecked(m_displayModel->getAutoBacklightEnabled());
+            connect(slideritem, &TitledSliderItem::notifyCheckStateChanged, m_displayModel, &DisplayModel::notifyUserSetAutoBacklightEnabledChanged);
+            connect(m_displayModel, &DisplayModel::autoBacklightEnabledChanged, slideritem, &TitledSliderItem::setAutoBrightnessChecked);
+        }
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = static_cast<int>(m_displayModel->maxBacklightBrightness());
         if (maxBacklight == 0) {

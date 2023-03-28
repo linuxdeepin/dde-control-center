@@ -57,6 +57,7 @@ public Q_SLOTS:
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
+    void setAutoBacklightEnabled(const bool value);
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);
@@ -64,6 +65,7 @@ private Q_SLOTS:
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
+    void handlePropertiesChanged(QDBusMessage msg);
 
 private:
     void monitorAdded(const QString &path);
@@ -76,6 +78,7 @@ Q_SIGNALS:
 private:
     DisplayModel *m_model;
     DisplayInter m_displayInter;
+    QDBusInterface *m_displaySystenInterface;
     QDBusInterface *m_displayDBusInter;
     QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;

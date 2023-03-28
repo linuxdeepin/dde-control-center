@@ -19,6 +19,8 @@ using namespace dcc::display;
 #define GSETTINGS_BRIGHTNESS_ENABLE "brightness-enable"
 
 const QString DisplayInterface("com.deepin.daemon.Display");
+const QString DisplaySystemInterface("com.deepin.system.Display");
+const QString DisplaySystemPath("/com/deepin/system/Display");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 
@@ -64,6 +66,68 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         m_displayInter.ApplyChanges().waitForFinished();
         m_displayInter.Save().waitForFinished();
     });
+
+    m_displaySystenInterface = new QDBusInterface(DisplaySystemInterface,
+                                                  DisplaySystemPath,
+                                                  "org.freedesktop.DBus.Properties",
+                                                  QDBusConnection::systemBus());
+
+    //1.先获取是否支持自动调节背光 -> 2.获取内建屏，有内建屏再获取状态 -> 3.获取自动调节亮度状态
+    QDBusMessage reply = m_displaySystenInterface->call("Get", DisplaySystemInterface, "SupportLabc");
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qWarning() << "com.deepin.system.Display SupportLabc, QDBusMessage::ErrorMessage.";
+        return;
+    }
+    QList<QVariant> outArgs = reply.arguments();
+    if (outArgs.count() <= 0)
+        return;
+
+    bool supportLabc = outArgs.at(0).toBool();
+    qInfo() << Q_FUNC_INFO << "com.deepin.daemon.Display.GetBuiltinMonitor : " << supportLabc;
+    m_model->setSupportLabc(supportLabc);
+
+    //对于不支持“自动亮度调节”后面流程不需要处理
+    if (!supportLabc) {
+        return;
+    }
+
+    //2.获取内建屏
+    reply = m_displayInter.call("GetBuiltinMonitor");
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qWarning() << "com.deepin.daemon.Display GetBuiltinMonitor, QDBusMessage::ErrorMessage.";
+        return;
+    }
+    outArgs = reply.arguments();
+    if (outArgs.count() <= 0)
+        return;
+
+    QString value  = outArgs.at(0).toString();
+    qInfo() << Q_FUNC_INFO << "com.deepin.daemon.Display.GetBuiltinMonitor : " << value;
+    value = "HDMI-A-0";
+    //仅对支持内建屏的机器进行处理
+    if (m_model && value != "") {
+        m_model->setBuiltinMonitor(value);
+
+        //3.获取自动调节亮度状态
+        reply = m_displaySystenInterface->call("Get", DisplaySystemInterface, "AutoBacklightEnabled");
+        if (reply.type() == QDBusMessage::ErrorMessage) {
+            qWarning() << "com.deepin.system.Display AutoBacklightEnabled, QDBusMessage::ErrorMessage.";
+            return;
+        }
+        outArgs = reply.arguments();
+        if (outArgs.count() <= 0)
+            return;
+        bool autoBacklightEnabled = outArgs.at(0).toBool();
+        m_model->setAutoBacklightEnabled(autoBacklightEnabled);
+
+        QDBusConnection::systemBus().connect(DisplaySystemInterface, DisplaySystemPath,
+                                             "org.freedesktop.DBus.Properties", "PropertiesChanged",
+                                             "sa{sv}as", this, SLOT(handlePropertiesChanged(QDBusMessage)));
+
+        connect(m_model, &DisplayModel::notifyUserSetAutoBacklightEnabledChanged, this, &DisplayWorker::setAutoBacklightEnabled);
+    } else {
+        qWarning() << Q_FUNC_INFO << m_model << value;
+    }
 }
 
 DisplayWorker::~DisplayWorker()
@@ -183,6 +247,28 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void DisplayWorker::handlePropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == DisplaySystemInterface) {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "AutoBacklightEnabled") {
+                bool autoBacklightEnabled = changedProps.value(keys.at(i)).toBool();
+                qInfo() << Q_FUNC_INFO << "com.deepin.system.Display PropertiesChanged AutoBacklightEnabled : " << autoBacklightEnabled;
+                m_model->setAutoBacklightEnabled(autoBacklightEnabled);
+                return;
+            }
+        }
+    }
+}
+
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
@@ -234,6 +320,19 @@ void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
     MonitorInter *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
     inter->setCurrentFillMode(fillMode);
+}
+
+void DisplayWorker::setAutoBacklightEnabled(const bool value)
+{
+    if (!m_displaySystenInterface) {
+        return;
+    }
+    QDBusMessage reply = m_displaySystenInterface->call("Set", DisplaySystemInterface, "AutoBacklightEnabled", QVariant::fromValue(QDBusVariant(value)));
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qWarning() << "com.deepin.system.Display set AutoBacklightEnabled, QDBusMessage::ErrorMessage.";
+    } else {
+        qInfo() << "com.deepin.system.Display set AutoBacklightEnabled, value : " << value;
+    }
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)

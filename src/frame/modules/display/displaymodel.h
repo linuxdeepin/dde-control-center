@@ -85,6 +85,15 @@ public:
     inline bool allSupportFillModes() const { return m_allSupportFillModes; }
     void checkAllSupportFillModes();
 
+    inline QString getBuiltinMonitor() const { return m_builtinMonitor; }
+    void setBuiltinMonitor(const QString value);
+
+    inline bool getSupportLabc() const { return m_supportLabc; }
+    void setSupportLabc(const bool value);
+
+    inline bool getAutoBacklightEnabled() const { return m_autoBacklightEnabled; }
+    void setAutoBacklightEnabled(const bool value);
+
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -104,6 +113,10 @@ Q_SIGNALS:
     void colorTemperatureChanged(int value);
     void resolutionRefreshEnableChanged(const bool enable);
     void brightnessEnableChanged(const bool enable);
+    void builtMonitorChanged(QString) const;
+    void supportLabcChanged(bool) const;
+    void autoBacklightEnabledChanged(bool) const;
+    void notifyUserSetAutoBacklightEnabledChanged(bool) const;
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -140,6 +153,9 @@ private:
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
+    QString m_builtinMonitor {""};
+    bool m_supportLabc {false};
+    bool m_autoBacklightEnabled {false};
 };
 
 } // namespace display

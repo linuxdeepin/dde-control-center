@@ -7,6 +7,8 @@
 
 #include "widgets/settingsitem.h"
 
+#include <DCheckBox>
+
 class QLabel;
 class QSlider;
 class QHBoxLayout;
@@ -34,6 +36,11 @@ public:
     void setRightIcon(const QIcon &rightIcon);
     void setIconSize(const QSize &size);
     QHBoxLayout *getbottomlayout() { return m_bottomLayout; }
+    void setAutoBrightnessVisible(const bool visible);
+    void setAutoBrightnessChecked(const bool checked);
+
+Q_SIGNALS:
+    void notifyCheckStateChanged(bool);
 
 private:
     NormalLabel *m_titleLabel;
@@ -42,6 +49,7 @@ private:
     QString m_valueLiteral;
     QHBoxLayout *m_bottomLayout;
     bool    m_sliderPressed;
+    DTK_WIDGET_NAMESPACE::DCheckBox *m_autoBrightness;
 };
 
 } // namespace widgets

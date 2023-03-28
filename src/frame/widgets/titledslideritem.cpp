@@ -27,6 +27,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     , m_titleLabel(new NormalLabel(title))
     , m_valueLabel(new NormalLabel)
     , m_slider(new DCCSlider)
+    , m_autoBrightness(new DTK_WIDGET_NAMESPACE::DCheckBox(this))
 {
     m_slider->qtSlider()->setAccessibleName(title);
     m_sliderPressed = false;
@@ -63,6 +64,12 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     mainLayout->addLayout(topLayout);
     mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);
+
+    m_autoBrightness->setText(tr("Auto Brightness"));
+    mainLayout->addWidget(m_autoBrightness);
+    m_autoBrightness->setVisible(false);
+
+    connect(m_autoBrightness, &QCheckBox::stateChanged, this, &TitledSliderItem::notifyCheckStateChanged);
 
     setAccessibleName(title);
 }
@@ -108,6 +115,24 @@ void TitledSliderItem::setRightIcon(const QIcon &rightIcon)
 void TitledSliderItem::setIconSize(const QSize &size)
 {
     m_slider->setIconSize(size);
+}
+
+void TitledSliderItem::setAutoBrightnessVisible(const bool visible)
+{
+    if (m_autoBrightness && m_autoBrightness->isVisible() != visible) {
+        m_autoBrightness->setVisible(visible);
+    }
+}
+
+void TitledSliderItem::setAutoBrightnessChecked(const bool checked)
+{
+    if (!m_autoBrightness) {
+        return;
+    }
+    if (m_autoBrightness->isChecked() == checked) {
+        return;
+    }
+    m_autoBrightness->setChecked(checked);
 }
 
 } // namespace widgets
