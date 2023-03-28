@@ -1,9 +1,10 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <widgets/settingsitem.h>
+
 #include <DLineEdit>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -11,9 +12,10 @@ class DLabel;
 DWIDGET_END_NAMESPACE
 class QLabel;
 class QToolButton;
+
 class HostNameEdit : public DTK_WIDGET_NAMESPACE::DLineEdit
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     explicit HostNameEdit(QWidget *parent = nullptr);
 
@@ -52,7 +54,7 @@ private:
     QToolButton *m_hostNameBtn;
     HostNameEdit *m_hostNameLineEdit;
     QString m_alertMessage;
-    QString m_hostname;//保存计算机的全名
-    QString m_hostnameEdit;//保存编辑时的数
-    QString m_iconName; //
+    QString m_hostname;     // 保存计算机的全名
+    QString m_hostnameEdit; // 保存编辑时的数
+    QString m_iconName;     //
 };
