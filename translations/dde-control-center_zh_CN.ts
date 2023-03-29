@@ -2627,7 +2627,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation>桌面版</translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Window</source>

@@ -1195,7 +1195,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>klaviatura qatı</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1391,15 +1391,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Tətbiq bildirişi</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Bildiriş</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Sistem bildirişi</translation>
     </message>
 </context>
 <context>
