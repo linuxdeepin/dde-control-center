@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>ھەمكارلىشىش تەڭشىكى</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس بىلەن كۇنۇپكا تاختىسىنى ھەمبەھىرلەش</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>ئاچقاندىن ھەمكارلىشىدىغان ئۈسكۈنىدە مائۇس بىلەن كۇنۇپكا تاختىسىدىن ھەمبەھىرلەنگىلى بولىدۇ</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>چاپلاش تاختىسىنى ھەمبەھىرلەش</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھىرلىنىدىغان ھۆججەت قىسقۇچ</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>ئاچقاندىن كېيىن ھەمكارلىشىدىغان ئۈسكۈنىلەر ئارا كۆچۈرگەن مەزمۇندىن ھەمبەھىرلەنگىلى بولىدۇ</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>بىكار قىلىش</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation> جەزملەش</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>ھەمكارلىشىدىغان كومپيۇتېر</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلاش ئۇسۇلى</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننىڭ ئۈستىدە</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننىڭ ئوڭ تەرىپىدە</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننىڭ ئاستىدا</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>ئېكراننىڭ سول تەرىپىدە</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>ئۈسكۈنەم</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>باشقا ئۈسكۈنىلەر</translation>
     </message>
 </context>
 <context>
@@ -1195,7 +1195,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1391,15 +1391,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>ئەپ ئۇقتۇرۇشى</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>ئۇقتۇرۇش</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما ئۇقتۇرۇشى</translation>
     </message>
 </context>
 <context>
@@ -1865,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>تىل قوشۇش</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2143,7 +2143,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>يېقىندا ئىشلەتكەن ئەپلەر كۆرۈنسۇن</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2820,7 +2820,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation>سۈرەت ئۈسكۈنىسى</translation>
+        <translation>كامېرا</translation>
     </message>
     <message>
         <source>Microphone</source>
@@ -2944,11 +2944,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>ھازىرچە ھېچقانداق ئەپ كالېندارنى ئوقۇش ھوقۇقى تەلەپ قىلمىدى</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>ھازىرچە ھېچقانداق ئەپ ئېكراننى سۈرەت تۇتۇش ھوقۇقى ئىشلىتىشنى تەلەپ قىلمىدى</translation>
     </message>
 </context>
 <context>
@@ -3071,7 +3071,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋاز %100 دىن يۇقىرى بولغاندا ئەينەن چىقماسلىقى ھەمدە ياڭراتقۇغا زىيان يەتكۈزۈشى مۇمكىن</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3102,7 +3102,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>قايتا بېكىتىش</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3164,15 +3164,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>كۆرسىتىش تەڭشىكىنى ساقلامسىز؟</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>ھېچقانداق مەشغۇلات قىلمىسڭىز %1 سىكۇنتتىن كېيىن ئەسلىگە قايتىدۇ.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>ئەسلىگە قايتۇرۇش</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3221,7 +3221,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>ھەمكارلىشىش تەڭشىكى</translation>
     </message>
 </context>
 <context>
@@ -3375,11 +3375,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Packages error</source>
-        <translation type="unfinished"/>
+        <translation>قاچىلاش بولىقىدا خاتالىق كۆرۈلدى</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>قاچىلاش بولىقىدا خاتالىق كۆرۈلدى، قايتا سىناڭ</translation>
     </message>
     <message>
         <source>Dependency error</source>
@@ -3387,7 +3387,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>بېقىنىش مۇناسىۋىتىنى ھازىرلىمىغان</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
@@ -3411,11 +3411,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>مۇلازىمىتېر</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ئۈستەليۈزى</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3443,11 +3443,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>3-تەرەپ ئامبىرى</translation>
     </message>
     <message>
         <source>Other settings</source>
-        <translation type="unfinished"/>
+        <translation>باشقا تەڭشەك</translation>
     </message>
     <message>
         <source>Auto Check for Updates</source>
@@ -3483,7 +3483,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>چۈشۈرۈپ بولغاندا ئاپتوماتىك قاچىلىنىدۇ</translation>
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
@@ -3505,7 +3505,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation type="unfinished"/>
+        <translation>بايقالغان بەزى نۇقسان ۋە بىخەتەرلىك يوچۇقلىرى تۈزىتىلدى</translation>
     </message>
     <message>
         <source>Security Updates</source>
@@ -3513,7 +3513,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>3-تەرەپ ئامبىرى</translation>
     </message>
 </context>
 <context>
@@ -3560,11 +3560,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>ئېكران ۋە كۈتۈش ھالىتى</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>ئېكران تاقالسۇن</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3572,7 +3572,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>كۈتۈش ھالىتىگە كىرسۇن</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3584,15 +3584,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>توك مەنبە كۇنۇپكىسىنى باسقاندا</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>توك ئاز ھالەتنى باشقۇرۇش</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>توك ئاز قالغانلىق ئۇقتۇرۇشى</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3604,7 +3604,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>باتارېيە باشقۇرۇش</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3639,11 +3639,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>ئېكران ۋە كۈتۈش ھالىتى</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>ئېكران تاقالسۇن</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3651,7 +3651,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>كۈتۈش ھالىتىگە كىرسۇن</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3659,7 +3659,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>توك مەنبە كۇنۇپكىسىنى باسقاندا</translation>
     </message>
     <message>
         <source>Shut down</source>

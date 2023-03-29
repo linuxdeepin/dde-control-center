@@ -368,37 +368,37 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>མཐུན་སྦྱོར་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>ཙི་གུ་དང་མཐེབ་གཞོང་མཉམ་སྤྱོད།</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱེ་རྗེས་མཐུན་སྦྱོར་སྒྲིག་ཆས་བར་ཙི་གུ་དང་མཐེབ་གཞོང་མཉམ་སྤྱོད་བྱེད་པར་རྒྱབ་སྐྱོར་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>དྲས་པང་མཉམ་སྤྱོད།</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>ཡིག་ཁུག་མཉམ་སྤྱོད།</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱེ་རྗེས་མཐུན་སྦྱོར་སྒྲིག་ཆས་བར་པར་སློག་གི་ནང་དོན་མཉམ་སྤྱོད་བྱེད་པར་རྒྱབ་སྐྱོར་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>འདོར་བ།</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>གཏན་ཁེལ། </translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཀླད་མཐུན་སྦྱོར།</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -699,31 +699,31 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲེལ་ཕྱོགས།</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་གྱི་སྟེང་ཕྱོགས།</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་གྱི་གཡས་ཕྱོགས།</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་གྱི་འོག་ཕྱོགས།</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་གྱི་གཡོན་ཕྱོགས།</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>ངའི་སྒྲིག་ཆས།</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་ཆས་གཞན།</translation>
     </message>
 </context>
 <context>
@@ -1195,7 +1195,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1391,15 +1391,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>ཉེར་སྤྱོད་བརྡ་ཐོ།</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>བརྡ་ཐོ།</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་བརྡ་ཐོ།</translation>
     </message>
 </context>
 <context>
@@ -1865,7 +1865,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>སྐད་ཡིག་ཁ་སྣོན།</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2933,23 +2933,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>གནས་སྐབས་པར་ཆས་བེད་སྤྱོད་ཀྱི་རེ་ཞུ་བྱེད་པའི་ཉེར་སྤྱོད་མེད།</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>གནས་སྐབས་སྒྲ་དུང་དབང་ཚད་བེད་སྤྱོད་ཀྱི་རེ་ཞུ་བྱེད་པའི་ཉེར་སྤྱོད་མེད།</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>གནས་སྐབས་སྤྱོད་མཁན་གྱི་ཡིག་ཁུག་དབང་ཚད་བེད་སྤྱོད་ཀྱི་རེ་ཞུ་བྱེད་པའི་ཉེར་སྤྱོད་མེད།</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>གནས་སྐབས་ཉིན་ཐོའི་དབང་ཚད་བེད་སྤྱོད་ཀྱི་རེ་ཞུ་བྱེད་པའི་ཉེར་སྤྱོད་མེད།</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>གནས་སྐབས་བརྙན་ཡོལ་བཅད་རིས་དབང་ཚད་བེད་སྤྱོད་ཀྱི་རེ་ཞུ་བྱེད་པའི་ཉེར་སྤྱོད་མེད།</translation>
     </message>
 </context>
 <context>
@@ -3072,7 +3072,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲ་ཤུགས་100%ལས་ཆེ་བ་ཡོད་སྐབས་སྒྲ་ནུས་ཤོར་སྲིད་པ་མ་ཟད། ཁྱོད་ཀྱི་སྒྲ་སྐྱེད་ཆས་ཀྱང་འཕྲོ་བརླག་གཏོང་ཉེན་ཡོད།</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3103,7 +3103,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>བསྐྱར་སྒྲིག</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3165,15 +3165,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>མངོན་སྟོན་སྒྲིག་འགོད་ཉར་ཚགས་བྱ་དགོས་སམ།</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>བཀོལ་སྤྱོད་གང་ཡང་མེད་ཚེ། སྐར་ཆ་%1གི་རྗེས་སོར་ཆུད་རྒྱུ།</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>སོར་ཆུད།</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3222,7 +3222,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>མཐུན་སྦྱོར་སྒྲིག་འགོད།</translation>
     </message>
 </context>
 <context>
@@ -3376,11 +3376,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Packages error</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་སྦྱོར་ཁུག་མ་ནོར་བ།</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་སྦྱོར་ཁུག་མ་ནོར་བས། ཡང་བསྐྱར་ཚོད་ལྟ་བྱེད།</translation>
     </message>
     <message>
         <source>Dependency error</source>
@@ -3388,7 +3388,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>བརྟེན་པའི་འབྲེལ་བ་མི་འདུག</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
@@ -3412,11 +3412,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>ཞབས་ཞུ་འཕྲུལ་ཆས། </translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ཅོག་ངོས།</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3443,11 +3443,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>ཕུང་གསུམ་པའི་མཛོད་ཁང་།</translation>
     </message>
     <message>
         <source>Other settings</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་འགོད་གཞན་དག</translation>
     </message>
     <message>
         <source>Auto Check for Updates</source>
@@ -3483,7 +3483,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>ཕབ་ལེན་ཐུབ་རྗེས་རང་འགུལ་ངང་སྒྲིག་འཇུག་བྱེད་སྲིད།</translation>
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
@@ -3505,7 +3505,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation type="unfinished"/>
+        <translation>ཤེས་བཞིན་པའི་སྐྱོན་ཆ་དང་བདེ་འཇགས་ཉེན་ཁ་འགའ་ཤས་བཅོས་ཟིན།</translation>
     </message>
     <message>
         <source>Security Updates</source>
@@ -3513,7 +3513,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>ཕུང་གསུམ་པའི་མཛོད་ཁང་།</translation>
     </message>
 </context>
 <context>
@@ -3560,11 +3560,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་དང་སྒུག་པ།</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>མངོན་ཆས་གློག་གསོད།</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3572,7 +3572,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཀླད་སྒུག་པའི་དཔེ་རྣམ་ལ་འགྱུར་བ།</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3584,15 +3584,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཁུངས་གཅུས་སྒོ་གནོན་སྐབས།</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཉུང་བ་དོ་དམ།</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཚད་ཉུང་བའི་བརྡ་ཐོ།</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3604,7 +3604,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>གློག་སྨན་དོ་དམ།</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3639,11 +3639,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་དང་སྒུག་པ།</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>མངོན་ཆས་གློག་གསོད།</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3651,7 +3651,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཀླད་སྒུག་པའི་དཔེ་རྣམ་ལ་འགྱུར་བ།</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3659,7 +3659,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཁུངས་གཅུས་སྒོ་གནོན་སྐབས།</translation>
     </message>
     <message>
         <source>Shut down</source>

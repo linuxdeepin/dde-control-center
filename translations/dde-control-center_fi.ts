@@ -1195,7 +1195,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>näppäimistön asettelu</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1391,15 +1391,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Sovellusilmoitus</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmäilmoitus</translation>
     </message>
 </context>
 <context>

@@ -3530,7 +3530,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Suspèn</translation>
+        <translation>Suspèn-te</translation>
     </message>
     <message>
         <source>Hibernate</source>
@@ -3665,7 +3665,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Suspèn</translation>
+        <translation>Suspèn-te</translation>
     </message>
     <message>
         <source>Hibernate</source>
