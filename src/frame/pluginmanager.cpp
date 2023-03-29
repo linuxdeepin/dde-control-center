@@ -8,6 +8,8 @@
 #include "interface/plugininterface.h"
 #include "utils.h"
 
+#include <DNotifySender>
+
 #include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
@@ -17,8 +19,12 @@
 #include <QSet>
 #include <QSettings>
 #include <QtConcurrent>
+#include <QtConcurrentRun>
 
+#include <mutex>
 #include <queue>
+
+std::mutex PLUGIN_LOAD_GUARD;
 
 using namespace DCC_NAMESPACE;
 
@@ -132,7 +138,6 @@ PluginData loadAndGetModule(const QPair<PluginManager *, QString> &pair)
 PluginManager::PluginManager(QObject *parent)
     : QObject(parent)
     , m_rootModule(nullptr)
-    , m_loadAllFinished(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
 }
@@ -169,17 +174,49 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
         }
         filenames.insert(filename);
         libraryNames.append({ this, filepath });
+        m_pluginsStatus.push_back(filepath);
     }
 
+    std::function<PluginData(const QPair<PluginManager *, QString> &pair)> loadModuleAndRecord =
+            [this](const QPair<PluginManager *, QString> &pair) {
+                auto plugin = loadAndGetModule(pair);
+                std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
+                m_pluginsStatus.remove(m_pluginsStatus.indexOf(pair.second));
+                return plugin;
+            };
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
-    m_future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
+    m_future = QtConcurrent::mapped(libraryNames, loadModuleAndRecord);
     connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
         // 加载非一级插件
         insertChild(true);
-        m_loadAllFinished = true;
         emit loadAllFinished();
     });
     watcher->setFuture(m_future);
+
+    QtConcurrent::run([this, watcher, async] {
+        // NOTE: wait for all plugin for 5 seconds, if timeout and run with sync
+        // then watcher will be finished
+        QThread::sleep(5);
+        std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
+        if (!m_pluginsStatus.isEmpty()) {
+            qWarning() << "Some plugins not loaded in time";
+            QString failedmessage = tr("following plugins load failed") + ":";
+            for (const QString &value : m_pluginsStatus) {
+                failedmessage.push_back('\n');
+                failedmessage.push_back(value.split('/').last());
+            }
+
+            Dtk::Core::DUtil::DNotifySender(tr("plugins cannot loaded in time"))
+                    .appIcon("dde-control-center")
+                    .appBody(failedmessage)
+                    .call();
+            if (!async) {
+                qDebug() << "watcher is forced to finished";
+                // emit it , force to exit
+                emit watcher->finished();
+            }
+        }
+    });
     if (!async) {
         watcher->waitForFinished();
     }
@@ -194,7 +231,7 @@ void PluginManager::cancelLoad()
 
 bool PluginManager::loadFinished() const
 {
-    return m_loadAllFinished;
+    return m_pluginsStatus.isEmpty();
 }
 
 ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &name)
