@@ -8,8 +8,7 @@
 
 #include <QFuture>
 #include <QObject>
-
-#include <optional>
+#include <QVector>
 
 class QPluginLoader;
 
@@ -54,8 +53,8 @@ private:
 
     QList<PluginData> m_datas;  // cache for other plugin
     ModuleObject *m_rootModule; // root module from MainWindow
-    bool m_loadAllFinished;
     QFuture<PluginData> m_future;
+    QVector<QString> m_pluginsStatus;
 };
 
 } // namespace DCC_NAMESPACE
