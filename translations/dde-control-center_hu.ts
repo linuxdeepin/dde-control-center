@@ -1,93 +1,111 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="hu">
 <context>
+    <name>AppPermissionItemModel</name>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/permissioninfowidget.cpp" line="135"/>
+        <source>&quot;Documents&quot; folder</source>
+        <translation>&quot;Dokumentumok&quot; mappa</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/permissioninfowidget.cpp" line="137"/>
+        <source>&quot;Pictures&quot; folder</source>
+        <translation>&quot;Képek&quot; mappa</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="185"/>
         <source>Help</source>
         <translation>Segítség</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
         <source>Biometric Authentication</source>
         <translation>Biometrikus hitelesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
         <source>Accounts</source>
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
         <source>Display</source>
         <translation>Képernyő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
         <source>Touch Screen</source>
         <translation>Érintőképernyő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
         <source>Default Applications</source>
         <translation>Alapértelmezett alkalmazások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
         <source>Personalization</source>
         <translation>Felhasználói felület</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
         <source>Notification</source>
         <translation>Értesítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="365"/>
         <source>Sound</source>
         <translation>Hangok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="365"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
         <source>Date and Time</source>
         <translation>Dátum és Idő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="368"/>
         <source>Power</source>
         <translation>Energiaellátás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="368"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
         <source>Mouse</source>
         <translation>Egér</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="370"/>
         <source>Drawing Tablet</source>
         <translation>Rajztábla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="370"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="371"/>
         <source>Keyboard and Language</source>
         <translation>Billentyűzet és Nyelv</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
+        <source>Privacy and Security</source>
+        <translation>Adatvédelem és biztonság</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Updates</source>
         <translation>Frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="376"/>
         <source>System Info</source>
         <translation>Rendszer információk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
         <source>General Settings</source>
         <translation>Általános beállítások</translation>
     </message>
@@ -202,66 +220,66 @@
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
         <source>Create Account</source>
         <translation>Felhasználói fiók létrehozása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="306"/>
         <source>Auto Login</source>
         <translation>Automatikus bejelentkezés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="310"/>
         <source>Login Without Password</source>
         <translation>Bejelentkezés jelszó nélkül</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
         <source>Validity Days</source>
         <translation>Érvényességi napok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="298"/>
         <source>Change Password</source>
         <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="302"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>Account Settings</source>
         <translation>Felhasználói fiók beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="268"/>
         <source>Administrator</source>
         <translation>Rendszergazda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
         <source>Group</source>
         <translation>Csoport</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
         <source>New Account</source>
         <translation>Új felhasználói fiók</translation>
     </message>
@@ -650,9 +668,56 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::UserGroupsInfoItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="488"/>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Csak betűket, számokat és aláhúzást használjon</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="582"/>
+        <source>Edit</source>
+        <translation>Szerkesztés</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="39"/>
+        <source>Add User Group</source>
+        <translation>Felhasználói csoport hozzáadása</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="183"/>
+        <source>Enter a group name please!</source>
+        <translation>Kérjük adjon meg egy csoportnevet!</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="189"/>
+        <source>Group names should be no more than 32 characters</source>
+        <translation>A csoportnevek nem lehetnek hosszabbak 32 karakternél</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="194"/>
+        <source>The group name has been used</source>
+        <translation>A csoportnév már használatban van</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="197"/>
+        <source>Group names cannot only have numbers</source>
+        <translation>A csoportneveknek nem csak számokat kell tartalmaznia</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="592"/>
+        <source>Done</source>
+        <translation>Kész</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="258"/>
         <source>Group</source>
         <translation>Csoport</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -661,54 +726,54 @@
 <context>
     <name>dccV20::authentication::AddFaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="69"/>
         <source>Enroll Face</source>
         <translation>Arc rögzítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="187"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>Ügyeljen arra, hogy arcának valamennyi része jól látható legyen, és ne takarják el tárgyak. Az arcának jól megvilágítottnak kell lennie. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="90"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
         <source>Face enrolled</source>
         <translation>Az arc rögzítve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="204"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>Használja arcát az eszköz zárolásának feloldásához, és későbbi beállítások elvégzéséhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
         <source>Failed to enroll your face</source>
         <translation>Az arc rögzítése sikertelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Try Again</source>
         <translation>Próbálja újra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="228"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
@@ -716,34 +781,34 @@
 <context>
     <name>dccV20::authentication::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="125"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="207"/>
         <source>Scan Again</source>
         <translation>Újra ellenőrzés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="164"/>
         <source>The device is unavailable</source>
         <translation>Az eszköz nem érhető el</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="205"/>
         <source>Scan Suspended</source>
         <translation>Az ellenőrzés felfüggesztve</translation>
     </message>
@@ -756,7 +821,7 @@
         <translation>Írisz rögzítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="85"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
@@ -766,22 +831,23 @@
         <translation>Következő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="161"/>
         <source>Iris enrolled</source>
         <translation>Az írisz rögzítve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="174"/>
         <source>Failed to enroll your iris</source>
         <translation>Az írisz azonosító rögzítése sikertelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="180"/>
         <source>Try Again</source>
         <translation>Próbálja újra</translation>
     </message>
@@ -875,17 +941,12 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="59"/>
         <source>Add Fingerprint</source>
         <translation>Ujjlenyomat hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="82"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
@@ -1604,7 +1665,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="211"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
@@ -1627,19 +1688,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="272"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="395"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="459"/>
         <source>Customize</source>
         <translation>Testreszabás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="211"/>
         <source>Save</source>
         <translation>Mentés</translation>
     </message>
@@ -2551,8 +2612,8 @@ időformátum</translation>
         <translation>A monitor csak a képernyő 100% -os méretezését támogatja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="33"/>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="35"/>
         <source>Display Scaling</source>
         <translation>Képernyő méretezése</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
@@ -2754,7 +2815,7 @@ időformátum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="399"/>
         <source>Custom Shortcut</source>
         <translation>Egyedi gyorsbillentyű</translation>
     </message>
@@ -3203,31 +3264,31 @@ időformátum</translation>
         <translation>Értesítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="183"/>
         <source>System Notifications</source>
         <translation>Rendszerértesítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="120"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="185"/>
         <source>App Notifications</source>
         <translation>Alkalmazásértesítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="182"/>
         <source>Do Not Disturb</source>
         <translation>Ne zavarjanak üzemmód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="183"/>
         <source>Show icon on Dock</source>
         <translation>Ikon megjelenítése a Dokkolón</translation>
     </message>
@@ -3235,12 +3296,12 @@ időformátum</translation>
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="60"/>
         <source>System Notifications</source>
         <translation>Rendszerértesítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="75"/>
         <source>App Notifications</source>
         <translation>Alkalmazásértesítések</translation>
         <extra-contents_path>/notification/App Notifications</extra-contents_path>
@@ -3303,7 +3364,7 @@ időformátum</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="255"/>
         <source> (Unsupported font)</source>
         <translation>(Nem támogatott betűtípus)</translation>
     </message>
@@ -3664,185 +3725,185 @@ effektje</translation>
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="124"/>
         <source>Power</source>
         <translation>Energiaellátás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
         <source>General</source>
         <translation>Általános</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
         <source>On Battery</source>
         <translation>Akkumulátoros üzemmód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
         <source>Plugged In</source>
         <translation>Áramforráshoz csatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="375"/>
         <source>Auto power saving on low battery</source>
         <translation>Automatikus energiatakarékosság alacsony akkumulátorszint mellett</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="373"/>
         <source>Auto power saving on battery</source>
         <translation>Automatikus energiatakarékosság akkumulátoros üzemmódban</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="388"/>
         <source>Display remaining using and charging time</source>
         <translation>A hátralévő használati idő, és a töltési idő megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="390"/>
         <source>Maximum capacity</source>
         <translation>Akkumulátor maximális teljesítménye</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
         <source>Battery</source>
         <translation>Akkumulátor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="297"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="386"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="401"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
         <source>When the lid is closed</source>
         <translation>Képernyő
 lecsukásakor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="385"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="389"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="395"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="405"/>
         <source>When pressing the power button</source>
         <translation>Főkapcsoló
 megnyomásakor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
         <source>Low Battery Notification</source>
         <translation>Alacsony töltöttségi szint értesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
         <source>Low battery level</source>
         <translation>Alacsony akkumulátor töltöttség értéke</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="300"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="368"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="371"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="426"/>
         <source>Auto suspend battery level</source>
         <translation>Automatikus alvó állapot az akkumulátor alábbi töltöttségi szintjén</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="336"/>
         <source>Monitor will suspend after</source>
         <translation>A monitor alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="370"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="409"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="427"/>
         <source>Computer will suspend after</source>
         <translation>A számítógép alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="387"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="395"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="335"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="411"/>
         <source>Lock screen after</source>
         <translation>Képernyő zárolása ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="323"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Jelszó szükséges a monitor felébresztéséhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="429"/>
         <source>Password is required to wake up the computer</source>
         <translation>Jelszó szükséges a számítógép felébresztéséhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="377"/>
         <source>Decrease brightness</source>
         <translation>Fényerősség csökkentése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="311"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
         <source>Balanced</source>
         <translation>Kiegyensúlyozott</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="347"/>
         <source>High Performance</source>
         <translation>Nagy teljesítményű</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>Power Saver</source>
         <translation>Energiatakarékos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
         <source>Power Plans</source>
         <translation>Energiagazdálkodási tervek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Power Saving Settings</source>
         <translation>Energiatakarékossági beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="331"/>
         <source>Wakeup Settings</source>
         <translation>Felébresztési beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="445"/>
         <source>Battery low, please plug in</source>
         <translation>Alacsony akkumulátor szint, kérjük csatlakoztassa a számítógépet a töltőre.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="447"/>
         <source>Battery critically low</source>
         <translation>Az akkumlátor töltöttsége kritikusan alacsony</translation>
     </message>
@@ -3869,7 +3930,7 @@ megnyomásakor</translation>
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="483"/>
         <source>Never</source>
         <translation>Soha</translation>
     </message>
@@ -3935,46 +3996,47 @@ lecsukásakor</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="430"/>
         <source>Shut down</source>
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Suspend</source>
         <translation>Alvó állapot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="436"/>
         <source>Hibernate</source>
         <translation>Hibernálás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="450"/>
         <source>Turn off the monitor</source>
         <translation>Monitor kikapcsolása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="441"/>
         <source>Do nothing</source>
         <translation>Ne tegyen semmit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="465"/>
         <source>1 Minute</source>
         <translation>1 perc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="447"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="450"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="486"/>
         <source>%1 Minutes</source>
         <translation>%1 perc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="480"/>
         <source>1 Hour</source>
         <translation>1 óra</translation>
     </message>
@@ -4023,51 +4085,52 @@ lecsukásakor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="391"/>
         <source>Never</source>
         <translation>Soha</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="338"/>
         <source>Shut down</source>
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="341"/>
         <source>Suspend</source>
         <translation>Alvó állapot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="344"/>
         <source>Hibernate</source>
         <translation>Hibernálás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="358"/>
         <source>Turn off the monitor</source>
         <translation>Monitor kikapcsolása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="349"/>
         <source>Do nothing</source>
         <translation>Ne tegyen semmit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
         <source>1 Minute</source>
         <translation>1 perc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="355"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="394"/>
         <source>%1 Minutes</source>
         <translation>%1 perc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="388"/>
         <source>1 Hour</source>
         <translation>1 óra</translation>
     </message>
@@ -5360,6 +5423,51 @@ lecsukásakor</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="24"/>
+        <source>Camera</source>
+        <translation>Kamera</translation>
+        <extra-child_page>camera</extra-child_page>
+        <extra-contents_path>/privacy/camera</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="27"/>
+        <source>Allow below apps to use your camera:</source>
+        <translation>Engedélyezze az alábbi alkalmazások számára a kamera használatát:</translation>
+        <extra-child_page>camera</extra-child_page>
+        <extra-contents_path>/privacy/camera</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="30"/>
+        <source>No apps requested access to the camera</source>
+        <translation>Egyetlen alkalmazás sem kért hozzáférést a kamerához</translation>
+        <extra-child_page>camera</extra-child_page>
+        <extra-contents_path>/privacy/camera</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="38"/>
+        <source>Files and Folders</source>
+        <translation>Fájlok és Mappák</translation>
+        <extra-child_page>folders</extra-child_page>
+        <extra-contents_path>/privacy/folders</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="41"/>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation>Engedélyezze az alábbi alkalmazások számára, hogy hozzáférjenek ezekhez a fájlokhoz és mappákhoz:</translation>
+        <extra-child_page>folders</extra-child_page>
+        <extra-contents_path>/privacy/folders</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="44"/>
+        <source>No apps requested access to files and folders</source>
+        <translation>Egyetlen alkalmazás sem kért hozzáférést a fájlokhoz és mappákhoz</translation>
+        <extra-child_page>folders</extra-child_page>
+        <extra-contents_path>/privacy/folders</extra-contents_path>
+    </message>
+</context>
+<context>
     <name>PwqualityManager</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="61"/>
@@ -5434,12 +5542,17 @@ lecsukásakor</translation>
     <message>
         <location filename="../src/frame/main.cpp" line="101"/>
         <source>Control Center</source>
-        <translation>Vezérlőközpont</translation>
+        <translation>Vezérlőpult</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="38"/>
         <source>Input Methods</source>
         <translation>Beviteli módok</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/privacy/privacymodule.cpp" line="62"/>
+        <source>Privacy and Security</source>
+        <translation>Adatvédelem és biztonság</translation>
     </message>
 </context>
 <context>
@@ -5491,32 +5604,32 @@ lecsukásakor</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="674"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="739"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>A számítógépe sikeresen eltávolítva a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="675"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="740"/>
         <source>Your host joins the domain server successfully</source>
         <translation>A számítógépe sikeresen csatlakozott a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="703"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="768"/>
         <source>Your host failed to leave the domain server</source>
         <translation>A számítógépe nem tudott lecsatlakozni a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="704"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="769"/>
         <source>Your host failed to join the domain server</source>
         <translation>A számítógépe nem tudott csatlakozni a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="707"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="772"/>
         <source>AD domain settings</source>
         <translation>AD tartományi beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="776"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="841"/>
         <source>Password not match</source>
         <translation>A jelszó nem egyezik</translation>
     </message>
@@ -6245,12 +6358,12 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
 <context>
     <name>dcc::systeminfo::SystemInfoWork</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="211"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="226"/>
         <source>For Government</source>
         <translation>A kormány számára</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="213"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="228"/>
         <source>For Enterprise</source>
         <translation>A Vállalatok számára</translation>
     </message>
@@ -6515,7 +6628,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <location filename="../src/frame/main.cpp" line="102"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation>A Vezérlőközpont lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
+        <translation>A Vezérlőpult lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
     </message>
 </context>
 </TS>
