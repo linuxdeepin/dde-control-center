@@ -103,7 +103,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
     QString value  = outArgs.at(0).toString();
     qInfo() << Q_FUNC_INFO << "com.deepin.daemon.Display.GetBuiltinMonitor : " << value;
-    value = "HDMI-A-0";
     //仅对支持内建屏的机器进行处理
     if (m_model && value != "") {
         m_model->setBuiltinMonitor(value);
