@@ -3110,7 +3110,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation>服务器版</translation>
+        <translation>服务器</translation>
     </message>
     <message>
         <source>Address</source>
