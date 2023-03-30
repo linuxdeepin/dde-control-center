@@ -193,7 +193,7 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
     });
     watcher->setFuture(m_future);
 
-    QtConcurrent::run([this, watcher, async] {
+    QtConcurrent::run([this] {
         // NOTE: wait for all plugin for 5 seconds, if timeout and run with sync
         // then watcher will be finished
         QThread::sleep(5);
@@ -210,15 +210,14 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
                     .appIcon("dde-control-center")
                     .appBody(failedmessage)
                     .call();
-            if (!async) {
-                qDebug() << "watcher is forced to finished";
-                // emit it , force to exit
-                emit watcher->finished();
-            }
         }
+        emit requestForceContinue();
     });
     if (!async) {
-        watcher->waitForFinished();
+        QEventLoop loop;
+        connect(this, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
+        connect(this, &PluginManager::requestForceContinue, &loop, &QEventLoop::quit);
+        loop.exec();
     }
 }
 
