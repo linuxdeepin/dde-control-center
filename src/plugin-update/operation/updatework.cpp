@@ -2,7 +2,10 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatework.h"
+#include "common.h"
 #include "widgets/utils.h"
+#include <qdesktopservices.h>
+#include <qnetworkaccessmanager.h>
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -60,6 +63,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_downloadSize(0)
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
+    , m_mechineid(std::nullopt)
+    , m_testUrl(std::nullopt)
 {
 
 }
@@ -85,7 +90,7 @@ void UpdateWorker::preInitialize()
 
     QFutureWatcher<QMap<QString, QStringList>> *packagesWatcher = new QFutureWatcher<QMap<QString, QStringList>>(this);
     connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [ = ] {
-        QMap<QString, QStringList> updatablePackages = std::move(packagesWatcher->result());
+        QMap<QString, QStringList> updatablePackages = packagesWatcher->result();
         checkUpdatablePackages(updatablePackages);
         packagesWatcher->deleteLater();
     });
@@ -101,6 +106,7 @@ void UpdateWorker::init()
 {
     qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
     qRegisterMetaType<UiActiveState>("UiActiveState");
+    qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
 
     QString sVersion = QString("%1 %2").arg(DSysInfo::uosProductTypeName()).arg(DSysInfo::majorVersion());
     if (!IsServerSystem)
@@ -136,6 +142,20 @@ void UpdateWorker::licenseStateChangeSlot()
     watcher->setFuture(future);
 }
 
+void UpdateWorker::testingChannelChangeSlot()
+{
+    QDBusPendingCall call = m_updateInter->PackageExists(TestingChannelPackage);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, call, this] {
+        if (!call.isError()) {
+            QDBusPendingReply<bool> reply = call.reply();
+            if (reply.value()) {
+                m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+            };
+        }
+        watcher->deleteLater();
+    });
+}
 void UpdateWorker::getLicenseState()
 {
     if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
@@ -187,6 +207,7 @@ void UpdateWorker::activate()
 
     onJobListChanged(m_updateInter->jobList());
 
+    testingChannelChangeSlot();
     licenseStateChangeSlot();
 
     QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
@@ -1560,4 +1581,150 @@ void UpdateWorker::onRequestLastoreHeartBeat()
         return;
     }
     lastoreManager.asyncCall("GetCheckIntervalAndTime");
+}
+
+std::optional<QUrl> UpdateWorker::updateTestingChannelUrl()
+{
+    auto getMechineId = [this]() -> std::optional<QString> {
+        if (m_mechineid.has_value()) {
+            return m_mechineid.value();
+        }
+        QProcess process;
+        auto args = QStringList();
+        args.append("-c");
+        args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
+        process.start("sh", args);
+        process.waitForFinished();
+        const auto token = QString(process.readAllStandardOutput());
+        const auto list = token.split(";");
+        for (const auto &line: list) {
+            const auto key = line.section("=", 0, 0);
+            if (key == "i") {
+                const auto value = line.section("=", 1);
+                m_mechineid = value;
+                return value;
+            }
+        }
+        return std::nullopt;
+    };
+    QString hostname = m_updateInter->staticHostname();
+    auto mechineid = getMechineId();
+    if (!mechineid.has_value()) {
+        return std::nullopt;
+    }
+    QUrl testingUrl = QUrl(ServiceLink + "/internal-testing");
+    auto query = QUrlQuery(testingUrl.query());
+    query.addQueryItem("h", hostname);
+    query.addQueryItem("m", mechineid.value());
+    query.addQueryItem("v", DSysInfo::minorVersion());
+    testingUrl.setQuery(query);
+    return testingUrl;
+}
+
+std::optional<QUrl> UpdateWorker::getTestingChannelUrl()
+{
+    if (!m_testUrl.has_value()) {
+        m_testUrl = updateTestingChannelUrl();
+    }
+    return m_testUrl;
+}
+
+// TODO: uninstall need finish
+void UpdateWorker::setTestingChannelEnable(const bool &enable)
+{
+    if (enable) {
+        m_model->setTestingChannelStatus(TestingChannelStatus::WaitJoined); 
+    } else {
+        // TODO: need uninstall
+    }
+    auto getMechineId = [this]() -> std::optional<QString> {
+        if (m_mechineid.has_value()) {
+            return m_mechineid.value();
+        }
+        QProcess process;
+        auto args = QStringList();
+        args.append("-c");
+        args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
+        process.start("sh", args);
+        process.waitForFinished();
+        const auto token = QString(process.readAllStandardOutput());
+        const auto list = token.split(";");
+        for (const auto &line: list) {
+            const auto key = line.section("=", 0, 0);
+            if (key == "i") {
+                const auto value = line.section("=", 1);
+                m_mechineid = value;
+                return value;
+            }
+        }
+        return std::nullopt;
+    };
+    auto mechineidopt = getMechineId();
+    if (!mechineidopt.has_value()) {
+        // TODO: Maybe need notify?
+        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+        return;
+    }
+    QString mechineid = mechineidopt.value();
+    const QString server = ServiceLink;
+
+    // TODO: Unistall
+    if (!enable) {
+        return;
+    }
+    auto testChannelUrlOpt = getTestingChannelUrl();
+    if (!testChannelUrlOpt.has_value()) {
+        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+        return;
+    }
+    QUrl testChannelUrl = testChannelUrlOpt.value();
+    qDebug() << "Testing:" << "open join page" << testChannelUrl.toString();
+    QDesktopServices::openUrl(testChannelUrl);
+    // Loop to check if user hava joined
+    QTimer::singleShot(1000, this,  &UpdateWorker::checkTestingChannelStatus);
+}
+
+void UpdateWorker::checkTestingChannelStatus()
+{
+    // Leave page
+    if (m_model->getTestingChannelStatus() == TestingChannelStatus::Hidden) {
+        return;
+    }
+    if (!m_mechineid.has_value()) {
+        return;
+    }
+    qDebug() << "Testing:" << "check testing join status";
+    QString mechineid = m_mechineid.value();
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/mechine/status/" + mechineid));
+    request.setRawHeader("content-type", "application/json");
+    connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+        reply->deleteLater();
+        http->deleteLater();
+
+        if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "Testing:" << "Network Error" << reply->errorString();
+            return;
+        }
+        auto data = reply->readAll();
+        qDebug() << "Testing:" << "machine status body" << data;
+        auto doc = QJsonDocument::fromJson(data);
+        auto obj = doc.object();
+        auto status = obj["data"].toObject()["status"].toString();
+        // Exit the loop if switch status is disable
+        if (m_model->getTestingChannelStatus() != TestingChannelStatus::WaitJoined) {
+            return;
+        }
+        // If user has joined then install testing source package;
+        if (status == "joined") {
+            m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+            qDebug() << "Testing:" << "Install testing channel package";
+            m_updateInter->InstallPackage("testing channel", TestingChannelPackage);
+            return;
+        }
+        // Run again after sleep
+        QTimer::singleShot(5000, this, &UpdateWorker::checkTestingChannelStatus);
+    });
+    http->get(request);
 }

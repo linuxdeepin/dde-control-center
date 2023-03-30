@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type -Wunused -Wunused-value")
 
 # INFO:
 # plugins can be disabled and their options
@@ -72,7 +72,7 @@ add_definitions(-DDefaultModuleDirectory="${MODULE_INSTALL_DIR}")
 find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(Qt5 COMPONENTS Widgets DBus Concurrent Multimedia Svg Test REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
 
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
@@ -1062,6 +1062,7 @@ if (BUILD_PLUDIN AND NOT DISABLE_UPDATE)
 
     target_link_libraries(${Update_Name} PRIVATE
         ${Update_Libraries}
+        Qt5::Network
     )
 
     install(TARGETS ${Update_Name} DESTINATION ${MODULE_INSTALL_DIR})

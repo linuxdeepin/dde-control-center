@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "updateplugin.h"
+#include "common.h"
 #include "updatesettingsmodule.h"
 #include "interface/pagemodule.h"
 
@@ -86,6 +87,13 @@ void UpdateModule::active()
             }
         }
     });
+}
+
+void UpdateModule::deactive()
+{
+    if (m_model->getTestingChannelStatus() != TestingChannelStatus::Joined) {
+        m_model->setTestingChannelStatus(TestingChannelStatus::Hidden);
+    }
 }
 
 void UpdateModule::syncUpdatablePackagesChanged(const bool isUpdatablePackages)

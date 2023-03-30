@@ -37,6 +37,7 @@ public:
 
 protected:
     virtual void active() override;
+    virtual void deactive() override;
     void syncUpdatablePackagesChanged(const bool isUpdatablePackages);
 
 private:

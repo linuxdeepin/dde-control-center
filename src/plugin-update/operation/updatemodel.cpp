@@ -53,9 +53,11 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
+    , m_testingChannelStatus(TestingChannelStatus::Hidden)
     , m_atomicBackingUp(false)
 {
 
+    qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
 }
 
 UpdateModel::~UpdateModel()
@@ -617,4 +619,15 @@ UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
 
     }
     return status;
+}
+
+TestingChannelStatus UpdateModel::getTestingChannelStatus() const
+{
+    return m_testingChannelStatus;
+}
+
+void UpdateModel::setTestingChannelStatus(const TestingChannelStatus &status)
+{
+    m_testingChannelStatus = status;
+    Q_EMIT TestingChannelStatusChanged(m_testingChannelStatus);
 }

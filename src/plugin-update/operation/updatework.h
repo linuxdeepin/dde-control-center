@@ -12,6 +12,8 @@
 #include <QNetworkReply>
 #include <QObject>
 
+#include <optional>
+
 struct CheckUpdateJobRet {
     QString status;
     QString jobID;
@@ -101,6 +103,7 @@ public Q_SLOTS:
     void checkNetselect();
 
     void licenseStateChangeSlot();
+    void testingChannelChangeSlot();
     void refreshLastTimeAndCheckCircle();
     void setUpdateNotify(const bool notify);
 
@@ -109,6 +112,11 @@ public Q_SLOTS:
     void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
     void onFixError(const ClassifyUpdateType &updateType, const QString &errorType);
     void onRequestLastoreHeartBeat();
+
+    std::optional<QUrl> updateTestingChannelUrl();
+    std::optional<QUrl> getTestingChannelUrl();
+    void setTestingChannelEnable(const bool &enable);
+    void checkTestingChannelStatus();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -203,6 +211,9 @@ private:
     QMutex m_downloadMutex;
 
     QList<UpdateLogItem> m_updateLogs;
+
+    std::optional<QString> m_mechineid;
+    std::optional<QUrl> m_testUrl;
 };
 
 #endif // UPDATEWORK_H

@@ -195,6 +195,9 @@ public:
     void setAtomicBackingUp(bool atomicBackingUp);
 
     QString utcDateTime2LocalDate(const QString& utcDateTime);
+    // Testing Channel
+    TestingChannelStatus getTestingChannelStatus() const;
+    void setTestingChannelStatus(const TestingChannelStatus &status);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
@@ -245,6 +248,8 @@ Q_SIGNALS:
 
     // Atomic Upgrade
     void atomicBackingUpChanged(const bool atomicBackingUp);
+    // Testing Channel
+    void TestingChannelStatusChanged(const TestingChannelStatus &status);
 
 private:
     UpdatesStatus m_status;
@@ -293,6 +298,8 @@ private:
     UpdateJobErrorMessage m_systemUpdateJobError;
     UpdateJobErrorMessage m_safeUpdateJobError;
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
+
+    TestingChannelStatus m_testingChannelStatus;
 
     bool m_atomicBackingUp;
 };

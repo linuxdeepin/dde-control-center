@@ -11,8 +11,6 @@
 
 DCORE_USE_NAMESPACE
 
-using namespace std;
-
 const double Epsion = 1e-6;
 const QString SystemUpdateType = "system_upgrade";
 const QString AppStoreUpdateType = "appstore_upgrade";
@@ -27,6 +25,9 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//�
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+
+const QString TestingChannelPackage = "deepin-unstable-source";
+const QString ServiceLink = "https://insider.deepin.org";
 
 enum UpdatesStatus {
     Default,
@@ -100,8 +101,14 @@ enum UiActiveState {
     TrialExpired //试用期已过期
 };
 
+enum TestingChannelStatus {
+    Hidden,
+    NotJoined,
+    WaitJoined,
+    Joined,
+};
 
-static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
+[[maybe_unused]] static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
 {
     ClassifyUpdateType value = ClassifyUpdateType::Invalid;
     switch (type) {
@@ -123,12 +130,12 @@ static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
 }
 
 //equal : false
-static inline bool compareDouble(const double value1, const double value2)
+[[maybe_unused]] static inline bool compareDouble(const double value1, const double value2)
 {
     return !((value1 - value2 >= -Epsion) && (value1 - value2 <= Epsion));
 }
 
-static inline QString formatCap(qulonglong cap, const int size = 1024)
+[[maybe_unused]] static inline QString formatCap(qulonglong cap, const int size = 1024)
 {
     static QString type[] = {"B", "KB", "MB", "GB", "TB"};
 
@@ -148,12 +155,12 @@ static inline QString formatCap(qulonglong cap, const int size = 1024)
     return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
 }
 
-static inline vector<double> getNumListFromStr(const QString &str)
+[[maybe_unused]] static inline std::vector<double> getNumListFromStr(const QString &str)
 {
     //筛选出字符串中的数字
     QRegExp rx("-?[1-9]\\d*\\.\\d*|0+.[0-9]+|-?0\\.\\d*[1-9]\\d*|-?\\d+");
     int pos = 0;
-    vector<double> v;
+    std::vector<double> v;
     while ((pos = rx.indexIn(str, pos)) != -1) {
         pos += rx.matchedLength();
         v.push_back(rx.cap(0).toDouble());
