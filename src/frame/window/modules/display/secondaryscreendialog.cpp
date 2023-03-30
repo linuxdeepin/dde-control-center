@@ -125,9 +125,11 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     if (m_monitor->canBrightness()) {
         TitleLabel *headTitle = new TitleLabel(tr("Brightness"), this); //亮度
         DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
+        GSettingWatcher::instance()->bind("displayLightLighting", headTitle);  // 使用GSettings来控制显示状态
 
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name(), this);
+        GSettingWatcher::instance()->bind("displayLightLighting", slideritem);  // 使用GSettings来控制显示状态
         slideritem->addBackground();
         bool isAutoCheckVisible = (m_monitor->name() == m_model->getBuiltinMonitor() && m_model->getSupportLabc());
         slideritem->setAutoBrightnessVisible(isAutoCheckVisible);

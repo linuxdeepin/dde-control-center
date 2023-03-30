@@ -187,7 +187,7 @@ void BrightnessWidget::showBrightness(Monitor *monitor)
             bTitle = true;
         }
     }
-    m_brightnessTitle->setVisible(bTitle);
+    m_brightnessTitle->setVisible(bTitle && ("Hidden" != GSettingWatcher::instance()->getStatus("displayLightLighting")));
     //色温模块不显示的时候 设置空白区域高度为0
     m_colorSpacerItem->changeSize(0, bTitle && ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) && m_displayModel->redshiftIsValid() ? 20 : 0);
 }
