@@ -205,9 +205,15 @@ void UpdateDBusProxy::InstallPackage(const QString &jobname, const QString &pack
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
-    m_managerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackages"), argumentList);
+    m_managerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
 }
 
+void UpdateDBusProxy::RemovePackage(const QString &jobname, const QString &packages)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
+    m_managerInter->asyncCallWithArgumentList(QStringLiteral("RemovePackage"), argumentList);
+}
 QDBusPendingReply<QList<QDBusObjectPath> > UpdateDBusProxy::ClassifiedUpgrade(qulonglong in0)
 {
     QList<QVariant> argumentList;

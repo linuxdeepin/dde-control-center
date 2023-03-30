@@ -115,6 +115,7 @@ public Q_SLOTS:
 
     std::optional<QUrl> updateTestingChannelUrl();
     std::optional<QUrl> getTestingChannelUrl();
+
     void setTestingChannelEnable(const bool &enable);
     void checkTestingChannelStatus();
 
@@ -168,6 +169,10 @@ private:
     void backupToAtomicUpgrade();
     void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
 
+    // testingChannel
+    bool checkCanExitTestingChannel();
+    std::optional<QString> getTestingChannelSource();
+    QStringList getSourcesOfPackage(const QString &pkg, const QString &version);
 private:
     UpdateModel *m_model;
     QPointer<UpdateJobDBusProxy> m_checkUpdateJob;
