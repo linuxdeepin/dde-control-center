@@ -1,0 +1,605 @@
+//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
+
+#include "avatarlistframe.h"
+#include "avatarcropbox.h"
+
+#include <QWidget>
+#include <QLabel>
+#include <QPoint>
+#include <QColor>
+#include <QTimer>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QFileDialog>
+#include <QDateTime>
+#include <QStandardPaths>
+#include <QPainter>
+#include <QMimeData>
+#include <QImage>
+#include <QDragEnterEvent>
+#include <QScrollArea>
+#include <QScreen>
+
+#include <DSlider>
+
+// 系统用户头像存放路径
+#define PERSON_DIMENSIONAL_PATH "/var/lib/AccountsService/icons/human/dimensional"
+#define PERSON_FLAT_PATH "/var/lib/AccountsService/icons/human/flat"
+#define ANIMAL_DIMENSIONAL_PATH "/var/lib/AccountsService/icons/animal/dimensional"
+#define ILLUSTRATION_DIMENSIONAL_PATH "/var/lib/AccountsService/icons/illustration/dimensional"
+#define EMOJI_DIMENSIONAL_PATH "/var/lib/AccountsService/icons/emoji/dimensional"
+
+// 用户自定义图像存放路径（用户目录）
+#define AVATAR_CUSTOM_PATH "/.local/share/icons/"
+
+// 人物头像类型
+#define DIMENSIONAL_TYPE "dimensional" // 平面头像
+#define FLAT_TYPE "flat" // 立体头像
+
+#define BORDER_BOX_SIZE 190
+#define AVATAR_ICON_SIZE 140
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 472
+#define FIRST_PAGE_WIDTH 180 // 160 + 10 + 10
+#define SECOND_PAGE_WIDTH 460
+#define WINDOW_ROUND_SIZE 10
+#define CROP_BOX_SIZE 120
+#define SLIDER_MINIMUM_SIZE 1
+#define SLIDER_MAX_SIZE 20
+#define SLIDER_STEP 1
+
+DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
+
+// 头像选择项
+struct AvatarItem
+{
+    QString name;
+    QString icon;
+    int role;
+
+    AvatarItem(const QString &_name, const QString &_icon, const int &_role)
+        : name(_name)
+        , icon(_icon)
+        , role(_role)
+    {
+    }
+};
+
+AvatarListFrame::AvatarListFrame(const int &role , QWidget *parent)
+    : QFrame(parent)
+    , m_role(role)
+    , m_avatarDimensionalLsv(nullptr)
+    , m_avatarFlatLsv(nullptr)
+    , m_currentAvatarLsv(nullptr)
+{
+    setFrameStyle(QFrame::NoFrame);
+    setContentsMargins(0, 0, 0, 0);
+    if (role == Role::Custom) {
+        m_currentAvatarLsv = new AvatarListView(role, Type::Dimensional, "");
+        return;
+    }
+
+    QList<AvatarRoleItem> items = {
+        AvatarRoleItem{ Role::Person,
+                        Type::Dimensional,
+                        PERSON_DIMENSIONAL_PATH,
+                        isExistCustomAvatar(PERSON_DIMENSIONAL_PATH) },
+        AvatarRoleItem{ Role::Person,
+                        Type::Flat,
+                        PERSON_FLAT_PATH,
+                        isExistCustomAvatar(PERSON_FLAT_PATH) },
+        AvatarRoleItem{ Role::Animal,
+                        Type::Dimensional,
+                        ANIMAL_DIMENSIONAL_PATH,
+                        isExistCustomAvatar(ANIMAL_DIMENSIONAL_PATH) },
+        AvatarRoleItem{ Role::Illustration,
+                        Type::Dimensional,
+                        ILLUSTRATION_DIMENSIONAL_PATH,
+                        isExistCustomAvatar(ILLUSTRATION_DIMENSIONAL_PATH) },
+        AvatarRoleItem{ Role::Expression,
+                        Type::Dimensional,
+                        EMOJI_DIMENSIONAL_PATH,
+                        isExistCustomAvatar(EMOJI_DIMENSIONAL_PATH) },
+    };
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    auto addAvatar = [this, mainLayout](const AvatarRoleItem &item) {
+        m_currentAvatarLsv = new AvatarListView(item.role, item.type, item.path);
+        item.type == Type::Dimensional ? m_avatarDimensionalLsv = m_currentAvatarLsv
+                                       : m_avatarFlatLsv = m_currentAvatarLsv;
+
+        QHBoxLayout *hBoxLayout = new QHBoxLayout;
+        hBoxLayout->addWidget(m_currentAvatarLsv, Qt::AlignCenter);
+
+        // 人物头像有两种, 需要添加类型标签
+        if (item.role == Role::Person) {
+            QLabel *dimStyleNameLabel = new QLabel(this);
+            dimStyleNameLabel->setText(
+                    tr(item.type == Type::Dimensional ? "Dimensional Style" : "Flat Style"));
+
+            QHBoxLayout *nameLabelLayout = new QHBoxLayout;
+            nameLabelLayout->addSpacing(10);
+            nameLabelLayout->addWidget(dimStyleNameLabel);
+            mainLayout->addLayout(nameLabelLayout);
+            mainLayout->addSpacing(2);
+        }
+
+        mainLayout->addLayout(hBoxLayout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
+        layout->addLayout(mainLayout, Qt::AlignCenter);
+
+        setLayout(layout);
+
+        connect(m_currentAvatarLsv,
+                &AvatarListView::requestUpdateListView,
+                this,
+                &AvatarListFrame::updateListView);
+    };
+
+    for (const auto &item : items) {
+        if (item.role == m_role && item.isLoader) {
+            addAvatar(item);
+        }
+    }
+
+    m_currentAvatarLsv = m_avatarDimensionalLsv;
+}
+
+QString AvatarListFrame::getAvatarPath() const
+{
+    return m_currentAvatarLsv->getAvatarPath();
+}
+
+bool AvatarListFrame::isExistCustomAvatar(const QString &path)
+{
+    QDir info(path);
+    QStringList filters{ "*.png", "*.jpg", ".jpeg", ".bmp" }; // 设置过滤类型
+    info.setNameFilters(filters);                             // 设置文件名的过滤
+
+    return !info.entryInfoList().isEmpty();
+}
+
+void AvatarListFrame::updateListView(const int &role, const int &type)
+{
+    // 人物头像有两种类型,当有一种类型的item被选中时，取消另外一种类型item的选中状态
+    if (role == Role::Person) {
+        if (type == Type::Dimensional) {
+            m_currentAvatarLsv = m_avatarDimensionalLsv;
+            if (m_avatarFlatLsv) {
+                m_avatarFlatLsv->setCurrentAvatarUnChecked();
+            }
+        } else if (type == Type::Flat) {
+            m_currentAvatarLsv = m_avatarFlatLsv;
+            m_avatarDimensionalLsv->setCurrentAvatarUnChecked();
+        } else {
+            // nothing to do
+        }
+    }
+}
+
+CustomAddAvatarWidget::CustomAddAvatarWidget(const int &role , QWidget *parent)
+    : AvatarListFrame(role, parent)
+    , m_fd(new QFileDialog(this))
+    , m_addAvatarFrame(new DFrame(this))
+    , m_addAvatarLabel(new QLabel(this))
+    , m_hintLabel(new QLabel(this))
+    , m_acceptableRect(QRect(16, 50, 400, 240))
+    , m_currentBkColor(0xececec)
+    , m_dragEnterBkColor(0xd4e4f4)
+    , m_dragLeaveBkColor(0xececec)
+{
+    setAcceptDrops(true);
+    m_addAvatarFrame->setFixedSize(400, 240);
+    m_addAvatarFrame->setFrameStyle(QFrame::NoFrame);
+    m_addAvatarFrame->setAcceptDrops(true);
+    m_addAvatarFrame->installEventFilter(this);
+
+    m_addAvatarLabel->setPixmap(QIcon::fromTheme("dcc_user_add_icon").pixmap(60, 60));
+    m_addAvatarLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
+    m_hintLabel->setText(tr("You have not uploaded a picture, you can click or drag to upload a picture"));
+    m_hintLabel->setAlignment(Qt::AlignCenter);
+    m_hintLabel->setWordWrap(true);
+
+    QVBoxLayout *vBLayout = new QVBoxLayout();
+    vBLayout->setContentsMargins(10, 0, 10, 0);
+    vBLayout->addWidget(m_addAvatarLabel, Qt::AlignHCenter | Qt::AlignVCenter);
+    vBLayout->addSpacing(2);
+    vBLayout->addWidget(m_hintLabel, Qt::AlignHCenter);
+    vBLayout->addSpacing(120);
+    m_addAvatarFrame->setLayout(vBLayout);
+
+    QHBoxLayout *hBoxLayout = new QHBoxLayout;
+    hBoxLayout->setContentsMargins(10, 0, 10, 0);
+    hBoxLayout->addWidget(m_addAvatarFrame);
+
+    QVBoxLayout * mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(10, 0, 10, 0);
+    mainLayout->addLayout(hBoxLayout);
+
+    setLayout(mainLayout);
+    installEventFilter(this);
+
+    m_fd->setAccessibleName("QFileDialog");
+    m_fd->setModal(true);
+    m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
+};
+
+CustomAddAvatarWidget::~CustomAddAvatarWidget()
+{
+    if (m_fd) {
+        m_fd->deleteLater();
+    }
+}
+
+void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
+{
+    auto saveFunc = [this](const QString &path) {
+        QString avatarPath;
+        QFileInfo info(path);
+        QString time = QString::number(QDateTime::currentSecsSinceEpoch());
+
+        QFile file(path);
+        if (file.open(QIODevice::ReadOnly)) {
+            QPixmap pix;
+            pix.loadFromData(file.readAll());
+
+            if (!pix.isNull()) {
+                // 将用户传入的图片, 以当前时间戳作为文件名, 并保存到本地
+                avatarPath = QString("%1%2.%3")
+                                     .arg(getCurrentListView()->getCustomAvatarPath())
+                                     .arg(time)
+                                     .arg(info.suffix());
+                file.copy(path, avatarPath);
+            } else {
+                // 用户上传的不是图片类型，提醒用户上传的文件类型错误
+                m_hintLabel->clear();
+                qWarning() << "failed to save file, maybe the file is not picture type";
+                QPalette pe;
+                pe.setColor(QPalette::Base, Qt::white);
+                m_hintLabel->setPalette(pe);
+                m_hintLabel->setText(tr("Uploaded file type is incorrect, please upload again"));
+            }
+
+            file.close();
+        }
+
+        if (!avatarPath.isEmpty()) {
+            Q_EMIT requestUpdateCustomWidget(avatarPath);
+        }
+    };
+
+    if (path.isEmpty()) {
+        // open file manager to add pic
+        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+        if (!directory.isEmpty()) {
+            m_fd->setDirectory(directory.first());
+        }
+
+        connect(m_fd, &QFileDialog::finished, this, [this,saveFunc](int result) {
+            if (result == QFileDialog::Accepted) {
+                const QString path = m_fd->selectedFiles().first();
+                saveFunc(path);
+            }
+        });
+
+        m_fd->show();
+    } else {
+        // save file
+        saveFunc(path);
+    }
+}
+
+void CustomAddAvatarWidget::dragEnterEvent(QDragEnterEvent *event)
+{
+    event->accept(m_acceptableRect);
+    m_currentBkColor = m_dragEnterBkColor;
+
+    repaint();
+
+    QWidget::dragEnterEvent(event);
+}
+
+void CustomAddAvatarWidget::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    m_currentBkColor = m_dragLeaveBkColor;
+    repaint();
+
+    QWidget::dragLeaveEvent(event);
+}
+
+void CustomAddAvatarWidget::dropEvent(QDropEvent *event)
+{
+    auto file = event->mimeData()->urls().first().toLocalFile();
+    m_currentBkColor = m_dragLeaveBkColor;
+
+    saveCustomAvatar(file);
+    repaint();
+}
+
+void CustomAddAvatarWidget::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    QPen p(QColor(216, 212, 212));
+    p.setWidth(2);
+    p.setStyle(Qt::DashLine);
+    painter.setPen(p);
+    QPainterPath path;
+    path.addRoundedRect(m_acceptableRect, WINDOW_ROUND_SIZE, WINDOW_ROUND_SIZE);
+    painter.fillPath(path, m_currentBkColor);
+    painter.drawPath(path);
+}
+
+bool CustomAddAvatarWidget::eventFilter(QObject *object, QEvent *event)
+{
+    if (object == m_addAvatarFrame) {
+        if (event->type() == QEvent::Type::Enter || event->type() == QEvent::MouseButtonPress) {
+            m_currentBkColor = m_dragEnterBkColor;
+        } else if (event->type() == QEvent::Type::Leave) {
+            m_currentBkColor = m_dragLeaveBkColor;
+        } else if (event->type() == QEvent::MouseButtonRelease) {
+            m_currentBkColor = m_dragLeaveBkColor;
+            saveCustomAvatar(QString());
+        } else {
+            // do nothing;
+            return false;
+        }
+
+        repaint();
+        return true;
+    }
+
+    return false;
+}
+
+CustomAvatarView::CustomAvatarView(const QString &avatarPath, QWidget *parent)
+    : QWidget(parent)
+    , m_autoExitTimer(new QTimer(this))
+    , m_cropBox(new AvatarCropBox(this))
+    , m_path(avatarPath)
+{
+    setFixedSize(BORDER_BOX_SIZE, BORDER_BOX_SIZE);
+
+    m_autoExitTimer->setInterval(1000);
+    m_autoExitTimer->setSingleShot(true);
+    connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
+        // 当用户退出图片修改后，1s内不再编辑，恢复背景
+        m_cropBox->setBackgroundColor(palette().color(QPalette::Window));
+        auto path = getCroppedImage();
+        m_autoExitTimer->stop();
+
+        Q_EMIT requestSaveCustomAvatar(path);
+    });
+
+    QVBoxLayout *layout= new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addWidget(m_cropBox);
+    setLayout(layout);
+}
+
+QString CustomAvatarView::getCroppedImage()
+{
+    QString time = QString::number(QDateTime::currentSecsSinceEpoch());
+    auto homeDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    QString path = QString("%1%2.%3").arg(homeDir.first() + AVATAR_CUSTOM_PATH).arg(time).arg("png");
+
+    auto screen = qApp->primaryScreen();
+    auto offset = (BORDER_BOX_SIZE - CROP_BOX_SIZE) / 2;
+    QPoint pos = mapToGlobal(QPoint(offset, offset));
+    QRect rect(pos.x(), pos.y(), CROP_BOX_SIZE, CROP_BOX_SIZE);
+
+    bool ret = screen->grabWindow(0, rect.x(), rect.y(), rect.width(), rect.height()).save(path);
+    if (!ret) {
+        qWarning() << "failed to save crop image";
+        return QString();
+    }
+
+    return path;
+}
+
+void CustomAvatarView::setAvatarPath(const QString &avatarPath)
+{
+    m_path = avatarPath;
+    m_image.load(m_path);
+    onPresetImage();
+    enableAvatarScaledItem(true);
+    update();
+}
+
+CustomAvatarView::~CustomAvatarView()
+{
+    if (m_autoExitTimer) {
+        m_autoExitTimer->stop();
+        m_autoExitTimer->deleteLater();
+        m_autoExitTimer = nullptr;
+    }
+}
+
+void CustomAvatarView::paintEvent(QPaintEvent *event)
+{
+    // 绘制样式
+    QStyleOption opt;
+    opt.init(this);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+
+    if (m_image.isNull()) {
+        painter.setBrush(QBrush(QColor("#e4e4e4")));
+        painter.setPen(QColor("#e4e4e4"));
+        painter.drawRoundedRect(QRect(35, 35, CROP_BOX_SIZE, CROP_BOX_SIZE), WINDOW_ROUND_SIZE, WINDOW_ROUND_SIZE);
+        return QWidget::paintEvent(event);
+    }
+
+    // 平移
+    painter.translate(this->width() / 2 + m_xPtInterval, this->height() / 2 + m_yPtInterval);
+
+    // 缩放
+    painter.scale(m_zoomValue, m_zoomValue);
+
+    // 绘制图像
+    QRect picRect(-AVATAR_ICON_SIZE / 2, -AVATAR_ICON_SIZE / 2, AVATAR_ICON_SIZE, AVATAR_ICON_SIZE);
+    painter.drawImage(picRect, m_image);
+}
+
+void CustomAvatarView::mousePressEvent(QMouseEvent *event)
+{
+    if (m_image.isNull()) {
+        return event->ignore();
+    }
+
+    m_OldPos = event->pos();
+    startAvatarModify();
+}
+
+void CustomAvatarView::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!m_Pressed)
+        return QWidget::mouseMoveEvent(event);
+
+    this->setCursor(Qt::SizeAllCursor);
+    QPoint pos = event->pos();
+
+    int xPtInterval = pos.x() - m_OldPos.x();
+    int yPtInterval = pos.y() - m_OldPos.y();
+
+    m_OldPos = pos;
+
+    // 限制图片移动区域,超出移动范围不移动
+    m_offset = (AVATAR_ICON_SIZE * m_zoomValue - CROP_BOX_SIZE) / 2;
+    if ((m_xPtInterval >= m_offset && xPtInterval > 0)
+        || (m_xPtInterval <= -m_offset && xPtInterval < 0)
+        || (m_yPtInterval >= m_offset && yPtInterval > 0)
+        || (m_yPtInterval <= -m_offset && yPtInterval < 0)) {
+        return this->update();
+    }
+
+    m_xPtInterval += xPtInterval;
+    m_yPtInterval += yPtInterval;
+
+    this->update();
+}
+
+void CustomAvatarView::mouseReleaseEvent(QMouseEvent *event)
+{
+    endAvatarModify();
+    this->setCursor(Qt::ArrowCursor);
+}
+
+void CustomAvatarView::startAvatarModify()
+{
+    m_Pressed = true;
+    m_cropBox->setBackgroundColor(QColor(0, 0, 0, 100));
+
+    if (m_autoExitTimer->isActive()) {
+        m_autoExitTimer->stop();
+    }
+}
+
+void CustomAvatarView::endAvatarModify()
+{
+    m_Pressed = false;
+    if (!m_autoExitTimer->isActive()) {
+        m_autoExitTimer->start();
+    }
+}
+
+void CustomAvatarView::onZoomInImage(void)
+{
+    m_zoomValue += 0.2;
+    this->update();
+}
+
+void CustomAvatarView::setZoomValue(const int value)
+{
+    if (m_image.isNull()) {
+        return;
+    }
+
+    if (value > m_currentScaledValue)
+        onZoomInImage();
+    else
+        onZoomOutImage();
+
+    m_currentScaledValue = value;
+
+    this->update();
+}
+
+void CustomAvatarView::onZoomOutImage(void)
+{
+    // 限制图片缩放区域,超出缩放范围不缩放
+    m_offset = (AVATAR_ICON_SIZE * m_zoomValue - CROP_BOX_SIZE) / 2;
+    if (m_zoomValue <= 1.0 || m_offset == CROP_BOX_SIZE / 2) {
+        return;
+    }
+
+    m_zoomValue -= 0.2;
+
+    this->update();
+}
+
+// 还原图片大小
+void CustomAvatarView::onPresetImage(void)
+{
+    m_cropBox->setBackgroundColor(palette().color(QPalette::Window));
+    m_zoomValue = 1.0;
+    m_xPtInterval = 0;
+    m_yPtInterval = 0;
+    this->update();
+}
+
+CustomAvatarWidget::CustomAvatarWidget(const int &role , QWidget *parent)
+    : AvatarListFrame(role, parent)
+    , m_avatarScaledItem(new DSlider(Qt::Horizontal, this))
+    , m_avatarView(new CustomAvatarView(getCurrentListView()->getCurrentSelectAvatar(), this))
+{
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    mainLayout->setContentsMargins(10, 2, 10, 2);
+
+    m_avatarScaledItem->setEnabled(false);
+    m_avatarScaledItem->setMinimum(SLIDER_MINIMUM_SIZE);
+    m_avatarScaledItem->setMaximum(SLIDER_MAX_SIZE);
+    m_avatarScaledItem->setPageStep(SLIDER_STEP);
+
+    QHBoxLayout *iconLabelLayout = new QHBoxLayout();
+    iconLabelLayout->addWidget(m_avatarView);
+    QHBoxLayout *scaledItemLayout = new QHBoxLayout();
+    m_avatarScaledItem->setFixedWidth(150);
+    scaledItemLayout->addWidget(m_avatarScaledItem);
+    mainLayout->addLayout(iconLabelLayout);
+    mainLayout->addLayout(scaledItemLayout);
+
+    QHBoxLayout * avatarLayout = new QHBoxLayout();
+    avatarLayout->addWidget(getCurrentListView(), Qt::AlignCenter);
+    mainLayout->addLayout(avatarLayout);
+
+    connect(m_avatarScaledItem, &DSlider::valueChanged, m_avatarView, [this](int value) {
+        m_avatarView->setZoomValue(value);
+    });
+    connect(m_avatarScaledItem, &DSlider::sliderPressed, m_avatarView, [this] {
+        m_avatarView->startAvatarModify();
+    });
+    connect(m_avatarScaledItem, &DSlider::sliderReleased, m_avatarView, [this] {
+        m_avatarView->endAvatarModify();
+    });
+    connect(m_avatarView, &CustomAvatarView::enableAvatarScaledItem, this, &CustomAvatarWidget::enableAvatarScaledItem);
+
+    setLayout(mainLayout);
+}
+
+void CustomAvatarWidget::enableAvatarScaledItem(bool enabled)
+{
+    m_avatarScaledItem->setEnabled(enabled);
+    m_avatarScaledItem->setValue(SLIDER_MINIMUM_SIZE);
+}
+

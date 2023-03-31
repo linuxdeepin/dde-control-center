@@ -408,7 +408,7 @@ void CreateAccountPage::createUser()
     }
 
     //如果用户没有选图像
-    auto avatarPaht = AvatarListWidget(m_newUser).getAvatarPath();
+    auto avatarPaht = AvatarListFrame(0,0).getAvatarPath();
     m_newUser->setCurrentAvatar(avatarPaht);
     m_newUser->setName(m_nameEdit->dTextEdit()->lineEdit()->text().simplified());
     m_newUser->setFullname(m_fullnameEdit->dTextEdit()->lineEdit()->text());

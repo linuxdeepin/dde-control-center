@@ -21,8 +21,11 @@
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
+#define CustomAvatarRole 4
+
+AvatarItemDelegate::AvatarItemDelegate(const int role, QObject *parent)
     : QStyledItemDelegate(parent)
+    , m_role(role)
 {
 }
 
@@ -37,8 +40,9 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
 
     QStyleOptionViewItem opt(option);
     initStyleOption(&opt, index);
-    auto style = opt.widget->style();
-    opt.rect = opt.rect.adjusted(8, 8, -8, -8);
+    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
+
+    opt.rect = opt.rect.adjusted(4, 4, -4, -4);
 
     auto pm = static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth);
     int borderWidth = style->pixelMetric(pm, &opt, nullptr);
@@ -64,6 +68,7 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         rect.moveCenter(QRect(opt.rect).center());
         painter->setPen(Qt::NoPen);
         painter->setBrush(dh.getColor(&opt, QPalette::Button));
+
         painter->drawRoundedRect(opt.rect.marginsRemoved(margins), 8, 8);
 
         //画+号

@@ -3,8 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "avatarlistwidget.h"
 #include "src/plugin-accounts/operation/user.h"
-#include "widgets/accessibleinterface.h"
-#include "avataritemdelegate.h"
+#include "widgets/buttontuple.h"
 
 #include <QWidget>
 #include <QListView>
@@ -14,324 +13,250 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QPixmap>
-#include <QDir>
-#include <QFileInfo>
+#include <QRect>
 #include <QDebug>
-#include <QFileInfoList>
-#include <QFileDialog>
-#include <QStandardPaths>
-#include <QDateTime>
-#include <QRandomGenerator>
-#include <DSuggestButton>
-#include <DConfig>
-#include <DTitlebar>
+#include <QPoint>
+#include <QPainterPath>
+#include <QStackedWidget>
+#include <QDir>
 
-const int MaxAvatarSize = 14;
+#include <DConfig>
+#include <DStyle>
+#include <DDialogCloseButton>
+#include <DDialog>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(AvatarListWidget,"AvatarListWidget")
-AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
-    : DListView(parent)
-    , m_curUser(usr)
-    , m_avatarItemModel(new QStandardItemModel(this))
-    , m_avatarItemDelegate(new AvatarItemDelegate(this))
-    , m_avatarSize(QSize(90, 90))
-    , m_fd(new QFileDialog(this))
-    , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.accounts"), QString(), this))
+
+AvatarListDialog::AvatarListDialog(User *usr)
+    : m_curUser(usr)
+    , m_mainContentLayout(new QHBoxLayout)
+    , m_leftContentLayout(new QVBoxLayout)
+    , m_rightContentLayout(new QVBoxLayout)
+    , m_avatarSelectItem(new DListView(this))
+    , m_avatarSelectItemModel(new QStandardItemModel(this))
+    , m_avatarArea(new QScrollArea(this))
 {
-    initWidgets();
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
+    setWindowFlags(Qt::FramelessWindowHint);
 
-    connect(this, &DListView::clicked, this, &AvatarListWidget::onItemClicked);
-    connect(m_fd, &QFileDialog::finished, this, [=](int result) {
-        if (result == QFileDialog::Accepted) {
-            const QString iconpath = m_fd->selectedFiles().first();
+    m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
+    m_rightContentLayout->setContentsMargins(0, 0, 0, 0);
 
-            QFileInfo info(iconpath);
-            m_dconfig->setValue("avatarPath",info.absolutePath());
+    // 窗口Icon
+    QLabel *iconLabel = new QLabel(this);
+    iconLabel->setPixmap(qApp->windowIcon().pixmap(QSize(40, 40)));
 
-            int row = -1;
-            for (int i = 1; i <= m_avatarItemModel->rowCount(); ++i) {
-                if (iconpath == m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole)) {
-                    row = i;
-                    break;
+    // 窗口关闭按钮
+    auto closeBtn = new DDialogCloseButton(this);
+    closeBtn->setIcon(DStyle().standardIcon(DStyle::SP_DialogCloseButton));
+    closeBtn->setIconSize(QSize(30, 30));
+    QHBoxLayout *closeBtnLayout = new QHBoxLayout;
+    closeBtnLayout->setContentsMargins(0, 0, 0, 10);
+    closeBtnLayout->addStretch();
+    closeBtnLayout->addWidget(closeBtn);
+
+    connect(closeBtn, &QPushButton::clicked, this, &AvatarListDialog::close);
+
+    m_rightContentLayout->addLayout(closeBtnLayout);
+
+    QList<AvatarItem> items = {
+        AvatarItem(tr("Person"), "dcc_user_human", Role::Person, true),
+        AvatarItem(tr("Animal"), "dcc_user_animal", Role::Animal, true),
+        // 图片未提供, 先不加载
+        AvatarItem(tr("Illustration"), "dcc_user_animal", Role::Illustration, false),
+        AvatarItem(tr("Expression"), "dcc_user_emoji", Role::Expression, true),
+        AvatarItem(tr("Custom"), "dcc_user_custom", Role::Custom, true),
+    };
+
+    for (const auto &item : items) {
+        if (item.isLoader) {
+            DStandardItem *avatarItem = new DStandardItem(item.name);
+            avatarItem->setFontSize(DFontSizeManager::SizeType::T5);
+            avatarItem->setIcon(QIcon::fromTheme(item.icon));
+            avatarItem->setData(item.role, AvatarItemNameRole);
+            m_avatarSelectItemModel->appendRow(avatarItem);
+
+            if (item.role == Role::Custom) {
+                m_avatarFrames[AvatarAdd] = new CustomAddAvatarWidget(Role::Custom, this);
+                m_avatarFrames[Role::Custom] = new CustomAvatarWidget(Role::Custom, this);
+            } else {
+                m_avatarFrames[item.role] = new AvatarListFrame(item.role, this);
+            }
+        }
+    }
+
+    // 添加选择Item
+    m_avatarSelectItem->setModel(m_avatarSelectItemModel);
+    m_avatarSelectItem->setAccessibleName("List_AvatarSelect");
+    m_avatarSelectItem->setFrameShape(QFrame::NoFrame);
+    m_avatarSelectItem->setItemSpacing(2);
+    m_avatarSelectItem->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_avatarSelectItem->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_avatarSelectItem->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    m_leftContentLayout->setContentsMargins(10, 0, 0, 0);
+    m_leftContentLayout->addWidget(iconLabel);
+    m_leftContentLayout->addSpacing(12);
+    m_leftContentLayout->addWidget(m_avatarSelectItem);
+
+    QHBoxLayout * hLayout = new QHBoxLayout();
+    hLayout->setContentsMargins(0, 10, 0, 10);
+    hLayout->addLayout(m_leftContentLayout);
+
+    QFrame *avarSelectWidget = new QFrame(this);
+    avarSelectWidget->setFixedSize(180, 472);
+    avarSelectWidget->setLayout(hLayout);
+
+    m_mainContentLayout->addWidget(avarSelectWidget);
+
+    QStackedWidget *avatarSelectWidget = new QStackedWidget(this);
+    avatarSelectWidget->setFixedWidth(450);
+    for (auto iter = m_avatarFrames.begin(); iter != m_avatarFrames.end(); ++iter) {
+        avatarSelectWidget->addWidget(iter.value());
+
+        connect(iter.value()->getCurrentListView(),
+                &AvatarListView::requestUpdateListView,
+                this,
+                [this](const auto &role, const auto &type) {
+                    for (auto it = m_avatarFrames.begin(); it != m_avatarFrames.end(); ++it) {
+                        if (role == Role::Custom) {
+                            static_cast<CustomAvatarWidget *>(m_avatarFrames[Custom])
+                                    ->getCustomAvatarView()
+                                    ->setAvatarPath(m_avatarFrames[role]
+                                                            ->getCurrentListView()
+                                                            ->getAvatarPath());
+                        }
+
+                        auto frame = it.value();
+
+                        if (frame->getCurrentRole() != role) {
+                            if (frame->getCurrentListView()) {
+                                frame->getCurrentListView()->setCurrentAvatarUnChecked();
+                            }
+                        }
+                    }
+                });
+    }
+
+    m_currentSelectAvatarWidget = m_avatarFrames[Person];
+
+    connect(m_avatarSelectItem, &DListView::clicked, this, [this, avatarSelectWidget](auto &index) {
+        // 如果没有添加自定义头像, 显示自定义添加图像页面
+        if (!m_avatarFrames[Custom]->isExistCustomAvatar(
+                    m_avatarFrames[Custom]->getCurrentListView()->getCustomAvatarPath())) {
+            if (index.row() == 3) {
+                avatarSelectWidget->setCurrentIndex(index.row() + 1);
+                m_currentSelectAvatarWidget = m_avatarFrames[Custom];
+
+                return;
+            }
+        }
+
+        avatarSelectWidget->setCurrentIndex(index.row());
+        m_currentSelectAvatarWidget = static_cast<AvatarListFrame *>(avatarSelectWidget->currentWidget());
+    });
+
+    QHBoxLayout *avatarLayout = new QHBoxLayout();
+    avatarLayout->setContentsMargins(0, 0, 0, 0);
+    m_avatarArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    m_avatarArea->setWidgetResizable(false);
+    m_avatarArea->setFrameShape(QFrame::NoFrame);
+    m_avatarArea->setWidget(avatarSelectWidget);
+    avatarLayout->addWidget(m_avatarArea, Qt::AlignCenter);
+    m_rightContentLayout->addLayout(avatarLayout);
+
+    // 添加（关闭，保存）按钮
+    auto buttonTuple = new ButtonTuple(ButtonTuple::Save,this);
+    auto cancelButton = buttonTuple->leftButton();
+    cancelButton->setText(tr("Cancel"));
+    auto saveButton = buttonTuple->rightButton();
+    saveButton->setText(tr("Save"));
+    QHBoxLayout *btnLayout = new QHBoxLayout();
+    btnLayout->setContentsMargins(10, 10, 10, 10);
+    btnLayout->addWidget(cancelButton);
+    btnLayout->addSpacing(10);
+    btnLayout->addWidget(saveButton);
+
+    connect(static_cast<CustomAvatarWidget *>(m_avatarFrames[Custom])->getCustomAvatarView(),
+            &CustomAvatarView::requestSaveCustomAvatar,
+            this,
+            [this](const QString &path) {
+                if (!path.isEmpty()) {
+                    m_currentSelectAvatarWidget->getCurrentListView()->saveAvatar(
+                            m_curUser->currentAvatar(),
+                            path);
                 }
-            }
-            if (row == -1) {
-                QStandardItem *item = getCustomAvatar();
-                item->setAccessibleText(iconpath);
-                auto ratio = devicePixelRatioF();
-                auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
-                                                   Qt::KeepAspectRatio, Qt::FastTransformation);
-                px.setDevicePixelRatio(ratio);
+            });
 
-                item->setData(QVariant::fromValue(px), Qt::DecorationRole);
-                item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
-                item->setData(m_avatarSize, Qt::SizeHintRole);
-                row = 1;
-            }
-            onItemClicked(m_avatarItemModel->index(row, 0));
+    connect(static_cast<CustomAddAvatarWidget *>(m_avatarFrames[AvatarAdd]),
+                &CustomAddAvatarWidget::requestUpdateCustomWidget,
+                this,
+                [avatarSelectWidget, this](const QString &path) {
+                    avatarSelectWidget->setCurrentWidget(m_avatarFrames[Custom]);
+                    m_currentSelectAvatarWidget = m_avatarFrames[Custom];
+                    m_currentSelectAvatarWidget->getCurrentListView()->requestUpdateCustomAvatar(
+                            path);
+                });
+
+    connect(saveButton, &QPushButton::clicked, this, [this] {
+        const QString avatarPath = getAvatarPath();
+
+        if (!avatarPath.isEmpty() && avatarPath != m_curUser->currentAvatar()) {
+            Q_EMIT requestSaveAvatar(avatarPath);
         }
     });
-}
+    connect(cancelButton, &QPushButton::clicked, this, &AvatarListDialog::close);
 
-AvatarListWidget::~AvatarListWidget()
-{
-    if (m_fd)
-        m_fd->deleteLater();
+    m_rightContentLayout->addLayout(btnLayout);
 
-    if (m_avatarItemModel) {
-        m_avatarItemModel->clear();
-        m_avatarItemModel->deleteLater();
-        m_avatarItemModel = nullptr;
-    }
-    if (m_avatarItemDelegate) {
-        m_avatarItemDelegate->deleteLater();
-        m_avatarItemDelegate = nullptr;
-    }
-}
+    QFrame * frame = new QFrame(this);
+    frame->setLayout(m_rightContentLayout);
+    QPalette pa(DDialog().palette());
+    pa.setColor(QPalette::Base, pa.color(QPalette::Window));
+    frame->setAutoFillBackground(true);
+    frame->setPalette(pa);
 
-void AvatarListWidget::initWidgets()
-{
-    m_fd->setAccessibleName("QFileDialog");
+    m_mainContentLayout->addWidget(frame);
 
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setViewMode(QListView::IconMode);
-    setDragDropMode(QAbstractItemView::NoDragDrop);
-    setDragEnabled(false);
-    setSpacing(4);
-    setResizeMode(DListView::Adjust);
-    setFrameShape(QFrame::NoFrame);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setLayout(m_mainContentLayout);
 
-    setItemDelegate(m_avatarItemDelegate);
-    setModel(m_avatarItemModel);
-
-    addLastItem();
-    addItemFromDefaultDir();
-
-    m_fd->setModal(true);
-    m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
-
-    if (m_curUser) {
-        refreshCustomAvatar(getUserAddedCustomPicPath(m_curUser->name()));
-        setCurrentAvatarChecked(m_curUser->currentAvatar());
-    }
-}
-
-void AvatarListWidget::refreshCustomAvatar(const QString &str)
-{
-    QString customPicPath = str;
-    if (customPicPath.isEmpty())
-        return;
-
-    QStandardItem *item = getCustomAvatar();
-
-    item->setData(QVariant::fromValue(QPixmap(customPicPath)), Qt::DecorationRole);
-    item->setData(QVariant::fromValue(customPicPath), AvatarListWidget::SaveAvatarRole);
-    item->setData(m_avatarSize, Qt::SizeHintRole);
-
-    if (m_currentSelectIndex.isValid() && m_currentSelectIndex != item->index()) {
-        m_avatarItemModel->setData(m_currentSelectIndex, Qt::Unchecked, Qt::CheckStateRole);
-    }
-    item->setCheckState(Qt::Checked);
-    m_currentSelectIndex = item->index();
-    Q_EMIT requesRetract();
-}
-
-void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
-{
-    if (avatar.isEmpty())
-        return;
-
-    QString currentAvatar = avatar;
-    if (avatar.startsWith("file://"))
-        currentAvatar = QUrl(avatar).toLocalFile();
-
-    if (!QFile(currentAvatar).exists())
-        return;
-
-    if (currentAvatar.isEmpty())
-        return;
-
-    for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
-        QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole).value<QString>();
-        if (currentAvatar != itemAvatar)
-            continue;
-
-        if (m_currentSelectIndex.isValid()) {
-            m_avatarItemModel->setData(m_currentSelectIndex, Qt::Unchecked, Qt::CheckStateRole);
-        }
-        m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
-        m_currentSelectIndex = m_avatarItemModel->index(i, 0);
-        Q_EMIT requesRetract();
-        return;
-    }
-
-    refreshCustomAvatar(currentAvatar);
-}
-
-void AvatarListWidget::onItemClicked(const QModelIndex &index)
-{
-    if (index.data(Qt::CheckStateRole) == Qt::Checked)
-        return;
-    const QString filePath = index.data(SaveAvatarRole).toString();
-    if (filePath.isEmpty()) {
-        QString dir = m_dconfig->value("avatarPath").toString();
-        if (dir.isEmpty() || !QDir(dir).exists()) {
-            QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
-            if (!directory.isEmpty()) {
-                m_fd->setDirectory(directory.first());
-            }
-        } else {
-            m_fd->setDirectory(dir);
-        }
-        m_fd->show();
-    } else {
-        if(m_currentSelectIndex.isValid())
-            m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
-
-        m_currentSelectIndex = index;
-        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Checked);
-        Q_EMIT requestSetAvatar(filePath);
-    }
-}
-
-void AvatarListWidget::addItemFromDefaultDir()
-{
-    QString dirpath("/var/lib/AccountsService/icons/");
-    QDir dir(dirpath);
-    QStringList hideList;
-    hideList << "default.png"
-             << "guest.png";
-    QStringList filters;
-    filters << "*.png";          //设置过滤类型
-    dir.setNameFilters(filters); //设置文件名的过滤
-    QFileInfoList list = dir.entryInfoList();
-
-    //根据文件名进行排序
-    std::sort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
-        return fileinfo1.baseName() < fileinfo2.baseName();
-    });
-
-    for (int i = 0; i < MaxAvatarSize && i < list.size(); ++i) {
-        if (hideList.contains(list.at(i).fileName())) {
-            continue;
-        }
-
-        QString iconpath = list.at(i).filePath();
-
-        DStandardItem *item = new DStandardItem();
-        item->setAccessibleText(iconpath);
-        auto ratio = devicePixelRatioF();
-
-        auto pxPath = iconpath;
-        if (ratio > 1.0) {
-            pxPath.replace("icons/", "icons/bigger/");
-        }
-        auto px = QPixmap(pxPath).scaled(QSize(74, 74) * ratio,
-                                         Qt::KeepAspectRatio, Qt::FastTransformation);
-        px.setDevicePixelRatio(ratio);
-
-        item->setData(QVariant::fromValue(px), Qt::DecorationRole);
-        item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
-        item->setData(m_avatarSize, Qt::SizeHintRole);
-        m_avatarItemModel->appendRow(item);
-    }
-}
-
-void AvatarListWidget::addLastItem()
-{
-    DStandardItem *item = new DStandardItem();
-    item->setAccessibleText("LastItem");
-    item->setData(m_avatarSize, Qt::SizeHintRole);
-    item->setData("", AvatarListWidget::SaveAvatarRole);
-    item->setData(true, AvatarListWidget::AddAvatarRole);
-    m_avatarItemModel->appendRow(item);
-}
-
-QString AvatarListWidget::getUserAddedCustomPicPath(const QString &usrName)
-{
-    if (usrName.isEmpty())
-        return "";
-
-    auto key = usrName + '-';
-    QString newiconpath;
-    QString dirpath("/var/lib/AccountsService/icons/local/");
-    QDir dir(dirpath);
-    QFileInfoList list = dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot); //去除.和..
-    for (auto fi : list) {
-        auto str = fi.fileName();
-        if (0 != str.indexOf(key))
-            continue;
-
-        if (str.right(str.size() - key.size()).indexOf('-') != -1)
-            continue;
-
-        newiconpath = fi.absoluteFilePath();
-        break;
-    }
-
-    return newiconpath;
-}
-
-QStandardItem *AvatarListWidget::getCustomAvatar()
-{
-    QStandardItem *item = m_avatarItemModel->item(1);
-    // 默认项MaxAvatarSize个，添加项一个，自定义项一个
-    if (m_avatarItemModel->rowCount() != MaxAvatarSize + 2) {
-        item = new QStandardItem();
-        if (m_currentSelectIndex.isValid())
-            m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
-        m_avatarItemModel->insertRow(1, item);
-    }
-    return item;
-}
-
-QString AvatarListWidget::getAvatarPath() const
-{
-    auto index = QRandomGenerator::global()->bounded(14);
-    if (m_currentSelectIndex.isValid())
-        index = m_currentSelectIndex.row();
-
-    auto idx = m_avatarItemModel->index(index, 0);
-    return m_avatarItemModel->data(idx, SaveAvatarRole).toString();
-}
-
-void AvatarListWidget::setAvatarSize(const QSize &size)
-{
-    if (m_avatarSize == size)
-        return;
-
-    m_avatarSize = size;
-
-    auto count = m_avatarItemModel->rowCount();
-    for (auto i = 0; i < count; ++i) {
-        auto idx = m_avatarItemModel->index(i, 0);
-        m_avatarItemModel->setData(idx, m_avatarSize, Qt::SizeHintRole);
-    }
-}
-
-AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
-    : DDialog(parent)
-    , m_avatarList(new AvatarListWidget(usr, this))
-{
-    setIcon(qApp->windowIcon());
-    addContent(m_avatarList);
-
-    addButton(tr("Cancel"));
-    addButton(tr("Modify"), true, DDialog::ButtonRecommend);
-
-    setFixedSize(510, 390);
+    setFixedSize(640, 472);
+    installEventFilter(this);
 }
 
 AvatarListDialog::~AvatarListDialog()
 {
+    if (m_avatarSelectItemModel) {
+        m_avatarSelectItemModel->clear();
+        m_avatarSelectItemModel->deleteLater();
+        m_avatarSelectItemModel = nullptr;
+    }
+
+    m_avatarFrames.clear();
 }
 
 QString AvatarListDialog::getAvatarPath() const
 {
-    return m_avatarList->getAvatarPath();
+    return m_currentSelectAvatarWidget->getAvatarPath();
+}
+
+void AvatarListDialog::mousePressEvent(QMouseEvent *e)
+{
+    m_lastPos = e->globalPos();
+    QWidget::mousePressEvent(e);
+}
+
+void AvatarListDialog::mouseMoveEvent(QMouseEvent *e)
+{
+    this->move(this->x() + (e->globalX() - m_lastPos.x()), this->y() + (e->globalY() - m_lastPos.y()));
+    m_lastPos = e->globalPos();
+    QWidget::mouseMoveEvent(e);
+}
+
+void AvatarListDialog::mouseReleaseEvent(QMouseEvent *e)
+{
+    m_lastPos = e->globalPos();
+    QWidget::mouseReleaseEvent(e);
 }

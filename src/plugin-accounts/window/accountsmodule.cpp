@@ -39,7 +39,7 @@
 #include <DSysInfo>
 #include <DDesktopServices>
 #include <DFloatingButton>
-
+#include <DBlurEffectWidget>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 
@@ -570,16 +570,17 @@ void AccountsModule::onModifyIcon()
     QWidget *w = qobject_cast<QWidget *>(sender());
     if (!w)
         return;
-    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser, w);
-    avatarListDialog->deleteLater();
-    if (avatarListDialog->exec() == QDialog::Accepted) {
-        QString avatarpath = avatarListDialog->getAvatarPath();
-        if (!m_curUser) {
-            return;
-        }
-        if (!avatarpath.isEmpty() && avatarpath != m_curUser->currentAvatar())
-            m_worker->setAvatar(m_curUser, avatarpath);
-    }
+
+    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser);
+    avatarListDialog->show();
+    QPoint globalPos = w->mapToGlobal(QPoint(0, 0));
+    int x = globalPos.x() + w->width() / 2 - avatarListDialog->width() / 2 - 40;
+    int y = globalPos.y() + w->height() / 2 - avatarListDialog->height() / 2 + 80;
+    avatarListDialog->move(x, y);
+
+    connect(avatarListDialog, &AvatarListDialog::requestSaveAvatar, this, [this](const QString &path){
+        m_worker->setAvatar(m_curUser, path);
+    });
 }
 
 void AccountsModule::setCurrentUser(User *user)

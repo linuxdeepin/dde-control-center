@@ -4,86 +4,74 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "avatarlistframe.h"
+#include "avatarlistview.h"
 #include "src/plugin-accounts/operation/user.h"
 
 #include <DListView>
+#include <DBlurEffectWidget>
+#include <QWidget>
+#include <QLabel>
+#include <QScrollArea>
+#include <QHBoxLayout>
+
 #include <DDialog>
 
-#include <QWidget>
-
-QT_BEGIN_NAMESPACE
-class QVBoxLayout;
-class QLabel;
-class QListView;
-class QStandardItemModel;
-class QModelIndex;
-class QFileDialog;
-QT_END_NAMESPACE
-
-DCORE_BEGIN_NAMESPACE
-class DConfig;
-DCORE_END_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
+class DFrame;
+DWIDGET_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
-class AvatarItemDelegate;
-class AvatarListWidget : public DTK_WIDGET_NAMESPACE::DListView
+class CustomAddAvatarWidget;
+class CustomAvatarWidget;
+class AvatarListDialog : public Dtk::Widget::DBlurEffectWidget
 {
     Q_OBJECT
 public:
-    enum ItemRole {
-        AddAvatarRole = Dtk::UserRole + 1,
-        SaveAvatarRole,
+    // 头像选择项
+struct AvatarItem
+{
+    QString name;
+    QString icon;
+    int role;
+    bool isLoader;
+
+    AvatarItem(const QString &_name, const QString &_icon, const int &_role, const bool &_isLoader)
+        : name(_name)
+        , icon(_icon)
+        , role(_role)
+        , isLoader(_isLoader)
+    {
+    }
+};
+    enum AvatarItemRole {
+        AvatarItemNameRole = DTK_NAMESPACE::UserRole + 1,
+        AvatarItemIconRole
     };
 
-public:
-    AvatarListWidget(User *usr, QWidget *parent = nullptr);
-    virtual ~AvatarListWidget();
-public:
-    void addItemFromDefaultDir();
-    void addLastItem();
-    QString getAvatarPath() const;
-    inline QSize avatarSize() const { return m_avatarSize; }
-    void setAvatarSize(const QSize &size);
-
-Q_SIGNALS:
-    void requestSetAvatar(const QString &avatarPath);
-    void requestAddNewAvatar(User *user, const QString &file);
-    void requesRetract();
-
-public Q_SLOTS:
-    void setCurrentAvatarChecked(const QString &avatar);
-    void refreshCustomAvatar(const QString &str);
-
-private Q_SLOTS:
-    void onItemClicked(const QModelIndex &index);
-
-private:
-    void initWidgets();
-    QString getUserAddedCustomPicPath(const QString &usrName);
-    QStandardItem *getCustomAvatar();
-
-private:
-    User *m_curUser{nullptr};
-    QVBoxLayout *m_mainContentLayout;
-    QStandardItemModel *m_avatarItemModel;
-    AvatarItemDelegate *m_avatarItemDelegate;
-    QSize m_avatarSize;
-    QModelIndex m_currentSelectIndex;
-    bool m_displayLastItem;
-    QFileDialog *m_fd;
-    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
-};
-
-class AvatarListDialog : public DTK_WIDGET_NAMESPACE::DDialog
-{
-    Q_OBJECT
-public:
-    AvatarListDialog(User *usr, QWidget *parent = nullptr);
+    AvatarListDialog(User *usr);
     virtual ~AvatarListDialog();
 
     QString getAvatarPath() const;
 
+protected:
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
+
+Q_SIGNALS:
+    void requestSaveAvatar(const QString &avatarPath);
+
 private:
-    AvatarListWidget *m_avatarList;
+    User *m_curUser{nullptr};
+    QHBoxLayout *m_mainContentLayout;
+    QVBoxLayout *m_leftContentLayout;
+    QVBoxLayout *m_rightContentLayout;
+    DTK_WIDGET_NAMESPACE::DListView *m_avatarSelectItem;
+    QStandardItemModel *m_avatarSelectItemModel;
+    AvatarListFrame *m_currentSelectAvatarWidget;
+    QMap <int, AvatarListFrame *> m_avatarFrames;
+    QPoint m_lastPos;
+    QScrollArea *m_avatarArea;
 };
 }

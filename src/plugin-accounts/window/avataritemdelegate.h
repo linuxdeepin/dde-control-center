@@ -29,12 +29,15 @@ class AvatarItemDelegate : public QStyledItemDelegate
     Q_OBJECT
 
 public:
-    explicit AvatarItemDelegate(QObject *parent = nullptr);
+    explicit AvatarItemDelegate(const int role, QObject *parent = nullptr);
 
     // painting
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     // set item size
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+private:
+    int m_role;
 };
 } // DCC_NAMESPACE
