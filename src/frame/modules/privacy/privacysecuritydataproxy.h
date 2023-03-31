@@ -30,6 +30,7 @@ class PrivacySecurityDataProxy : public QObject
     Q_OBJECT
 public:
     explicit PrivacySecurityDataProxy(QObject *parent = nullptr);
+    ~PrivacySecurityDataProxy();
     enum Mode {
         AllDisabled = 0,
         AllEnable = 1,
@@ -48,8 +49,6 @@ Q_SIGNALS:
     void cameraEnableChanged(const QStringList &apps, bool enable);
     void cameraAppsChanged(const QPair<QStringList, bool> &apps);
     void cameraModeChanged(int mode);
-
-    void getPackageFinished(const QString &id, const QStringList &files);
 
 public Q_SLOTS:
     // Launcherd
@@ -72,7 +71,7 @@ public Q_SLOTS:
     void setCacheBlacklist(const QMap<QString, QStringList> &cacheBlacklist);
     // appInfo
     // 根据文件获取包中所有文件
-    void getPackage(const QString &path);
+    QMap<QString, QStringList> getPackagesExecutable(const QStringList &paths);
 
 private Q_SLOTS:
     void onGetItemInfosFinished(QDBusPendingCallWatcher *w);
@@ -87,8 +86,6 @@ private Q_SLOTS:
     void onCameraGetAppsFinished(QDBusPendingCallWatcher *w);
     void onCameraSetModeFinished(QDBusPendingCallWatcher *w);
     void onCameraGetModeFinished(QDBusPendingCallWatcher *w);
-
-    void onGetPackageFinished(int exitCode);
 
 private:
     Dtk::Core::DConfig *m_dconfig;

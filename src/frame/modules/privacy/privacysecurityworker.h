@@ -35,13 +35,11 @@ private:
 private Q_SLOTS:
     void onItemInfosChanged(const AppItemInfoList &itemList);
     void onItemChanged(const QString &status, const AppItemInfo &itemInfo, qlonglong categoryID);
-    void addAppItem(const AppItemInfo &itemInfo);
+    ApplicationItem *addAppItem(const AppItemInfo &itemInfo);
     void onFileAppsChanged(const QString &file, const QPair<QStringList, bool> &apps);
     void onFileModeChanged(const QString &file, int mode);
     void onCameraAppsChanged(const QPair<QStringList, bool> &apps);
     void onCameraModeChanged(int mode);
-
-    void onGetPackageFinished(const QString &id, const QStringList &files);
 
 Q_SIGNALS:
     void checkAuthorization(bool checking);

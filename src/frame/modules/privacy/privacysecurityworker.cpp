@@ -38,8 +38,6 @@ void PrivacySecurityWorker::activate()
     connect(m_dataProxy, &PrivacySecurityDataProxy::cameraAppsChanged, this, &PrivacySecurityWorker::onCameraAppsChanged);
     connect(m_dataProxy, &PrivacySecurityDataProxy::cameraModeChanged, this, &PrivacySecurityWorker::onCameraModeChanged);
 
-    connect(m_dataProxy, &PrivacySecurityDataProxy::getPackageFinished, this, &PrivacySecurityWorker::onGetPackageFinished);
-
     QString envPath = QProcessEnvironment::systemEnvironment().value("PATH");
     m_pathList = envPath.split(':');
     m_dataProxy->getAllItemInfos();
@@ -115,12 +113,27 @@ void PrivacySecurityWorker::updateCheckAuthorizationing(bool checking)
 void PrivacySecurityWorker::onItemInfosChanged(const AppItemInfoList &itemList)
 {
     // 批量加数据，先阻塞信号，再给出完成信号
+    QStringList paths;
+    QMap<QString, ApplicationItem *> appItemMap;
     qInfo() << "update data begin";
     m_model->dataUpdateFinished(true);
     for (auto &&item : itemList) {
-        addAppItem(item);
+        ApplicationItem *appItem = addAppItem(item);
+        if (appItem) {
+            appItemMap.insert(appItem->appPath(), appItem);
+            paths.append(appItem->appPath());
+        }
     }
     m_model->dataUpdateFinished(false);
+    qInfo() << "update item end";
+    QMap<QString, QStringList> packages = m_dataProxy->getPackagesExecutable(paths);
+
+    for (auto it = packages.begin(); it != packages.end(); ++it) {
+        ApplicationItem *appItem = appItemMap.value(it.key());
+        QStringList paths = it.value();
+        paths.prepend(appItem->id());
+        appItem->onExecutablePathsChanged(paths);
+    }
     qInfo() << "update data end";
 }
 
@@ -133,14 +146,14 @@ void PrivacySecurityWorker::onItemChanged(const QString &status, const AppItemIn
     }
 }
 
-void PrivacySecurityWorker::addAppItem(const AppItemInfo &itemInfo)
+ApplicationItem *PrivacySecurityWorker::addAppItem(const AppItemInfo &itemInfo)
 {
     // 不展示的应用
     static QStringList s_excludeApp = {
         "dde-computer", "dde-control-center", "dde-file-manager", "dde-trash", "deepin-manual"
     };
     if (s_excludeApp.contains(itemInfo.ID)) {
-        return;
+        return nullptr;
     }
     ApplicationItem *appItem = new ApplicationItem();
     appItem->onIdChanged(itemInfo.Path);
@@ -149,12 +162,13 @@ void PrivacySecurityWorker::addAppItem(const AppItemInfo &itemInfo)
     if (!appPath.isEmpty() && m_model->addApplictionItem(appItem)) {
         appItem->onIconChanged(QIcon::fromTheme(itemInfo.Icon));
         appItem->onAppPathChanged(appPath);
-        m_dataProxy->getPackage(appPath);
         m_model->updatePermission(appItem);
         connect(appItem, &ApplicationItem::requestSetPremissionEnabled, this, &PrivacySecurityWorker::setAppPermissionEnable);
+        return appItem;
     } else {
         delete appItem;
     }
+    return nullptr;
 }
 
 void PrivacySecurityWorker::onFileAppsChanged(const QString &file, const QPair<QStringList, bool> &apps)
@@ -183,37 +197,6 @@ void PrivacySecurityWorker::onCameraAppsChanged(const QPair<QStringList, bool> &
 void PrivacySecurityWorker::onCameraModeChanged(int mode)
 {
     m_model->onPremissionModeChanged(PermissionType::CameraPermission, mode);
-}
-
-void PrivacySecurityWorker::onGetPackageFinished(const QString &id, const QStringList &files)
-{
-    if (!files.isEmpty()) {
-        QStringList executablePaths;
-        for (auto &&file : files) {
-            QFileInfo info(file);
-            if (info.isFile() && info.isExecutable()) {
-                executablePaths.append(file);
-            }
-        }
-        if (!executablePaths.isEmpty()) {
-            for (auto &&item : m_model->applictionItems()) {
-                if (item->appPath() == id) {
-                    item->onExecutablePathsChanged(executablePaths);
-                }
-            }
-            return;
-        }
-    }
-
-    QStringList removeItem;
-    for (auto &&item : m_model->applictionItems()) {
-        if (item->appPath() == id) {
-            removeItem.append(item->id());
-        }
-    }
-    for (auto &&itemID : removeItem) {
-        m_model->removeApplictionItem(itemID);
-    }
 }
 
 void PrivacySecurityWorker::setPermissionMode(int premission, int mode)

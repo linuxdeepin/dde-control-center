@@ -34,7 +34,8 @@ Build-Depends:
  qtwayland5-private-dev,
  libkf5wayland-dev,
  libwayland-dev,
- libxkbcommon-dev
+ libxkbcommon-dev,
+ libdpkg-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

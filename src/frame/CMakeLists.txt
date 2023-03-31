@@ -797,6 +797,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     KF5::WaylandClient
     Qt5::WaylandClient
     ${WaylandClient_LIBRARIES}
+    dpkg
 )
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})

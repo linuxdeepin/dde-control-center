@@ -15,6 +15,14 @@
 #include <QJsonDocument>
 #include <QProcess>
 #include <QDebug>
+#include <QFileInfo>
+
+extern "C" {
+#define LIBDPKG_VOLATILE_API 1
+#include <dpkg/dpkg.h>
+#include <dpkg/dpkg-db.h>
+#include <dpkg/db-fsys.h>
+}
 
 #define DBUS_TIMEOUT 10000
 
@@ -62,8 +70,13 @@ PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
 {
     qDBusRegisterMetaType<AppItemInfo>();
     qDBusRegisterMetaType<AppItemInfoList>();
-
+    dpkg_program_init("dde-control-center");
     QDBusConnection::sessionBus().connect(LauncherService, LauncherPath, LauncherInterface, "ItemChanged", this, SLOT(itemChanged(const QString &, AppItemInfo, qlonglong)));
+}
+
+PrivacySecurityDataProxy::~PrivacySecurityDataProxy()
+{
+    dpkg_program_done();
 }
 
 void PrivacySecurityDataProxy::getAllItemInfos()
@@ -197,14 +210,34 @@ void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QStringList
     m_dconfig->setValue("permissionBlacklist", doc.toJson(QJsonDocument::Compact));
 }
 
-void PrivacySecurityDataProxy::getPackage(const QString &path)
+QMap<QString, QStringList> PrivacySecurityDataProxy::getPackagesExecutable(const QStringList &paths)
 {
-    QStringList arguments;
-    arguments << "-c" << QString("cmd=`dpkg -S %1`;dpkg -L ${cmd%%:*}").arg(path);
-    QProcess *process = new QProcess(this);
-    connect(process, QOverload<int>::of(&QProcess::finished), this, &PrivacySecurityDataProxy::onGetPackageFinished);
-    process->setProperty("PackageID", path);
-    process->start("sh", arguments);
+    QMap<QString, QStringList> packages;
+    modstatdb_open(msdbrw_readonly);
+    ensure_allinstfiles_available_quiet();
+    ensure_diversions();
+    struct fsys_namenode *namenode;
+    for (auto &&path : paths) {
+        namenode = fsys_hash_find_node(path.toLatin1().data(), FHFF_NOCOPY);
+        struct fsys_node_pkgs_iter *iter = fsys_node_pkgs_iter_new(namenode);
+        struct pkginfo *pkg_owner = fsys_node_pkgs_iter_next(iter);
+        if (pkg_owner) {
+            QStringList files;
+            struct fsys_namenode_list *file;
+            file = pkg_owner->files;
+            while (file) {
+                QFileInfo fileInfo(file->namenode->name);
+                if (fileInfo.isFile() && fileInfo.isExecutable()) {
+                    files << fileInfo.filePath();
+                }
+                file = file->next;
+            }
+            packages.insert(path, files);
+        }
+        fsys_node_pkgs_iter_free(iter);
+    }
+    modstatdb_shutdown();
+    return packages;
 }
 
 void PrivacySecurityDataProxy::onGetItemInfosFinished(QDBusPendingCallWatcher *w)
@@ -325,20 +358,4 @@ void PrivacySecurityDataProxy::onCameraGetModeFinished(QDBusPendingCallWatcher *
         qWarning() << reply.error();
     }
     w->deleteLater();
-}
-
-void PrivacySecurityDataProxy::onGetPackageFinished(int exitCode)
-{
-    QProcess *process = qobject_cast<QProcess *>(sender());
-    if (process) {
-        QString id = process->property("PackageID").toString();
-        if (exitCode == 0) {
-            QString out = process->readAllStandardOutput();
-            QStringList outList = out.split("\n");
-            Q_EMIT getPackageFinished(id, outList);
-        } else {
-            Q_EMIT getPackageFinished(id, QStringList());
-        }
-        process->deleteLater();
-    }
 }
