@@ -54,7 +54,8 @@ static int getPlatform()
 }
 
 // A Dialog for user to check if to leave testing Channel
-DDialog *wantExitTestingChannelDialog() {
+DDialog *wantExitTestingChannelDialog()
+{
     auto dialog = new DDialog;
     dialog->setFixedWidth(400);
     dialog->setFixedHeight(280);
@@ -1626,7 +1627,7 @@ void UpdateWorker::onRequestLastoreHeartBeat()
 
 std::optional<QUrl> UpdateWorker::updateTestingChannelUrl()
 {
-    auto getMechineId = [this]() -> std::optional<QString> {
+    auto getMachineId = [this]() -> std::optional<QString> {
         if (m_machineid.has_value()) {
             return m_machineid.value();
         }
@@ -1649,14 +1650,14 @@ std::optional<QUrl> UpdateWorker::updateTestingChannelUrl()
         return std::nullopt;
     };
     QString hostname = m_updateInter->staticHostname();
-    auto mechineid = getMechineId();
-    if (!mechineid.has_value()) {
+    auto machineid = getMachineId();
+    if (!machineid.has_value()) {
         return std::nullopt;
     }
     QUrl testingUrl = QUrl(ServiceLink + "/internal-testing");
     auto query = QUrlQuery(testingUrl.query());
     query.addQueryItem("h", hostname);
-    query.addQueryItem("m", mechineid.value());
+    query.addQueryItem("m", machineid.value());
     query.addQueryItem("v", DSysInfo::minorVersion());
     testingUrl.setQuery(query);
     return testingUrl;
@@ -1783,7 +1784,7 @@ bool UpdateWorker::checkCanExitTestingChannel()
             }
         }
     }
-    return true;
+    return false;
 }
 
 void UpdateWorker::setTestingChannelEnable(const bool &enable)
@@ -1795,7 +1796,8 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
         // Uninstall
         m_model->setTestingChannelStatus(TestingChannelStatus::WaitToLeave);
     }
-    auto getMechineId = [this]() -> std::optional<QString> {
+
+    auto getMachineId = [this]() -> std::optional<QString> {
         if (m_machineid.has_value()) {
             return m_machineid.value();
         }
@@ -1817,13 +1819,15 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
         }
         return std::nullopt;
     };
-    auto mechineidopt = getMechineId();
-    if (!mechineidopt.has_value()) {
+
+    auto machineidopt = getMachineId();
+    if (!machineidopt.has_value()) {
         // TODO: Maybe need notify?
         m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
         return;
     }
-    QString machineid = mechineidopt.value();
+
+    QString machineid = machineidopt.value();
     const QString server = ServiceLink;
 
     // Disable Testing Channel
@@ -1835,7 +1839,8 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
                 connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
                     if (call.isError()) {
-                        qWarning() << "Cannot Uninstall package " << TestingChannelPackage;
+                        qWarning() << "Cannot Uninstall package " << TestingChannelPackage << " :" << call.error();
+                        m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
                         return;
                     }
                     m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
@@ -1877,11 +1882,12 @@ void UpdateWorker::checkTestingChannelStatus()
     if (!m_machineid.has_value()) {
         return;
     }
+
     qDebug() << "Testing:" << "check testing join status";
-    QString mechineid = m_machineid.value();
+    QString machineid = m_machineid.value();
     auto http = new QNetworkAccessManager(this);
     QNetworkRequest request;
-    request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/mechine/status/" + mechineid));
+    request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/status/" + machineid));
     request.setRawHeader("content-type", "application/json");
     connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
         reply->deleteLater();
@@ -1902,16 +1908,16 @@ void UpdateWorker::checkTestingChannelStatus()
         }
         // If user has joined then install testing source package;
         if (status == "joined") {
-            m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
             qDebug() << "Testing:" << "Install testing channel package";
             QDBusPendingCall call = m_updateInter->InstallPackage("testing Channel", TestingChannelPackage);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
                 connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
                     if (call.isError()) {
-                        qWarning() << "Cannot install package" << TestingChannelPackage;
+                        qWarning() << "Cannot install package" << TestingChannelPackage << ": " << call.error();
+                        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
                         return;
                     }
-                    m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+                    m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
                 });
             return;
         }
