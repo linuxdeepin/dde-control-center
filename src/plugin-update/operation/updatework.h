@@ -217,7 +217,7 @@ private:
 
     QList<UpdateLogItem> m_updateLogs;
 
-    std::optional<QString> m_mechineid;
+    std::optional<QString> m_machineid;
     std::optional<QUrl> m_testUrl;
 };
 

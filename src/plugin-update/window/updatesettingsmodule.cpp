@@ -180,6 +180,7 @@ void UpdateSettingsModule::initModuleList()
     appendChild(new UpdateTitleModule("InternalUpdateSetting", tr("Updates from Internal Testing Sources")));
     appendChild(new WidgetModule<InternalButtonItem>("internal update", tr("internal update"), [this](InternalButtonItem *internalBtn) {
         internalBtn->addBackground();
+        internalBtn->onModelTestingStatusChanged(m_model->getTestingChannelStatus());
         connect(internalBtn, &InternalButtonItem::requestInternalChannel, this, [this, internalBtn](bool enable){
             if (enable) {
                 auto url = m_work->getTestingChannelUrl();

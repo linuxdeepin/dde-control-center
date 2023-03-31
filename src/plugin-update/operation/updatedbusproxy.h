@@ -68,8 +68,8 @@ public:
     void SetAutoClean(bool in0);
     void StartJob(const QString &in0);
     void PauseJob(const QString &in0);
-    void InstallPackage(const QString &jobname, const QString &packages);
-    void RemovePackage(const QString &jobname, const QString &packages);
+    QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &jobname, const QString &packages);
+    QDBusPendingReply<QDBusObjectPath> RemovePackage(const QString &jobname, const QString &packages);
     QDBusPendingReply<QList<QDBusObjectPath> > ClassifiedUpgrade(qulonglong in0);
     QDBusPendingReply<qlonglong> PackagesDownloadSize(const QStringList &in0);
     QDBusPendingReply<bool> PackageExists(const QString &pkgid);

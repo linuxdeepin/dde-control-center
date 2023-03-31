@@ -5,7 +5,6 @@
 #include "internalbuttonitem.h"
 
 #include <QBoxLayout>
-
 #include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
@@ -43,10 +42,12 @@ void InternalButtonItem::initConnection()
     connect(m_commandlink, &DCommandLinkButton::clicked, this, [this] {
         QDesktopServices::openUrl(m_link);
     });
-    connect(m_switchbtn,
-            &DSwitchButton::checkedChanged,
-            this,
-            &InternalButtonItem::requestInternalChannel);
+    connect(m_switchbtn, &DSwitchButton::checkedChanged, this, [this](auto value) {
+        if (m_switchbtn->isEnabled()) {
+            m_switchbtn->setEnabled(false);
+            emit InternalButtonItem::requestInternalChannel(value);
+        }
+    });
 }
 
 void InternalButtonItem::onModelTestingStatusChanged(const TestingChannelStatus &status)
@@ -55,23 +56,26 @@ void InternalButtonItem::onModelTestingStatusChanged(const TestingChannelStatus 
     case TestingChannelStatus::NotJoined:
         m_commandlink->hide();
         m_switchbtn->setChecked(false);
-        setEnabled(true);
+        m_switchbtn->setEnabled(true);
         break;
     case TestingChannelStatus::WaitJoined:
         m_switchbtn->setChecked(false);
-        setEnabled(false);
+        m_commandlink->show();
+        m_switchbtn->setEnabled(false);
+        break;
+    case TestingChannelStatus::WaitToLeave:
+        m_switchbtn->setChecked(true);
+        m_commandlink->hide();
+        m_switchbtn->setEnabled(false);
         break;
     case TestingChannelStatus::Joined:
         m_commandlink->hide();
         m_switchbtn->setChecked(true);
-        setEnabled(true);
+        m_switchbtn->setEnabled(true);
         break;
     case TestingChannelStatus::Hidden:
         m_switchbtn->setChecked(false);
-        setEnabled(true);
-        break;
-    default:
-        setEnabled(true);
+        m_switchbtn->setEnabled(true);
         break;
     }
 }

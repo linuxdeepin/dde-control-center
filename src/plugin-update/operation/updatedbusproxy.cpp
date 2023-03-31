@@ -201,18 +201,18 @@ void UpdateDBusProxy::PauseJob(const QString &in0)
     m_managerInter->asyncCallWithArgumentList(QStringLiteral("PauseJob"), argumentList);
 }
 
-void UpdateDBusProxy::InstallPackage(const QString &jobname, const QString &packages)
+QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::InstallPackage(const QString &jobname, const QString &packages)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
-    m_managerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
 }
 
-void UpdateDBusProxy::RemovePackage(const QString &jobname, const QString &packages)
+QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::RemovePackage(const QString &jobname, const QString &packages)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
-    m_managerInter->asyncCallWithArgumentList(QStringLiteral("RemovePackage"), argumentList);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("RemovePackage"), argumentList);
 }
 QDBusPendingReply<QList<QDBusObjectPath> > UpdateDBusProxy::ClassifiedUpgrade(qulonglong in0)
 {

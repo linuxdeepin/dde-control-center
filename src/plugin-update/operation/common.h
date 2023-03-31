@@ -105,6 +105,7 @@ enum TestingChannelStatus {
     Hidden,
     NotJoined,
     WaitJoined,
+    WaitToLeave,
     Joined,
 };
 
