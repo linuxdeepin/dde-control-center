@@ -1,22 +1,24 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "avatarwidget.h"
+
 #include "widgets/accessibleinterface.h"
 
+#include <QApplication>
+#include <QColor>
 #include <QDebug>
-#include <QUrl>
+#include <QGraphicsDropShadowEffect>
+#include <QPaintEvent>
 #include <QPainter>
 #include <QPainterPath>
-#include <QPaintEvent>
-#include <QVBoxLayout>
-#include <QApplication>
 #include <QRect>
-#include <QColor>
-#include <QGraphicsDropShadowEffect>
+#include <QUrl>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
-//SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
+
+// SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent)
     , m_hover(false)
@@ -82,7 +84,8 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
     m_avatarPath = url.toString();
 
     if (!QPixmap(url.toLocalFile()).isNull()) {
-        m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        m_avatar = QPixmap(url.toLocalFile())
+                           .scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         m_avatar.setDevicePixelRatio(ratio);
     }
 
@@ -136,13 +139,13 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
         painter.drawEllipse(rect());
     };
 
-    //当鼠标移动到图像上面
+    // 当鼠标移动到图像上面
     if (m_hover) {
         painter.setPen(Qt::NoPen);
-        //宽高
+        // 宽高
         int w = this->rect().width();
         int h = this->rect().height();
-        //矩形
+        // 矩形
         QRect rect(4, h - h / 4, w - 8, h - h / 4);
         // 反走样
         painter.setRenderHint(QPainter::Antialiasing, true);
@@ -162,14 +165,14 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
         penNoArrowed.setWidth(2);
         penNoArrowed.setColor(Qt::white);
         painter.setPen(penNoArrowed);
-        //把直径平均分成10份
+        // 把直径平均分成10份
         int portion = this->rect().width() / 10;
-        //圆中心点坐标
+        // 圆中心点坐标
         QPoint cpt = this->rect().center();
-        //绘制左边直线
+        // 绘制左边直线
         painter.drawLine(QPoint(cpt.x() - portion / 2, cpt.y() + portion * 4 - portion / 2),
                          QPoint(cpt.x(), cpt.y() + portion * 4));
-        //绘制右边直线
+        // 绘制右边直线
         painter.drawLine(QPoint(cpt.x() + portion / 2, cpt.y() + portion * 4 - portion / 2),
                          QPoint(cpt.x(), cpt.y() + portion * 4));
     } else {
@@ -177,14 +180,14 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
         penArrowed.setWidth(2);
         penArrowed.setColor(Qt::white);
         painter.setPen(penArrowed);
-        //把直径平均分成10份
+        // 把直径平均分成10份
         int portion = this->rect().width() / 10;
-        //圆中心点坐标
+        // 圆中心点坐标
         QPoint cpt = this->rect().center();
-        //绘制左边直线
+        // 绘制左边直线
         painter.drawLine(QPoint(cpt.x() - portion / 2, cpt.y() + portion * 4),
                          QPoint(cpt.x(), cpt.y() + portion * 4 - portion / 2));
-        //绘制右边直线
+        // 绘制右边直线
         painter.drawLine(QPoint(cpt.x() + portion / 2, cpt.y() + portion * 4),
                          QPoint(cpt.x(), cpt.y() + portion * 4 - portion / 2));
     }
@@ -211,7 +214,8 @@ void AvatarWidget::resizeEvent(QResizeEvent *event)
     const auto ratio = devicePixelRatioF();
 
     QUrl url(m_avatarPath);
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar = QPixmap(url.toLocalFile())
+                       .scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     m_avatar.setDevicePixelRatio(ratio);
 
     update();

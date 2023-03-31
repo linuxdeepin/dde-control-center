@@ -67,7 +67,7 @@ endif ()
 set (MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 
 add_definitions(-DDefaultModuleDirectory="${MODULE_INSTALL_DIR}")
-
+add_definitions(-DVARDIRECTORY="${CMAKE_INSTALL_LOCALSTATEDIR}")
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)

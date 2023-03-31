@@ -1,15 +1,15 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef AVATARWIDGET_H
 #define AVATARWIDGET_H
 
 #include "interface/namespace.h"
 
-#include <QWidget>
 #include <QLabel>
+#include <QWidget>
 
-#define PIX_SIZE    60
+#define PIX_SIZE 60
 
 namespace DCC_NAMESPACE {
 
@@ -28,7 +28,9 @@ public:
     void setAvatarPath(const QString &avatar);
 
     void setArrowed(const bool arrowed = true);
+
     inline bool arrowed() const { return m_arrowed; }
+
 Q_SIGNALS:
     void clicked(const QString &iconPath) const;
     void requestDelete(const QString &iconPath) const;
@@ -50,6 +52,6 @@ private:
     QString m_avatarPath;
 };
 
-}   // DCC_NAMESPACE
+} // namespace DCC_NAMESPACE
 
 #endif // AVATARWIDGET_H

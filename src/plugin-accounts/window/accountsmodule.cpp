@@ -5,6 +5,7 @@
 #include "accountsmodule.h"
 #include "avatarwidget.h"
 #include "createaccountpage.h"
+#include "dwidgetutil.h"
 #include "groupitem.h"
 #include "modifypasswdpage.h"
 #include "removeuserdialog.h"
@@ -39,7 +40,7 @@
 #include <DSysInfo>
 #include <DDesktopServices>
 #include <DFloatingButton>
-
+#include <DBlurEffectWidget>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 
@@ -570,16 +571,16 @@ void AccountsModule::onModifyIcon()
     QWidget *w = qobject_cast<QWidget *>(sender());
     if (!w)
         return;
-    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser, w);
-    avatarListDialog->deleteLater();
-    if (avatarListDialog->exec() == QDialog::Accepted) {
-        QString avatarpath = avatarListDialog->getAvatarPath();
-        if (!m_curUser) {
-            return;
-        }
-        if (!avatarpath.isEmpty() && avatarpath != m_curUser->currentAvatar())
-            m_worker->setAvatar(m_curUser, avatarpath);
-    }
+
+    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser);
+    avatarListDialog->show();
+
+    // 将窗口移动到屏幕中心位置
+    Dtk::Widget::moveToCenter(avatarListDialog);
+
+    connect(avatarListDialog, &AvatarListDialog::requestSaveAvatar, this, [this](const QString &path){
+        m_worker->setAvatar(m_curUser, path);
+    });
 }
 
 void AccountsModule::setCurrentUser(User *user)
@@ -658,8 +659,11 @@ void AccountsModule::changeUserGroup(const QStringList &groups)
     int row_count = m_groupItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
-        item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
-        item->setEnabled(item->text() != m_groupName);
+        if (item) {
+            item->setCheckState(groups.contains(item->text()) ? Qt::Checked
+                                                                      : Qt::Unchecked);
+            item->setEnabled(item->text() != m_groupName);
+        }
     }
     m_groupItemModel->sort(0);
 }

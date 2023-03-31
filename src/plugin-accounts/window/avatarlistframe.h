@@ -1,0 +1,180 @@
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+#pragma once
+
+#include "avatarlistview.h"
+#include "interface/namespace.h"
+#include "widgets/accessibleinterface.h"
+
+#include <DFrame>
+
+#include <QScrollArea>
+
+DWIDGET_BEGIN_NAMESPACE
+class DSlider;
+DWIDGET_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+class QPoint;
+class QColor;
+class QTimer;
+class QFileDialog;
+QT_END_NAMESPACE
+
+namespace DCC_NAMESPACE {
+
+class AvatarCropBox;
+class AvatarListView;
+
+enum Role { Person, Animal, Illustration, Expression, Custom, AvatarAdd };
+
+enum Type {
+    Dimensional, // 立体风格
+    Flat         // 平面风格
+};
+
+class AvatarListFrame : public QFrame
+{
+    Q_OBJECT
+public:
+    struct AvatarRoleItem
+    {
+        int role;
+        int type;
+        QString path;
+        bool isLoader;
+
+        AvatarRoleItem(const int &_role,
+                       const int &_type,
+                       const QString &_path,
+                       const bool &_isLoader)
+            : role(_role)
+            , type(_type)
+            , path(_path)
+            , isLoader(_isLoader)
+        {
+        }
+    };
+
+    explicit AvatarListFrame(const int &role, QWidget *parent = nullptr);
+    virtual ~AvatarListFrame() = default;
+
+    inline int getCurrentRole() { return m_role; }
+
+    inline int getCurrentType() { return m_type; }
+
+    inline AvatarListView *getCurrentListView() { return m_currentAvatarLsv; }
+
+    QString getAvatarPath() const;
+
+    bool isExistCustomAvatar(const QString &path);
+
+public Q_SLOTS:
+    void updateListView(const int &role, const int &type);
+
+private:
+    QString getCurrentAvatarPath(const int role, const int type);
+
+private:
+    int m_role;
+    int m_type;
+    AvatarListView *m_avatarDimensionalLsv;
+    AvatarListView *m_avatarFlatLsv;
+    AvatarListView *m_currentAvatarLsv;
+};
+
+class CustomAddAvatarWidget : public AvatarListFrame
+{
+    Q_OBJECT
+public:
+    explicit CustomAddAvatarWidget(const int &role, QWidget *parent = nullptr);
+    virtual ~CustomAddAvatarWidget();
+
+protected:
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragLeaveEvent(QDragLeaveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    bool eventFilter(QObject *object, QEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
+
+Q_SIGNALS:
+    void requestUpdateCustomWidget(const QString &path);
+
+private:
+    void saveCustomAvatar(const QString &path);
+
+private:
+    QFileDialog *m_fd;
+    Dtk::Widget::DFrame *m_addAvatarFrame;
+    QLabel *m_addAvatarLabel;
+    QLabel *m_hintLabel;
+    QRect m_acceptableRect;
+    QColor m_currentBkColor;
+    QColor m_dragEnterBkColor;
+    QColor m_dragLeaveBkColor;
+};
+
+class CustomAvatarView : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit CustomAvatarView(const QString &avatarPath, QWidget *parent = nullptr);
+    ~CustomAvatarView();
+
+    void setAvatarPath(const QString &avatarPath);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+
+Q_SIGNALS:
+    void enableAvatarScaledItem(const bool enabled);
+    void requestSaveCustomAvatar(const QString &path);
+
+public Q_SLOTS:
+    void startAvatarModify();
+    void endAvatarModify();
+    void setZoomValue(const int value);
+    QString getCroppedImage();
+
+private:
+    int m_xPtInterval = 0;
+    int m_yPtInterval = 0;
+    int m_offset = 0;
+    int m_currentScaledValue = 0;
+    bool m_Pressed = false;
+    QTimer *m_autoExitTimer;
+    QImage m_image;
+    AvatarCropBox *m_cropBox;
+    qreal m_zoomValue = 1.0;
+    QPoint m_OldPos;
+    QString m_path;
+
+private slots:
+    void onZoomInImage(void);
+    void onZoomOutImage(void);
+    void onPresetImage(void);
+};
+
+class CustomAvatarWidget : public AvatarListFrame
+{
+    Q_OBJECT
+public:
+    explicit CustomAvatarWidget(const int &role, QWidget *parent = nullptr);
+    ~CustomAvatarWidget() override = default;
+
+    void enableAvatarScaledItem(bool enabled);
+
+    inline CustomAvatarView *getCustomAvatarView() { return m_avatarView; }
+
+private:
+    Dtk::Widget::DSlider *m_avatarScaledItem;
+    CustomAvatarView *m_avatarView;
+};
+
+} // namespace DCC_NAMESPACE
