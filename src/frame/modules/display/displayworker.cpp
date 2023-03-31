@@ -53,7 +53,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::TouchMapChanged, model, &DisplayModel::setTouchMap);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
-    connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
+    //显示模式以m_displayInter.GetRealDisplayMode()为准
+    connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, [this, model](uchar value) {
+        int relDisplayMode = getRealDisplayMode();
+        qInfo() << " DisplayModeChanged value : " << value << " , RealDisplayMode : " << relDisplayMode;
+        model->setDisplayMode(relDisplayMode);
+    });
     connect(&m_displayInter, &DisplayInter::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
     connect(&m_displayInter, &DisplayInter::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
     connect(&m_displayInter, &DisplayInter::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
@@ -153,7 +158,8 @@ void DisplayWorker::active()
     m_model->setBrightnessMap(m_displayInter.brightness());
     onMonitorListChanged(m_displayInter.monitors());
 
-    m_model->setDisplayMode(m_displayInter.displayMode());
+    qInfo() << Q_FUNC_INFO << " [active]  init m_displayInter.GetRealDisplayMode ： " << m_displayInter.GetRealDisplayMode();
+    m_model->setDisplayMode(m_displayInter.GetRealDisplayMode());
     m_model->setTouchscreenList(m_displayInter.touchscreensV2());
     m_model->setTouchMap(m_displayInter.touchMap());
     m_model->setPrimary(m_displayInter.primary());
@@ -332,6 +338,11 @@ void DisplayWorker::setAutoBacklightEnabled(const bool value)
     } else {
         qInfo() << "com.deepin.system.Display set AutoBacklightEnabled, value : " << value;
     }
+}
+
+int DisplayWorker::getRealDisplayMode()
+{
+    return m_displayInter.GetRealDisplayMode();
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)

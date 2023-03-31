@@ -58,6 +58,7 @@ public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
     void setAutoBacklightEnabled(const bool value);
+    int  getRealDisplayMode();
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);

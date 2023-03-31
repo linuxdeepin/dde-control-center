@@ -116,6 +116,7 @@ private:
     QMap<QString, dcc::display::RecognizeWidget *> m_recognizeWidget;
 
     bool isReleaseMonitor = false;
+    int m_displayModeIndex = 0;
 };
 
 } // namespace display

@@ -165,8 +165,11 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     connect(m_model, &DisplayModel::displayModeChanged, m_monitorControlWidget, &MonitorControlWidget::setScreensMerged);
     connect(m_model, &DisplayModel::displayModeChanged, this, [=](const int mode) {
+        m_monitorControlWidget->setMergeMode(mode == MERGE_MODE);
         if (mode == MERGE_MODE) {
+            m_modeCombox->blockSignals(true);
             m_modeCombox->setCurrentIndex(0);
+            m_modeCombox->blockSignals(false);
             m_primarySettingsItem->setVisible(false);
             m_brightnessWidget->showBrightness();
             m_brightnessWidget->setVisible(m_model->brightnessEnable());
@@ -176,7 +179,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             }
             m_secondaryScreenDlgList.clear();
         } else if (mode == EXTEND_MODE) {
+            m_modeCombox->blockSignals(true);
             m_modeCombox->setCurrentIndex(1);
+            m_modeCombox->blockSignals(false);
             m_primarySettingsItem->setVisible(true);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
             m_monitorControlWidget->setModel(m_model);
@@ -200,6 +205,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             }
             m_secondaryScreenDlgList.clear();
         }
+
+        m_displayModeIndex = m_modeCombox->currentIndex();
+        qInfo() << " User end set mode : " << mode << " , m_displayModeIndex :" << m_displayModeIndex;
     });
     connect(m_model, &DisplayModel::primaryScreenChanged, this, [=](const QString &name) {
         for (int idx = 0; idx < m_primaryCombox->count(); ++idx) {
@@ -257,6 +265,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         initSecondaryScreenDialog();
     });
     connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, this, [=](const bool enable) {
+        Q_UNUSED(enable)
         onGSettingsChanged("displayMultipleDisplays", GSettingWatcher::instance()->getStatus("displayMultipleDisplays"));
     });
     connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
@@ -274,12 +283,15 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     connect(m_modeCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         if (idx <= 1 && m_model->displayMode() != idx + 1) {
-            m_monitorControlWidget->setMergeMode((idx == 0)? true: false);
             Q_EMIT requestSwitchMode(idx + 1);
         } else if (idx > 1 && (m_model->displayMode() != SINGLE_MODE || (m_model->monitorList()[idx - 2]->name() != m_model->primary() && !m_model->primary().isEmpty()))) {
-            m_monitorControlWidget->setMergeMode(false);
             Q_EMIT requestSwitchMode(SINGLE_MODE, m_model->monitorList()[idx - 2]->name());
         }
+
+        //用户设置暂不生效，待后端数据返回后再进行设置
+        m_modeCombox->blockSignals(true);
+        m_modeCombox->setCurrentIndex(m_displayModeIndex);
+        m_modeCombox->blockSignals(false);
     });
     connect(m_primaryCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         Q_EMIT requestSetPrimary(m_primaryCombox->itemText(idx));
@@ -312,6 +324,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());
     m_rotateWidget->setModel(m_model, m_model->primaryMonitor());
+    m_displayModeIndex = m_modeCombox->currentIndex();
 
     initSecondaryScreenDialog();
 }
@@ -339,6 +352,7 @@ void MultiScreenWidget::initModeList()
     for (int idx = 0; idx < monitorList.size(); ++idx) {
         auto monitor = monitorList[idx];
         connect(monitor, &Monitor::enableChanged, this, [ this ](bool enable){
+            Q_UNUSED(enable)
             if(m_model->displayMode() == SINGLE_MODE){
                 for (auto moni : m_model->monitorList()) {
                     if(moni->enable()){
@@ -352,11 +366,16 @@ void MultiScreenWidget::initModeList()
         if(monitorList.size() <= 2)
             m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()), monitor->name());
 
-        if (m_model->displayMode() == MERGE_MODE) {
+        int displayMode = m_model->displayMode();
+        if (displayMode == MERGE_MODE) {
+            m_modeCombox->blockSignals(true);
             m_modeCombox->setCurrentIndex(0);
-        } else if (m_model->displayMode() == EXTEND_MODE) {
+            m_modeCombox->blockSignals(false);
+        } else if (displayMode == EXTEND_MODE) {
+            m_modeCombox->blockSignals(true);
             m_modeCombox->setCurrentIndex(1);
-        } else if (m_model->displayMode() == SINGLE_MODE && monitor->enable()) {
+            m_modeCombox->blockSignals(false);
+        } else if (displayMode == SINGLE_MODE && monitor->enable()) {
             setModeCurrentIndex(monitor->name());
         }
     }
