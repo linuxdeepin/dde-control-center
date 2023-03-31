@@ -4,8 +4,8 @@
 #include "updatework.h"
 #include "common.h"
 #include "widgets/utils.h"
-#include <qdesktopservices.h>
-#include <qnetworkaccessmanager.h>
+#include <QDesktopServices>
+#include <QNetworkAccessManager>
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>

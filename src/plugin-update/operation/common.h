@@ -138,7 +138,7 @@ enum TestingChannelStatus {
 
 [[maybe_unused]] static inline QString formatCap(qulonglong cap, const int size = 1024)
 {
-    static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+    const static QString type[] = {"B", "KB", "MB", "GB", "TB"};
 
     if (cap < qulonglong(size)) {
         return QString::number(cap) + type[0];
