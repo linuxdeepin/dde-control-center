@@ -11,9 +11,19 @@
 
 #include <QObject>
 
-class PrivacySecurityWorker;
 class PrivacySecurityModel;
 class PermissionListWidget;
+// 页面数据
+struct PrivacyPage
+{
+    int mainPremission;
+    QString name;
+    QString displayName;
+    QString desc;
+    QString noneApp;
+    QIcon icon;
+    QList<int> premission;
+};
 
 class PrivacyModule : public QObject, public DCC_NAMESPACE::ModuleInterface
 {
@@ -43,6 +53,7 @@ public:
     void addChildPageTrans() const override;
 public Q_SLOTS:
     void onShowPage(int id);
+    void serveChanged(bool exists);
 
 private:
     void initSearchData() override;
@@ -51,7 +62,6 @@ private:
 
 private:
     PrivacySecurityModel *m_model = nullptr;
-    PrivacySecurityWorker *m_worker = nullptr;
     QPointer<PermissionListWidget> m_listWidget;
     QList<PrivacyPage> m_privacyPages;
 };

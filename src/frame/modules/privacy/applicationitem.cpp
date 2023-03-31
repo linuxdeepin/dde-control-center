@@ -41,8 +41,10 @@ QStringList ApplicationItem::executablePaths() const
     return m_executablePaths;
 }
 
-QIcon ApplicationItem::icon() const
+QIcon ApplicationItem::icon()
 {
+    if (m_icon.isNull())
+        m_icon = QIcon::fromTheme(m_iconStr);
     return m_icon;
 }
 
@@ -80,7 +82,8 @@ void ApplicationItem::onNameChanged(const QString &name)
     if (m_name == name)
         return;
     m_name = name;
-    m_sortField = DTK_CORE_NAMESPACE::Chinese2Pinyin(m_name);
+    // 不区分大小写，中文按拼音排序排后面
+    m_sortField = DTK_CORE_NAMESPACE::Chinese2Pinyin(m_name.toUpper());
     emitDataChanged();
 }
 
@@ -89,7 +92,7 @@ void ApplicationItem::onAppPathChanged(const QString &path)
     if (m_appPath == path)
         return;
     m_appPath = path;
-    emitDataChanged();
+    appPathChanged();
 }
 
 void ApplicationItem::onExecutablePathsChanged(const QStringList &paths)
@@ -99,9 +102,10 @@ void ApplicationItem::onExecutablePathsChanged(const QStringList &paths)
     m_executablePaths = paths;
 }
 
-void ApplicationItem::onIconChanged(const QIcon &icon)
+void ApplicationItem::onIconChanged(const QString &icon)
 {
-    m_icon = icon;
+    m_iconStr = icon;
+    m_icon = QIcon();
     emitDataChanged();
 }
 

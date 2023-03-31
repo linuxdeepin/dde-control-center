@@ -25,6 +25,7 @@ class DConfig;
 }
 }
 class QDBusPendingCallWatcher;
+class QFileSystemWatcher;
 class PrivacySecurityDataProxy : public QObject
 {
     Q_OBJECT
@@ -38,6 +39,7 @@ public:
     };
 
 Q_SIGNALS:
+    void fileArmorExistsChanged(bool exists);
     void itemInfosChanged(const AppItemInfoList &itemList);
     void itemChanged(const QString &status, AppItemInfo itemInfo, qlonglong categoryID);
 
@@ -51,9 +53,12 @@ Q_SIGNALS:
     void cameraModeChanged(int mode);
 
 public Q_SLOTS:
+    void init();
     // Launcherd
     void getAllItemInfos();
-    // file
+    // FileArmor
+    bool existsFileArmor() const;
+
     void fileEnable(const QString &file, const QStringList &apps, bool enable);
     void fileList();
     void fileGetApps(const QString &file);
@@ -71,9 +76,11 @@ public Q_SLOTS:
     void setCacheBlacklist(const QMap<QString, QStringList> &cacheBlacklist);
     // appInfo
     // 根据文件获取包中所有文件
+    QStringList getExecutable(const QString &path);
     QMap<QString, QStringList> getPackagesExecutable(const QStringList &paths);
 
 private Q_SLOTS:
+    void onFileArmorChanged();
     void onGetItemInfosFinished(QDBusPendingCallWatcher *w);
 
     void onFileEnableFinished(QDBusPendingCallWatcher *w);
@@ -87,8 +94,13 @@ private Q_SLOTS:
     void onCameraSetModeFinished(QDBusPendingCallWatcher *w);
     void onCameraGetModeFinished(QDBusPendingCallWatcher *w);
 
+    void initModstatdb();
+    void shutdownModstatdb();
+
 private:
     Dtk::Core::DConfig *m_dconfig;
+    bool m_initModstatdb; // dpkg 初始化标志
+    QFileSystemWatcher *m_pSystemWatcher;
 };
 
 #endif // PRIVACYSECURITYDATAPROXY_H

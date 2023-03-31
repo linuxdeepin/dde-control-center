@@ -5,6 +5,7 @@
 #define PERMISSIONLISTWIDGET_H
 
 #include "modules/privacy/applicationitem.h"
+#include "privacymodule.h"
 
 #include <QWidget>
 

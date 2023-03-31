@@ -5,7 +5,6 @@
 #include "permissionlistwidget.h"
 #include "window/modules/privacy/privacymodule.h"
 #include "modules/privacy/privacysecuritymodel.h"
-#include "modules/privacy/privacysecurityworker.h"
 
 using namespace DCC_NAMESPACE;
 
@@ -13,7 +12,6 @@ PrivacyModule::PrivacyModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
     , m_model(nullptr)
-    , m_worker(nullptr)
 {
     m_privacyPages.append({ PermissionType::CameraPermission,
                             "camera",
@@ -46,8 +44,6 @@ PrivacyModule::PrivacyModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 PrivacyModule::~PrivacyModule()
 {
-    if (m_worker)
-        delete m_worker;
     m_model->deleteLater();
 }
 
@@ -71,8 +67,16 @@ void PrivacyModule::preInitialize(bool sync, FrameProxyInterface::PushType type)
     m_model = new PrivacySecurityModel(this);
     m_model->moveToThread(qApp->thread());
 
+    QWidget *mainWindow = dynamic_cast<QWidget *>(m_frameProxy);
+    if (mainWindow) {
+        connect(m_model, &PrivacySecurityModel::checkAuthorization, mainWindow, &QWidget::setDisabled);
+    }
+    connect(m_model, &PrivacySecurityModel::fileArmorExistsChanged, this, &PrivacyModule::serveChanged);
     addChildPageTrans();
     initSearchData();
+    QTimer::singleShot(100, this, [this]() {
+        serveChanged(m_model->existsFileArmor());
+    });
 }
 
 void PrivacyModule::initialize()
@@ -81,23 +85,12 @@ void PrivacyModule::initialize()
 
 void PrivacyModule::active()
 {
-    if (!m_worker) {
-        m_worker = new PrivacySecurityWorker(m_model);
-        QThread *thread = new QThread(m_worker);
-        m_worker->moveToThread(thread);
-        thread->start();
-        connect(m_worker, &PrivacySecurityWorker::destroyed, thread, &QThread::quit);
-        QWidget *mainWindow = dynamic_cast<QWidget *>(m_frameProxy);
-        if (mainWindow) {
-            connect(m_worker, &PrivacySecurityWorker::checkAuthorization, mainWindow, &QWidget::setDisabled);
-        }
-    }
     activePage(m_privacyPages.first().mainPremission);
 }
 
 void PrivacyModule::deactive()
 {
-    m_worker->deactivate();
+    m_model->deactivate();
 }
 
 void PrivacyModule::showPage(const QString &pageName)
@@ -159,8 +152,16 @@ void PrivacyModule::onShowPage(int id)
         if (page.mainPremission == id) {
             PermissionInfoWidget *InfoWidget = new PermissionInfoWidget(page, m_model);
             m_frameProxy->pushWidget(this, InfoWidget);
-            connect(InfoWidget, &PermissionInfoWidget::destroyed, m_worker, &PrivacySecurityWorker::checkAuthorizationCancel);
+            connect(InfoWidget, &PermissionInfoWidget::destroyed, m_model, &PrivacySecurityModel::checkAuthorizationCancel);
         }
+    }
+}
+
+void PrivacyModule::serveChanged(bool exists)
+{
+    if (m_frameProxy != nullptr) {
+        m_frameProxy->setModuleVisible(this, exists);
+        initSearchData();
     }
 }
 
@@ -168,10 +169,11 @@ void PrivacyModule::initSearchData()
 {
     if (m_frameProxy != nullptr) {
         const QString &module = displayName();
+        bool exist = m_model->existsFileArmor();
         for (auto &&page : m_privacyPages) {
-            m_frameProxy->setWidgetVisible(module, page.displayName, true);
-            m_frameProxy->setDetailVisible(module, page.displayName, page.displayName, true);
-            m_frameProxy->setDetailVisible(module, page.displayName, page.desc, true);
+            m_frameProxy->setWidgetVisible(module, page.displayName, exist);
+            m_frameProxy->setDetailVisible(module, page.displayName, page.displayName, exist);
+            m_frameProxy->setDetailVisible(module, page.displayName, page.desc, exist);
         }
         m_frameProxy->updateSearchData(module);
     }
@@ -179,7 +181,7 @@ void PrivacyModule::initSearchData()
 
 void PrivacyModule::activePage(int id)
 {
-    QMetaObject::invokeMethod(m_worker, "activate", Qt::QueuedConnection);
+    m_model->activate();
     if (m_listWidget.isNull()) {
         m_listWidget = new PermissionListWidget(m_privacyPages);
         connect(m_listWidget, &PermissionListWidget::requestShowPage, this, &PrivacyModule::onShowPage);

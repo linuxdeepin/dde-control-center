@@ -18,19 +18,26 @@
 PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
+    , m_dataProxy(new PrivacySecurityDataProxy(this))
     , m_checkAuthorizationing(false)
 {
+    connect(m_dataProxy, &PrivacySecurityDataProxy::fileArmorExistsChanged, this, &PrivacySecurityWorker::fileArmorExistsChanged);
 }
 
 PrivacySecurityWorker::~PrivacySecurityWorker()
 {
 }
 
+bool PrivacySecurityWorker::existsFileArmor() const
+{
+    return m_dataProxy->existsFileArmor();
+}
+
 void PrivacySecurityWorker::activate()
 {
     if (!m_pathList.isEmpty())
         return;
-    m_dataProxy = new PrivacySecurityDataProxy(this);
+    m_dataProxy->init();
     connect(m_model, &PrivacySecurityModel::requestSetPremissionMode, this, &PrivacySecurityWorker::setPermissionMode);
     connect(m_model, &PrivacySecurityModel::requestUpdateCacheBlacklist, this, &PrivacySecurityWorker::updateCacheBlacklist);
     connect(m_dataProxy, &PrivacySecurityDataProxy::fileAppsChanged, this, &PrivacySecurityWorker::onFileAppsChanged);
@@ -68,11 +75,16 @@ QString PrivacySecurityWorker::getAppPath(const QString &filePath)
     QString appPath;
     QFile file(filePath);
     if (file.open(QFile::ReadOnly | QFile::Text)) {
-        QString data = file.readAll();
-        for (auto &&line : data.split('\n')) {
+        while (!file.atEnd()) {
+            QString line = file.readLine();
             if (line.startsWith("Exec=")) {
-                QString app = line.split(' ').first().mid(5).trimmed().remove("\"");
-                if (s_excludeBin.contains(app)) {
+                QString app;
+                if (line.startsWith("Exec=\"")) {
+                    app = line.split("\"").at(1).trimmed();
+                } else {
+                    app = line.split(' ').first().mid(5).trimmed().remove("\"");
+                }
+                if (app.endsWith(".sh") || s_excludeBin.contains(app)) {
                     break;
                 } else if (QFile::exists(app)) {
                     appPath = app;
@@ -110,31 +122,32 @@ void PrivacySecurityWorker::updateCheckAuthorizationing(bool checking)
     }
 }
 
+void PrivacySecurityWorker::updateAppPath()
+{
+    qInfo() << "update appPath begin";
+    for (auto &&item : m_model->applictionItems()) {
+        QString path = getAppPath(item->id());
+        if (path.isEmpty()) {
+            m_model->removeApplictionItem(item->id());
+        } else {
+            item->onAppPathChanged(path);
+        }
+    }
+    qInfo() << "update appPath end";
+}
+
 void PrivacySecurityWorker::onItemInfosChanged(const AppItemInfoList &itemList)
 {
     // 批量加数据，先阻塞信号，再给出完成信号
-    QStringList paths;
-    QMap<QString, ApplicationItem *> appItemMap;
-    qInfo() << "update data begin";
+    qInfo() << "update item begin";
     m_model->dataUpdateFinished(true);
     for (auto &&item : itemList) {
-        ApplicationItem *appItem = addAppItem(item);
-        if (appItem) {
-            appItemMap.insert(appItem->appPath(), appItem);
-            paths.append(appItem->appPath());
-        }
+        addAppItem(item);
     }
     m_model->dataUpdateFinished(false);
+    // 延时获取appPath
+    QMetaObject::invokeMethod(this, "updateAppPath", Qt::QueuedConnection);
     qInfo() << "update item end";
-    QMap<QString, QStringList> packages = m_dataProxy->getPackagesExecutable(paths);
-
-    for (auto it = packages.begin(); it != packages.end(); ++it) {
-        ApplicationItem *appItem = appItemMap.value(it.key());
-        QStringList paths = it.value();
-        paths.prepend(appItem->id());
-        appItem->onExecutablePathsChanged(paths);
-    }
-    qInfo() << "update data end";
 }
 
 void PrivacySecurityWorker::onItemChanged(const QString &status, const AppItemInfo &itemInfo, qlonglong categoryID)
@@ -146,29 +159,25 @@ void PrivacySecurityWorker::onItemChanged(const QString &status, const AppItemIn
     }
 }
 
-ApplicationItem *PrivacySecurityWorker::addAppItem(const AppItemInfo &itemInfo)
+void PrivacySecurityWorker::addAppItem(const AppItemInfo &itemInfo)
 {
     // 不展示的应用
     static QStringList s_excludeApp = {
         "dde-computer", "dde-control-center", "dde-file-manager", "dde-trash", "deepin-manual"
     };
     if (s_excludeApp.contains(itemInfo.ID)) {
-        return nullptr;
+        return;
     }
     ApplicationItem *appItem = new ApplicationItem();
     appItem->onIdChanged(itemInfo.Path);
     appItem->onNameChanged(itemInfo.Name);
-    QString appPath = getAppPath(itemInfo.Path);
-    if (!appPath.isEmpty() && m_model->addApplictionItem(appItem)) {
-        appItem->onIconChanged(QIcon::fromTheme(itemInfo.Icon));
-        appItem->onAppPathChanged(appPath);
+    if (m_model->addApplictionItem(appItem)) {
+        appItem->onIconChanged(itemInfo.Icon);
         m_model->updatePermission(appItem);
         connect(appItem, &ApplicationItem::requestSetPremissionEnabled, this, &PrivacySecurityWorker::setAppPermissionEnable);
-        return appItem;
     } else {
         delete appItem;
     }
-    return nullptr;
 }
 
 void PrivacySecurityWorker::onFileAppsChanged(const QString &file, const QPair<QStringList, bool> &apps)
@@ -197,6 +206,59 @@ void PrivacySecurityWorker::onCameraAppsChanged(const QPair<QStringList, bool> &
 void PrivacySecurityWorker::onCameraModeChanged(int mode)
 {
     m_model->onPremissionModeChanged(PermissionType::CameraPermission, mode);
+}
+
+void PrivacySecurityWorker::setAppPermissionEnableByCheck(bool ok)
+{
+    while (!m_cacheAppPermission.isEmpty()) {
+        auto &&it = m_cacheAppPermission.takeFirst();
+        ApplicationItem *item = it.first;
+        int premission = it.second.first;
+        bool enabled = it.second.second;
+        if (ok) {
+            // 设置App权限
+            QString file = m_model->premissiontoPath(premission);
+            if (file.isEmpty()) {
+                item->onPremissionEnabledChanged(premission, enabled);
+                item->onPremissionEnabledChanged(premission, !enabled); // 触发信号
+                continue;
+            }
+            QStringList blacklist = m_model->blacklist(file);
+            QStringList executablePaths = item->executablePaths();
+            if (executablePaths.isEmpty()) {
+                QString path = item->appPath();
+                if (path.isEmpty()) {
+                    path = getAppPath(item->id());
+                    item->onAppPathChanged(path);
+                }
+                executablePaths = m_dataProxy->getExecutable(path);
+                item->onExecutablePathsChanged(executablePaths);
+            }
+            if (enabled) {
+                for (auto it = blacklist.begin(); it != blacklist.end();) {
+                    if (executablePaths.contains(*it)) {
+                        it = blacklist.erase(it);
+                    } else {
+                        it++;
+                    }
+                }
+            } else {
+                blacklist.append(executablePaths);
+            }
+            blacklist.removeDuplicates();
+            switch (premission) {
+            case PermissionType::CameraPermission:
+                m_dataProxy->cameraEnable(blacklist, false);
+                break;
+            default:
+                m_dataProxy->fileEnable(file, blacklist, false);
+                break;
+            }
+        } else {
+            item->onPremissionEnabledChanged(premission, enabled);
+            item->onPremissionEnabledChanged(premission, !enabled); // 触发信号
+        }
+    }
 }
 
 void PrivacySecurityWorker::setPermissionMode(int premission, int mode)
@@ -238,46 +300,7 @@ void PrivacySecurityWorker::setAppPermissionEnable(int premission, bool enabled,
     connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, this, [this](PolkitQt1::Authority::Result authenticationResult) {
         disconnect(PolkitQt1::Authority::instance(), nullptr, this, nullptr);
         updateCheckAuthorizationing(false);
-        bool authorityOk = PolkitQt1::Authority::Result::Yes == authenticationResult;
-        for (auto &&it : m_cacheAppPermission) {
-            ApplicationItem *item = it.first;
-            int premission = it.second.first;
-            bool enabled = it.second.second;
-            if (authorityOk) {
-                // 设置App权限
-                QString file = m_model->premissiontoPath(premission);
-                if (file.isEmpty()) {
-                    item->onPremissionEnabledChanged(premission, enabled);
-                    item->onPremissionEnabledChanged(premission, !enabled); // 触发信号
-                    continue;
-                }
-                QStringList black = m_model->blacklist(file);
-                if (enabled) {
-                    const QStringList &executablePaths = item->executablePaths();
-                    for (auto it = black.begin(); it != black.end();) {
-                        if (executablePaths.contains(*it)) {
-                            it = black.erase(it);
-                        } else {
-                            it++;
-                        }
-                    }
-                } else {
-                    black.append(item->executablePaths());
-                }
-                switch (premission) {
-                case PermissionType::CameraPermission:
-                    m_dataProxy->cameraEnable(black, false);
-                    break;
-                default:
-                    m_dataProxy->fileEnable(file, black, false);
-                    break;
-                }
-            } else {
-                item->onPremissionEnabledChanged(premission, enabled);
-                item->onPremissionEnabledChanged(premission, !enabled); // 触发信号
-            }
-        }
-        m_cacheAppPermission.clear();
+        setAppPermissionEnableByCheck(PolkitQt1::Authority::Result::Yes == authenticationResult);
     });
     updateCheckAuthorizationing(true);
     PolkitQt1::Authority::instance()->checkAuthorization("com.deepin.daemon.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()), PolkitQt1::Authority::AllowUserInteraction);
@@ -286,7 +309,8 @@ void PrivacySecurityWorker::setAppPermissionEnable(int premission, bool enabled,
 void PrivacySecurityWorker::checkAuthorizationCancel()
 {
     if (m_checkAuthorizationing) {
-        PolkitQt1::Authority::instance()->checkAuthorizationCancel();
+        //        PolkitQt1::Authority::instance()->checkAuthorizationCancel(); // 取消后不能再拉起
+        disconnect(PolkitQt1::Authority::instance(), nullptr, this, nullptr);
         updateCheckAuthorizationing(false);
     }
 }

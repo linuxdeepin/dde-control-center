@@ -9,6 +9,7 @@
 
 class ServiceControlItems;
 class ApplicationItem;
+class PrivacySecurityWorker;
 
 // 翻译仅在界面类中
 class PrivacySecurityModel : public QObject
@@ -16,6 +17,11 @@ class PrivacySecurityModel : public QObject
     Q_OBJECT
 public:
     explicit PrivacySecurityModel(QObject *parent = nullptr);
+    ~PrivacySecurityModel();
+
+    bool existsFileArmor() const;
+    void activate();
+    void deactivate();
 
     bool isPremissionEnabled(int premission) const;
     void setPremissionEnabled(int premission, bool enabled);
@@ -29,10 +35,12 @@ public:
 
     const QString premissiontoPath(int premission) const;
     int pathtoPremission(const QString &path, bool mainPremission) const;
-
+    // 数据更新中，界面应禁用
     inline bool updating() const { return m_updating; }
 
 Q_SIGNALS:
+    void fileArmorExistsChanged(bool exists);
+    void checkAuthorization(bool checking);
     void premissionEnabledChanged(int premission, bool enabled);
     void requestSetPremissionMode(int premission, int mode);
     void requestUpdateCacheBlacklist(const QMap<QString, QStringList> &cacheBlacklist);
@@ -44,9 +52,13 @@ Q_SIGNALS:
     void itemDataChanged(ApplicationItem *appItem);
     void itemDataUpdate(bool updating);
 
+public Q_SLOTS:
+    void checkAuthorizationCancel();
+
 protected Q_SLOTS:
     void onPremissionModeChanged(int premission, int mode);
     void onAppPremissionEnabledChanged(const QString &file, const QStringList &apps);
+    void onItemPermissionChanged();
     void onItemDataChanged();
     void onCacheBlacklistChanged(const QMap<QString, QStringList> &cacheBlacklist);
 
@@ -58,6 +70,8 @@ private:
     unsigned createUniqueID();
 
 private:
+    PrivacySecurityWorker *m_worker;
+
     QList<ApplicationItem *> m_appItems;
     unsigned m_uniqueID;                         // ApplicationItem的唯一ID，从1开始，只处理m_appItems中的项
     QMap<int, int> m_premissionMap;              // 权限总开关

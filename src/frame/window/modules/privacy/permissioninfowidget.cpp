@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: LGPL-3.0-or-later
 #include "permissioninfowidget.h"
+#include "privacymodule.h"
 #include "modules/privacy/applicationitem.h"
 #include "modules/privacy/privacysecuritymodel.h"
 
@@ -72,17 +73,23 @@ protected:
     }
 };
 
-// 标识用唯一id拼接行号实现，0xaaaaaaaabbbb a占位为唯一id，b占位为级别
-static unsigned ToUniqueID(quintptr internalId, unsigned *level = nullptr)
+// 标识用唯一id拼接行号实现，0xlliiiiiiii i占位为唯一id，l占位为级别
+#define ITEM_ID_MARK 0x0000FFFFFFFF
+#define ITEM_LEVEL_MARK 0xFFFF00000000
+#define ITEM_LEVEL_1 0x0000000000 // 一级
+#define ITEM_LEVEL_2 0x0100000000 // 二级
+static quint64 ToLevel(quintptr internalId)
 {
-    if (level)
-        *level = internalId & 0xff;
-    return (internalId >> 8) & 0xffffffff;
+    return internalId & ITEM_LEVEL_MARK;
+}
+static unsigned ToUniqueID(quintptr internalId)
+{
+    return internalId & ITEM_ID_MARK;
 }
 
-static quintptr ToInternalId(unsigned id, unsigned level = 0)
+static quintptr ToInternalId(unsigned id, quint64 level = ITEM_LEVEL_1)
 {
-    return (id << 8) | level;
+    return id | level;
 }
 
 AppPermissionItemModel::AppPermissionItemModel(PrivacySecurityModel *model, QList<int> premission, QObject *parent)
@@ -123,15 +130,15 @@ QVariant AppPermissionItemModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    unsigned level;
-    unsigned uniqueID = ToUniqueID(index.internalId(), &level);
+    quint64 level = ToLevel(index.internalId());
+    unsigned uniqueID = ToUniqueID(index.internalId());
     ApplicationItem *item = m_model->applictionItem(uniqueID);
     if (!item)
         return QVariant();
 
     switch (role) {
     case Qt::DisplayRole:
-        if (level == 0)
+        if (level == ITEM_LEVEL_1)
             return item->name();
         else {
             switch (m_premission.at(index.row())) {
@@ -143,13 +150,13 @@ QVariant AppPermissionItemModel::data(const QModelIndex &index, int role) const
         }
         break;
     case Qt::DecorationRole:
-        if (level == 0)
+        if (level == ITEM_LEVEL_1)
             return item->icon();
         break;
     case Qt::CheckStateRole:
         if (m_premission.size() == 1) {
             return item->isPremissionEnabled(m_premission.first()) ? Qt::Checked : Qt::Unchecked;
-        } else if (level == 1) {
+        } else if (level == ITEM_LEVEL_2) {
             return item->isPremissionEnabled(m_premission.at(index.row())) ? Qt::Checked : Qt::Unchecked;
         }
         break;
@@ -166,13 +173,13 @@ QVariant AppPermissionItemModel::data(const QModelIndex &index, int role) const
 bool AppPermissionItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (index.isValid() && role == Qt::CheckStateRole) {
-        unsigned level;
-        unsigned uniqueID = ToUniqueID(index.internalId(), &level);
+        quint64 level = ToLevel(index.internalId());
+        unsigned uniqueID = ToUniqueID(index.internalId());
         ApplicationItem *item = m_model->applictionItem(uniqueID);
         if (!item)
             return false;
 
-        item->setPremissionEnabled(m_premission.at(level == 0 ? 0 : index.row()), value == Qt::Checked);
+        item->setPremissionEnabled(m_premission.at(level == ITEM_LEVEL_1 ? 0 : index.row()), value == Qt::Checked);
         return true;
     }
     return false;
@@ -189,7 +196,7 @@ QModelIndex AppPermissionItemModel::index(int row, int column, const QModelIndex
         unsigned uniqueID = ToUniqueID(parentIndex.internalId());
         int i = m_model->getAppIndex(uniqueID);
         if (i != -1)
-            return createIndex(row, column, ToInternalId(uniqueID, 1));
+            return createIndex(row, column, ToInternalId(uniqueID, ITEM_LEVEL_2));
     }
     return QModelIndex();
 }
@@ -197,7 +204,7 @@ QModelIndex AppPermissionItemModel::index(int row, int column, const QModelIndex
 QModelIndex AppPermissionItemModel::index(ApplicationItem *item) const
 {
     int row = m_model->applictionItems().indexOf(item);
-    return row == -1 ? QModelIndex() : createIndex(row, 0, ToInternalId(item->getUniqueID(), 0));
+    return row == -1 ? QModelIndex() : createIndex(row, 0, ToInternalId(item->getUniqueID()));
 }
 
 QModelIndex AppPermissionItemModel::parent(const QModelIndex &index) const
@@ -205,9 +212,9 @@ QModelIndex AppPermissionItemModel::parent(const QModelIndex &index) const
     if (!index.isValid()) {
         return QModelIndex();
     }
-    unsigned level;
-    unsigned uniqueID = ToUniqueID(index.internalId(), &level);
-    if (level != 0) {
+    quint64 level = ToLevel(index.internalId());
+    unsigned uniqueID = ToUniqueID(index.internalId());
+    if (level != ITEM_LEVEL_1) {
         int i = m_model->getAppIndex(uniqueID);
         if (i != -1)
             return createIndex(i, 0, ToInternalId(uniqueID));
@@ -217,11 +224,10 @@ QModelIndex AppPermissionItemModel::parent(const QModelIndex &index) const
 
 int AppPermissionItemModel::rowCount(const QModelIndex &parent) const
 {
-    unsigned level;
-    unsigned uniqueID = ToUniqueID(parent.internalId(), &level);
+    quint64 level = ToLevel(parent.internalId());
     if (parent == QModelIndex()) { // 0级
         return m_model->applictionItems().size();
-    } else if (level == 0) { // 一级
+    } else if (level == ITEM_LEVEL_1) { // 一级
         return m_premission.size() == 1 ? 0 : m_premission.size();
     }
     return 0;

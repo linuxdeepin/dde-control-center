@@ -589,7 +589,7 @@ set(QRC
         window/icons/dde-control-center-icons.qrc
         window/modules/datetime/datetime.qrc
         window/modules/update/dccv20update.qrc
-        modules/privacy/privacy.qrc
+        window/modules/privacy/privacy.qrc
 )
 
 if (DEFINED DISABLE_AUTHENTICATION)

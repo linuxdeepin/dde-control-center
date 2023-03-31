@@ -4,14 +4,46 @@
 #include "applicationitem.h"
 #include "privacysecuritydataproxy.h"
 #include "privacysecuritymodel.h"
+#include "privacysecurityworker.h"
 
 #include <QStandardPaths>
+#include <QThread>
 #include <QDebug>
+
+// Model为数据类(尽量业务无关)，封装对外接口，Worker类处理业务，在Model中对外隐藏，DataProxy类为获取外部数据接口(业务无关)，在Worker中对外隐藏
 PrivacySecurityModel::PrivacySecurityModel(QObject *parent)
     : QObject(parent)
+    , m_worker(new PrivacySecurityWorker(this))
     , m_uniqueID(1)
     , m_updating(true)
 {
+    QThread *thread = new QThread(m_worker);
+    m_worker->moveToThread(thread);
+    thread->start();
+    connect(m_worker, &PrivacySecurityWorker::destroyed, thread, &QThread::quit);
+    connect(m_worker, &PrivacySecurityWorker::checkAuthorization, this, &PrivacySecurityModel::checkAuthorization);
+    connect(m_worker, &PrivacySecurityWorker::fileArmorExistsChanged, this, &PrivacySecurityModel::fileArmorExistsChanged);
+}
+
+PrivacySecurityModel::~PrivacySecurityModel()
+{
+    delete m_worker;
+    qDeleteAll(m_appItems);
+}
+
+bool PrivacySecurityModel::existsFileArmor() const
+{
+    return m_worker->existsFileArmor();
+}
+
+void PrivacySecurityModel::activate()
+{
+    QMetaObject::invokeMethod(m_worker, "activate", Qt::QueuedConnection);
+}
+
+void PrivacySecurityModel::deactivate()
+{
+    QMetaObject::invokeMethod(m_worker, "deactivate", Qt::QueuedConnection);
 }
 
 bool PrivacySecurityModel::isPremissionEnabled(int premission) const
@@ -54,6 +86,7 @@ bool PrivacySecurityModel::addApplictionItem(ApplicationItem *item)
         });
         item->setUniqueID(createUniqueID());
         connect(item, &ApplicationItem::dataChanged, this, &PrivacySecurityModel::onItemDataChanged);
+        connect(item, &ApplicationItem::appPathChanged, this, &PrivacySecurityModel::onItemPermissionChanged);
         Q_EMIT itemAboutToBeAdded(before - m_appItems.begin());
         m_appItems.insert(before, item);
         Q_EMIT itemAdded();
@@ -69,6 +102,7 @@ void PrivacySecurityModel::removeApplictionItem(const QString &id)
     });
     if (it != m_appItems.end()) {
         Q_EMIT itemAboutToBeRemoved(it - m_appItems.begin());
+        delete *it;
         m_appItems.erase(it);
         Q_EMIT itemRemoved();
     }
@@ -146,6 +180,11 @@ int PrivacySecurityModel::pathtoPremission(const QString &path, bool mainPremiss
     return 0;
 }
 
+void PrivacySecurityModel::checkAuthorizationCancel()
+{
+    m_worker->checkAuthorizationCancel();
+}
+
 void PrivacySecurityModel::onPremissionModeChanged(int premission, int mode)
 {
     if (m_premissionMap.contains(premission) && m_premissionMap.value(premission) == mode)
@@ -166,6 +205,13 @@ void PrivacySecurityModel::onAppPremissionEnabledChanged(const QString &file, co
         m_blacklist[file] = m_cacheBlacklist[file];
     }
     updatePermission();
+}
+
+void PrivacySecurityModel::onItemPermissionChanged()
+{
+    ApplicationItem *item = qobject_cast<ApplicationItem *>(sender());
+    if (item)
+        updatePermission(item);
 }
 
 void PrivacySecurityModel::onItemDataChanged()

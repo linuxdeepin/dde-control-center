@@ -16,6 +16,8 @@
 #include <QProcess>
 #include <QDebug>
 #include <QFileInfo>
+#include <QLibrary>
+#include <QFileSystemWatcher>
 
 extern "C" {
 #define LIBDPKG_VOLATILE_API 1
@@ -66,17 +68,24 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, AppItemInfo &vers
 
 PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
     : QObject(parent)
-    , m_dconfig(Dtk::Core::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.privacy"))
+    , m_initModstatdb(false)
+    , m_pSystemWatcher(new QFileSystemWatcher({ "/usr/share/dbus-1/system-services" }, this))
 {
-    qDBusRegisterMetaType<AppItemInfo>();
-    qDBusRegisterMetaType<AppItemInfoList>();
-    dpkg_program_init("dde-control-center");
-    QDBusConnection::sessionBus().connect(LauncherService, LauncherPath, LauncherInterface, "ItemChanged", this, SLOT(itemChanged(const QString &, AppItemInfo, qlonglong)));
+    connect(m_pSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &PrivacySecurityDataProxy::onFileArmorChanged);
 }
 
 PrivacySecurityDataProxy::~PrivacySecurityDataProxy()
 {
-    dpkg_program_done();
+    shutdownModstatdb();
+}
+
+void PrivacySecurityDataProxy::init()
+{
+    m_dconfig = Dtk::Core::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.privacy");
+
+    qDBusRegisterMetaType<AppItemInfo>();
+    qDBusRegisterMetaType<AppItemInfoList>();
+    QDBusConnection::sessionBus().connect(LauncherService, LauncherPath, LauncherInterface, "ItemChanged", this, SLOT(itemChanged(const QString &, AppItemInfo, qlonglong)));
 }
 
 void PrivacySecurityDataProxy::getAllItemInfos()
@@ -86,6 +95,11 @@ void PrivacySecurityDataProxy::getAllItemInfos()
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &PrivacySecurityDataProxy::onGetItemInfosFinished);
 }
 
+bool PrivacySecurityDataProxy::existsFileArmor() const
+{
+    return QFile::exists("/usr/share/dbus-1/system-services/com.deepin.FileArmor1.service");
+}
+
 void PrivacySecurityDataProxy::fileEnable(const QString &file, const QStringList &apps, bool enable)
 {
     // FileArmor不支持apps为空
@@ -93,7 +107,12 @@ void PrivacySecurityDataProxy::fileEnable(const QString &file, const QStringList
         fileSetMode(file, enable ? PrivacySecurityDataProxy::AllDisabled : PrivacySecurityDataProxy::AllEnable);
     } else {
         QDBusMessage message = QDBusMessage::createMethodCall(FileArmorService, FileArmorPath, FileArmorInterface, "Enable");
-        message << file << apps << enable;
+        // FileArmor对带空格路径要加"
+        QStringList appsArg;
+        for (auto &&app : apps) {
+            appsArg.append("\"" + app + "\"");
+        }
+        message << file << appsArg << enable;
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, DBUS_TIMEOUT), this);
         watcher->setProperty("DBusFile", file);
         watcher->setProperty("DBusApps", apps);
@@ -145,7 +164,12 @@ void PrivacySecurityDataProxy::cameraEnable(const QStringList &apps, bool enable
         cameraSetMode(enable ? PrivacySecurityDataProxy::AllDisabled : PrivacySecurityDataProxy::AllEnable);
     } else {
         QDBusMessage message = QDBusMessage::createMethodCall(CameraControlService, CameraControlPath, CameraControlInterface, "Enable");
-        message << apps << enable;
+        // FileArmor对带空格路径要加"
+        QStringList appsArg;
+        for (auto &&app : apps) {
+            appsArg.append("\"" + app + "\"");
+        }
+        message << appsArg << enable;
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, DBUS_TIMEOUT), this);
         watcher->setProperty("DBusApps", apps);
         watcher->setProperty("DBusEnable", enable);
@@ -210,34 +234,42 @@ void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QStringList
     m_dconfig->setValue("permissionBlacklist", doc.toJson(QJsonDocument::Compact));
 }
 
+QStringList PrivacySecurityDataProxy::getExecutable(const QString &path)
+{
+    QStringList files;
+    initModstatdb();
+    struct fsys_namenode *namenode;
+    namenode = fsys_hash_find_node(path.toLatin1().data(), FHFF_NOCOPY);
+    struct fsys_node_pkgs_iter *iter = fsys_node_pkgs_iter_new(namenode);
+    struct pkginfo *pkg_owner = fsys_node_pkgs_iter_next(iter);
+    if (pkg_owner) {
+        struct fsys_namenode_list *file;
+        file = pkg_owner->files;
+        while (file) {
+            QFileInfo fileInfo(file->namenode->name);
+            if (fileInfo.isFile() && fileInfo.isExecutable() && !QLibrary::isLibrary(file->namenode->name)) {
+                files << fileInfo.filePath();
+            }
+            file = file->next;
+        }
+    }
+    fsys_node_pkgs_iter_free(iter);
+    return files;
+}
+
 QMap<QString, QStringList> PrivacySecurityDataProxy::getPackagesExecutable(const QStringList &paths)
 {
     QMap<QString, QStringList> packages;
-    modstatdb_open(msdbrw_readonly);
-    ensure_allinstfiles_available_quiet();
-    ensure_diversions();
-    struct fsys_namenode *namenode;
+    initModstatdb();
     for (auto &&path : paths) {
-        namenode = fsys_hash_find_node(path.toLatin1().data(), FHFF_NOCOPY);
-        struct fsys_node_pkgs_iter *iter = fsys_node_pkgs_iter_new(namenode);
-        struct pkginfo *pkg_owner = fsys_node_pkgs_iter_next(iter);
-        if (pkg_owner) {
-            QStringList files;
-            struct fsys_namenode_list *file;
-            file = pkg_owner->files;
-            while (file) {
-                QFileInfo fileInfo(file->namenode->name);
-                if (fileInfo.isFile() && fileInfo.isExecutable()) {
-                    files << fileInfo.filePath();
-                }
-                file = file->next;
-            }
-            packages.insert(path, files);
-        }
-        fsys_node_pkgs_iter_free(iter);
+        packages.insert(path, getExecutable(path));
     }
-    modstatdb_shutdown();
     return packages;
+}
+
+void PrivacySecurityDataProxy::onFileArmorChanged()
+{
+    Q_EMIT fileArmorExistsChanged(existsFileArmor());
 }
 
 void PrivacySecurityDataProxy::onGetItemInfosFinished(QDBusPendingCallWatcher *w)
@@ -358,4 +390,24 @@ void PrivacySecurityDataProxy::onCameraGetModeFinished(QDBusPendingCallWatcher *
         qWarning() << reply.error();
     }
     w->deleteLater();
+}
+
+void PrivacySecurityDataProxy::initModstatdb()
+{
+    if (!m_initModstatdb) {
+        dpkg_program_init("dde-control-center");
+        modstatdb_open(msdbrw_readonly);
+        ensure_allinstfiles_available_quiet();
+        ensure_diversions();
+        m_initModstatdb = true;
+    }
+}
+
+void PrivacySecurityDataProxy::shutdownModstatdb()
+{
+    if (m_initModstatdb) {
+        modstatdb_shutdown();
+        dpkg_program_done();
+        m_initModstatdb = false;
+    }
 }

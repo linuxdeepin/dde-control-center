@@ -18,10 +18,11 @@ public:
     explicit PrivacySecurityWorker(PrivacySecurityModel *model, QObject *parent = nullptr);
     ~PrivacySecurityWorker();
 
-    void deactivate();
+    bool existsFileArmor() const;
 
 public Q_SLOTS:
     void activate();
+    void deactivate();
     // 设置总开关
     void setPermissionMode(int premission, int mode);
     void setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item);
@@ -33,16 +34,20 @@ private:
     void updateCheckAuthorizationing(bool checking);
 
 private Q_SLOTS:
+    void updateAppPath();
     void onItemInfosChanged(const AppItemInfoList &itemList);
     void onItemChanged(const QString &status, const AppItemInfo &itemInfo, qlonglong categoryID);
-    ApplicationItem *addAppItem(const AppItemInfo &itemInfo);
+    void addAppItem(const AppItemInfo &itemInfo);
     void onFileAppsChanged(const QString &file, const QPair<QStringList, bool> &apps);
     void onFileModeChanged(const QString &file, int mode);
     void onCameraAppsChanged(const QPair<QStringList, bool> &apps);
     void onCameraModeChanged(int mode);
 
+    void setAppPermissionEnableByCheck(bool ok);
+
 Q_SIGNALS:
     void checkAuthorization(bool checking);
+    void fileArmorExistsChanged(bool exists);
 
 private:
     PrivacySecurityModel *m_model;
