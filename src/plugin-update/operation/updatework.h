@@ -170,7 +170,7 @@ private:
     void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
 
     // testingChannel
-    bool checkCanExitTestingChannel();
+    CanExitTestingChannelStatus checkCanExitTestingChannel();
     std::optional<QString> getTestingChannelSource();
     QStringList getSourcesOfPackage(const QString &pkg, const QString &version);
 private:

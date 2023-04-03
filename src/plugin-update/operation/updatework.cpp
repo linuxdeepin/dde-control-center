@@ -4,6 +4,7 @@
 #include "updatework.h"
 #include "common.h"
 #include "widgets/utils.h"
+#include <dnotifysender.h>
 #include <QDesktopServices>
 #include <QNetworkAccessManager>
 #include <QtConcurrent>
@@ -39,6 +40,16 @@ const int ServerPlatform = 6;               // 服务器版
 using Dtk::Widget::DDialog;
 using Dtk::Widget::DLabel;
 using Dtk::Widget::DWaterProgress;
+
+inline void notifyError(const QString &summary, const QString &body)
+{
+    DUtil::DNotifySender(summary)
+        .appIcon("dde-control-center")
+        .appName("dde-control-center")
+        .appBody(body)
+        .timeOut(5)
+        .call();
+}
 
 static int getPlatform()
 {
@@ -1730,7 +1741,7 @@ QStringList UpdateWorker::getSourcesOfPackage(const QString &pkg, const QString 
     return sources;
 }
 
-bool UpdateWorker::checkCanExitTestingChannel()
+CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
 {
     auto dialog = wantExitTestingChannelDialog();
     bool wantexit = false;
@@ -1746,12 +1757,12 @@ bool UpdateWorker::checkCanExitTestingChannel()
     });
     dialog->exec();
     if (!wantexit) {
-        return false;
+        return CanExitTestingChannelStatus::Cancel;
     }
     auto testChannelSrc = getTestingChannelSource();
     if (!testChannelSrc.has_value()) {
         qDebug() << "Not have source file";
-        return false;
+        return CanExitTestingChannelStatus::CheckError;
     }
     QString testingChannelSource = testChannelSrc.value();
     QProcess dpkgProcess;
@@ -1780,11 +1791,11 @@ bool UpdateWorker::checkCanExitTestingChannel()
             // Does the package exists only in the internal test source
             auto sources = getSourcesOfPackage(pkg, version);
             if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
-                return true;
+                return CanExitTestingChannelStatus::CheckOk;
             }
         }
     }
-    return false;
+    return CanExitTestingChannelStatus::CheckError;
 }
 
 void UpdateWorker::setTestingChannelEnable(const bool &enable)
@@ -1822,7 +1833,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
 
     auto machineidopt = getMachineId();
     if (!machineidopt.has_value()) {
-        // TODO: Maybe need notify?
+        notifyError(tr("Cannot find machineid"), tr("Cannot find machineid"));
         m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
         return;
     }
@@ -1834,11 +1845,13 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     if (!enable) {
         if (m_updateInter->PackageExists(TestingChannelPackage)) {
             qDebug() << "Testing:" << "Uninstall testing channel package";
-            if (checkCanExitTestingChannel()) {
+            auto exitStatus = checkCanExitTestingChannel();
+            if (exitStatus == CanExitTestingChannelStatus::CheckOk) {
                 QDBusPendingCall call = m_updateInter->RemovePackage("testing Channel", TestingChannelPackage);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
                 connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
                     if (call.isError()) {
+                        notifyError(tr("Cannot Uninstall package") + TestingChannelPackage, call.error().message());
                         qWarning() << "Cannot Uninstall package " << TestingChannelPackage << " :" << call.error();
                         m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
                         return;
@@ -1846,6 +1859,12 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
                     m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
                 });
             } else {
+                if (exitStatus == CanExitTestingChannelStatus::CheckError) {
+                    notifyError(
+                        tr("Error when exit testingChannel"),
+                        tr("try to manually uninstall package") + TestingChannelPackage
+                    );
+                }
                 m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
                 qDebug() << "Cancel to join testingChannel";
                 return;
@@ -1914,6 +1933,7 @@ void UpdateWorker::checkTestingChannelStatus()
                 connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
                     if (call.isError()) {
                         qWarning() << "Cannot install package" << TestingChannelPackage << ": " << call.error();
+                        notifyError(tr("Cannot install package") + TestingChannelPackage, call.error().message());
                         m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
                         return;
                     }

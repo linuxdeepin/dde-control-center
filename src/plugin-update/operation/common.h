@@ -109,6 +109,12 @@ enum TestingChannelStatus {
     Joined,
 };
 
+enum CanExitTestingChannelStatus {
+    CheckOk,
+    Cancel,
+    CheckError,
+};
+
 [[maybe_unused]] static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
 {
     ClassifyUpdateType value = ClassifyUpdateType::Invalid;
