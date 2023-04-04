@@ -201,6 +201,7 @@ void UpdateWorker::deactivate()
 
 void UpdateWorker::checkForUpdates()
 {
+    setOnBattery(m_updateInter->onBattery());
     if (checkDbusIsValid()) {
         qDebug() << " checkDbusIsValid . do nothing";
         return;
