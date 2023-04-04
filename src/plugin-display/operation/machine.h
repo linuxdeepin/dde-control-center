@@ -42,7 +42,7 @@ Q_SIGNALS:
     void nameChanged(const QString& name);
     void IPChanged(const QString& Ip);
     void deviceSharingChanged(bool deviceSharing);
-    void disconnnectStatusChanged(bool status);
+    void disconnectStatusChanged(bool status);
     void historyStatusChanged(bool status);
     void directionChanged(const quint16& dir);
 

@@ -21,8 +21,8 @@ class MachineDBusProxy : public QObject
 public:
     explicit MachineDBusProxy(QString cooperationMachinePath, QObject *parent = nullptr);
 
-    Q_PROPERTY(QString IP READ IP NOTIFY IpChanged)
-    QString IP();
+    Q_PROPERTY(QString IP READ ip NOTIFY IPChanged)
+    QString ip();
 
     Q_PROPERTY(QString Name READ name NOTIFY NameChanged)
     QString name();
@@ -30,13 +30,13 @@ public:
     Q_PROPERTY(bool Connected READ connected NOTIFY ConnectedChanged)
     bool connected();
 
-    Q_PROPERTY(QString UUID READ UUID NOTIFY UuidChanged)
-    QString UUID();
+    Q_PROPERTY(QString UUID READ uuid NOTIFY UUIDChanged)
+    QString uuid();
 
     Q_PROPERTY(bool DeviceSharing READ deviceSharing NOTIFY DeviceSharingChanged)
     bool deviceSharing(); // 默认设备
 
-    Q_PROPERTY(int Direction READ direction NOTIFY directionChanged)
+    Q_PROPERTY(int Direction READ direction NOTIFY DirectionChanged)
     quint16 direction();
 
     void disconnect();
@@ -46,13 +46,14 @@ public:
     void stopDeviceSharing();
 
 Q_SIGNALS:
-    void IpChanged(const QString& ip);
+    void IPChanged(const QString& ip);
     void NameChanged(const QString& name);
-    void ConnectedChanged(bool connecteded);
-    void UuidChanged(const QString& uuid);
+    void ConnectedChanged(bool connected);
+    void UUIDChanged(const QString& uuid);
     void DeviceSharingChanged(bool cooperating);
+    void DirectionChanged(int dir);
+
     void disconnectStatusChanged(bool);
-    void directionChanged(quint16 dir);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);

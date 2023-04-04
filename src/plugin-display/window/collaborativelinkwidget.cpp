@@ -216,7 +216,7 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
         cooperationStatusChanged(deviceSharing);
     });
 
-    connect(machine, &Machine::disconnnectStatusChanged, m_deviceCombox, [this](bool status) {
+    connect(machine, &Machine::disconnectStatusChanged, m_deviceCombox, [this](bool status) {
         m_currentMachineDevcice = nullptr;
         cooperationStatusChanged(false);
     });
