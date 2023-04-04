@@ -59,7 +59,7 @@ void Machine::setDeviceSharing(const bool deviceSharing)
 
 void Machine::setDisconnectStatus(bool status)
 {
-    Q_EMIT disconnnectStatusChanged(status);
+    Q_EMIT disconnectStatusChanged(status);
 }
 
 void Machine::setHistoryStates(bool isHistory)

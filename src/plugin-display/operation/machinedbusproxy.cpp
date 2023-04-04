@@ -8,6 +8,9 @@
 #include <QDBusReply>
 #include <QDebug>
 
+const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
+const static QString PropertiesChanged = "PropertiesChanged";
+
 MachineDBusProxy::MachineDBusProxy(QString cooperationMachinePath, QObject *parent)
     : QObject(parent)
     , m_cooperationMachinePath(cooperationMachinePath)
@@ -16,9 +19,11 @@ MachineDBusProxy::MachineDBusProxy(QString cooperationMachinePath, QObject *pare
     const static QString CooperationInterface = "org.deepin.dde.Cooperation1.Machine";
 
     m_dBusMachineInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
+    QDBusConnection dbusConnection = m_dBusMachineInter->connection();
+    dbusConnection.connect(CooperationService, m_cooperationMachinePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
-QString MachineDBusProxy::IP()
+QString MachineDBusProxy::ip()
 {
     return qvariant_cast<QString>(m_dBusMachineInter->property("IP"));
 }
@@ -33,7 +38,7 @@ bool MachineDBusProxy::connected()
     return qvariant_cast<bool>(m_dBusMachineInter->property("Connected"));
 }
 
-QString MachineDBusProxy::UUID()
+QString MachineDBusProxy::uuid()
 {
     return qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));
 }

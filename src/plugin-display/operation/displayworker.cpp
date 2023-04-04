@@ -528,19 +528,21 @@ void DisplayWorker::machinesAdded(const QString &path)
     MachineDBusProxy *interProxy = new MachineDBusProxy(path, this);
     Machine *machine = new Machine(this);
 
-    connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
+    connect(interProxy, &MachineDBusProxy::IPChanged, machine, &Machine::setIP);
     connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
     connect(interProxy, &MachineDBusProxy::ConnectedChanged, machine, &Machine::setConnected);
     connect(interProxy, &MachineDBusProxy::DeviceSharingChanged, machine, &Machine::setDeviceSharing);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
-    connect(interProxy, &MachineDBusProxy::directionChanged, machine, &Machine::setDirection);
+    connect(interProxy, &MachineDBusProxy::DirectionChanged, machine, &Machine::setDirection);
+
     machine->setPath(path);
-    machine->setIP(interProxy->IP());
+    machine->setIP(interProxy->ip());
     machine->setName(interProxy->name());
     machine->setConnected(interProxy->connected());
     machine->setDeviceSharing(interProxy->deviceSharing());
-    machine->setUUID(interProxy->UUID());
+    machine->setUUID(interProxy->uuid());
     machine->setDirection(interProxy->direction());
+
     // 标记历史设备
     const QList<QString> &historyDev = m_displayInter->CooperatedMachines();
     for (auto &hisdevPath : historyDev) {
