@@ -317,7 +317,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_updateingTipsLab->setVisible(false);
 
     auto showCheckButton = [this](const QString & caption) {
-        m_model->updateCheckUpdateTime();
+        emit m_model->updateCheckUpdateTime();
         m_checkUpdateBtn->setText(caption);
         m_checkUpdateBtn->setVisible(true);
         m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
@@ -593,7 +593,7 @@ void UpdateCtrlWidget::showUpdateInfo()
     m_versrionTip->setVisible(true);
 
     m_CheckAgainBtn->setVisible(true);
-    m_model->updateCheckUpdateTime();
+    emit m_model->updateCheckUpdateTime();
     m_lastCheckAgainTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
     m_lastCheckAgainTimeTip->setVisible(true);
     m_updateSummaryGroup->setVisible(true);
