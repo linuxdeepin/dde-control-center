@@ -27,6 +27,9 @@ public:
     ~UpdateDBusProxy();
 
 public:
+    // hostname
+    QString staticHostname() const;
+
     // updater
     Q_PROPERTY(bool UpdateNotify READ updateNotify NOTIFY UpdateNotifyChanged)
     bool updateNotify();
@@ -65,8 +68,11 @@ public:
     void SetAutoClean(bool in0);
     void StartJob(const QString &in0);
     void PauseJob(const QString &in0);
+    QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &jobname, const QString &packages);
+    QDBusPendingReply<QDBusObjectPath> RemovePackage(const QString &jobname, const QString &packages);
     QDBusPendingReply<QList<QDBusObjectPath> > ClassifiedUpgrade(qulonglong in0);
     QDBusPendingReply<qlonglong> PackagesDownloadSize(const QStringList &in0);
+    QDBusPendingReply<bool> PackageExists(const QString &pkgid);
 
     // Power
     bool onBattery();
@@ -101,6 +107,7 @@ signals:
     void RunningChanged(bool  value) const;
 
 private:
+    DCC_NAMESPACE::DCCDBusInterface *m_hostname1Inter;
     DCC_NAMESPACE::DCCDBusInterface *m_updateInter;
     DCC_NAMESPACE::DCCDBusInterface *m_managerInter;
     DCC_NAMESPACE::DCCDBusInterface *m_powerInter;
