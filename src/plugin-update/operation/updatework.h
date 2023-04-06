@@ -12,6 +12,8 @@
 #include <QNetworkReply>
 #include <QObject>
 
+#include <optional>
+
 struct CheckUpdateJobRet {
     QString status;
     QString jobID;
@@ -101,6 +103,7 @@ public Q_SLOTS:
     void checkNetselect();
 
     void licenseStateChangeSlot();
+    void testingChannelChangeSlot();
     void refreshLastTimeAndCheckCircle();
     void setUpdateNotify(const bool notify);
 
@@ -109,6 +112,13 @@ public Q_SLOTS:
     void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
     void onFixError(const ClassifyUpdateType &updateType, const QString &errorType);
     void onRequestLastoreHeartBeat();
+
+    std::optional<QUrl> updateTestingChannelUrl();
+    std::optional<QUrl> getTestingChannelUrl();
+    std::optional<QString> getMachineId();
+
+    void setTestingChannelEnable(const bool &enable);
+    void checkTestingChannelStatus();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -160,6 +170,10 @@ private:
     void backupToAtomicUpgrade();
     void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
 
+    // testingChannel
+    CanExitTestingChannelStatus checkCanExitTestingChannel();
+    std::optional<QString> getTestingChannelSource();
+    QStringList getSourcesOfPackage(const QString &pkg, const QString &version);
 private:
     UpdateModel *m_model;
     QPointer<UpdateJobDBusProxy> m_checkUpdateJob;
@@ -203,6 +217,9 @@ private:
     QMutex m_downloadMutex;
 
     QList<UpdateLogItem> m_updateLogs;
+
+    std::optional<QString> m_machineid;
+    std::optional<QUrl> m_testingChannelUrl;
 };
 
 #endif // UPDATEWORK_H

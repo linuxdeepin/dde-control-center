@@ -72,7 +72,7 @@ add_definitions(-DVARDIRECTORY="${CMAKE_INSTALL_LOCALSTATEDIR}")
 find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(Qt5 COMPONENTS Widgets DBus Concurrent Multimedia Svg Test REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
 
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
@@ -1062,6 +1062,7 @@ if (BUILD_PLUDIN AND NOT DISABLE_UPDATE)
 
     target_link_libraries(${Update_Name} PRIVATE
         ${Update_Libraries}
+        Qt5::Network
     )
 
     install(TARGETS ${Update_Name} DESTINATION ${MODULE_INSTALL_DIR})

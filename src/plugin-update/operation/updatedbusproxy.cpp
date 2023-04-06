@@ -10,6 +10,11 @@
 #include <QDBusMetaType>
 #include <QDBusReply>
 
+// HostName
+const static QString HostnameService = QStringLiteral("org.freedesktop.hostname1");
+const static QString HostnamePath = QStringLiteral("/org/freedesktop/hostname1");
+const static QString HostnameInterface = QStringLiteral("org.freedesktop.hostname1");
+
 // Updater
 const static QString UpdaterService = QStringLiteral("org.deepin.dde.Lastore1");
 const static QString UpdaterPath = QStringLiteral("/org/deepin/dde/Lastore1");
@@ -35,6 +40,7 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
     , m_updateInter(new DCC_NAMESPACE::DCCDBusInterface(UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
     , m_managerInter(new DCC_NAMESPACE::DCCDBusInterface(ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
     , m_powerInter(new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
@@ -50,10 +56,16 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
 
 UpdateDBusProxy::~UpdateDBusProxy()
 {
+    m_hostname1Inter->deleteLater();
     m_updateInter->deleteLater();
     m_managerInter->deleteLater();
     m_powerInter->deleteLater();
     m_atomicUpgradeInter->deleteLater();
+}
+
+QString UpdateDBusProxy::staticHostname() const
+{
+    return qvariant_cast<QString>(m_hostname1Inter->property("StaticHostname"));
 }
 
 bool UpdateDBusProxy::updateNotify()
@@ -189,6 +201,20 @@ void UpdateDBusProxy::PauseJob(const QString &in0)
     m_managerInter->asyncCallWithArgumentList(QStringLiteral("PauseJob"), argumentList);
 }
 
+QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::InstallPackage(const QString &jobname, const QString &packages)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
+}
+
+QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::RemovePackage(const QString &jobname, const QString &packages)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("RemovePackage"), argumentList);
+}
+
 QDBusPendingReply<QList<QDBusObjectPath> > UpdateDBusProxy::ClassifiedUpgrade(qulonglong in0)
 {
     QList<QVariant> argumentList;
@@ -201,6 +227,12 @@ QDBusPendingReply<qlonglong> UpdateDBusProxy::PackagesDownloadSize(const QString
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     return m_managerInter->asyncCallWithArgumentList(QStringLiteral("PackagesDownloadSize"), argumentList);
+}
+
+QDBusPendingReply<bool> UpdateDBusProxy::PackageExists(const QString &pkgid) {
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(pkgid);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("PackageExists"), argumentList);
 }
 
 bool UpdateDBusProxy::onBattery()

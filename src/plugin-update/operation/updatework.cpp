@@ -2,7 +2,11 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatework.h"
+#include "common.h"
 #include "widgets/utils.h"
+#include <DNotifySender>
+#include <QDesktopServices>
+#include <QNetworkAccessManager>
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -10,10 +14,14 @@
 #include <QJsonDocument>
 #include <QApplication>
 #include <QMutexLocker>
-#include <vector>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QVBoxLayout>
+
 #include <DConfig>
+#include <DDialog>
+#include <DLabel>
+#include <DWaterProgress>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -28,6 +36,20 @@ const int DesktopProfessionalPlatform = 1;  // 桌面专业版
 const int DesktopCommunityPlatform = 3;     // 桌面社区版
 const int ServerPlatform = 6;               // 服务器版
 
+using Dtk::Widget::DDialog;
+using Dtk::Widget::DLabel;
+using Dtk::Widget::DWaterProgress;
+
+inline void notifyError(const QString &summary, const QString &body)
+{
+    DUtil::DNotifySender(summary)
+        .appIcon("dde-control-center")
+        .appName("dde-control-center")
+        .appBody(body)
+        .timeOut(5000)
+        .call();
+}
+
 static int getPlatform()
 {
     if (IsServerSystem) {
@@ -39,6 +61,39 @@ static int getPlatform()
     }
 
     return DesktopProfessionalPlatform;
+}
+
+// A Dialog for user to check if to leave testing Channel
+DDialog *wantExitTestingChannelDialog()
+{
+    auto dialog = new DDialog;
+    dialog->setFixedWidth(400);
+    dialog->setFixedHeight(280);
+
+    auto label = new DLabel(dialog);
+    label->setWordWrap(true);
+    label->setText(QObject::tr("Checking system versions, please wait..."));
+
+    auto progress = new DWaterProgress(dialog);
+    progress->setFixedSize(100, 100);
+    progress->setTextVisible(false);
+    progress->setValue(50);
+    progress->start();
+
+    QWidget* content = new QWidget(dialog);
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+    content->setLayout(layout);
+    dialog->addContent(content);
+    dialog->addButton(QObject::tr("Leave"), false, DDialog::ButtonWarning);
+    dialog->addButton(QObject::tr("Cancel"), true, DDialog::ButtonRecommend);
+
+    layout->addStretch();
+    layout->addWidget(label, 0, Qt::AlignHCenter);
+    layout->addSpacing(20);
+    layout->addWidget(progress, 0, Qt::AlignHCenter);
+    layout->addStretch();
+    return dialog;
 }
 
 UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
@@ -60,6 +115,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_downloadSize(0)
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
+    , m_machineid(std::nullopt)
+    , m_testingChannelUrl(std::nullopt)
 {
 
 }
@@ -85,7 +142,7 @@ void UpdateWorker::preInitialize()
 
     QFutureWatcher<QMap<QString, QStringList>> *packagesWatcher = new QFutureWatcher<QMap<QString, QStringList>>(this);
     connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [ = ] {
-        QMap<QString, QStringList> updatablePackages = std::move(packagesWatcher->result());
+        QMap<QString, QStringList> updatablePackages = packagesWatcher->result();
         checkUpdatablePackages(updatablePackages);
         packagesWatcher->deleteLater();
     });
@@ -101,6 +158,7 @@ void UpdateWorker::init()
 {
     qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
     qRegisterMetaType<UiActiveState>("UiActiveState");
+    qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
 
     QString sVersion = QString("%1 %2").arg(DSysInfo::uosProductTypeName()).arg(DSysInfo::majorVersion());
     if (!IsServerSystem)
@@ -134,6 +192,21 @@ void UpdateWorker::licenseStateChangeSlot()
 
     QFuture<void> future = QtConcurrent::run(this, &UpdateWorker::getLicenseState);
     watcher->setFuture(future);
+}
+
+void UpdateWorker::testingChannelChangeSlot()
+{
+    QDBusPendingCall call = m_updateInter->PackageExists(TestingChannelPackage);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, call, this] {
+        if (!call.isError()) {
+            QDBusPendingReply<bool> reply = call.reply();
+            if (reply.value()) {
+                m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+            };
+        }
+        watcher->deleteLater();
+    });
 }
 
 void UpdateWorker::getLicenseState()
@@ -187,6 +260,7 @@ void UpdateWorker::activate()
 
     onJobListChanged(m_updateInter->jobList());
 
+    testingChannelChangeSlot();
     licenseStateChangeSlot();
 
     QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
@@ -1561,4 +1635,294 @@ void UpdateWorker::onRequestLastoreHeartBeat()
         return;
     }
     lastoreManager.asyncCall("GetCheckIntervalAndTime");
+}
+
+std::optional<QString> UpdateWorker::getMachineId()
+{
+    if (m_machineid.has_value()) {
+        return m_machineid.value();
+    }
+    QProcess process;
+    auto args = QStringList();
+    args.append("-c");
+    args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
+    process.start("sh", args);
+    process.waitForFinished();
+    const auto token = QString(process.readAllStandardOutput());
+    const auto list = token.split(";");
+    for (const auto &line: list) {
+        const auto key = line.section("=", 0, 0);
+        if (key == "i") {
+            const auto value = line.section("=", 1);
+            m_machineid = value;
+            return value;
+        }
+    }
+    return std::nullopt;
+}
+
+std::optional<QUrl> UpdateWorker::updateTestingChannelUrl()
+{
+    QString hostname = m_updateInter->staticHostname();
+    auto machineid = getMachineId();
+    if (!machineid.has_value()) {
+        return std::nullopt;
+    }
+    QUrl testingUrl = QUrl(ServiceLink + "/internal-testing");
+    auto query = QUrlQuery(testingUrl.query());
+    query.addQueryItem("h", hostname);
+    query.addQueryItem("m", machineid.value());
+    query.addQueryItem("v", DSysInfo::minorVersion());
+    testingUrl.setQuery(query);
+    return testingUrl;
+}
+
+std::optional<QUrl> UpdateWorker::getTestingChannelUrl()
+{
+    if (!m_testingChannelUrl.has_value()) {
+        m_testingChannelUrl = updateTestingChannelUrl();
+    }
+    return m_testingChannelUrl;
+}
+
+std::optional<QString> UpdateWorker::getTestingChannelSource()
+{
+    auto sourceFile = QString("/etc/apt/sources.list.d/%1.list").arg(TestingChannelPackage);
+    qDebug() << "sourceFile" << sourceFile;
+    QFile f(sourceFile);
+    if (!f.open(QFile::ReadOnly | QFile::Text)) {
+        return std::nullopt;
+    }
+    QTextStream in(&f);
+    while (!in.atEnd()) {
+        auto line = in.readLine();
+        if (line.startsWith("deb"))
+        {
+            auto fields = line.split(" ", Qt::SkipEmptyParts);
+            if (fields.length() >= 2)
+            {
+                auto sourceURL = fields[1];
+                if (sourceURL.endsWith("/"))
+                {
+                    sourceURL.truncate(sourceURL.length() - 1);
+                }
+                return sourceURL;
+            }
+        }
+    }
+    return std::nullopt;
+}
+
+// get all sources of the package
+QStringList UpdateWorker::getSourcesOfPackage(const QString &pkg, const QString &version)
+{
+    QStringList sources;
+    QProcess aptCacheProcess;
+    QStringList args;
+    args.append("madison");
+    args.append(pkg);
+    // exec apt-cache madison $pkg
+    aptCacheProcess.start("apt-cache", args);
+    aptCacheProcess.waitForFinished();
+    while (aptCacheProcess.canReadLine()) {
+        QString line(aptCacheProcess.readLine());
+        auto fields = line.split("|", Qt::SkipEmptyParts);
+        for (QString &field : fields) {
+            field = field.trimmed();
+        }
+        if (fields.length() <= 2) {
+            continue;
+        }
+        auto p = fields[0], ver = fields[1], src = fields[2];
+        src.truncate(fields[2].indexOf(" "));
+        if (p == pkg) {
+            if (version.length() == 0 || version == ver) {
+                sources.append(src);
+            }
+        }
+    }
+    return sources;
+}
+
+CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
+{
+    auto dialog = wantExitTestingChannelDialog();
+    bool wantexit = false;
+    connect(dialog, &DDialog::buttonClicked, this, [&wantexit, dialog] (int index, const QString &text) {
+        if ( index == 0 ) {
+            // clicked the leave button
+            wantexit = true;
+        }else {
+            // clicked the cancel button
+            wantexit = false;
+        }
+        dialog->deleteLater();
+    });
+    dialog->exec();
+    if (!wantexit) {
+        return CanExitTestingChannelStatus::Cancel;
+    }
+    auto testChannelSrc = getTestingChannelSource();
+    if (!testChannelSrc.has_value()) {
+        qDebug() << "Not have source file";
+        return CanExitTestingChannelStatus::CheckError;
+    }
+    QString testingChannelSource = testChannelSrc.value();
+    QProcess dpkgProcess;
+    // exec dpkg -l
+    dpkgProcess.start("dpkg", QStringList("-l"));
+    dpkgProcess.waitForStarted();
+    // read stdout by line
+    while (dpkgProcess.state() == QProcess::Running) {
+        dpkgProcess.waitForReadyRead();
+        while (dpkgProcess.canReadLine()) {
+            QString line(dpkgProcess.readLine());
+            // skip uninstalled
+            if (!line.startsWith("ii")) {
+                continue;
+            }
+            auto field = line.split(" ", Qt::SkipEmptyParts);
+            // skip unknown format line
+            if (field.length() <= 2) {
+                continue;
+            }
+            auto pkg = field[1], version = field[2];
+            // skip non system software
+            if (!pkg.contains("dde") && !pkg.contains("deepin") && !pkg.contains("dtk") && !pkg.contains("uos")) {
+                continue;
+            }
+            // Does the package exists only in the internal test source
+            auto sources = getSourcesOfPackage(pkg, version);
+            if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
+                return CanExitTestingChannelStatus::CheckOk;
+            }
+        }
+    }
+    return CanExitTestingChannelStatus::CheckError;
+}
+
+void UpdateWorker::setTestingChannelEnable(const bool &enable)
+{
+    if (enable) {
+        // Install
+        m_model->setTestingChannelStatus(TestingChannelStatus::WaitJoined); 
+    } else {
+        // Uninstall
+        m_model->setTestingChannelStatus(TestingChannelStatus::WaitToLeave);
+    }
+
+    auto machineidopt = getMachineId();
+    if (!machineidopt.has_value()) {
+        notifyError(tr("Cannot find machineid"), tr("Cannot find machineid"));
+        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+        return;
+    }
+
+    QString machineid = machineidopt.value();
+    const QString server = ServiceLink;
+
+    // Disable Testing Channel
+    if (!enable) {
+        if (m_updateInter->PackageExists(TestingChannelPackage)) {
+            qDebug() << "Testing:" << "Uninstall testing channel package";
+            auto exitStatus = checkCanExitTestingChannel();
+            if (exitStatus == CanExitTestingChannelStatus::CheckOk) {
+                QDBusPendingCall call = m_updateInter->RemovePackage("testing Channel", TestingChannelPackage);
+                QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
+                    if (call.isError()) {
+                        notifyError(tr("Cannot Uninstall package") + TestingChannelPackage, call.error().message());
+                        qWarning() << "Cannot Uninstall package " << TestingChannelPackage << " :" << call.error();
+                        m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+                        return;
+                    }
+                    m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+                });
+            } else {
+                if (exitStatus == CanExitTestingChannelStatus::CheckError) {
+                    notifyError(
+                        tr("Error when exit testingChannel"),
+                        tr("try to manually uninstall package") + TestingChannelPackage
+                    );
+                }
+                m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+                qDebug() << "Cancel to join testingChannel";
+                return;
+            }
+        }
+        auto http = new QNetworkAccessManager(this);
+        QNetworkRequest request;
+        request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/" + machineid));
+        connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+            reply->deleteLater();
+            http->deleteLater();
+        });
+        http->deleteResource(request);
+        return;
+    }
+    auto testChannelUrlOpt = getTestingChannelUrl();
+    if (!testChannelUrlOpt.has_value()) {
+        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+        return;
+    }
+    QUrl testChannelUrl = testChannelUrlOpt.value();
+    qDebug() << "Testing:" << "open join page" << testChannelUrl.toString();
+    QDesktopServices::openUrl(testChannelUrl);
+    // Loop to check if user hava joined
+    QTimer::singleShot(1000, this, &UpdateWorker::checkTestingChannelStatus);
+}
+
+void UpdateWorker::checkTestingChannelStatus()
+{
+    // Leave page
+    if (m_model->getTestingChannelStatus() == TestingChannelStatus::Hidden) {
+        return;
+    }
+    if (!m_machineid.has_value()) {
+        return;
+    }
+
+    qDebug() << "Testing:" << "check testing join status";
+    QString machineid = m_machineid.value();
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/status/" + machineid));
+    request.setRawHeader("content-type", "application/json");
+    connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+        reply->deleteLater();
+        http->deleteLater();
+
+        if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "Testing:" << "Network Error" << reply->errorString();
+            return;
+        }
+        auto data = reply->readAll();
+        qDebug() << "Testing:" << "machine status body" << data;
+        auto doc = QJsonDocument::fromJson(data);
+        auto obj = doc.object();
+        auto status = obj["data"].toObject()["status"].toString();
+        // Exit the loop if switch status is disable
+        if (m_model->getTestingChannelStatus() != TestingChannelStatus::WaitJoined) {
+            return;
+        }
+        // If user has joined then install testing source package;
+        if (status == "joined") {
+            qDebug() << "Testing:" << "Install testing channel package";
+            QDBusPendingCall call = m_updateInter->InstallPackage("testing Channel", TestingChannelPackage);
+                QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call] {
+                    if (call.isError()) {
+                        qWarning() << "Cannot install package" << TestingChannelPackage << ": " << call.error();
+                        notifyError(tr("Cannot install package") + TestingChannelPackage, call.error().message());
+                        m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
+                        return;
+                    }
+                    m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
+                });
+            return;
+        }
+        // Run again after sleep
+        QTimer::singleShot(5000, this, &UpdateWorker::checkTestingChannelStatus);
+    });
+    http->get(request);
 }

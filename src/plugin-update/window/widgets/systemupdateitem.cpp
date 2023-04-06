@@ -95,8 +95,8 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
     }
 
     if (lastIndex > -1 && getLastNumForString(updateItemInfo->availableVersion()) != '0') {
-        vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
-        vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
+        std::vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
+        std::vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
         // 当前版本是 1061的话 则不显示1051等类似的小版本
         if (static_cast<int>(firstVersionVec.at(0) / 10) == static_cast<int>(secondVersionVec.at(0) / 10)) {
             createDetailInfoItem(detailInfoList, lastIndex, 0);
@@ -120,8 +120,8 @@ char SystemUpdateItem::getLastNumForString(const QString &value)
 
 double SystemUpdateItem::subVersion(const QString &firstVersion, const QString &secondVersion)
 {
-    vector<double> firstVersionVec = getNumListFromStr(firstVersion);
-    vector<double> secondVersionVec = getNumListFromStr(secondVersion);
+    std::vector<double> firstVersionVec = getNumListFromStr(firstVersion);
+    std::vector<double> secondVersionVec = getNumListFromStr(secondVersion);
     if (firstVersionVec.empty() || secondVersionVec.empty()) {
         return -1;
     }
