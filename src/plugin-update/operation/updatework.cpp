@@ -47,7 +47,7 @@ inline void notifyError(const QString &summary, const QString &body)
         .appIcon("dde-control-center")
         .appName("dde-control-center")
         .appBody(body)
-        .timeOut(5)
+        .timeOut(5000)
         .call();
 }
 
