@@ -125,8 +125,8 @@ AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
         // 人物头像有两种, 需要添加类型标签
         if (item.role == Role::Person) {
             QLabel *dimStyleNameLabel = new QLabel(this);
-            dimStyleNameLabel->setText(
-                    tr(item.type == Type::Dimensional ? "Dimensional Style" : "Flat Style"));
+            dimStyleNameLabel->setText(item.type == Type::Dimensional ? tr("Dimensional Style")
+                                                                      : tr("Flat Style"));
 
             QHBoxLayout *nameLabelLayout = new QHBoxLayout;
             nameLabelLayout->addSpacing(10);
