@@ -68,7 +68,7 @@ AvatarListDialog::AvatarListDialog(User *usr)
         // 图片未提供, 先不加载
         AvatarItem(tr("Illustration"), "dcc_user_animal", Role::Illustration, false),
         AvatarItem(tr("Expression"), "dcc_user_emoji", Role::Expression, true),
-        AvatarItem(tr("Custom"), "dcc_user_custom", Role::Custom, true),
+        AvatarItem(tr("Custom Picture"), "dcc_user_custom", Role::Custom, true),
     };
 
     for (const auto &item : items) {
