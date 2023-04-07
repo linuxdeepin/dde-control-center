@@ -1,14 +1,15 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "interface/namespace.h"
 
-#include <QStyledItemDelegate>
 #include <QMetaType>
+#include <QStyledItemDelegate>
 
-struct LastItemData {
+struct LastItemData
+{
     bool isDrawLast;
     QString iconPath;
 };
@@ -32,9 +33,11 @@ public:
     explicit AvatarItemDelegate(QObject *parent = nullptr);
 
     // painting
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
 
     // set item size
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
-} // DCC_NAMESPACE
+} // namespace DCC_NAMESPACE

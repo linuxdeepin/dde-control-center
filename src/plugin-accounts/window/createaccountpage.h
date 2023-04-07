@@ -1,21 +1,21 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include "avatarlistwidget.h"
 #include "interface/namespace.h"
+#include "src/plugin-accounts/operation/accountsworker.h"
+#include "src/plugin-accounts/operation/creationresult.h"
 #include "src/plugin-accounts/operation/user.h"
 #include "src/plugin-accounts/operation/usermodel.h"
-#include "src/plugin-accounts/operation/creationresult.h"
-#include "src/plugin-accounts/operation/accountsworker.h"
-#include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
 
+#include <DAbstractDialog>
+#include <DComboBox>
 #include <DLineEdit>
 #include <DPasswordEdit>
-#include <DComboBox>
 #include <DSuggestButton>
-#include <DAbstractDialog>
 
 #include <QDialog>
 
@@ -34,16 +34,14 @@ class ComboxWidget;
 class SecurityLevelItem;
 
 const int PwdLimitLowestLevel = 1;
-//创建账户页面
+
+// 创建账户页面
 class CreateAccountPage : public DAbstractDialog
 {
     Q_OBJECT
 
 public:
-    enum PassWordType {
-        NormalPassWord,
-        IncludeBlankSymbol
-    };
+    enum PassWordType { NormalPassWord, IncludeBlankSymbol };
 
     enum PassErrorCode {
         ErrCodeEmpty = 1,
@@ -103,4 +101,4 @@ private:
     QLabel *m_groupTip;
     SecurityLevelItem *m_securityLevelItem;
 };
-}
+} // namespace DCC_NAMESPACE
