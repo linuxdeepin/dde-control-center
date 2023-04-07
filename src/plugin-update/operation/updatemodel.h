@@ -1,25 +1,30 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UPDATEMODEL_H
 #define UPDATEMODEL_H
 
-#include <QObject>
-
-#include "common.h"
-#include "widgets/utils.h"
-#include "widgets/updateiteminfo.h"
 #include "appupdateinfolist.h"
+#include "common.h"
+#include "widgets/updateiteminfo.h"
+#include "widgets/utils.h"
+
+#include <QObject>
 
 class DownloadInfo : public QObject
 {
     Q_OBJECT
 public:
-    explicit DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent = 0);
-    virtual ~DownloadInfo() {}
+    explicit DownloadInfo(const qlonglong &downloadSize,
+                          const QList<AppUpdateInfo> &appInfos,
+                          QObject *parent = 0);
+
+    virtual ~DownloadInfo() { }
 
     inline qulonglong downloadSize() const { return m_downloadSize; }
+
     double downloadProgress() const { return m_downloadProgress; }
+
     QList<AppUpdateInfo> appInfos() const { return m_appInfos; }
 
     void setDownloadProgress(double downloadProgress);
@@ -33,11 +38,11 @@ private:
     QList<AppUpdateInfo> m_appInfos;
 };
 
-struct UpdateJobErrorMessage {
+struct UpdateJobErrorMessage
+{
     QString jobErrorType;
     QString jobErrorMessage;
 };
-
 
 class UpdateModel : public QObject
 {
@@ -45,9 +50,10 @@ class UpdateModel : public QObject
 public:
     explicit UpdateModel(QObject *parent = nullptr);
     ~UpdateModel();
+
 public:
-    //ModelUpdatesStatus仅用于log显示；
-    //common.h UpdatesStatu更新后，此处需要同步更新
+    // ModelUpdatesStatus仅用于log显示；
+    // common.h UpdatesStatu更新后，此处需要同步更新
     enum ModelUpdatesStatus {
         Default,
         Checking,
@@ -107,42 +113,54 @@ public:
     void setNetselectExist(bool netselectExist);
 
     inline bool autoCheckUpdates() const { return m_autoCheckUpdates; }
+
     void setAutoCheckUpdates(bool autoCheckUpdates);
 
     inline qulonglong updateMode() const { return m_updateMode; }
+
     void setUpdateMode(qulonglong updateMode);
 
     inline bool autoCheckSecureUpdates() const { return m_autoCheckSecureUpdates; }
+
     void setAutoCheckSecureUpdates(bool autoCheckSecureUpdates);
 
     inline bool autoCheckSystemUpdates() const { return m_autoCheckSystemUpdates; }
+
     void setAutoCheckSystemUpdates(bool autoCheckSystemUpdates);
 
     inline bool autoCheckAppUpdates() const { return m_autoCheckAppUpdates; }
+
     void setAutoCheckAppUpdates(bool autoCheckAppUpdates);
 
     inline QString systemVersionInfo() const { return m_systemVersionInfo; }
+
     void setSystemVersionInfo(const QString &systemVersionInfo);
 
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
-    inline UiActiveState systemActivation() const {return m_bSystemActivation;}
+    inline UiActiveState systemActivation() const { return m_bSystemActivation; }
+
     void setSystemActivation(const UiActiveState &systemactivation);
 
-    inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
+    inline bool getUpdatablePackages() const { return m_isUpdatablePackages; }
+
     void isUpdatablePackages(bool isUpdatablePackages);
 
-    const QString &lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
+    const QString &lastCheckUpdateTime() const { return m_lastCheckUpdateTime; }
+
     void setLastCheckUpdateTime(const QString &lastTime);
 
-    const QList<AppUpdateInfo> &historyAppInfos() const {return m_historyAppInfos;}
+    const QList<AppUpdateInfo> &historyAppInfos() const { return m_historyAppInfos; }
+
     void setHistoryAppInfos(const QList<AppUpdateInfo> &infos);
 
-    int autoCheckUpdateCircle() const {return m_autoCheckUpdateCircle;}
+    int autoCheckUpdateCircle() const { return m_autoCheckUpdateCircle; }
+
     void setAutoCheckUpdateCircle(const int interval);
     bool enterCheckUpdate();
 
     inline bool updateNotify() { return m_updateNotify; }
+
     void setUpdateNotify(const bool notify);
 
     UpdatesStatus getSystemUpdateStatus() const;
@@ -192,9 +210,10 @@ public:
     QString UUID();
 
     inline bool atomicBackingUp() const { return m_atomicBackingUp; }
+
     void setAtomicBackingUp(bool atomicBackingUp);
 
-    QString utcDateTime2LocalDate(const QString& utcDateTime);
+    QString utcDateTime2LocalDate(const QString &utcDateTime);
     // Testing Channel
     TestingChannelStatus getTestingChannelStatus() const;
     void setTestingChannelStatus(const TestingChannelStatus &status);
@@ -223,7 +242,8 @@ Q_SIGNALS:
     void safeUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void unknownUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
 
-    void classityUpdateJobErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType);
+    void classityUpdateJobErrorChanged(const ClassifyUpdateType &type,
+                                       const UpdateErrorType &errorType);
 
     void systemUpdateProgressChanged(const double &updateProgress);
     void safeUpdateProgressChanged(const double &updateProgress);
@@ -288,9 +308,9 @@ private:
     QMetaEnum m_metaEnum;
     UiActiveState m_bSystemActivation;
 
-    QString m_lastCheckUpdateTime; //上次检查更新时间
-    QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
-    int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
+    QString m_lastCheckUpdateTime;          // 上次检查更新时间
+    QList<AppUpdateInfo> m_historyAppInfos; // 历史更新应用列表
+    int m_autoCheckUpdateCircle; // 决定进入检查更新界面是否自动检查,单位：小时
     bool m_isUpdatablePackages;
 
     QMap<ClassifyUpdateType, UpdateErrorType> m_updateErrorTypeMap;

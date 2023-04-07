@@ -1,20 +1,21 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UPDATEWORK_H
 #define UPDATEWORK_H
 
 #include "common.h"
-#include "updatemodel.h"
 #include "updatedbusproxy.h"
 #include "updatejobdbusproxy.h"
+#include "updatemodel.h"
 
 #include <QNetworkReply>
 #include <QObject>
 
 #include <optional>
 
-struct CheckUpdateJobRet {
+struct CheckUpdateJobRet
+{
     QString status;
     QString jobID;
     QString jobDescription;
@@ -175,6 +176,7 @@ private:
     CanExitTestingChannelStatus checkCanExitTestingChannel();
     std::optional<QString> getTestingChannelSource();
     QStringList getSourcesOfPackage(const QString &pkg, const QString &version);
+
 private:
     UpdateModel *m_model;
     QPointer<UpdateJobDBusProxy> m_checkUpdateJob;

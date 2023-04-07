@@ -1,13 +1,16 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <QString>
-#include <vector>
 #include <qregexp.h>
+
 #include <DSysInfo>
+
+#include <QString>
+
+#include <vector>
 
 DCORE_USE_NAMESPACE
 
@@ -19,12 +22,12 @@ const QString UnknownUpdateType = QStringLiteral("unknown_upgrade");
 
 const DSysInfo::UosType UosType = DSysInfo::uosType();
 const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
-const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
-const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
-const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);          // 是否是服务器版
+const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition); // 是否是社区版
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition); // 是否是专业版
+const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);                 // 是否是个人版
+const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition);       // 是否是教育版
+const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType()); // 是否是Deepin桌面
 
 const QString TestingChannelPackage = QStringLiteral("deepin-unstable-source");
 const QString ServiceLink = QStringLiteral("https://insider.deepin.org");
@@ -59,11 +62,7 @@ enum UpdateErrorType {
     UnKnown
 };
 
-enum ShowStatus {
-    NoActive,
-    IsSuccessed,
-    IsFailed
-};
+enum ShowStatus { NoActive, IsSuccessed, IsFailed };
 
 enum ClassifyUpdateType {
     Invalid = -1,
@@ -73,32 +72,21 @@ enum ClassifyUpdateType {
     SecurityUpdate = 16
 };
 
-enum UpdateCtrlType {
-    Start = 0,
-    Pause
-};
+enum UpdateCtrlType { Start = 0, Pause };
 
 // 备份状态
-enum BackupStatus {
-    NoBackup,
-    Backingup,
-    Backuped,
-    BackupFailed
-};
+enum BackupStatus { NoBackup, Backingup, Backuped, BackupFailed };
 
 // 原子更新结果 后期更具需求拓展
-enum BackupResult {
-    Success = 0,
-    BackingUp = 1
-};
+enum BackupResult { Success = 0, BackingUp = 1 };
 
 enum UiActiveState {
-    Unknown = -1,  //未知
-    Unauthorized = 0,  //未授权
-    Authorized,  //已授权
-    AuthorizedLapse,  //授权失效
-    TrialAuthorized, //试用期已授权
-    TrialExpired //试用期已过期
+    Unknown = -1,     // 未知
+    Unauthorized = 0, // 未授权
+    Authorized,       // 已授权
+    AuthorizedLapse,  // 授权失效
+    TrialAuthorized,  // 试用期已授权
+    TrialExpired      // 试用期已过期
 };
 
 enum TestingChannelStatus {
@@ -136,7 +124,7 @@ enum CanExitTestingChannelStatus {
     return value;
 }
 
-//equal : false
+// equal : false
 [[maybe_unused]] static inline bool compareDouble(const double value1, const double value2)
 {
     return !((value1 - value2 >= -Epsion) && (value1 - value2 <= Epsion));
@@ -144,7 +132,7 @@ enum CanExitTestingChannelStatus {
 
 [[maybe_unused]] static inline QString formatCap(qulonglong cap, const int size = 1024)
 {
-    const static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+    const static QString type[] = { "B", "KB", "MB", "GB", "TB" };
 
     if (cap < qulonglong(size)) {
         return QString::number(cap) + type[0];
@@ -164,7 +152,7 @@ enum CanExitTestingChannelStatus {
 
 [[maybe_unused]] static inline std::vector<double> getNumListFromStr(const QString &str)
 {
-    //筛选出字符串中的数字
+    // 筛选出字符串中的数字
     QRegExp rx("-?[1-9]\\d*\\.\\d*|0+.[0-9]+|-?0\\.\\d*[1-9]\\d*|-?\\d+");
     int pos = 0;
     std::vector<double> v;
