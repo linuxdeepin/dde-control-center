@@ -73,7 +73,7 @@ void InternalButtonItem::onModelTestingStatusChanged(const TestingChannelStatus 
         m_switchbtn->setChecked(true);
         m_switchbtn->setEnabled(true);
         break;
-    case TestingChannelStatus::Hidden:
+    case TestingChannelStatus::DeActive:
         m_switchbtn->setChecked(false);
         m_switchbtn->setEnabled(true);
         break;
