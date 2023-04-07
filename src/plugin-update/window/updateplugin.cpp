@@ -92,7 +92,7 @@ void UpdateModule::active()
 void UpdateModule::deactive()
 {
     if (m_model->getTestingChannelStatus() != TestingChannelStatus::Joined) {
-        m_model->setTestingChannelStatus(TestingChannelStatus::Hidden);
+        m_model->setTestingChannelStatus(TestingChannelStatus::DeActive);
     }
 }
 

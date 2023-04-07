@@ -102,7 +102,7 @@ enum UiActiveState {
 };
 
 enum TestingChannelStatus {
-    Hidden,
+    DeActive,
     NotJoined,
     WaitJoined,
     WaitToLeave,

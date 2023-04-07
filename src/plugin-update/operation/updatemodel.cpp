@@ -53,7 +53,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
-    , m_testingChannelStatus(TestingChannelStatus::Hidden)
+    , m_testingChannelStatus(TestingChannelStatus::DeActive)
     , m_atomicBackingUp(false)
 {
 

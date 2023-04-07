@@ -4,6 +4,7 @@
 #include "updatework.h"
 #include "common.h"
 #include "widgets/utils.h"
+#include <qtconcurrentrun.h>
 #include <DNotifySender>
 #include <QDesktopServices>
 #include <QNetworkAccessManager>
@@ -61,39 +62,6 @@ static int getPlatform()
     }
 
     return DesktopProfessionalPlatform;
-}
-
-// A Dialog for user to check if to leave testing Channel
-DDialog *wantExitTestingChannelDialog()
-{
-    auto dialog = new DDialog;
-    dialog->setFixedWidth(400);
-    dialog->setFixedHeight(280);
-
-    auto label = new DLabel(dialog);
-    label->setWordWrap(true);
-    label->setText(QObject::tr("Checking system versions, please wait..."));
-
-    auto progress = new DWaterProgress(dialog);
-    progress->setFixedSize(100, 100);
-    progress->setTextVisible(false);
-    progress->setValue(50);
-    progress->start();
-
-    QWidget* content = new QWidget(dialog);
-    QVBoxLayout* layout = new QVBoxLayout;
-    layout->setContentsMargins(0, 0, 0, 0);
-    content->setLayout(layout);
-    dialog->addContent(content);
-    dialog->addButton(QObject::tr("Leave"), false, DDialog::ButtonWarning);
-    dialog->addButton(QObject::tr("Cancel"), true, DDialog::ButtonRecommend);
-
-    layout->addStretch();
-    layout->addWidget(label, 0, Qt::AlignHCenter);
-    layout->addSpacing(20);
-    layout->addWidget(progress, 0, Qt::AlignHCenter);
-    layout->addStretch();
-    return dialog;
 }
 
 UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
@@ -196,6 +164,10 @@ void UpdateWorker::licenseStateChangeSlot()
 
 void UpdateWorker::testingChannelChangeSlot()
 {
+    if (!IsCommunitySystem) {
+        m_model->setTestingChannelStatus(TestingChannelStatus::DeActive);
+        return;
+    }
     QDBusPendingCall call = m_updateInter->PackageExists(TestingChannelPackage);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, call, this] {
@@ -1744,24 +1716,68 @@ QStringList UpdateWorker::getSourcesOfPackage(const QString &pkg, const QString 
     return sources;
 }
 
-CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
+CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
 {
-    auto dialog = wantExitTestingChannelDialog();
-    bool wantexit = false;
+    auto dialog = new DDialog;
+    dialog->setFixedWidth(400);
+    dialog->setFixedHeight(280);
+
+    auto label = new DLabel(dialog);
+    label->setWordWrap(true);
+    label->setText(QObject::tr("Checking system versions, please wait..."));
+
+    auto progress = new DWaterProgress(dialog);
+    progress->setFixedSize(100, 100);
+    progress->setTextVisible(false);
+    progress->setValue(50);
+    progress->start();
+
+    QWidget* content = new QWidget(dialog);
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+    content->setLayout(layout);
+    dialog->addContent(content);
+    dialog->addButton(QObject::tr("Leave"), false, DDialog::ButtonWarning);
+    dialog->addButton(QObject::tr("Cancel"), true, DDialog::ButtonRecommend);
+
+    layout->addStretch();
+    layout->addWidget(label, 0, Qt::AlignHCenter);
+    layout->addSpacing(20);
+    layout->addWidget(progress, 0, Qt::AlignHCenter);
+    layout->addStretch();
+    CanExitTestingChannelStatus wantexit = CanExitTestingChannelStatus::Cancel;
     connect(dialog, &DDialog::buttonClicked, this, [&wantexit, dialog] (int index, const QString &text) {
         if ( index == 0 ) {
             // clicked the leave button
-            wantexit = true;
+            wantexit = CanExitTestingChannelStatus::CheckOk;
         }else {
             // clicked the cancel button
-            wantexit = false;
+            wantexit = CanExitTestingChannelStatus::Cancel;
         }
         dialog->deleteLater();
     });
+    dialog->setDisabled(true);
+    QFutureWatcher<CanExitTestingChannelStatus> *watcher = new QFutureWatcher<CanExitTestingChannelStatus>(this);
+    QFuture checkerror = QtConcurrent::run([this] {
+        return checkCanExitTestingChannel();
+    });
+    watcher->setFuture(checkerror);
+    connect(watcher, &QFutureWatcher<CanExitTestingChannelStatus>::finished, this, [watcher, dialog, &wantexit] {
+        watcher->deleteLater();
+        auto result = watcher->result();
+        if (result == CanExitTestingChannelStatus::CheckError) {
+            wantexit = result;
+            dialog->close();
+            return;
+        }
+        dialog->setDisabled(false);
+    });
     dialog->exec();
-    if (!wantexit) {
-        return CanExitTestingChannelStatus::Cancel;
-    }
+    return wantexit;
+}
+
+CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
+{
     auto testChannelSrc = getTestingChannelSource();
     if (!testChannelSrc.has_value()) {
         qDebug() << "Not have source file";
@@ -1794,11 +1810,11 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
             // Does the package exists only in the internal test source
             auto sources = getSourcesOfPackage(pkg, version);
             if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
-                return CanExitTestingChannelStatus::CheckOk;
+                return CanExitTestingChannelStatus::CheckError;
             }
         }
     }
-    return CanExitTestingChannelStatus::CheckError;
+    return CanExitTestingChannelStatus::CheckOk;
 }
 
 void UpdateWorker::setTestingChannelEnable(const bool &enable)
@@ -1825,7 +1841,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     if (!enable) {
         if (m_updateInter->PackageExists(TestingChannelPackage)) {
             qDebug() << "Testing:" << "Uninstall testing channel package";
-            auto exitStatus = checkCanExitTestingChannel();
+            auto exitStatus = checkCanExitTestingChannelDialog();
             if (exitStatus == CanExitTestingChannelStatus::CheckOk) {
                 QDBusPendingCall call = m_updateInter->RemovePackage("testing Channel", TestingChannelPackage);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -1875,7 +1891,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
 void UpdateWorker::checkTestingChannelStatus()
 {
     // Leave page
-    if (m_model->getTestingChannelStatus() == TestingChannelStatus::Hidden) {
+    if (m_model->getTestingChannelStatus() == TestingChannelStatus::DeActive) {
         return;
     }
     if (!m_machineid.has_value()) {

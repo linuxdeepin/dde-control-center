@@ -1,6 +1,7 @@
 //SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
+#include "common.h"
 #include "interface/moduleobject.h"
 #include "updatesettingsmodule.h"
 #include "widgets/internalbuttonitem.h"
@@ -177,31 +178,32 @@ void UpdateSettingsModule::initModuleList()
         m_autoCleanCache->setChecked(m_model->autoCleanCache());
     }));
 
-    appendChild(new UpdateTitleModule("InternalUpdateSetting", tr("Updates from Internal Testing Sources")));
-    appendChild(new WidgetModule<InternalButtonItem>("internal update", tr("internal update"), [this](InternalButtonItem *internalBtn) {
-        internalBtn->addBackground();
-        internalBtn->onModelTestingStatusChanged(m_model->getTestingChannelStatus());
-        connect(internalBtn, &InternalButtonItem::requestInternalChannel, this, [this, internalBtn](bool enable){
-            if (enable) {
-                auto url = m_work->getTestingChannelUrl();
-                if (url.has_value()) {
-                    internalBtn->setLink(url.value());
-                    m_work->setTestingChannelEnable(true);
-                    return;
+    if (IsCommunitySystem) {
+        appendChild(new UpdateTitleModule("InternalUpdateSetting", tr("Updates from Internal Testing Sources")));
+        appendChild(new WidgetModule<InternalButtonItem>("internal update", tr("internal update"), [this](InternalButtonItem *internalBtn) {
+            internalBtn->addBackground();
+            internalBtn->onModelTestingStatusChanged(m_model->getTestingChannelStatus());
+            connect(internalBtn, &InternalButtonItem::requestInternalChannel, this, [this, internalBtn](bool enable){
+                if (enable) {
+                    auto url = m_work->getTestingChannelUrl();
+                    if (url.has_value()) {
+                        internalBtn->setLink(url.value());
+                        m_work->setTestingChannelEnable(true);
+                        return;
+                    }
                 }
-                // TODO: maybe warning?
-            }
-            m_work->setTestingChannelEnable(false);
+                m_work->setTestingChannelEnable(false);
+            });
+            connect(m_model, &UpdateModel::TestingChannelStatusChanged, internalBtn, &InternalButtonItem::onModelTestingStatusChanged);
+        }));
+        auto internalUpdateTip = new WidgetModule<DTipLabel>("internalUpdateTip", tr(""), [](DTipLabel *internalUpdateLabel) {
+            internalUpdateLabel->setWordWrap(true);
+            internalUpdateLabel->setAlignment(Qt::AlignLeft);
+            internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
+            internalUpdateLabel->setText(tr("Join Internal Testing Channel"));
         });
-        connect(m_model, &UpdateModel::TestingChannelStatusChanged, internalBtn, &InternalButtonItem::onModelTestingStatusChanged);
-    }));
-    auto internalUpdateTip = new WidgetModule<DTipLabel>("internalUpdateTip", tr(""), [](DTipLabel *internalUpdateLabel) {
-        internalUpdateLabel->setWordWrap(true);
-        internalUpdateLabel->setAlignment(Qt::AlignLeft);
-        internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
-        internalUpdateLabel->setText(tr("Join Internal Testing Channel"));
-    });
-    appendChild(internalUpdateTip);
+        appendChild(internalUpdateTip);
+    }
     setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
 }
 
