@@ -7,8 +7,7 @@
 #include <QObject>
 
 #include "include/interface/namespace.h"
-#include "src/plugin-systeminfo/window/utils.h"
-
+#include <optional>
 namespace DCC_NAMESPACE{
 
 enum ActiveState {
@@ -29,15 +28,16 @@ class SystemInfoModel : public QObject
 public:
     explicit SystemInfoModel(QObject *parent = nullptr);
 
-    QString productName() const { return m_productName;}
-    QString versionNumber() const { return m_versionNumber;}
-    QString version() const { return m_version;}
-    QString type() const { return m_type;}
-    QString processor() const { return m_processor;}
-    QString memory() const { return m_memory;}
-    QString kernel() const { return m_kernel;}
-    QString hostName() const { return  m_hostName;}
-
+    inline QString productName() const { return m_productName;}
+    inline QString versionNumber() const { return m_versionNumber;}
+    inline QString version() const { return m_version;}
+    inline QString type() const { return m_type;}
+    inline QString processor() const { return m_processor;}
+    inline QString memory() const { return m_memory;}
+    inline QString kernel() const { return m_kernel;}
+    inline QString hostName() const { return  m_hostName;}
+    inline std::optional<QString> endUserAgreement() const { return m_endUserAgreementText; }
+    inline std::optional<QPair<QString, QString>> gnuLicense() const { return m_gnuLicense; };
     inline ActiveState licenseState() const { return m_licenseState; }
 
 Q_SIGNALS:
@@ -62,6 +62,8 @@ public Q_SLOTS:
     void setKernel(const QString &kernel);
     void setLicenseState(DCC_NAMESPACE::ActiveState state);
     void setHostName(const QString& hostName);
+    void setEndUserAgreement(const QString &text);
+    void setGnuLicense(const QPair<QString, QString>& license);
 
 private:
     QString m_version;
@@ -72,6 +74,8 @@ private:
     QString m_memory;
     QString m_kernel;
     QString m_hostName;
+    std::optional<QString> m_endUserAgreementText;
+    std::optional<QPair<QString, QString>> m_gnuLicense;
     DCC_NAMESPACE::ActiveState m_licenseState;
 };
 

@@ -16,7 +16,7 @@ class UserLicenseWidget : public QWidget
     Q_OBJECT
 public:
     explicit UserLicenseWidget(QWidget *parent = nullptr);
-
+    void setUserLicense(const QString &text);
 Q_SIGNALS:
     void loadTextFinished();
 

@@ -4,6 +4,7 @@
 #include "systeminfowork.h"
 #include "systeminfomodel.h"
 #include "systeminfodbusproxy.h"
+#include "window/utils.h"
 
 #include <DSysInfo>
 
@@ -55,6 +56,26 @@ void SystemInfoWork::activate()
 void SystemInfoWork::deactivate()
 {
 
+}
+
+QPair<QString, QString> SystemInfoWork::getGNULicenseText()
+{
+    if (!m_model->gnuLicense().has_value()) {
+        m_model->setGnuLicense(DCC_LICENSE::loadLicenses());
+    }
+    return m_model->gnuLicense().value();
+}
+
+QString SystemInfoWork::getEndUserAgreementText()
+{
+    if (!m_model->endUserAgreement().has_value()) {
+        if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+            m_model->setEndUserAgreement(DCC_LICENSE::getEulerEndUserAgreement());
+        } else {
+            m_model->setEndUserAgreement(DCC_LICENSE::getEndUserAgreement());
+        }
+    }
+    return m_model->endUserAgreement().value();
 }
 
 void SystemInfoWork::showActivatorDialog()

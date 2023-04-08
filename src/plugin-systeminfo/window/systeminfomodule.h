@@ -6,6 +6,8 @@
 #include "interface/namespace.h"
 #include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
+#include "window/userlicensewidget.h"
+#include "window/versionprotocolwidget.h"
 
 class HostNameItem;
 
@@ -58,6 +60,8 @@ private:
     void initKernelModule(TitleValueItem *item);
     void initProcessorModule(TitleValueItem *item);
     void initMemoryModule(TitleValueItem *item);
+    void initGnuLicenseModule(VersionProtocolWidget *item);
+    void initUserLicenseModule(UserLicenseWidget *item);
 
 private:
     SystemInfoModel *m_model;

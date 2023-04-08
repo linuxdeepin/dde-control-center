@@ -19,6 +19,7 @@ class VersionProtocolWidget : public QWidget
     Q_OBJECT
 public:
     explicit VersionProtocolWidget(QWidget *parent = nullptr);
+    void setLicense(const QPair<QString, QString> &license);
 
 Q_SIGNALS:
     void loadTextFinished();

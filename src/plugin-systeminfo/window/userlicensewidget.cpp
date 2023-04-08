@@ -2,9 +2,6 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "userlicensewidget.h"
-#include "widgets/utils.h"
-#include "protocolfile.h"
-
 #include <QVBoxLayout>
 #include <QLocale>
 #include <QtConcurrent>
@@ -27,17 +24,10 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     widget->setLayout(layout);
     setLayout(layout);
     setContentsMargins(0, 8, 0, 8);
+}
 
-    QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
-        w->setFuture(QtConcurrent::run(ProtocolFile::getEulerEnduserAgreement));
-    } else {
-        w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
-    }
-
-    connect(w, &QFutureWatcher<QString>::finished, this, [ = ] {
-        const QString r = w->result();
-        m_body->setText(r);
-        Q_EMIT loadTextFinished();
-    });
+void UserLicenseWidget::setUserLicense(const QString &text)
+{
+    m_body->setText(text);
+    emit loadTextFinished();
 }

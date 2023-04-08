@@ -22,6 +22,10 @@
 #include <qobject.h>
 #include <qtimer.h>
 #include <qwidget.h>
+#include <widgets/utils.h>
+
+#include <QFutureWatcher>
+#include <QtConcurrent>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
@@ -87,13 +91,12 @@ void SystemInfoModule::initChildModule()
 
     // 三级菜单--协议与隐私政策-版本协议
     ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
-
-    moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>());
+    moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>("editionLicense", tr("Edition License"), this, &SystemInfoModule::initGnuLicenseModule));
     moduleAgreement->appendChild(moduleEdition);
 
     // 三级菜单--协议与隐私政策-最终用户许可协议
     ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
-    moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>());
+    moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>("endUserLicenseAgreement", tr("End User License Agreement"), this, &SystemInfoModule::initUserLicenseModule));
     moduleAgreement->appendChild(moduleUserAgreement);
 
     // 三级菜单--协议与隐私政策-隐私政策
@@ -232,6 +235,41 @@ void SystemInfoModule::initMemoryModule(TitleValueItem *item)
     item->setTitle(tr("Memory") + ':');
     item->setValue(m_model->memory());
     connect(m_model, &SystemInfoModel::memoryChanged, item, &TitleValueItem::setValue);
+}
+
+void SystemInfoModule::initGnuLicenseModule(VersionProtocolWidget *item)
+{
+    if (m_model->gnuLicense().has_value()) {
+        item->setLicense(m_model->gnuLicense().value());
+    } else {
+        QFutureWatcher<QPair<QString, QString>> *w =
+                new QFutureWatcher<QPair<QString, QString>>(this);
+        w->setFuture(QtConcurrent::run([this] {
+            return m_work->getGNULicenseText();
+        }));
+
+        connect(w, &QFutureWatcher<QPair<QString, QString>>::finished, this, [=] {
+            const auto r = w->result();
+            item->setLicense(r);
+        });
+    }
+}
+
+void SystemInfoModule::initUserLicenseModule(UserLicenseWidget *item)
+{
+    if (m_model->endUserAgreement().has_value()) {
+        item->setUserLicense(m_model->endUserAgreement().value());
+    } else {
+        QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
+        w->setFuture(QtConcurrent::run([this] {
+            return m_work->getEndUserAgreementText();
+        }));
+
+        connect(w, &QFutureWatcher<QString>::finished, this, [=] {
+            const auto r = w->result();
+            item->setUserLicense(r);
+        });
+    }
 }
 
 QString SystemInfoPlugin::name() const

@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "interface/namespace.h"
 #include "src/plugin-systeminfo/window/userlicensewidget.h"
-#include "src/plugin-systeminfo/window/protocolfile.h"
 
 #include <DListView>
 #include <QSignalSpy>
