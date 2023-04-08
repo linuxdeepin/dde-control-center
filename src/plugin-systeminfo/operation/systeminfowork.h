@@ -21,7 +21,9 @@ public:
     void activate();
     void deactivate();
 
-    void loadGrubSettings();
+    //void loadGrubSettings();
+    QPair<QString, QString> getGNULicenseText();
+    QString getEndUserAgreementText();
 
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;

@@ -34,6 +34,8 @@ static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision
 SystemInfoModel::SystemInfoModel(QObject *parent)
     : QObject(parent)
     , m_type(64)
+    , m_endUserAgreementText(std::nullopt)
+    , m_gnuLicense(std::nullopt)
     , m_licenseState(ActiveState::Unauthorized)
 {
 
@@ -87,6 +89,16 @@ void SystemInfoModel::setHostName(const QString &hostName)
 {
     m_hostName = hostName;
     hostNameChanged(hostName);
+}
+
+void SystemInfoModel::setEndUserAgreement(const QString &text)
+{
+    m_endUserAgreementText = text;
+}
+
+void SystemInfoModel::setGnuLicense(const QPair<QString, QString>& license)
+{
+    m_gnuLicense = license;
 }
 
 void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemory)
