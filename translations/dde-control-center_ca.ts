@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>Persona</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>Animal</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>Il·lustració</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>Expressió</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>Imatge personalitzada</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>Modifica</translation>
+        <source>Save</source>
+        <translation>Desa-ho</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>Estil dimensional</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>Estil pla</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>Imatges</translation>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>El nom complet ha estat usat per altres comptes d&apos;usuari.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>No heu penjat cap imatge, podeu clicar o arrossegar per pujar una imatge.</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Imatges</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>El tipus de fitxer penjat és incorrecte. Torneu a carregar-lo.</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>La càrrega dels connectors següents ha fallat:</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>els connectors no es poden carregar a temps</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>Nom de l&apos;ordinador</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>informació del sistema</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>Nom del sistema</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>Memòria</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>llicència</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2534,10 +2599,6 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>Nom de l&apos;ordinador</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>No pot començar ni acabar amb guionets.</translation>

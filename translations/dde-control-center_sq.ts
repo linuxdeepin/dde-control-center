@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>Person</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>Kafshë</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>Ilustrim</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>Shprehje</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>Foto Vetjake</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>Ndryshojeni</translation>
+        <source>Save</source>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>Stil Përmasor</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>Stil i Sheshtë</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>Figura</translation>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Emri i plotë është përdorur nga llogari të tjera përdoruesi</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>S’keni ngarkuar foto, mund të klikoni, ose të tërhiqni një figurë për ta ngarkuar</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Figura</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>Lloji i kartelës së ngarkuar është i pasaktë, ju lutemi, ringarkojeni</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>ngarkimi për shtojcat vijuese dështoi</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>shtojcat s’mund të ngarkohen brenda kohës</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>Emër Kompjuteri</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>Emër OS-i</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>Kujtesë</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>licencë</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2534,10 +2599,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>Emër Kompjuteri</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>S’mund të fillojë, ose përfundojë me vija ndarëse në mes</translation>

@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>Особа</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>Тварина</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>Ілюстрація</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>Вираз</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>Нетипове зображення</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>Редагувати</translation>
+        <source>Save</source>
+        <translation>Зберегти</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>Стиль розмірностей</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>Простий стиль</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>Зображення</translation>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Це ім&apos;я повністю було використано в інших облікових записах користувачів</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>Вами не завантажено зображення. Для завантаження зображення можете клацнути кнопкою миші і перетягти зображення</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Зображення</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>Тип вивантаженого файла є некоректним. Будь ласка, повторіть вивантаження</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>вказані нижче додатки не вдалося завантажити</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>додатки не вдалося завантажити вчасно</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>Назва комп&apos;ютера</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>дані щодо системи</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>Назва ОС</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>Пам&apos;ять</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>ліцензування</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2535,10 +2600,6 @@ UnionTech Software працює над вивченням і удосконал�
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>Назва комп&apos;ютера</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>Не може починатися і завершуватися дефісом</translation>

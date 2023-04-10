@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>人物</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>動物</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>創意插圖</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>表情符號</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>自訂圖片</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>修改</translation>
+        <source>Save</source>
+        <translation>儲存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>立體風格</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>平面風格</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>圖片</translation>
@@ -664,7 +695,7 @@
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>透過獲取地址位置來輔助系統實現自動調節螢幕顏色偏色</translation>
+        <translation>透過獲取地理位置來輔助系統實現自動調節螢幕顏色偏色</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>全名與其他帳戶的全名/使用者名稱重複</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>您還沒有上傳過大頭貼，可點擊或拖搜上傳圖片</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>圖片</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>上傳的文件類型不正確，請重新上傳</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>following plugins load failed</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>plugins cannot loaded in time</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>電腦名</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>systemInfo</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>產品名稱</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>記憶體</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>license</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2536,10 +2601,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>HostNameItem</name>
     <message>
-        <source>Computer Name</source>
-        <translation>電腦名</translation>
-    </message>
-    <message>
         <source>It cannot start or end with dashes</source>
         <translation>電腦名不能以 - 開頭結尾</translation>
     </message>
@@ -2627,7 +2688,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation>桌面版</translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Window</source>
@@ -3110,7 +3171,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation>伺服器版</translation>
+        <translation>伺服器</translation>
     </message>
     <message>
         <source>Address</source>

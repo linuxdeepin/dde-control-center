@@ -544,19 +544,50 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>Modificar</translation>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation>Imágenes</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>El nombre completo ha sido utilizado por otras cuentas de usuario</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>Nombre del Ordenador</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>Nombre del SO</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>Memoria</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2533,10 +2598,6 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>Nombre de Equipo</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>No puede empezar ni terminar con guiones</translation>

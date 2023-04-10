@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>人物</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>动物</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>创意插图</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>表情符号</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>自定义图片</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>修改</translation>
+        <source>Save</source>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>立体风格</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>平面风格</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>图片</translation>
@@ -664,7 +695,7 @@
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>通过获取地址位置来辅助系统实现自动调节屏幕颜色偏色</translation>
+        <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色偏色</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>全名与其他帐户的全名/用户名重复</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>您还没有上传过头像，可点击或拖搜上传图片</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>图片</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>上传的文件类型不正确，请重新上传</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>following plugins load failed</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>plugins cannot loaded in time</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>计算机名</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>systemInfo</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>产品名称</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>内存</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>license</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2535,10 +2600,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>计算机名</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>计算机名不能以 - 开头结尾</translation>
