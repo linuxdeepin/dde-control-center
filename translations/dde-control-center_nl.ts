@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>Persoon</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>Dier</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>Tekening</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>Uitdrukking</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>Eigen afbeelding</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>Aanpassen</translation>
+        <source>Save</source>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>3D-stijl</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>Platte stijl</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>Afbeeldingen</translation>
@@ -881,6 +912,21 @@
     <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Deze volledige naam is al in gebruik door een ander account</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>Je hebt nog geen afbeeldingen gekozen. Klik om te kiezen of sleep een afbeelding hierheen.</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Afbeeldingen</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>Dit bestandstype wordt niet ondersteund. Probeer het opnieuw.</translation>
     </message>
 </context>
 <context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>De volgende invoegtoepassingen kunnen niet worden geladen</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>De volgende invoegtoepassingen kunnen niet worden geladen</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation>Computernaam</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>Systeeminformatie</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>Besturingssysteem:</translation>
     </message>
@@ -1809,6 +1870,10 @@
     <message>
         <source>Memory</source>
         <translation>Geheugen:</translation>
+    </message>
+    <message>
+        <source>license</source>
+        <translation>Licentie</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2525,10 +2590,6 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>Computernaam</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>De naam mag niet beginnen met of eindigen op streepjes</translation>
