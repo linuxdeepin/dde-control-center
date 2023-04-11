@@ -81,10 +81,10 @@ void SystemInfoModule::initChildModule()
     sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
     sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("processor", tr("Processor"), this, &SystemInfoModule::initProcessorModule));
     sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
-    auto license = new WidgetModule<LogoItem>("license", tr("license"), this, &SystemInfoModule::initLogoModule);
-    license->setExtra(true);
+    auto copyrightBottom = new WidgetModule<LogoItem>("", "", this, &SystemInfoModule::initLogoModule);
+    copyrightBottom->setExtra(true);
 
-    moduleAboutPc->appendChild(license);
+    moduleAboutPc->appendChild(copyrightBottom);
 
     // 二级菜单--协议与隐私政策
     ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreements and Privacy Policy"), QIcon::fromTheme("dcc_version"), this);
