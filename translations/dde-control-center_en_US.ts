@@ -2610,6 +2610,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>Internal testing channel</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>click here open the link</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2945,6 +2956,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>The settings of touch screen changed</source>
         <translation>The settings of touch screen changed</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>Checking system versions, please wait...</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Leave</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancel</translation>
     </message>
 </context>
 <context>
@@ -3534,6 +3557,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Clear Package Cache</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>Updates from Internal Testing Sources</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>internal update</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>Join Internal Testing Channel</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>System Updates</translation>
     </message>
@@ -3574,6 +3609,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>Third-party Repositories</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>Cannot find machineid</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>Cannot Uninstall package</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>Error when exit testingChannel</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>try to manually uninstall package</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>Cannot install package</translation>
     </message>
 </context>
 <context>

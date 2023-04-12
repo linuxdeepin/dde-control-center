@@ -2610,6 +2610,17 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>Wewnętrzny kanał testowy</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>kliknij tutaj, aby otworzyć odnośnik</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2945,6 +2956,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>The settings of touch screen changed</source>
         <translation>Zmieniono ustawienia ekranu dotykowego</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>Sprawdzanie wersji systemu, proszę czekać...</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Opuść</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
     </message>
 </context>
 <context>
@@ -3534,6 +3557,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Wyczyść pamięć podręczną pakietów</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>Aktualizacje z wewnętrznych źródeł testowych</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>aktualizacje wewnętrzne</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>Dołącz do wewnętrznego kanału testowego</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>Aktualizacje systemu</translation>
     </message>
@@ -3574,6 +3609,26 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Third-party Repositories</source>
         <translation>Zewnętrzne repozytoria</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>Nie można znaleźć machineid</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>Nie można usunąć pakietu</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>Błąd podczas opuszczania kanału testowego</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>spróbuj ręcznie odinstalować pakiet</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>Nie można zainstalować pakietu</translation>
     </message>
 </context>
 <context>

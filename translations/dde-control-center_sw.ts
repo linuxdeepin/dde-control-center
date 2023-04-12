@@ -2596,6 +2596,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2931,6 +2942,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Katisha</translation>
     </message>
 </context>
 <context>
@@ -3520,6 +3543,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation type="unfinished"/>
     </message>
@@ -3559,6 +3594,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot install package</source>
         <translation type="unfinished"/>
     </message>
 </context>

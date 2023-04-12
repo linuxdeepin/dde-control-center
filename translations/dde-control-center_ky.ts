@@ -544,16 +544,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>жокко чыгаруу</translation>
     </message>
     <message>
-        <source>Modify</source>
+        <source>Save</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation type="unfinished"/>
@@ -880,6 +911,21 @@
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1422,6 +1468,17 @@
     </message>
 </context>
 <context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
@@ -1779,6 +1836,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation type="unfinished"/>
     </message>
@@ -1808,6 +1869,10 @@
     </message>
     <message>
         <source>Memory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>license</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2522,15 +2587,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>HostNameItem</name>
     <message>
-        <source>Computer Name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>It cannot start or end with dashes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click here open the link</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2870,6 +2942,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>жокко чыгаруу</translation>
     </message>
 </context>
 <context>
@@ -3459,6 +3543,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation type="unfinished"/>
     </message>
@@ -3498,6 +3594,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot install package</source>
         <translation type="unfinished"/>
     </message>
 </context>
