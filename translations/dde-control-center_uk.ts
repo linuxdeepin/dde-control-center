@@ -2610,6 +2610,17 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>Канал внутрішнього тестування</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>натисніть тут, щоб відкрити посилання</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2945,6 +2956,18 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>The settings of touch screen changed</source>
         <translation>Параметри сенсорного екрана змінено</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>Перевіряємо версії системи, будь ласка, зачекайте…</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Полишити</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
     </message>
 </context>
 <context>
@@ -3534,6 +3557,18 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Спорожнити кеш пакунків</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>Оновлення з джерел внутрішнього тестування</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>внутрішнє оновлення</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>Долучитися до каналу внутрішнього тестування</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>Оновлення системи</translation>
     </message>
@@ -3574,6 +3609,26 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Third-party Repositories</source>
         <translation>Сторонні сховища</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>Не вдалося знайти ідентифікатор комп&apos;ютера</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>Не вдалося вилучити пакунок</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>Помилка при виході з каналу тестування</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>спробуйте вилучити пакунок вручну</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>Не вдалося встановити пакунок</translation>
     </message>
 </context>
 <context>

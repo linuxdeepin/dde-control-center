@@ -2600,6 +2600,17 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>Intern testkanaal</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>Klik hier om de link te openen</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2935,6 +2946,18 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>The settings of touch screen changed</source>
         <translation>De touchscreeninstellingen zijn aangepast</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>Bezig met controleren van systeemversies…</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Uitschakelen</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
     </message>
 </context>
 <context>
@@ -3524,6 +3547,18 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Pakketcache legen</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>Updates uit interne testbronnen</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>Interne update</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>Intern testkanaal inschakelen</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>Systeemupdates</translation>
     </message>
@@ -3564,6 +3599,26 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Third-party Repositories</source>
         <translation>Externe pakketbronnen</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>Geen computer-id aangetroffen</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>Het pakket kan niet worden verwijderd</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>Het testkanaal kan niet worden uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>Probeer het pakket handmatig te verwijderen</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>Het pakket kan niet worden geïnstalleerd</translation>
     </message>
 </context>
 <context>

@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation>following plugins load failed</translation>
+        <translation>以下插件加載失敗</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation>plugins cannot loaded in time</translation>
+        <translation>插件沒有及時加載</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation>systemInfo</translation>
+        <translation>系統訊息</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -2610,6 +2610,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>內測通道</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>點擊這裏打開鏈接</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2945,6 +2956,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>The settings of touch screen changed</source>
         <translation>已變更觸控屏設置</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>正在對系統版本進行ั驗證，請耐心等待...</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>退 出</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -3534,6 +3557,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>清除軟件包緩存</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>從內測通道升級</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>內測更新</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>加入內測通道</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>檢查系統更新</translation>
     </message>
@@ -3574,6 +3609,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>第三方倉庫</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>找不到機器碼</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>不能卸載包</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>在退出內測通道時候有錯誤</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>嘗試手動卸載包</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>無法安裝包</translation>
     </message>
 </context>
 <context>

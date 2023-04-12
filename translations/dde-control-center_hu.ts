@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Ember</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Állat</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Illusztráció</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Kifejezés</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni kép</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,25 +569,25 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Mentés</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Kiterjedéses stílus</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Lapos stílus</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Képek</translation>
     </message>
 </context>
 <context>
@@ -918,15 +918,15 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Még nem töltött fel képet, kattintással vagy húzással feltöltheti a képet</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Képek</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>A feltöltött fájltípus nem támogatott, kérjük töltse fel újra</translation>
     </message>
 </context>
 <context>
@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>A következő bővítmények betöltése nem sikerült</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>A bővítmények nem tölthetők be időben</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>Rendszerinformáció</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1873,7 +1873,7 @@
     </message>
     <message>
         <source>license</source>
-        <translation type="unfinished"/>
+        <translation>Licensz</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2614,6 +2614,17 @@ időformátum</translation>
     </message>
 </context>
 <context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>Belső tesztelési csatorna</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>Kattintson ide a hivatkozás megnyitásához</translation>
+    </message>
+</context>
+<context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
@@ -2949,6 +2960,18 @@ időformátum</translation>
     <message>
         <source>The settings of touch screen changed</source>
         <translation>Az érintőképernyő beállításai megváltoztak</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>Rendszer verzió ellenőrzése, kérjük várjon...</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Elhagyás</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
     </message>
 </context>
 <context>
@@ -3538,6 +3561,18 @@ időformátum</translation>
         <translation>Csomaggyorsítótár törlése</translation>
     </message>
     <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>Belső tesztelési forrásokból származó frissítések</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>Belső frissítés</translation>
+    </message>
+    <message>
+        <source>Join Internal Testing Channel</source>
+        <translation>Csatlakozzon a belső tesztelési csatornához</translation>
+    </message>
+    <message>
         <source>System Updates</source>
         <translation>Rendszer frissítések</translation>
     </message>
@@ -3578,6 +3613,26 @@ időformátum</translation>
     <message>
         <source>Third-party Repositories</source>
         <translation>Harmadik féltől származó adattárak</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>A Gép azonosító nem található</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>A csomag nem távolítható el</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>Hiba a Teszt Csatornából való kilépéskor</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>Próbálja meg manuálisan eltávolítani a csomagot</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>A csomag nem telepíthető</translation>
     </message>
 </context>
 <context>
