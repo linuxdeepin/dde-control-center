@@ -37,9 +37,6 @@ int main(int argc, char *argv[])
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
 
-    DLogManager::registerJournalAppender();
-    DLogManager::registerConsoleAppender();
-
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s"
                                                 << "show",
@@ -97,6 +94,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    DLogManager::registerJournalAppender();
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
 
