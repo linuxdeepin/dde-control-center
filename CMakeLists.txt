@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 set (DVERSION "6.0.13" CACHE STRING "define project version")
+set (BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
 
 set(PROJECT_NAME dde-control-center)
 project(${PROJECT_NAME}
@@ -41,6 +42,10 @@ else()
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 set(BUILD_PLUDIN ON)
+
+if(BUILD_DOCS)
+  add_subdirectory(docs)
+endif()
 
 if (NOT BUILD_PLUDIN)
     set(UNITTEST OFF)
