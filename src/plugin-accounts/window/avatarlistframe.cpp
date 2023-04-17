@@ -31,11 +31,11 @@ const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 const QString PersonDimensionalPath = QStringLiteral("lib/AccountsService/icons/human/dimensional");
 const QString PersonFlatPath = QStringLiteral("lib/AccountsService/icons/human/flat");
 const QString AnimalDimensionalPath = QStringLiteral("lib/AccountsService/icons/animal/dimensional");
-const QString IllustrationDimensionalPath =QStringLiteral("lib/AccountsService/icons/illustration/dimensional");
+const QString IllustrationDimensionalPath = QStringLiteral("lib/AccountsService/icons/illustration/dimensional");
 const QString EmojiDimensionalPath = QStringLiteral("lib/AccountsService/icons/emoji/dimensional");
 
-// 用户自定义图像存放路径（用户目录）
-const QString AvatarCustomPath = QStringLiteral("/.local/share/icons/");
+// 用户自定义图像存放路径
+const QString AvatarCustomPath = QStringLiteral("lib/AccountsService/icons/custom");
 
 #define BORDER_BOX_SIZE 190
 #define AVATAR_ICON_SIZE 140
@@ -80,11 +80,13 @@ AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
     const QString animalDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(AnimalDimensionalPath);
     const QString illustrationDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(IllustrationDimensionalPath);
     const QString emojiDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(EmojiDimensionalPath);
+    const QString customAvatarPath = QString("/%1/%2").arg(VarDirectory).arg(AvatarCustomPath);
 
     setFrameStyle(QFrame::NoFrame);
     setContentsMargins(0, 0, 0, 0);
     if (role == Role::Custom) {
-        m_currentAvatarLsv = new AvatarListView(role, Type::Dimensional, "");
+        m_path = customAvatarPath;
+        m_currentAvatarLsv = new AvatarListView(role, Type::Dimensional, customAvatarPath);
         return;
     }
 
@@ -136,7 +138,7 @@ AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
         }
 
         mainLayout->addLayout(hBoxLayout);
-        QHBoxLayout *layout = new QHBoxLayout(this);
+        QHBoxLayout *layout = new QHBoxLayout();
         layout->addLayout(mainLayout, Qt::AlignCenter);
 
         setLayout(layout);
@@ -149,6 +151,7 @@ AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
 
     for (const auto &item : items) {
         if (item.role == m_role && item.isLoader) {
+            m_path = item.path;
             addAvatar(item);
         }
     }
@@ -170,8 +173,9 @@ bool AvatarListFrame::isExistCustomAvatar(const QString &path)
     return !info.entryInfoList().isEmpty();
 }
 
-void AvatarListFrame::updateListView(const int &role, const int &type)
+void AvatarListFrame::updateListView(bool isSave, const int &role, const int &type)
 {
+    Q_UNUSED(isSave);
     // 人物头像有两种类型,当有一种类型的item被选中时，取消另外一种类型item的选中状态
     if (role == Role::Person) {
         if (type == Type::Dimensional) {
@@ -247,23 +251,12 @@ CustomAddAvatarWidget::~CustomAddAvatarWidget()
 void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
 {
     auto saveFunc = [this](const QString &path) {
-        QString avatarPath;
-        QFileInfo info(path);
-        QString time = QString::number(QDateTime::currentSecsSinceEpoch());
-
         QFile file(path);
         if (file.open(QIODevice::ReadOnly)) {
             QPixmap pix;
             pix.loadFromData(file.readAll());
 
-            if (!pix.isNull()) {
-                // 将用户传入的图片, 以当前时间戳作为文件名, 并保存到本地
-                avatarPath = QString("%1%2.%3")
-                                     .arg(getCurrentListView()->getCustomAvatarPath())
-                                     .arg(time)
-                                     .arg(info.suffix());
-                file.copy(path, avatarPath);
-            } else {
+            if (pix.isNull()) {
                 // 用户上传的不是图片类型，提醒用户上传的文件类型错误
                 m_hintLabel->clear();
                 qWarning() << "failed to save file, maybe the file is not picture type";
@@ -271,13 +264,16 @@ void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
                 pe.setColor(QPalette::Base, Qt::white);
                 m_hintLabel->setPalette(pe);
                 m_hintLabel->setText(tr("Uploaded file type is incorrect, please upload again"));
+
+                file.close();
+                return;
             }
 
             file.close();
         }
 
-        if (!avatarPath.isEmpty()) {
-            Q_EMIT requestUpdateCustomWidget(avatarPath);
+        if (!path.isEmpty()) {
+            Q_EMIT requestUpdateCustomWidget(path);
         }
     };
 
@@ -365,11 +361,10 @@ bool CustomAddAvatarWidget::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-CustomAvatarView::CustomAvatarView(const QString &avatarPath, QWidget *parent)
+CustomAvatarView::CustomAvatarView(QWidget *parent)
     : QWidget(parent)
     , m_autoExitTimer(new QTimer(this))
     , m_cropBox(new AvatarCropBox(this))
-    , m_path(avatarPath)
 {
     setFixedSize(BORDER_BOX_SIZE, BORDER_BOX_SIZE);
 
@@ -381,7 +376,9 @@ CustomAvatarView::CustomAvatarView(const QString &avatarPath, QWidget *parent)
         auto path = getCroppedImage();
         m_autoExitTimer->stop();
 
-        Q_EMIT requestSaveCustomAvatar(path);
+        if (!path.isEmpty()) {
+            Q_EMIT requestSaveCustomAvatar(path);
+        }
     });
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -392,31 +389,37 @@ CustomAvatarView::CustomAvatarView(const QString &avatarPath, QWidget *parent)
 
 QString CustomAvatarView::getCroppedImage()
 {
-    QString time = QString::number(QDateTime::currentSecsSinceEpoch());
-    auto homeDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    QString path =
-            QString("%1%2.%3").arg(homeDir.first() + AvatarCustomPath).arg(time).arg("png");
-
     auto screen = qApp->primaryScreen();
     auto offset = (BORDER_BOX_SIZE - CROP_BOX_SIZE) / 2;
     QPoint pos = mapToGlobal(QPoint(offset, offset));
     QRect rect(pos.x(), pos.y(), CROP_BOX_SIZE, CROP_BOX_SIZE);
 
-    bool ret = screen->grabWindow(0, rect.x(), rect.y(), rect.width(), rect.height()).save(path);
+    QFileInfo customAvatarPath(m_path);
+    const QString tempPath = QString("%1/%2").arg(QDir::tempPath()).arg(customAvatarPath.fileName());
+
+    // 修改后的头像直接覆盖之前的头像
+    bool ret =
+            screen->grabWindow(0, rect.x(), rect.y(), rect.width(), rect.height()).save(tempPath);
     if (!ret) {
         qWarning() << "failed to save crop image";
         return QString();
     }
 
-    return path;
+    return tempPath;
 }
 
 void CustomAvatarView::setAvatarPath(const QString &avatarPath)
 {
     m_path = avatarPath;
-    m_image.load(m_path);
+    auto isValid = !avatarPath.isEmpty();
+    m_image = isValid ? m_image : QImage();
+
+    if (isValid) {
+        m_image.load(m_path);
+    }
+
     onPresetImage();
-    enableAvatarScaledItem(true);
+    Q_EMIT enableAvatarScaledItem(isValid);
     update();
 }
 
@@ -569,7 +572,7 @@ void CustomAvatarView::onPresetImage(void)
 CustomAvatarWidget::CustomAvatarWidget(const int &role, QWidget *parent)
     : AvatarListFrame(role, parent)
     , m_avatarScaledItem(new DSlider(Qt::Horizontal, this))
-    , m_avatarView(new CustomAvatarView(getCurrentListView()->getCurrentSelectAvatar(), this))
+    , m_avatarView(new CustomAvatarView(this))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

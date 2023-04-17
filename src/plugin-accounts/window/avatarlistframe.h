@@ -28,13 +28,6 @@ namespace DCC_NAMESPACE {
 class AvatarCropBox;
 class AvatarListView;
 
-enum Role { Person, Animal, Illustration, Expression, Custom, AvatarAdd };
-
-enum Type {
-    Dimensional, // 立体风格
-    Flat         // 平面风格
-};
-
 class AvatarListFrame : public QFrame
 {
     Q_OBJECT
@@ -62,9 +55,7 @@ public:
     virtual ~AvatarListFrame() = default;
 
     inline int getCurrentRole() { return m_role; }
-
-    inline int getCurrentType() { return m_type; }
-
+    inline QString getCurrentPath() { return m_path; }
     inline AvatarListView *getCurrentListView() { return m_currentAvatarLsv; }
 
     QString getAvatarPath() const;
@@ -72,14 +63,14 @@ public:
     bool isExistCustomAvatar(const QString &path);
 
 public Q_SLOTS:
-    void updateListView(const int &role, const int &type);
+    void updateListView(bool isSave, const int &role, const int &type);
 
 private:
     QString getCurrentAvatarPath(const int role, const int type);
 
 private:
     int m_role;
-    int m_type;
+    QString m_path;
     AvatarListView *m_avatarDimensionalLsv;
     AvatarListView *m_avatarFlatLsv;
     AvatarListView *m_currentAvatarLsv;
@@ -121,7 +112,7 @@ class CustomAvatarView : public QWidget
     Q_OBJECT
 
 public:
-    explicit CustomAvatarView(const QString &avatarPath, QWidget *parent = nullptr);
+    explicit CustomAvatarView(QWidget *parent = nullptr);
     ~CustomAvatarView();
 
     void setAvatarPath(const QString &avatarPath);

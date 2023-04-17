@@ -61,6 +61,9 @@ protected:
     void mouseMoveEvent(QMouseEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
 
+private:
+    CustomAvatarWidget *getCustomAvatarWidget();
+
 Q_SIGNALS:
     void requestSaveAvatar(const QString &avatarPath);
 

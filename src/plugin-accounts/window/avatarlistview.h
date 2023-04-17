@@ -26,6 +26,13 @@ DCORE_END_NAMESPACE
 namespace DCC_NAMESPACE {
 class AvatarItemDelegate;
 
+enum Role { Person, Animal, Illustration, Expression, Custom, AvatarAdd };
+
+enum Type {
+    Dimensional, // 立体风格
+    Flat         // 平面风格
+};
+
 class AvatarListView : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
@@ -42,28 +49,24 @@ public:
                    QWidget *parent = nullptr);
     virtual ~AvatarListView();
 
-    inline int getCurrentListViewRole() { return m_currentAvatarRole; }
-
-    inline int getCurrentListViewType() { return m_currentAvatarType; }
-
+    inline int getCurrentListViewRole() const { return m_currentAvatarRole; }
+    inline int getCurrentListViewType() const { return m_currentAvatarType; }
     inline QSize avatarSize() const { return m_avatarSize; }
 
     void addCustomAvatar(const QString &path, bool isFirst);
     void addLastItem();
-    void saveAvatar(const QString &oldPath, const QString &path);
+    void saveAvatar(const QString &path);
     void addItemFromDefaultDir(const QString &path);
-    bool isExistCustomAvatar();
 
-    QString getCustomAvatarPath();
     QString getAvatarPath() const;
-    QString getCurrentSelectAvatar() const;
 
 Q_SIGNALS:
-    void requestUpdateListView(const int &role, const int &type);
+    void requestUpdateListView(bool isSave, const int &role, const int &type);
 
 public Q_SLOTS:
     void setCurrentAvatarChecked(const QString &avatar);
     void setCurrentAvatarUnChecked();
+    void requestAddCustomAvatar(const QString &path);
     void requestUpdateCustomAvatar(const QString &path);
 
 private:
@@ -75,6 +78,7 @@ private Q_SLOTS:
 
 private:
     bool m_updateItem = false;
+    bool m_save = false;
     int m_currentAvatarRole;
     int m_currentAvatarType;
     QString m_path;

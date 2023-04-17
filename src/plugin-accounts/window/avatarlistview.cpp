@@ -6,8 +6,6 @@
 #include "avataritemdelegate.h"
 #include "widgets/accessibleinterface.h"
 
-#include <DConfig>
-
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
@@ -24,8 +22,9 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+#include <DConfig>
+
 const int MaxAvatarSize = 20;
-const int CustomAvatarType = 4;
 const int MaxCustomAvatarSize = 4;
 
 DWIDGET_USE_NAMESPACE
@@ -50,11 +49,19 @@ AvatarListView::AvatarListView(const int &role,
                                 this))
 {
     initWidgets();
-    connect(this, &DListView::clicked, this, &AvatarListView::onItemClicked);
+    connect(this, &DListView::clicked, this, [this](const QModelIndex &index) {
+        // 用户自定义图片最多只支持四张
+        if (m_currentAvatarRole == Custom && index.row() == 0
+            && m_avatarItemModel->rowCount() > MaxCustomAvatarSize) {
+            return;
+        }
+        m_save = false;
+        onItemClicked(index);
+    });
+
     connect(m_fd, &QFileDialog::finished, this, [=](int result) {
         if (result == QFileDialog::Accepted) {
             const QString path = m_fd->selectedFiles().first();
-
             QFileInfo info(path);
 
             m_dconfig->setValue("avatarPath", info.absolutePath());
@@ -92,14 +99,6 @@ AvatarListView::~AvatarListView()
     }
 }
 
-QString AvatarListView::getCustomAvatarPath()
-{
-    auto homeDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    auto path = homeDir.first() + QString("/.local/share/icons/");
-
-    return path;
-}
-
 void AvatarListView::initWidgets()
 {
     m_fd->setAccessibleName("QFileDialog");
@@ -134,22 +133,18 @@ void AvatarListView::addLastItem()
     item->setData("", AvatarListView::SaveAvatarRole);
     item->setData(true, AvatarListView::AddAvatarRole);
     m_avatarItemModel->appendRow(item);
-
-    if (m_avatarItemModel->rowCount() > MaxCustomAvatarSize + 1) {
-        item->setEnabled(false);
-    }
 }
 
 QStandardItem *AvatarListView::getCustomAvatar()
 {
+    // 用户编辑修改的头像直接替换原来的头像
+    if (m_updateItem) {
+        return m_avatarItemModel->item(m_currentSelectIndex.row());
+    }
+
     QStandardItem *item = m_avatarItemModel->item(1);
     // 默认项MaxAvatarSize个，添加项一个
     if (m_avatarItemModel->rowCount() < MaxCustomAvatarSize + 1) {
-        if (m_updateItem) {
-            m_updateItem = false;
-            return m_avatarItemModel->item(m_currentSelectIndex.row());
-        }
-
         item = new QStandardItem();
         if (m_currentSelectIndex.isValid())
             m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
@@ -161,9 +156,7 @@ QStandardItem *AvatarListView::getCustomAvatar()
 void AvatarListView::addItemFromDefaultDir(const QString &path)
 {
     auto avatarPath = path;
-    if (m_currentAvatarRole == CustomAvatarType) {
-        avatarPath = getCustomAvatarPath();
-    }
+
     QDir dir(avatarPath);
     QStringList hideList;
     hideList << "default.png"
@@ -182,7 +175,7 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
                   return fileinfo1.baseName() < fileinfo2.baseName();
               });
 
-    if (m_currentAvatarRole == CustomAvatarType && !list.isEmpty()) {
+    if (m_currentAvatarRole == Role::Custom && !list.isEmpty()) {
         addLastItem();
     }
 
@@ -218,29 +211,25 @@ void AvatarListView::setCurrentAvatarUnChecked()
     }
 }
 
-void AvatarListView::requestUpdateCustomAvatar(const QString &path)
+void AvatarListView::requestAddCustomAvatar(const QString &path)
 {
     addCustomAvatar(path, true);
 }
 
-bool AvatarListView::isExistCustomAvatar()
+void AvatarListView::requestUpdateCustomAvatar(const QString &path)
 {
-    auto path = getCustomAvatarPath();
-
-    QDir dir(path);
-
-    if (dir.entryInfoList().isEmpty()) {
-        return false;
+    if (m_currentAvatarRole != Custom) {
+        return;
     }
 
-    return true;
+    m_avatarItemModel->item(m_currentSelectIndex.row())
+            ->setData(QVariant::fromValue(QUrl(path).toLocalFile()),
+                      AvatarListView::SaveAvatarRole);
 }
 
 void AvatarListView::addCustomAvatar(const QString &path, bool isFirst)
 {
-    if (m_avatarItemModel->rowCount() > MaxCustomAvatarSize + 1) {
-        return;
-    }
+    m_save = true;
 
     if (isFirst) {
         addLastItem();
@@ -258,16 +247,12 @@ void AvatarListView::addCustomAvatar(const QString &path, bool isFirst)
     item->setData(QVariant::fromValue(path), AvatarListView::SaveAvatarRole);
     item->setData(m_avatarSize, Qt::SizeHintRole);
 
-    if (m_currentSelectIndex.isValid())
-        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
-
-    if (m_avatarItemModel->item(m_currentSelectIndex.row())) {
-        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Checked);
-        m_avatarItemModel->item(m_currentSelectIndex.row())
-                ->setData(QVariant::fromValue(path), AvatarListView::SaveAvatarRole);
+    if (m_updateItem) {
+        onItemClicked(m_avatarItemModel->index(m_currentSelectIndex.row(), 0));
+        m_updateItem = false;
+    } else {
+        onItemClicked(m_avatarItemModel->index(1, 0));
     }
-
-    Q_EMIT requestUpdateListView(m_currentAvatarRole, m_currentAvatarType);
 }
 
 void AvatarListView::onItemClicked(const QModelIndex &index)
@@ -295,22 +280,16 @@ void AvatarListView::onItemClicked(const QModelIndex &index)
         m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Checked);
         m_avatarItemModel->item(m_currentSelectIndex.row())
                 ->setData(QVariant::fromValue(filePath), AvatarListView::SaveAvatarRole);
-        Q_EMIT requestUpdateListView(m_currentAvatarRole, m_currentAvatarType);
+        Q_EMIT requestUpdateListView(m_save, m_currentAvatarRole, m_currentAvatarType);
+        m_save = false;
     }
 }
 
-void AvatarListView::saveAvatar(const QString &oldPath, const QString &path)
+void AvatarListView::saveAvatar(const QString &path)
 {
     m_updateItem = true;
-    QFileInfo info(path);
-    QFile::remove(getAvatarPath());
 
     addCustomAvatar(path, false);
-}
-
-QString AvatarListView::getCurrentSelectAvatar() const
-{
-    return m_currentSelectIndex.data(AvatarListView::SaveAvatarRole).toString();
 }
 
 QString AvatarListView::getAvatarPath() const
@@ -321,4 +300,33 @@ QString AvatarListView::getAvatarPath() const
     auto index = m_currentSelectIndex.row();
     auto idx = m_avatarItemModel->index(index, 0);
     return m_avatarItemModel->data(idx, SaveAvatarRole).toString();
+}
+
+void AvatarListView::setCurrentAvatarChecked(const QString &avatar)
+{
+    if (avatar.isEmpty())
+        return;
+
+    QString currentAvatar = avatar;
+    if (avatar.startsWith("file://"))
+        currentAvatar = QUrl(avatar).toLocalFile();
+
+    if (!QFile(currentAvatar).exists())
+        return;
+
+    if (currentAvatar.isEmpty())
+        return;
+
+    for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
+        QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListView::SaveAvatarRole).value<QString>();
+        if (currentAvatar != itemAvatar)
+            continue;
+
+        if (m_currentSelectIndex.isValid()) {
+            m_avatarItemModel->setData(m_currentSelectIndex, Qt::Unchecked, Qt::CheckStateRole);
+        }
+        m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
+        m_currentSelectIndex = m_avatarItemModel->index(i, 0);
+        break;
+    }
 }
