@@ -80,10 +80,10 @@ AvatarListDialog::AvatarListDialog(User *usr)
             m_avatarSelectItemModel->appendRow(avatarItem);
 
             if (item.role == Role::Custom) {
-                m_avatarFrames[AvatarAdd] = new CustomAddAvatarWidget(Role::Custom, this);
-                m_avatarFrames[Role::Custom] = new CustomAvatarWidget(Role::Custom, this);
+                m_avatarFrames[AvatarAdd] = new CustomAddAvatarWidget(m_curUser, Role::Custom, this);
+                m_avatarFrames[Role::Custom] = new CustomAvatarWidget(m_curUser, Role::Custom, this);
             } else {
-                m_avatarFrames[item.role] = new AvatarListFrame(item.role, this);
+                m_avatarFrames[item.role] = new AvatarListFrame(m_curUser, item.role, this);
             }
         }
     }
@@ -120,7 +120,6 @@ AvatarListDialog::AvatarListDialog(User *usr)
 
         auto listView = iter.value()->getCurrentListView();
         if (listView && listView->getCurrentListViewRole() != Role::AvatarAdd) {
-            listView->setCurrentAvatarChecked(m_curUser->currentAvatar());
             connect(listView,
                     &AvatarListView::requestUpdateListView,
                     this,
@@ -147,12 +146,19 @@ AvatarListDialog::AvatarListDialog(User *usr)
                                 connect(m_curUser,
                                         &User::currentAvatarChanged,
                                         this,
-                                        [this](const auto &path) {
-                                            getCustomAvatarWidget()->getCurrentListView()->requestUpdateCustomAvatar(path);
-                                            getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
-                                                    m_avatarFrames[Custom]
-                                                            ->getCurrentListView()
-                                                            ->getAvatarPath());
+                                        [this](const QString &path) {
+                                            if (path.contains(
+                                                        m_avatarFrames[Custom]->getCurrentPath())) {
+                                                getCustomAvatarWidget()
+                                                        ->getCurrentListView()
+                                                        ->requestUpdateCustomAvatar(path);
+                                                getCustomAvatarWidget()
+                                                        ->getCustomAvatarView()
+                                                        ->setAvatarPath(
+                                                                m_avatarFrames[Custom]
+                                                                        ->getCurrentListView()
+                                                                        ->getAvatarPath());
+                                            }
                                         });
 
                                 return;

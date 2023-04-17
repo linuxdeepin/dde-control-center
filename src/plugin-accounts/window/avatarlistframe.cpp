@@ -35,7 +35,7 @@ const QString IllustrationDimensionalPath = QStringLiteral("lib/AccountsService/
 const QString EmojiDimensionalPath = QStringLiteral("lib/AccountsService/icons/emoji/dimensional");
 
 // 用户自定义图像存放路径
-const QString AvatarCustomPath = QStringLiteral("lib/AccountsService/icons/custom");
+const QString AvatarCustomPath = QStringLiteral("lib/AccountsService/icons/local");
 
 #define BORDER_BOX_SIZE 190
 #define AVATAR_ICON_SIZE 140
@@ -68,25 +68,26 @@ struct AvatarItem
     }
 };
 
-AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
+AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
     : QFrame(parent)
     , m_role(role)
     , m_avatarDimensionalLsv(nullptr)
     , m_avatarFlatLsv(nullptr)
     , m_currentAvatarLsv(nullptr)
 {
-    const QString personDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(PersonDimensionalPath);
-    const QString personFlatPath = QString("/%1/%2").arg(VarDirectory).arg(PersonFlatPath);
-    const QString animalDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(AnimalDimensionalPath);
-    const QString illustrationDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(IllustrationDimensionalPath);
-    const QString emojiDimensionPath = QString("/%1/%2").arg(VarDirectory).arg(EmojiDimensionalPath);
-    const QString customAvatarPath = QString("/%1/%2").arg(VarDirectory).arg(AvatarCustomPath);
+    const QString personDimensionPath = QString("%1/%2").arg(VarDirectory).arg(PersonDimensionalPath);
+    const QString personFlatPath = QString("%1/%2").arg(VarDirectory).arg(PersonFlatPath);
+    const QString animalDimensionPath = QString("%1/%2").arg(VarDirectory).arg(AnimalDimensionalPath);
+    const QString illustrationDimensionPath = QString("%1/%2").arg(VarDirectory).arg(IllustrationDimensionalPath);
+    const QString emojiDimensionPath = QString("%1/%2").arg(VarDirectory).arg(EmojiDimensionalPath);
+    const QString customAvatarPath = QString("%1/%2").arg(VarDirectory).arg(AvatarCustomPath);
 
     setFrameStyle(QFrame::NoFrame);
     setContentsMargins(0, 0, 0, 0);
     if (role == Role::Custom) {
         m_path = customAvatarPath;
-        m_currentAvatarLsv = new AvatarListView(role, Type::Dimensional, customAvatarPath);
+        m_currentAvatarLsv = new AvatarListView(user, role, Type::Dimensional, customAvatarPath);
+        m_currentAvatarLsv->setCurrentAvatarChecked(user->currentAvatar());
         return;
     }
 
@@ -116,10 +117,12 @@ AvatarListFrame::AvatarListFrame(const int &role, QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    auto addAvatar = [this, mainLayout](const AvatarRoleItem &item) {
-        m_currentAvatarLsv = new AvatarListView(item.role, item.type, item.path);
+    auto addAvatar = [this, mainLayout, user](const AvatarRoleItem &item) {
+        m_currentAvatarLsv = new AvatarListView(user, item.role, item.type, item.path);
         item.type == Type::Dimensional ? m_avatarDimensionalLsv = m_currentAvatarLsv
                                        : m_avatarFlatLsv = m_currentAvatarLsv;
+
+        m_currentAvatarLsv->setCurrentAvatarChecked(user->currentAvatar());
 
         QHBoxLayout *hBoxLayout = new QHBoxLayout;
         hBoxLayout->addWidget(m_currentAvatarLsv, Qt::AlignCenter);
@@ -192,8 +195,8 @@ void AvatarListFrame::updateListView(bool isSave, const int &role, const int &ty
     }
 }
 
-CustomAddAvatarWidget::CustomAddAvatarWidget(const int &role, QWidget *parent)
-    : AvatarListFrame(role, parent)
+CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidget *parent)
+    : AvatarListFrame(user, role, parent)
     , m_fd(new QFileDialog(this))
     , m_addAvatarFrame(new DFrame(this))
     , m_addAvatarLabel(new QLabel(this))
@@ -569,8 +572,8 @@ void CustomAvatarView::onPresetImage(void)
     this->update();
 }
 
-CustomAvatarWidget::CustomAvatarWidget(const int &role, QWidget *parent)
-    : AvatarListFrame(role, parent)
+CustomAvatarWidget::CustomAvatarWidget(User *user, const int &role, QWidget *parent)
+    : AvatarListFrame(user, role, parent)
     , m_avatarScaledItem(new DSlider(Qt::Horizontal, this))
     , m_avatarView(new CustomAvatarView(this))
 {

@@ -6,7 +6,6 @@
 #include "avatarlistframe.h"
 #include "avatarlistview.h"
 #include "interface/namespace.h"
-#include "src/plugin-accounts/operation/user.h"
 
 #include <DBlurEffectWidget>
 #include <DDialog>
