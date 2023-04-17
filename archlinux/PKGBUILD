@@ -9,7 +9,7 @@ pkgdesc='New control center for linux deepin'
 arch=('x86_64' 'aarch64')
 url="https://github.com/linuxdeepin/dde-control-center"
 license=('GPL3')
-depends=('dtkwidget-git' 'libpwquality'
+depends=('dtkwidget-git' 'libpwquality' 'doxygen'
          'deepin-daemon-git' 'startdde-git'
          'deepin-pw-check-git' 'qt5-wayland' 'kwayland')
 makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 
