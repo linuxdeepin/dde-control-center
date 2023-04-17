@@ -114,31 +114,55 @@ AvatarListDialog::AvatarListDialog(User *usr)
 
     QStackedWidget *avatarSelectWidget = new QStackedWidget(this);
     avatarSelectWidget->setFixedWidth(450);
+
     for (auto iter = m_avatarFrames.begin(); iter != m_avatarFrames.end(); ++iter) {
         avatarSelectWidget->addWidget(iter.value());
 
-        connect(iter.value()->getCurrentListView(),
-                &AvatarListView::requestUpdateListView,
-                this,
-                [this](const auto &role, const auto &type) {
-                    for (auto it = m_avatarFrames.begin(); it != m_avatarFrames.end(); ++it) {
-                        if (role == Role::Custom) {
-                            static_cast<CustomAvatarWidget *>(m_avatarFrames[Custom])
-                                    ->getCustomAvatarView()
-                                    ->setAvatarPath(m_avatarFrames[role]
-                                                            ->getCurrentListView()
-                                                            ->getAvatarPath());
-                        }
+        auto listView = iter.value()->getCurrentListView();
+        if (listView && listView->getCurrentListViewRole() != Role::AvatarAdd) {
+            listView->setCurrentAvatarChecked(m_curUser->currentAvatar());
+            connect(listView,
+                    &AvatarListView::requestUpdateListView,
+                    this,
+                    [this](bool isNeedSave, const auto &role, const auto &type) {
+                        Q_UNUSED(type);
 
-                        auto frame = it.value();
+                        for (auto it = m_avatarFrames.begin(); it != m_avatarFrames.end(); ++it) {
+                            auto frame = it.value();
 
-                        if (frame->getCurrentRole() != role) {
-                            if (frame->getCurrentListView()) {
-                                frame->getCurrentListView()->setCurrentAvatarUnChecked();
+                            if (frame->getCurrentRole() != role) {
+                                if (frame->getCurrentListView()) {
+                                    frame->getCurrentListView()->setCurrentAvatarUnChecked();
+                                }
                             }
                         }
-                    }
-                });
+
+                        if (role == Custom) {
+                            // 如果是新添加进来的用户头像, 先保存, 然后再更新用户头像编辑界面
+                            if (isNeedSave) {
+                                Q_EMIT requestSaveAvatar(m_avatarFrames[role]
+                                                                 ->getCurrentListView()
+                                                                 ->getAvatarPath());
+
+                                connect(m_curUser,
+                                        &User::currentAvatarChanged,
+                                        this,
+                                        [this](const auto &path) {
+                                            getCustomAvatarWidget()->getCurrentListView()->requestUpdateCustomAvatar(path);
+                                            getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
+                                                    m_avatarFrames[Custom]
+                                                            ->getCurrentListView()
+                                                            ->getAvatarPath());
+                                        });
+
+                                return;
+                            }
+
+                            getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
+                                    m_avatarFrames[role]->getCurrentListView()->getAvatarPath());
+                        }
+                    });
+        }
     }
 
     m_currentSelectAvatarWidget = m_avatarFrames[Person];
@@ -146,13 +170,19 @@ AvatarListDialog::AvatarListDialog(User *usr)
     connect(m_avatarSelectItem, &DListView::clicked, this, [this, avatarSelectWidget](auto &index) {
         // 如果没有添加自定义头像, 显示自定义添加图像页面
         if (!m_avatarFrames[Custom]->isExistCustomAvatar(
-                    m_avatarFrames[Custom]->getCurrentListView()->getCustomAvatarPath())) {
+                    m_avatarFrames[Custom]->getCurrentPath())) {
             if (index.row() == 3) {
                 avatarSelectWidget->setCurrentIndex(index.row() + 1);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
 
                 return;
             }
+        }
+
+        // 切换到自定义头像界面, 更新用户头像编辑页面
+        if (index.row() == 3) {
+            getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
+                    m_avatarFrames[Custom]->getCurrentListView()->getAvatarPath());
         }
 
         avatarSelectWidget->setCurrentIndex(index.row());
@@ -181,14 +211,12 @@ AvatarListDialog::AvatarListDialog(User *usr)
     btnLayout->addSpacing(10);
     btnLayout->addWidget(saveButton);
 
-    connect(static_cast<CustomAvatarWidget *>(m_avatarFrames[Custom])->getCustomAvatarView(),
+    connect(getCustomAvatarWidget()->getCustomAvatarView(),
             &CustomAvatarView::requestSaveCustomAvatar,
             this,
             [this](const QString &path) {
                 if (!path.isEmpty()) {
-                    m_currentSelectAvatarWidget->getCurrentListView()->saveAvatar(
-                            m_curUser->currentAvatar(),
-                            path);
+                    m_currentSelectAvatarWidget->getCurrentListView()->saveAvatar(path);
                 }
             });
 
@@ -198,14 +226,13 @@ AvatarListDialog::AvatarListDialog(User *usr)
             [avatarSelectWidget, this](const QString &path) {
                 avatarSelectWidget->setCurrentWidget(m_avatarFrames[Custom]);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
-                m_currentSelectAvatarWidget->getCurrentListView()->requestUpdateCustomAvatar(path);
+                m_currentSelectAvatarWidget->getCurrentListView()->requestAddCustomAvatar(path);
             });
 
-    connect(saveButton, &QPushButton::clicked, this, [this] {
-        const QString avatarPath = getAvatarPath();
-
-        if (!avatarPath.isEmpty() && avatarPath != m_curUser->currentAvatar()) {
-            Q_EMIT requestSaveAvatar(avatarPath);
+    connect(saveButton, &QPushButton::clicked, this, [this]() {
+        const QString path = getAvatarPath();
+        if (!path.isEmpty() && path != m_curUser->currentAvatar()) {
+            Q_EMIT requestSaveAvatar(path);
         }
     });
     connect(cancelButton, &QPushButton::clicked, this, &AvatarListDialog::close);
@@ -236,6 +263,11 @@ AvatarListDialog::~AvatarListDialog()
     }
 
     m_avatarFrames.clear();
+}
+
+CustomAvatarWidget *AvatarListDialog::getCustomAvatarWidget()
+{
+    return static_cast<CustomAvatarWidget *>(m_avatarFrames[Custom]);
 }
 
 QString AvatarListDialog::getAvatarPath() const
