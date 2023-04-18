@@ -1,3 +1,10 @@
+dde-control-center (6.0.14) unstable; urgency=medium
+
+  * fix: 控制中心用户头像显示异常
+  * feat: add docs build
+
+ -- dengbo <dengbo@uniontech.com>  Tue, 18 Apr 2023 13:39:45 +0800
+
 dde-control-center (6.0.13) unstable; urgency=medium
 
   * Support Internal Channel
