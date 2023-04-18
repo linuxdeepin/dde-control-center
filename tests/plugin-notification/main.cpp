@@ -10,9 +10,10 @@
 #include <gtest/gtest.h>
 
 #ifdef QT_DEBUG
-#include <sanitizer/asan_interface.h>
+#  ifdef USE_ASAN
+#    include <sanitizer/asan_interface.h>
+#  endif
 #endif
-
 int main(int argc, char **argv)
 {
     QProcess process;
@@ -50,7 +51,9 @@ int main(int argc, char **argv)
     int result = RUN_ALL_TESTS();
 
 #ifdef QT_DEBUG
-    __sanitizer_set_report_path("asan_notification.log");
+#  ifdef USE_ASAN
+    __sanitizer_set_report_path("dccwidgets_asan.log");
+#  endif
 #endif
 
     process.close();
