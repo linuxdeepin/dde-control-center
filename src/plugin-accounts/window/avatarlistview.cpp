@@ -76,7 +76,7 @@ AvatarListView::AvatarListView(User *user, const int &role,
             }
 
             if (row == -1) {
-                return addCustomAvatar(path, false);
+                return addCustomAvatar(path);
             }
 
             onItemClicked(m_avatarItemModel->index(row, 0));
@@ -176,8 +176,17 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
                   return fileinfo1.baseName() < fileinfo2.baseName();
               });
 
-    if (m_currentAvatarRole == Role::Custom && !list.isEmpty()) {
-        addLastItem();
+    const auto &name = m_curUser->name();
+    // 当前用户有自定义用户头像时, 需要添加用户添加按钮, 否则不需要添加
+    if (m_currentAvatarRole == Custom) {
+        auto res =
+                std::find_if(list.cbegin(), list.cend(), [name](const QFileInfo &info) -> bool {
+                    return info.filePath().contains(name + "-");
+                });
+
+        if (res != list.cend()) {
+            addLastItem();
+        }
     }
 
     for (int i = 0; i < MaxAvatarSize && i < list.size(); ++i) {
@@ -189,7 +198,7 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
 
         if (m_currentAvatarRole == Custom) {
             // 过滤掉非当前用户自定义头像
-            if (!iconPath.contains(m_curUser->name() + "-")) {
+            if (!iconPath.contains(name + "-")) {
                 continue;
             }
         }
@@ -221,7 +230,8 @@ void AvatarListView::setCurrentAvatarUnChecked()
 
 void AvatarListView::requestAddCustomAvatar(const QString &path)
 {
-    addCustomAvatar(path, true);
+    addLastItem();
+    addCustomAvatar(path);
 }
 
 void AvatarListView::requestUpdateCustomAvatar(const QString &path)
@@ -235,13 +245,9 @@ void AvatarListView::requestUpdateCustomAvatar(const QString &path)
                       AvatarListView::SaveAvatarRole);
 }
 
-void AvatarListView::addCustomAvatar(const QString &path, bool isFirst)
+void AvatarListView::addCustomAvatar(const QString &path)
 {
     m_save = true;
-
-    if (isFirst) {
-        addLastItem();
-    }
 
     QStandardItem *item = getCustomAvatar();
     item->setAccessibleText(path);
@@ -297,7 +303,7 @@ void AvatarListView::saveAvatar(const QString &path)
 {
     m_updateItem = true;
 
-    addCustomAvatar(path, false);
+    addCustomAvatar(path);
 }
 
 QString AvatarListView::getAvatarPath() const

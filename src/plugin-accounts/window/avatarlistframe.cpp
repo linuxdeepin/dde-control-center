@@ -91,27 +91,29 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
         return;
     }
 
+    const QString &name = user->name();
+
     QList<AvatarRoleItem> items = {
         AvatarRoleItem{ Role::Person,
                         Type::Dimensional,
                         personDimensionPath,
-                        isExistCustomAvatar(personDimensionPath) },
+                        isExistCustomAvatar(personDimensionPath, name) },
         AvatarRoleItem{ Role::Person,
                         Type::Flat,
                         personFlatPath,
-                        isExistCustomAvatar(personFlatPath) },
+                        isExistCustomAvatar(personFlatPath, name) },
         AvatarRoleItem{ Role::Animal,
                         Type::Dimensional,
                         animalDimensionPath,
-                        isExistCustomAvatar(animalDimensionPath) },
+                        isExistCustomAvatar(animalDimensionPath, name) },
         AvatarRoleItem{ Role::Illustration,
                         Type::Dimensional,
                         illustrationDimensionPath,
-                        isExistCustomAvatar(illustrationDimensionPath) },
+                        isExistCustomAvatar(illustrationDimensionPath, name) },
         AvatarRoleItem{ Role::Expression,
                         Type::Dimensional,
                         emojiDimensionPath,
-                        isExistCustomAvatar(emojiDimensionPath) },
+                        isExistCustomAvatar(emojiDimensionPath, name) },
     };
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -167,13 +169,28 @@ QString AvatarListFrame::getAvatarPath() const
     return m_currentAvatarLsv->getAvatarPath();
 }
 
-bool AvatarListFrame::isExistCustomAvatar(const QString &path)
+bool AvatarListFrame::isExistCustomAvatar(const QString &path, const QString &userName)
 {
-    QDir info(path);
+    QDir dir(path);
     QStringList filters{ "*.png", "*.jpg", ".jpeg", ".bmp" }; // 设置过滤类型
-    info.setNameFilters(filters);                             // 设置文件名的过滤
+    dir.setNameFilters(filters);
 
-    return !info.entryInfoList().isEmpty();
+    QFileInfoList list = dir.entryInfoList();
+
+    if (m_role != Custom) {
+        return !list.isEmpty();
+    }
+
+    // 自定义账户页面检查是否存在当前用户自定义头像
+    auto res = std::find_if(list.cbegin(), list.cend(), [ userName ](const QFileInfo &info)->bool{
+        return info.filePath().contains(userName + "-");
+    });
+
+    if (res != list.cend()) {
+        return true;
+    }
+
+    return false;
 }
 
 void AvatarListFrame::updateListView(bool isSave, const int &role, const int &type)

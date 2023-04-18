@@ -54,7 +54,7 @@ public:
     inline int getCurrentListViewType() const { return m_currentAvatarType; }
     inline QSize avatarSize() const { return m_avatarSize; }
 
-    void addCustomAvatar(const QString &path, bool isFirst);
+    void addCustomAvatar(const QString &path);
     void addLastItem();
     void saveAvatar(const QString &path);
     void addItemFromDefaultDir(const QString &path);

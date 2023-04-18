@@ -176,7 +176,7 @@ AvatarListDialog::AvatarListDialog(User *usr)
     connect(m_avatarSelectItem, &DListView::clicked, this, [this, avatarSelectWidget](auto &index) {
         // 如果没有添加自定义头像, 显示自定义添加图像页面
         if (!m_avatarFrames[Custom]->isExistCustomAvatar(
-                    m_avatarFrames[Custom]->getCurrentPath())) {
+                    m_avatarFrames[Custom]->getCurrentPath(), m_curUser->name())) {
             if (index.row() == 3) {
                 avatarSelectWidget->setCurrentIndex(index.row() + 1);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
