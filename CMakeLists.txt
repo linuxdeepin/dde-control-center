@@ -234,17 +234,17 @@ install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 #----------------------------install config------------------------------
 # qm files
 file(GLOB QM_FILES "translations/*.qm")
-install(FILES ${QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations)
 
 #desktop
-install(FILES misc/dde-control-center.desktop DESTINATION share/applications)
+install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 #service
-install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION share/dbus-1/services)
+install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
 # dev files
 file(GLOB HEADERS "include/*")
-set(INCLUDE_INSTALL_DIR include/dde-control-center)
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
 install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
 
 include(CMakePackageConfigHelpers)
@@ -993,7 +993,7 @@ if (BUILD_PLUDIN)
     )
 
     install(TARGETS ${Personalization_Name} DESTINATION ${MODULE_INSTALL_DIR})
-    install(FILES misc/developdocument.html DESTINATION share/dde-control-center)
+    install(FILES misc/developdocument.html DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center)
 endif()
 #--------------------------dcc-personalization-dock-plugin--------------------------
 if (BUILD_PLUDIN)
