@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
 
-set (DVERSION "6.0.13" CACHE STRING "define project version")
-set (BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
+set(DVERSION "6.0.13" CACHE STRING "define project version")
+set(BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
 
 set(PROJECT_NAME dde-control-center)
 project(${PROJECT_NAME}
-  VERSION ${DVERSION}
-  DESCRIPTION "Deepin Control Center"
-  HOMEPAGE_URL "https://github.com/linuxdeepin/dde-control-center"
-  LANGUAGES CXX C
+    VERSION ${DVERSION}
+    DESCRIPTION "Deepin Control Center"
+    HOMEPAGE_URL "https://github.com/linuxdeepin/dde-control-center"
+    LANGUAGES CXX C
 )
 
 set(CMAKE_CXX_STANDARD 17)
@@ -36,15 +36,15 @@ else()
 
     # generate qm
     execute_process(COMMAND bash "misc/translate_generation.sh"
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     # generate desktop translate
     execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 set(BUILD_PLUDIN ON)
 
 if(BUILD_DOCS)
-  add_subdirectory(docs)
+    add_subdirectory(docs)
 endif()
 
 if (NOT BUILD_PLUDIN)
@@ -69,7 +69,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
 
-set (MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
+set(MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 
 add_definitions(-DDefaultModuleDirectory="${MODULE_INSTALL_DIR}")
 add_definitions(-DVARDIRECTORY="${CMAKE_INSTALL_LOCALSTATEDIR}")
@@ -127,8 +127,8 @@ target_link_libraries(${Interface_Name} PRIVATE
 )
 
 set_target_properties(${Interface_Name} PROPERTIES
-  VERSION ${CMAKE_PROJECT_VERSION}
-  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+    VERSION ${CMAKE_PROJECT_VERSION}
+    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
 )
 
 # so
@@ -164,8 +164,8 @@ target_link_libraries(${Dcc_Widgets_Name} PRIVATE
 )
 
 set_target_properties(${Dcc_Widgets_Name} PROPERTIES
-  VERSION ${CMAKE_PROJECT_VERSION}
-  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+    VERSION ${CMAKE_PROJECT_VERSION}
+    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
 )
 # so
 install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -255,7 +255,7 @@ configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 #-------------------------ut-dcc-interface-------------------------
 if (UNITTEST)
@@ -729,7 +729,7 @@ if (BUILD_PLUDIN)
         "src/plugin-keyboard/operation/qrc/keyboard.qrc"
     )
     if (DISABLE_LANGUAGE)
-      add_definitions(-DDCC_DISABLE_LANUGAGE)
+        add_definitions(-DDCC_DISABLE_LANUGAGE)
     endif()
     add_library(${KeyBoard_Name} MODULE
         ${KEYBOARD_SRCS}

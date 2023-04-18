@@ -9,7 +9,7 @@ Copyright: None
 License: CC0-1.0
 
 # config
-Files: .clang-format
+Files: .clang-format .editorconfig
 Copyright: None
 License: CC0-1.0
 
