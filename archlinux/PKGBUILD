@@ -42,7 +42,7 @@ build() {
         -DDISABLE_AUTHENTICATION=ON \
         -DDISABLE_LANGUAGE=ON \
         -DCMAKE_INSTALL_LIBDIR=/usr/lib \
-        -DCMAKE_INSTALL_LOCALSTATEDIR=var
+        -DCMAKE_INSTALL_LOCALSTATEDIR=/var
   ninja
 }
 

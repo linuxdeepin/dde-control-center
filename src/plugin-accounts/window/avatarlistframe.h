@@ -51,7 +51,7 @@ public:
         }
     };
 
-    explicit AvatarListFrame(const int &role, QWidget *parent = nullptr);
+    explicit AvatarListFrame(User * user, const int &role, QWidget *parent = nullptr);
     virtual ~AvatarListFrame() = default;
 
     inline int getCurrentRole() { return m_role; }
@@ -80,7 +80,7 @@ class CustomAddAvatarWidget : public AvatarListFrame
 {
     Q_OBJECT
 public:
-    explicit CustomAddAvatarWidget(const int &role, QWidget *parent = nullptr);
+    explicit CustomAddAvatarWidget(User *user, const int &role, QWidget *parent = nullptr);
     virtual ~CustomAddAvatarWidget();
 
 protected:
@@ -156,7 +156,7 @@ class CustomAvatarWidget : public AvatarListFrame
 {
     Q_OBJECT
 public:
-    explicit CustomAvatarWidget(const int &role, QWidget *parent = nullptr);
+    explicit CustomAvatarWidget(User *user, const int &role, QWidget *parent = nullptr);
     ~CustomAvatarWidget() override = default;
 
     void enableAvatarScaledItem(bool enabled);

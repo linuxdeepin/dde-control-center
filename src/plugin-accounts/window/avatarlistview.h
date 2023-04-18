@@ -5,6 +5,7 @@
 #define AVATARLISVIEW_H
 
 #include "interface/namespace.h"
+#include "src/plugin-accounts/operation/user.h"
 
 #include <DListView>
 
@@ -43,7 +44,7 @@ public:
     };
 
 public:
-    AvatarListView(const int &role,
+    AvatarListView(User *user, const int &role,
                    const int &type,
                    const QString &path,
                    QWidget *parent = nullptr);
@@ -87,6 +88,7 @@ private:
     QSize m_avatarSize;
     QModelIndex m_currentSelectIndex;
     QFileDialog *m_fd;
+    User *m_curUser;
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
 };
 } // namespace DCC_NAMESPACE

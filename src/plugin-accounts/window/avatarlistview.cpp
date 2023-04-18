@@ -31,7 +31,7 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-AvatarListView::AvatarListView(const int &role,
+AvatarListView::AvatarListView(User *user, const int &role,
                                const int &type,
                                const QString &path,
                                QWidget *parent)
@@ -43,6 +43,7 @@ AvatarListView::AvatarListView(const int &role,
     , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(80, 80))
     , m_fd(new QFileDialog(this))
+    , m_curUser(user)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center",
                                 QStringLiteral("org.deepin.dde.control-center.accounts"),
                                 QString(),
@@ -185,6 +186,13 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
         }
 
         QString iconPath = list.at(i).filePath();
+
+        if (m_currentAvatarRole == Custom) {
+            // 过滤掉非当前用户自定义头像
+            if (!iconPath.contains(m_curUser->name() + "-")) {
+                continue;
+            }
+        }
 
         DStandardItem *item = new DStandardItem();
         item->setBackgroundRole(QPalette::ColorRole::Highlight);
