@@ -65,10 +65,10 @@ endif()
 ADD_DEFINITIONS(${SAFE_COMPILER})
 
 # Install settings
-include(GNUInstallDirs)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+include(GNUInstallDirs)
 
 if(BUILD_DOCS)
     add_subdirectory(docs)
@@ -76,8 +76,11 @@ endif()
 
 set(MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 
-add_definitions(-DDefaultModuleDirectory="${MODULE_INSTALL_DIR}")
-add_definitions(-DVARDIRECTORY="${CMAKE_INSTALL_LOCALSTATEDIR}")
+set(MODULE_READ_DIR "${MODULE_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center modules")
+add_definitions(-DDefaultModuleDirectory="${MODULE_READ_DIR}")
+
+set(LOCALSTATE_READ_DIR "${CMAKE_INSTALL_FULL_LOCALSTATEDIR}" CACHE STRING "Dir to find modifiable single-machine data")
+add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)
