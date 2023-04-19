@@ -1,4 +1,10 @@
-dde-control-center (6.0.14) unstable; urgency=medium
+dde-control-center (6.0.15) unstable; urgency=medium
+
+  * fix: 控制中心新建用户时闪退
+
+ -- dengbo <dengbo@uniontech.com>  Wed, 19 Apr 2023 16:47:45 +0800
+
+dde-control-center (6.0.14) unstable; urgency=medium:
 
   * fix: 控制中心用户头像显示异常
   * feat: add docs build
