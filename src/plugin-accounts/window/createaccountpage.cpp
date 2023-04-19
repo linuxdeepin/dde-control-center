@@ -431,9 +431,8 @@ void CreateAccountPage::createUser()
         }
     }
 
-    // 如果用户没有选图像
-    auto avatarPaht = AvatarListFrame(0, 0).getAvatarPath();
-    m_newUser->setCurrentAvatar(avatarPaht);
+    // 如果用户没有选图像, 则从系统头像中随机选择一张图像
+    m_accountWorker->randomUserIcon(m_newUser);
     m_newUser->setName(m_nameEdit->dTextEdit()->lineEdit()->text().simplified());
     m_newUser->setFullname(m_fullnameEdit->dTextEdit()->lineEdit()->text());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());

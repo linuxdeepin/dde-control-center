@@ -60,7 +60,7 @@ public:
 
     QString getAvatarPath() const;
 
-    bool isExistCustomAvatar(const QString &path);
+    bool isExistCustomAvatar(const QString &path, const QString &userName);
 
 public Q_SLOTS:
     void updateListView(bool isSave, const int &role, const int &type);
