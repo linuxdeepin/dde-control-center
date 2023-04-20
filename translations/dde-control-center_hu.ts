@@ -1872,10 +1872,6 @@
         <translation>Memória</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>Licensz</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Megállapodások és adatvédelmi szabályzat</translation>
     </message>
@@ -2732,6 +2728,18 @@ időformátum</translation>
     <message>
         <source>Magic Lamp</source>
         <translation>Mágikus Lámpa</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Kicsi</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Közepes</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Nagy</translation>
     </message>
 </context>
 <context>

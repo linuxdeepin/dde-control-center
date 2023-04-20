@@ -1872,10 +1872,6 @@
         <translation>Pamięć</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>licencja</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Porozumienie i polityka prywatności</translation>
     </message>
@@ -2268,7 +2264,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Large</source>
-        <translation>Ogromny</translation>
+        <translation>Duży</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
@@ -2728,6 +2724,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Magic Lamp</source>
         <translation>Magiczna lampa</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Mały</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Średni</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Duży</translation>
     </message>
 </context>
 <context>

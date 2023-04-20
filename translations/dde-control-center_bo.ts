@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>མི་སྣ།</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>སྲོག་ཆགས།</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>གསར་འཆར་བར་རིས།</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>རྣམ་འགྱུར།</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>རང་སྒྲུབ་རི་མོ།</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>ཉར་ཚགས། </translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>པར་རིས། </translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>པར་རིས། </translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་ཆ་འཕྲིན།</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1870,10 +1870,6 @@
     <message>
         <source>Memory</source>
         <translation>ནང་གསོག</translation>
-    </message>
-    <message>
-        <source>license</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2730,6 +2726,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation>རྫུ་འཕྲུལ་གློག</translation>
     </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2964,7 +2972,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱིར་ཐོན།</translation>
     </message>
     <message>
         <source>Cancel</source>

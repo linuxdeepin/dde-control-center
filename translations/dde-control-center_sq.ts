@@ -1872,10 +1872,6 @@
         <translation>Kujtesë</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>licencë</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Marrëveshje dhe Rregulla Privatësie</translation>
     </message>
@@ -2612,11 +2608,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Kanal i Brendshëm Testimesh</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>klikoni këtu që të hapet lidhja</translation>
     </message>
 </context>
 <context>
@@ -2727,6 +2723,18 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Magic Lamp</source>
         <translation>Llambë Magjike</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2958,11 +2966,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Po kontrollohen versione sistemi, ju lutemi, pritni…</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Braktise</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3185,7 +3193,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Riktheje te parazgjedhja</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3557,15 +3565,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime prej Burimesh të Brendshme Testimesh</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>përditësim i brendshëm</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Merrni Pjesë te Kanali i Brendshëm i Testimeve</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3611,23 +3619,23 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>S’gjendet dot machineid</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Nuk Çinstalohet dot paketa</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Gabim kur dilej nga testingChannel</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>provoni ta çinstaloni paketën dorazi</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>S’instalohet dot paketa</translation>
     </message>
 </context>
 <context>
