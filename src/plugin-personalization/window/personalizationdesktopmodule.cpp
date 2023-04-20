@@ -153,13 +153,13 @@ QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
     auto onWindowRadiusChanged = [winRoundSlider](int radius) {
         if (radius <= 0) {
             winRoundSlider->slider()->setValue(0);
-            winRoundSlider->setValueLiteral("0");
+            winRoundSlider->setValueLiteral(tr("Small"));
         } else if (radius <= 8) {
             winRoundSlider->slider()->setValue(1);
-            winRoundSlider->setValueLiteral("1");
+            winRoundSlider->setValueLiteral(tr("Middle"));
         } else {
             winRoundSlider->slider()->setValue(2);
-            winRoundSlider->setValueLiteral("2");
+            winRoundSlider->setValueLiteral(tr("Large"));
         }
     };
     onWindowRadiusChanged(m_model->windowRadius());
