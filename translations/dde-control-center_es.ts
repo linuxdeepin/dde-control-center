@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Persona</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Animal</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustración</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Expression</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imagen personalizada</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,25 +569,25 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo dimensional</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo plano</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imágenes</translation>
     </message>
 </context>
 <context>
@@ -918,15 +918,15 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>No ha subido una imagen, puede hacer clic o arrastrar para cargar una imagen</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imágenes</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>El tipo de archivo subido es incorrecto, súbalo de nuevo</translation>
     </message>
 </context>
 <context>
@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>Falló la carga de los siguientes complementos</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>los complementos no se pueden cargar a tiempo</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>información del sistema</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1870,10 +1870,6 @@
     <message>
         <source>Memory</source>
         <translation>Memoria</translation>
-    </message>
-    <message>
-        <source>license</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2611,11 +2607,11 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Canal de pruebas internas</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>haga clic aquí abrir el enlace</translation>
     </message>
 </context>
 <context>
@@ -2726,6 +2722,18 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Magic Lamp</source>
         <translation>Lámpara mágica</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2957,11 +2965,11 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Comprobando versión del sistema, por favor espere...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Salir</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3556,15 +3564,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones de fuentes internas de pruebas</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>actualización interna</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Únase al canal de pruebas internas</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3610,23 +3618,23 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>No se puede encontrar el ID de la máquina</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>No se puede desinstalar el paquete</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Error al salir del canal de pruebas</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>intente desinstalar manualmente el paquete</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>No se puede instalar el paquete</translation>
     </message>
 </context>
 <context>

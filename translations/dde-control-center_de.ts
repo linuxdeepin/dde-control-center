@@ -1872,10 +1872,6 @@
         <translation>Speicher</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>Lizenz</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Vereinbarungen und Datenschutzerklärung</translation>
     </message>
@@ -2715,6 +2711,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation>Zauberlampe</translation>
     </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2949,7 +2957,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Verlassen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3548,7 +3556,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>interne Aktualisierung</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>

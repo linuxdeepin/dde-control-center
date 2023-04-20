@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Fərd</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Heyvan</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>İllüstrasiya</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>İfadə</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Xüsusi şəkil</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,25 +569,25 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Saxla</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Ölçülü üslub</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Düz üslub</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Şəkillər</translation>
     </message>
 </context>
 <context>
@@ -918,15 +918,15 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Heç bir şəkil yüklənməyib, bir şəkil yükləmək üçün vurun və ya onu buraya atın</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Şəkillər</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Yüklənmiş fayl növü dəstəklənmir, yenidən yükləməniz xahiş olunur</translation>
     </message>
 </context>
 <context>
@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>bu plaqinləri yükləmək mümkün olmadı</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>plaqinlər vaxtında yüklənmədi</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>sistem məlumatı</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1870,10 +1870,6 @@
     <message>
         <source>Memory</source>
         <translation>Yaddaş</translation>
-    </message>
-    <message>
-        <source>license</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2612,11 +2608,11 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Daxili sınaq kanalı</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>keçidi açmaq üçün buraya vur</translation>
     </message>
 </context>
 <context>
@@ -2727,6 +2723,18 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Magic Lamp</source>
         <translation>Sehirli çıraq</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2958,11 +2966,11 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Sistem versiyası yoxlanılır, lütfən gösləyin...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Tərk et</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3557,15 +3565,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Daxili sınaq mənbələrindən yenilənmələr</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>Daxili yenilənmə</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Daxili sınaq kanalına qoşul</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3611,23 +3619,23 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>Kompyuter ID-sini tapmaq mümkün deyil</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Paketi silmək mümkün deyil</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Sınaq kanalından çıxış zamanı xəta</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>paketi əl ilə silməyə cəhd et</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>Paketi quraşdırmaq mümkün deyil</translation>
     </message>
 </context>
 <context>

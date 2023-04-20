@@ -1872,10 +1872,6 @@
         <translation>Geheugen:</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>Licentie</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Algemene voorwaarden en privacybeleid</translation>
     </message>
@@ -2718,6 +2714,18 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Magic Lamp</source>
         <translation>Magische lamp</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Klein</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Normaal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Groot</translation>
     </message>
 </context>
 <context>

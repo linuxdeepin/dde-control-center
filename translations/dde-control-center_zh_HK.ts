@@ -1872,10 +1872,6 @@
         <translation>內存</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>license</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>協議和私隱政策</translation>
     </message>
@@ -2728,6 +2724,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Magic Lamp</source>
         <translation>魔燈</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>小</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大</translation>
     </message>
 </context>
 <context>

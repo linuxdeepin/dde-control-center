@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Henkilö</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Eläin</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Kuvitus</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Ilmaisu</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Kuva</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,25 +569,25 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Kuvat</translation>
     </message>
 </context>
 <context>
@@ -918,15 +918,15 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Et ole ladannut kuvaa, voit ladata kuvan painikkeesta tai vetämällä</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Kuvat</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu tiedostotyyppi on virheellinen, lataa uudelleen</translation>
     </message>
 </context>
 <context>
@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>seuraavien laajennusten lataus epäonnistui</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>laajennuksia ei voi ladata tällä hetkellä</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>järjestelmän tiedot</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1870,10 +1870,6 @@
     <message>
         <source>Memory</source>
         <translation>Muisti</translation>
-    </message>
-    <message>
-        <source>license</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2613,11 +2609,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Sisäinen testauskanava</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>avaa linkki painamalla tästä</translation>
     </message>
 </context>
 <context>
@@ -2728,6 +2724,18 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Magic Lamp</source>
         <translation>Taikalamppu</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2959,11 +2967,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistetaan järjestelmän versioita, odota...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Poistu</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3558,15 +3566,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Päivitykset testauslähteistä</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen päivitys</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Liity testauskanavaan</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3612,23 +3620,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>Konetunnusta ei löydy</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Paketin asennusta ei voi poistaa</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Virhe poistuessa testauskanavasta</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>yritä poistaa paketti manuaalisesti</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>Pakettia ei voi asentaa</translation>
     </message>
 </context>
 <context>

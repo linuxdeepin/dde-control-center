@@ -1872,10 +1872,6 @@
         <translation>Memory</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>license</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Agreements and Privacy Policy</translation>
     </message>
@@ -2728,6 +2724,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Magic Lamp</source>
         <translation>Magic Lamp</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Small</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Middle</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Large</translation>
     </message>
 </context>
 <context>
