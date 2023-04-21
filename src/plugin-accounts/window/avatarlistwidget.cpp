@@ -239,6 +239,9 @@ AvatarListDialog::AvatarListDialog(User *usr)
         const QString path = getAvatarPath();
         if (!path.isEmpty() && path != m_curUser->currentAvatar()) {
             Q_EMIT requestSaveAvatar(path);
+
+            // 成功设置头像后关闭窗口
+            close();
         }
     });
     connect(cancelButton, &QPushButton::clicked, this, &AvatarListDialog::close);

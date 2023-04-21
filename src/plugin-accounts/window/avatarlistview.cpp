@@ -26,6 +26,8 @@
 
 const int MaxAvatarSize = 20;
 const int MaxCustomAvatarSize = 4;
+const QString VarDirectory = QStringLiteral(VARDIRECTORY);
+const QString DefaultAvatar = QStringLiteral("lib/AccountsService/icons/animal/dimensional/raccoon.png");
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -322,8 +324,15 @@ void AvatarListView::setCurrentAvatarChecked(const QString &avatar)
         return;
 
     QString currentAvatar = avatar;
-    if (avatar.startsWith("file://"))
-        currentAvatar = QUrl(avatar).toLocalFile();
+    const QString urlPre = "file://";
+    // 如果是默认的头像, 需要将路径换成实际的路径
+    if (currentAvatar.contains("default")) {
+        const auto defaultAvatar = QString("%1%2/%3").arg(urlPre).arg(VarDirectory).arg(DefaultAvatar);
+        currentAvatar = defaultAvatar;
+    }
+
+    if (currentAvatar.startsWith(urlPre))
+        currentAvatar = QUrl(currentAvatar).toLocalFile();
 
     if (!QFile(currentAvatar).exists())
         return;
