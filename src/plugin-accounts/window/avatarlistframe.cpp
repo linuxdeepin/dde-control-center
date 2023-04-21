@@ -25,6 +25,8 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+const QString VarDirectory = QStringLiteral(VARDIRECTORY);
+
 // 系统用户头像存放路径
 const QString PersonDimensionalPath = QStringLiteral("lib/AccountsService/icons/human/dimensional");
 const QString PersonFlatPath = QStringLiteral("lib/AccountsService/icons/human/flat");
