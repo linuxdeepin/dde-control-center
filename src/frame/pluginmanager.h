@@ -45,7 +45,6 @@ public Q_SLOTS:
 Q_SIGNALS:
     void loadedModule(const PluginData &data);
     void loadAllFinished();
-    void requestForceContinue();
 
 private:
     ModuleObject *findModule(ModuleObject *module, const QString &name);

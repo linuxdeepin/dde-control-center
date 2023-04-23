@@ -194,9 +194,9 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
     watcher->setFuture(m_future);
 
     QtConcurrent::run([this] {
-        // NOTE: wait for all plugin for 5 seconds, if timeout and run with sync
+        // NOTE: wait for all plugin for 10 seconds, if timeout and run with sync
         // then watcher will be finished
-        QThread::sleep(5);
+        QThread::sleep(10);
         std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
         if (!m_pluginsStatus.isEmpty()) {
             qWarning() << "Some plugins not loaded in time";
@@ -211,13 +211,14 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
                     .appBody(failedmessage)
                     .call();
         }
-        emit requestForceContinue();
     });
     if (!async) {
-        QEventLoop loop;
-        connect(this, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
-        connect(this, &PluginManager::requestForceContinue, &loop, &QEventLoop::quit);
-        loop.exec();
+        for (int i = 0; i < 50; i++) {
+            QThread::msleep(100);
+            if (watcher->isFinished()) {
+                break;
+            }
+        }
     }
 }
 
