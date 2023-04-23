@@ -215,7 +215,7 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
     if (!async) {
         for (int i = 0; i < 50; i++) {
             QThread::msleep(100);
-            if (watcher->isFinished()) {
+            if (m_pluginsStatus.isEmpty()) {
                 break;
             }
         }
