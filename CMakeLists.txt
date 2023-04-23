@@ -48,10 +48,6 @@ else()
 endif()
 set(BUILD_PLUDIN ON)
 
-if(BUILD_DOCS)
-    add_subdirectory(docs)
-endif()
-
 if (NOT BUILD_PLUDIN)
     set(UNITTEST OFF)
 endif()
@@ -73,6 +69,10 @@ include(GNUInstallDirs)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+
+if(BUILD_DOCS)
+    add_subdirectory(docs)
+endif()
 
 set(MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 

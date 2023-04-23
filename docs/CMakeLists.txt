@@ -1,6 +1,6 @@
 find_package(Doxygen REQUIRED)
 
-set(QCH_INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/qt${QT_VERSION_MAJOR}/doc CACHE STRING "QCH install location")
+set(QCH_INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/qt5/doc CACHE STRING "QCH install location")
 
 find_program(QHelpGenerator_EXECUTABLE NAMES qhelpgenerator-qt5 qhelpgenerator)
 
