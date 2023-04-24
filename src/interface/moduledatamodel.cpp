@@ -107,12 +107,14 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
     for (auto &&tmpModule : m_parentObject->childrens()) {
         if (tmpModule == module)
             break;
-        if (!tmpModule->extra())
+        if (!tmpModule->extra() && !tmpModule->isHidden())
             row++;
     }
+    Q_ASSERT(row <= rowCount(QModelIndex()));
     beginInsertRows(QModelIndex(), row, row);
     m_data.insert(row, module);
     endInsertRows();
+
     ModuleObject *maxOne =
             *std::max_element(m_data.begin(), m_data.end(), [](ModuleObject *a, ModuleObject *b) {
                 return a->displayName().length() > b->displayName().length();
