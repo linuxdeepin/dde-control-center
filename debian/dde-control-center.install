@@ -1,4 +1,7 @@
 usr/bin/
 usr/lib/*/*.so.*
 usr/lib/*/dde-control-center/modules/*.so
-usr/share/
+usr/share/dde-control-center/
+usr/share/dsg/
+usr/share/applications/
+usr/share/dbus-1/
