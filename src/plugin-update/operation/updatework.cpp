@@ -1842,13 +1842,14 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
     connect(watcher,
             &QFutureWatcher<CanExitTestingChannelStatus>::finished,
             this,
-            [watcher, dialog, &wantexit] {
+            [watcher, dialog, label] {
                 watcher->deleteLater();
                 auto result = watcher->result();
                 if (result == CanExitTestingChannelStatus::CheckError) {
-                    wantexit = result;
-                    dialog->close();
-                    return;
+                    label->setText(tr("It is maybe unsafe for you to leave the internal testing "
+                                      "channel now, do you still want to leave?"));
+                } else {
+                    label->setText(tr("Your are safe to leave the internal testing channel"));
                 }
                 dialog->setDisabled(false);
             });
@@ -1891,6 +1892,8 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
             // Does the package exists only in the internal test source
             auto sources = getSourcesOfPackage(pkg, version);
             if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
+                dpkgProcess.close();
+                qDebug() << "internal package is" << pkg;
                 return CanExitTestingChannelStatus::CheckError;
             }
         }
