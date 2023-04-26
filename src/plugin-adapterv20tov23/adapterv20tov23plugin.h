@@ -63,8 +63,6 @@ public:
     virtual QString follow() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
 
-private:
-    AdapterV20toV23Root* m_moduleRoot;
 };
 
 #endif // ADAPTERV20TOV23PLUGIN_H

@@ -160,7 +160,6 @@ void AdapterV20toV23Root::insertModule(bool append)
 ///////////////////////////
 AdapterV20toV23Plugin::AdapterV20toV23Plugin(QObject *parent)
     : PluginInterface(parent)
-    , m_moduleRoot(new AdapterV20toV23Root())
 {
 }
 
@@ -180,6 +179,7 @@ QString AdapterV20toV23Plugin::follow() const
 
 DCC_NAMESPACE::ModuleObject *AdapterV20toV23Plugin::module()
 {
-    m_moduleRoot->init();
-    return m_moduleRoot;
+    auto root = new AdapterV20toV23Root;
+    root->init();
+    return root;
 }
