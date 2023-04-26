@@ -53,7 +53,7 @@ void SystemInfoModule::active()
 void SystemInfoModule::initChildModule()
 {
     // 二级菜单--关于本机
-    ModuleObject *moduleAboutPc = new PageModule("aboutThisPc", tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
+    ModuleObject *moduleAboutPc = new PageModule("aboutThisPc", tr("About This PC"), this);
     appendChild(moduleAboutPc);
 
     moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));

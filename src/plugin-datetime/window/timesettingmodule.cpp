@@ -44,7 +44,7 @@ protected:
 };
 
 TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : PageModule("timeSettings", tr("Time Settings"), QIcon::fromTheme("dcc_TimeSetting"), parent)
+    : PageModule("timeSettings", tr("Time Settings"), parent)
     , m_model(model)
     , m_work(work)
 {
