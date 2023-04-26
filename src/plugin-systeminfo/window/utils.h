@@ -11,24 +11,24 @@
 #include <QSettings>
 
 const static QString serverEnduserAgreement_new =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.txt";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.%2";
 const static QString serverEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/"
-        "End-User-License-Agreement-Server-CN-%1.txt";
+        "End-User-License-Agreement-Server-CN-%1.%2";
 const static QString eulerServerEnduserAgreement_new =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-Euler-%1.txt";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-Euler-%1.%2";
 const static QString homeEnduserAgreement_new =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Home-CN-%1.txt";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Home-CN-%1.%2";
 const static QString homeEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/"
-        "End-User-License-Agreement-Home-CN-%1.txt";
+        "End-User-License-Agreement-Home-CN-%1.%2";
 const static QString professionalEnduserAgreement_new =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.txt";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.%2";
 const static QString professionalEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/"
-        "End-User-License-Agreement-Professional-CN-%1.txt";
+        "End-User-License-Agreement-Professional-CN-%1.%2";
 const static QString educationEnduserAgreement =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Education-CN-%1.txt";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Education-CN-%1.%2";
 
 static const QStringList DCC_CONFIG_FILES{
     "/etc/deepin/dde-control-center.conf", "/usr/share/dde-control-center/dde-control-center.conf"
@@ -130,26 +130,26 @@ inline const QString getLicenseText(const QString &filePath, const QString &type
 [[maybe_unused]] inline QString getUserExpContent()
 {
     QString userExpContent = getLicensePath("/usr/share/protocol/userexperience-agreement/"
-                                            "User-Experience-Program-License-Agreement-CN-%1.md",
-                                            "");
+                                            "User-Experience-Program-License-Agreement-CN-%1.%2",
+                                            "md");
     if (DSysInfo::isCommunityEdition()) {
         userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
                                         "User-Experience-Program-License-Agreement-Community/"
-                                        "User-Experience-Program-License-Agreement-CN-%1.md",
-                                        "");
+                                        "User-Experience-Program-License-Agreement-CN-%1.%2",
+                                        "md");
         return userExpContent;
     }
     QFile newfile(userExpContent);
     if (false == newfile.exists()) {
         userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
                                         "User-Experience-Program-License-Agreement/"
-                                        "User-Experience-Program-License-Agreement-CN-%1.md",
-                                        "");
+                                        "User-Experience-Program-License-Agreement-CN-%1.%2",
+                                        "md");
         QFile file(userExpContent);
         if (false == file.exists()) {
             userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
-                                            "User-Experience-Program-License-Agreement-%1.md",
-                                            "");
+                                            "User-Experience-Program-License-Agreement-%1.%2",
+                                            "md");
         }
     }
     return userExpContent;
@@ -162,8 +162,8 @@ inline QString getEndUserAgreement()
         return QFile::exists(bodypath_old)
                 ? getLicenseText(serverEnduserAgreement_old, "")
                 : getLicenseText("/usr/share/deepin-deepinid-client/privacy/"
-                                 "End-User-License-Agreement-%1.txt",
-                                 "");
+                                 "End-User-License-Agreement-%1.%2",
+                                 "txt");
     };
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer) {
         const QString bodypath_new = getLicensePath(serverEnduserAgreement_new, "");
@@ -185,8 +185,8 @@ inline QString getEndUserAgreement()
             return getLicenseText(educationEnduserAgreement, "");
         }
     } else {
-        const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "");
-        return QFile::exists(bodypath_new) ? getLicenseText(professionalEnduserAgreement_new, "")
+        const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "txt");
+        return QFile::exists(bodypath_new) ? getLicenseText(professionalEnduserAgreement_new, "txt")
                                            : licenseOldGet(professionalEnduserAgreement_old);
     }
     return QString();
@@ -194,13 +194,13 @@ inline QString getEndUserAgreement()
 
 inline QString getEulerEndUserAgreement()
 {
-    const QString bodypath_new = getLicensePath(eulerServerEnduserAgreement_new, "");
+    const QString bodypath_new = getLicensePath(eulerServerEnduserAgreement_new, "txt");
     if (QFile::exists(bodypath_new)) {
-        return getLicenseText(eulerServerEnduserAgreement_new, "");
+        return getLicenseText(eulerServerEnduserAgreement_new, "txt");
     } else {
         return getLicenseText(
-                "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt",
-                "");
+                "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.%2",
+                "txt");
     }
 }
 
