@@ -6,7 +6,7 @@
 #define MIMEDBUSPROXY_H
 
 #include <QObject>
-
+#include <QDBusPendingReply>
 class QDBusInterface;
 class QDBusMessage;
 
@@ -16,7 +16,7 @@ class MimeDBusProxy : public QObject
 public:
     explicit MimeDBusProxy(QObject *parent = nullptr);
 
-    void SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId);
+    QDBusPendingReply<void> SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId);
     void DeleteApp(const QStringList &mimeTypes, const QString &desktopId);
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);

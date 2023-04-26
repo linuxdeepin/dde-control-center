@@ -19,11 +19,11 @@ MimeDBusProxy::MimeDBusProxy(QObject *parent)
     connect(m_mimeInter, SIGNAL(Change()), this, SIGNAL(Change()), Qt::QueuedConnection);
 }
 
-void MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId)
+QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(mimeTypes) << QVariant::fromValue(desktopId);
-    m_mimeInter->asyncCallWithArgumentList("SetDefaultApp", argumentList);
+    return m_mimeInter->asyncCallWithArgumentList("SetDefaultApp", argumentList);
 }
 
 void MimeDBusProxy::DeleteApp(const QStringList &mimeTypes, const QString &desktopId)
