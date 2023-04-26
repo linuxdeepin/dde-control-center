@@ -74,6 +74,9 @@ if(BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
+set(TRANSLATE_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations" CACHE STRING "Install dir for dde-control-center translate files")
+
+add_definitions(-DTRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${TRANSLATE_INSTALL_DIR}")
 set(MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 
 set(MODULE_READ_DIR "${MODULE_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center modules")
@@ -242,7 +245,7 @@ install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 #----------------------------install config------------------------------
 # qm files
 file(GLOB QM_FILES "translations/*.qm")
-install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations)
+install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 
 #desktop
 install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
