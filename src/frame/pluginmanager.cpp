@@ -8,6 +8,7 @@
 #include "interface/plugininterface.h"
 #include "utils.h"
 
+#include <DGuiApplicationHelper>
 #include <DNotifySender>
 
 #include <QCoreApplication>
@@ -28,28 +29,7 @@ std::mutex PLUGIN_LOAD_GUARD;
 
 using namespace DCC_NAMESPACE;
 
-bool compareVersion(const QString &targetVersion, const QString &baseVersion)
-{
-    const QStringList &version1 = baseVersion.split(".");
-    const QStringList &version2 = targetVersion.split(".");
-
-    const auto size = qAbs<int>(version1.size() - version2.size());
-
-    for (int i = 0; i < size; ++i) {
-        // 相等判断下一个子版本号
-        if (version1[i] == version2[i])
-            continue;
-
-        // 转成整形比较
-        if (version1[i].toInt() > version2[i].toInt()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    return true;
-}
+const static QString TranslateReadDir = QStringLiteral(TRANSLATE_READ_DIR);
 
 bool comparePluginLocation(PluginInterface const *target1, PluginInterface const *target2)
 {
@@ -100,10 +80,6 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
         return data;
     }
     const QJsonObject &meta = loader->metaData().value("MetaData").toObject();
-    if (!compareVersion(meta.value("api").toString(), "1.0.0")) {
-        qWarning() << QString("The version of plugin: %1 is too low!").arg(fileName);
-        return data;
-    }
 
     PluginInterface *plugin = qobject_cast<PluginInterface *>(loader->instance());
     if (!plugin) {
@@ -118,20 +94,6 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     data.Plugin->setParent(nullptr);
     data.Plugin->moveToThread(qApp->thread());
     qInfo() << QString("load plugin: %1 end, using time: %2 ms").arg(fileName).arg(et.elapsed());
-    return data;
-}
-
-PluginData loadModule(const QPair<PluginManager *, QString> &pair)
-{
-    return loadPlugin(pair);
-}
-
-PluginData loadAndGetModule(const QPair<PluginManager *, QString> &pair)
-{
-    PluginData &&data = loadPlugin(pair);
-    if (data.Plugin) {
-        getModule({ pair.first, data });
-    }
     return data;
 }
 
@@ -177,15 +139,31 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
         m_pluginsStatus.push_back(filepath);
     }
 
-    std::function<PluginData(const QPair<PluginManager *, QString> &pair)> loadModuleAndRecord =
-            [this](const QPair<PluginManager *, QString> &pair) {
-                auto plugin = loadAndGetModule(pair);
-                std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
-                m_pluginsStatus.remove(m_pluginsStatus.indexOf(pair.second));
-                return plugin;
-            };
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
-    m_future = QtConcurrent::mapped(libraryNames, loadModuleAndRecord);
+    std::function<QPair<PluginData, QString>(const QPair<PluginManager *, QString> &pair)>
+            loadPluginAndRecord = [](const QPair<PluginManager *, QString> &pair) {
+                auto plugin = loadPlugin(pair);
+                return QPair{ plugin, pair.second };
+            };
+    auto results = QtConcurrent::mapped(libraryNames, loadPluginAndRecord).results();
+    using Dtk::Gui::DGuiApplicationHelper;
+    for (const auto &re : results) {
+        if (re.first.Plugin) {
+            DGuiApplicationHelper::loadTranslator(re.first.Plugin->name(),
+                                                  { TranslateReadDir },
+                                                  QList<QLocale>() << QLocale::system());
+        }
+    }
+    std::function<PluginData(const QPair<PluginData, QString>)> loadModuleAndRecord =
+            [this](const QPair<PluginData, QString> &data) {
+                if (data.first.Plugin) {
+                    getModule({ this, data.first });
+                }
+                std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
+                m_pluginsStatus.remove(m_pluginsStatus.indexOf(data.second));
+                return data.first;
+            };
+    m_future = QtConcurrent::mapped(results, loadModuleAndRecord);
     connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
         // 加载非一级插件
         insertChild(true);
