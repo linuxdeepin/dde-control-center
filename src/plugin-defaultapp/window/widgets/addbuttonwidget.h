@@ -14,7 +14,6 @@ QT_BEGIN_NAMESPACE
 class QFileDialog;
 QT_END_NAMESPACE
 
-class DefAppWorker;
 class AddButtonWidget : public QWidget
 {
     Q_OBJECT

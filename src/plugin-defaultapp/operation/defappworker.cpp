@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappworker.h"
 #include "defappmodel.h"
+#include <QDBusPendingCall>
 #include <QStringList>
 #include <QList>
 #include <QFileInfo>
@@ -48,8 +49,20 @@ void DefAppWorker::deactive()
 void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
-    m_dbusManager->SetDefaultApp(mimelist, item.Id);
-    qDebug() << "setting MIME " << category << "to " <<  item.Id;
+
+    QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimelist, item.Id);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [call, watcher, this, item, category] {
+        if (!call.isError()) {
+            qDebug() << "Setting MIME " << category << "to " <<  item.Id;
+            auto tosetCategory = getCategory(category);
+            tosetCategory->setDefault(item);
+        } else {
+            qWarning() << "Cannot set MIME" << category << "to" << item.Id;
+        }
+        watcher->deleteLater();
+    });
+
 }
 
 void DefAppWorker::onGetListApps()
