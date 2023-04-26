@@ -244,14 +244,15 @@ void SystemInfoModule::initGnuLicenseModule(VersionProtocolWidget *item)
     } else {
         QFutureWatcher<QPair<QString, QString>> *w =
                 new QFutureWatcher<QPair<QString, QString>>(this);
-        w->setFuture(QtConcurrent::run([this] {
-            return m_work->getGNULicenseText();
-        }));
 
         connect(w, &QFutureWatcher<QPair<QString, QString>>::finished, this, [=] {
             const auto r = w->result();
             item->setLicense(r);
         });
+
+        w->setFuture(QtConcurrent::run([this] {
+            return m_work->getGNULicenseText();
+        }));
     }
 }
 
@@ -261,14 +262,15 @@ void SystemInfoModule::initUserLicenseModule(UserLicenseWidget *item)
         item->setUserLicense(m_model->endUserAgreement().value());
     } else {
         QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
-        w->setFuture(QtConcurrent::run([this] {
-            return m_work->getEndUserAgreementText();
-        }));
 
         connect(w, &QFutureWatcher<QString>::finished, this, [=] {
             const auto r = w->result();
             item->setUserLicense(r);
         });
+
+        w->setFuture(QtConcurrent::run([this] {
+            return m_work->getEndUserAgreementText();
+        }));
     }
 }
 
