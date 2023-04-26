@@ -1,3 +1,8 @@
+\mainpage dde-control-center
+@brief dde-control-center
+
+# dde-control-center
+
 ## 接口变更记录
 
 | 时间| 版本|说明| 控制中心版本号|
@@ -14,10 +19,27 @@
 2. V23控制中心支持多级插件系统，支持插件插入到任意位置中
 3. 更方便、更精确的搜索功能
 4. 高度可定制，可定制任意插件是否显示，若插件支持，可定制任意插件内容是否显示
+
+## V23控制中心插件安装路径必要说明
+
+1. 控制中心会自动加载翻译，翻译目录需要严格放置在 `/${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations`下，控制中心会自动加载，同时，插件的翻译和名称也有要求，命名为`${Plugin_name}_{locale}.ts`,locale 就是多语言的翻译，翻译文件必须控制和插件名称相同
+2. 控制中心的so应该放置在`/${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules`下，请使用构建系统的提供的gnuinstall路径，上面举的例子是cmake, mesonbuild也有自己的逻辑
+
+## V23控制中心插件开发必要说明
+
+控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以
+
+```bash
+dde-control-center --spec ./build
+```
+
+来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件
+
 ## V23控制中心开发接口说明
 
 1. ModuleObject类用于构建每个页面元素，其是插件的核心
 2. PluginInterface类用于规范插件信息，每个插件必须提供一个ModuleObject对象。
+
 ### ModuleObject基本信息说明
 
 |名称|数据类型|说明|
