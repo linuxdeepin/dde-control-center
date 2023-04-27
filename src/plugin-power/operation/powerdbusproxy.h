@@ -4,6 +4,7 @@
 #ifndef POWERDBUSPROXY_H
 #define POWERDBUSPROXY_H
 
+#include <qdbusargument.h>
 #include <QObject>
 class QDBusInterface;
 class QDBusMessage;
@@ -114,11 +115,18 @@ signals:
     void PowerSavingModeEnabledChanged(bool value) const;
     void HasBatteryChanged(bool value) const;
     void PowerSavingModeAutoWhenBatteryLowChanged(bool value) const;
-    void BatteryPercentageChanged(const QVariantMap &battery) const;
     void PowerSavingModeBrightnessDropPercentChanged(uint value) const;
     void ModeChanged(const QString &value) const;
     void BatteryCapacityChanged(double value) const;
 
+    // unused signals
+    void BatteryPercentageChanged(const QDBusArgument &) const;
+    void BatteryPercentageChanged(double value) const;
+    void BatteryTimeToEmptyChanged(const qulonglong &) const;
+    void BatteryTimeToFullChanged(const qulonglong &) const;
+    void BatteryStatusChanged(const QDBusArgument &) const;
+    void BatteryStatusChanged(uint) const;
+    void OnBatteryChanged(bool) const;
 public slots:
     // SystemPower
     void SetMode(const QString &mode);
