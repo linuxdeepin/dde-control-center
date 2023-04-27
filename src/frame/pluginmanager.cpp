@@ -149,6 +149,13 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
     using Dtk::Gui::DGuiApplicationHelper;
     for (const auto &re : results) {
         if (re.first.Plugin) {
+            QString qmFile = QString("%1/%2_%3.qm")
+                                     .arg(TranslateReadDir)
+                                     .arg(re.first.Plugin->name())
+                                     .arg(QLocale::system().name());
+            if (!QFile::exists(qmFile)) {
+                continue;
+            }
             DGuiApplicationHelper::loadTranslator(re.first.Plugin->name(),
                                                   { TranslateReadDir },
                                                   QList<QLocale>() << QLocale::system());
