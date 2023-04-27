@@ -66,7 +66,6 @@ public:
         return m_haveBettary;
     }
     void setHaveBettary(bool haveBettary);
-    void setBatteryPercentage(double batteryPercentage);
 
     bool getDoubleCompare(const double value1, const double value2);
 
@@ -141,7 +140,6 @@ Q_SIGNALS:
     void haveBettaryChanged(bool haveBettary);
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
-    void batteryPercentageChanged(double batteryPercentage);
     //------------------------sp2 add-------------------------------
     void powerSavingModeAutoWhenQuantifyLowChanged(const bool state);
     void powerSavingModeAutoChanged(const bool state);

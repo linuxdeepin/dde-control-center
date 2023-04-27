@@ -162,15 +162,6 @@ void PowerModel::setHaveBettary(bool haveBettary)
     Q_EMIT haveBettaryChanged(haveBettary);
 }
 
-void PowerModel::setBatteryPercentage(double batteryPercentage)
-{
-    if (!getDoubleCompare(batteryPercentage, m_batteryPercentage))
-        return;
-
-    m_batteryPercentage = batteryPercentage;
-
-    Q_EMIT batteryPercentageChanged(batteryPercentage);
-}
 
 bool PowerModel::getDoubleCompare(const double value1, const double value2)
 {

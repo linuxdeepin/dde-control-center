@@ -59,8 +59,6 @@ PowerModule::PowerModule(QObject *parent)
     m_model->setShutdown(true);
 #endif
     connect(m_model, &PowerModel::haveBettaryChanged, this, &PowerModule::onBatteryChanged);
-    connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
-
     //-------------------------------------------
     if (!IsServerSystem) {
         appendChild(new GeneralModule(m_model, m_work, this));
@@ -87,27 +85,6 @@ void PowerModule::onBatteryChanged(const bool &state)
         removeChild(m_useBattery);
         m_useBattery->deleteLater();
         m_useBattery = nullptr;
-    }
-}
-//done: 遗留问题，控制中心不应该发电量低通知
-void PowerModule::onBatteryPercentageChanged(const double value)
-{
-    if (!m_model->getDoubleCompare(m_nBatteryPercentage, value)) {
-        m_nBatteryPercentage = value;
-
-        QString remindData = "";
-        if (m_model->getDoubleCompare(value, 20.0)
-            || m_model->getDoubleCompare(value, 15.0)
-            || m_model->getDoubleCompare(value, 10.0)) {
-            remindData = tr("Battery low, please plug in");
-        } else if (m_model->getDoubleCompare(value, 5.0)) {
-            remindData = tr("Battery critically low");
-        }
-
-        //send system info
-        if ("" != remindData) {
-            Dtk::Core::DUtil::DNotifySender(remindData.toLatin1().data());
-        }
     }
 }
 

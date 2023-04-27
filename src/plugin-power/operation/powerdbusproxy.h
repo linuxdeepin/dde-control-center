@@ -113,8 +113,8 @@ signals:
     void PowerSavingModeAutoChanged(bool value) const;
     void PowerSavingModeEnabledChanged(bool value) const;
     void HasBatteryChanged(bool value) const;
-    void BatteryPercentageChanged(double value) const;
     void PowerSavingModeAutoWhenBatteryLowChanged(bool value) const;
+    void BatteryPercentageChanged(const QVariantMap &battery) const;
     void PowerSavingModeBrightnessDropPercentChanged(uint value) const;
     void ModeChanged(const QString &value) const;
     void BatteryCapacityChanged(double value) const;
