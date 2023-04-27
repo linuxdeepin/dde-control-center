@@ -105,6 +105,10 @@ void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
 
 void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
 {
+    if (!updateItemInfo) {
+        return;
+    }
+
     deleteUpdateInfo(m_systemUpdateInfo);
 
     m_systemUpdateInfo = updateItemInfo;
@@ -122,6 +126,10 @@ void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
 
 void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
 {
+    if (!updateItemInfo) {
+        return;
+    }
+
     deleteUpdateInfo(m_safeUpdateInfo);
     m_safeUpdateInfo = updateItemInfo;
     connect(m_safeUpdateInfo,
@@ -138,6 +146,10 @@ void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
 
 void UpdateModel::setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo)
 {
+    if (!updateItemInfo) {
+        return;
+    }
+
     deleteUpdateInfo(m_unknownUpdateInfo);
     m_unknownUpdateInfo = updateItemInfo;
     connect(m_unknownUpdateInfo,
