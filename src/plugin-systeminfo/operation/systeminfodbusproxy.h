@@ -5,11 +5,12 @@
 #define SYSTEMINFODBUSPROXY_H
 
 #include "interface/namespace.h"
-#include <QObject>
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+#include <DDBusInterface>
+
+using Dtk::Core::DDBusInterface;
+
+#include <QObject>
 
 class SystemInfoDBusProxy : public QObject
 {
@@ -34,9 +35,9 @@ public slots:
     void Show();
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_hostname1Inter;
-    DCC_NAMESPACE::DCCDBusInterface *m_licenseInfoInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_licenseActivatorInter;
+    DDBusInterface *m_hostname1Inter;
+    DDBusInterface *m_licenseInfoInter;
+    DDBusInterface *m_licenseActivatorInter;
 };
 
 #endif // SYSTEMINFODBUSPROXY_H

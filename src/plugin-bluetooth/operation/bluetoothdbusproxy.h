@@ -7,13 +7,13 @@
 
 #include "interface/namespace.h"
 
+#include <DDBusInterface>
 #include <QObject>
 class QDBusInterface;
 class QDBusMessage;
 class QDBusObjectPath;
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+
+using Dtk::Core::DDBusInterface;
 
 class BluetoothDBusProxy : public QObject
 {
@@ -82,8 +82,8 @@ public Q_SLOTS: // METHODS
     void SetAdapterDiscoverable(const QDBusObjectPath &adapter, bool discoverable);
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_bluetoothInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_airPlaneModeInter;
+    DDBusInterface *m_bluetoothInter;
+    DDBusInterface *m_airPlaneModeInter;
 };
 
 #endif // BLUETOOTHDBUSPROXY_H

@@ -40,11 +40,11 @@ DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
 
 void DisplayDBusProxy::init()
 {
-    m_dBusSystemDisplayInter = new DCC_NAMESPACE::DCCDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::systemBus(), this);
-    m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
-    m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
-    m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
-    m_dBusCooperationInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, CooperationPath, CooperationInterface, QDBusConnection::sessionBus(), this);
+    m_dBusSystemDisplayInter = new DDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::systemBus(), this);
+    m_dBusDisplayInter = new DDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
+    m_dBusAppearanceInter = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
+    m_dBusPowerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
+    m_dBusCooperationInter = new DDBusInterface(CooperationService, CooperationPath, CooperationInterface, QDBusConnection::sessionBus(), this);
 }
 
 //power

@@ -6,14 +6,13 @@
 
 #include <QObject>
 #include <QDBusPendingReply>
-#include "widgets/dccdbusinterface.h"
+
+#include <DDBusInterface>
 
 class QDBusInterface;
 class QDBusMessage;
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class MachineDBusProxy : public QObject
 {
@@ -59,7 +58,7 @@ private slots:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusMachineInter;
+    DDBusInterface *m_dBusMachineInter;
     QString m_cooperationMachinePath;
 };
 

@@ -19,7 +19,7 @@ const static QString PermissionInterface = QStringLiteral("org.desktopspec.permi
 using namespace DCC_NAMESPACE;
 PrivacySecurityDBusProxy::PrivacySecurityDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_privacyInter(new DCCDBusInterface(PermissionService, PermissionPath, PermissionInterface, QDBusConnection::sessionBus(), this))
+    , m_privacyInter(new DDBusInterface(PermissionService, PermissionPath, PermissionInterface, QDBusConnection::sessionBus(), this))
 {
     connect(this, &PrivacySecurityDBusProxy::PermissionInfoChanged, this, &PrivacySecurityDBusProxy::getPermissionInfo);
 }

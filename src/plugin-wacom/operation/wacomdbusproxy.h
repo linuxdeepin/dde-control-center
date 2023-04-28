@@ -6,14 +6,15 @@
 
 #include "interface/namespace.h"
 
+#include <DDBusInterface>
+
 #include <QObject>
+
 class QDBusInterface;
 class QDBusMessage;
 class QDBusObjectPath;
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class WacomDBusProxy :public QObject
 {
@@ -43,7 +44,7 @@ Q_SIGNALS:
     void EraserPressureSensitiveChanged(uint  value) const;
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_inputWacomInter;
+    DDBusInterface *m_inputWacomInter;
 };
 
 #endif // WACOMDBUSPROXY_H

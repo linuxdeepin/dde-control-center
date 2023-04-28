@@ -33,9 +33,9 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 using namespace DCC_NAMESPACE;
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_audioInter(new DCCDBusInterface(AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))
-    , m_soundEffectInter(new DCCDBusInterface(SoundEffectService, SoundEffectPath, SoundEffectInterface, QDBusConnection::sessionBus(), this))
-    , m_powerInter(new DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::systemBus(), this))
+    , m_audioInter(new DDBusInterface(AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))
+    , m_soundEffectInter(new DDBusInterface(SoundEffectService, SoundEffectPath, SoundEffectInterface, QDBusConnection::sessionBus(), this))
+    , m_powerInter(new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::systemBus(), this))
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
@@ -158,7 +158,7 @@ void SoundDBusProxy::setSinkDevicePath(const QString &path)
     if (m_defaultSink) {
         m_defaultSink->deleteLater();
     }
-    m_defaultSink = new DCCDBusInterface(AudioService, path, SinkInterface, QDBusConnection::sessionBus(), this);
+    m_defaultSink = new DDBusInterface(AudioService, path, SinkInterface, QDBusConnection::sessionBus(), this);
     m_defaultSink->setSuffix("Sink");
 }
 
@@ -225,7 +225,7 @@ void SoundDBusProxy::setSourceDevicePath(const QString &path)
         m_defaultSource->deleteLater();
     }
 
-    m_defaultSource = new DCCDBusInterface(AudioService, path, SourceInterface, QDBusConnection::sessionBus(), this);
+    m_defaultSource = new DDBusInterface(AudioService, path, SourceInterface, QDBusConnection::sessionBus(), this);
     m_defaultSource->setSuffix("Source");
 }
 
@@ -273,7 +273,7 @@ void SoundDBusProxy::setMeterDevicePath(const QString &path)
     if (m_sourceMeter) {
         m_sourceMeter->deleteLater();
     }
-    m_sourceMeter = new DCCDBusInterface(AudioService, path, MeterInterface, QDBusConnection::sessionBus(), this);
+    m_sourceMeter = new DDBusInterface(AudioService, path, MeterInterface, QDBusConnection::sessionBus(), this);
     m_sourceMeter->setSuffix("Meter");
 }
 

@@ -22,7 +22,7 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateJobDBusProxy::UpdateJobDBusProxy(const QString &jobPath, QObject *parent)
     : QObject(parent)
-    , m_updateJobInter(new DCC_NAMESPACE::DCCDBusInterface(
+    , m_updateJobInter(new DDBusInterface(
               UpdaterService, jobPath, UpdaterJobInterface, QDBusConnection::systemBus(), this))
 {
 }

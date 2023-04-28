@@ -28,9 +28,9 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
-    , m_licenseInfoInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
-    , m_licenseActivatorInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
+    , m_hostname1Inter(new DDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
+    , m_licenseInfoInter(new DDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
+    , m_licenseActivatorInter(new DDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
 {
 }
 

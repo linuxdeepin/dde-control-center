@@ -12,13 +12,13 @@
 #include "types/touchscreeninfolist.h"
 #include "types/screenrect.h"
 
+#include <DDBusInterface>
+
 #include <QObject>
 #include <QDBusPendingReply>
 #include <QDBusReply>
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 class QDBusMessage;
 
 class DisplayDBusProxy : public QObject
@@ -172,11 +172,11 @@ Q_SIGNALS: // SIGNALS
     void FilesStoragePathChanged(const QString& path) const;
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusSystemDisplayInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusAppearanceInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusPowerInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusCooperationInter;  // 协同连接
+    DDBusInterface *m_dBusDisplayInter;
+    DDBusInterface *m_dBusSystemDisplayInter;
+    DDBusInterface *m_dBusAppearanceInter;
+    DDBusInterface *m_dBusPowerInter;
+    DDBusInterface *m_dBusCooperationInter;  // 协同连接
 };
 
 #endif // DISPLAYDBUSPROXY_H

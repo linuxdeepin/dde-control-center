@@ -5,7 +5,9 @@
 #define UPDATEJOBDBUSPROXY_H
 
 #include <QObject>
-#include <dccdbusinterface.h>
+#include <DDBusInterface>
+
+using Dtk::Core::DDBusInterface;
 
 class QDBusMessage;
 class QDBusInterface;
@@ -71,7 +73,7 @@ signals:
     void TypeChanged(const QString & value) const;
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_updateJobInter;
+    DDBusInterface *m_updateJobInter;
 };
 
 #endif // UPDATEJOBDBUSPROXY_H

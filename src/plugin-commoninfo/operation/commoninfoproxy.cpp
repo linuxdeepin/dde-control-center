@@ -41,13 +41,13 @@ const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 CommonInfoProxy::CommonInfoProxy(QObject *parent)
     : QObject(parent)
-    , m_grubInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
-    , m_grubThemeInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
-    , m_grubEditAuthInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubEditAuthPath, GrubEditAuthInterface, QDBusConnection::systemBus(), this))
-    , m_deepinIdInter(new DCC_NAMESPACE::DCCDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
-    , m_licenseInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
-    , m_userexperienceInter(new DCC_NAMESPACE::DCCDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
-    , m_notificationInter(new DCC_NAMESPACE::DCCDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
+    , m_grubInter(new DDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
+    , m_grubThemeInter(new DDBusInterface(GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
+    , m_grubEditAuthInter(new DDBusInterface(GrubService, GrubEditAuthPath, GrubEditAuthInterface, QDBusConnection::systemBus(), this))
+    , m_deepinIdInter(new DDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
+    , m_licenseInter(new DDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
+    , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
+    , m_notificationInter(new DDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
 {
 }
 

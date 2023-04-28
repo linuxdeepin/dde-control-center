@@ -17,7 +17,7 @@ using namespace DCC_NAMESPACE;
 
 WacomDBusProxy::WacomDBusProxy(QObject *parent)
     : QObject (parent)
-    , m_inputWacomInter(new DCCDBusInterface(WacomService, WacomPath, WacomInterface, QDBusConnection::sessionBus(), this))
+    , m_inputWacomInter(new DDBusInterface(WacomService, WacomPath, WacomInterface, QDBusConnection::sessionBus(), this))
 {
 
 }
