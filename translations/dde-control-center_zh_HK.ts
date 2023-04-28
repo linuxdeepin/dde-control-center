@@ -2103,7 +2103,7 @@
     </message>
     <message>
         <source>Video</source>
-        <translation>影片播放</translation>
+        <translation>影片</translation>
     </message>
     <message>
         <source>Picture</source>
@@ -3617,6 +3617,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>第三方倉庫</translation>
+    </message>
+    <message>
+        <source>It is maybe unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>退出內測通道可能是不安全的，您確定退出嗎？</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>您可以安全退出內測通道</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>

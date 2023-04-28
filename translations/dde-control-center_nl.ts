@@ -3609,6 +3609,14 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Externe pakketbronnen</translation>
     </message>
     <message>
+        <source>It is maybe unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>Als je het interne testkanaal nu verlaat, kan je systeem mogelijk beschadigd raken. Weet je het zeker?</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Het is veilig om het interne testkanaal te verlaten</translation>
+    </message>
+    <message>
         <source>Cannot find machineid</source>
         <translation>Geen computer-id aangetroffen</translation>
     </message>
