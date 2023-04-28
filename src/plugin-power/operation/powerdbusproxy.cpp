@@ -31,14 +31,12 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 PowerDBusProxy::PowerDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
-    , m_sysPowerInter(new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
-    , m_login1ManagerInter(new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_upowerInter(new QDBusInterface(UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
+    , m_powerInter(new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_sysPowerInter(new DDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
+    , m_login1ManagerInter(new DDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
+    , m_upowerInter(new DDBusInterface(UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
 
 {
-    QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(SysPowerService, SysPowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 // power
@@ -310,12 +308,4 @@ bool PowerDBusProxy::login1ManagerCanHibernate()
     QDBusPendingReply<QString> reply = m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanHibernate"), argumentList);
     reply.waitForFinished();
     return reply.value().contains("yes");
-}
-
-void PowerDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }
