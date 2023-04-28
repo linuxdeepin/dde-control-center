@@ -5,9 +5,10 @@
 #define POWERDBUSPROXY_H
 
 #include <QObject>
+#include <DDBusInterface>
 class QDBusInterface;
 class QDBusMessage;
-
+using Dtk::Core::DDBusInterface;
 class PowerDBusProxy : public QObject
 {
     Q_OBJECT
@@ -129,14 +130,11 @@ public slots:
     bool login1ManagerCanSuspend();
     bool login1ManagerCanHibernate();
 
-private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_powerInter;
-    QDBusInterface *m_sysPowerInter;
-    QDBusInterface *m_login1ManagerInter;
-    QDBusInterface *m_upowerInter;
+    DDBusInterface *m_powerInter;
+    DDBusInterface *m_sysPowerInter;
+    DDBusInterface *m_login1ManagerInter;
+    DDBusInterface *m_upowerInter;
 };
 
 #endif // POWERDBUSPROXY_H
