@@ -10,37 +10,37 @@
 #include <QLocale>
 #include <QSettings>
 
-const static QString serverEnduserAgreement_new =
+inline const static QString serverEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.%2";
-const static QString serverEnduserAgreement_old =
+inline const static QString serverEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/"
         "End-User-License-Agreement-Server-CN-%1.%2";
-const static QString eulerServerEnduserAgreement_new =
+inline const static QString eulerServerEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-Euler-%1.%2";
-const static QString homeEnduserAgreement_new =
+inline const static QString homeEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Home-CN-%1.%2";
-const static QString homeEnduserAgreement_old =
+inline const static QString homeEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/"
         "End-User-License-Agreement-Home-CN-%1.%2";
-const static QString professionalEnduserAgreement_new =
+inline const static QString professionalEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.%2";
-const static QString professionalEnduserAgreement_old =
+inline const static QString professionalEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/"
         "End-User-License-Agreement-Professional-CN-%1.%2";
-const static QString educationEnduserAgreement =
+inline const static QString educationEnduserAgreement =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Education-CN-%1.%2";
 
-static const QStringList DCC_CONFIG_FILES{
+inline static const QStringList DCC_CONFIG_FILES{
     "/etc/deepin/dde-control-center.conf", "/usr/share/dde-control-center/dde-control-center.conf"
 };
 
-static const QMap<QString, QString> SYSTEM_LOCAL_MAP{
+inline static const QMap<QString, QString> SYSTEM_LOCAL_MAP{
     { "zh_CN", "zh_CN" },
     { "zh_HK", "zh_HK" },
     { "zh_TW", "zh_TW" },
 };
 
-static const QStringList SYSTEM_LOCAL_LIST{
+inline static const QStringList SYSTEM_LOCAL_LIST{
     "zh_CN",
     "zh_HK",
     "zh_TW",

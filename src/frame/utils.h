@@ -22,6 +22,6 @@ QByteArray getFileMd5(const QString &filePath);
 ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
 QString GetUrlByModule(ModuleObject *const module);
 
-const QString PLUGIN_DIRECTORY = QStringLiteral(DefaultModuleDirectory);
-const QString OLD_PLUGIN_DIRECTORY = QStringLiteral("/usr/lib/dde-control-center/modules/");
+inline const QString PLUGIN_DIRECTORY = QStringLiteral(DefaultModuleDirectory);
+inline const QString OLD_PLUGIN_DIRECTORY = QStringLiteral("/usr/lib/dde-control-center/modules/");
 }
