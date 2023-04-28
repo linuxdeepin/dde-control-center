@@ -14,23 +14,24 @@
 
 DCORE_USE_NAMESPACE
 
-const double Epsion = 1e-6;
-const QString SystemUpdateType = QStringLiteral("system_upgrade");
-const QString AppStoreUpdateType = QStringLiteral("appstore_upgrade");
-const QString SecurityUpdateType = QStringLiteral("security_upgrade");
-const QString UnknownUpdateType = QStringLiteral("unknown_upgrade");
+inline constexpr double Epsion = 1e-6;
+inline const QString SystemUpdateType = QStringLiteral("system_upgrade");
+inline const QString AppStoreUpdateType = QStringLiteral("appstore_upgrade");
+inline const QString SecurityUpdateType = QStringLiteral("security_upgrade");
+inline const QString UnknownUpdateType = QStringLiteral("unknown_upgrade");
 
-const DSysInfo::UosType UosType = DSysInfo::uosType();
-const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);          // 是否是服务器版
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition); // 是否是社区版
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition); // 是否是专业版
-const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);                 // 是否是个人版
-const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition);       // 是否是教育版
-const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType()); // 是否是Deepin桌面
+inline const DSysInfo::UosType UosType = DSysInfo::uosType();
+inline const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
+inline const bool IsServerSystem = (DSysInfo::UosServer == UosType); // 是否是服务器版
+inline const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition); // 是否是社区版
+inline const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition); // 是否是专业版
+inline const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);           // 是否是个人版
+inline const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
+inline const bool IsDeepinDesktop =
+        (DSysInfo::DeepinDesktop == DSysInfo::deepinType()); // 是否是Deepin桌面
 
-const QString TestingChannelPackage = QStringLiteral("deepin-unstable-source");
-const QString ServiceLink = QStringLiteral("https://insider.deepin.org");
+inline const QString TestingChannelPackage = QStringLiteral("deepin-unstable-source");
+inline const QString ServiceLink = QStringLiteral("https://insider.deepin.org");
 
 enum UpdatesStatus {
     Default,
