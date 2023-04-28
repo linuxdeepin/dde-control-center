@@ -7,9 +7,10 @@
 #include <QObject>
 #include "interface/namespace.h"
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+#include <DDBusInterface>
+
+using Dtk::Core::DDBusInterface;
+
 
 class PrivacySecurityDBusProxy : public QObject
 {
@@ -37,7 +38,7 @@ Q_SIGNALS:
     void permissionEnableLoadFinished(const bool loadState);
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_privacyInter;
+    DDBusInterface *m_privacyInter;
 };
 
 #endif // SECURITYDBUSPROXY_H

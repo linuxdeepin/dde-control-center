@@ -45,10 +45,10 @@ KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
 
 void KeyboardDBusProxy::init()
 {
-    m_dBusLangSelectorInter = new DCC_NAMESPACE::DCCDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeyboardInter = new DCC_NAMESPACE::DCCDBusInterface(KeyboardService, KeyboardPath, KeyboardInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeybingdingInter = new DCC_NAMESPACE::DCCDBusInterface(KeybingdingService, KeybingdingPath, KeybingdingInterface, QDBusConnection::sessionBus(), this);
-    m_dBusWMInter = new DCC_NAMESPACE::DCCDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
+    m_dBusLangSelectorInter = new DDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this);
+    m_dBusKeyboardInter = new DDBusInterface(KeyboardService, KeyboardPath, KeyboardInterface, QDBusConnection::sessionBus(), this);
+    m_dBusKeybingdingInter = new DDBusInterface(KeybingdingService, KeybingdingPath, KeybingdingInterface, QDBusConnection::sessionBus(), this);
+    m_dBusWMInter = new DDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
 }
 
 void KeyboardDBusProxy::langSelectorStartServiceProcess()

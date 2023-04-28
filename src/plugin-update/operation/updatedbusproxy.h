@@ -6,6 +6,8 @@
 
 #include "interface/namespace.h"
 
+#include <DDBusInterface>
+
 #include <QDBusObjectPath>
 #include <QDBusPendingReply>
 #include <QObject>
@@ -13,9 +15,7 @@
 typedef QMap<QString, QStringList> LastoreUpdatePackagesInfo;
 typedef QMap<QString, double> BatteryPercentageInfo;
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class QDBusMessage;
 class QDBusInterface;
@@ -111,11 +111,11 @@ signals:
     void RunningChanged(bool value) const;
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_hostname1Inter;
-    DCC_NAMESPACE::DCCDBusInterface *m_updateInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_managerInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_powerInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_atomicUpgradeInter;
+    DDBusInterface *m_hostname1Inter;
+    DDBusInterface *m_updateInter;
+    DDBusInterface *m_managerInter;
+    DDBusInterface *m_powerInter;
+    DDBusInterface *m_atomicUpgradeInter;
 };
 
 #endif // UPDATEDBUSPROXY_H

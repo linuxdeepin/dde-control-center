@@ -6,14 +6,15 @@
 
 #include "interface/namespace.h"
 #include "audioport.h"
+
+#include <DDBusInterface>
+
 #include <QDBusObjectPath>
 #include <QObject>
 
 typedef QMap<QString, bool> SoundEffectQuestions;
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class QDBusMessage;
 class SoundDBusProxy : public QObject
@@ -159,13 +160,13 @@ Q_SIGNALS:
     void VolumeMeterChanged(double value) const;
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_audioInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_soundEffectInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_powerInter;
+    DDBusInterface *m_audioInter;
+    DDBusInterface *m_soundEffectInter;
+    DDBusInterface *m_powerInter;
 
-    DCC_NAMESPACE::DCCDBusInterface *m_defaultSink;
-    DCC_NAMESPACE::DCCDBusInterface *m_defaultSource;
-    DCC_NAMESPACE::DCCDBusInterface *m_sourceMeter;
+    DDBusInterface *m_defaultSink;
+    DDBusInterface *m_defaultSource;
+    DDBusInterface *m_sourceMeter;
 };
 
 #endif // SOUNDDBUSPROXY_H

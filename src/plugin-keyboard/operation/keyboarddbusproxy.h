@@ -6,11 +6,16 @@
 #define KEYBOARDDBUSPROXY_H
 
 #include "interface/namespace.h"
+
+#include <DDBusInterface>
+
 #include <QObject>
 #include <QDBusPendingReply>
 
 class QDBusInterface;
 class QDBusMessage;
+
+using Dtk::Core::DDBusInterface;
 
 typedef QMap<QString, QString> KeyboardLayoutList;
 
@@ -189,10 +194,10 @@ private:
     void init();
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusLangSelectorInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusKeyboardInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusKeybingdingInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusWMInter;
+    DDBusInterface *m_dBusLangSelectorInter;
+    DDBusInterface *m_dBusKeyboardInter;
+    DDBusInterface *m_dBusKeybingdingInter;
+    DDBusInterface *m_dBusWMInter;
 };
 
 Q_DECLARE_METATYPE(KeyboardLayoutList)

@@ -6,10 +6,9 @@
 
 #include "interface/namespace.h"
 #include <QObject>
+#include <DDBusInterface>
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class CommonInfoProxy : public QObject
 {
@@ -87,11 +86,11 @@ Q_SIGNALS: // SIGNALS
     void resetGrubEditAuthEnabled();
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_grubInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_grubThemeInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_grubEditAuthInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_deepinIdInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_licenseInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_userexperienceInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_notificationInter;
+    DDBusInterface *m_grubInter;
+    DDBusInterface *m_grubThemeInter;
+    DDBusInterface *m_grubEditAuthInter;
+    DDBusInterface *m_deepinIdInter;
+    DDBusInterface *m_licenseInter;
+    DDBusInterface *m_userexperienceInter;
+    DDBusInterface *m_notificationInter;
 };

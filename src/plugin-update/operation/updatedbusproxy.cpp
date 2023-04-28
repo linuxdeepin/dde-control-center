@@ -41,19 +41,19 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(
+    , m_hostname1Inter(new DDBusInterface(
               HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
-    , m_updateInter(new DCC_NAMESPACE::DCCDBusInterface(
+    , m_updateInter(new DDBusInterface(
               UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
-    , m_managerInter(new DCC_NAMESPACE::DCCDBusInterface(
+    , m_managerInter(new DDBusInterface(
               ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_powerInter(new DCC_NAMESPACE::DCCDBusInterface(
+    , m_powerInter(new DDBusInterface(
               PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
-    , m_atomicUpgradeInter(new DCC_NAMESPACE::DCCDBusInterface(AtomicUpdaterService,
-                                                               AtomicUpdaterPath,
-                                                               AtomicUpdaterJobInterface,
-                                                               QDBusConnection::systemBus(),
-                                                               this))
+    , m_atomicUpgradeInter(new DDBusInterface(AtomicUpdaterService,
+                                              AtomicUpdaterPath,
+                                              AtomicUpdaterJobInterface,
+                                              QDBusConnection::systemBus(),
+                                              this))
 
 {
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");

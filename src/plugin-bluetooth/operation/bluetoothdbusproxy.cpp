@@ -22,8 +22,8 @@ using namespace DCC_NAMESPACE;
 
 BluetoothDBusProxy::BluetoothDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_bluetoothInter(new DCCDBusInterface(BluetoothService, BluetoothPath, BluetoothInterface, QDBusConnection::sessionBus(), this))
-    , m_airPlaneModeInter(new DCCDBusInterface(AirPlaneModeService, AirPlaneModePath, AirPlaneModeInterface, QDBusConnection::systemBus(), this))
+    , m_bluetoothInter(new DDBusInterface(BluetoothService, BluetoothPath, BluetoothInterface, QDBusConnection::sessionBus(), this))
+    , m_airPlaneModeInter(new DDBusInterface(AirPlaneModeService, AirPlaneModePath, AirPlaneModeInterface, QDBusConnection::systemBus(), this))
 {
 }
 

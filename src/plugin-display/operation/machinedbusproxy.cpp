@@ -18,7 +18,7 @@ MachineDBusProxy::MachineDBusProxy(QString cooperationMachinePath, QObject *pare
     const static QString CooperationService = "org.deepin.dde.Cooperation1";
     const static QString CooperationInterface = "org.deepin.dde.Cooperation1.Machine";
 
-    m_dBusMachineInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
+    m_dBusMachineInter = new DDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
     QDBusConnection dbusConnection = m_dBusMachineInter->connection();
     dbusConnection.connect(CooperationService, m_cooperationMachinePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
