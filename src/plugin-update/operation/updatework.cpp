@@ -1846,7 +1846,7 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
                 watcher->deleteLater();
                 auto result = watcher->result();
                 if (result == CanExitTestingChannelStatus::CheckError) {
-                    label->setText(tr("It is maybe unsafe for you to leave the internal testing "
+                    label->setText(tr("It may be unsafe for you to leave the internal testing "
                                       "channel now, do you still want to leave?"));
                 } else {
                     label->setText(tr("Your are safe to leave the internal testing channel"));
