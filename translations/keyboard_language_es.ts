@@ -550,12 +550,12 @@
         <translation>Chino simplificado</translation>
     </message>
     <message>
-        <source>繁體中文(香港)</source>
-        <translation>Chino tradicional (Hong Kong)</translation>
+        <source>繁體中文（中國香港）</source>
+        <translation>Chino tradicional (RAE de Hong Kong, China)</translation>
     </message>
     <message>
-        <source>正體中文</source>
-        <translation>Chino tradicional</translation>
+        <source>繁體中文（中國臺灣）</source>
+        <translation>Chino tradicional (Taiwan, China)</translation>
     </message>
     <message>
         <source>isiZulu</source>

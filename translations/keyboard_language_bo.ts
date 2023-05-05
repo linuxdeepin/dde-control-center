@@ -550,12 +550,12 @@
         <translation>ཟོར་ཡང་རྒྱ་ཡིག</translation>
     </message>
     <message>
-        <source>繁體中文(香港)</source>
-        <translation>ཟོར་ལྕིའི་རྒྱ་ཡིག(ཤང་ཀང་།)</translation>
+        <source>繁體中文（中國香港）</source>
+        <translation>ཟོར་ལྕིའི་རྒྱ་ཡིག (ཀྲུང་གོའི་ཞང་ཀང་།)</translation>
     </message>
     <message>
-        <source>正體中文</source>
-        <translation>གཟབ་ཅན་རྒྱ་ཡིག</translation>
+        <source>繁體中文（中國臺灣）</source>
+        <translation>ཟོར་ལྕིའི་རྒྱ་ཡིག (ཀྲུང་གོའི་ཐའེ་ཝན་)</translation>
     </message>
     <message>
         <source>isiZulu</source>
