@@ -547,15 +547,15 @@
     </message>
     <message>
         <source>简体中文</source>
-        <translation>Chinese (China)</translation>
+        <translation>Simplified Chinese</translation>
     </message>
     <message>
-        <source>繁體中文(香港)</source>
-        <translation>Chinese (Hong Kong)</translation>
+        <source>繁體中文（中國香港）</source>
+        <translation>Tranditional Chinese (Hong Kong SAR, China)</translation>
     </message>
     <message>
-        <source>正體中文</source>
-        <translation>Chinese (Taiwan)</translation>
+        <source>繁體中文（中國臺灣）</source>
+        <translation>Tranditional Chinese (Taiwan, China)</translation>
     </message>
     <message>
         <source>isiZulu</source>

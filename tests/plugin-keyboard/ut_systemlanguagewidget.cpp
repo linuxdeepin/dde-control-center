@@ -47,7 +47,7 @@ TEST_F(Tst_SystemLanguageWidget, widget)
     la.append("zh_HK.UTF-8");
     strList.append("简体中文");
     strList.append("日本語");
-    strList.append("繁體中文(香港)");
+    strList.append("繁體中文（中國香港）");
     strList.append("British English");
     model->setLocaleLang(la);
     emit model->curLocalLangChanged(strList);

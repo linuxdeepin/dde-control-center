@@ -550,12 +550,12 @@
         <translation>ئاددىيلاشتۇرۇلغان خەنزۇ تىلى</translation>
     </message>
     <message>
-        <source>繁體中文(香港)</source>
-        <translation>مۇرەككەپ خەنزۇ تىلى (شياڭگاڭ)</translation>
+        <source>繁體中文（中國香港）</source>
+        <translation>مۇرەككەپ خەنزۇ تىلى (جۇڭگو شياڭگاڭ)</translation>
     </message>
     <message>
-        <source>正體中文</source>
-        <translation>قېلىپلاشقان خەنزۇ تىلى</translation>
+        <source>繁體中文（中國臺灣）</source>
+        <translation>مۇرەككەپ خەنزۇ تىلى (تەيۋەن ، جۇڭگو)</translation>
     </message>
     <message>
         <source>isiZulu</source>
