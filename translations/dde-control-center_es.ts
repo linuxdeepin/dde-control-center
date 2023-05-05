@@ -2725,15 +2725,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"/>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
 </context>
 <context>
@@ -3615,6 +3615,14 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Third-party Repositories</source>
         <translation>Repositorios de terceros</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Está seguro de abandonar el canal de pruebas internas</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>

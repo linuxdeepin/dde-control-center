@@ -3619,7 +3619,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>第三方仓库</translation>
     </message>
     <message>
-        <source>It is maybe unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
         <translation>退出内测通道可能是不安全的，您确定退出吗？</translation>
     </message>
     <message>

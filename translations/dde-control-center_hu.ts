@@ -3623,6 +3623,14 @@ időformátum</translation>
         <translation>Harmadik féltől származó adattárak</translation>
     </message>
     <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>Nem biztonságos, ha most elhagyja a belső tesztelési csatornát, továbbra is el akarja hagyni azt?</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Biztonságosan elhagyhatja a belső tesztelési csatornát</translation>
+    </message>
+    <message>
         <source>Cannot find machineid</source>
         <translation>A Gép azonosító nem található</translation>
     </message>

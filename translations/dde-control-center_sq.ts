@@ -3618,6 +3618,14 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Depo Palësh të Treta</translation>
     </message>
     <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>S’ka rrezik për ju, nëse e braktisni kanalin e brendshëm të testimeve</translation>
+    </message>
+    <message>
         <source>Cannot find machineid</source>
         <translation>S’gjendet dot machineid</translation>
     </message>

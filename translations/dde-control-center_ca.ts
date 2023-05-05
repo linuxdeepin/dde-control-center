@@ -1872,10 +1872,6 @@
         <translation>Memòria</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>llicència</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Agraïments i política de privadesa</translation>
     </message>
@@ -2612,11 +2608,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Canal de proves intern</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>cliqueu aquí per obrir l&apos;enllaç</translation>
     </message>
 </context>
 <context>
@@ -2727,6 +2723,18 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Magic Lamp</source>
         <translation>Làmpada màgica</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Petit</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Mitjà</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Gros</translation>
     </message>
 </context>
 <context>
@@ -2958,11 +2966,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Es comproven les versions del sistema. Espereu, si us plau...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Surt</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3557,15 +3565,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions de fonts de proves internes</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>actualització interna</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Uniu-vos al canal de proves internes</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3610,24 +3618,32 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Repositoris de tercers</translation>
     </message>
     <message>
-        <source>Cannot find machineid</source>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>És segur sortir del canal de proves intern.</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>No es pot trobar l&apos;identificador de la màquina.</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>No es pot desinstal·lar el paquet</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Error en sortir del canal de prova</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>proveu de desinstal·lar manualment el paquet</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>No es pot instal·lar el paquet.</translation>
     </message>
 </context>
 <context>
