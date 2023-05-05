@@ -545,23 +545,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Osoba</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Zvíře</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustrace</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Vyjádření</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Vlastní obrázek</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -569,25 +569,25 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Uložit</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Rozměrový styl</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Plochý styl</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Obrázky</translation>
     </message>
 </context>
 <context>
@@ -918,15 +918,15 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Ještě jste nenahráli obrázek, můžete jej nahrát kliknutím nebo přetažením.</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Nahraný typ souboru je nesprávný, nahrajte jej prosím znovu</translation>
     </message>
 </context>
 <context>
@@ -1241,7 +1241,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Rozvržení klávesnice</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1437,15 +1437,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Upozornění z aplikací</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Upozornění</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Systémová upozornění</translation>
     </message>
 </context>
 <context>
@@ -1471,11 +1471,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>následující zásuvné moduly se nepodařilo načíst</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>zásuvné moduly nelze včas načíst</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>Informace o systému</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1870,10 +1870,6 @@
     <message>
         <source>Memory</source>
         <translation>Operační paměť</translation>
-    </message>
-    <message>
-        <source>license</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2613,11 +2609,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Kanál interního testování</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>klikněte zde, abyste otevřeli odkaz</translation>
     </message>
 </context>
 <context>
@@ -2728,6 +2724,18 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <message>
         <source>Magic Lamp</source>
         <translation>Džin z lampy</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Malý</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Střední</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Velký</translation>
     </message>
 </context>
 <context>
@@ -2959,11 +2967,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Zjišťuje se verze systému, prosím, čekejte...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Opustit</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3558,15 +3566,15 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace z vnitřních zkušebních zdrojů</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>Interní testování</translation>
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Připojte se ke vnitřnímu zkušebnímu kanálu</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3611,24 +3619,32 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Repozitáře třetích stran</translation>
     </message>
     <message>
-        <source>Cannot find machineid</source>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Můžete bezpečně opustit interní testovací kanál</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>Nedaří se nalézt machineid</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Nedaří se odinstalovat balíček</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Chyba při opouštění testovacího kanálu</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>pokuste se odinstalovat balíček ručně</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>Nedaří se nainstalovat balíček</translation>
     </message>
 </context>
 <context>

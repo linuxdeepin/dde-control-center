@@ -1872,10 +1872,6 @@
         <translation>Пам&apos;ять</translation>
     </message>
     <message>
-        <source>license</source>
-        <translation>ліцензування</translation>
-    </message>
-    <message>
         <source>Agreements and Privacy Policy</source>
         <translation>Угоди і правила конфіденційності</translation>
     </message>
@@ -2728,6 +2724,18 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Magic Lamp</source>
         <translation>Магічна лампа</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Малий</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Середній</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Великий</translation>
     </message>
 </context>
 <context>
@@ -3609,6 +3617,14 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Third-party Repositories</source>
         <translation>Сторонні сховища</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Ви можете безпечно полишити внутрішній канал тестування</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>

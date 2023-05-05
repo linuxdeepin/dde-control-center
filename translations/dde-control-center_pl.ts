@@ -598,7 +598,7 @@
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation>Opóźnienie uruchamiania</translation>
+        <translation>Opóźnienie startu systemu</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -957,7 +957,7 @@
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ten skrót powoduje konflikt z %1, kliknij Dodaj, aby ten skrót od razu zadziałał</translation>
+        <translation>Ten skrót jest w konflikcie z %1, kliknij Dodaj, aby go nadpisać</translation>
     </message>
 </context>
 <context>
@@ -988,7 +988,7 @@
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ten skrót powoduje konflikt z %1, kliknij Dodaj, aby ten skrót od razu zadziałał</translation>
+        <translation>Ten skrót jest w konflikcie z %1, kliknij Dodaj, aby go nadpisać</translation>
     </message>
 </context>
 <context>
@@ -1808,7 +1808,7 @@
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Ten skrót powoduje konflikt z %1, kliknij Zastąp, aby ten skrót od razu zadziałał</translation>
+        <translation>Ten skrót jest w konflikcie z %1, kliknij Zastąp, aby go nadpisać</translation>
     </message>
 </context>
 <context>
@@ -1841,7 +1841,7 @@
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nazwa OS</translation>
+        <translation>Nazwa systemu</translation>
     </message>
     <message>
         <source>Version</source>
@@ -2069,18 +2069,18 @@
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation>Aby ustawić strefę czasową systemu wymagane jest uwierzytelnienie</translation>
+        <translation>Wymagane jest uwierzytelnienie, aby ustawić strefę czasową systemu</translation>
     </message>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>Uwierzytelnienie jest wymagane do zmiany serwera NTP</translation>
+        <translation>Wymagane jest uwierzytelnienie do zmiany serwera NTP</translation>
     </message>
 </context>
 <context>
     <name>DefAppModule</name>
     <message>
         <source>Default Applications</source>
-        <translation>Domyślne programy</translation>
+        <translation>Programy domyślne</translation>
     </message>
 </context>
 <context>
@@ -3451,7 +3451,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Niepowodzenie aktualizacji: za mało miejsca na dysku</translation>
+        <translation>Aktualizacja nie powiodła się: za mało miejsca na dysku</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -3617,6 +3617,14 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Third-party Repositories</source>
         <translation>Zewnętrzne repozytoria</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>Opuszczenie wewnętrznego kanału testowego teraz może być niebezpieczne. Czy na pewno chcesz opuścić?</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Możesz bezpiecznie opuścić wewnętrzny kanał testowy</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>

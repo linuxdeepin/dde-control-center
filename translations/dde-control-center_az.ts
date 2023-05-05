@@ -2726,15 +2726,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Kiçik</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"/>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Böyük</translation>
     </message>
 </context>
 <context>
@@ -3616,6 +3616,14 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Third-party Repositories</source>
         <translation>Üçüncü tərəf repazitoriyaları</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>İnternet sınaq kanalını tərk etməniz təhlükəsizdir</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
