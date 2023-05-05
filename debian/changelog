@@ -1,8 +1,18 @@
+dde-control-center (6.0.18) unstable; urgency=medium
+
+  * fix: wrong package for doc
+  * chore: add a readme for doc
+  * chore: adjust internal channel logic
+  * fix: a lot of qt warning
+  * feat: change logic to load translations
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Fri, 5 May 2023 10:23:35 +0800
+
 dde-control-center (6.0.17) unstable; urgency=medium
 
   * fix: load plugin logic
   * chore: add document package
-  * feat: read path form READ_DIR instead of INSTALL_DIR 
+  * feat: read path form READ_DIR instead of INSTALL_DIR
 
  -- chenhongtao <chenhongtao@uniontech.com>  Sun, 23 Apr 2023 16:28:35 +0800
 
@@ -296,8 +306,8 @@ dde-control-center (6.0.0.2) UNRELEASED; urgency=medium
 
 dde-control-center (6.0.0.001) unstable; urgency=low
   * update interface version
- -- guoyao <guoyao@uniontech.com>  Web, 1 June 2022 09:36:33 +0000
+ -- guoyao <guoyao@uniontech.com>  Web, 1 June 2022 09:36:33 +0800
 
 dde-control-center (1.0.0-1) unstable; urgency=low
   * dde-control-center for v23
- -- guoyao <guoyao@uniontech.com>  Mon, 14 Mar 2022 09:42:33 +0000
+ -- guoyao <guoyao@uniontech.com>  Mon, 14 Mar 2022 09:42:33 +0800
