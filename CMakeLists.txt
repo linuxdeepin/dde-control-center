@@ -52,12 +52,12 @@ if (NOT BUILD_PLUDIN)
     set(UNITTEST OFF)
 endif()
 # GNU 默认
-set(SAFE_COMPILER "-fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
+set(SAFE_COMPILER "-fstack-protector-strong -D_FORTIFY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
 set(UT_COMPILER -fprofile-arcs -ftest-coverage)
 
 # Clang
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(SAFE_COMPILER "-fstack-protector-strong -D_FORTITY_SOURCE=1 -fPIC")
+    set(SAFE_COMPILER "-fstack-protector-strong -D_FORTIFY_SOURCE=1 -fPIC")
     set(UT_COMPILER -fprofile-instr-generate -ftest-coverage)
 endif()
 
