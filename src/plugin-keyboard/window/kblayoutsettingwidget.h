@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef KBLAYOUTSETTINGWIDGET_H
 #define KBLAYOUTSETTINGWIDGET_H
 
@@ -8,15 +8,16 @@
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 
-#include <DCommandLinkButton>
-#include <DListView>
-#include <DFloatingButton>
 #include <DAnchors>
+#include <DCommandLinkButton>
+#include <DFloatingButton>
+#include <DListView>
 
-#include <QVBoxLayout>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class KeyboardModel;
 class SearchInput;
@@ -26,7 +27,9 @@ class KBLayoutListView : public DCCListView
 {
     Q_OBJECT
 public:
-    explicit KBLayoutListView(QWidget *parent = nullptr): DCCListView(parent) {
+    explicit KBLayoutListView(QWidget *parent = nullptr)
+        : DCCListView(parent)
+    {
         setSpacing(0);
     }
 
@@ -42,7 +45,7 @@ protected:
 
     void mousePressEvent(QMouseEvent *event) override
     {
-        if(indexAt(event->pos()).row() == count() - 1)
+        if (indexAt(event->pos()).row() == count() - 1)
             return;
 
         DListView::mousePressEvent(event);
@@ -80,11 +83,9 @@ private:
     DCommandLinkButton *m_editKBLayout;
     QStandardItemModel *m_kbLayoutModel;
     DViewItemAction *m_addLayoutAction;
+
 private:
-    enum {
-        SwitchValueRole = Dtk::UserRole + 1,
-        KBLangIdRole
-    };
+    enum { SwitchValueRole = Dtk::UserRole + 1, KBLangIdRole };
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // KBLAYOUTSETTINGWIDGET_H
