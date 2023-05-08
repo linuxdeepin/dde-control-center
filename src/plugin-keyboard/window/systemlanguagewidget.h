@@ -4,6 +4,7 @@
 #ifndef SYSTEMLANGUAGEWIDGET_H
 #define SYSTEMLANGUAGEWIDGET_H
 
+#include "dcclistview.h"
 #include "interface/namespace.h"
 
 #include <DCommandLinkButton>
@@ -19,14 +20,16 @@ namespace DCC_NAMESPACE {
 class SystemLanguageSettingWidget;
 class KeyboardModel;
 
-class SystemLanguageListView : public DListView
+class SystemLanguageListView : public DCCListView
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageListView(QWidget *parent = nullptr): DListView(parent) {}
+    explicit SystemLanguageListView(QWidget *parent = nullptr): DCCListView(parent) {
+        setSpacing(0);
+    }
 
 protected:
-    void mousePressEvent(QMouseEvent *event)
+    void mousePressEvent(QMouseEvent *event) override
     {
         if(indexAt(event->pos()).row() == count() - 1)
             return;

@@ -4,6 +4,7 @@
 #ifndef KBLAYOUTSETTINGWIDGET_H
 #define KBLAYOUTSETTINGWIDGET_H
 
+#include "dcclistview.h"
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 
@@ -21,23 +22,25 @@ class KeyboardModel;
 class SearchInput;
 class ComboxWidget;
 
-class KBLayoutListView : public DListView
+class KBLayoutListView : public DCCListView
 {
     Q_OBJECT
 public:
-    explicit KBLayoutListView(QWidget *parent = nullptr): DListView(parent) {}
+    explicit KBLayoutListView(QWidget *parent = nullptr): DCCListView(parent) {
+        setSpacing(0);
+    }
 
 Q_SIGNALS:
     void currentChangedSignal(const QModelIndex &current);
 
 protected:
-    void currentChanged(const QModelIndex &current, const QModelIndex &previous)
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override
     {
         DListView::currentChanged(current, previous);
         Q_EMIT currentChangedSignal(current);
     }
 
-    void mousePressEvent(QMouseEvent *event)
+    void mousePressEvent(QMouseEvent *event) override
     {
         if(indexAt(event->pos()).row() == count() - 1)
             return;
