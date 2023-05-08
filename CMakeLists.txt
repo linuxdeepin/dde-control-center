@@ -15,7 +15,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type")
 option(ENABLE_ASAN "Enable asan" OFF)
 
 # INFO:
@@ -31,14 +30,12 @@ option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UNITTEST ON)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type -fno-omit-frame-pointer -Wextra")
     if(ENABLE_ASAN)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
         add_definitions(-DUSE_ASAN)
     endif()
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
-
     # generate qm
     execute_process(COMMAND bash "misc/translate_generation.sh"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
@@ -52,12 +49,10 @@ if (NOT BUILD_PLUDIN)
     set(UNITTEST OFF)
 endif()
 # GNU 默认
-set(SAFE_COMPILER "-fstack-protector-strong -D_FORTIFY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
-set(UT_COMPILER -fprofile-arcs -ftest-coverage)
 
-# Clang
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(SAFE_COMPILER "-fstack-protector-strong -D_FORTIFY_SOURCE=1 -fPIC")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(UT_COMPILER -fprofile-arcs -ftest-coverage)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(UT_COMPILER -fprofile-instr-generate -ftest-coverage)
 endif()
 
