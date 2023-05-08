@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMLANGUAGEWIDGET_H
 #define SYSTEMLANGUAGEWIDGET_H
 
@@ -8,14 +8,15 @@
 #include "interface/namespace.h"
 
 #include <DCommandLinkButton>
-#include <DListView>
-#include <DFontSizeManager>
 #include <DFloatingButton>
+#include <DFontSizeManager>
+#include <DListView>
 
-#include <QWidget>
 #include <QMouseEvent>
+#include <QWidget>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class SystemLanguageSettingWidget;
 class KeyboardModel;
@@ -24,14 +25,16 @@ class SystemLanguageListView : public DCCListView
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageListView(QWidget *parent = nullptr): DCCListView(parent) {
+    explicit SystemLanguageListView(QWidget *parent = nullptr)
+        : DCCListView(parent)
+    {
         setSpacing(0);
     }
 
 protected:
     void mousePressEvent(QMouseEvent *event) override
     {
-        if(indexAt(event->pos()).row() == count() - 1)
+        if (indexAt(event->pos()).row() == count() - 1)
             return;
 
         DListView::mousePressEvent(event);
@@ -54,6 +57,7 @@ public Q_SLOTS:
     void onDefault(const QString &curLang);
     void setCurLangChecked(const QModelIndex &index);
     void onSetCurLang(int value);
+
 private:
     KeyboardModel *m_model;
     QStringList m_sysLanglist;
@@ -61,8 +65,8 @@ private:
     SystemLanguageListView *m_langListview;
     DCommandLinkButton *m_editSystemLang;
     SystemLanguageSettingWidget *m_settingWidget;
-    bool m_bEdit{false};
+    bool m_bEdit{ false };
     DViewItemAction *m_addLayoutAction;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SYSTEMLANGUAGEWIDGET_H

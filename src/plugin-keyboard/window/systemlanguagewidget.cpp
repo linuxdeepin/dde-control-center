@@ -1,23 +1,24 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "systemlanguagewidget.h"
+
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "src/plugin-keyboard/window/keylabel.h"
 #include "systemlanguagesettingdialog.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingshead.h"
-#include "widgets/comboxwidget.h"
 #include "widgets/titlelabel.h"
-#include "src/plugin-keyboard/window/keylabel.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
 
 #include <DAnchors>
 #include <DStyle>
 
-#include <QStringList>
-#include <QVBoxLayout>
 #include <QComboBox>
 #include <QDebug>
 #include <QList>
+#include <QStringList>
+#include <QVBoxLayout>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -33,8 +34,10 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     QHBoxLayout *headLayout = new QHBoxLayout();
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
-    m_editSystemLang = new DCommandLinkButton(tr("Edit"),this);
+    DFontSizeManager::instance()->bind(headTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
+    m_editSystemLang = new DCommandLinkButton(tr("Edit"), this);
     m_editSystemLang->setObjectName("Edit");
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
@@ -48,10 +51,13 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langItemModel = new QStandardItemModel(this);
     m_langListview->setModel(m_langItemModel);
 
-    //add btn
+    // add btn
     DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Language") + "...", m_langListview);
     btn->setObjectName("AddSystemLanguage");
-    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(10, 10), QSize(10, 10), false);
+    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
+                                            QSize(10, 10),
+                                            QSize(10, 10),
+                                            false);
     m_addLayoutAction->setWidget(btn);
     btn->setMaximumHeight(22);
     DStandardItem *kbLayoutItem = new DStandardItem();
@@ -64,28 +70,38 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     setLayout(layout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()), &DFloatingButton::clicked, this, [=]() {
-        m_bEdit = false;
-        if (!m_bEdit) {
-            m_editSystemLang->setText(tr("Edit"));
-            int row_count = m_langItemModel->rowCount();
-            for (int i = 0; i < row_count; ++i) {
-                DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
-                if (item && (item->checkState() == Qt::Unchecked)) {
-                    item->setActionList(Qt::RightEdge, {});
+    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
+            &DFloatingButton::clicked,
+            this,
+            [=]() {
+                m_bEdit = false;
+                if (!m_bEdit) {
+                    m_editSystemLang->setText(tr("Edit"));
+                    int row_count = m_langItemModel->rowCount();
+                    for (int i = 0; i < row_count; ++i) {
+                        DStandardItem *item =
+                                dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
+                        if (item && (item->checkState() == Qt::Unchecked)) {
+                            item->setActionList(Qt::RightEdge, {});
+                        }
+                    }
                 }
-            }
-        }
-    });
+            });
 
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()), &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
+    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
+            &DFloatingButton::clicked,
+            this,
+            &SystemLanguageWidget::onSystemLanguageAdded);
     connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
-    connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {
-        for (int i = 0; i < curLocalLang.size(); i++) {
-            onAddLanguage(curLocalLang[i]);
-        }
-    });
+    connect(m_model,
+            &KeyboardModel::curLocalLangChanged,
+            this,
+            [this](const QStringList &curLocalLang) {
+                for (int i = 0; i < curLocalLang.size(); i++) {
+                    onAddLanguage(curLocalLang[i]);
+                }
+            });
     connect(m_model, &KeyboardModel::curLangChanged, this, &SystemLanguageWidget::onDefault);
     QStringList localLangList = m_model->localLang();
     for (int i = 0; i < localLangList.size(); i++) {
@@ -104,10 +120,13 @@ void SystemLanguageWidget::onEditClicked()
         for (int i = 0; i < row_count - 1; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
             if (item && (item->checkState() == Qt::Unchecked)) {
-                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight,
+                                                                  QSize(),
+                                                                  QSize(),
+                                                                  true);
                 iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
-                item->setActionList(Qt::RightEdge, {iconAction});
-                connect(iconAction, &DViewItemAction::triggered, this, [this,item] {
+                item->setActionList(Qt::RightEdge, { iconAction });
+                connect(iconAction, &DViewItemAction::triggered, this, [this, item] {
                     m_sysLanglist.removeOne(item->text());
                     int idx = m_langItemModel->indexFromItem(item).row();
                     Q_EMIT delLocalLang(item->text());
@@ -135,17 +154,18 @@ void SystemLanguageWidget::onAddLanguage(const QString &localeLang)
     if (m_sysLanglist.contains(localeLang))
         return;
 
-    //去除最后一个item
+    // 去除最后一个item
     DStandardItem *endItem = nullptr;
-    if(m_langItemModel->rowCount() > 0) {
-        endItem = dynamic_cast<DStandardItem *>(m_langItemModel->takeItem(m_langItemModel->rowCount() - 1, 0));
+    if (m_langItemModel->rowCount() > 0) {
+        endItem = dynamic_cast<DStandardItem *>(
+                m_langItemModel->takeItem(m_langItemModel->rowCount() - 1, 0));
         m_langItemModel->removeRow(m_langItemModel->rowCount() - 1);
     }
 
     DStandardItem *item = new DStandardItem(localeLang);
     m_langItemModel->appendRow(item);
 
-    //添加最后一个item
+    // 添加最后一个item
     if (endItem != nullptr) {
         m_langItemModel->appendRow(endItem);
     }
@@ -168,7 +188,7 @@ void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
             item->setCheckState(Qt::Checked);
             QString langKey = m_model->langFromText(item->text());
             Q_EMIT setCurLang(langKey);
-        } else if (item) {               //如果不加此判断，item会出现空指针
+        } else if (item) { // 如果不加此判断，item会出现空指针
             item->setCheckState(Qt::Unchecked);
         }
     }
