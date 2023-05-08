@@ -41,13 +41,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setAccessibleName("List_kblayoutlist");
     m_kbLayoutListView->setObjectName("KbLayoutListView");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
-    m_kbLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_kbLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_kbLayoutListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    m_kbLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
-
     //add btn
     DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Keyboard Layout")+"...",m_kbLayoutListView->viewport());
     btn->setObjectName("AddLayout");
@@ -241,16 +234,14 @@ void KBLayoutSettingWidget::onKBCurrentChanged(const QModelIndex &current)
 
 void KBLayoutSettingWidget::onLayoutAdded()
 {
-
     m_bEdit = false;
-    if (!m_bEdit) {
-        m_editKBLayout->setText(tr("Edit"));
-        int row_count = m_kbLayoutModel->rowCount();
-        for (int i = 0; i < row_count; ++i) {
-            DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
-            if (item && (item->checkState() == Qt::Unchecked)) {
-                item->setActionList(Qt::RightEdge, {});
-            }
+
+    m_editKBLayout->setText(tr("Edit"));
+    int row_count = m_kbLayoutModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
+        if (item && (item->checkState() == Qt::Unchecked)) {
+            item->setActionList(Qt::RightEdge, {});
         }
     }
 
