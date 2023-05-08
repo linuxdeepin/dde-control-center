@@ -20,6 +20,8 @@
 #include <QStringList>
 #include <QVBoxLayout>
 
+#include <functional>
+
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -27,6 +29,18 @@ using namespace DCC_NAMESPACE;
 SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent)
     : QWidget(parent)
     , m_model(model)
+    , m_langItemModel(new QStandardItemModel(this))
+    , m_langListview(std::visit([this]() -> SystemLanguageListView * {
+        auto langListview = new SystemLanguageListView(this);
+        langListview->setAccessibleName("SystemLanguageWidget_langListview");
+        langListview->setContentsMargins(10, 0, 10, 0);
+        return langListview;
+    }))
+    , m_editSystemLang(std::visit([this]() -> DCommandLinkButton * {
+        auto editSystemLang = new DCommandLinkButton(tr("Edit"), this);
+        editSystemLang->setObjectName("Edit");
+        return editSystemLang;
+    }))
     , m_settingWidget(nullptr)
 {
     QVBoxLayout *layout = new QVBoxLayout();
@@ -37,32 +51,16 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     DFontSizeManager::instance()->bind(headTitle,
                                        DFontSizeManager::T5,
                                        QFont::DemiBold); // 设置label字体
-    m_editSystemLang = new DCommandLinkButton(tr("Edit"), this);
-    m_editSystemLang->setObjectName("Edit");
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
     headLayout->addStretch();
     headLayout->addWidget(m_editSystemLang);
 
-    m_langListview = new SystemLanguageListView();
-    m_langListview->setAccessibleName("SystemLanguageWidget_langListview");
-    m_langListview->setContentsMargins(10, 0, 10, 0);
-
-    m_langItemModel = new QStandardItemModel(this);
     m_langListview->setModel(m_langItemModel);
 
-    // add btn
-    DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Language") + "...", m_langListview);
-    btn->setObjectName("AddSystemLanguage");
-    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                            QSize(10, 10),
-                                            QSize(10, 10),
-                                            false);
-    m_addLayoutAction->setWidget(btn);
-    btn->setMaximumHeight(22);
-    DStandardItem *kbLayoutItem = new DStandardItem();
-    kbLayoutItem->setActionList(Qt::LeftEdge, { m_addLayoutAction });
-    m_langItemModel->appendRow(kbLayoutItem);
+    DStandardItem *footItem = new DStandardItem(tr("Add Language") + "...");
+    footItem->setTextColorRole(DPalette::Highlight);
+    m_langItemModel->appendRow(footItem);
 
     layout->addLayout(headLayout);
     layout->addWidget(m_langListview);
@@ -70,28 +68,6 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     setLayout(layout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
-            &DFloatingButton::clicked,
-            this,
-            [=]() {
-                m_bEdit = false;
-                if (!m_bEdit) {
-                    m_editSystemLang->setText(tr("Edit"));
-                    int row_count = m_langItemModel->rowCount();
-                    for (int i = 0; i < row_count; ++i) {
-                        DStandardItem *item =
-                                dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
-                        if (item && (item->checkState() == Qt::Unchecked)) {
-                            item->setActionList(Qt::RightEdge, {});
-                        }
-                    }
-                }
-            });
-
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
-            &DFloatingButton::clicked,
-            this,
-            &SystemLanguageWidget::onSystemLanguageAdded);
     connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
     connect(m_model,
@@ -178,6 +154,10 @@ void SystemLanguageWidget::onAddLanguage(const QString &localeLang)
 
 void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
 {
+    if (index.row() == m_langListview->count() - 1) {
+        addSystemLanguage();
+        return;
+    }
     if (m_bEdit) {
         return;
     }
@@ -213,4 +193,18 @@ void SystemLanguageWidget::onSetCurLang(int value)
     qDebug() << "m_langListview & m_editSystemLang" << value;
     m_langListview->setEnabled(!value);
     m_editSystemLang->setEnabled(!value);
+}
+
+void SystemLanguageWidget::addSystemLanguage()
+{
+    m_bEdit = false;
+    m_editSystemLang->setText(tr("Edit"));
+    int row_count = m_langItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
+        if (item && (item->checkState() == Qt::Unchecked)) {
+            item->setActionList(Qt::RightEdge, {});
+        }
+    }
+    emit onSystemLanguageAdded();
 }
