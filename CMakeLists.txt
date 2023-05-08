@@ -843,7 +843,7 @@ if (BUILD_PLUDIN AND NOT DISABLE_AUTHENTICATION)
     message(STATUS "")
     message(STATUS "WILL BUILD dcc-authentication-plugin")
     set(Authentication_Name dcc-authentication-plugin)
-    pkg_check_modules(DaReader dareader)
+    pkg_check_modules(DaReader REQUIRED dareader)
 
     file(GLOB_RECURSE Authentication_SRCS
         "src/plugin-authentication/window/*.cpp"
