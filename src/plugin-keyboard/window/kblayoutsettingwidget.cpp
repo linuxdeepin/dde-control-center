@@ -46,19 +46,10 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setAccessibleName("List_kblayoutlist");
     m_kbLayoutListView->setObjectName("KbLayoutListView");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
-    // add btn
-    DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Keyboard Layout") + "...",
-                                                     m_kbLayoutListView->viewport());
-    btn->setObjectName("AddLayout");
-    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                            QSize(10, 10),
-                                            QSize(10, 10),
-                                            false);
-    m_addLayoutAction->setWidget(btn);
-    btn->setMaximumHeight(22);
-    DStandardItem *kbLayoutItem = new DStandardItem();
-    kbLayoutItem->setActionList(Qt::LeftEdge, { m_addLayoutAction });
-    m_kbLayoutModel->appendRow(kbLayoutItem);
+
+    DStandardItem *footItem = new DStandardItem(tr("Add Keyboard Layout") + "...");
+    footItem->setTextColorRole(DPalette::Highlight);
+    m_kbLayoutModel->appendRow(footItem);
 
     QMargins itemMargins(m_kbLayoutListView->itemMargins());
     itemMargins.setLeft(10);
@@ -70,10 +61,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(mainLayout);
 
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
-            &DCommandLinkButton::clicked,
-            this,
-            &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_editKBLayout, &QPushButton::clicked, this, &KBLayoutSettingWidget::onEditClicked);
     connect(m_kbLayoutListView,
             &DListView::clicked,
@@ -220,6 +207,10 @@ void KBLayoutSettingWidget::creatDelIconAction(DStandardItem *item)
 
 void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
 {
+    if (index.row() == m_kbLayoutListView->count() - 1) {
+        onLayoutAdded();
+        return;
+    }
     if (m_bEdit) {
         return;
     }
@@ -237,6 +228,9 @@ void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
 
 void KBLayoutSettingWidget::onKBCurrentChanged(const QModelIndex &current)
 {
+    if (current.row() == m_kbLayoutListView->count() - 1) {
+        return;
+    }
     QSize itemSize = m_kbLayoutListView->itemDelegate()->sizeHint(QStyleOptionViewItem(), current);
     int top = current.row() * (itemSize.height() + m_kbLayoutModel->span(current).height());
 

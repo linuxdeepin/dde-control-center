@@ -42,14 +42,6 @@ protected:
         DListView::currentChanged(current, previous);
         Q_EMIT currentChangedSignal(current);
     }
-
-    void mousePressEvent(QMouseEvent *event) override
-    {
-        if (indexAt(event->pos()).row() == count() - 1)
-            return;
-
-        DListView::mousePressEvent(event);
-    }
 };
 
 class KBLayoutSettingWidget : public QWidget

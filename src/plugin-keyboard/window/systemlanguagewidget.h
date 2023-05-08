@@ -30,15 +30,6 @@ public:
     {
         setSpacing(0);
     }
-
-protected:
-    void mousePressEvent(QMouseEvent *event) override
-    {
-        if (indexAt(event->pos()).row() == count() - 1)
-            return;
-
-        DListView::mousePressEvent(event);
-    }
 };
 
 class SystemLanguageWidget : public QWidget
@@ -57,6 +48,9 @@ public Q_SLOTS:
     void onDefault(const QString &curLang);
     void setCurLangChecked(const QModelIndex &index);
     void onSetCurLang(int value);
+
+private:
+    void addSystemLanguage();
 
 private:
     KeyboardModel *m_model;
