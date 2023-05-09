@@ -39,12 +39,6 @@ BluetoothModule::BluetoothModule(QObject *parent)
     updateWidget();
 }
 
-void BluetoothModule::active()
-{
-    for (auto &&module : m_valueMap)
-        module->active();
-}
-
 void BluetoothModule::deactive()
 {
     for (auto &&adapter : m_valueMap.keys())

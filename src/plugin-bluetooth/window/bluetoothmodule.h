@@ -24,7 +24,6 @@ class BluetoothModule : public DCC_NAMESPACE::PageModule
 public:
     explicit BluetoothModule(QObject *parent = nullptr);
     ~BluetoothModule() override { }
-    void active() override;
     void deactive() override;
     bool hasDevice();
 
