@@ -166,6 +166,7 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    Q_UNUSED(event)
     m_pluginManager->cancelLoad();
 }
 

@@ -36,6 +36,7 @@ protected:
     void modifyStatus(bool status);
     void wheelEvent(QWheelEvent *event) override
     {
+        Q_UNUSED(event)
         update();
     }
 

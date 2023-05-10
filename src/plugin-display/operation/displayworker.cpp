@@ -27,6 +27,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     , m_timer(new QTimer(this))
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
 {
+    // NOTE: what will it be used?
+    Q_UNUSED(isSync)
     m_timer->setSingleShot(true);
     m_timer->setInterval(200);
 

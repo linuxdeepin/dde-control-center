@@ -13,13 +13,13 @@ DWIDGET_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
-const QString titleColor = "#0082fa";
-const QString grayColor = "#526a7f";
+inline const QString titleColor = QStringLiteral("#0082fa");
+inline const QString grayColor = QStringLiteral("#526a7f");
 
-const int titleFontSize = 14;
-const int dateFontSize = 12;
-const int detailFontSize = 8;
-const int linkFontSize = 10;
+inline constexpr int titleFontSize = 14;
+inline constexpr int dateFontSize = 12;
+inline constexpr int detailFontSize = 8;
+inline constexpr int linkFontSize = 10;
 
 class DetailInfoItem: public SettingsItem
 {

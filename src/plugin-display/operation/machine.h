@@ -21,11 +21,11 @@ public:
 
     inline const QString Name() { return m_name; }
     inline const QString IP() { return m_IP; }
-    inline const bool Connected() { return m_connected; }
-    inline const bool deviceSharing() { return m_deviceSharing; }
-    inline const bool isHistory() { return m_isHistoryDev; }
-    inline const QString UUID() { return m_UUID; }
-    inline const quint16 direction() { return m_direction; }
+    inline bool Connected() { return m_connected; }
+    inline bool deviceSharing() { return m_deviceSharing; }
+    inline bool isHistory() { return m_isHistoryDev; }
+    inline QString UUID() { return m_UUID; }
+    inline quint16 direction() { return m_direction; }
 
 public Q_SLOTS:
     void setName(const QString& name);

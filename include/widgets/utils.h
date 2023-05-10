@@ -23,14 +23,14 @@
 
 DCORE_USE_NAMESPACE
 
-const QMargins ZeroMargins(0, 0, 0, 0);
+inline const QMargins ZeroMargins(0, 0, 0, 0);
 
-const int ComboxWidgetHeight = 48;
-const int SwitchWidgetHeight = 36;
-const int ComboxTitleWidth = 110;
+inline constexpr int ComboxWidgetHeight = 48;
+inline constexpr int SwitchWidgetHeight = 36;
+inline constexpr int ComboxTitleWidth = 110;
 
-const qint32 ActionIconSize=30;//大图标角标大小
-const qint32 ActionListSize=26;//list图标角标大小
+inline constexpr qint32 ActionIconSize=30;//大图标角标大小
+inline constexpr qint32 ActionListSize=26;//list图标角标大小
 
 template <typename T>
 T valueByQSettings(const QStringList& configFiles,

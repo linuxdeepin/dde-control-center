@@ -72,6 +72,7 @@ void NotificationModule::initUi()
             "SystemNotify",
             "SystemNotify",
             [this](ModuleObject *module) {
+                Q_UNUSED(module)
                 auto sysNotifyWidget = new SystemNotifyWidget(m_model->getSystemModel());
                 connect(sysNotifyWidget,
                         &SystemNotifyWidget::requestSetSysSetting,
@@ -95,6 +96,7 @@ void NotificationModule::onAppListAdded(AppItemModel *item)
                                  softName,
                                  softName,
                                  [item, this](ModuleObject *module) {
+                                     Q_UNUSED(module)
                                      auto notifyWidget = new AppNotifyWidget(item);
                                      notifyWidget->setSizePolicy(QSizePolicy::Expanding,
                                                                  QSizePolicy::Expanding);

@@ -84,7 +84,7 @@ Qt::ItemFlags ModuleDataModel::flags(const QModelIndex &index) const
 
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
-    ModuleObject *const module = static_cast<ModuleObject *const>(obj);
+    ModuleObject *const module = static_cast<ModuleObject *>(obj);
     if (module->extra() || ModuleObject::IsHidden(module))
         onRemovedChild(module);
     else {

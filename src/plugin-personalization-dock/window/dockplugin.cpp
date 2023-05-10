@@ -298,6 +298,7 @@ void DockModuleObject::initScreenTitle(TitleLabel *label)
 
 QWidget *DockModuleObject::initScreen(DCC_NAMESPACE::ModuleObject *module)
 {
+    Q_UNUSED(module)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 

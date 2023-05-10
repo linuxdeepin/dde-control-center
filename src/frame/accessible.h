@@ -61,7 +61,7 @@ private:
     QMap<QString, AccessibleFactoryBase *> m_factoryMap;
 };
 
-QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
+inline QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
    static AccessibleFactory * s_accessibleFactory = nullptr;

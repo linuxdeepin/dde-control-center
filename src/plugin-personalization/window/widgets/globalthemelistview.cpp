@@ -199,6 +199,7 @@ public:
     }
     void drawTabs(QPainter *painter, const QStyleOptionViewItem &option)
     {
+        Q_UNUSED(option)
         painter->setPen(Qt::NoPen);
         painter->setBrush(QBrush(QColor(217, 217, 217)));
         for (int i = 0; i < m_constPage; i++) {
@@ -337,6 +338,7 @@ QRect GlobalThemeListView::visualRect(const QModelIndex &index) const
 
 void GlobalThemeListView::scrollTo(const QModelIndex &index, ScrollHint hint)
 {
+    Q_UNUSED(hint)
     if (!index.isValid())
         return;
     Q_D(GlobalThemeListView);
@@ -354,6 +356,7 @@ QModelIndex GlobalThemeListView::indexAt(const QPoint &p) const
 QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
 {
     Q_D(const GlobalThemeListView);
+    Q_UNUSED(modifiers)
     QModelIndex current = currentIndex();
     int currentRow = current.row();
     int maxRow = model()->rowCount();
@@ -433,6 +436,7 @@ int GlobalThemeListView::verticalOffset() const
 
 bool GlobalThemeListView::isIndexHidden(const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     return false;
 }
 
@@ -787,6 +791,7 @@ void GlobalThemeDelegate::drawDecoration(QPainter *painter, const QStyleOptionVi
 
 void GlobalThemeDelegate::drawChecked(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
 {
+    Q_UNUSED(style)
     QRect r = rect;
     r.adjust(-4, -4, 4, 4);
     painter->save();

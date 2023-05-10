@@ -84,7 +84,7 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         , m_description(accessdescription)\
     {}\
 
-#define FUNC_TEXT(classname,accessiblename) QString Accessible##classname::text(QAccessible::Text t) const{\
+#define FUNC_TEXT(classname,accessiblename) inline QString Accessible##classname::text(QAccessible::Text t) const{\
         switch (t) {\
         case QAccessible::Name:\
             return getAccessibleName(m_w, this->role(), accessiblename);\
@@ -96,13 +96,13 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     }\
 
 // button控件特有功能
-#define FUNC_ACTIONNAMES(classname) QStringList Accessible##classname::actionNames() const{\
+#define FUNC_ACTIONNAMES(classname) inline QStringList Accessible##classname::actionNames() const{\
         if(!m_w->isEnabled())\
             return QStringList();\
         return QStringList() << pressAction()<< showMenuAction();\
     }\
 
-#define FUNC_DOACTION(classname) void Accessible##classname::doAction(const QString &actionName){\
+#define FUNC_DOACTION(classname) inline void Accessible##classname::doAction(const QString &actionName){\
         if(actionName == pressAction())\
         {\
             QPointF localPos = m_w->geometry().center();\
@@ -120,26 +120,26 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     }\
 
 // QLABEL控件特有功能
-#define FUNC_TEXT_(classname) QString Accessible##classname::text(int startOffset, int endOffset) const{\
+#define FUNC_TEXT_(classname) inline QString Accessible##classname::text(int startOffset, int endOffset) const{\
         Q_UNUSED(startOffset)\
         Q_UNUSED(endOffset)\
         return m_w->text();\
     }\
 
-#define FUNC_CHILD_LABLE(classname) QAccessibleInterface *Accessible##classname::child(int index) const{\
+#define FUNC_CHILD_LABLE(classname) inline QAccessibleInterface *Accessible##classname::child(int index) const{\
         return QAccessibleWidget::child(index);\
     }\
 
 // EDITABLE控件特有功能
-#define FUNC_DELETETEXT(classname) void Accessible##classname::deleteText(int startOffset, int endOffset) {\
+#define FUNC_DELETETEXT(classname) inline void Accessible##classname::deleteText(int startOffset, int endOffset) {\
         m_w->setText(m_w->text().remove(startOffset, endOffset - startOffset));\
     }\
 
-#define FUNC_INSERTTEXT(classname) void Accessible##classname::insertText(int startOffset, const QString &text) {\
+#define FUNC_INSERTTEXT(classname) inline void Accessible##classname::insertText(int startOffset, const QString &text) {\
         m_w->setText(m_w->text().insert(startOffset, text));\
     }\
 
-#define FUNC_REPLACETEXT(classname) void Accessible##classname::replaceText(int startOffset, int endOffset, const QString &text) {\
+#define FUNC_REPLACETEXT(classname) inline void Accessible##classname::replaceText(int startOffset, int endOffset, const QString &text) {\
         m_w->setText(m_w->text().replace(startOffset, endOffset - startOffset, text));\
     }\
 
@@ -147,7 +147,7 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         return nullptr;\
     }\
 
-#define FUNC_SELECTION(classname) void Accessible##classname::selection(int selectionIndex, int *startOffset, int *endOffset) const {\
+#define FUNC_SELECTION(classname) inline void Accessible##classname::selection(int selectionIndex, int *startOffset, int *endOffset) const {\
         m_w->setSelection(*startOffset, *endOffset);\
         *startOffset = *endOffset = 0;\
         if (selectionIndex != 0)\
@@ -156,35 +156,35 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         *endOffset = *startOffset + m_w->selectedText().count();\
     }\
 
-#define FUNC_SELECTIONCOUNT(classname) int Accessible##classname::selectionCount() const {\
+#define FUNC_SELECTIONCOUNT(classname) inline int Accessible##classname::selectionCount() const {\
         return m_w->hasSelectedText() ? 1 : 0;\
     }\
 
-#define FUNC_ADDSELECTION(classname) void Accessible##classname::addSelection(int startOffset, int endOffset) {\
+#define FUNC_ADDSELECTION(classname) inline void Accessible##classname::addSelection(int startOffset, int endOffset) {\
         setSelection(0, startOffset, endOffset);\
     }\
 
-#define FUNC_REMOVESELECTION(classname) void Accessible##classname::removeSelection(int selectionIndex) {\
+#define FUNC_REMOVESELECTION(classname) inline void Accessible##classname::removeSelection(int selectionIndex) {\
         if (selectionIndex != 0)\
             return;\
         m_w->deselect();\
     }\
 
-#define FUNC_SETSELECTION(classname) void Accessible##classname::setSelection(int selectionIndex, int startOffset, int endOffset) {\
+#define FUNC_SETSELECTION(classname) inline void Accessible##classname::setSelection(int selectionIndex, int startOffset, int endOffset) {\
         if (selectionIndex != 0)\
             return;\
         m_w->setSelection(startOffset, endOffset - startOffset);\
     }\
 
-#define FUNC_CURORPOSITION(classname) int Accessible##classname::cursorPosition() const {\
+#define FUNC_CURORPOSITION(classname) inline int Accessible##classname::cursorPosition() const {\
         return m_w->cursorPosition();\
     }\
 
-#define FUNC_SETCURORPOSITION(classname) void Accessible##classname::setCursorPosition(int position) {\
+#define FUNC_SETCURORPOSITION(classname) inline void Accessible##classname::setCursorPosition(int position) {\
         m_w->setCursorPosition(position);\
     }\
 
-#define FUNC_TEXT_LineEdit(classname) QString Accessible##classname::text(int startOffset, int endOffset) const{\
+#define FUNC_TEXT_LineEdit(classname) inline QString Accessible##classname::text(int startOffset, int endOffset) const{\
         if (startOffset > endOffset)\
             return QString();\
         if (m_w->echoMode() != QLineEdit::Normal)\
@@ -222,47 +222,48 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         return QAccessibleTextInterface::textAtOffset(offset, boundaryType, startOffset, endOffset);\
     }\
 
-#define FUNC_CHARACTERCOUNT(classname) int Accessible##classname::characterCount() const {\
+#define FUNC_CHARACTERCOUNT(classname) inline int Accessible##classname::characterCount() const {\
         return m_w->text().count();\
     }\
 
-#define FUNC_CHARACTERRECT(classname) QRect Accessible##classname::characterRect(int offset) const {\
+#define FUNC_CHARACTERRECT(classname) inline QRect Accessible##classname::characterRect(int offset) const {\
+        Q_UNUSED(offset)\
         return QRect();\
     }\
 
-#define FUNC_OFFSETATPOINT(classname) int Accessible##classname::offsetAtPoint(const QPoint &point) const {\
+#define FUNC_OFFSETATPOINT(classname) inline int Accessible##classname::offsetAtPoint(const QPoint &point) const {\
         QPoint p = m_w->mapFromGlobal(point);\
         return m_w->cursorPositionAt(p);\
     }\
 
-#define FUNC_SCROLLTOSUBSTRING(classname) void Accessible##classname::scrollToSubstring(int startIndex, int endIndex) {\
+#define FUNC_SCROLLTOSUBSTRING(classname) inline void Accessible##classname::scrollToSubstring(int startIndex, int endIndex) {\
         m_w->setCursorPosition(endIndex);\
         m_w->setCursorPosition(startIndex);\
     }\
 
-#define FUNC_ATTRIBUTES(classname) QString Accessible##classname::attributes(int offset, int *startOffset, int *endOffset) const {\
+#define FUNC_ATTRIBUTES(classname) inline QString Accessible##classname::attributes(int offset, int *startOffset, int *endOffset) const {\
         *startOffset = *endOffset = offset;\
         return QString();\
     }\
 
 // Slider控件特有功能
-#define FUNC_CURRENTVALUE(classname) QVariant Accessible##classname::currentValue() const{\
+#define FUNC_CURRENTVALUE(classname) inline QVariant Accessible##classname::currentValue() const{\
         return m_w->value();\
     }\
 
-#define FUNC_SETCURRENTVALUE(classname) void Accessible##classname::setCurrentValue(const QVariant &value){\
+#define FUNC_SETCURRENTVALUE(classname) inline void Accessible##classname::setCurrentValue(const QVariant &value){\
         return m_w->setValue(value.toInt());\
     }\
 
-#define FUNC_MAXMUMVALUE(classname) QVariant Accessible##classname::maximumValue() const{\
+#define FUNC_MAXMUMVALUE(classname) inline QVariant Accessible##classname::maximumValue() const{\
         return QVariant(m_w->maximum());\
     }\
 
-#define FUNC_FUNC_MINIMUMVALUE(classname) QVariant Accessible##classname::minimumValue() const{\
+#define FUNC_FUNC_MINIMUMVALUE(classname) inline QVariant Accessible##classname::minimumValue() const{\
         return QVariant(m_w->minimum());\
     }\
 
-#define FUNC_FUNC_MINIMUMSTEPSIZE(classname) QVariant Accessible##classname::minimumStepSize() const{\
+#define FUNC_FUNC_MINIMUMSTEPSIZE(classname) inline QVariant Accessible##classname::minimumStepSize() const{\
         return QVariant(m_w->singleStep());\
     }\
 
@@ -325,18 +326,47 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
             }\
         QAccessibleInterface *child(int index) const override;\
         QString text(int startOffset, int endOffset) const override;\
-        void selection(int selectionIndex, int *startOffset, int *endOffset) const override {}\
+        void selection(int selectionIndex, int *startOffset, int *endOffset) const override {\
+            Q_UNUSED(selectionIndex)\
+            Q_UNUSED(startOffset)\
+            Q_UNUSED(endOffset)\
+        }\
         int selectionCount() const override { return 0; }\
-        void addSelection(int startOffset, int endOffset) override {}\
-        void removeSelection(int selectionIndex) override {}\
-        void setSelection(int selectionIndex, int startOffset, int endOffset) override {}\
+        void addSelection(int startOffset, int endOffset) override {\
+            Q_UNUSED(startOffset)\
+            Q_UNUSED(endOffset)\
+        }\
+        void removeSelection(int selectionIndex) override {\
+            Q_UNUSED(selectionIndex)\
+        }\
+        void setSelection(int selectionIndex, int startOffset, int endOffset) override {\
+            Q_UNUSED(selectionIndex)\
+            Q_UNUSED(startOffset)\
+            Q_UNUSED(endOffset)\
+        }\
         int cursorPosition() const override { return 0; }\
-        void setCursorPosition(int position) override {}\
+        void setCursorPosition(int position) override {\
+            Q_UNUSED(position)\
+        }\
         int characterCount() const override { return 0; }\
-        QRect characterRect(int offset) const override { return QRect(); }\
-        int offsetAtPoint(const QPoint &point) const override { return 0; }\
-        void scrollToSubstring(int startIndex, int endIndex) override {}\
-        QString attributes(int offset, int *startOffset, int *endOffset) const override { return QString(); }\
+        QRect characterRect(int offset) const override { \
+            Q_UNUSED(offset)\
+            return QRect();\
+        }\
+        int offsetAtPoint(const QPoint &point) const override { \
+            Q_UNUSED(point)\
+            return 0; \
+        }\
+        void scrollToSubstring(int startIndex, int endIndex) override {\
+            Q_UNUSED(startIndex)\
+            Q_UNUSED(endIndex)\
+        }\
+        QString attributes(int offset, int *startOffset, int *endOffset) const override {\
+            Q_UNUSED(startOffset)\
+            Q_UNUSED(offset)\
+            Q_UNUSED(endOffset)\
+            return QString(); \
+        }\
     private:\
     classname *m_w;\
     QString m_description;\
@@ -379,7 +409,10 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     public:\
         FUNC_CREATE(classname,QAccessible::EditableText,accessdescription)\
         QString text(QAccessible::Text t) const override;\
-        QAccessibleInterface *child(int index) const override { return nullptr; }\
+        QAccessibleInterface *child(int index) const override { \
+            Q_UNUSED(index) \
+            return nullptr; \
+        }\
         void *interface_cast(QAccessible::InterfaceType t) override{\
                 switch (t) {\
                 case QAccessible::ActionInterface:\
@@ -471,7 +504,7 @@ class FactoryAccessible##ClassName :public AccessibleFactoryBase\
     virtual QAccessibleInterface* createObject(QObject *object) override\
     { return new Accessible##ClassName(static_cast<ClassName *>(object));}\
 };\
-AccessibleFactoryBase* FactoryAccessible##ClassName::s_Accessible##ClassName##instance = AccessibleFactoryManager::RegisterAccessibleFactory(Key, new FactoryAccessible##ClassName());
+inline AccessibleFactoryBase* FactoryAccessible##ClassName::s_Accessible##ClassName##instance = AccessibleFactoryManager::RegisterAccessibleFactory(Key, new FactoryAccessible##ClassName());
 
 /////////////////////////////////////////////////
 #define SET_FORM_ACCESSIBLE(classname,accessiblename)                          SET_FORM_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")\

@@ -276,6 +276,8 @@ void AdapterModule::toggleDiscoverableSwitch(const bool checked)
 
 void AdapterModule::updateVisible(bool bPower, bool bDiscovering)
 {
+    // NOTE: maybe it should be used?
+    Q_UNUSED(bDiscovering)
     m_bluetoothTitle->setHidden(bPower);
     m_otherDevices->setHidden(!bPower);
     m_anonymousCheckBox->setHidden(!bPower);

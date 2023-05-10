@@ -81,6 +81,7 @@ void GeneralModule::initUI()
             "powerPlans",
             tr("Power Plans"),
             [this](ModuleObject *module) -> QWidget * {
+                Q_UNUSED(module);
                 DCCListView *powerplanListview = new DCCListView();
                 powerplanListview->setAccessibleName("Power Plans");
 
@@ -174,6 +175,7 @@ void GeneralModule::initUI()
             "autoPowerSavingOnLowBattery",
             tr("Auto power saving on low battery"),
             [this](ModuleObject *module) -> QWidget * {
+                Q_UNUSED(module)
                 DSwitchButton *lowPowerAutoIntoSaveEnergyMode =
                         new DSwitchButton(/*tr("Auto power saving on low battery")*/);
                 lowPowerAutoIntoSaveEnergyMode->setChecked(
@@ -199,6 +201,7 @@ void GeneralModule::initUI()
             new ItemModule("autoPowerSavingOnBattery",
                            tr("Auto power saving on battery"),
                            [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
                                DSwitchButton *autoIntoSaveEnergyMode = new DSwitchButton();
                                autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
                                connect(m_model,
@@ -222,6 +225,7 @@ void GeneralModule::initUI()
             "decreaseBrightness",
             tr("Decrease Brightness"),
             [this](ModuleObject *module) -> QWidget * {
+                Q_UNUSED(module)
                 TitledSliderItem *sldLowerBrightness =
                         new TitledSliderItem(tr("Decrease Brightness"));
                 sldLowerBrightness->setAccessibleName("Decrease Brightness");
@@ -269,6 +273,7 @@ void GeneralModule::initUI()
             new ItemModule("passwordIsRequiredToWakeUpTheComputer",
                            tr("Password is required to wake up the computer"),
                            [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
                                DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
                                wakeComputerNeedPassword->setChecked(m_model->sleepLock());
                                wakeComputerNeedPassword->setVisible(
@@ -291,6 +296,7 @@ void GeneralModule::initUI()
             new ItemModule("passwordIsRequiredToWakeUpTheMonitor",
                            tr("Password is required to wake up the monitor"),
                            [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
                                DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
                                wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());
                                connect(m_model,

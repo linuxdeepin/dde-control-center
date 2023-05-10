@@ -56,7 +56,7 @@ public:
         Q_ASSERT(!m_model.isEmpty());
         return m_model;
     }
-    inline const bool canBrightness() const { return m_canBrightness; }
+    inline bool canBrightness() const { return m_canBrightness; }
     inline const QString path() const { return m_path; }
     inline const Resolution currentMode() const { return m_currentMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
@@ -65,7 +65,7 @@ public:
     inline QStringList availableFillModes() const { return m_fillModeList; }
     inline QString currentFillMode() const { return m_currentFillMode; }
     inline const Resolution bestMode() const { return m_bestMode; }
-    inline const RotateMode currentRotateMode() const { return m_screenSensingMode; }
+    inline RotateMode currentRotateMode() const { return m_screenSensingMode; }
 
 Q_SIGNALS:
     void geometryChanged() const;
