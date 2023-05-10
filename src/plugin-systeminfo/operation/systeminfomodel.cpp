@@ -109,7 +109,7 @@ void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemo
         return ;
 
     m_memory = mem;
-    m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
+    m_memory = QString("%1 (%2)").arg(mem, tr("available"));
     memoryChanged(m_memory);
 }
 
