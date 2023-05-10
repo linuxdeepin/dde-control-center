@@ -67,6 +67,7 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
 
 QWidget *PersonalizationDesktopModule::initWindowEffect(ModuleObject *module)
 {
+    Q_UNUSED(module)
     DSwitchButton *wmSwitch = new DSwitchButton();
     wmSwitch->setChecked(m_model->is3DWm());
     connect(m_model, &PersonalizationModel::wmChanged, wmSwitch, &DSwitchButton::setChecked);
@@ -80,6 +81,7 @@ QWidget *PersonalizationDesktopModule::initWindowEffect(ModuleObject *module)
 
 QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *module)
 {
+    Q_UNUSED(module)
     TitledSliderItem *transparentSlider = new TitledSliderItem();
     transparentSlider->setTitle(tr("Transparency"));
     transparentSlider->addBackground();
@@ -118,6 +120,7 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
 
 QWidget *PersonalizationDesktopModule::initMiniEffect(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QComboBox *cmbMiniEffect = new QComboBox();
     cmbMiniEffect->addItem(tr("Scale"));
     cmbMiniEffect->addItem(tr("Magic Lamp"));
@@ -135,6 +138,7 @@ QWidget *PersonalizationDesktopModule::initMiniEffect(ModuleObject *module)
 
 QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
 {
+    Q_UNUSED(module)
     TitledSliderItem *winRoundSlider = new TitledSliderItem();
     winRoundSlider->setTitle(tr("Rounded Corner"));
     winRoundSlider->addBackground();

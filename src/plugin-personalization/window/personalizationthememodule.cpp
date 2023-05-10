@@ -251,6 +251,7 @@ QWidget *PersonalizationThemeModule::initThemeTitle(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initThemeList(ModuleObject *module)
 {
+    Q_UNUSED(module)
     GlobalThemeListView *view = new GlobalThemeListView();
     view->setThemeModel(m_model->getGlobalThemeModel());
     connect(view, &GlobalThemeListView::applied, this, [this](const QModelIndex &index) {
@@ -318,6 +319,7 @@ QWidget *PersonalizationThemeModule::initThemeSwitch(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
 {
+    Q_UNUSED(module)
     RingColorWidget *bgWidget = new RingColorWidget();
     bgWidget->setFixedHeight(40);
     QHBoxLayout *colorLayout = new QHBoxLayout(bgWidget);
@@ -385,6 +387,7 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initIconTheme(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QWidget *widget = new QWidget();
     QHBoxLayout *layout = new QHBoxLayout(widget);
     layout->addStretch();
@@ -410,6 +413,7 @@ QWidget *PersonalizationThemeModule::initIconTheme(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initCursorTheme(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QWidget *widget = new QWidget();
     QHBoxLayout *layout = new QHBoxLayout(widget);
     layout->addStretch();
@@ -435,6 +439,7 @@ QWidget *PersonalizationThemeModule::initCursorTheme(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
 {
+    Q_UNUSED(module)
     TitledSliderItem *fontSizeSlider = new TitledSliderItem();
     fontSizeSlider->addBackground();
     fontSizeSlider->setObjectName("fontsizeslider");
@@ -477,6 +482,7 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initStandardFont(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QComboBox *comboBox = new QComboBox();
     comboBox->setModel(m_standardModel);
     initFontWidget(comboBox, m_model->getStandFontModel(), m_standardModel);
@@ -485,6 +491,7 @@ QWidget *PersonalizationThemeModule::initStandardFont(ModuleObject *module)
 
 QWidget *PersonalizationThemeModule::initMonospacedFont(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QComboBox *comboBox = new QComboBox();
     comboBox->setModel(m_monospacedModel);
     initFontWidget(comboBox, m_model->getMonoFontModel(), m_monospacedModel);

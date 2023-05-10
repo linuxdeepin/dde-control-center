@@ -38,10 +38,12 @@ void PersonalizationModule::active()
 
 void PersonalizationModule::onBatteryChanged(const bool &state)
 {
+    Q_UNUSED(state)
 }
 // done: 遗留问题，控制中心不应该发电量低通知
 void PersonalizationModule::onBatteryPercentageChanged(const double value)
 {
+    Q_UNUSED(value)
 }
 
 PersonalizationPlugin::PersonalizationPlugin(QObject *parent)

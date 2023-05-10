@@ -83,18 +83,21 @@ void SettingsItem::paintEvent(QPaintEvent *event)
 
 void SettingsItem::enterEvent(QEvent *event)
 {
+    Q_UNUSED(event)
     m_hover = true;
     update();
 }
 
 void SettingsItem::leaveEvent(QEvent *event)
 {
+    Q_UNUSED(event)
     m_hover = false;
     update();
 }
 
 void SettingsItem::mousePressEvent(QMouseEvent *event)
 {
+    Q_UNUSED(event)
     if (m_clickable)
         Q_EMIT clicked(this);
 }

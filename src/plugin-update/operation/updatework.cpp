@@ -1823,6 +1823,7 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
             &DDialog::buttonClicked,
             this,
             [&wantexit, dialog](int index, const QString &text) {
+                Q_UNUSED(text)
                 if (index == 0) {
                     // clicked the leave button
                     wantexit = CanExitTestingChannelStatus::CheckOk;

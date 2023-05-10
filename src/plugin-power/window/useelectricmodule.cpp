@@ -92,6 +92,7 @@ void UseElectricModule::initUI()
           << tr("Never");
     group->appendChild(new ItemModule("turnOffTheMonitorAfter", tr("Turn off the monitor after"),
         [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+            Q_UNUSED(module)
             TitledSliderItem *monitorSleepOnPower = new TitledSliderItem(tr("Turn off the monitor after"));
             monitorSleepOnPower->setAccessibleName(tr("Turn off the monitor after"));
             monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
@@ -114,6 +115,7 @@ void UseElectricModule::initUI()
 
     group->appendChild(new ItemModule("lockScreenAfter", tr("Lock screen after"),
         [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+            Q_UNUSED(module)
             TitledSliderItem *autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
             autoLockScreen->setAccessibleName(tr("Lock screen after"));
             autoLockScreen->slider()->setType(DCCSlider::Vernier);
@@ -137,6 +139,7 @@ void UseElectricModule::initUI()
     if (!IsServerSystem) {
         group->appendChild(new ItemModule("computerSuspendsAfter", tr("Computer suspends after"),
             [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+                Q_UNUSED(module)
                 TitledSliderItem *computerSleepOnPower = new TitledSliderItem(tr("Computer suspends after"));
                 computerSleepOnPower->setAccessibleName(tr("Computer suspends after"));
                 computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
@@ -163,6 +166,7 @@ void UseElectricModule::initUI()
     ItemModule *itemLidIsClosed =
             new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
                            [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
                                AlertComboBox *cmbCloseLid = new AlertComboBox();
 
                                auto setCloseLidData = [this, cmbCloseLid]() {
@@ -198,6 +202,7 @@ void UseElectricModule::initUI()
 
     group->appendChild(new ItemModule("whenThePowerButtonIsPressed", tr("When the power button is pressed"),
         [this] (ModuleObject *module) -> QWidget*{
+            Q_UNUSED(module)
             AlertComboBox *cmbPowerButton = new AlertComboBox();
             auto setPowerButtonData = [this, cmbPowerButton] () {
                 updateComboxActionList();

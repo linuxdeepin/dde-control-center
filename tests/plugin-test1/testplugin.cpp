@@ -138,6 +138,7 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     // @warning 回调函数返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ItemModule的生命周期是从控制中心启动到关闭。
     ItemModule *item = new ItemModule("item", tr("Title"));
     item->setRightWidget([](ModuleObject *item) {
+        Q_UNUSED(item)
         return new QPushButton(Dtk::Widget::DStyle::standardIcon(qApp->style(), Dtk::Widget::DStyle::SP_EditElement), "");
     });
     parent->appendChild(item);
@@ -148,9 +149,18 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     // SettingsGroupModule测试
     // SettingsGroupModule提供一个基于SettingsGroup的ModuleObject,可实现SettingsGroup的窗口背景处理
     SettingsGroupModule *groupModule = new SettingsGroupModule("group", tr("group Module"));
-    groupModule->appendChild(new ItemModule("groupItem1", tr("group PushButton"), [](ModuleObject *module) { return new QPushButton(); }));
-    groupModule->appendChild(new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) { return new QLineEdit(); }));
-    groupModule->appendChild(new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) { return new QComboBox(); }));
+    groupModule->appendChild(new ItemModule("groupItem1", tr("group PushButton"), [](ModuleObject *module) {
+        Q_UNUSED(module)
+        return new QPushButton(); 
+    }));
+    groupModule->appendChild(new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) {
+        Q_UNUSED(module)
+        return new QLineEdit(); 
+    }));
+    groupModule->appendChild(new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) {
+        Q_UNUSED(module)
+        return new QComboBox();
+    }));
     parent->appendChild(groupModule);
 
     // HorizontalModule测试

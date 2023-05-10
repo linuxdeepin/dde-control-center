@@ -58,6 +58,7 @@ void FrameProxyV20::pushWidget(ModuleInterface *const inter, QWidget *const w, d
 
 void FrameProxyV20::popWidget(ModuleInterface *const inter)
 {
+    Q_UNUSED(inter)
     if (m_widgets.isEmpty())
         return;
 
@@ -107,10 +108,13 @@ bool FrameProxyV20::getRemoveableDeviceStatus(QString type) const
 
 void FrameProxyV20::setSearchPath(ModuleInterface *const inter) const
 {
+    Q_UNUSED(inter)
 }
 
 void FrameProxyV20::addChildPageTrans(const QString &menu, const QString &rran)
 {
+    Q_UNUSED(menu)
+    Q_UNUSED(rran)
 }
 
 void FrameProxyV20::setModuleVisible(const QString &module, bool visible)
