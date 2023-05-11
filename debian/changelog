@@ -1,3 +1,11 @@
+dde-control-center (6.0.20) unstable; urgency=medium
+
+  * 更新systeminfo文案
+  * 更新keyboard的布局，去除错误的实现，使用DCCListview
+  * 修改错误的cmake写法
+
+ -- zsien <chenhongtao@uniontech.com>  Thu, 11 Thu 2023 14:01:03 +0800
+
 dde-control-center (6.0.19) unstable; urgency=medium
 
   * 修改繁体中文名称
