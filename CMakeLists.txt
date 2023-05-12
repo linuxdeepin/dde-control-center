@@ -542,7 +542,7 @@ endif()
 #--------------------------plugin-commoninfo--------------------------
 if (BUILD_PLUDIN)
     set(CommonInfo_Name dcc-commoninfo-plugin)
-    pkg_check_modules(DEEPIN_PW_CHECK libdeepin_pw_check)
+    pkg_check_modules(DEEPIN_PW_CHECK REQUIRED libdeepin_pw_check)
     file(GLOB_RECURSE COMMONINFO_SRCS
         "src/plugin-commoninfo/window/*.cpp"
         "src/plugin-commoninfo/operation/*.cpp"
