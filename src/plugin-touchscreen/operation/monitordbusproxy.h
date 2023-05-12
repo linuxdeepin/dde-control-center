@@ -26,9 +26,6 @@ public:
 private:
     void init();
 
-public Q_SLOTS: // METHODS
-    void onPropertiesChanged(const QDBusMessage &message);
-
 Q_SIGNALS: // SIGNALS
     void NameChanged(const QString & value) const;
 

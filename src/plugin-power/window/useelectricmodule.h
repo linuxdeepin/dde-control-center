@@ -27,13 +27,6 @@ Q_SIGNALS:
     void requestSetLinePowerPressPowerBtnAction(const int reply) const; //按下电源
     void requestSetLinePowerLidClosedAction(const int reply) const;     //合上盖子
 
-public Q_SLOTS:
-    void setScreenBlackDelayOnPower(const int delay);
-    void setSleepDelayOnPower(const int delay);
-    void setLockScreenAfter(const int delay);
-    void setCloseLid(int lidIndex);
-    void setPowerBtn(int powIndex);
-
 private:
     void initUI();
     void updateComboxActionList();

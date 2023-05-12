@@ -47,9 +47,6 @@ public slots:
     QDBusPendingReply<bool, QString, int> IsUsernameValid(const QString &in0);
     QDBusPendingReply<QString> RandUserIcon();
 
-private slots:
-    void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
-
 private:
     void init();
 

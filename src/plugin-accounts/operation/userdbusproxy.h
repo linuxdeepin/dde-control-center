@@ -187,7 +187,6 @@ public slots:
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);
-    void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
 private:
     void init();
 
