@@ -1839,7 +1839,6 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
     QFuture checkerror = QtConcurrent::run([this] {
         return checkCanExitTestingChannel();
     });
-    watcher->setFuture(checkerror);
     connect(watcher,
             &QFutureWatcher<CanExitTestingChannelStatus>::finished,
             this,
@@ -1854,6 +1853,7 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
                 }
                 dialog->setDisabled(false);
             });
+    watcher->setFuture(checkerror);
     dialog->exec();
     return wantexit;
 }
