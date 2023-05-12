@@ -38,7 +38,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setControlVisible(bool state);
-    void onProcessComboBox(const QString &value);
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
     void isUserOperate();
