@@ -19,8 +19,17 @@ namespace installer {
 
 namespace {
 
+const QString tzDirPath = std::visit([] {
+    QString tzDirPath = "/usr/share/zoneinfo";
+    if (qEnvironmentVariableIsSet("TZDIR"))
+        tzDirPath = qEnvironmentVariable("TZDIR");
+    return tzDirPath;
+});
+
 // Absolute path to zone.tab file.
-const char kZoneTabFile[] = "/usr/share/zoneinfo/zone1970.tab";
+const QString kZoneTabFile = std::visit([] {
+    return tzDirPath + "/zone1970.tab";
+});
 
 // Absolute path to backward timezone file.
 const char kTimezoneAliasFile[] = "/timezone_alias";
@@ -164,7 +173,7 @@ bool IsValidTimezone(const QString& timezone) {
   }
 
   // If |filepath| is a file or a symbolic link to file, it is a valid timezone.
-  const QString filepath(QString("/usr/share/zoneinfo/") + timezone);
+  const QString filepath(tzDirPath + timezone);
   return QFile::exists(filepath);
 }
 
