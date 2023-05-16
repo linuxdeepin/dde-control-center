@@ -117,7 +117,7 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
 
     ModuleObject *maxOne =
             *std::max_element(m_data.begin(), m_data.end(), [](ModuleObject *a, ModuleObject *b) {
-                return a->displayName().length() > b->displayName().length();
+                return a->displayName().length() < b->displayName().length();
             });
     emit newModuleDislayNameLen(maxOne->displayName().length());
 }
