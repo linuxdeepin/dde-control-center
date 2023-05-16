@@ -64,7 +64,7 @@ double ConvertPos(const QString &pos, int digits)
 
 } // namespace
 
-bool ZoneInfoDistanceComp(const ZoneInfo &a, const ZoneInfo &b)
+[[maybe_unused]] bool ZoneInfoDistanceComp(const ZoneInfo &a, const ZoneInfo &b)
 {
     return a.distance < b.distance;
 }
@@ -102,7 +102,7 @@ ZoneInfoList GetZoneInfoList()
     return list;
 }
 
-int GetZoneInfoByCountry(const ZoneInfoList &list, const QString &country)
+[[maybe_unused]] int GetZoneInfoByCountry(const ZoneInfoList &list, const QString &country)
 {
     int index = -1;
     for (const ZoneInfo &info : list) {
@@ -132,7 +132,7 @@ QString GetCurrentTimezone()
     return content.trimmed();
 }
 
-QString GetTimezoneName(const QString &timezone)
+[[maybe_unused]] QString GetTimezoneName(const QString &timezone)
 {
     const int index = timezone.lastIndexOf('/');
     return (index > -1) ? timezone.mid(index + 1) : timezone;
@@ -155,7 +155,7 @@ QString GetLocalTimezoneName(const QString &timezone, const QString &locale)
     return (index > -1) ? local_name.mid(index + 1) : local_name;
 }
 
-TimezoneAliasMap GetTimezoneAliasMap()
+[[maybe_unused]] TimezoneAliasMap GetTimezoneAliasMap()
 {
     TimezoneAliasMap map;
 
@@ -173,7 +173,7 @@ TimezoneAliasMap GetTimezoneAliasMap()
     return map;
 }
 
-bool IsValidTimezone(const QString &timezone)
+[[maybe_unused]] bool IsValidTimezone(const QString &timezone)
 {
     // Ignores empty timezone.
     if (timezone.isEmpty()) {
@@ -185,7 +185,7 @@ bool IsValidTimezone(const QString &timezone)
     return QFile::exists(filepath);
 }
 
-TimezoneOffset GetTimezoneOffset(const QString &timezone)
+[[maybe_unused]] TimezoneOffset GetTimezoneOffset(const QString &timezone)
 {
     const char *kTzEnv = "TZ";
     const char *old_tz = getenv(kTzEnv);
