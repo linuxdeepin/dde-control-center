@@ -285,7 +285,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
     qDebug() << " ========= UpdateCtrlWidget::setStatus  " << status;
     if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::TrialExpired) {
-        m_status = NoAtive;
+        m_status = Inactive;
     }
 
     Q_EMIT notifyUpdateState(m_status);
@@ -332,7 +332,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
         showCheckButton(tr("Check for Updates"));
         break;
-    case UpdatesStatus::NoAtive:
+    case UpdatesStatus::Inactive:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::NoActive);
         break;
@@ -346,7 +346,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::UpdatesAvailable:
         onChangeUpdatesAvailableStatus();
         break;
-    case UpdatesStatus::Updateing:
+    case UpdatesStatus::Updating:
         showUpdateInfo();
         onRequestRefreshSize();
         onRequestRefreshWidget();
@@ -409,7 +409,7 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
-    if (m_status == UpdatesStatus::Updateing || m_status == UpdatesStatus::UpdatesAvailable) {
+    if (m_status == UpdatesStatus::Updating || m_status == UpdatesStatus::UpdatesAvailable) {
         bool activation = false;
         const UiActiveState value = m_model->systemActivation();
         if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {

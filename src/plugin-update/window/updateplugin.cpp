@@ -81,7 +81,7 @@ void UpdateModule::active()
             syncUpdatablePackagesChanged(false);
         } else {
             UpdatesStatus status = m_model->status();
-            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Updateing || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
+            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Updating || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
                     status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
                 syncUpdatablePackagesChanged(true);
             }

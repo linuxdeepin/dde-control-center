@@ -59,19 +59,20 @@ public:
         Checking,
         Updated,
         UpdatesAvailable,
+        Updating,
         Downloading,
         DownloadPaused,
         Downloaded,
+        AutoDownloaded,
         Installing,
         UpdateSucceeded,
         UpdateFailed,
         NeedRestart,
-        NoNetwork,
-        NoSpace,
-        DeependenciesBrokenError,
+        WaitForRecoveryBackup,
         RecoveryBackingup,
         RecoveryBackingSuccessed,
-        RecoveryBackupFailed
+        RecoveryBackupFailed,
+        Inactive
     };
     Q_ENUM(ModelUpdatesStatus)
 
