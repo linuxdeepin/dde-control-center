@@ -38,7 +38,7 @@ enum UpdatesStatus {
     Checking,
     Updated,
     UpdatesAvailable,
-    Updateing,
+    Updating,
     Downloading,
     DownloadPaused,
     Downloaded,
@@ -47,11 +47,11 @@ enum UpdatesStatus {
     UpdateSucceeded,
     UpdateFailed,
     NeedRestart,
-    WaitRecoveryBackup,
+    WaitForRecoveryBackup,
     RecoveryBackingup,
     RecoveryBackingSuccessed,
     RecoveryBackupFailed,
-    NoAtive
+    Inactive
 };
 
 enum UpdateErrorType {

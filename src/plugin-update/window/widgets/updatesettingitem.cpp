@@ -158,7 +158,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->setProgressText(tr("The newest system installed, restart to take effect"));
         m_controlWidget->showButton(false);
         break;
-    case UpdatesStatus::WaitRecoveryBackup:
+    case UpdatesStatus::WaitForRecoveryBackup:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressText(tr("Waiting"));
         m_controlWidget->setButtonStatus(ButtonStatus::invalid);

@@ -616,7 +616,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
             m_updateInter->CleanJob(job->id());
             deleteJob(job);
         }
-        m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitRecoveryBackup);
+        m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitForRecoveryBackup);
         return;
     }
     if (m_backupStatus == BackupStatus::Backuped) {
@@ -834,7 +834,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType upd
         setUpdateInfo();
     }
 
-    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    m_model->setStatus(UpdatesStatus::Updating, __LINE__);
     QPointer<UpdateJobDBusProxy> job = new UpdateJobDBusProxy(jobPath, this);
     switch (updateType) {
     case ClassifyUpdateType::SystemUpdate:
@@ -889,7 +889,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType upd
 void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType)
 {
     QMutexLocker locker(&m_mutex);
-    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    m_model->setStatus(UpdatesStatus::Updating, __LINE__);
     QPointer<UpdateJobDBusProxy> job = new UpdateJobDBusProxy(jobPath, this);
     switch (updateType) {
     case ClassifyUpdateType::SystemUpdate:
@@ -1439,7 +1439,7 @@ void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &upda
 // 可进行原子更新
 void UpdateWorker::backupToAtomicUpgrade()
 {
-    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    m_model->setStatus(UpdatesStatus::Updating, __LINE__);
     m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackingup);
     /*
         "{"SubmissionTime":"1653034897","SystemVersion":"UOS-V23-2000-107","SubmissionType":0,"UUID":"02eb924f-4f35-4880-b839-096c3a65f525","Note":"系统更新"}"
@@ -1563,7 +1563,7 @@ void UpdateWorker::handleAtomicStateChanged(int operate,
 void UpdateWorker::onAtomicUpdateFinshed(bool successed)
 {
     auto requestUpdate = [=](ClassifyUpdateType type) -> bool {
-        if (m_model->getClassifyUpdateStatus(type) == UpdatesStatus::WaitRecoveryBackup
+        if (m_model->getClassifyUpdateStatus(type) == UpdatesStatus::WaitForRecoveryBackup
             || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingup
             || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingSuccessed) {
             distUpgrade(type);
