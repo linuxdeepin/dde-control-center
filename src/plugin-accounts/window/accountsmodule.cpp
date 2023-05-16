@@ -163,6 +163,7 @@ AccountsModule::AccountsModule(QObject *parent)
         appendChild(new ItemModule("group", tr("Group")));
         appendChild(new ItemModule(
                 "groupListView", tr("Group"), [this](ModuleObject *module) {
+                    Q_UNUSED(module)
                     DCCListView *groupListView = new DCCListView();
                     groupListView->setModel(m_groupItemModel);
                     groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -218,6 +219,7 @@ bool AccountsModule::isSystemAdmin(User *user)
 
 QWidget *AccountsModule::initAccountsList(ModuleObject *module)
 {
+    Q_UNUSED(module)
     AccountsListView *userlistView = new AccountsListView();
     userlistView->setMaximumHeight(90);
     userlistView->setFrameShape(QFrame::NoFrame);
@@ -241,9 +243,11 @@ QWidget *AccountsModule::initAccountsList(ModuleObject *module)
     scroller->setScrollerProperties(sp);
     //自动刷新当前链接状态
     connect(userlistView->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](const QModelIndex &current, const QModelIndex &previous) {
+        Q_UNUSED(previous)
         setCurrentUser(m_accountsmodel->getUser(current));
     });
     connect(this, &AccountsModule::currentUserChanged, userlistView, [this, userlistView](User *user, User *oldUser) {
+        Q_UNUSED(oldUser)
         QModelIndex i = m_accountsmodel->index(user);
         if (userlistView->selectionModel()->currentIndex() != i) {
             userlistView->selectionModel()->setCurrentIndex(i, QItemSelectionModel::ClearAndSelect);
@@ -255,6 +259,7 @@ QWidget *AccountsModule::initAccountsList(ModuleObject *module)
 
 QWidget *AccountsModule::initCreateAccount(ModuleObject *module)
 {
+    Q_UNUSED(module)
     DFloatingButton *createBtn = new DFloatingButton(nullptr);
     createBtn->setIcon(DStyle::SP_IncreaseElement);
     createBtn->setFixedSize(50, 50);
@@ -267,6 +272,7 @@ QWidget *AccountsModule::initCreateAccount(ModuleObject *module)
 
 QWidget *AccountsModule::initAvatar(ModuleObject *module)
 {
+    Q_UNUSED(module)
     AvatarWidget *avatar = new AvatarWidget();
     avatar->setFixedSize(120, 120);
     avatar->setArrowed(false);
@@ -305,6 +311,7 @@ QWidget *AccountsModule::initFullName(ModuleObject *module)
 
 QWidget *AccountsModule::initFullNameEdit(ModuleObject *module)
 {
+    Q_UNUSED(module)
     DLineEdit *inputLineEdit = new DLineEdit();
     inputLineEdit->setAccessibleName("fullName_edit");
     inputLineEdit->setMinimumWidth(220);
@@ -381,6 +388,7 @@ QWidget *AccountsModule::initChangePassword(ModuleObject *module)
 
 QWidget *AccountsModule::initDeleteAccount(ModuleObject *module)
 {
+    Q_UNUSED(module)
     DWarningButton *deleteAccount = new DWarningButton();
     deleteAccount->setText(tr("Delete Account"));
     connect(deleteAccount, &DWarningButton::clicked, this, &AccountsModule::onDeleteUser);
@@ -389,6 +397,7 @@ QWidget *AccountsModule::initDeleteAccount(ModuleObject *module)
 
 QWidget *AccountsModule::initAccountType(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QComboBox *asAdministrator = new QComboBox();
     asAdministrator->addItems({ tr("Standard User"), tr("Administrator") });
     if (!m_curUser) {
@@ -410,6 +419,7 @@ QWidget *AccountsModule::initAccountType(ModuleObject *module)
 
 QWidget *AccountsModule::initValidityDays(ModuleObject *module)
 {
+    Q_UNUSED(module)
     AccountSpinBox *validityDaysBox = new AccountSpinBox();
     validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), validityDaysBox->lineEdit()));
     validityDaysBox->lineEdit()->setPlaceholderText("99999");
@@ -459,6 +469,7 @@ QWidget *AccountsModule::initValidityDays(ModuleObject *module)
 
 QWidget *AccountsModule::initName(ModuleObject *module)
 {
+    Q_UNUSED(module)
     QWidget *w = new QWidget();
     QLabel *shortnameBtn = new QLabel();
     shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(12, 12));
@@ -757,6 +768,7 @@ void AccountsModule::setFullname(const QString &fullName, DLabel *fullNameLabel)
 
 void AccountsModule::updateFullnameVisible(uint32_t flag, bool state)
 {
+    Q_UNUSED(state)
     if (ModuleObject::IsHiddenFlag(flag)) {
         m_fullNameModule->setHidden(m_fullNameIconModule->isHidden());
         m_fullNameEditModule->setHidden(!m_fullNameIconModule->isHidden());
