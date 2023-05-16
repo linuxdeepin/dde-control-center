@@ -16,6 +16,7 @@
 #include "widgets/settingsgroupmodule.h"
 #include "widgets/titlevalueitem.h"
 #include "widgets/widgetmodule.h"
+#include "window/utils.h"
 
 #include <dsysinfo.h>
 #include <qapplication.h>
@@ -93,12 +94,12 @@ void SystemInfoModule::initChildModule()
     ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
     moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>("editionLicense", tr("Edition License"), this, &SystemInfoModule::initGnuLicenseModule));
     moduleAgreement->appendChild(moduleEdition);
-
-    // 三级菜单--协议与隐私政策-最终用户许可协议
-    ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
-    moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>("endUserLicenseAgreement", tr("End User License Agreement"), this, &SystemInfoModule::initUserLicenseModule));
-    moduleAgreement->appendChild(moduleUserAgreement);
-
+    if (DCC_LICENSE::isEndUserAgreementExist()) {
+        // 三级菜单--协议与隐私政策-最终用户许可协议
+        ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
+        moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>("endUserLicenseAgreement", tr("End User License Agreement"), this, &SystemInfoModule::initUserLicenseModule));
+        moduleAgreement->appendChild(moduleUserAgreement);
+    }
     // 三级菜单--协议与隐私政策-隐私政策
     ModuleObject *modulePolicy = new PageModule("privacyPolicy", tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
     modulePolicy->appendChild(new WidgetModule<PrivacyPolicyWidget>());
