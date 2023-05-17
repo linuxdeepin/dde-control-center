@@ -60,6 +60,7 @@ private:
     void initKernelModule(TitleValueItem *item);
     void initProcessorModule(TitleValueItem *item);
     void initMemoryModule(TitleValueItem *item);
+    void initGraphicsPlatformModule(TitleValueItem *item);
     void initGnuLicenseModule(VersionProtocolWidget *item);
     void initUserLicenseModule(UserLicenseWidget *item);
 
