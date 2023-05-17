@@ -28,6 +28,17 @@
 #include <QFutureWatcher>
 #include <QtConcurrent>
 
+#include <functional>
+
+const QString PLATFORM_NAME = std::visit([]() -> QString {
+    QString platformname = QGuiApplication::platformName();
+    if (platformname.contains("xcb")) {
+        platformname = "X11";
+    }
+    return platformname;
+});
+
+
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 
@@ -79,9 +90,10 @@ void SystemInfoModule::initChildModule()
         sysInfoGroup->appendChild(
                 new WidgetModule<TitleAuthorizedItem>("authorization", tr("Authorization"), this, &SystemInfoModule::initAuthorizationModule));
     }
-    sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
     sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("processor", tr("Processor"), this, &SystemInfoModule::initProcessorModule));
     sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
+    sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("graphics", tr("Graphics Platform"), this, &SystemInfoModule::initGraphicsPlatformModule));
+    sysInfoGroup->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
     auto copyrightBottom = new WidgetModule<LogoItem>("", "", this, &SystemInfoModule::initLogoModule);
     copyrightBottom->setExtra(true);
 
@@ -236,6 +248,13 @@ void SystemInfoModule::initMemoryModule(TitleValueItem *item)
     item->setTitle(tr("Memory") + ':');
     item->setValue(m_model->memory());
     connect(m_model, &SystemInfoModel::memoryChanged, item, &TitleValueItem::setValue);
+}
+
+void SystemInfoModule::initGraphicsPlatformModule(TitleValueItem *item)
+{
+    item->addBackground();
+    item->setTitle(tr("Graphics Platform") + ':');
+    item->setValue(PLATFORM_NAME);
 }
 
 void SystemInfoModule::initGnuLicenseModule(VersionProtocolWidget *item)
