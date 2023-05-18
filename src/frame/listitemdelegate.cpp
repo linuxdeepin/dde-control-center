@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QApplication>
 #include <QAbstractItemView>
+#include <QHelpEvent>
+#include <QToolTip>
 
 #include <DPalette>
 #include <DPaletteHelper>
@@ -81,7 +83,7 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() - fontHeight) / 2), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
     }
-    QString tipText;
+
     QRect tipRect = displayRect.translated(0, opt.widget->fontMetrics().lineSpacing() + 3);
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
@@ -230,4 +232,21 @@ void ListItemDelegate::drawFocus(const QStyle *style, QPainter *painter, const Q
             : QPalette::Disabled;
     o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
     style->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter, option.widget);
+}
+
+bool ListItemDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    QStyleOptionViewItem opt(option);
+    bool isBeginning = (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::Beginning) || (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::OnlyOne);
+    int displayWidth = isBeginning ? opt.rect.width() : opt.rect.width() - opt.decorationSize.width() -30 ;
+
+    QString displayName = index.data(Qt::DisplayRole).toString();
+
+    int fontWidth = opt.widget->fontMetrics().horizontalAdvance(displayName);
+    if (fontWidth > displayWidth) {
+        if (event->type() == QEvent::ToolTip) {
+            QToolTip::showText(QCursor::pos(), displayName, reinterpret_cast<QWidget*>(view), option.rect, 1000);
+        }
+    }
+    return true;
 }
