@@ -58,7 +58,7 @@ ModuleObject *CommonInfoPlugin::module()
     moduleInterface->appendChild(moduleBootMenu);
 
     // 服务器版/社区版
-    if (!IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM && !DSysInfo::isDeepin()) {
+    if (!IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM && DSysInfo::isDeepin()) {
         if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
             //二级菜单--开发者模式
             ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"));
