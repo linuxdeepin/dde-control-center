@@ -1,10 +1,19 @@
+dde-control-center (6.0.21) unstable; urgency=medium
+
+  * fix margin of page
+  * a missing choice in power plugin
+  * depercate DCCDBusInterface
+  * fix the white place of titlebar in hlistmodule cannot be dragged
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 25 May 2023 15:01:03 +0800
+
 dde-control-center (6.0.20) unstable; urgency=medium
 
   * 更新systeminfo文案
   * 更新keyboard的布局，去除错误的实现，使用DCCListview
   * 修改错误的cmake写法
 
- -- zsien <chenhongtao@uniontech.com>  Thu, 11 Thu 2023 14:01:03 +0800
+ -- chenhongtao <chenhongtao@uniontech.com>  Thu, 11 May 2023 14:01:03 +0800
 
 dde-control-center (6.0.19) unstable; urgency=medium
 
