@@ -1860,16 +1860,20 @@
         <translation>版本授權</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>內核版本</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>處理器</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>內存</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>圖形平台</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>內核版本</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>語言列表</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>編 輯</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>語言列表</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2900,7 +2904,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation>圖像設備</translation>
+        <translation>鏡頭</translation>
     </message>
     <message>
         <source>Microphone</source>
@@ -3004,7 +3008,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation>請求使用相機權限的應用：</translation>
+        <translation>請求使用鏡頭權限的應用：</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
@@ -3024,7 +3028,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation>暫無應用請求使用相機權限</translation>
+        <translation>暫無應用請求使用鏡頭權限</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
