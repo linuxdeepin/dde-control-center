@@ -1860,16 +1860,20 @@
         <translation>版本授權</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>核心版本</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>處理器</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>記憶體</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>圖形平台</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>核心版本</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>語言列表</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>編 輯</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>語言列表</translation>
     </message>
     <message>
         <source>Add Language</source>

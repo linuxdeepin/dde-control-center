@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Patvirtinti</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Įrašyti</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Paveikslai</translation>
     </message>
 </context>
 <context>
@@ -750,11 +750,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Mano įrenginiai</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Kiti įrenginiai</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Paveikslai</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1125,7 +1125,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatūros nustatymai</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1237,11 +1237,11 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatūros nustatymai</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatūros išdėstymas</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1271,11 +1271,11 @@
     </message>
     <message>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Atstatyti slaptažodį</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Atstačius slaptažodį bus išvalyti raktinėje saugomi duomenys.</translation>
     </message>
     <message>
         <source>Current Password</source>
@@ -1283,7 +1283,7 @@
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation type="unfinished"/>
+        <translation>Pamiršote slaptažodį?</translation>
     </message>
     <message>
         <source>New Password</source>
@@ -1295,7 +1295,7 @@
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Užuomina apie slaptažodį</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1323,7 +1323,7 @@
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Užuomina yra matoma visiems naudotojams. Nerašykite čia savo slaptažodžio.</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -1335,18 +1335,18 @@
     </message>
     <message>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Sistemos klaida</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Tinklo klaida</translation>
     </message>
 </context>
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Tapatybė</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Pranešimai</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1482,15 +1482,15 @@
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privatumo politika</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
@@ -1628,15 +1628,15 @@
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1683,23 +1683,23 @@
     <name>dccV23::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Saugumo klausimai</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Šie klausimai bus naudojami padedant jums atstatyti slaptažodį tuo atveju, jeigu jį pamiršite.</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>Saugumo klausimas 1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>Saugumo klausimas 2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>Saugumo klausimas 3</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1711,43 +1711,43 @@
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Atsakymas neturi viršyti 30 simbolių</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>Nesirinkite pasikartojančių klausimų</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkite klausimą</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Kaip vadinasi miestas, kuriame gimėte?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų pirmosios mokyklos pavadinimas?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Ką šiame pasaulyje labiausiai mylite?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Koks yra jūsų mėgstamiausias gyvūnas?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Kokia yra jūsų mėgstamiausia daina?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Koks yra jūsų slapyvardis?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Jis negali būti tuščias</translation>
     </message>
 </context>
 <context>
@@ -1860,10 +1860,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Processor</source>
         <translation type="unfinished"/>
     </message>
@@ -1872,8 +1868,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Branduolys</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1889,7 +1889,7 @@
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privatumo politika</translation>
     </message>
     <message>
         <source>%1-bit</source>
@@ -1921,16 +1921,16 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Kalbų sąrašas</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Redaguoti</translation>
     </message>
     <message>
+        <source>Language List</source>
+        <translation>Kalbų sąrašas</translation>
+    </message>
+    <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti kalbą</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1941,7 +1941,7 @@
     <name>dccV23::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Netrukdyti</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
@@ -2715,6 +2715,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Small</source>
+        <translation>Mažas</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Didelis</translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -3164,7 +3176,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Laikas</translation>
     </message>
     <message>
         <source>Auto Sync</source>
@@ -3172,7 +3184,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Atstatyti</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3425,7 +3437,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateSettingItem</name>
     <message>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Nepakanka vietos diske</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
@@ -3441,7 +3453,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Tinklo klaida, patikrinkite ir bandykite dar kartą</translation>
     </message>
     <message>
         <source>Packages error</source>
@@ -3481,11 +3493,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Serveris</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Darbalaukis</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3594,6 +3606,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
         <translation type="unfinished"/>
     </message>
     <message>

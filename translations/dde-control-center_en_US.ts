@@ -1860,16 +1860,20 @@
         <translation>Authorization</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Memory</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Language List</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Edit</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Language List</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3617,6 +3621,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>Third-party Repositories</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>Your are safe to leave the internal testing channel</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>

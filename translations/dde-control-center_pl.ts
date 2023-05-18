@@ -522,7 +522,7 @@
     <name>dccV23::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation>Pokaż powiadomienia z %1 na komputerze i w centrum powiadomień.</translation>
+        <translation>Pokaż powiadomienia z %1 na komputerze i w Centrum powiadomień.</translation>
     </message>
     <message>
         <source>Play a sound</source>
@@ -534,7 +534,7 @@
     </message>
     <message>
         <source>Show in notification center</source>
-        <translation>Pokaż w centrum powiadomień</translation>
+        <translation>Pokaż w Centrum powiadomień</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -561,7 +561,7 @@
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation>Zdjęcie niestandardowe</translation>
+        <translation>Własne zdjęcie</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -883,7 +883,7 @@
     </message>
     <message>
         <source>optional</source>
-        <translation>opcjonalne</translation>
+        <translation>Opcjonalne</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
@@ -1437,15 +1437,15 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation>Powiadomienie aplikacji</translation>
+        <translation>Powiadomienia aplikacji</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Powiadomienie</translation>
+        <translation>Powiadomienia</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation>Powiadomienie systemowe</translation>
+        <translation>Powiadomienia systemowe</translation>
     </message>
 </context>
 <context>
@@ -1676,7 +1676,7 @@
     </message>
     <message>
         <source>Strong</source>
-        <translation>Mocne</translation>
+        <translation>Silne</translation>
     </message>
 </context>
 <context>
@@ -1860,16 +1860,20 @@
         <translation>Autoryzacja</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Pamięć</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Lista języków</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Edytuj</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Lista języków</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -1943,7 +1947,7 @@
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Powiadomienia aplikacji nie będą wyświetlane, dźwięki zostaną wyciszone, a wszystkie wiadomości będzie można przeczytać w centrum powiadomień.</translation>
+        <translation>Powiadomienia aplikacji nie będą wyświetlane, dźwięki zostaną wyciszone, a wszystkie wiadomości będzie można przeczytać w Centrum powiadomień.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -2180,7 +2184,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>DockModuleObject</name>
     <message>
         <source>Dock</source>
-        <translation>Dodaj do doku</translation>
+        <translation>Dok</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
@@ -3703,11 +3707,11 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Komputer zostanie wstrzymany po</translation>
+        <translation>Wstrzymaj komputer po</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation>Komputer zostanie wstrzymany po</translation>
+        <translation>Wstrzymaj komputer po</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3782,7 +3786,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Komputer zostanie wstrzymany po</translation>
+        <translation>Wstrzymaj komputer po</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
