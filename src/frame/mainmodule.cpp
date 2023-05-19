@@ -12,6 +12,7 @@
 
 #include <DPlatformTheme>
 
+#include <QFontMetrics>
 #include <QHBoxLayout>
 #include <QSplitter>
 
@@ -21,17 +22,18 @@
 
 using namespace DCC_NAMESPACE;
 
-const int NavViewMaximumWidth = QWIDGETSIZE_MAX;
-const int NavViewMinimumWidth = 160;
+constexpr int NavViewMaximumWidth = QWIDGETSIZE_MAX;
+constexpr int NavViewMinimumWidth = 160;
 
 const QSize ListViewItemIconSize_IconMode(84, 84);
 const QSize ListViewItemGridSize_IconMode(280, 84);
 const QSize ListViewItemIconSize_ListMode(32, 32);
 const QSize ListViewItemGridSize_ListMode(168, 48);
-const int ListView_ListMode_MaxWidth = 400;
-const int ListView_IconMode_MaxWidth = 500;
+constexpr int ListView_ListMode_MaxWidth = 400;
+constexpr int ListView_IconMode_MaxWidth = 500;
 // mainly about icon and margin
-const int ExtraWidth = 40;
+constexpr int ExtraWidth = 80;
+
 namespace DCC_NAMESPACE {
 class MainModulePrivate
 {
@@ -52,10 +54,6 @@ public:
                 isSizebar ? ListViewItemIconSize_ListMode : ListViewItemIconSize_IconMode;
         const int viewMaxWidth =
                 isSizebar ? ListView_ListMode_MaxWidth : ListView_IconMode_MaxWidth;
-        int CharWidth =
-                Dtk::Gui::DGuiApplicationHelper::instance()->applicationTheme()->fontPointSize();
-        const int elementCharWidth = CharWidth == 0 ? 11 : CharWidth;
-        // const QSize viewIconSize =
         ListView *view = new ListView(parentWidget);
         view->setGridSize(viewGridSize);
         view->setIconSize(viewIconSize);
@@ -81,15 +79,14 @@ public:
                 obj->trigger();
         };
         QObject::connect(model,
-                         &ModuleDataModel::newModuleDislayNameLen,
+                         &ModuleDataModel::newModuleMaxDislayName,
                          view,
-                         [view, viewGridSize, viewIconSize,viewMaxWidth, elementCharWidth](int len) {
+                         [view, viewGridSize, viewIconSize, viewMaxWidth](const QString &name) {
                              QSize gradSize = view->gridSize();
-                             const int elementWidth = len * elementCharWidth + viewIconSize.width() + ExtraWidth;
-                             if (gradSize.width() < elementWidth
-                                 && elementWidth < viewMaxWidth) {
-                                 view->setGridSize(
-                                         QSize(elementWidth, viewGridSize.height()));
+                             const int elementWidth = view->fontMetrics().horizontalAdvance(name)
+                                     + viewIconSize.width() + ExtraWidth;
+                             if (gradSize.width() < elementWidth && elementWidth < viewMaxWidth) {
+                                 view->setGridSize(QSize(elementWidth, viewGridSize.height()));
                              }
                          });
         QObject::connect(view, &ListView::activated, view, &ListView::clicked);

@@ -119,7 +119,7 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
             *std::max_element(m_data.begin(), m_data.end(), [](ModuleObject *a, ModuleObject *b) {
                 return a->displayName().length() < b->displayName().length();
             });
-    emit newModuleDislayNameLen(maxOne->displayName().length());
+    emit newModuleMaxDislayName(maxOne->displayName());
 }
 
 void ModuleDataModel::onRemovedChild(ModuleObject *const module)
