@@ -27,9 +27,6 @@ const static QString SinkInterface = QStringLiteral("org.deepin.dde.Audio1.Sink"
 const static QString SourceInterface = QStringLiteral("org.deepin.dde.Audio1.Source");
 const static QString MeterInterface = QStringLiteral("org.deepin.dde.Audio1.Meter");
 
-const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
-const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
-
 using namespace DCC_NAMESPACE;
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
     : QObject(parent)

@@ -77,7 +77,7 @@ void AddFaceInfoDialog::initWidget()
     m_explainTips->setAlignment(Qt::AlignCenter);
     DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
 
-    QHBoxLayout *tips = new QHBoxLayout(this);
+    QHBoxLayout *tips = new QHBoxLayout;
     tips->addWidget(m_explainTips);
     tips->setContentsMargins(42, 10, 42, 10);
 
@@ -86,7 +86,7 @@ void AddFaceInfoDialog::initWidget()
     m_disclaimersItem->show();
 
     // 下方按钮
-    QHBoxLayout *btnLayout = new QHBoxLayout(this);
+    QHBoxLayout *btnLayout = new QHBoxLayout;
     m_cancelBtn->setText(tr("Cancel"));
     m_cancelBtn->hide();
     m_acceptBtn->setText(tr("Next"));

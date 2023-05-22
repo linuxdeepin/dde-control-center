@@ -262,7 +262,7 @@ void MicrophonePage::initSlider()
 {
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
-    m_layout->insertWidget(2, m_inputSlider);
+    m_layout->addWidget(m_inputSlider);
 
     m_volumeBtn = new SoundLabel(this);
     QGridLayout *gridLayout = dynamic_cast<QGridLayout *>(m_inputSlider->slider()->layout());
@@ -326,7 +326,7 @@ void MicrophonePage::initSlider()
     });
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &MicrophonePage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
-    m_layout->insertWidget(3, m_feedbackSlider);
+    m_layout->addWidget(m_feedbackSlider);
 
     refreshIcon();
     showDevice();
