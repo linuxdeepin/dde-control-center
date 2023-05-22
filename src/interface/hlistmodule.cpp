@@ -53,7 +53,11 @@ public:
         parentWidget->setLayout(m_layout);
         QObject::connect(parentWidget, &QObject::destroyed, m_layout, [this]() { m_layout = nullptr; });
 
-        m_view = new TabView(parentWidget);
+        m_view = new TabView;
+        QHBoxLayout* titlebarLayout = new QHBoxLayout;
+        titlebarLayout->addStretch();
+        titlebarLayout->addWidget(m_view);
+        titlebarLayout->addStretch();
 
         TabItemDelegate *delegate = new TabItemDelegate(m_view);
         ModuleDataModel *model = new ModuleDataModel(m_view);
@@ -64,7 +68,7 @@ public:
         m_view->setModel(model);
         m_view->setItemDelegate(delegate);
 
-        m_layout->addWidget(m_view);
+        m_layout->addLayout(titlebarLayout);
 
         auto onClicked = [](const QModelIndex &index) {
             ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
