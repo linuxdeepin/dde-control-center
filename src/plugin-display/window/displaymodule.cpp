@@ -285,6 +285,7 @@ void DisplayModule::showMultiScreenWidget()
 
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
+        Q_UNUSED(moi)
         bool stateChanged = false;
         //窗口初始化且窗口最大化的时候不需要移动窗口
         if (!m_displayWidget->window()) {

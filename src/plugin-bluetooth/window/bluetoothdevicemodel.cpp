@@ -344,6 +344,7 @@ QWidget *BluetoothDeviceDelegate::createEditor(QWidget *parent,
                                                const QStyleOptionViewItem &option,
                                                const QModelIndex &index) const
 {
+    Q_UNUSED(option)
     if (!index.isValid())
         return nullptr;
 

@@ -177,6 +177,7 @@ QSize UserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelInd
 
 void UserDelegate::drawBackground(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
 {
+    Q_UNUSED(style)
     QRect r = rect;
     r.adjust(-2,-2,2,2);
     painter->save();
@@ -215,6 +216,7 @@ void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem 
 
 void UserDelegate::drawOnlineIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
 {
+    Q_UNUSED(option)
     painter->save();
     painter->setRenderHints(QPainter::Antialiasing);
 

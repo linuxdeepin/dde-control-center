@@ -138,6 +138,7 @@ void MicrophonePage::setModel(SoundModel *model)
     connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
     connect(m_model, &SoundModel::reduceNoiseChanged, m_noiseReductionsw, &SwitchWidget::setChecked);
     connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
+        Q_UNUSED(flag)
         refreshIcon();
     });
 

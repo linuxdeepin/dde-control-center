@@ -70,6 +70,7 @@ void TouchScreenModule::init()
     resetItems();
 
     ItemModule *cancel = new ItemModule("Cancel","Cancel",[this](ModuleObject *module) -> QWidget*{
+            Q_UNUSED(module)
             ButtonTuple *btnTuple = new ButtonTuple(ButtonTuple::Save);
             btnTuple->setBackgroundRole(QPalette::Base);
             QPushButton *confirm = btnTuple->rightButton();
@@ -114,6 +115,7 @@ void TouchScreenModule::resetItems()
     for (const auto &touchScreen : m_model->touchScreenList()) {
         ItemModule *item = new ItemModule("touchScreen", touchScreen.name,
                                           [monitors, touchScreen, touchScreenAndMonitor, this] (ModuleObject *module) -> QWidget*{
+                                              Q_UNUSED(module)
                                               QComboBox *match = new QComboBox();
                                               match->addItems(monitors);
                                               match->setProperty("touchScreeUUID",touchScreen.UUID);
