@@ -324,7 +324,7 @@ void SpeakerPage::initSlider()
         m_outputSlider->setValueLiteral(QString::number((int)(m_model->speakerVolume() * 100 + 0.000001))+ "%");
     });
     connect(m_volumeBtn, &SoundLabel::clicked, this, &SpeakerPage::clickLeftButton);
-    m_layout->insertWidget(2, m_outputSlider);
+    m_layout->addWidget(m_outputSlider);
 
     //音量增强
     auto hlayout = new QVBoxLayout();
@@ -348,7 +348,6 @@ void SpeakerPage::initSlider()
     m_vbWidget->setAccessibleName("SpeakerPage_vbWidget");
     m_vbWidget->setLayout(hlayout);
     m_vbWidget->setVisible(m_model->isPortEnable());
-    m_layout->insertWidget(3, m_vbWidget);
     m_layout->addWidget(m_vbWidget);
 
     m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
@@ -382,7 +381,7 @@ void SpeakerPage::initSlider()
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &SpeakerPage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &SpeakerPage::refreshIcon);
 
-    m_layout->insertWidget(4, m_balanceSlider);
+    m_layout->addWidget(m_balanceSlider);
 
     refreshIcon();
     showDevice();
