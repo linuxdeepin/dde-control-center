@@ -10,8 +10,6 @@
 #include <QDateTime>
 #include <QDebug>
 
-using namespace DCC_NAMESPACE;
-
 TouchScreenModel::TouchScreenModel(QObject *parent)
     : QObject(parent)
     , DCC_INIT_PRIVATE(TouchScreenModel)

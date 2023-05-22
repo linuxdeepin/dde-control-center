@@ -144,6 +144,7 @@ QWidget *OutputDeviceModule::page()
 
 DeviceTitleModule::DeviceTitleModule(const QString &name, const QString &title, QObject *parent)
 {
+    Q_UNUSED(parent)
     setName(name);
     setDescription(title);
     addContentText(title);

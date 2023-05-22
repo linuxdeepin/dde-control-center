@@ -26,11 +26,8 @@ void AccountsDBusProxy::init()
     const QString displayManagerPath = "/org/freedesktop/DisplayManager";
     const QString displayManagerInterface = "org.freedesktop.DisplayManager";
 
-    const QString propertiesInterface = "org.freedesktop.DBus.Properties";
-    const QString propertiesChanged = "PropertiesChanged";
-
-    m_dBusAccountsInter = new DCC_NAMESPACE::DCCDBusInterface(accountsService, accountsPath, accountsInterface, QDBusConnection::systemBus(), this);
-    m_dBusDisplayManagerInter = new DCC_NAMESPACE::DCCDBusInterface(displayManagerService, displayManagerPath, displayManagerInterface, QDBusConnection::systemBus(), this);
+    m_dBusAccountsInter = new DDBusInterface(accountsService, accountsPath, accountsInterface, QDBusConnection::systemBus(), this);
+    m_dBusDisplayManagerInter = new DDBusInterface(displayManagerService, displayManagerPath, displayManagerInterface, QDBusConnection::systemBus(), this);
 }
 
 // Accounts

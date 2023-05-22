@@ -8,13 +8,13 @@
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 
+#include <DDBusInterface>
+
 #include <QDBusReply>
 #include <QObject>
 
+using Dtk::Core::DDBusInterface;
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
 class QDBusMessage;
 
 class TouchScreenProxy : public QObject
@@ -41,7 +41,7 @@ public Q_SLOTS:
     QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_displayInter;
+    DDBusInterface *m_displayInter;
     TouchscreenInfoList_V2 m_TouchscreensList;
     QList<QDBusObjectPath> m_Monitors;
     TouchscreenMap m_TouchMap;

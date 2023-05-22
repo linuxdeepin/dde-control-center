@@ -7,10 +7,9 @@
 #include <QObject>
 #include <tuple>
 #include "interface/namespace.h"
+#include <DDBusInterface>
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
 
 class QDBusMessage;
 
@@ -29,6 +28,6 @@ private:
     void init();
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusInter;
+    DDBusInterface *m_dBusInter;
     QString m_lastError;
 };

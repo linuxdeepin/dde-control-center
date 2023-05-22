@@ -43,6 +43,7 @@ QStringList PluginManagerV20::pluginPath()
 
 void PluginManagerV20::loadPlugin(QString path, dccV20::FrameProxyInterface *frameProxy)
 {
+    Q_UNUSED(frameProxy)
     qDebug() << "loading module: " << path;
     QElapsedTimer et;
     et.start();

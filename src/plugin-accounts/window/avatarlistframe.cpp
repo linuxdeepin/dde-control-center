@@ -347,6 +347,7 @@ void CustomAddAvatarWidget::dropEvent(QDropEvent *event)
 
 void CustomAddAvatarWidget::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     QPen p(QColor(216, 212, 212));
@@ -472,7 +473,7 @@ void CustomAvatarView::paintEvent(QPaintEvent *event)
     }
 
     // 平移
-    painter.translate(this->width() / 2 + m_xPtInterval, this->height() / 2 + m_yPtInterval);
+    painter.translate(this->width() / 2.0 + m_xPtInterval, this->height() / 2.0 + m_yPtInterval);
 
     // 缩放
     painter.scale(m_zoomValue, m_zoomValue);
@@ -522,6 +523,7 @@ void CustomAvatarView::mouseMoveEvent(QMouseEvent *event)
 
 void CustomAvatarView::mouseReleaseEvent(QMouseEvent *event)
 {
+    Q_UNUSED(event)
     endAvatarModify();
     this->setCursor(Qt::ArrowCursor);
 }

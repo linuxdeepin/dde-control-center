@@ -29,6 +29,7 @@ QString SecurityDBusProxy::Status()
 
 std::tuple<QString, QString> SecurityDBusProxy::GetSEUserByName(const QString &user)
 {
+    Q_UNUSED(user)
     std::tuple<QString, QString> result;
     QDBusPendingReply<QString, QString> reply = m_dBusInter->asyncCall("GetSEUserByName");
     reply.waitForFinished();
@@ -46,7 +47,7 @@ void SecurityDBusProxy::init()
     const QString &path = QStringLiteral("/com/deepin/daemon/SecurityEnhance");
     const QString &interface = QStringLiteral("com.deepin.daemon.SecurityEnhance");
 
-    m_dBusInter = new DCC_NAMESPACE::DCCDBusInterface(service, path, interface, QDBusConnection::systemBus(), this);
+    m_dBusInter = new DDBusInterface(service, path, interface, QDBusConnection::systemBus(), this);
 
     if (!m_dBusInter->isValid()) {
         qWarning() << "Security interface invalid: " << m_dBusInter->lastError().message();

@@ -217,6 +217,7 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
     });
 
     connect(machine, &Machine::disconnectStatusChanged, m_deviceCombox, [this](bool status) {
+        Q_UNUSED(status)
         m_currentMachineDevcice = nullptr;
         cooperationStatusChanged(false);
     });

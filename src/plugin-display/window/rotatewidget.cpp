@@ -81,6 +81,7 @@ void RotateWidget::initRotate()
     m_rotateCombox->setCurrentIndex(m_rotateCombox->findData(rotate));
 
     connect(m_rotateCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
+        Q_UNUSED(idx)
         Q_EMIT requestSetRotate(m_monitor, m_rotateCombox->currentData().value<int>());
     });
 }

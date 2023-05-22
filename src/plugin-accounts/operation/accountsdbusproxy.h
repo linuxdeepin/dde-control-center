@@ -6,11 +6,11 @@
 
 #include <QObject>
 #include <QDBusPendingReply>
+#include <DDBusInterface>
 #include "interface/namespace.h"
 
-namespace DCC_NAMESPACE {
-class DCCDBusInterface;
-}
+using Dtk::Core::DDBusInterface;
+
 class QDBusMessage;
 
 class AccountsDBusProxy : public QObject
@@ -51,8 +51,8 @@ private:
     void init();
 
 private:
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusAccountsInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayManagerInter;
+    DDBusInterface *m_dBusAccountsInter;
+    DDBusInterface *m_dBusDisplayManagerInter;
 };
 
 #endif // ACCOUNTSDBUSPROXY_H
