@@ -248,5 +248,6 @@ void UseElectricModule::updateComboxActionList()
         m_comboxOptions.append({ tr("Hibernate"), 2 });
     }
     m_comboxOptions.append({ tr("Turn off the monitor"), 3 });
-    m_comboxOptions.append({ tr("Do nothing"), 4 });
+    m_comboxOptions.append({ tr("Show the shutdown Interface"), 4 });
+    m_comboxOptions.append({ tr("Do nothing"), 5 });
 }
