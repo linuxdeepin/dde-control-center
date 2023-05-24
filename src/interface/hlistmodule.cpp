@@ -50,6 +50,7 @@ public:
         Q_Q(HListModule);
         QWidget *parentWidget = new QWidget();
         m_layout = new QVBoxLayout(parentWidget);
+        m_layout->setContentsMargins(0, 10, 0, 10);
         parentWidget->setLayout(m_layout);
         QObject::connect(parentWidget, &QObject::destroyed, m_layout, [this]() { m_layout = nullptr; });
 
