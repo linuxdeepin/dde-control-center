@@ -1869,7 +1869,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Graphics Platform</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -3749,6 +3749,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation>Maximum capacity</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Show the shutdown Interface</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3811,6 +3815,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Turn off the monitor</source>
         <translation>Turn off the monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Show the shutdown Interface</translation>
     </message>
     <message>
         <source>Do nothing</source>

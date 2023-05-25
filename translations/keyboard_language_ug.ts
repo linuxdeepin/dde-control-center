@@ -555,7 +555,7 @@
     </message>
     <message>
         <source>繁體中文（中國臺灣）</source>
-        <translation>مۇرەككەپ خەنزۇ تىلى (تەيۋەن ، جۇڭگو)</translation>
+        <translation>مۇرەككەپ خەنزۇ تىلى (جۇڭگو تەيۋەن)</translation>
     </message>
     <message>
         <source>isiZulu</source>

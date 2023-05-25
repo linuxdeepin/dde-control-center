@@ -1860,16 +1860,20 @@
         <translation>Pověření</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Jádro systému</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Operační paměť</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Jádro systému</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Seznam jazyků</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Upravit</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Seznam jazyků</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3745,6 +3749,10 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <source>Maximum capacity</source>
         <translation>Nejvyšší kapacita</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3807,6 +3815,10 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <message>
         <source>Turn off the monitor</source>
         <translation>Vypnout monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Next</source>
@@ -116,7 +116,7 @@
     <name>AddFingeDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Done</source>
@@ -139,7 +139,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Next</source>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
 </context>
 <context>
@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>OK</source>
@@ -565,7 +565,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Save</source>
@@ -659,12 +659,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Create</source>
@@ -949,7 +949,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Add</source>
@@ -968,7 +968,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Save</source>
@@ -1096,7 +1096,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Restart Now</source>
@@ -1214,7 +1214,7 @@
     <name>dccV23::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1299,7 +1299,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Save</source>
@@ -1361,7 +1361,7 @@
     <name>dccV23::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Sichqoncha</translation>
     </message>
     <message>
         <source>General</source>
@@ -1575,7 +1575,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1703,11 +1703,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
@@ -1800,7 +1800,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -1860,10 +1860,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Processor</source>
         <translation type="unfinished"/>
     </message>
@@ -1872,7 +1868,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1907,7 +1907,7 @@
     <name>dccV23::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1921,11 +1921,11 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
+        <source>Edit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Edit</source>
+        <source>Language List</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2000,11 +2000,11 @@
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
 </context>
 <context>
@@ -2148,7 +2148,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Next</source>
@@ -2329,7 +2329,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Next</source>
@@ -2715,6 +2715,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2727,7 +2739,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationThemeList</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2845,11 +2857,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
 </context>
 <context>
@@ -2953,7 +2965,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
 </context>
 <context>
@@ -3091,7 +3103,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Tovush</translation>
     </message>
 </context>
 <context>
@@ -3211,11 +3223,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeZoneChooser</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Tasdiqlash</translation>
     </message>
     <message>
         <source>Add Timezone</source>
@@ -3306,7 +3318,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Bekor qilish</translation>
     </message>
     <message>
         <source>Go to Link</source>
@@ -3411,7 +3423,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Yangilanishlar</translation>
     </message>
 </context>
 <context>
@@ -3597,6 +3609,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Cannot find machineid</source>
         <translation type="unfinished"/>
     </message>
@@ -3715,6 +3735,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3779,6 +3803,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Do nothing</source>
         <translation type="unfinished"/>
     </message>
@@ -3803,7 +3831,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Sichqoncha</translation>
     </message>
     <message>
         <source>Light</source>

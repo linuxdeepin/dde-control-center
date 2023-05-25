@@ -1860,16 +1860,20 @@
         <translation>Səlahiyyət</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Nüvə</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Prosessor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Yaddaş</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Qrafik platforma</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Nüvə</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Dil siyahısı</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Düzəliş edin</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Dil siyahısı</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3619,7 +3623,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>İnternet sınaq kanalını indi tərk etməniz təhlükəli ola bilər, hələ də davam etmək istəyirsiniz?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3744,6 +3748,10 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <source>Maximum capacity</source>
         <translation>Maksimum tutum</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3806,6 +3814,10 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Turn off the monitor</source>
         <translation>Monitoru söndürmək</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

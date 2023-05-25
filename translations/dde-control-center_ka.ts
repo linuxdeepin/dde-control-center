@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>დადასტურება</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>შენახვა</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>სურათები</translation>
     </message>
 </context>
 <context>
@@ -750,11 +750,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>ჩემი მოწყობილობები</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>სხვა მოწყობილობები</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>სურათები</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>შეტობინება</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1860,10 +1860,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Processor</source>
         <translation type="unfinished"/>
     </message>
@@ -1872,7 +1868,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1921,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>ენების სია</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>რედაქტირება</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>ენების სია</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2715,6 +2715,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2953,7 +2965,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>გაუქმება</translation>
     </message>
 </context>
 <context>
@@ -3481,7 +3493,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>სერვერი</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -3594,6 +3606,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3715,6 +3735,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3776,6 +3800,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Turn off the monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
         <translation type="unfinished"/>
     </message>
     <message>

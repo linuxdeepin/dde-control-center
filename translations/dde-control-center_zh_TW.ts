@@ -3749,6 +3749,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation>最大容量</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>進入關機介面</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3811,6 +3815,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Turn off the monitor</source>
         <translation>關閉顯示器</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>進入關機介面</translation>
     </message>
     <message>
         <source>Do nothing</source>

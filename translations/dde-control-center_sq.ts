@@ -1860,16 +1860,20 @@
         <translation>Autorizim</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Kujtesë</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Listë Gjuhësh</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Përpunoni</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Listë Gjuhësh</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3619,7 +3623,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Braktisja e kanalit të brendshëm të testimeve tani mund të mos jetë pa rrezik për ju, doni ende ta braktisni?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3744,6 +3748,10 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <source>Maximum capacity</source>
         <translation>Kapacitet maksimum</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Shfaq Ndërfaqen e fikjes</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3806,6 +3814,10 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Turn off the monitor</source>
         <translation>Fike monitorin</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Shfaq Ndërfaqen e fikjes</translation>
     </message>
     <message>
         <source>Do nothing</source>

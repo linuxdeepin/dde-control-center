@@ -1860,16 +1860,20 @@
         <translation>Autorització</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Nucli</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processador</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Memòria</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Plataforma gràfica</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Nucli</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Llista de llengües</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Edita</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Llista de llengües</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2714,7 +2718,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Rounded Corner</source>
-        <translation>Cantonada arrodonida</translation>
+        <translation>Cantó arrodonit</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -3619,7 +3623,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Potser no és segur deixar el canal de proves intern ara, encara en voleu sortir?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3744,6 +3748,10 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <source>Maximum capacity</source>
         <translation>Capacitat màxima</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3806,6 +3814,10 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Turn off the monitor</source>
         <translation>Desactiva el monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Confirmer</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Sauvegarder</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Images</translation>
     </message>
 </context>
 <context>
@@ -750,11 +750,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Mes appareils</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Autres appareils</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Images</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notification</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1860,10 +1860,6 @@
         <translation>Autorisation</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Noyau</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processeur</translation>
     </message>
@@ -1872,8 +1868,12 @@
         <translation>Mémoire</translation>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Noyau</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1921,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Liste des langues</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Éditer</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Liste des langues</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2727,6 +2727,18 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
         <source>Magic Lamp</source>
         <translation>Lampe magique</translation>
     </message>
+    <message>
+        <source>Small</source>
+        <translation>Petit</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Grand</translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2957,11 +2969,11 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Vérification des versions du système, veuillez patienter...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Quitter</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3184,7 +3196,7 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser </translation>
     </message>
     <message>
         <source>Save</source>
@@ -3493,11 +3505,11 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Serveur</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Bureau</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3556,7 +3568,7 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Mises à jour des sources de test internes</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3564,7 +3576,7 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Rejoindre le canal de test interne</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3607,6 +3619,14 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     <message>
         <source>Third-party Repositories</source>
         <translation>Référentiels tiers</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot find machineid</source>
@@ -3727,6 +3747,10 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
         <source>Maximum capacity</source>
         <translation>Capacité maximale</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3789,6 +3813,10 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     <message>
         <source>Turn off the monitor</source>
         <translation>Éteindre le moniteur</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

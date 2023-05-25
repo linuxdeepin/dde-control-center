@@ -3735,6 +3735,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3796,6 +3800,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Turn off the monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -1860,16 +1860,20 @@
         <translation>Verificatie</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel:</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processor:</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Geheugen:</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Grafisch platform</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel:</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Taallijst</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Bewerken</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Taallijst</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3735,6 +3739,10 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <source>Maximum capacity</source>
         <translation>Maximale capaciteit</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3797,6 +3805,10 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Turn off the monitor</source>
         <translation>Beeldscherm uitschakelen</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>
