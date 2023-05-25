@@ -1860,16 +1860,20 @@
         <translation>Уповноваження</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Ядро</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Процесор</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Пам&apos;ять</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Графічна платформа</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Ядро</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Список мов</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Змінити</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Список мов</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3620,7 +3624,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Ймовірно, полишення вами каналу тестування не є безпечним. Хочете полишити канал попри це?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3745,6 +3749,10 @@ UnionTech Software працює над вивченням і удосконал�
         <source>Maximum capacity</source>
         <translation>Максимальна місткість</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Показувати інтерфейс завершення роботи</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3807,6 +3815,10 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Turn off the monitor</source>
         <translation>Вимкнути монітор</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Показувати інтерфейс завершення роботи</translation>
     </message>
     <message>
         <source>Do nothing</source>

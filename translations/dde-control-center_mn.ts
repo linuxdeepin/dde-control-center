@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Цуцлах</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Батлах</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Хадгалах</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Зургууд</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Зургууд</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Мэдэгдэл</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1860,10 +1860,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Processor</source>
         <translation type="unfinished"/>
     </message>
@@ -1872,7 +1868,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1921,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Засах</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Language</source>
@@ -2715,6 +2715,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Small</source>
+        <translation>Жижиг</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Том</translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -3172,7 +3184,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Дахин шинэчлэх</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3481,11 +3493,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэц</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3594,6 +3606,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Third-party Repositories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3715,6 +3735,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3776,6 +3800,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Turn off the monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
         <translation type="unfinished"/>
     </message>
     <message>

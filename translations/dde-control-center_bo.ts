@@ -1860,16 +1860,20 @@
         <translation>པར་གཞི་དབང་སྤྲོད།</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>ལྟེ་བའི་པར་གཞི།</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>སྒྲིག་གཅོད་ཆས།</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>ནང་གསོག</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>ལྟེ་བའི་པར་གཞི།</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>སྐད་ཡིག་གསལ་ཐོ།</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>རྩོམ་སྒྲིག</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>སྐད་ཡིག་གསལ་ཐོ།</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2728,7 +2732,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>ཆུང་ངུ།</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2736,7 +2740,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>ཆེ་བ།</translation>
     </message>
 </context>
 <context>
@@ -2968,7 +2972,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་དཔར་གཞི་ལ་ར་སྤྲོད་བྱེད་བཞིན་པས། ཏོག་ཙམ་སྒུག་རོགས།</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -3567,7 +3571,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>ནང་ཁུལ་ཚོད་ལྟའི་བྱེད་ཁོངས་གསར་སྒྱུར།</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3575,7 +3579,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>ནང་ཁོངས་ཚོད་ལྟ་བྱེད་ལམ།</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3618,6 +3622,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>ཕུང་གསུམ་པའི་མཛོད་ཁང་།</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot find machineid</source>
@@ -3738,6 +3750,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation>ཤོང་ཚད་ཆེ་ཤོས།</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3800,6 +3816,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Turn off the monitor</source>
         <translation>མངོན་ཆས་གློག་གསོད།</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

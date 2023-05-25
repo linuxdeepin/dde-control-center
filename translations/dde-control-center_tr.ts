@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Onayla</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Görseller</translation>
     </message>
 </context>
 <context>
@@ -750,11 +750,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Aygıtlarım</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Diğer Aygıtlar</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Görseller</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Bildirim</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1860,10 +1860,6 @@
         <translation>İzin</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Çekirdek</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>İşlemci</translation>
     </message>
@@ -1872,8 +1868,12 @@
         <translation>Bellek</translation>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Çekirdek</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1921,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Dil Listesi</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Düzenle</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Dil Listesi</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2729,6 +2729,18 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <source>Magic Lamp</source>
         <translation>Sihirli Işık</translation>
     </message>
+    <message>
+        <source>Small</source>
+        <translation>Küçük</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Büyük</translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2959,11 +2971,11 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Sistem sürümleri kontrol ediliyor, lütfen bekleyin...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Ayrıl</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3186,7 +3198,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Sıfırla</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3495,11 +3507,11 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Sunucu</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstü</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3558,7 +3570,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Dahili test kaynaklarından güncellemeler</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3566,7 +3578,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Dahili test kanalına katıl</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3609,6 +3621,14 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     <message>
         <source>Third-party Repositories</source>
         <translation>Üçüncü Taraf Depolar</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot find machineid</source>
@@ -3729,6 +3749,10 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <source>Maximum capacity</source>
         <translation>Azami kapasite</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3791,6 +3815,10 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     <message>
         <source>Turn off the monitor</source>
         <translation>Monitörü kapat</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

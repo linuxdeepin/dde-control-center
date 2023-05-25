@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Engedélyezze a Bluetooth használatát a közeli eszközök (hangszórók, billentyűzet, egér) megkereséséhez</translation>
+        <translation>Engedélyezze a Bluetooth kapcsolatot a közeli eszközök (hangszórók, billentyűzet, egér) megkereséséhez</translation>
     </message>
     <message>
         <source>My Devices</source>
@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Név nélküli Bluetooth eszközök megjelenítése</translation>
+        <translation>Ismeretlen Bluetooth eszközök megjelenítése</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Scan Again</source>
-        <translation>Újra ellenőrzés</translation>
+        <translation> Ellenőrzés ismétlése</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Kérjük olvassa be a többi ujját</translation>
+        <translation>Próbálja meg egy másik ujjával a beolvasást</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -285,7 +285,7 @@
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation>Túl gyorsan mozgatta</translation>
+        <translation>Tartsa az ujját fixen.</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
@@ -297,7 +297,7 @@
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Tisztítsa meg az ujját, vagy állítsa be az ujja helyzetét, majd próbálkozzon újra</translation>
+        <translation>Tartsa fixen az ujját, majd próbálja újra</translation>
     </message>
     <message>
         <source>Already scanned</source>
@@ -325,7 +325,7 @@
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation>Kérjük helyezzen el egy emberi arcot </translation>
+        <translation>Kérjük a saját arcát helyezze a keretbe</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
@@ -345,7 +345,7 @@
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>Ne végezzen rögzítést sötét, világos vagy háttér világítású környezetben</translation>
+        <translation>Ne rögzítsen képet háttérvilágítás mellett, ill. túl világos, vagy túl sötét környezetben.</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
@@ -357,7 +357,7 @@
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation>Az eszköz összeomlott, kérjük ellenőrizze újra! </translation>
+        <translation>Az eszköz nem működik, kérjük ellenőrizze újra! </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -444,7 +444,7 @@
     </message>
     <message>
         <source>Validity Days</source>
-        <translation>Érvényességi napok</translation>
+        <translation>Érvényesség</translation>
     </message>
     <message>
         <source>Group</source>
@@ -468,7 +468,7 @@
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Ez a Teljes név már használatban van egy másik felhasználói fiók által</translation>
+        <translation>Ez a Teljes név már használatban van</translation>
     </message>
     <message>
         <source>Full Name</source>
@@ -488,26 +488,26 @@
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>Az &quot;Automatikus bejelentkezés&quot; csak egy fióknál engedélyezhető, kérjük először kapcsolja ki azt a &quot;%1&quot; fióknál</translation>
+        <translation>Az &quot;Automatikus bejelentkezés&quot; csak egy fióknál engedélyezhető. Kérjük először kapcsolja ki azt a &quot;%1&quot; fióknál az automata bejelentkezést.</translation>
     </message>
 </context>
 <context>
     <name>dccV23::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>A számítógépe sikeresen eltávolítva a tartomány szerverről</translation>
+        <translation>A számítógépe sikeresen eltávolítva a tartományból</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>A számítógépe sikeresen csatlakozott a tartomány szerverhez</translation>
+        <translation>A számítógépe sikeresen csatlakozott a tartományhoz</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>A számítógépe nem tudott lecsatlakozni a tartomány szerverről</translation>
+        <translation>A számítógépe nem tudott kilépni a tartományból</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>A számítógépe nem tudott csatlakozni a tartomány szerverhez</translation>
+        <translation>A számítógépe nem tudott csatlakozni a tartományhoz</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -576,11 +576,11 @@
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation>Kiterjedéses stílus</translation>
+        <translation>Bővített stílus</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>Lapos stílus</translation>
+        <translation>Keskeny stílus</translation>
     </message>
 </context>
 <context>
@@ -606,11 +606,11 @@
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Kattintson a rendszerindítási menü opciójára az első rendszerindítás beállításához, majd húzza át a képet a háttér megváltoztatásához</translation>
+        <translation>Kattintson a rendszerindítási menü opciójára rendszerindításkor, majd illessze be a képet a háttér megváltoztatásához</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation>Kattintson a rendszerindítási menü opciójára, hogy beállíthassa az első rendszerindítási elemnek</translation>
+        <translation>Kattintson a rendszerindítási menü opciójára, hogy beállíthassa azt az első rendszerindítási elemnek</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>root</source>
-        <translation>Gyökér</translation>
+        <translation>root</translation>
     </message>
     <message>
         <source>New password:</source>
@@ -714,11 +714,11 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation>Többképernyős együttműködés</translation>
+        <translation>Többképernyős mód</translation>
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation>PC együttműködés</translation>
+        <translation>Illesztés TV készülékhez</translation>
     </message>
     <message>
         <source>Connect to</source>
@@ -730,7 +730,7 @@
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation>Eszköz orientáció</translation>
+        <translation>Képernyők elrendezése</translation>
     </message>
     <message>
         <source>On the top</source>
@@ -792,7 +792,7 @@
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Nem sikerült megszerezni a rendszergazdai hozzáférést</translation>
+        <translation>A rendszergazdai hozzáférés sikertelen</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -800,7 +800,7 @@
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>A számítógépe adatai nem olvashatóak</translation>
+        <translation>A számítógép információi nem olvashatóak ki.</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -808,11 +808,11 @@
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>A tanúsítvány betöltése sikertelen, nem sikerült a rendszergazdai hozzáférést megszerezni</translation>
+        <translation>A tanúsítvány betöltése sikertelen, így a rendszergazdai hozzáférés is</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Az aláírás ellenőrzése sikertelen, nem sikerült megszerezni a rendszergazdai hozzáférést</translation>
+        <translation>Az aláírás ellenőrzése sikertelen, így a rendszergazdai hozzáférés is.</translation>
     </message>
 </context>
 <context>
@@ -895,7 +895,7 @@
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>A felhasználónév hosszának 3 és 32 karakter között kell lennie</translation>
+        <translation>A felhasználónévnek 3 és 32 karakter közötti hosszúságúnak kell lennie</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
@@ -907,18 +907,18 @@
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>Ez a felhasználónév már használatban van egy másik felhasználói fiók által</translation>
+        <translation>Ez a felhasználónév már használatban van</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Ez a Teljes név már használatban van egy másik felhasználói fiók által</translation>
+        <translation>Ez a Teljes név már használatban van</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation>Még nem töltött fel képet, kattintással vagy húzással feltöltheti a képet</translation>
+        <translation>Még nem töltött fel képet. Betallózhat, vagy idehúzhat egy képet</translation>
     </message>
     <message>
         <source>Images</source>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation>A feltöltött fájltípus nem támogatott, kérjük töltse fel újra</translation>
+        <translation>A feltöltött fájltípus nem támogatott, kérjük töltse fel más formátumban</translation>
     </message>
 </context>
 <context>
@@ -957,7 +957,7 @@
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a gyorsbillentyű ütközik a következővel: %1, kattintson a Hozzáadás gombra, hogy a gyorsbillentyű azonnal használható legyen</translation>
+        <translation>Ez a gyorsbillentyű ütközik a következővel: %1. Válasszon másikat</translation>
     </message>
 </context>
 <context>
@@ -988,7 +988,7 @@
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a gyorsbillentyű ütközik a következővel: %1, kattintson a Hozzáadás gombra, hogy a gyorsbillentyű azonnal használható legyen</translation>
+        <translation>Ez a gyorsbillentyű ütközik a következővel: %1. Válasszon másikat</translation>
     </message>
 </context>
 <context>
@@ -1033,7 +1033,7 @@
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation>Számítógép adatok exportálása</translation>
+        <translation>A számítógép adatainak exportálása</translation>
     </message>
     <message>
         <source>Import Certificate</source>
@@ -1068,7 +1068,7 @@
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Nem sikerült megszerezni a rendszergazdai hozzáférést</translation>
+        <translation>Nem sikerült a rendszergazdai hozzáférés</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -1084,15 +1084,15 @@
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>A tanúsítvány betöltése sikertelen, nem sikerült a rendszergazdai hozzáférést megszerezni</translation>
+        <translation>A tanúsítvány betöltése sikertelen, nem sikerült a rendszergazdai hozzáférés</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Az aláírás ellenőrzése sikertelen, nem sikerült megszerezni a rendszergazdai hozzáférést</translation>
+        <translation>Az aláírás ellenőrzése sikertelen, nem sikerült a rendszergazdai hozzáférés</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Egyes funkciók hatékony működéséhez újra kell indítani a számítógépet. Újraindítja most?</translation>
+        <translation>Egyes funkciók működéséhez újra kell indítani a számítógépet. Újraindítja most?</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1153,7 +1153,7 @@
     </message>
     <message>
         <source>Test here</source>
-        <translation>Tesztelje itt</translation>
+        <translation>Itt tesztelheti</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
@@ -1275,7 +1275,7 @@
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>A jelszó visszaállítása törli a kulcskarikában tárolt adatokat.</translation>
+        <translation>A jelszó visszaállítása után nem lesz érvényes a külső adathordozón tárolt jelszó és emlékeztető.</translation>
     </message>
     <message>
         <source>Current Password</source>
@@ -1323,7 +1323,7 @@
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>Az emlékeztető minden felhasználó számára látható. Ne adja meg itt a jelszavát</translation>
+        <translation>A jelszó emlékeztető minden felhasználó számára látható. Ne adja meg itt a jelszavát</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -1369,7 +1369,7 @@
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Érintőpad</translation>
+        <translation>Érintőpanel</translation>
     </message>
     <message>
         <source>TrackPoint</source>
@@ -1494,7 +1494,7 @@
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Teljes mértékben tisztában vagyunk személyes adatainak fontosságával. Tehát rendelkezésünkre áll az adatvédelmi irányelv, amely kiterjed az Ön adatainak gyűjtésére, felhasználására, megosztására, továbbítására, nyilvánosságra hozatalára és tárolására. &lt;/p&gt; &lt;p&gt; Ide kattintva &lt;a href=&quot;%1&quot;&gt; &lt;/a&gt; megtekintheti a legfrissebb adatvédelmi irányelveinket, vagy online is megtekintheti a &lt;a href=&quot;%1&quot;&gt;% 1 &lt;/a&gt; weboldalon. Kérjük olvassa el figyelmesen, hogy lássa teljes mértékben megértjük a felhasználóink adatvédelmi gyakorlatát. Ha kérdése van, kérjük lépjen velünk kapcsolatba a következő címen: support@uniontech.com. &lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Teljes mértékben tisztában vagyunk személyes adatainak fontosságával. Adatvédelmi irányelvünk kiterjed az Ön adatainak gyűjtésére, felhasználására, megosztására, továbbítására, nyilvánosságra hozatalára és tárolására. &lt;/p&gt; &lt;p&gt; Ide kattintva &lt;a href=&quot;%1&quot;&gt; &lt;/a&gt; megtekintheti a legfrissebb adatvédelmi irányelveinket, vagy online is megtekintheti a &lt;a href=&quot;%1&quot;&gt;% 1 &lt;/a&gt; weboldalon. Kérjük olvassa el figyelmesen, ha kérdése van, lépjen velünk kapcsolatba a következő címen: support@uniontech.com. &lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1513,15 +1513,15 @@
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A jelszó csak angol betűket (kis- és nagybetűk érzékeny), számokat vagy speciális szimbólumokat tartalmazhat (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A jelszó csak angol betűket (kis- és nagybetű érzékeny), számokat vagy speciális szimbólumokat tartalmazhat ( ~ ` ! @ # $ % ^ &amp; * ( ) - _ + = | \ { } [ ] : &quot; &apos; &lt; &gt; , . ? / )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Kérjük ne legyen több, mint %1 palindrom karakter</translation>
+        <translation>Kérjük ne legyen több, mint %1 fordított sorrendű karakter</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Kérjük ne legyen több, mint %1 monoton karakter</translation>
+        <translation>Kérjük ne legyen több, mint %1 ABC sorrend szerinti egymás utáni karakter</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -1529,11 +1529,11 @@
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A jelszónak tartalmaznia kell nagybetűket, kisbetűket, számokat és szimbólumokat (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A jelszónak tartalmaznia kell nagybetűket, kisbetűket, számokat és szimbólumokat ( ~ ` ! @ # $ % ^ &amp; * ( ) - _ + = | \ { } [ ] : &quot; &apos; &lt; &gt; , . ? / )</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A jelszó legfeljebb 4 palindróm karaktert tartalmazhat</translation>
+        <translation>A jelszó legfeljebb 4 fordított sorrendű karaktert tartalmazhat</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
@@ -1687,7 +1687,7 @@
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation>Ezeket a kérdéseket arra használjuk fel, hogy visszaállítsuk jelszavát arra az esetre, ha elfelejtené. </translation>
+        <translation>Ezekkel a kérdésekkel segítünk visszaállítani jelszavát arra az esetre, ha elfelejtené. </translation>
     </message>
     <message>
         <source>Security question 1</source>
@@ -1860,16 +1860,20 @@
         <translation>Engedélyezés</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processzor</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Memória</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Grafikus felület</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Elérhető nyelvek listája</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Elérhető nyelvek listája</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -1992,7 +1996,7 @@
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation>Válassza ki az érintő képernyőjét, ha csatlakoztatva van, vagy állítsa be itt.</translation>
+        <translation>Válassza ki az érintőképernyőt, ha csatlakoztatva van, vagy állítsa be itt.</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -2036,11 +2040,11 @@
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt; A felhasználói élményprogramhoz való csatlakozás azt jelenti, hogy Ön engedélyezi nekünk, és felhatalmaz minket az eszköze, rendszere és alkalmazásai információinak gyűjtésére és felhasználására. Ha megtagadja a fent említett információk gyűjtését és felhasználását, ne csatlakozzon a felhasználói élmény programhoz. A részletekért tekintse meg a Deepin® adatvédelmi irányelveit (&lt;a href=&quot;%1&quot;&gt; %1 &lt;/a&gt;). &lt;/p&gt;</translation>
+        <translation>&lt;p&gt; A felhasználói élményprogramhoz való csatlakozás azt jelenti, hogy Ön engedélyezi nekünk, hogy statisztikai adatokat gyűjtsünk az eszközeiről, rendszeréről és alkalmazásairól, a jövőbeli kiadások fejlesztése érdekében. Amennyiben nem ért egyet a felhasználói élményprogrammal, ne fogadja el azt. A részletekért tekintse meg a Deepin® adatvédelmi irányelveit (&lt;a href=&quot;%1&quot;&gt; %1 &lt;/a&gt;). &lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt; A felhasználói élmény programhoz való csatlakozás azt jelenti, hogy Ön engedélyezi nekünk és felhatalmaz minket az eszköz, rendszer és alkalmazások információinak gyűjtésére és felhasználására. Ha megtagadja a fent említett információk gyűjtését és felhasználását, ne csatlakozzon a felhasználói élmény programhoz. Ha többet szeretne megtudni adatai kezeléséről, olvassa el a UnionTech® Operációs rendszer adatvédelmi irányelveit (&lt;a href=&quot;%1&quot;&gt; %1 &lt;/a&gt;). &lt;/p&gt;</translation>
+        <translation>&lt;p&gt; A felhasználói élményprogramhoz való csatlakozás azt jelenti, hogy Ön engedélyezi nekünk, hogy statisztikai adatokat gyűjtsünk az eszközeiről, rendszeréről és alkalmazásairól, a jövőbeli kiadások fejlesztése érdekében. Amennyiben nem ért egyet a felhasználói élményprogrammal, ne fogadja el azt. A részletekért tekintse meg az UnionTech adatvédelmi irányelveit  (&lt;a href=&quot;%1&quot;&gt; %1 &lt;/a&gt;). &lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2133,10 +2137,10 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Az arcfelismerés használata előtt vegye figyelembe, hogy:
+        <translation>Az arcfelismerés használata előtt vegye figyelembe a következőket:
 1. Eszközét feloldhatják olyan emberek vagy tárgyak, akik hasonlítanak Önhöz.
 2. Az arcfelismerés kevésbé biztonságos, mint a digitális jelszavak és a vegyes jelszavak.
-3. Az eszköz arcfelismeréssel történő feloldásának sikeraránya csökken gyenge megvilágítású, erős megvilágítású, háttérvilágítású, nagy látószögű és egyéb körülmények esetén.
+3. Az eszköz arcfelismeréssel történő feloldásának sikeraránya csökken gyenge megvilágítású, erős megvilágítású, háttérvilágítás, nagy látószögű kamera esetén.
 4. Kérjük, hogy az arcfelismerés rosszindulatú használatának elkerülése érdekében véletlenszerűen ne adja át készülékét másoknak.
 5. A fenti körülményeken kívül ügyeljen más olyan helyzetekre is, amelyek befolyásolhatják az arcfelismerés normál használatát.
 
@@ -2153,7 +2157,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
 </source>
         <translation>A „Biometrikus hitelesítés” az UnionTech® Software Technology Co., Ltd. által biztosított, a felhasználók azonosságának hitelesítésére szolgáló funkció. A „Biometrikus hitelesítés” révén az összegyűjtött biometrikus adatok összehasonlításra kerülnek az eszközben tárolt adatokkal, és a felhasználói azonosság hitelesítése az összehasonlítás eredménye.
 Felhívjuk figyelmét, hogy az UnionTech® nem gyűjti, és nem fér hozzá az Ön biometrikus adataihoz, amelyeket a helyi eszközön tárol. Kérjük csak a személyes eszközén engedélyezze a biometrikus hitelesítést, és használja saját biometrikus adatait a kapcsolódó műveletekhez, és haladéktalanul tiltsa le vagy törölje mások biometrikus adatait azon az eszközön, ellenkező esetben az ebből eredő kockázatot Ön viseli.
-Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontosságának és stabilitásának kutatása és javítása mellett. A környezeti, felszereltségi, műszaki és egyéb tényezők, valamint a kockázatkezelés miatt azonban nincs garancia arra, hogy ideiglenesen átmegy a biometrikus hitelesítésen. Ezért kérjük, ne használja a biometrikus hitelesítést az UnionTech® operációs rendszerbe való bejelentkezés egyetlen módjának. Ha bármilyen kérdése vagy javaslata van a biometrikus hitelesítés használatával kapcsolatban, visszajelzést küldhet az UnionTech® operációs rendszer „Szolgáltatás és támogatás” részében.
+Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontosságának és stabilitásának kutatása és javítása mellett. A környezeti, felszereltségi, műszaki és egyéb tényezők, valamint a kockázatkezelés miatt azonban nincs garancia arra, hogy ideiglenesen átmegy a biometrikus hitelesítésen. Ezért kérjük, ne használja a biometrikus hitelesítést az UnionTech® operációs rendszerbe való bejelentkezés egyetlen módjának. Ha bármilyen kérdése vagy javaslata van a biometrikus hitelesítés használatával kapcsolatban, visszajelzést küldhet az UnionTech® operációs rendszer „Szolgáltatás és támogatás” részében
 </translation>
     </message>
     <message>
@@ -2248,11 +2252,11 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Megjelenítve tartás</translation>
+        <translation>Folyamatosan látható</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Maradjon rejtett</translation>
+        <translation>Rejtett</translation>
     </message>
     <message>
         <source>Smart hide</source>
@@ -3008,7 +3012,7 @@ időformátum</translation>
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation>Alkalmazások, amelyek hozzáférhetnek a kamerához:</translation>
+        <translation>Alkalmazások, amelyek hozzáférhetnek a kamerához</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
@@ -3426,7 +3430,7 @@ időformátum</translation>
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Kérjük gondoskodjon elegendő áramról az újraindításhoz, és ne kapcsolja ki vagy húzza ki a számítógépet</translation>
+        <translation>Kérjük gondoskodjon a megfelelő áramellátásról az újraindításhoz, ne kapcsolja ki vagy húzza ki a számítógépet</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3534,7 +3538,7 @@ időformátum</translation>
     </message>
     <message>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation>Kapcsolja be, hogy csak a biztonsági réseket és a kompatibilitási problémákat frissítse</translation>
+        <translation>Kapcsolja be, hogy csak a biztonsági és  kompatibilitási frissítések érvényesüljenek</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
@@ -3628,7 +3632,7 @@ időformátum</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
-        <translation>Biztonságosan elhagyhatja a belső tesztelési csatornát</translation>
+        <translation>Biztonságosan kiléphet a teszt csoportból</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
@@ -3640,7 +3644,7 @@ időformátum</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation>Hiba a Teszt Csatornából való kilépéskor</translation>
+        <translation>Hiba a Teszt csoportból való kilépéskor</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
@@ -3750,6 +3754,10 @@ lecsukásakor</translation>
         <source>Maximum capacity</source>
         <translation>Akkumulátor maximális teljesítménye</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Leállítási felület mutatása</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3815,6 +3823,10 @@ lecsukásakor</translation>
         <translation>Monitor kikapcsolása</translation>
     </message>
     <message>
+        <source>Show the shutdown Interface</source>
+        <translation>Leállítási felület mutatása</translation>
+    </message>
+    <message>
         <source>Do nothing</source>
         <translation>Ne tegyen semmit</translation>
     </message>
@@ -3854,7 +3866,7 @@ lecsukásakor</translation>
     <name>main</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>A Vezérlőpult lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
+        <translation>A Vezérlőpulton keresztül módosíthatja a beállításokat</translation>
     </message>
 </context>
 <context>

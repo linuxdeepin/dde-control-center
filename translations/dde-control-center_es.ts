@@ -1860,16 +1860,20 @@
         <translation>Autorización</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Procesador</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Memoria</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Lista de idiomas</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Editar</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Lista de idiomas</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3743,6 +3747,10 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
         <source>Maximum capacity</source>
         <translation>Máxima capacidad</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3805,6 +3813,10 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Turn off the monitor</source>
         <translation>Apagar el monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

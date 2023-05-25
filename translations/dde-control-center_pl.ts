@@ -1869,7 +1869,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Platforma graficzna</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -1885,7 +1885,7 @@
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Porozumienie licencyjne użytkownika końcowego</translation>
+        <translation>Umowa licencyjna EULA</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -3749,6 +3749,10 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <source>Maximum capacity</source>
         <translation>Maksymalna pojemność</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3811,6 +3815,10 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Turn off the monitor</source>
         <translation>Wyłącz monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

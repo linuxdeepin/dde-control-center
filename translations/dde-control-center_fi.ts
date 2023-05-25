@@ -1860,16 +1860,20 @@
         <translation>Valtuutus</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Prosessori</translation>
     </message>
     <message>
         <source>Memory</source>
         <translation>Muisti</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -1917,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Kieliluettelo</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Muokkaa</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Kieliluettelo</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -3620,7 +3624,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Sinun ei ehkä ole nyt turvallista poistua sisäisestä testauskanavasta, haluatko silti poistua?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3745,6 +3749,10 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <source>Maximum capacity</source>
         <translation>Täysi varaus</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3807,6 +3815,10 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Turn off the monitor</source>
         <translation>Näytön sammuttaminen</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>

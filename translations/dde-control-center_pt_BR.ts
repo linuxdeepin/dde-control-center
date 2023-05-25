@@ -393,12 +393,12 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imagens</translation>
     </message>
 </context>
 <context>
@@ -750,11 +750,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Meus Dispositivos</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Outros Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1441,7 +1441,7 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação</translation>
     </message>
     <message>
         <source>SystemNotify</source>
@@ -1860,10 +1860,6 @@
         <translation>Autorização</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>Processador</translation>
     </message>
@@ -1872,7 +1868,11 @@
         <translation>Memória</translation>
     </message>
     <message>
-        <source>license</source>
+        <source>Graphics Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1921,12 +1921,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>Lista de Idiomas</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>Editar</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>Lista de Idiomas</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2569,7 +2569,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Diminuir Luminosidade</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -2715,6 +2715,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Magic Lamp</source>
         <translation>Lâmpada Mágica</translation>
     </message>
+    <message>
+        <source>Small</source>
+        <translation>Pequeno</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Grande</translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
@@ -2766,7 +2778,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Ícone</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -2778,7 +2790,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Texto</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -2886,7 +2898,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>Pastas do Usuário</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2894,7 +2906,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Captura de Tela</translation>
     </message>
 </context>
 <context>
@@ -3172,7 +3184,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3481,11 +3493,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Área de trabalho</translation>
     </message>
     <message>
         <source>Version</source>
@@ -3544,7 +3556,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações do Repositório de Testes Interno</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3552,7 +3564,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Participar do canal de testes interno</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3595,6 +3607,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>Repositórios de terceiros</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot find machineid</source>
@@ -3689,11 +3709,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateria Fraca</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação de bateria fraca</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3705,7 +3725,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de Energia</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3714,6 +3734,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Maximum capacity</source>
         <translation>Capacidade máxima</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3777,6 +3801,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Turn off the monitor</source>
         <translation>Desligar o monitor</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do nothing</source>
