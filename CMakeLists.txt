@@ -246,7 +246,12 @@ install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 #service
-install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
+configure_file(
+    ${CMAKE_SOURCE_DIR}/misc/org.deepin.dde.ControlCenter1.service.in 
+    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service 
+    @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service 
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
 # dev files
 file(GLOB HEADERS "include/*")
