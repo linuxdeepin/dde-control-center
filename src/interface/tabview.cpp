@@ -521,3 +521,8 @@ void TabView::wheelEvent(QWheelEvent *e)
     QApplication::sendEvent(horizontalScrollBar(), e);
     e->setAccepted(true);
 }
+
+void TabView::mouseMoveEvent(QMouseEvent *event)
+{
+    QWidget::mouseMoveEvent(event);
+}
