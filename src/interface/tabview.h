@@ -53,6 +53,7 @@ protected:
     void paintEvent(QPaintEvent *e) override;
     bool viewportEvent(QEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
     TabViewPrivate *const d_ptr;
