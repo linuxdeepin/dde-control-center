@@ -78,7 +78,7 @@ void MouseDBusProxy::active()
     m_worker->setRedPointExist(exist);
 
     // initial device properties
-    uint wheelSpeed  = m_dbusDevicesProperties->call("Get", TrackpointInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
+    uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
 
     m_worker->setScrollSpeed(wheelSpeed);
 }
