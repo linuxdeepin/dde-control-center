@@ -101,13 +101,14 @@ TouchPadSettingModule::TouchPadSettingModule(MouseModel *model, MouseWorker *wor
 
 QWidget *TouchPadSettingModule::page()
 {
-    TouchPadSettingWidget *w = new  TouchPadSettingWidget;
-    connect(w, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
-    connect(w, &TouchPadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
-    connect(w, &TouchPadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
-    connect(w, &TouchPadSettingWidget::requestDetectState, m_worker, &MouseWorker::onPalmDetectChanged);
-    connect(w, &TouchPadSettingWidget::requestContact, m_worker, &MouseWorker::onPalmMinWidthChanged);
-    connect(w, &TouchPadSettingWidget::requestPressure, m_worker, &MouseWorker::onPalmMinzChanged);
+    TouchpadSettingWidget *w = new TouchpadSettingWidget;
+    connect(w, &TouchpadSettingWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
+    connect(w, &TouchpadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
+    connect(w, &TouchpadSettingWidget::requestSetTouchpadEnabled, m_worker, &MouseWorker::onTouchpadEnabledChanged);
+    connect(w, &TouchpadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
+    connect(w, &TouchpadSettingWidget::requestDetectState, m_worker, &MouseWorker::onPalmDetectChanged);
+    connect(w, &TouchpadSettingWidget::requestContact, m_worker, &MouseWorker::onPalmMinWidthChanged);
+    connect(w, &TouchpadSettingWidget::requestPressure, m_worker, &MouseWorker::onPalmMinzChanged);
     w->setModel(this->m_model);
 
     return w;

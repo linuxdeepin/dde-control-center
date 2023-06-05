@@ -15,10 +15,15 @@
 const QMargins ThirdPageContentsMargins(0, 10, 0, 10);
 
 using namespace DCC_NAMESPACE;
-TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
+TouchpadSettingWidget::TouchpadSettingWidget(QWidget *parent)
     : QWidget(parent)
 {
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+
+    m_touchpadEnableBtn = new SwitchWidget(tr("Enable TouchPad"));
+    m_touchpadEnableBtn->setObjectName("touchPadEnabled");
+    m_touchpadEnableBtn->addBackground();
+
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchClickStn->setObjectName("touchClicked");
     m_touchClickStn->addBackground();
@@ -46,6 +51,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     m_contentLayout->setSpacing(10);
     m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
     m_contentLayout->addWidget(m_touchMoveSlider);
+    m_contentLayout->addWidget(m_touchpadEnableBtn);
     m_contentLayout->addWidget(m_touchClickStn);
     m_contentLayout->addWidget(m_touchNaturalScroll);
     m_contentLayout->addWidget(m_palmDetectSetting);
@@ -55,30 +61,33 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
         requestSetTouchpadMotionAcceleration(value);
     });
-    connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
-    connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
+    connect(m_touchpadEnableBtn, &SwitchWidget::checkedChanged, this, &TouchpadSettingWidget::requestSetTouchpadEnabled);
+    connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchpadSettingWidget::requestSetTapClick);
+    connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchpadSettingWidget::requestSetTouchNaturalScroll);
 }
 
-void TouchPadSettingWidget::setModel(MouseModel *const model)
+void TouchpadSettingWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
     connect(model, &MouseModel::tpadMoveSpeedChanged, this, [this] (int value) {
         onTouchMoveSpeedChanged(value);
     });
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::tapEnabledChanged, m_touchpadEnableBtn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
 
     m_palmDetectSetting->setModel(model);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &TouchPadSettingWidget::requestContact);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchPadSettingWidget::requestDetectState);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchPadSettingWidget::requestPressure);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &TouchpadSettingWidget::requestContact);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchpadSettingWidget::requestDetectState);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchpadSettingWidget::requestPressure);
 
     onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
+    m_touchpadEnableBtn->setChecked(m_mouseModel->tapEnabled());
     m_touchClickStn->setChecked(m_mouseModel->tapclick());
     m_touchNaturalScroll->setChecked(m_mouseModel->tpadNaturalScroll());
 }
 
-void TouchPadSettingWidget::onTouchMoveSpeedChanged(int speed)
+void TouchpadSettingWidget::onTouchMoveSpeedChanged(int speed)
 {
     m_touchMoveSlider->slider()->blockSignals(true);
     m_touchMoveSlider->slider()->setValue(speed);

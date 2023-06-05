@@ -13,7 +13,7 @@ namespace DCC_NAMESPACE {
 class MouseWidget;
 class GeneralSettingWidget;
 class MouseSettingWidget;
-class TouchPadSettingWidget;
+class TouchpadSettingWidget;
 class TrackPointSettingWidget;
 
 class MouseModel;
