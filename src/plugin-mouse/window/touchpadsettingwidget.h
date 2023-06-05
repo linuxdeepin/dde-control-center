@@ -21,15 +21,16 @@ class TitledSliderItem;
 }
 
 namespace DCC_NAMESPACE {
-class TouchPadSettingWidget : public QWidget
+class TouchpadSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TouchPadSettingWidget(QWidget *parent = nullptr);
+    explicit TouchpadSettingWidget(QWidget *parent = nullptr);
     void setModel(MouseModel *const model);
 
 Q_SIGNALS:
     void requestSetTouchpadMotionAcceleration(const int value);
+    void requestSetTouchpadEnabled(const bool enabled);
     void requestSetTapClick(const bool state);
     void requestSetTouchNaturalScroll(const bool state);
     void requestDetectState(bool enable);
@@ -43,6 +44,7 @@ private:
     MouseModel *m_mouseModel;
     PalmDetectSetting *m_palmDetectSetting;
     TitledSliderItem *m_touchMoveSlider;
+    SwitchWidget *m_touchpadEnableBtn;
     SwitchWidget *m_touchClickStn;
     SwitchWidget *m_touchNaturalScroll;
     QVBoxLayout *m_contentLayout;

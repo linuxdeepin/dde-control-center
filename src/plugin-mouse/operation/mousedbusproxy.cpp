@@ -55,6 +55,7 @@ void MouseDBusProxy::active()
     motionAcceleration = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
     bool tapClick = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TapClick").arguments().at(0).value<QDBusVariant>().variant().toBool();
     exist = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
+    bool touchpadEnabled = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TPadEnable").arguments().at(0).value<QDBusVariant>().variant().toBool();
     naturalScroll = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "NaturalScroll").arguments().at(0).value<QDBusVariant>().variant().toBool();
     bool disableIfTyping = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "DisableIfTyping").arguments().at(0).value<QDBusVariant>().variant().toBool();
     bool palmDetect = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmDetect").arguments().at(0).value<QDBusVariant>().variant().toInt();
@@ -62,6 +63,7 @@ void MouseDBusProxy::active()
     bool palmMinZ = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmMinZ").arguments().at(0).value<QDBusVariant>().variant().toBool();
 
     m_worker->setTouchpadMotionAcceleration(motionAcceleration);
+    m_worker->setTpadEnabled(touchpadEnabled);
     m_worker->setTapClick(tapClick);
     m_worker->setTpadExist(exist);
     m_worker->setTouchNaturalScrollState(naturalScroll);
@@ -118,7 +120,7 @@ void MouseDBusProxy::init()
     connect(m_worker, &MouseWorker::requestSetLeftHandState, this, &MouseDBusProxy::setLeftHandState);
     connect(m_worker, &MouseWorker::requestSetMouseNaturalScrollState, this, &MouseDBusProxy::setMouseNaturalScrollState);
     connect(m_worker, &MouseWorker::requestSetDouClick, this, &MouseDBusProxy::setDouClick);
-    connect(m_worker, &MouseWorker::requestSetDisTouchPad, this, &MouseDBusProxy::setDisTouchPad);
+    connect(m_worker, &MouseWorker::requestSetDisTouchPad, this, &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
     connect(m_worker, &MouseWorker::requestSetAccelProfile, this, &MouseDBusProxy::setAccelProfile);
     connect(m_worker, &MouseWorker::requestSetMouseMotionAcceleration, this, &MouseDBusProxy::setMouseMotionAcceleration);
 
@@ -136,6 +138,7 @@ void MouseDBusProxy::init()
 
     // set Device properties from dde-control-center
     connect(m_worker, &MouseWorker::requestSetScrollSpeed, this, &MouseDBusProxy::setScrollSpeed);
+    connect(m_worker, &MouseWorker::requestSetTouchpadEnabled, this, &MouseDBusProxy::setTouchpadEnabled);
 }
 
 void MouseDBusProxy::onDefaultReset()
@@ -179,7 +182,7 @@ void MouseDBusProxy::setMouseNaturalScrollState(const bool state)
     m_dbusMouseProperties->call("Set", MouseInterface, "NaturalScroll", state);
 }
 
-void MouseDBusProxy::setDisTouchPad(const bool state)
+void MouseDBusProxy::setDisableTouchPadWhenMouseExist(const bool state)
 {
     m_dbusMouseProperties->call("Set", MouseInterface, "DisableTpad", state);
 }
@@ -227,6 +230,11 @@ void MouseDBusProxy::setPalmMinWidth(int palmMinWidth)
 void MouseDBusProxy::setPalmMinz(int palmMinz)
 {
     m_dbusTouchPadProperties->call("Set", TouchpadInterface, "PalmMinZ", palmMinz);
+}
+
+void MouseDBusProxy::setTouchpadEnabled(bool state)
+{
+    m_dbusTouchPad->asyncCallWithArgumentList("Enable", { state });
 }
 
 void MouseDBusProxy::setTrackPointMotionAcceleration(const double &value)
@@ -283,6 +291,8 @@ void MouseDBusProxy::onTouchpadPathPropertiesChanged(QDBusMessage msg)
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "Exist") {
                 m_worker->setTpadExist(changedProps.value(keys.at(i)).toBool());
+            } else if(keys.at(i) == "TPadEnable") {
+                m_worker->setTpadEnabled(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "NaturalScroll") {
                 m_worker->setTouchNaturalScrollState(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DisableIfTyping") {

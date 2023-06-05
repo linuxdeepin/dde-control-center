@@ -28,7 +28,7 @@ public Q_SLOTS:
 
     // mouse settings
     void setMouseNaturalScrollState(const bool state);
-    void setDisTouchPad(const bool state);
+    void setDisableTouchPadWhenMouseExist(const bool state);
     void setAccelProfile(const bool state);
     void setMouseMotionAcceleration(const double &value);
 
@@ -40,6 +40,7 @@ public Q_SLOTS:
     void setPalmDetect(bool palmDetect);
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
+    void setTouchpadEnabled(bool state);
 
     // redpoint settings
     void setTrackPointMotionAcceleration(const double &value);

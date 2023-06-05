@@ -23,6 +23,11 @@ void MouseWorker::setTpadExist(bool exist)
     m_model->setTpadExist(exist);
 }
 
+void MouseWorker::setTpadEnabled(bool enabled)
+{
+    m_model->setTapEnabled(enabled);
+}
+
 void MouseWorker::setRedPointExist(bool exist)
 {
     m_model->setRedPointExist(exist);
@@ -122,6 +127,11 @@ void MouseWorker::onPalmMinzChanged(int palmMinz)
 void MouseWorker::onScrollSpeedChanged(int speed)
 {
     Q_EMIT requestSetScrollSpeed(static_cast<uint>(speed));
+}
+
+void MouseWorker::onTouchpadEnabledChanged(const bool state)
+{
+    Q_EMIT requestSetTouchpadEnabled(state);
 }
 
 void MouseWorker::onLeftHandStateChanged(const bool state)

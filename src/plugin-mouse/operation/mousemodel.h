@@ -69,6 +69,9 @@ public:
     bool tapclick() const { return m_tapclick; }
     void setTapClick(bool tapclick);
 
+    bool tapEnabled() const { return m_touchpadEnabled; }
+    void setTapEnabled(bool tapEnabled);
+
     uint scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(uint speed);
 
@@ -90,6 +93,7 @@ Q_SIGNALS:
     void palmMinWidthChanged(int palmMinWidth);
     void palmMinzChanged(int palmMinz);
     void tapClickChanged(bool tapclick);
+    void tapEnabledChanged(bool tapclick);
     void scrollSpeedChanged(uint speed);
 
 private:
@@ -104,6 +108,7 @@ private:
     bool m_disTpad;
     bool m_palmDetect;
     bool m_tapclick;
+    bool m_touchpadEnabled;
     int  m_doubleSpeed;
     int  m_mouseMoveSpeed;
     int  m_tpadMoveSpeed;

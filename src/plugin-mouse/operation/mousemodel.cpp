@@ -17,6 +17,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_disTpad(false)
     , m_palmDetect(false)
     , m_tapclick(false)
+    , m_touchpadEnabled(true)
     , m_doubleSpeed(1)
     , m_mouseMoveSpeed(1)
     , m_tpadMoveSpeed(1)
@@ -200,6 +201,16 @@ void MouseModel::setTapClick(bool tapclick)
     m_tapclick = tapclick;
 
     Q_EMIT tapClickChanged(tapclick);
+}
+
+void MouseModel::setTapEnabled(bool tabEnabled)
+{
+    if (m_touchpadEnabled == tabEnabled)
+        return;
+
+    m_touchpadEnabled = tabEnabled;
+
+    Q_EMIT tapEnabledChanged(tabEnabled);
 }
 
 void MouseModel::setScrollSpeed(uint speed)

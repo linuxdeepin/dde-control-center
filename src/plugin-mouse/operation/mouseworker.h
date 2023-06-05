@@ -23,6 +23,7 @@ public:
 public Q_SLOTS:
     void setMouseExist(bool exist);
     void setTpadExist(bool exist);
+    void setTpadEnabled(bool enabled);
     void setRedPointExist(bool exist);
     void setLeftHandState(const bool state);
     void setMouseNaturalScrollState(const bool state);
@@ -55,6 +56,7 @@ public Q_SLOTS:
     void onPalmMinWidthChanged(int palmMinWidth);
     void onPalmMinzChanged(int palmMinz);
     void onScrollSpeedChanged(int speed);
+    void onTouchpadEnabledChanged(const bool state);
 
 Q_SIGNALS:
     void requestSetPalmDetect(bool palmDetect);
@@ -72,6 +74,7 @@ Q_SIGNALS:
     void requestSetAccelProfile(const bool state);
     void requestSetTouchpadMotionAcceleration(const double &value);
     void requestSetTrackPointMotionAcceleration(const double &value);
+    void requestSetTouchpadEnabled(const bool state);
 
 private:
     int converToDouble(int value);
