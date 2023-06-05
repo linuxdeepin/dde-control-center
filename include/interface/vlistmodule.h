@@ -47,6 +47,8 @@ public:
                          const QStringList &contentText,
                          const QVariant &icon,
                          QObject *parent = nullptr);
+    explicit VListModule(const ModuleInitContext &message, QObject *parent = nullptr);
+
     ~VListModule() override;
 
     QWidget *page() override;

@@ -46,6 +46,20 @@ enum : DCC_MODULE_TYPE {
 class ModuleObjectPrivate;
 
 /**
+ * @brief ModuleInitContext 作为初始化传入的结构体，其中name和displayName 必须有数值
+ * 这个结构体保存了所有初始化的信息
+ */
+
+struct ModuleInitContext
+{
+    QString name;
+    QString displayName;
+    QStringList contentText;
+    QVariant icon;
+    QString description;
+};
+
+/**
  * @brief ModuleObject作为规范每个Module的接口，每个Module必须提供其基本的信息
  */
 class ModuleObject : public QObject
@@ -98,7 +112,7 @@ public:
                           const QStringList &contentText,
                           const QVariant &icon,
                           QObject *parent = nullptr);
-
+    explicit ModuleObject(const ModuleInitContext &message, QObject *parent = nullptr);
     virtual ~ModuleObject();
     /**
      * @brief activePage 激活并返回page

@@ -143,6 +143,12 @@ HListModule::HListModule(const QString &name, const QString &displayName, const 
 {
 }
 
+HListModule::HListModule(const ModuleInitContext &message, QObject *parent)
+   : ModuleObject(message, parent)
+   , DCC_INIT_PRIVATE(HListModule)
+{
+}
+
 HListModule::~HListModule()
 {
 }

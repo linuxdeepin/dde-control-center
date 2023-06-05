@@ -269,6 +269,12 @@ PageModule::PageModule(const QString &name, const QString &displayName, const QS
 {
 }
 
+PageModule::PageModule(const ModuleInitContext &message, QObject *parent)
+    : ModuleObject(message, parent)
+    , DCC_INIT_PRIVATE(PageModule)
+{
+}
+
 PageModule::~PageModule()
 {
 }

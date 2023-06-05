@@ -49,6 +49,7 @@ public:
                         const QStringList &contentText,
                         const QVariant &icon,
                         QObject *parent = nullptr);
+    explicit PageModule(const ModuleInitContext &message, QObject *parent = nullptr);
     ~PageModule() override;
 
     int spacing() const;
