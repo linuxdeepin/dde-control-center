@@ -47,11 +47,15 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     speedSlider->setTickInterval(1);
     speedSlider->setPageStep(1);
     QStringList speedList;
-    for (int i(1); i <= 10; i++) {
-        speedList << QString::number(i);
-    }
+    speedList << tr("Slow") << ""
+              << ""
+              << ""
+              << ""
+              << ""
+              << ""
+              << ""
+              << "" << tr("Fast");
     m_scrollSpeedSlider->setAnnotations(speedList);
-    m_scrollSpeedSlider->setValueLiteral("speed: 1");
 
     QStringList doublelist;
     doublelist << tr("Slow") << ""
@@ -90,10 +94,10 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
             &SwitchWidget::checkedChanged,
             this,
             &GeneralSettingWidget::requestSetDisTyping);
-    connect(m_scrollSpeedSlider->slider(), &DCCSlider::valueChanged, this, [=](auto value) {
-        m_scrollSpeedSlider->setValueLiteral(QString("speed: %1").arg(speedList[value - 1]));
-        emit requestScrollSpeed(value);
-    });
+    connect(m_scrollSpeedSlider->slider(),
+            &DCCSlider::valueChanged,
+            this,
+            &GeneralSettingWidget::requestScrollSpeed);
     connect(m_doubleSlider->slider(),
             &DCCSlider::valueChanged,
             this,
