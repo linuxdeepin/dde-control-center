@@ -44,7 +44,6 @@ NotificationModule::NotificationModule(QObject *parent)
 {
     setName("notification");
     setDisplayName(tr("Notification"));
-    setDescription(tr("Notification"));
     setIcon(QIcon::fromTheme("dcc_nav_notification"));
     if (m_model) {
         delete m_model;

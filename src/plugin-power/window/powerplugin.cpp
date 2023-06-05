@@ -1,12 +1,13 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "powerplugin.h"
+
 #include "generalmodule.h"
-#include "useelectricmodule.h"
-#include "usebatterymodule.h"
 #include "powermodel.h"
 #include "powerworker.h"
+#include "usebatterymodule.h"
+#include "useelectricmodule.h"
 #include "utils.h"
 
 #include <QLabel>
@@ -18,7 +19,7 @@ const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PowerModule::PowerModule(QObject *parent)
-    : HListModule("power", tr("Power"), tr("Power"), QIcon::fromTheme("dcc_nav_power"), parent)
+    : HListModule("power", tr("Power"), QIcon::fromTheme("dcc_nav_power"), parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)
@@ -27,7 +28,7 @@ PowerModule::PowerModule(QObject *parent)
     m_model = new PowerModel(this);
     m_work = new PowerWorker(m_model, this);
 
-#if 0                 // gsettings 待改为dconfig
+#if 0 // gsettings 待改为dconfig
     QGSettings *m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
     m_model->setSuspend(!IsServerSystem && m_powerSetting->get(gsetting_showSuspend).toBool() && m_model->canSuspend());
@@ -59,7 +60,10 @@ PowerModule::PowerModule(QObject *parent)
     m_model->setShutdown(true);
 #endif
     connect(m_model, &PowerModel::haveBettaryChanged, this, &PowerModule::onBatteryChanged);
-    connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
+    connect(m_model,
+            &PowerModel::batteryPercentageChanged,
+            this,
+            &PowerModule::onBatteryPercentageChanged);
 
     //-------------------------------------------
     if (!IsServerSystem) {
@@ -74,7 +78,7 @@ PowerModule::PowerModule(QObject *parent)
 
 void PowerModule::active()
 {
-    m_work->active(); //refresh data
+    m_work->active(); // refresh data
 }
 
 void PowerModule::onBatteryChanged(const bool &state)
@@ -89,22 +93,22 @@ void PowerModule::onBatteryChanged(const bool &state)
         m_useBattery = nullptr;
     }
 }
-//done: 遗留问题，控制中心不应该发电量低通知
+
+// done: 遗留问题，控制中心不应该发电量低通知
 void PowerModule::onBatteryPercentageChanged(const double value)
 {
     if (!m_model->getDoubleCompare(m_nBatteryPercentage, value)) {
         m_nBatteryPercentage = value;
 
         QString remindData = "";
-        if (m_model->getDoubleCompare(value, 20.0)
-            || m_model->getDoubleCompare(value, 15.0)
+        if (m_model->getDoubleCompare(value, 20.0) || m_model->getDoubleCompare(value, 15.0)
             || m_model->getDoubleCompare(value, 10.0)) {
             remindData = tr("Battery low, please plug in");
         } else if (m_model->getDoubleCompare(value, 5.0)) {
             remindData = tr("Battery critically low");
         }
 
-        //send system info
+        // send system info
         if ("" != remindData) {
             Dtk::Core::DUtil::DNotifySender(remindData.toLatin1().data());
         }

@@ -110,11 +110,7 @@ QString DefAppPlugin::location() const
 }
 
 DefAppModule::DefAppModule(QObject *parent)
-    : VListModule("defapp",
-                  tr("Default Applications"),
-                  tr("Default Applications"),
-                  QIcon::fromTheme("dcc_nav_defapp"),
-                  parent)
+    : VListModule("defapp", tr("Default Applications"), QIcon::fromTheme("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))
     , m_work(new DefAppWorker(m_model, this))
     , m_defApps(nullptr)

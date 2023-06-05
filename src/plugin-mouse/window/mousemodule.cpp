@@ -45,7 +45,6 @@ ModuleObject *MousePlugin::module()
     MouseModule *moduleInterface = new MouseModule();
     moduleInterface->setName("mouse");
     moduleInterface->setDisplayName(tr("Mouse"));
-    moduleInterface->setDescription(tr("Mouse"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_mouse"));
 
     //二级菜单--通用

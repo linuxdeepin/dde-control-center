@@ -68,7 +68,7 @@ QString SoundPlugin::location() const
 }
 
 SoundModule::SoundModule(QObject *parent)
-    : HListModule("sound", tr("Sound"), tr("Sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
+    : HListModule("sound", tr("Sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
     , m_model(new SoundModel(this))
     , m_work(new SoundWorker(m_model, this))
 {

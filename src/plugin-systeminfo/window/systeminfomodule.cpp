@@ -310,7 +310,6 @@ ModuleObject *SystemInfoPlugin::module()
     SystemInfoModule *moduleInterface = new SystemInfoModule();
     moduleInterface->setName("systeminfo");
     moduleInterface->setDisplayName(tr("System Info"));
-    moduleInterface->setDescription(tr("System Info"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_systeminfo"));
 
     return moduleInterface;
