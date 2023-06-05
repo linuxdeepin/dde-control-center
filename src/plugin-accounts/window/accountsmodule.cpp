@@ -99,7 +99,7 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
 }
 ///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
-    : PageModule("accounts", tr("Accounts"), tr("Accounts"), QIcon::fromTheme("dcc_nav_accounts"), parent)
+    : PageModule("accounts", tr("Accounts"), tr("Account management") , QIcon::fromTheme("dcc_nav_accounts"), parent)
     , m_model(nullptr)
     , m_worker(nullptr)
     , m_curLoginUser(nullptr)

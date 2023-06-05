@@ -1,17 +1,18 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimeplugin.h"
-#include "datetimeworker.h"
+
 #include "datetimemodel.h"
+#include "datetimeworker.h"
+#include "formatsettingmodule.h"
 #include "timesettingmodule.h"
 #include "timezonemodule.h"
-#include "formatsettingmodule.h"
 
 using namespace DCC_NAMESPACE;
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : HListModule("datetime", tr("Date and Time"), tr("Date and Time"), QIcon::fromTheme("dcc_nav_datetime"), parent)
+    : HListModule("datetime", tr("Date and Time"), QIcon::fromTheme("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
     m_model = new DatetimeModel(this);

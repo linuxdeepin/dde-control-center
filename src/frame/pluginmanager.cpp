@@ -31,6 +31,9 @@ using namespace DCC_NAMESPACE;
 
 const static QString TranslateReadDir = QStringLiteral(TRANSLATE_READ_DIR);
 
+// The punctuation symbol used to separate items in a list. e.g. A, B, C, D"
+const QString SPLIT_CHAR = QObject::tr(", ");
+
 bool comparePluginLocation(PluginInterface const *target1, PluginInterface const *target2)
 {
     return target1->location() < target2->location();
@@ -272,6 +275,21 @@ void PluginManager::initModules(const PluginData &data)
         }
         m_rootModule->insertChild(i + 1, data.Module);
         insertChild(false);
+        auto topModule = data.Module;
+        if (topModule->description().isEmpty()) {
+            connect(this, &PluginManager::loadAllFinished, topModule, [topModule]() {
+                QString description;
+                for (const auto child : topModule->childrens()) {
+                    description.append(QString("%1%2").arg(child->displayName()).arg(SPLIT_CHAR));
+                }
+                description.chop(2);
+                if (!description.isEmpty()) {
+                    topModule->setDescription(description);
+                } else {
+                    topModule->setDescription(topModule->displayName());
+                }
+            });
+        }
     } else { // other plugin
         m_datas.append(data);
     }

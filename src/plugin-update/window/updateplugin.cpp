@@ -50,7 +50,7 @@ QString UpdatePlugin::location() const
 }
 
 UpdateModule::UpdateModule(QObject *parent)
-    : HListModule("update", tr("Updates"), tr("Updates"), QIcon::fromTheme("dcc_nav_update"), parent)
+    : HListModule("update", tr("Updates"), QIcon::fromTheme("dcc_nav_update"), parent)
     , m_model(new UpdateModel(this))
     , m_work(new UpdateWorker(m_model, this))
 {
