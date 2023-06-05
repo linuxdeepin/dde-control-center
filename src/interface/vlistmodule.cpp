@@ -229,6 +229,12 @@ VListModule::VListModule(const QString &name, const QString &displayName, const 
 {
 }
 
+VListModule::VListModule(const ModuleInitContext &message, QObject *parent)
+    : ModuleObject(message, parent)
+    , DCC_INIT_PRIVATE(VListModule)
+{
+}
+
 VListModule::~VListModule()
 {
 }

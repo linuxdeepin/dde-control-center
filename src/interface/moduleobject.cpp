@@ -93,6 +93,12 @@ ModuleObject::ModuleObject(const QString &name, const QString &displayName, cons
 {
 }
 
+ModuleObject::ModuleObject(const ModuleInitContext &message, QObject *parent)
+    : ModuleObject(message.name, message.displayName, message.description, message.contentText, message.icon, parent)
+{
+
+}
+
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
     : QObject(parent)
     , DCC_INIT_PRIVATE(ModuleObject)
