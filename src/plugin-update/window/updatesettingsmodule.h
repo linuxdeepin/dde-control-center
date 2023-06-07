@@ -58,7 +58,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void setUpdateMode();
-    void setCheckStatus(QWidget *widget, bool state, const QString &key);
     void onAutoUpdateCheckChanged();
     void onAutoSecureUpdateCheckChanged();
 
