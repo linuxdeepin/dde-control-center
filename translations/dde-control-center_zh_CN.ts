@@ -1877,7 +1877,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation>协议和隐私政策</translation>
+        <translation>协议与隐私政策</translation>
     </message>
     <message>
         <source>Edition License</source>
