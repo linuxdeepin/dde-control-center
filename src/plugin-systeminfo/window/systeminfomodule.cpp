@@ -120,6 +120,11 @@ void SystemInfoModule::initChildModule()
     appendChild(moduleAgreement);
 }
 
+static bool useDeepinCopyright () {
+    static bool useDeepinCopyright = DSysInfo::productType() != DSysInfo::ProductType::Uos;
+    return useDeepinCopyright;
+}
+
 // clang-format on
 
 const QString systemCopyright()
@@ -127,7 +132,7 @@ const QString systemCopyright()
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
     const QString &oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
     if (oem_copyright.isEmpty()) {
-        if (IS_COMMUNITY_SYSTEM)
+        if (useDeepinCopyright())
             return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
                     .arg(QString(__DATE__).right(4));
         else
