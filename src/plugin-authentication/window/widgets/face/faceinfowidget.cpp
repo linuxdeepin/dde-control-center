@@ -12,6 +12,9 @@
 #include <QTimer>
 #include <QPainter>
 #include <QPainterPath>
+#include <DGuiApplicationHelper>
+
+using Dtk::Gui::DGuiApplicationHelper;
 
 #define Faceimg_SIZE 248
 
