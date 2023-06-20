@@ -45,7 +45,6 @@ ModuleObject *KeyboardPlugin::module()
     KeyboardModule *moduleInterface = new KeyboardModule();
     moduleInterface->setName("keyboard");
     moduleInterface->setDisplayName(tr("Keyboard and Language"));
-    moduleInterface->setDescription(tr("Keyboard and Language"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_keyboard"));
 
     //二级菜单--键盘
