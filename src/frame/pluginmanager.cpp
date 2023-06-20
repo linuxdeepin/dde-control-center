@@ -100,6 +100,22 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     return data;
 }
 
+static QString modelDescription(ModuleObject *model)
+{
+    QString description;
+    for (const auto child : model->childrens()) {
+        if (child->isHidden())
+            continue;
+        const auto &name = child->displayName();
+        if (!name.isEmpty())
+            description.append(QString("%1%2").arg(name).arg(SPLIT_CHAR));
+    }
+    description.chop(SPLIT_CHAR.size());
+    if (!description.isEmpty())
+        return description;
+    return model->displayName();
+}
+
 PluginManager::PluginManager(QObject *parent)
     : QObject(parent)
     , m_rootModule(nullptr)
@@ -277,17 +293,10 @@ void PluginManager::initModules(const PluginData &data)
         insertChild(false);
         auto topModule = data.Module;
         if (topModule->description().isEmpty()) {
-            connect(this, &PluginManager::loadAllFinished, topModule, [topModule]() {
-                QString description;
-                for (const auto child : topModule->childrens()) {
-                    description.append(QString("%1%2").arg(child->displayName()).arg(SPLIT_CHAR));
-                }
-                description.chop(2);
-                if (!description.isEmpty()) {
-                    topModule->setDescription(description);
-                } else {
-                    topModule->setDescription(topModule->displayName());
-                }
+            topModule->setDescription(modelDescription(topModule));
+            connect(this, &PluginManager::loadAllFinished, topModule, [this, topModule]() {
+                // update description to avoid it's children has other plugin dependence.
+                topModule->setDescription(modelDescription(topModule));
             });
         }
     } else { // other plugin
