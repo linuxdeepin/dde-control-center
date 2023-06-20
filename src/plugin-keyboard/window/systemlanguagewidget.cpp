@@ -191,8 +191,7 @@ void SystemLanguageWidget::onDefault(const QString &curLang)
 void SystemLanguageWidget::onSetCurLang(int value)
 {
     qDebug() << "m_langListview & m_editSystemLang" << value;
-    m_langListview->setEnabled(!value);
-    m_editSystemLang->setEnabled(!value);
+    setEnabled(!value);
 }
 
 void SystemLanguageWidget::addSystemLanguage()
