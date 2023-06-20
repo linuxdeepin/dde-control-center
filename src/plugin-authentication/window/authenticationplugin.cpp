@@ -59,7 +59,7 @@ QString AuthenticationPlugin::location() const
 }
 
 AuthenticationModule::AuthenticationModule(QObject *parent)
-    : HListModule("authentication", tr("Biometric Authentication"), tr("Biometric Authentication"), QIcon::fromTheme("dcc_nav_authentication"), parent)
+    : HListModule("authentication", tr("Biometric Authentication"), QString(), QIcon::fromTheme("dcc_nav_authentication"), parent)
     , m_model(new CharaMangerModel(this))
     , m_work(new CharaMangerWorker(m_model, this))
 {
