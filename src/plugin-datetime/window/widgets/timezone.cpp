@@ -31,7 +31,7 @@ const QString tzDirPath = std::visit([] {
 
 // Absolute path to zone.tab file.
 const QString kZoneTabFile = std::visit([] {
-    return tzDirPath + "/zone1970.tab";
+    return tzDirPath + QDir::separator() + "/zone1970.tab";
 });
 
 // Absolute path to backward timezone file.
