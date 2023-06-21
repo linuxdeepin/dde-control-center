@@ -415,6 +415,10 @@
         <translation>帐户</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation>账户管理</translation>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>创建帐户</translation>
     </message>

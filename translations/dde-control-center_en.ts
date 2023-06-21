@@ -415,6 +415,10 @@
         <translation>Accounts</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation>Account management</translation>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Create Account</translation>
     </message>
