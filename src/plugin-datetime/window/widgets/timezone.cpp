@@ -181,7 +181,7 @@ QString GetLocalTimezoneName(const QString &timezone, const QString &locale)
     }
 
     // If |filepath| is a file or a symbolic link to file, it is a valid timezone.
-    const QString filepath(tzDirPath + timezone);
+    const QString filepath(tzDirPath + QDir::separator() + timezone);
     return QFile::exists(filepath);
 }
 
