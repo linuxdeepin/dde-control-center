@@ -53,6 +53,9 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
     connect(m_powerDBusProxy, &PowerDBusProxy::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+
+    // init base property
+    m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
 }
 
 void PowerWorker::active()
