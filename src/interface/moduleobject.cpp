@@ -25,6 +25,7 @@ const unsigned c_currentVersion = 10; // 1.0
 
 using namespace DCC_NAMESPACE;
 namespace DCC_NAMESPACE {
+
 class ModuleObjectPrivate
 {
 public:
@@ -35,7 +36,23 @@ public:
         , m_flags(0)
     {
     }
-
+    QString modelDescription() {
+        Q_Q(ModuleObject);
+        // The punctuation symbol used to separate items in a list. e.g. A, B, C, D"
+        const QString SPLIT_CHAR = QObject::tr(", ");
+        QString description;
+        for (const auto child : q->childrens()) {
+            if (child->isHidden())
+                continue;
+            const auto &name = child->displayName();
+            if (!name.isEmpty())
+                description.append(QString("%1%2").arg(name).arg(SPLIT_CHAR));
+        }
+        description.chop(SPLIT_CHAR.size());
+        if (!description.isEmpty())
+            return description;
+        return q->displayName();
+    }
 public:
     ModuleObject *q_ptr;
     Q_DECLARE_PUBLIC(ModuleObject)
@@ -109,6 +126,17 @@ ModuleObject::ModuleObject(const QString &name, const QString &displayName, cons
     d->m_description = description;
     d->m_contentText = contentText;
     d->m_icon = icon;
+    if (description.isEmpty()) {
+        this->setDescription(d->modelDescription());
+        connect(this, &ModuleObject::insertedChild, this, [this](ModuleObject *) {
+            Q_D(ModuleObject);
+            this->setDescription(d->modelDescription());
+        });
+        connect(this, &ModuleObject::removedChild, this, [this](ModuleObject *) {
+            Q_D(ModuleObject);
+            this->setDescription(d->modelDescription());
+        });
+    }
 }
 
 ModuleObject::~ModuleObject()

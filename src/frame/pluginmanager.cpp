@@ -31,9 +31,6 @@ using namespace DCC_NAMESPACE;
 
 const static QString TranslateReadDir = QStringLiteral(TRANSLATE_READ_DIR);
 
-// The punctuation symbol used to separate items in a list. e.g. A, B, C, D"
-const QString SPLIT_CHAR = QObject::tr(", ");
-
 bool comparePluginLocation(PluginInterface const *target1, PluginInterface const *target2)
 {
     return target1->location() < target2->location();
@@ -98,22 +95,6 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     data.Plugin->moveToThread(qApp->thread());
     qInfo() << QString("load plugin: %1 end, using time: %2 ms").arg(fileName).arg(et.elapsed());
     return data;
-}
-
-static QString modelDescription(ModuleObject *model)
-{
-    QString description;
-    for (const auto child : model->childrens()) {
-        if (child->isHidden())
-            continue;
-        const auto &name = child->displayName();
-        if (!name.isEmpty())
-            description.append(QString("%1%2").arg(name).arg(SPLIT_CHAR));
-    }
-    description.chop(SPLIT_CHAR.size());
-    if (!description.isEmpty())
-        return description;
-    return model->displayName();
 }
 
 PluginManager::PluginManager(QObject *parent)
@@ -291,14 +272,6 @@ void PluginManager::initModules(const PluginData &data)
         }
         m_rootModule->insertChild(i + 1, data.Module);
         insertChild(false);
-        auto topModule = data.Module;
-        if (topModule->description().isEmpty()) {
-            topModule->setDescription(modelDescription(topModule));
-            connect(this, &PluginManager::loadAllFinished, topModule, [this, topModule]() {
-                // update description to avoid it's children has other plugin dependence.
-                topModule->setDescription(modelDescription(topModule));
-            });
-        }
     } else { // other plugin
         m_datas.append(data);
     }
