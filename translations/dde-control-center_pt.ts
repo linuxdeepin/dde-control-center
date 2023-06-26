@@ -66,7 +66,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os ficheiros (*)</translation>
     </message>
 </context>
 <context>
@@ -415,6 +415,10 @@
         <translation>Contas</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Criar Conta</translation>
     </message>
@@ -545,23 +549,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Pessoa</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Animal</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustração</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Expressão</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imagem personalizada</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Velocidade do cursor</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Tocar para clicar</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Deslocamento natural</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Lento</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Rápido</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2928,6 +2936,10 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <message>
         <source>Control Center</source>
         <translation>Centro de Controlo</translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

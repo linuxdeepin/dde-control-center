@@ -1970,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>指针速度</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>轻触以点击</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>自然滚动</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>快</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2009,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+	<translation>指针速度</translation>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+	<translation>禁用触控板</translation>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+	<translation>轻触以点击</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+	<translation>自然滚动</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+	<translation>慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+	<translation>快</translation>
     </message>
 </context>
 <context>
@@ -2932,6 +2936,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Control Center</source>
         <translation>控制中心</translation>
+    </message>
+    <message>
+        <source>, </source>
+	<translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

@@ -415,6 +415,10 @@
         <translation>Comptes</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation>Gestió de comptes</translation>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Crea un compte</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Velocitat del punter</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Un toc per fer clic</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Desplaçament natural</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Lent</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Ràpid</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2929,6 +2937,10 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Centre de control</translation>
     </message>
     <message>
+        <source>, </source>
+        <translation>, </translation>
+    </message>
+    <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Hi ha hagut un error en llegir els fitxers de configuració de les regles de la contrasenya!</translation>
     </message>
@@ -3750,7 +3762,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la interfície d&apos;aturada.</translation>
     </message>
 </context>
 <context>
@@ -3817,7 +3829,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la interfície d&apos;aturada.</translation>
     </message>
     <message>
         <source>Do nothing</source>
