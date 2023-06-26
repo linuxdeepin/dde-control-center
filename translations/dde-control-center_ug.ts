@@ -415,6 +415,10 @@
         <translation>ھېساباتلار</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>ئىشلەتكۈچى قۇرۇش</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>ئىسترېلكا تېزلىكى</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>چېكىپ بىلىۋېلىڭ</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>مائۇس غالتىكىنى سىيرىلىش</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>كۆرسىتىش</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>تېز</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2928,6 +2936,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Control Center</source>
         <translation>كونترول مەركىزى </translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

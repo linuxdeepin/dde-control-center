@@ -415,6 +415,10 @@
         <translation>Hesaplar</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Hesap Oluştur</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Tıklamak için Dokun</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Yavaş</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Hızlı</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>İptal</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2928,6 +2936,10 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     <message>
         <source>Control Center</source>
         <translation>Kontrol Merkezi</translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

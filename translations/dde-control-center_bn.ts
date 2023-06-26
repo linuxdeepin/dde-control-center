@@ -415,6 +415,10 @@
         <translation>অ্যাকাউন্ট সমূহ</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>অ্যাকাউন্ট তৈরি করুন</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>নির্দেশকের গতি</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>ক্লিক করতে ট্যাপ করুন</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>স্বাভাবিক স্ক্রোলিং</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>ধীরে</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>দ্রুত</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>বাতিল করুন</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2914,6 +2922,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Control Center</source>
         <translation>নিয়ন্ত্রণ কেন্দ্র</translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

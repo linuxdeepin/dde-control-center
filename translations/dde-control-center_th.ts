@@ -415,6 +415,10 @@
         <translation>บัญชี</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>สร้างบัญชี</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>แตะเพื่อคลิก</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>การเลื่อนแบบธรรมชาติ</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>ช้า</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>รวดเร็ว</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>ยกเลิก</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2913,6 +2921,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>QObject</name>
     <message>
         <source>Control Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, </source>
         <translation type="unfinished"/>
     </message>
     <message>

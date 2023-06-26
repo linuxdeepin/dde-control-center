@@ -415,6 +415,10 @@
         <translation>Accounts</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation>Accountbeheer</translation>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Account aanmaken</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Cursorsnelheid</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Tik om te klikken</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Natuurlijk scrollen</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Traag</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Snel</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>Annuleren</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2920,6 +2928,10 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Instellingencentrum</translation>
     </message>
     <message>
+        <source>, </source>
+        <translation>, </translation>
+    </message>
+    <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Er is een fout opgetreden tijdens het uitlezen van de configuratiebestanden omtrent de wachtwoordregels!</translation>
     </message>
@@ -3741,7 +3753,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Afsluitscherm tonen</translation>
     </message>
 </context>
 <context>
@@ -3808,7 +3820,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Afsluitscherm tonen</translation>
     </message>
     <message>
         <source>Do nothing</source>

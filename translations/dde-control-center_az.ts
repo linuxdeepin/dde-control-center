@@ -415,6 +415,10 @@
         <translation>Hesablar</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Hesab yaradın</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Kursorun sürəti</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Klik üçün vurun</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Təbii sürüşdürmə</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Zəif</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Sürətli</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>İmtina</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2929,6 +2937,10 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>İdarə Etmə Mərkəzi</translation>
     </message>
     <message>
+        <source>, </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Şifrə qaydaları üçün tənzimləmə faylının oxunması zamanı xəta baş verdi!</translation>
     </message>
@@ -3750,7 +3762,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Söndürmə interfeysini göstərmək</translation>
     </message>
 </context>
 <context>
@@ -3817,7 +3829,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Söndürmə interfeysini göstərmək</translation>
     </message>
     <message>
         <source>Do nothing</source>

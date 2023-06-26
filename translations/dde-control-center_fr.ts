@@ -415,6 +415,10 @@
         <translation>Comptes</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Créer un compte</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Vitesse du pointeur</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Appuyer pour cliquer</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Défilement naturel</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Lent</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Rapide</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2926,6 +2934,10 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     <message>
         <source>Control Center</source>
         <translation>Centre de contrôle</translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>

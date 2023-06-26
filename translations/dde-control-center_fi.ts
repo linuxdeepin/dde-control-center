@@ -415,6 +415,10 @@
         <translation>Tilit</translation>
     </message>
     <message>
+        <source>Account management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Create Account</source>
         <translation>Luo käyttäjätili</translation>
     </message>
@@ -1966,29 +1970,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>Osoittimen nopeus</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>Napauta klikkaa</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>Tasainen vieritys</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>Hidas</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>Nopea</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -2005,6 +1986,33 @@
     <message>
         <source>Cancel</source>
         <translation>Peruuta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2928,6 +2936,10 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Control Center</source>
         <translation>Ohjauspaneli</translation>
+    </message>
+    <message>
+        <source>, </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
