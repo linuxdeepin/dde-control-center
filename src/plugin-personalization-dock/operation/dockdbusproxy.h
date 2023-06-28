@@ -90,7 +90,6 @@ Q_SIGNALS:
     void showRecentChanged(bool) const;
 
 private:
-    QDBusInterface *m_daemonDockInter;
     QDBusInterface *m_dockInter;
 };
 
