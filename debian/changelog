@@ -1,3 +1,18 @@
+dde-control-center (6.0.22) unstable; urgency=medium
+
+  * when descption is empty, module will use the displayName of child to make
+    a descption
+  * fix the case that on archlinux, it shows uniontech in the module of systeminfo
+  * fix the issue that dde-control-center coredump on opensuse
+  * fix wrong usage of the dbus mouse speed
+  * avoid hardcode of dbus service
+  * dark png shown in personalization
+  * fix dcc-update-plugin cannot initialize very fast
+  * change account to user
+  * region set in datetime plugin
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 08 Aug 2023 13:55:03 +0800
+
 dde-control-center (6.0.21) unstable; urgency=medium
 
   * fix margin of page
