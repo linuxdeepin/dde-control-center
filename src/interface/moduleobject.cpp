@@ -240,6 +240,7 @@ unsigned ModuleObject::GetCurrentVersion()
 void ModuleObject::setHidden(bool hidden)
 {
     setFlagState(DCC_HIDDEN, hidden);
+    Q_EMIT visibleChanged();
 }
 
 void ModuleObject::setVisible(bool visible)
@@ -337,6 +338,10 @@ void ModuleObject::appendChild(ModuleObject *const module)
         return;
     d->m_childrens.append(module);
     module->setParent(this);
+    connect(module, &ModuleObject::visibleChanged, this, [this]() {
+        Q_D(ModuleObject);
+        this->setDescription(d->modelDescription());
+    });
     Q_EMIT insertedChild(module);
     Q_EMIT childrenSizeChanged(d->m_childrens.size());
 }
@@ -367,6 +372,10 @@ void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObj
     if (d->m_childrens.contains(module))
         return;
     d->m_childrens.insert(before, module);
+    connect(module, &ModuleObject::visibleChanged, this, [this]() {
+        Q_D(ModuleObject);
+        this->setDescription(d->modelDescription());
+    });
     module->setParent(this);
     Q_EMIT insertedChild(module);
     Q_EMIT childrenSizeChanged(d->m_childrens.size());
