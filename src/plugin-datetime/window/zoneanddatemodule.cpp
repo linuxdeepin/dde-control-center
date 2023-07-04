@@ -2,18 +2,20 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "formatsettingmodule.h"
+#include "zoneanddatemodule.h"
 #include "datetimemodel.h"
 #include "datetimeworker.h"
 #include "widgets/widgetmodule.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/comboxwidget.h"
+#include "itemmodule.h"
+#include <DTipLabel>
 
 using namespace DCC_NAMESPACE;
-
-FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : PageModule("timeFormat", tr("Time Format"), parent)
+using Dtk::Widget::DTipLabel;
+ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
+    : PageModule("zoneanddate", tr("Zone and Format"), parent)
     , m_model(model)
     , m_work(work)
     , m_fotmatWeek({ tr("Monday"), tr("monday") })
@@ -23,21 +25,49 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
     , m_fotmatShortTime({ tr("9:40"), tr("09:40") })
     , m_weekStartWithDay({ tr("Monday"), tr("Tuesday"), tr("Wednesday"), tr("Thursday"), tr("Friday"), tr("Saturday"), tr("Sunday") })
 {
-    deactive();
-
-    appendChild(new WidgetModule<SwitchWidget>("24hourTime", tr("24-hour Time"), [this](SwitchWidget *hourTypeSwitch) {
-        hourTypeSwitch->setTitle(tr("24-hour Time"));
-        hourTypeSwitch->setChecked(m_model->get24HourFormat());
-        hourTypeSwitch->addBackground();
-        // true : 24 hour type  ,  false : 12 hour type
-        connect(hourTypeSwitch, &SwitchWidget::checkedChanged, m_work, &DatetimeWorker::set24HourType);
-        connect(m_model, &DatetimeModel::hourTypeChanged, hourTypeSwitch, &SwitchWidget::setChecked);
-    }));
-
-    appendChild(new WidgetModule<SettingsGroup>("TimeFormat", tr("Time Format"), this, &FormatSettingModule::initTimeFotmat));
+    appendChild( new ItemModule("timetitle", tr("Time")));
+    appendChild(new WidgetModule<SettingsGroup>("Time", tr("time"), this, &ZoneAndFormatModule::initTimeFotmat));
+    auto timeTip = new WidgetModule<DTipLabel>(
+            "TimeTip",
+            tr(""),
+            [](DTipLabel *internalUpdateLabel) {
+                internalUpdateLabel->setWordWrap(true);
+                internalUpdateLabel->setAlignment(Qt::AlignLeft);
+                internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
+                internalUpdateLabel->setText(tr("shot time, long time will ....."));
+            });
+    appendChild(timeTip);
+    appendChild(new ItemModule("dateTitle", tr("Date")));
+    appendChild(new WidgetModule<SettingsGroup>("Date", tr("Date"), this, &ZoneAndFormatModule::initDateFotmat));
 }
 
-void FormatSettingModule::initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)
+void ZoneAndFormatModule::initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)
+{
+    timeGrp->setBackgroundStyle(SettingsGroup::GroupBackground);
+
+    SwitchWidget *hourTypeSwitch = new SwitchWidget;
+    hourTypeSwitch->setTitle(tr("24-hour Time"));
+    hourTypeSwitch->setChecked(m_model->get24HourFormat());
+    // true : 24 hour type  ,  false : 12 hour type
+    connect(hourTypeSwitch, &SwitchWidget::checkedChanged, m_work, &DatetimeWorker::set24HourType);
+    connect(m_model, &DatetimeModel::hourTypeChanged, hourTypeSwitch, &SwitchWidget::setChecked);
+    timeGrp->appendItem(hourTypeSwitch);
+
+    ComboxWidget *shortimeCbx = new ComboxWidget(tr("Short Time")); //短时间
+    shortimeCbx->comboBox()->addItems(m_fotmatShortTime);
+    shortimeCbx->comboBox()->setCurrentIndex(m_model->shorTimeFormat());
+    connect(m_model, &DatetimeModel::shorTimeFormatChanged, shortimeCbx->comboBox(), &QComboBox::setCurrentIndex);
+    connect(shortimeCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setShortTimeFormat);
+
+    ComboxWidget *longtimeCbx = new ComboxWidget(tr("Long Time")); //长时间
+    longtimeCbx->comboBox()->addItems(m_fotmatLongTime);
+    longtimeCbx->comboBox()->setCurrentIndex(m_model->longTimeFormat());
+    connect(m_model, &DatetimeModel::longTimeFormatChanged, longtimeCbx->comboBox(), &QComboBox::setCurrentIndex);
+    connect(longtimeCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setLongTimeFormat);
+    timeGrp->appendItem(shortimeCbx);
+    timeGrp->appendItem(longtimeCbx);
+}
+void ZoneAndFormatModule::initDateFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)
 {
     timeGrp->setBackgroundStyle(SettingsGroup::GroupBackground);
     ComboxWidget *weekCbx = new ComboxWidget(tr("Weeks")); //星期
@@ -65,22 +95,11 @@ void FormatSettingModule::initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)
     connect(m_model, &DatetimeModel::longDateFormatChanged, longdateCbx->comboBox(), &QComboBox::setCurrentIndex);
     connect(longdateCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setLongDateFormat);
 
-    ComboxWidget *shortimeCbx = new ComboxWidget(tr("Short Time")); //短时间
-    shortimeCbx->comboBox()->addItems(m_fotmatShortTime);
-    shortimeCbx->comboBox()->setCurrentIndex(m_model->shorTimeFormat());
-    connect(m_model, &DatetimeModel::shorTimeFormatChanged, shortimeCbx->comboBox(), &QComboBox::setCurrentIndex);
-    connect(shortimeCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setShortTimeFormat);
 
-    ComboxWidget *longtimeCbx = new ComboxWidget(tr("Long Time")); //长时间
-    longtimeCbx->comboBox()->addItems(m_fotmatLongTime);
-    longtimeCbx->comboBox()->setCurrentIndex(m_model->longTimeFormat());
-    connect(m_model, &DatetimeModel::longTimeFormatChanged, longtimeCbx->comboBox(), &QComboBox::setCurrentIndex);
-    connect(longtimeCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setLongTimeFormat);
 
     timeGrp->appendItem(weekCbx);
     timeGrp->appendItem(weekStartDayCbx);
     timeGrp->appendItem(shortDateCbx);
     timeGrp->appendItem(longdateCbx);
-    timeGrp->appendItem(shortimeCbx);
-    timeGrp->appendItem(longtimeCbx);
+
 }

@@ -13,13 +13,14 @@ class SettingsGroup;
 class DatetimeModel;
 class DatetimeWorker;
 
-class FormatSettingModule : public DCC_NAMESPACE::PageModule
+class ZoneAndFormatModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
-    explicit FormatSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent = nullptr);
+    explicit ZoneAndFormatModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent = nullptr);
 
 private:
+    void initDateFotmat(DCC_NAMESPACE::SettingsGroup *dateGrp);
     void initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp);
 
 private:
