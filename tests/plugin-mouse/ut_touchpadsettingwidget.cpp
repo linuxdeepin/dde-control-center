@@ -18,7 +18,7 @@ class Tst_TouchPadSettingWidget : public testing::Test
 {
     void SetUp() override
     {
-        widget = new TouchPadSettingWidget;
+        widget = new TouchpadSettingWidget;
         model = new MouseModel;
     }
 
@@ -31,7 +31,7 @@ class Tst_TouchPadSettingWidget : public testing::Test
     }
 
 public:
-    TouchPadSettingWidget *widget = nullptr;
+    TouchpadSettingWidget *widget = nullptr;
     MouseModel *model = nullptr;
 };
 
