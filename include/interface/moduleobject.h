@@ -260,6 +260,8 @@ Q_SIGNALS:
      */
     void currentModuleChanged(ModuleObject *currentModule);
 
+    void visibleChanged();
+
 public:
     ModuleObject *getParent();
     /**
