@@ -6,10 +6,10 @@
 #define FORMATSETTINGMODULE_H
 #include "interface/pagemodule.h"
 #include "settingsitem.h"
-#include <QWidget>
 
 #include <QGridLayout>
 #include <QLabel>
+#include <QWidget>
 
 namespace DCC_NAMESPACE {
 class SettingsGroup;
@@ -27,6 +27,7 @@ public:
                            const QString &info = {},
                            QWidget *parent = nullptr);
     void setInfo(const QString &info);
+
 private:
     QLabel *m_info;
 };

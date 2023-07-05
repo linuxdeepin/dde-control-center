@@ -1,23 +1,72 @@
 #pragma once
 
+#include <DAbstractDialog>
 #include <DDialog>
+#include <DListView>
+#include <DListWidget>
+#include <DSuggestButton>
 
+#include <QLabel>
+#include <QLineEdit>
 #include <QListWidget>
 #include <QObject>
-#include <QTextEdit>
+#include <QSortFilterProxyModel>
+#include <QPushButton>
 
-class RegionDialog final : Dtk::Widget::DDialog
+#include <optional>
+#include <utility>
+
+using Dtk::Widget::DSuggestButton;
+class RegionFormatShowPage final : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit RegionFormatShowPage(QWidget *parent = nullptr);
+    friend class RegionDialog;
+
+private:
+    void updateShowInfo(const std::optional<QString> region);
+
+private:
+    QLabel *m_date;
+    QLabel *m_time;
+    QLabel *m_dateAndTime;
+    QLabel *m_number;
+    QLabel *m_currency;
+};
+
+class RegionDialog final : public Dtk::Widget::DAbstractDialog
 {
     Q_OBJECT
 
 public:
     explicit RegionDialog(QMap<QString, QString> regions, QWidget *parent = nullptr);
 
+    inline std::optional<std::pair<QString, QString>> selectedValue() { return m_selectedValue; }
+
+    enum RegionRole {
+        Display = Qt::DisplayRole,
+        Key,
+    };
+    Q_ENUM(RegionRole)
+
 private slots:
     void onFilterChanged(const QString &filter);
 
 private:
-    QTextEdit *m_edit;
-    QListWidget *m_listWidget;
+    QStandardItemModel *fromListToModel(const QMap<QString, QString> &regions);
+
+    inline bool hasSelectedIndex() { return m_lastSelectedIndex.has_value(); }
+
+
+private:
+    QLineEdit *m_edit;
+    Dtk::Widget::DListView *m_view;
     QMap<QString, QString> m_regions;
+    QSortFilterProxyModel *m_model;
+    std::optional<QModelIndex> m_lastSelectedIndex;
+    std::optional<std::pair<QString, QString>> m_selectedValue;
+    RegionFormatShowPage *m_regionFormatShowPage;
+    QPushButton *m_cancelBtn;
+    DSuggestButton *m_confirmBtn;
 };

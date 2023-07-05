@@ -8,11 +8,15 @@
 #include "datetimeworker.h"
 #include "itemmodule.h"
 #include "widgets/comboxwidget.h"
+#include "widgets/region_setting_dialog.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/widgetmodule.h"
 
 #include <DTipLabel>
+
+#include <QDateTime>
+#include <QPushButton>
 
 using namespace DCC_NAMESPACE;
 using Dtk::Widget::DTipLabel;
@@ -46,7 +50,25 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
                            tr("Sunday") })
 {
     appendChild(new ItemModule("LocaleSet", tr("Locale Set")));
-    appendChild(new WidgetModule<DTipLabel>("TimeTip", tr(""), [](DTipLabel *internalUpdateLabel) {
+    appendChild(new ItemModule(
+            "LocaleSelectButton",
+            tr(""),
+            [this](ModuleObject *) {
+                QLocale locale;
+                QString localeName = locale.nativeCountryName();
+                auto button = new QPushButton(localeName);
+                connect(button, &QPushButton::clicked, this, [] {
+                    auto dialog =
+                            RegionDialog({ { "zh_CN.UTF-8", "China" }, { "ik_IN", "WhoKnow" } });
+                    if (dialog.exec() == QDialog::Accepted) {
+                        qDebug() << dialog.selectedValue().value();
+                    }
+                });
+                return button;
+            },
+            false));
+    appendChild(new WidgetModule<
+                DTipLabel>("LocaleTip", tr(""), [](DTipLabel *internalUpdateLabel) {
         internalUpdateLabel->setWordWrap(true);
         internalUpdateLabel->setAlignment(Qt::AlignLeft);
         internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
@@ -193,19 +215,24 @@ void InforShowUnit::setInfo(const QString &info)
     m_info->setText(info);
 }
 
+constexpr int SHOW_NUMBER = 123456789;
+
 FormatShowGrid::FormatShowGrid(QWidget *parent)
     : SettingsItem(parent)
 {
-    QGridLayout *center = new QGridLayout(this);
-    center->addWidget(new InforShowUnit(tr("Date"), "2222"), 0, 0, 1, 1);
-    center->addWidget(new InforShowUnit(tr("Time"), "2222"), 0, 1, 1, 1);
-    center->addWidget(new InforShowUnit(tr("Date And Time"), "2222222222222222222222222222222222"),
-                      0,
-                      2,
-                      1,
-                      2);
+    QLocale currentLocale;
+    QString currentDate = currentLocale.toString(QDate::currentDate());
+    QString currentTime = currentLocale.toString(QTime::currentTime());
+    QString currentDateAndTime = currentLocale.toString(QDateTime::currentDateTime());
+    QString numberToShow = currentLocale.toString(SHOW_NUMBER);
+    QString currency = currentLocale.currencySymbol();
 
-    center->addWidget(new InforShowUnit(tr("Number"), "2222"), 1, 0, 1, 1);
-    center->addWidget(new InforShowUnit(tr("Paper"), "A4"), 1, 1, 1, 1);
+    QGridLayout *center = new QGridLayout(this);
+    center->addWidget(new InforShowUnit(tr("Date"), currentDate), 0, 0, 1, 1);
+    center->addWidget(new InforShowUnit(tr("Time"), currentTime), 0, 1, 1, 1);
+    center->addWidget(new InforShowUnit(tr("Date And Time"), currentDateAndTime), 0, 2, 1, 2);
+
+    center->addWidget(new InforShowUnit(tr("Number"), numberToShow), 1, 0, 1, 1);
+    center->addWidget(new InforShowUnit(tr("Currency"), currency), 1, 1, 1, 1);
     addBackground();
 }
