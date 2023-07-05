@@ -25,7 +25,7 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model, DatetimeWorker *w
     , m_fotmatShortTime({ tr("9:40"), tr("09:40") })
     , m_weekStartWithDay({ tr("Monday"), tr("Tuesday"), tr("Wednesday"), tr("Thursday"), tr("Friday"), tr("Saturday"), tr("Sunday") })
 {
-    appendChild( new ItemModule("timetitle", tr("Time")));
+    appendChild(new ItemModule("timetitle", tr("Time")));
     appendChild(new WidgetModule<SettingsGroup>("Time", tr("time"), this, &ZoneAndFormatModule::initTimeFotmat));
     auto timeTip = new WidgetModule<DTipLabel>(
             "TimeTip",
@@ -95,11 +95,8 @@ void ZoneAndFormatModule::initDateFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)
     connect(m_model, &DatetimeModel::longDateFormatChanged, longdateCbx->comboBox(), &QComboBox::setCurrentIndex);
     connect(longdateCbx->comboBox(), QOverload<int>::of(&QComboBox::currentIndexChanged), m_work, &DatetimeWorker::setLongDateFormat);
 
-
-
     timeGrp->appendItem(weekCbx);
     timeGrp->appendItem(weekStartDayCbx);
     timeGrp->appendItem(shortDateCbx);
     timeGrp->appendItem(longdateCbx);
-
 }

@@ -47,6 +47,9 @@ public:
     Q_PROPERTY(QStringList UserTimezones READ userTimezones NOTIFY UserTimezonesChanged)
     QStringList userTimezones();
 
+    //Locale
+    QMap<QString, QString> getLocaleListMap();
+
 Q_SIGNALS: // SIGNALS
     // Timedate
     // begin property changed signals
@@ -86,6 +89,7 @@ private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
+    QDBusInterface *m_localeInter;
     QDBusInterface *m_timedateInter;
     QDBusInterface *m_systemtimedatedInter;
 };

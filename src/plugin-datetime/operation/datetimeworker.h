@@ -21,6 +21,8 @@ public:
     void deactivate();
     DatetimeModel *model() { return m_model; }
 
+    QMap<QString, QString> getAllLocale();
+
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
 

@@ -20,8 +20,13 @@ const QString SystemTimedatedInterface = QStringLiteral("org.deepin.dde.Timedate
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
+const static QString LangSelectorService = "org.deepin.dde.LangSelector1";
+const static QString LangSelectorPath = "/org/deepin/dde/LangSelector1";
+const static QString LangSelectorInterface = "org.deepin.dde.LangSelector1";
+
 DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_localeInter(new QDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this))
     , m_timedateInter(new QDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
     , m_systemtimedatedInter(new QDBusInterface(SystemTimedatedService, SystemTimedatedPath, SystemTimedatedInterface, QDBusConnection::systemBus(), this))
 {
@@ -198,4 +203,11 @@ QString DatetimeDBusProxy::currentLocale()
 {
     QDBusInterface dbus("org.deepin.dde.LangSelector1", "/org/deepin/dde/LangSelector1", "org.deepin.dde.LangSelector1", QDBusConnection::sessionBus());
     return qvariant_cast<QString>(dbus.property("CurrentLocale"));
+}
+
+QMap<QString, QString> DatetimeDBusProxy::getLocaleListMap()
+{
+    QDBusPendingReply<QMap<QString, QString>> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
+    reply.waitForFinished();
+    return reply.value();
 }
