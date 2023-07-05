@@ -120,6 +120,7 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
     m_displayModel = model;
 
     connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceSwitch, &SwitchWidget::setChecked);
+    connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceCombox, &QWidget::setEnabled);
     m_deviceSwitch->setChecked(m_displayModel->DeviceSharingSwitch());
     m_directionComboxItem->setVisible(m_displayModel->DeviceSharingSwitch());
 
