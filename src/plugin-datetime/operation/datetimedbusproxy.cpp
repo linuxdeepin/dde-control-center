@@ -205,9 +205,12 @@ QString DatetimeDBusProxy::currentLocale()
     return qvariant_cast<QString>(dbus.property("CurrentLocale"));
 }
 
-QMap<QString, QString> DatetimeDBusProxy::getLocaleListMap()
+std::optional<QMap<QString, QString>> DatetimeDBusProxy::getLocaleListMap()
 {
     QDBusPendingReply<QMap<QString, QString>> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
     reply.waitForFinished();
+    if (reply.isError()) {
+        return std::nullopt;
+    }
     return reply.value();
 }

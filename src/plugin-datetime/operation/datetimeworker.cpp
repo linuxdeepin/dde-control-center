@@ -225,7 +225,7 @@ ZoneInfo DatetimeWorker::GetZoneInfo(const QString &zoneId)
     return m_timedateInter->GetZoneInfo(zoneId);
 }
 
-QMap<QString, QString> DatetimeWorker::getAllLocale()
+std::optional<QMap<QString, QString>> DatetimeWorker::getAllLocale()
 {
     return m_timedateInter->getLocaleListMap();
 }

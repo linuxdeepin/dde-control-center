@@ -8,6 +8,8 @@
 
 #include <QObject>
 
+#include <optional>
+
 class DatetimeDBusProxy;
 
 class DatetimeWorker : public QObject
@@ -21,7 +23,7 @@ public:
     void deactivate();
     DatetimeModel *model() { return m_model; }
 
-    QMap<QString, QString> getAllLocale();
+    std::optional<QMap<QString, QString>> getAllLocale();
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;

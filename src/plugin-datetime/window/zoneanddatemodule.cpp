@@ -57,9 +57,12 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
                 QLocale locale;
                 QString localeName = locale.nativeCountryName();
                 auto button = new QPushButton(localeName);
-                connect(button, &QPushButton::clicked, this, [] {
-                    auto dialog =
-                            RegionDialog({ { "zh_CN.UTF-8", "China" }, { "ik_IN", "WhoKnow" } });
+                connect(button, &QPushButton::clicked, this, [this] {
+                    auto localeList = m_work->getAllLocale();
+                    if (!localeList.has_value()) {
+                        return;
+                    }
+                    auto dialog = RegionDialog(localeList.value());
                     if (dialog.exec() == QDialog::Accepted) {
                         qDebug() << dialog.selectedValue().value();
                     }

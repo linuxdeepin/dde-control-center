@@ -5,6 +5,7 @@
 #define DATETIMEDBUSPROXY_H
 
 #include <QObject>
+#include <optional>
 #include "zoneinfo.h"
 class QDBusInterface;
 class QDBusMessage;
@@ -48,7 +49,7 @@ public:
     QStringList userTimezones();
 
     //Locale
-    QMap<QString, QString> getLocaleListMap();
+    std::optional<QMap<QString, QString>> getLocaleListMap();
 
 Q_SIGNALS: // SIGNALS
     // Timedate
