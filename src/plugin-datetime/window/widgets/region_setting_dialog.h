@@ -1,5 +1,7 @@
 #pragma once
 
+#include "datetimedbusproxy.h"
+
 #include <DAbstractDialog>
 #include <DDialog>
 #include <DListView>
@@ -40,7 +42,7 @@ class RegionDialog final : public Dtk::Widget::DAbstractDialog
     Q_OBJECT
 
 public:
-    explicit RegionDialog(QMap<QString, QString> regions, QWidget *parent = nullptr);
+    explicit RegionDialog(LocaleList regions, QWidget *parent = nullptr);
 
     inline std::optional<std::pair<QString, QString>> selectedValue() { return m_selectedValue; }
 
@@ -54,7 +56,7 @@ private slots:
     void onFilterChanged(const QString &filter);
 
 private:
-    QStandardItemModel *fromListToModel(const QMap<QString, QString> &regions);
+    QStandardItemModel *fromListToModel(const LocaleList &regions);
 
     inline bool hasSelectedIndex() { return m_lastSelectedIndex.has_value(); }
 
@@ -62,7 +64,7 @@ private:
 private:
     QLineEdit *m_edit;
     Dtk::Widget::DListView *m_view;
-    QMap<QString, QString> m_regions;
+    LocaleList m_regions;
     QSortFilterProxyModel *m_model;
     std::optional<QModelIndex> m_lastSelectedIndex;
     std::optional<std::pair<QString, QString>> m_selectedValue;

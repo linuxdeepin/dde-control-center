@@ -1,15 +1,61 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEDBUSPROXY_H
 #define DATETIMEDBUSPROXY_H
 
-#include <QObject>
-#include <optional>
 #include "zoneinfo.h"
+#include <QDBusArgument>
+#include <QObject>
+
+#include <optional>
 class QDBusInterface;
 class QDBusMessage;
 class QDateTime;
+
+class LocaleInfo
+{
+public:
+    LocaleInfo() { }
+
+    friend QDBusArgument &operator<<(QDBusArgument &arg, const LocaleInfo &info)
+    {
+        arg.beginStructure();
+        arg << info.id << info.name;
+        arg.endStructure();
+
+        return arg;
+    }
+
+    friend const QDBusArgument &operator>>(const QDBusArgument &arg, LocaleInfo &info)
+    {
+        arg.beginStructure();
+        arg >> info.id >> info.name;
+        arg.endStructure();
+
+        return arg;
+    }
+
+    friend QDataStream &operator<<(QDataStream &ds, const LocaleInfo &info)
+    {
+        return ds << info.id << info.name;
+    }
+
+    friend const QDataStream &operator>>(QDataStream &ds, LocaleInfo &info)
+    {
+        return ds >> info.id >> info.name;
+    }
+
+    bool operator==(const LocaleInfo &info) { return id == info.id && name == info.name; }
+
+public:
+    QString id{ "" };
+    QString name{ "" };
+};
+
+typedef QList<LocaleInfo> LocaleList;
+Q_DECLARE_METATYPE(LocaleInfo)
+Q_DECLARE_METATYPE(LocaleList)
 
 class DatetimeDBusProxy : public QObject
 {
@@ -48,8 +94,8 @@ public:
     Q_PROPERTY(QStringList UserTimezones READ userTimezones NOTIFY UserTimezonesChanged)
     QStringList userTimezones();
 
-    //Locale
-    std::optional<QMap<QString, QString>> getLocaleListMap();
+    // Locale
+    std::optional<LocaleList> getLocaleListMap();
 
 Q_SIGNALS: // SIGNALS
     // Timedate
@@ -84,7 +130,11 @@ public Q_SLOTS:
     // System Timedate
     void SetTimezone(const QString &timezone, const QString &message);
     void SetNTPServer(const QString &server, const QString &message);
-    void SetNTPServer(const QString &server, const QString &message, QObject *receiver, const char *member, const char *errorSlot);
+    void SetNTPServer(const QString &server,
+                      const QString &message,
+                      QObject *receiver,
+                      const char *member,
+                      const char *errorSlot);
 
 private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);

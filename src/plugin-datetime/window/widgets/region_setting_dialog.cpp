@@ -68,7 +68,7 @@ void RegionFormatShowPage::updateShowInfo(const std::optional<QString> region)
     m_number->setText(locale.toString(SHOW_NUMBER));
 }
 
-RegionDialog::RegionDialog(QMap<QString, QString> regions, QWidget *parent)
+RegionDialog::RegionDialog(LocaleList regions, QWidget *parent)
     : Dtk::Widget::DAbstractDialog(parent)
     , m_edit(new QLineEdit(this))
     , m_view(new Dtk::Widget::DListView(this))
@@ -144,12 +144,12 @@ void RegionDialog::onFilterChanged(const QString &filter)
     m_model->setFilterRegularExpression(re);
 }
 
-QStandardItemModel *RegionDialog::fromListToModel(const QMap<QString, QString> &regions)
+QStandardItemModel *RegionDialog::fromListToModel(const LocaleList &regions)
 {
     auto model = new QStandardItemModel(this);
-    for (const QString &key : regions.keys()) {
-        DStandardItem *item = new DStandardItem(regions[key]);
-        item->setData(key, RegionRole::Key);
+    for (const LocaleInfo &key : regions) {
+        DStandardItem *item = new DStandardItem(key.name);
+        item->setData(key.id, RegionRole::Key);
         model->appendRow(item);
     }
     return model;

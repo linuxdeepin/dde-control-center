@@ -31,6 +31,12 @@ DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     , m_systemtimedatedInter(new QDBusInterface(SystemTimedatedService, SystemTimedatedPath, SystemTimedatedInterface, QDBusConnection::systemBus(), this))
 {
     registerZoneInfoMetaType();
+
+    qRegisterMetaType<LocaleInfo>("LocaleInfo");
+    qDBusRegisterMetaType<LocaleInfo>();
+
+    qRegisterMetaType<LocaleList>("LocaleList");
+    qDBusRegisterMetaType<LocaleList>();
     QDBusConnection::sessionBus().connect(TimedateService, TimedatePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
@@ -205,11 +211,12 @@ QString DatetimeDBusProxy::currentLocale()
     return qvariant_cast<QString>(dbus.property("CurrentLocale"));
 }
 
-std::optional<QMap<QString, QString>> DatetimeDBusProxy::getLocaleListMap()
+std::optional<LocaleList> DatetimeDBusProxy::getLocaleListMap()
 {
-    QDBusPendingReply<QMap<QString, QString>> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
+    QDBusPendingReply<LocaleList> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
     reply.waitForFinished();
     if (reply.isError()) {
+        qDebug() << "it is error"<< reply.error();
         return std::nullopt;
     }
     return reply.value();
