@@ -9,6 +9,7 @@
 class RegionDialog final : Dtk::Widget::DDialog
 {
     Q_OBJECT
+
 public:
     explicit RegionDialog(QMap<QString, QString> regions, QWidget *parent = nullptr);
 

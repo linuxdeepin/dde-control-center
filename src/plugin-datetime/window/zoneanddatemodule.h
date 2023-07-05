@@ -1,23 +1,50 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef FORMATSETTINGMODULE_H
 #define FORMATSETTINGMODULE_H
 #include "interface/pagemodule.h"
+#include "settingsitem.h"
+#include <QWidget>
+
+#include <QGridLayout>
+#include <QLabel>
 
 namespace DCC_NAMESPACE {
 class SettingsGroup;
 }
 
+using DCC_NAMESPACE::SettingsItem;
 class DatetimeModel;
 class DatetimeWorker;
+
+class InforShowUnit final : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit InforShowUnit(const QString &title,
+                           const QString &info = {},
+                           QWidget *parent = nullptr);
+    void setInfo(const QString &info);
+private:
+    QLabel *m_info;
+};
+
+class FormatShowGrid final : public SettingsItem
+{
+    Q_OBJECT
+public:
+    explicit FormatShowGrid(QWidget *parent = nullptr);
+};
 
 class ZoneAndFormatModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
-    explicit ZoneAndFormatModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent = nullptr);
+    explicit ZoneAndFormatModule(DatetimeModel *model,
+                                 DatetimeWorker *work,
+                                 QObject *parent = nullptr);
 
 private:
     void initDateFotmat(DCC_NAMESPACE::SettingsGroup *dateGrp);
