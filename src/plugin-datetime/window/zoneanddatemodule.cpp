@@ -14,13 +14,16 @@
 #include "widgets/widgetmodule.h"
 
 #include <DFontSizeManager>
+#include <DIconButton>
 #include <DTipLabel>
 
 #include <QDateTime>
+#include <QGridLayout>
 #include <QPushButton>
 
 using namespace DCC_NAMESPACE;
 using Dtk::Widget::DFontSizeManager;
+using Dtk::Widget::DIconButton;
 using Dtk::Widget::DTipLabel;
 
 ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
@@ -58,8 +61,8 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
             [this](ModuleObject *) {
                 QLocale locale;
                 QString localeName = locale.nativeCountryName();
-                auto button = new QPushButton(localeName);
-                connect(button, &QPushButton::clicked, this, [this] {
+                auto button = new RegionSettingBtn(localeName);
+                connect(button, &RegionSettingBtn::clicked, this, [this] {
                     auto localeList = m_work->getAllLocale();
                     if (!localeList.has_value()) {
                         return;
@@ -82,7 +85,7 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
         internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
         internalUpdateLabel->setText(
                 tr("* The locale will influence the formats of date, time, number and some other "
-                   "formats, it will be enabled on next time of login"));
+                   "formats, it will be enabled on the next time of login"));
     }));
     appendChild(new ItemModule(
             "LocaleShow",
@@ -97,14 +100,6 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
                                                 tr("time"),
                                                 this,
                                                 &ZoneAndFormatModule::initTimeFotmat));
-    auto timeTip =
-            new WidgetModule<DTipLabel>("TimeTip", tr(""), [](DTipLabel *internalUpdateLabel) {
-                internalUpdateLabel->setWordWrap(true);
-                internalUpdateLabel->setAlignment(Qt::AlignLeft);
-                internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
-                internalUpdateLabel->setText(tr("shot time, long time will ....."));
-            });
-    appendChild(timeTip);
     appendChild(new ItemModule("dateTitle", tr("Date")));
     appendChild(new WidgetModule<SettingsGroup>("Date",
                                                 tr("Date"),
@@ -244,5 +239,23 @@ FormatShowGrid::FormatShowGrid(QWidget *parent)
 
     center->addWidget(new InforShowUnit(tr("Number"), numberToShow), 1, 0, 1, 1);
     center->addWidget(new InforShowUnit(tr("Currency"), currency), 1, 1, 1, 1);
+    addBackground();
+}
+
+RegionSettingBtn::RegionSettingBtn(const QString &region, QWidget *parent)
+    : SettingsItem(parent)
+    , m_regionLabel(new QLabel(region, this))
+{
+    QHBoxLayout *center = new QHBoxLayout(this);
+    center->setContentsMargins(12, 5, 12, 5);
+
+    center->addWidget(m_regionLabel);
+    center->addStretch();
+
+    DIconButton *right = new DIconButton;
+    right->setIcon(QIcon::fromTheme("go-next"));
+    connect(right, &QPushButton::clicked, this, &RegionSettingBtn::clicked);
+    center->addWidget(right);
+
     addBackground();
 }

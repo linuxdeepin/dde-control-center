@@ -7,7 +7,6 @@
 #include "interface/pagemodule.h"
 #include "settingsitem.h"
 
-#include <QGridLayout>
 #include <QLabel>
 #include <QWidget>
 
@@ -18,6 +17,23 @@ class SettingsGroup;
 using DCC_NAMESPACE::SettingsItem;
 class DatetimeModel;
 class DatetimeWorker;
+
+class RegionSettingBtn final : public SettingsItem
+{
+    Q_OBJECT
+
+public:
+    explicit RegionSettingBtn(const QString &region, QWidget *parent = nullptr);
+
+signals:
+    void clicked();
+
+public slots:
+    void setRegion(const QString &region);
+
+private:
+    QLabel *m_regionLabel;
+};
 
 class InforShowUnit final : public QWidget
 {
