@@ -1,8 +1,10 @@
 #include "region_setting_dialog.h"
 
+#include <DFontSizeManager>
 #include <DStandardItem>
 #include <DStyledItemDelegate>
 #include <DSuggestButton>
+#include <DTitlebar>
 
 #include <QAbstractItemModel>
 #include <QDateTime>
@@ -11,9 +13,11 @@
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
+using Dtk::Widget::DFontSizeManager;
 using Dtk::Widget::DStandardItem;
 using Dtk::Widget::DStyledItemDelegate;
 using Dtk::Widget::DSuggestButton;
+using Dtk::Widget::DTitlebar;
 
 RegionFormatShowPage::RegionFormatShowPage(QWidget *parent)
     : QWidget(parent)
@@ -26,25 +30,40 @@ RegionFormatShowPage::RegionFormatShowPage(QWidget *parent)
     QVBoxLayout *center = new QVBoxLayout(this);
 
     QLabel *title = new QLabel(tr("Default Format"), this);
+    title->setAlignment(Qt::AlignCenter);
+    DFontSizeManager::instance()->bind(title, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(title);
 
     QLabel *dateTitle = new QLabel(tr("Date"), this);
+    DFontSizeManager::instance()->bind(dateTitle, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(dateTitle);
     center->addWidget(m_date);
 
+    center->addSpacing(8);
+
     QLabel *timeTitle = new QLabel(tr("Time"), this);
+    DFontSizeManager::instance()->bind(timeTitle, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(timeTitle);
     center->addWidget(m_time);
 
+    center->addSpacing(8);
+
     QLabel *dateAndTimeTitle = new QLabel(tr("Date And Time"), this);
+    DFontSizeManager::instance()->bind(dateAndTimeTitle, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(dateAndTimeTitle);
     center->addWidget(m_dateAndTime);
 
+    center->addSpacing(8);
+
     QLabel *numberTitle = new QLabel(tr("Number"), this);
+    DFontSizeManager::instance()->bind(numberTitle, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(numberTitle);
     center->addWidget(m_number);
 
+    center->addSpacing(8);
+
     QLabel *moneyTitle = new QLabel(tr("Currency"), this);
+    DFontSizeManager::instance()->bind(moneyTitle, DFontSizeManager::T6, QFont::DemiBold);
     center->addWidget(moneyTitle);
     center->addWidget(m_currency);
 
@@ -83,6 +102,23 @@ RegionDialog::RegionDialog(LocaleList regions, QWidget *parent)
     QVBoxLayout *center = new QVBoxLayout;
     QHBoxLayout *top = new QHBoxLayout;
 
+    {
+        DTitlebar *titleIcon = new DTitlebar();
+        titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+        titleIcon->setBackgroundTransparent(true); // 透明
+        titleIcon->setMenuVisible(false);
+        titleIcon->setTitle(tr("Locale Setting"));
+        center->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
+    }
+    //{
+    //    QLabel *headTitle = new QLabel(tr("Locale Setting"), this);
+    //    DFontSizeManager::instance()->bind(headTitle,
+    //                                       DFontSizeManager::T5,
+    //                                       QFont::DemiBold); // 设置label字体
+    //    headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    //    headTitle->setAlignment(Qt::AlignCenter);
+    //    center->addWidget(headTitle);
+    //}
     {
         QVBoxLayout *layout = new QVBoxLayout;
 
