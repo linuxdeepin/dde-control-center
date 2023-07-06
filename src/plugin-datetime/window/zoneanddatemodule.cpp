@@ -64,6 +64,9 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
                     }
                     auto dialog = RegionDialog(localeList.value());
                     if (dialog.exec() == QDialog::Accepted) {
+                        // TODO: set the locale
+                        // Because locale need to be logout and update, so after setted, it will not update the value
+                        // So just set it will be fine
                         qDebug() << dialog.selectedValue().value();
                     }
                 });
