@@ -25,6 +25,9 @@ public:
     DatetimeModel *model() { return m_model; }
 
     std::optional<LocaleList> getAllLocale();
+    std::optional<QString> getLocaleRegion();
+
+    void setLocaleRegion(const QString &locale);
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;

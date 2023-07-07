@@ -229,3 +229,13 @@ std::optional<LocaleList> DatetimeWorker::getAllLocale()
 {
     return m_timedateInter->getLocaleListMap();
 }
+
+std::optional<QString> DatetimeWorker::getLocaleRegion()
+{
+    return m_timedateInter->getLocaleRegion();
+}
+
+void DatetimeWorker::setLocaleRegion(const QString &locale)
+{
+    m_timedateInter->setLocaleRegion(locale);
+}

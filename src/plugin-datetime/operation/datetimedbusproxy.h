@@ -96,6 +96,9 @@ public:
 
     // Locale
     std::optional<LocaleList> getLocaleListMap();
+    std::optional<QString> getLocaleRegion();
+
+    void setLocaleRegion(const QString &locale);
 
 Q_SIGNALS: // SIGNALS
     // Timedate

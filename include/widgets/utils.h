@@ -27,7 +27,7 @@ inline const QMargins ZeroMargins(0, 0, 0, 0);
 
 inline constexpr int ComboxWidgetHeight = 48;
 inline constexpr int SwitchWidgetHeight = 36;
-inline constexpr int ComboxTitleWidth = 110;
+inline constexpr int ComboxTitleWidth = 150;
 
 inline constexpr qint32 ActionIconSize=30;//大图标角标大小
 inline constexpr qint32 ActionListSize=26;//list图标角标大小

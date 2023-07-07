@@ -60,7 +60,7 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
             tr(""),
             [this](ModuleObject *) {
                 QLocale locale;
-                QString localeName = locale.nativeCountryName();
+                QString localeName = locale.name();
                 auto button = new RegionSettingBtn(localeName);
                 connect(button, &RegionSettingBtn::clicked, this, [this] {
                     auto localeList = m_work->getAllLocale();
@@ -72,7 +72,7 @@ ZoneAndFormatModule::ZoneAndFormatModule(DatetimeModel *model,
                         // TODO: set the locale
                         // Because locale need to be logout and update, so after setted, it will not
                         // update the value So just set it will be fine
-                        qDebug() << dialog.selectedValue().value();
+                        m_work->setLocaleRegion(dialog.selectedValue()->first);
                     }
                 });
                 return button;

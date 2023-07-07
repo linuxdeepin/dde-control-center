@@ -221,3 +221,23 @@ std::optional<LocaleList> DatetimeDBusProxy::getLocaleListMap()
     }
     return reply.value();
 }
+
+std::optional<QString> DatetimeDBusProxy::getLocaleRegion()
+{
+    QDBusPendingReply<QString> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleRegion"));
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qDebug() << "it is error"<< reply.error();
+        return std::nullopt;
+    }
+    if(reply.value().isEmpty()) {
+        return std::nullopt;
+    } else {
+        return reply.value();
+    }
+}
+
+void DatetimeDBusProxy::setLocaleRegion(const QString &locale)
+{
+    m_localeInter->asyncCall(QStringLiteral("SetLocaleRegion"), locale);
+}
