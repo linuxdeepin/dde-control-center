@@ -5,7 +5,7 @@
 
 #include "datetimemodel.h"
 #include "datetimeworker.h"
-#include "formatsettingmodule.h"
+#include "regionanddatemodule.h"
 #include "timesettingmodule.h"
 #include "timezonemodule.h"
 
@@ -20,7 +20,7 @@ DatetimeModule::DatetimeModule(QObject *parent)
 
     appendChild(new TimeSettingModule(m_model, m_work, this));
     appendChild(new TimezoneModule(m_model, m_work, this));
-    appendChild(new FormatSettingModule(m_model, m_work, this));
+    appendChild(new RegionAndFormatModule(m_model, m_work, this));
 }
 
 void DatetimeModule::active()
