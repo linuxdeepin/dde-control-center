@@ -5,8 +5,11 @@
 #define DATETIMEWORKER_H
 
 #include "datetimemodel.h"
+#include "datetimedbusproxy.h"
 
 #include <QObject>
+
+#include <optional>
 
 class DatetimeDBusProxy;
 
@@ -20,6 +23,11 @@ public:
     void activate();
     void deactivate();
     DatetimeModel *model() { return m_model; }
+
+    std::optional<LocaleList> getAllLocale();
+    std::optional<QString> getLocaleRegion();
+
+    void setLocaleRegion(const QString &locale);
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;

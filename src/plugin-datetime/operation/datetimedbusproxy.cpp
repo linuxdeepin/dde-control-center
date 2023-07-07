@@ -20,12 +20,23 @@ const QString SystemTimedatedInterface = QStringLiteral("org.deepin.dde.Timedate
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
+const QString LangSelectorService = QStringLiteral("org.deepin.dde.LangSelector1");
+const QString LangSelectorPath = QStringLiteral("/org/deepin/dde/LangSelector1");
+const QString LangSelectorInterface = QStringLiteral("org.deepin.dde.LangSelector1");
+
 DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_localeInter(new QDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this))
     , m_timedateInter(new QDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
     , m_systemtimedatedInter(new QDBusInterface(SystemTimedatedService, SystemTimedatedPath, SystemTimedatedInterface, QDBusConnection::systemBus(), this))
 {
     registerZoneInfoMetaType();
+
+    qRegisterMetaType<LocaleInfo>("LocaleInfo");
+    qDBusRegisterMetaType<LocaleInfo>();
+
+    qRegisterMetaType<LocaleList>("LocaleList");
+    qDBusRegisterMetaType<LocaleList>();
     QDBusConnection::sessionBus().connect(TimedateService, TimedatePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
@@ -196,6 +207,37 @@ void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &messa
 
 QString DatetimeDBusProxy::currentLocale()
 {
-    QDBusInterface dbus("org.deepin.dde.LangSelector1", "/org/deepin/dde/LangSelector1", "org.deepin.dde.LangSelector1", QDBusConnection::sessionBus());
+    QDBusInterface dbus(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus());
     return qvariant_cast<QString>(dbus.property("CurrentLocale"));
+}
+
+std::optional<LocaleList> DatetimeDBusProxy::getLocaleListMap()
+{
+    QDBusPendingReply<LocaleList> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qDebug() << "Can not get localeRegion: "<< reply.error();
+        return std::nullopt;
+    }
+    return reply.value();
+}
+
+std::optional<QString> DatetimeDBusProxy::getLocaleRegion()
+{
+    QDBusPendingReply<QString> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleRegion"));
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qDebug() << "Can not get localeRegion: "<< reply.error();
+        return std::nullopt;
+    }
+    if (reply.value().isEmpty()) {
+        return std::nullopt;
+    } else {
+        return reply.value();
+    }
+}
+
+void DatetimeDBusProxy::setLocaleRegion(const QString &locale)
+{
+    m_localeInter->asyncCall(QStringLiteral("SetLocaleRegion"), locale);
 }
