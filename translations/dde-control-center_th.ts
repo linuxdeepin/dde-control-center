@@ -2411,134 +2411,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatSettingModule</name>
+    <name>FormatShowGrid</name>
     <message>
-        <source>Time Format</source>
-        <translation>รูปแบบเวลา</translation>
-    </message>
-    <message>
-        <source>Monday</source>
-        <translation>วันจันทร์</translation>
-    </message>
-    <message>
-        <source>monday</source>
+        <source>Date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>เมษายน 5, 2020</translation>
-    </message>
-    <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>เมษายน 5, 2020, อาทิตย์</translation>
-    </message>
-    <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>อาทิตย์, เมษายน 5, 2020</translation>
-    </message>
-    <message>
-        <source>2020/4/5</source>
+        <source>Time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-4-5</source>
+        <source>Date and Time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.4.5</source>
+        <source>Number</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/04/05</source>
+        <source>Currency</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>วันอังคาร</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>วันพุธ</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>วันพฤหัสบดี</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>วันศุกร์</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>วันศุกร์</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>วันอาทิตย์</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>เวลา 24 ชั่วโมง</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>สัปดาห์</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>วันที่แบบย่อ</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>วันที่แบบเต็ม</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>เวลาแบบย่อ</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>เวลาแบบเต็ม</translation>
     </message>
 </context>
 <context>
@@ -2978,6 +2870,203 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Cancel</source>
         <translation>ยกเลิก</translation>
+    </message>
+</context>
+<context>
+    <name>RegionAndFormatModule</name>
+    <message>
+        <source>Region and Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020, Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday, April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/04/05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-04-05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.04.05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Locale Show</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Weeks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First Day of Week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Date</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionFormatShowPage</name>
+    <message>
+        <source>Default Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date And Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

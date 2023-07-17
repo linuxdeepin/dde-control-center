@@ -503,7 +503,7 @@
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Su host se unió al servidor de dominio exitósamente</translation>
+        <translation>Su host se unió al servidor de dominio exitosamente</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
@@ -1498,7 +1498,7 @@
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Somos profundamente conscientes de la importancia que tiene para usted su información personal. Tenemos la Política de privacidad que cubre cómo recopilamos, usamos, compartimos, transferimos, divulgamos públicamente y almacenamos su información.&lt;/p&gt;&lt;p&gt; Puede &lt;a href=&quot;%1&quot;&gt;hacer clic aquí &lt;/a&gt;para ver nuestra política de privacidad más reciente y / o verla en línea visitando &lt;a href=&quot;%1&quot;&gt;% 1&lt;/a&gt;. Lea atentamente y comprenda completamente nuestras prácticas sobre la privacidad del cliente. Si tiene alguna pregunta, comuníquese con nosotros a: support@uniontech.com.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Somos profundamente conscientes de la importancia que tiene para usted su información personal. Tenemos la Política de privacidad que cubre cómo recopilamos, usamos, compartimos, transferimos, divulgamos públicamente y almacenamos su información.&lt;/p&gt;&lt;p&gt;Puede &lt;a href=&quot;%1&quot;&gt;hacer clic aquí&lt;/a&gt; para ver nuestra política de privacidad más reciente o verla en línea visitando &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lea atentamente y comprenda completamente nuestras prácticas sobre la privacidad del cliente. Si tiene alguna pregunta, comuníquese con nosotros a: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1509,11 +1509,11 @@
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>La contraseña debe tener al menos%1 caracteres</translation>
+        <translation>La contraseña debe tener al menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>La contraseña no debe tener más de%1 caracteres</translation>
+        <translation>La contraseña no debe tener más de %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -2423,134 +2423,26 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
 </context>
 <context>
-    <name>FormatSettingModule</name>
+    <name>FormatShowGrid</name>
     <message>
-        <source>Time Format</source>
-        <translation>Formato de hora</translation>
+        <source>Date</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>lunes</translation>
+        <source>Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
-        <translation>Lunes</translation>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Abril 5, 2020</translation>
+        <source>Number</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>5 de abril, 2020, domingo</translation>
-    </message>
-    <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Domingo, 5 de abril de 2020</translation>
-    </message>
-    <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>martes</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>miércoles</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>jueves</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>viernes</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>sábado</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>domingo</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>Formato de 24 horas</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Semanas</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>Primer día de la semana</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>Fecha corta</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>Fecha larga </translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Hora corta</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Hora larga </translation>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2990,6 +2882,203 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RegionAndFormatModule</name>
+    <message>
+        <source>Region and Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020, Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday, April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/04/05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-04-05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.04.05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Locale Show</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Weeks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First Day of Week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Date</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionFormatShowPage</name>
+    <message>
+        <source>Default Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date And Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

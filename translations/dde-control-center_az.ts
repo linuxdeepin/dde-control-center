@@ -1992,27 +1992,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kursorun sürəti</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Toxunma panelini aktiv edin</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Klik üçün vurun</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Təbii sürüşdürmə</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Zəif</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
 </context>
 <context>
@@ -2424,134 +2424,26 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
 </context>
 <context>
-    <name>FormatSettingModule</name>
+    <name>FormatShowGrid</name>
     <message>
-        <source>Time Format</source>
-        <translation>Vaxt formatı</translation>
+        <source>Date</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Bazar ertəsi</translation>
+        <source>Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
-        <translation>bazar ertəsi</translation>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>5 Aprel, 2020</translation>
+        <source>Number</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>5 Aprel, 2020, Bazar</translation>
-    </message>
-    <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Bazar, 5 Aprel, 2020</translation>
-    </message>
-    <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Çərşənbə axşamı</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Çərşənbə</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Cümə axşamı</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Cümə</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Şənbə</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Bazar</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24 saat vaxt formatı</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Həftələr</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>Həftənin ilk günü</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>Qısa tarix formatı</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>Uzun tarix formatı</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Qısa vaxt formatı</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Uzun vaxt formatı</translation>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2938,7 +2830,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2991,6 +2883,203 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Cancel</source>
         <translation>İmtina</translation>
+    </message>
+</context>
+<context>
+    <name>RegionAndFormatModule</name>
+    <message>
+        <source>Region and Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020, Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday, April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/04/05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-04-05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.04.05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Locale Show</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Weeks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First Day of Week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Date</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionFormatShowPage</name>
+    <message>
+        <source>Default Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date And Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

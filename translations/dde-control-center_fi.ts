@@ -1873,7 +1873,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafiikka-alusta</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -1992,27 +1992,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen nopeus</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Kosketuslevy käyttöön</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Napauta klikkaa</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
 </context>
 <context>
@@ -2425,134 +2425,26 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
 </context>
 <context>
-    <name>FormatSettingModule</name>
+    <name>FormatShowGrid</name>
     <message>
-        <source>Time Format</source>
-        <translation>Ajan muoto</translation>
+        <source>Date</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Maanantai</translation>
+        <source>Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
-        <translation>maanantai</translation>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Huhtikuu 5, 2020</translation>
+        <source>Number</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>Huhtikuu 5, 2020, sunnuntai</translation>
-    </message>
-    <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Sunnuntai, huhtikuu 5, 2020</translation>
-    </message>
-    <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Tiistai</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Keskiviikko</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Torstai</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Perjantai</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Lauantai</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Sunnuntai</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24h kello</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Viikko</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>Viikon ensimmäinen päivä</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>Lyhyt päivämäärä</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>Pitkä päivämäärä</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Lyhyt aika</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Pitkä aika</translation>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2939,7 +2831,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2992,6 +2884,203 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Cancel</source>
         <translation>Peruuta</translation>
+    </message>
+</context>
+<context>
+    <name>RegionAndFormatModule</name>
+    <message>
+        <source>Region and Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April 5, 2020, Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday, April 5, 2020</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020/04/05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020-04-05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2020.04.05</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20/4/5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20-4-5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>20.4.5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40:07</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>9:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>09:40</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Locale Show</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Weeks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First Day of Week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long Date</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RegionFormatShowPage</name>
+    <message>
+        <source>Default Format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date And Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3763,7 +3852,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Näytä sammutusliittymä</translation>
     </message>
 </context>
 <context>
@@ -3830,7 +3919,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Näytä sammutusliittymä</translation>
     </message>
     <message>
         <source>Do nothing</source>
