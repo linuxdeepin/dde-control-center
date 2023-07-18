@@ -56,8 +56,6 @@ UpdateModule::UpdateModule(QObject *parent)
 {
     // TODO: 初始化更新小红点处理
     connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::syncUpdatablePackagesChanged);
-    m_work->init();
-    m_work->preInitialize();
 }
 
 UpdateModule::~UpdateModule()
