@@ -10,6 +10,9 @@
 #include <QLibrary>
 #include <QElapsedTimer>
 #include <QPluginLoader>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcAdapterV20toV23Worker, "dcc-adapterv20tov23-worker")
 const QString &PluginDirectory = QStringLiteral(DefaultModuleDirectory);
 
 using namespace DCC_NAMESPACE;
@@ -28,7 +31,7 @@ QStringList PluginManagerV20::pluginPath()
     QStringList paths;
     QDir moduleDir(PluginDirectory);
     if (!moduleDir.exists()) {
-        qWarning() << "plugin directory not exists";
+        qCWarning(DdcAdapterV20toV23Worker) << "plugin directory not exists";
         return paths;
     }
     auto moduleList = moduleDir.entryInfoList();
@@ -44,7 +47,7 @@ QStringList PluginManagerV20::pluginPath()
 void PluginManagerV20::loadPlugin(QString path, dccV20::FrameProxyInterface *frameProxy)
 {
     Q_UNUSED(frameProxy)
-    qDebug() << "loading module: " << path;
+    qCDebug(DdcAdapterV20toV23Worker) << "loading module: " << path;
     QElapsedTimer et;
     et.start();
     QPluginLoader loader(path);
@@ -59,7 +62,7 @@ void PluginManagerV20::loadPlugin(QString path, dccV20::FrameProxyInterface *fra
     if (!module) {
         return;
     }
-    qDebug() << "load plugin Name: " << module->name() << module->displayName();
-    qDebug() << "load this plugin using time: " << et.elapsed() << "ms";
+    qCDebug(DdcAdapterV20toV23Worker) << "load plugin Name: " << module->name() << module->displayName();
+    qCDebug(DdcAdapterV20toV23Worker) << "load this plugin using time: " << et.elapsed() << "ms";
     m_modules.append(new AdapterV20toV23Module(module));
 }

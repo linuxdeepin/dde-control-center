@@ -8,6 +8,9 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDateTime>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDateTimeDbusProxy, "dcc-datetime-dbusproxy")
 
 const QString TimedateService = QStringLiteral("org.deepin.dde.Timedate1");
 const QString TimedatePath = QStringLiteral("/org/deepin/dde/Timedate1");
@@ -216,7 +219,7 @@ std::optional<LocaleList> DatetimeDBusProxy::getLocaleListMap()
     QDBusPendingReply<LocaleList> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleList"));
     reply.waitForFinished();
     if (reply.isError()) {
-        qDebug() << "Can not get localeRegion: "<< reply.error();
+        qCDebug(DdcDateTimeDbusProxy) << "Can not get localeRegion: "<< reply.error();
         return std::nullopt;
     }
     return reply.value();
@@ -227,7 +230,7 @@ std::optional<QString> DatetimeDBusProxy::getLocaleRegion()
     QDBusPendingReply<QString> reply = m_localeInter->asyncCall(QStringLiteral("GetLocaleRegion"));
     reply.waitForFinished();
     if (reply.isError()) {
-        qDebug() << "Can not get localeRegion: "<< reply.error();
+        qCDebug(DdcDateTimeDbusProxy) << "Can not get localeRegion: "<< reply.error();
         return std::nullopt;
     }
     if (reply.value().isEmpty()) {

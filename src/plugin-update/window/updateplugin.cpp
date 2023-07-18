@@ -11,10 +11,14 @@
 #include "updatectrlwidget.h"
 #include "updatework.h"
 #include "widgets/titlelabel.h"
+#include "widgets/switchwidget.h"
 
 #include <DFontSizeManager>
 
-#include <widgets/switchwidget.h>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcUpdatePlugin, "dcc-update-plugin")
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -73,7 +77,7 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle);
     connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {
-        qDebug() << " ---- updateNotifyChanged" << state;
+        qCDebug(DdcUpdatePlugin) << " ---- updateNotifyChanged" << state;
         //关闭“自动提醒”，隐藏提示角标
         if (!state) {
             syncUpdatablePackagesChanged(false);

@@ -19,6 +19,9 @@
 #include <QIcon>
 #include <QMimeDatabase>
 #include <QPointer>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDefaultDetailWidget, "dcc-default-detailwidget")
 
 DWIDGET_USE_NAMESPACE
 
@@ -111,14 +114,14 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 
 void DefappDetailWidget::addItem(const App &item)
 {
-    qDebug() << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
+    qCDebug(DdcDefaultDetailWidget) << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
     appendItemData(item);
     updateListView(m_category->getDefault());
 }
 
 void DefappDetailWidget::removeItem(const App &item)
 {
-    qDebug() << "DefappDetailWidget::removeItem id " << item.Id;
+    qCDebug(DdcDefaultDetailWidget) << "DefappDetailWidget::removeItem id " << item.Id;
     //update model
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
@@ -199,7 +202,7 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
 
 void DefappDetailWidget::onDefaultAppSet(const App &app)
 {
-    qDebug() << Q_FUNC_INFO << app.Name;
+    qCDebug(DdcDefaultDetailWidget) << Q_FUNC_INFO << app.Name;
     updateListView(app);
 }
 
@@ -224,7 +227,7 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
     if (!isValid(app))
         return;
 
-    qDebug()  <<  "set default app "  << app.Name;
+    qCDebug(DdcDefaultDetailWidget)  <<  "set default app "  << app.Name;
     updateListView(app);
     //set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
@@ -242,7 +245,7 @@ void  DefappDetailWidget::onDelBtnClicked()
     if (!isValid(app) || !(app.isUser || app.CanDelete))
         return;
 
-    qDebug() << "delete app " << app.Id;
+    qCDebug(DdcDefaultDetailWidget) << "delete app " << app.Id;
     //delete user app
     Q_EMIT requestDelUserApp(m_categoryName, app);
 }
@@ -272,7 +275,7 @@ App DefappDetailWidget::getAppById(const QString &appId)
 
 void DefappDetailWidget::appendItemData(const App &app)
 {
-    qDebug() << "appendItemData=" << app.MimeTypeFit;
+    qCDebug(DdcDefaultDetailWidget) << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
     QString appName = app.Name;
     if (!app.isUser || app.MimeTypeFit) {

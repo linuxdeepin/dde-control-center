@@ -4,16 +4,19 @@
 #include "wacommodule.h"
 #include "widgets/widgetmodule.h"
 #include "widgets/itemmodule.h"
-
-#include <DSlider>
 #include <settingsgroupmodule.h>
 #include <titledslideritem.h>
 #include <wacommodel.h>
 #include <widgetmodule.h>
 #include "widgets/dccslider.h"
-#include <QComboBox>
 
+#include <DSlider>
+
+#include <QComboBox>
+#include <QLoggingCategory>
 #include <QDebug>
+
+Q_LOGGING_CATEGORY(DdcWacomModule, "dcc-wacom-module")
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -23,13 +26,15 @@ WacomModule::WacomModule(QObject *parent)
     , m_model(new WacomModel(this))
 {
     connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist){
-        this->setHidden(!exist);qInfo()<<__FILE__<<__LINE__<<m_model->exist()<<exist;
+        this->setHidden(!exist);
+        qCInfo(DdcWacomModule) << "Wacom is exist ?:" << m_model->exist();
     });
     // Mode
     appendChild(new ItemModule("Mode", tr("Mode"), this, &WacomModule::initModeModule,true));
     // Pressure
     appendChild(new ItemModule("Pressure",tr("Pressure Sensitivity"),this, &WacomModule::initPressureModule,false));
-    setHidden(!m_model->exist());qInfo()<<__FILE__<<__LINE__<<m_model->exist();
+    setHidden(!m_model->exist());
+    qCInfo(DdcWacomModule) << "Wacom is exist ?:" << m_model->exist();
 }
 
 QWidget* WacomModule::initModeModule(ModuleObject *module)

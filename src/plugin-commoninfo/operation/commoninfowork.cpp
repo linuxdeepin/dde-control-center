@@ -123,7 +123,6 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
 CommonInfoWork::~CommonInfoWork()
 {
-    qDebug() << "~CommonInfoWork";
     if (m_process) {
         //如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
         kill(static_cast<__pid_t>(m_process->processId()), 15);

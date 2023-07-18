@@ -12,6 +12,9 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDefaultWorker, "dcc-default-worker")
 
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
@@ -54,11 +57,11 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [call, watcher, this, item, category] {
         if (!call.isError()) {
-            qDebug() << "Setting MIME " << category << "to " <<  item.Id;
+            qCDebug(DdcDefaultWorker) << "Setting MIME " << category << "to " <<  item.Id;
             auto tosetCategory = getCategory(category);
             tosetCategory->setDefault(item);
         } else {
-            qWarning() << "Cannot set MIME" << category << "to" << item.Id;
+            qCWarning(DdcDefaultWorker) << "Cannot set MIME" << category << "to" << item.Id;
         }
         watcher->deleteLater();
     });

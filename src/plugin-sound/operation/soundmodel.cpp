@@ -12,6 +12,9 @@
 #include <QStandardItemModel>
 #include <QHBoxLayout>
 #include <DToolButton>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcSoundModel, "dcc-sound-model")
 
 Q_DECLARE_METATYPE(const Port *)
 
@@ -410,7 +413,7 @@ void SoundModel::setWaitSoundReceiptTime(const int receiptTime)
 {
     // 配置端⼝切换延时时间
     if (m_waitSoundReceiptTime != receiptTime) {
-        qDebug() << "Sound Receopt Time is: " << receiptTime;
+        qCDebug(DdcSoundModel) << "Sound Receopt Time is: " << receiptTime;
         m_waitSoundReceiptTime = receiptTime;
     }
 }

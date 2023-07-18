@@ -3,6 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatemodel.h"
 
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcUpdateModel, "dcc-update-model")
+
 DownloadInfo::DownloadInfo(const qlonglong &downloadSize,
                            const QList<AppUpdateInfo> &appInfos,
                            QObject *parent)
@@ -217,8 +221,8 @@ void UpdateModel::setStatus(const UpdatesStatus &status)
 
 void UpdateModel::setStatus(const UpdatesStatus &status, int line)
 {
-    qDebug() << " from work set status : " << m_metaEnum.valueToKey(status)
-             << " , set place in work line : " << line;
+    qCDebug(DdcUpdateModel) << " from work set status : " << m_metaEnum.valueToKey(status)
+                            << " , set place in work line : " << line;
     setStatus(status);
 }
 
@@ -290,7 +294,7 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
 
 void UpdateModel::setUpdateMode(qulonglong updateMode)
 {
-    qDebug() << Q_FUNC_INFO << "get UpdateMode from dbus:" << updateMode;
+    qCDebug(DdcUpdateModel) << Q_FUNC_INFO << "get UpdateMode from dbus:" << updateMode;
 
     if (m_updateMode == updateMode) {
         return;
@@ -372,10 +376,10 @@ bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
         if (state == UpdatesStatus::RecoveryBackingSuccessed
             || state == UpdatesStatus::RecoveryBackupFailed) {
             ret = false;
-            qDebug() << " Backing up End ! , state : " << state;
+            qCDebug(DdcUpdateModel) << " Backing up End ! , state : " << state;
         } else {
-            qDebug() << " Now is Backing up , can't set other status. Please wait..."
-                     << m_metaEnum.valueToKey(state);
+            qCDebug(DdcUpdateModel) << " Now is Backing up , can't set other status. Please wait..."
+                                    << m_metaEnum.valueToKey(state);
         }
     } else {
         ret = false;
@@ -386,7 +390,7 @@ bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
 
 void UpdateModel::setLastCheckUpdateTime(const QString &lastTime)
 {
-    qDebug() << "Last check time:" << lastTime;
+    qCDebug(DdcUpdateModel) << "Last check time:" << lastTime;
     m_lastCheckUpdateTime = lastTime.left(QString("0000-00-00 00:00:00").size());
 }
 
@@ -402,8 +406,8 @@ void UpdateModel::setAutoCheckUpdateCircle(const int interval)
 
 bool UpdateModel::enterCheckUpdate()
 {
-    qDebug() << "last update time:" << m_lastCheckUpdateTime
-             << "check circle:" << m_autoCheckUpdateCircle;
+    qCDebug(DdcUpdateModel) << "last update time:" << m_lastCheckUpdateTime
+                            << "check circle:" << m_autoCheckUpdateCircle;
     return QDateTime::fromString(m_lastCheckUpdateTime, "yyyy-MM-dd hh:mm:ss")
                    .secsTo(QDateTime::currentDateTime())
             > m_autoCheckUpdateCircle * 3600;

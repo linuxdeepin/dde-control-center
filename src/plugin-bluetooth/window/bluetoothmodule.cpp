@@ -12,6 +12,9 @@
 
 #include <QDBusObjectPath>
 #include <QApplication>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcBluetoothModule, "dcc-bluetooth-module")
 
 using namespace DCC_NAMESPACE;
 
@@ -58,7 +61,7 @@ bool BluetoothModule::hasDevice()
 
 void BluetoothModule::showPinCode(const QDBusObjectPath &device, const QString &code)
 {
-    qDebug() << "request confirmation: " << device.path() << code;
+    qCDebug(DdcBluetoothModule) << "request confirmation: " << device.path() << code;
     PinCodeDialog *dialog = PinCodeDialog::instance(code);
     m_dialogs[device] = dialog;
     if (!dialog->isVisible()) {

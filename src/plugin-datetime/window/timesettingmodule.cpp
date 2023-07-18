@@ -21,6 +21,9 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDateTimeTimeSettingModule, "dcc-datetime-timesettingmodule")
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -245,7 +248,7 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
 
         QDate date(year, month, 1);
         m_dayWidget->setRange(1, date.daysInMonth());
-        qDebug() << " year : " << year << " , month : " << month << " day range : 1 to " << date.daysInMonth();
+        qCDebug(DdcDateTimeTimeSettingModule) << " year : " << year << " , month : " << month << " day range : 1 to " << date.daysInMonth();
         if (m_dayWidget->maximum() < m_dayWidget->getCurrentText().toInt()) {
             m_dayWidget->setCurrentText(QString(m_dayWidget->maximum()));
         }
@@ -376,17 +379,17 @@ void TimeSettingModule::onConfirmButtonClicked()
     if (m_autoSyncTimeSwitch->checked() && m_ntpServerList->comboBox()->currentText() == tr("Customize")) {
         m_buttonTuple->rightButton()->setEnabled(false);
         if (m_customizeAddress->text().isEmpty()) {
-            qDebug() << "The customize address is nullptr.";
+            qCDebug(DdcDateTimeTimeSettingModule) << "The customize address is nullptr.";
             m_customizeAddress->setIsErr(true);
             return;
         }
         //        this->setFocus();
         //        m_customNtpServer = m_addressContent->text();
         //        QGSettings("com.deepin.dde.control-center","/com/deepin/dde/control-center/").set("custom-ntpserver", m_customNtpServer);
-        qDebug() << "ok clicked, requestNTPServer";
+        qCDebug(DdcDateTimeTimeSettingModule) << "ok clicked, requestNTPServer";
         Q_EMIT requestNTPServer(m_customizeAddress->text());
     } else {
-        qDebug() << "ok clicked, requestSetTime";
+        qCDebug(DdcDateTimeTimeSettingModule) << "ok clicked, requestSetTime";
 
         QDateTime datetime;
         datetime.setDate(QDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value()));
