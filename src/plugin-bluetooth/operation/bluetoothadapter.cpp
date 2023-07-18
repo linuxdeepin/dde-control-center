@@ -8,6 +8,9 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcBluetoothAdapter, "dcc-bluetooth-adapter")
 
 BluetoothAdapter::BluetoothAdapter(BluetoothDBusProxy *proxy, QObject *parent)
     : QObject(parent)
@@ -35,7 +38,7 @@ void BluetoothAdapter::addDevice(const BluetoothDevice *device)
         m_devices[device->id()] = device;
         //打印配对设备信息,方便查看设备显示顺序
         if (!device->name().isEmpty() && device->paired())
-            qDebug() << "BluetoothAdapter add device " << device->name();
+            qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add device " << device->name();
         Q_EMIT deviceAdded(device);
     }
 }

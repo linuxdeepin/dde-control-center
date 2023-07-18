@@ -16,11 +16,14 @@
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFileInfo>
+#include <QLoggingCategory>
 #include <QPluginLoader>
 #include <QSet>
 #include <QSettings>
 #include <QtConcurrent>
 #include <QtConcurrentRun>
+
+Q_LOGGING_CATEGORY(DdcFramePluginManager, "dcc-frame-pluginManager")
 
 #include <mutex>
 #include <queue>
@@ -45,9 +48,9 @@ PluginData getModule(const QPair<PluginManager *, PluginData> &pair)
         data.Module = data.Plugin->module();
         data.Module->setParent(nullptr);
         data.Module->moveToThread(qApp->thread());
-        qInfo() << QString("get module: %1 end, using time: %2 ms")
-                           .arg(data.Module->name())
-                           .arg(et.elapsed());
+        qCInfo(DdcFramePluginManager) << QString("get module: %1 end, using time: %2 ms")
+                                                 .arg(data.Module->name())
+                                                 .arg(et.elapsed());
         emit pair.first->loadedModule(data);
     }
     return data;
@@ -66,24 +69,25 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     const QByteArray &md5 = settings.value(fileInfo.fileName()).toByteArray();
     settings.endGroup();
     if (DCC_NAMESPACE::getFileMd5(fileName).toHex() == md5) {
-        qWarning() << QString("The Plugin: %1 crashed, will not load!").arg(fileName);
+        qCWarning(DdcFramePluginManager)
+                << QString("The Plugin: %1 crashed, will not load!").arg(fileName);
         return data;
     }
-    qInfo() << "loading plugin: " << fileName;
+    qCInfo(DdcFramePluginManager) << "loading plugin: " << fileName;
 
     QElapsedTimer et;
     et.start();
     QScopedPointer<QPluginLoader> loader(new QPluginLoader(fileName));
     if (!loader->load()) {
-        qWarning() << QString("The plugin: %1 load failed! error message: %2")
-                              .arg(fileName, loader->errorString());
+        qCWarning(DdcFramePluginManager) << QString("The plugin: %1 load failed! error message: %2")
+                                                    .arg(fileName, loader->errorString());
         return data;
     }
     const QJsonObject &meta = loader->metaData().value("MetaData").toObject();
 
     PluginInterface *plugin = qobject_cast<PluginInterface *>(loader->instance());
     if (!plugin) {
-        qWarning() << QString("Can't read plugin: %1").arg(fileName);
+        qCWarning(DdcFramePluginManager) << QString("Can't read plugin: %1").arg(fileName);
         loader->unload();
         return data;
     }
@@ -93,7 +97,8 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     data.Location = plugin->location();
     data.Plugin->setParent(nullptr);
     data.Plugin->moveToThread(qApp->thread());
-    qInfo() << QString("load plugin: %1 end, using time: %2 ms").arg(fileName).arg(et.elapsed());
+    qCInfo(DdcFramePluginManager)
+            << QString("load plugin: %1 end, using time: %2 ms").arg(fileName).arg(et.elapsed());
     return data;
 }
 
@@ -184,7 +189,7 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
         QThread::sleep(10);
         std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
         if (!m_pluginsStatus.isEmpty()) {
-            qWarning() << "Some plugins not loaded in time";
+            qCWarning(DdcFramePluginManager) << "Some plugins not loaded in time";
             QString failedmessage = tr("following plugins load failed") + ":";
             for (const QString &value : m_pluginsStatus) {
                 failedmessage.push_back('\n');
@@ -306,8 +311,9 @@ void PluginManager::insertChild(bool force)
     if (force) {
         // 释放加不进去的module
         for (auto &&data : m_datas) {
-            qWarning() << "Unknown Module! name:" << data.Module->name() << "follow:" << data.Follow
-                       << "location:" << data.Location;
+            qCWarning(DdcFramePluginManager)
+                    << "Unknown Module! name:" << data.Module->name() << "follow:" << data.Follow
+                    << "location:" << data.Location;
             delete data.Module;
         }
         m_datas.clear();

@@ -10,6 +10,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTimer>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcBluetoothWorkder, "dcc-bluetooth-worker")
 
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     : QObject(parent)
@@ -37,21 +40,21 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     });
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestAuthorization, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request authorization: " << in0.path();
+        qCDebug(DdcBluetoothWorkder) << "request authorization: " << in0.path();
     });
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestPasskey, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request passkey: " << in0.path();
+        qCDebug(DdcBluetoothWorkder) << "request passkey: " << in0.path();
     });
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestPinCode, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request pincode: " << in0.path();
+        qCDebug(DdcBluetoothWorkder) << "request pincode: " << in0.path();
     });
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DisplayPasskey, this, [=](const QDBusObjectPath &in0, uint in1, uint in2) {
-        qDebug() << "request display passkey: " << in0.path() << in1 << in2;
+        qCDebug(DdcBluetoothWorkder) << "request display passkey: " << in0.path() << in1 << in2;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
         m_dialogs[in0] = dialog;
@@ -62,7 +65,7 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     });
 
     connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DisplayPinCode, this, [=](const QDBusObjectPath &in0, const QString &in1) {
-        qDebug() << "request display pincode: " << in0.path() << in1;
+        qCDebug(DdcBluetoothWorkder) << "request display pincode: " << in0.path() << in1;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
         m_dialogs[in0] = dialog;
@@ -137,14 +140,14 @@ void BluetoothWorker::disconnectDevice(const BluetoothDevice *device)
 {
     QDBusObjectPath path(device->id());
     m_bluetoothDBusProxy->DisconnectDevice(path);
-    qDebug() << "disconnect from device: " << device->name();
+    qCDebug(DdcBluetoothWorkder) << "disconnect from device: " << device->name();
 }
 
 void BluetoothWorker::ignoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device)
 {
     m_bluetoothDBusProxy->RemoveDevice(QDBusObjectPath(adapter->id()),
                                        QDBusObjectPath(device->id()));
-    qDebug() << "ignore device: " << device->name();
+    qCDebug(DdcBluetoothWorkder) << "ignore device: " << device->name();
 }
 
 void BluetoothWorker::connectDevice(const BluetoothDevice *device, const BluetoothAdapter *adapter)
@@ -165,7 +168,7 @@ void BluetoothWorker::connectDevice(const BluetoothDevice *device, const Bluetoo
 
     QDBusObjectPath path(device->id());
     m_bluetoothDBusProxy->ConnectDevice(path, QDBusObjectPath(adapter->id()));
-    qDebug() << "connect to device: " << device->name();
+    qCDebug(DdcBluetoothWorkder) << "connect to device: " << device->name();
 }
 
 void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)

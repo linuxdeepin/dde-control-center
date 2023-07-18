@@ -18,11 +18,14 @@
 #include <QFutureWatcher>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QLoggingCategory>
 #include <QMutexLocker>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QVBoxLayout>
 #include <QtConcurrent>
+
+Q_LOGGING_CATEGORY(DdcUpdateWork, "dcc-update-work")
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -208,12 +211,12 @@ void UpdateWorker::getLicenseState()
                                "com.deepin.license.Info",
                                QDBusConnection::systemBus());
     if (!licenseInfo.isValid()) {
-        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
+        qCDebug(DdcUpdateWork) << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
     UiActiveState reply =
             static_cast<UiActiveState>(licenseInfo.property("AuthorizationState").toInt());
-    qDebug() << "Authorization State:" << reply;
+    qCDebug(DdcUpdateWork) << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
 
@@ -245,7 +248,8 @@ void UpdateWorker::activate()
     if (jobs.count() > 0) {
         for (QDBusObjectPath dBusObjectPath : jobs) {
             if (dBusObjectPath.path().contains("upgrade")) {
-                qDebug() << "UpdateWorker::activate, jobs.count() == " << jobs.count();
+                qCDebug(DdcUpdateWork)
+                        << "UpdateWorker::activate, jobs.count() == " << jobs.count();
                 setUpdateInfo();
                 break;
             }
@@ -271,7 +275,7 @@ void UpdateWorker::checkForUpdates()
 {
     setOnBattery(m_updateInter->onBattery());
     if (checkDbusIsValid()) {
-        qDebug() << " checkDbusIsValid . do nothing";
+        qCDebug(DdcUpdateWork) << " checkDbusIsValid . do nothing";
         return;
     }
 
@@ -288,7 +292,8 @@ void UpdateWorker::checkForUpdates()
             if (!m_checkUpdateJob.isNull()) {
                 m_updateInter->CleanJob(m_checkUpdateJob->id());
             }
-            qDebug() << "UpdateFailed, check for updates error: " << call.error().message();
+            qCDebug(DdcUpdateWork)
+                    << "UpdateFailed, check for updates error: " << call.error().message();
         }
     });
     // 每次检查更新的时候都从服务器请求一次更新日志
@@ -317,7 +322,7 @@ void UpdateWorker::requestUpdateLog()
     url.setQuery(urlQuery);
     request.setUrl(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    qDebug() << "request url : " << url;
+    qCDebug(DdcUpdateWork) << "request url : " << url;
     http->get(request);
 }
 
@@ -328,18 +333,19 @@ void UpdateWorker::setUpdateInfo()
     m_safePackages.clear();
     m_unknownPackages.clear();
 
-    qDebug() << " UpdateWorker::setUpdateInfo() ";
+    qCDebug(DdcUpdateWork) << " UpdateWorker::setUpdateInfo() ";
     m_updatePackages = m_updateInter->classifiedUpdatablePackages();
     m_systemPackages = m_updatePackages.value(SystemUpdateType);
     m_safePackages = m_updatePackages.value(SecurityUpdateType);
     m_unknownPackages = m_updatePackages.value(UnknownUpdateType);
 
-    qDebug() << "systemUpdate packages:" << m_systemPackages;
-    qDebug() << "safeUpdate packages:" << m_safePackages;
-    qDebug() << "unkonowUpdate packages:" << m_unknownPackages;
+    qCDebug(DdcUpdateWork) << "systemUpdate packages:" << m_systemPackages;
+    qCDebug(DdcUpdateWork) << "safeUpdate packages:" << m_safePackages;
+    qCDebug(DdcUpdateWork) << "unkonowUpdate packages:" << m_unknownPackages;
 
     if (m_model->status() == UpdatesStatus::UpdateFailed) {
-        qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
+        qCDebug(DdcUpdateWork) << " [UpdateWork] The status is error. Current status : "
+                               << m_model->status();
         return;
     }
 
@@ -378,12 +384,14 @@ void UpdateWorker::setUpdateInfo()
     QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap = getAllUpdateInfo();
     m_model->setAllDownloadInfo(updateInfoMap);
 
-    qDebug() << " UpdateWorker::setUpdateInfo: updateInfoMap.count()" << updateInfoMap.count();
+    qCDebug(DdcUpdateWork) << " UpdateWorker::setUpdateInfo: updateInfoMap.count()"
+                           << updateInfoMap.count();
 
     if (updateInfoMap.count() == 0) {
         m_model->setStatus(UpdatesStatus::Updated, __LINE__);
     } else {
-        qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
+        qCDebug(DdcUpdateWork) << "UpdateWorker::setAppUpdateInfo: downloadSize = "
+                               << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
         for (uint type = ClassifyUpdateType::SystemUpdate;
              type <= ClassifyUpdateType::SecurityUpdate;
@@ -412,7 +420,7 @@ void UpdateWorker::setUpdateInfo()
 
 QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 {
-    qDebug() << "getAllUpdateInfo";
+    qCDebug(DdcUpdateWork) << "getAllUpdateInfo";
     QMap<ClassifyUpdateType, UpdateItemInfo *> resultMap;
 
     QMap<ClassifyUpdateType, QString> updateDailyKeyMap;
@@ -502,7 +510,7 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
         itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
     }
 
-    qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
+    qCDebug(DdcUpdateWork) << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
 
     QJsonValue dataValue = jsonValue.toObject().value("data_info");
     if (dataValue.isArray()) {
@@ -607,8 +615,8 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
     m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
     ret.jobID = m_checkUpdateJob->id();
     ret.jobDescription = m_checkUpdateJob->description();
-    qDebug() << " Get Job: " << ret.jobID << ret.jobDescription << m_checkUpdateJob->progress()
-             << m_checkUpdateJob->status();
+    qCDebug(DdcUpdateWork) << " Get Job: " << ret.jobID << ret.jobDescription
+                           << m_checkUpdateJob->progress() << m_checkUpdateJob->status();
     return ret;
 }
 
@@ -640,7 +648,8 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
 
     m_backupingClassifyType = updateType;
     // 开始进行原子更新  原子更新只有在失败 或者 第二此更新才可以进行备份
-    qDebug() << Q_FUNC_INFO << " == start Atomic Upgrade == ";
+    qCDebug(DdcUpdateWork) << "distUpgrade:"
+                           << " == start Atomic Upgrade == ";
     // 条件不足 1. 分区空间 就是 state = -2    2.  分区格式不支持仓库存储（忽略） 3.
     // 第二更新后的失败更新
     if (!m_model->atomicBackingUp()) {
@@ -659,7 +668,8 @@ void UpdateWorker::setAutoCheckUpdates(const bool autoCheckUpdates)
 
 void UpdateWorker::setUpdateMode(const quint64 updateMode)
 {
-    qDebug() << Q_FUNC_INFO << "set UpdateMode to dbus:" << updateMode;
+    qCDebug(DdcUpdateWork) << "setUpdateMode"
+                           << "set UpdateMode to dbus:" << updateMode;
 
     m_updateInter->setUpdateMode(updateMode);
 }
@@ -690,7 +700,7 @@ void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
         return;
     }
 
-    qDebug() << " Get: respondBody " << respondBody;
+    qCDebug(DdcUpdateWork) << " Get: respondBody " << respondBody;
     const QJsonDocument &doc = QJsonDocument::fromJson(respondBody);
     const QJsonObject &obj = doc.object();
     if (obj.isEmpty()) {
@@ -723,7 +733,7 @@ QString UpdateWorker::getUpdateLogAddress() const
     if (dconfig && dconfig->isValid()) {
         const QString &updateLogAddress = dconfig->value("updateLogAddress").toString();
         if (!updateLogAddress.isEmpty()) {
-            qDebug() << " updateLogAddress " << updateLogAddress;
+            qCDebug(DdcUpdateWork) << " updateLogAddress " << updateLogAddress;
             return updateLogAddress;
         }
     }
@@ -811,7 +821,8 @@ void UpdateWorker::checkNetselect()
             [this, process](int result, QProcess::ExitStatus) {
                 bool isNetselectExist = 0 == result;
                 if (!isNetselectExist) {
-                    qDebug() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
+                    qCDebug(DdcUpdateWork)
+                            << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
                 }
                 m_model->setNetselectExist(isNetselectExist);
                 process->deleteLater();
@@ -820,7 +831,7 @@ void UpdateWorker::checkNetselect()
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
-    qDebug() << "[setCheckUpdatesJob] start status : " << m_model->status();
+    qCDebug(DdcUpdateWork) << "[setCheckUpdatesJob] start status : " << m_model->status();
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state
         && UpdatesStatus::Installing != state) {
@@ -936,7 +947,7 @@ void UpdateWorker::setUpdateItemProgress(UpdateItemInfo *itemInfo, double value)
     // 异步加载数据,会导致下载信息还未获取就先取到了下载进度
     if (itemInfo) {
         if (!getNotUpdateState()) {
-            qDebug() << " Now can't to update continue...";
+            qCDebug(DdcUpdateWork) << " Now can't to update continue...";
             resetDownloadInfo();
             return;
         }
@@ -945,7 +956,7 @@ void UpdateWorker::setUpdateItemProgress(UpdateItemInfo *itemInfo, double value)
     } else {
         // 等待下载信息加载后,再通过 onNotifyDownloadInfoChanged()
         // 设置"UpdatesStatus::Downloading"状态
-        qDebug() << "[wubw download] DownloadInfo is nullptr , waitfor download info";
+        qCDebug(DdcUpdateWork) << "[wubw download] DownloadInfo is nullptr , waitfor download info";
     }
 }
 
@@ -984,7 +995,8 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         if (!jobInter.isValid())
             continue;
 
-        qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
+        qCDebug(DdcUpdateWork) << "[wubw] onJobListChanged, id : " << id
+                               << " , m_jobPath : " << m_jobPath;
         if ((id == "update_source" || id == "custom_update") && m_checkUpdateJob == nullptr) {
             setCheckUpdatesJob(m_jobPath);
         } else if (id == "prepare_system_upgrade" && m_sysUpdateDownloadJob == nullptr) {
@@ -1000,7 +1012,7 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
         } else {
-            qDebug() << "Install id: " + id + ", nothing to do";
+            qCDebug(DdcUpdateWork) << "Install id: " + id + ", nothing to do";
         }
     }
 }
@@ -1052,13 +1064,13 @@ void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
         return;
     }
 
-    qDebug() << "onUnkonwnUpdateInstallProgressChanged : " << value;
+    qCDebug(DdcUpdateWork) << "onUnkonwnUpdateInstallProgressChanged : " << value;
     setUpdateItemProgress(itemInfo, value);
 }
 
 void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
 {
-    qDebug() << "[setCheckUpdatesJob]status is: " << value;
+    qCDebug(DdcUpdateWork) << "[setCheckUpdatesJob]status is: " << value;
     if (value == "failed" || value.isEmpty()) {
         qWarning() << "check for updates job failed";
         if (m_checkUpdateJob != nullptr) {
@@ -1076,12 +1088,12 @@ void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
 
 void UpdateWorker::checkDiskSpace(const QString &jobDescription)
 {
-    qDebug() << "job description: " << jobDescription;
+    qCDebug(DdcUpdateWork) << "job description: " << jobDescription;
 
     m_model->setClassityUpdateJonError(ClassifyUpdateType::Invalid,
                                        analyzeJobErrorMessage(jobDescription));
     m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
-    qDebug() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
+    qCDebug(DdcUpdateWork) << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
 
     // 以上错误均需重置更新信息
     resetDownloadInfo();
@@ -1153,7 +1165,8 @@ void UpdateWorker::downloadAndInstallUpdates(ClassifyUpdateType updateType)
             QDBusPendingReply<QList<QDBusObjectPath>> reply = watcher->reply();
             QList<QDBusObjectPath> data = reply.value();
             if (data.count() < 1) {
-                qDebug() << "UpdateFailed, download updates error: " << watcher->error().message();
+                qCDebug(DdcUpdateWork)
+                        << "UpdateFailed, download updates error: " << watcher->error().message();
                 return;
             }
             setDownloadJob(reply.value().at(0).path(), updateType);
@@ -1169,7 +1182,8 @@ void UpdateWorker::downloadAndInstallUpdates(ClassifyUpdateType updateType)
             if (!job.isNull()) {
                 m_updateInter->CleanJob(job->id());
             }
-            qDebug() << "UpdateFailed, download updates error: " << watcher->error().message();
+            qCDebug(DdcUpdateWork)
+                    << "UpdateFailed, download updates error: " << watcher->error().message();
         }
     });
 }
@@ -1322,7 +1336,7 @@ void UpdateWorker::onRequestOpenAppStore()
                             QDBusConnection::sessionBus());
     QVariant value = "tab/update";
     QDBusMessage reply = appStore.call("openBusinessUri", value);
-    qDebug() << reply.errorMessage();
+    qCDebug(DdcUpdateWork) << reply.errorMessage();
 }
 
 UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
@@ -1331,7 +1345,7 @@ UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
     QJsonDocument jobErrorMessage = QJsonDocument::fromJson(jobDescription.toUtf8(), &err_rpt);
 
     if (err_rpt.error != QJsonParseError::NoError) {
-        qDebug() << "更新失败JSON格式错误";
+        qCDebug(DdcUpdateWork) << "更新失败JSON格式错误";
         return UpdateErrorType::NoError;
     }
     const QJsonObject &object = jobErrorMessage.object();
@@ -1357,13 +1371,13 @@ UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
 void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type,
                                                    const QString &value)
 {
-    qDebug() << "onClassityDownloadStatusChanged ::" << type << "status :: " << value;
+    qCDebug(DdcUpdateWork) << "onClassityDownloadStatusChanged ::" << type << "status :: " << value;
     if (value == "running" || value == "ready") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloading);
     } else if (value == "failed") {
         QPointer<UpdateJobDBusProxy> job = getDownloadJob(type);
-        qDebug() << "onClassityDownloadStatusChanged ::" << type
-                 << "job->description() :: " << job->description();
+        qCDebug(DdcUpdateWork) << "onClassityDownloadStatusChanged ::" << type
+                               << "job->description() :: " << job->description();
         m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
         cleanLastoreJob(job);
@@ -1383,15 +1397,15 @@ void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type
 void UpdateWorker::onClassityInstallStatusChanged(const ClassifyUpdateType type,
                                                   const QString &value)
 {
-    qDebug() << "onClassityInstallStatusChanged ::" << type << "status :: " << value;
+    qCDebug(DdcUpdateWork) << "onClassityInstallStatusChanged ::" << type << "status :: " << value;
     if (value == "ready") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloaded);
     } else if (value == "running") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Installing);
     } else if (value == "failed") {
         QPointer<UpdateJobDBusProxy> job = getInstallJob(type);
-        qDebug() << "onClassityInstallStatusChanged ::" << type
-                 << "job->description() :: " << job->description();
+        qCDebug(DdcUpdateWork) << "onClassityInstallStatusChanged ::" << type
+                               << "job->description() :: " << job->description();
         m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
         cleanLastoreJob(job);
@@ -1426,7 +1440,7 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
 
 void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages)
 {
-    qDebug() << " ---- UpdatablePackages = " << updatablePackages.count();
+    qCDebug(DdcUpdateWork) << " ---- UpdatablePackages = " << updatablePackages.count();
     QMap<ClassifyUpdateType, QString> keyMap;
     keyMap.insert(ClassifyUpdateType::SystemUpdate, SystemUpdateType);
     keyMap.insert(ClassifyUpdateType::UnknownUpdate, UnknownUpdateType);
@@ -1542,8 +1556,8 @@ void UpdateWorker::handleAtomicStateChanged(int operate,
         -8: 本作的仓库本不允许除;
         -9: 本作的仓库本不存在;
     */
-    qDebug() << " Atomic State : " << state << "operate: " << operate << " version: " << version
-             << " message: " << message;
+    qCDebug(DdcUpdateWork) << " Atomic State : " << state << "operate: " << operate
+                           << " version: " << version << " message: " << message;
     switch (state) {
     case BackupResult::Success:
         m_backupStatus = BackupStatus::Backuped;
@@ -1559,7 +1573,8 @@ void UpdateWorker::handleAtomicStateChanged(int operate,
         m_backupStatus = BackupStatus::BackupFailed;
         m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType,
                                              UpdatesStatus::RecoveryBackupFailed);
-        qDebug() << Q_FUNC_INFO << " [Atomic Backup] 备份失败 , message : " << message;
+        qCDebug(DdcUpdateWork) << "handleAtomicStateChanged"
+                               << " [Atomic Backup] 备份失败 , message : " << message;
         m_backupStatus = BackupStatus::BackupFailed;
         onAtomicUpdateFinshed(false);
         break;
@@ -1593,7 +1608,7 @@ void UpdateWorker::onAtomicUpdateFinshed(bool successed)
 void UpdateWorker::onAtomicUpdateing()
 {
     // 处理正在备份的状态
-    qDebug() << Q_FUNC_INFO << " [AtomicUpdateing] 可以备份, 开始备份...";
+    qCDebug(DdcUpdateWork) << Q_FUNC_INFO << " [AtomicUpdateing] 可以备份, 开始备份...";
     switch (m_backupingClassifyType) {
     case ClassifyUpdateType::SystemUpdate:
         setUpdateItemProgress(m_model->systemDownloadInfo(), 0.7);
@@ -1643,7 +1658,7 @@ void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QStrin
                                   "org.deepin.dde.Lastore1.Manager",
                                   QDBusConnection::systemBus());
     if (!lastoreManager.isValid()) {
-        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        qCDebug(DdcUpdateWork) << "com.deepin.license error ," << lastoreManager.lastError().name();
         return;
     }
 
@@ -1653,7 +1668,7 @@ void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QStrin
         m_fixErrorJob = new UpdateJobDBusProxy(path, this);
         connect(m_fixErrorJob, &UpdateJobDBusProxy::StatusChanged, this, [=](const QString status) {
             if (status == "succeed" || status == "failed" || status == "end") {
-                qDebug() << "m_fixErrorJob ---status :" << status;
+                qCDebug(DdcUpdateWork) << "m_fixErrorJob ---status :" << status;
                 for (auto type : m_fixErrorUpdate) {
                     distUpgrade(type);
                 }
@@ -1685,7 +1700,7 @@ void UpdateWorker::onRequestLastoreHeartBeat()
                                   "org.deepin.dde.Lastore1.Updater",
                                   QDBusConnection::systemBus());
     if (!lastoreManager.isValid()) {
-        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        qCDebug(DdcUpdateWork) << "com.deepin.license error ," << lastoreManager.lastError().name();
         return;
     }
     lastoreManager.asyncCall("GetCheckIntervalAndTime");
@@ -1742,7 +1757,7 @@ std::optional<QUrl> UpdateWorker::getTestingChannelUrl()
 std::optional<QString> UpdateWorker::getTestingChannelSource()
 {
     auto sourceFile = QString("/etc/apt/sources.list.d/%1.list").arg(TestingChannelPackage);
-    qDebug() << "sourceFile" << sourceFile;
+    qCDebug(DdcUpdateWork) << "sourceFile" << sourceFile;
     QFile f(sourceFile);
     if (!f.open(QFile::ReadOnly | QFile::Text)) {
         return std::nullopt;
@@ -1868,7 +1883,7 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
 {
     auto testChannelSrc = getTestingChannelSource();
     if (!testChannelSrc.has_value()) {
-        qDebug() << "Not have source file";
+        qCDebug(DdcUpdateWork) << "Not have source file";
         return CanExitTestingChannelStatus::CheckError;
     }
     QString testingChannelSource = testChannelSrc.value();
@@ -1931,8 +1946,8 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     // Disable Testing Channel
     if (!enable) {
         if (m_updateInter->PackageExists(TestingChannelPackage)) {
-            qDebug() << "Testing:"
-                     << "Uninstall testing channel package";
+            qCDebug(DdcUpdateWork) << "Testing:"
+                                   << "Uninstall testing channel package";
             auto exitStatus = checkCanExitTestingChannelDialog();
             if (exitStatus == CanExitTestingChannelStatus::CheckOk) {
                 QDBusPendingCall call =
@@ -1955,7 +1970,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
                                 tr("try to manually uninstall package") + TestingChannelPackage);
                 }
                 m_model->setTestingChannelStatus(TestingChannelStatus::Joined);
-                qDebug() << "Cancel to leave testingChannel";
+                qCDebug(DdcUpdateWork) << "Cancel to leave testingChannel";
                 return;
             }
         }
@@ -1975,8 +1990,8 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
         return;
     }
     QUrl testChannelUrl = testChannelUrlOpt.value();
-    qDebug() << "Testing:"
-             << "open join page" << testChannelUrl.toString();
+    qCDebug(DdcUpdateWork) << "Testing:"
+                           << "open join page" << testChannelUrl.toString();
     QDesktopServices::openUrl(testChannelUrl);
     // Loop to check if user hava joined
     QTimer::singleShot(1000, this, &UpdateWorker::checkTestingChannelStatus);
@@ -1992,8 +2007,8 @@ void UpdateWorker::checkTestingChannelStatus()
         return;
     }
 
-    qDebug() << "Testing:"
-             << "check testing join status";
+    qCDebug(DdcUpdateWork) << "Testing:"
+                           << "check testing join status";
     QString machineid = m_machineid.value();
     auto http = new QNetworkAccessManager(this);
     QNetworkRequest request;
@@ -2004,13 +2019,13 @@ void UpdateWorker::checkTestingChannelStatus()
         http->deleteLater();
 
         if (reply->error() != QNetworkReply::NoError) {
-            qDebug() << "Testing:"
-                     << "Network Error" << reply->errorString();
+            qCDebug(DdcUpdateWork) << "Testing:"
+                                   << "Network Error" << reply->errorString();
             return;
         }
         auto data = reply->readAll();
-        qDebug() << "Testing:"
-                 << "machine status body" << data;
+        qCDebug(DdcUpdateWork) << "Testing:"
+                               << "machine status body" << data;
         auto doc = QJsonDocument::fromJson(data);
         auto obj = doc.object();
         auto status = obj["data"].toObject()["status"].toString();
@@ -2020,8 +2035,8 @@ void UpdateWorker::checkTestingChannelStatus()
         }
         // If user has joined then install testing source package;
         if (status == "joined") {
-            qDebug() << "Testing:"
-                     << "Install testing channel package";
+            qCDebug(DdcUpdateWork) << "Testing:"
+                                   << "Install testing channel package";
             QDBusPendingCall call =
                     m_updateInter->InstallPackage("testing Channel", TestingChannelPackage);
             QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);

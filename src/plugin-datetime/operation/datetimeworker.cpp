@@ -7,6 +7,9 @@
 
 #include <QtConcurrent>
 #include <QFutureWatcher>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDateTimeWorkder, "dcc-datetime-worker")
 
 DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     : QObject(parent)
@@ -96,14 +99,14 @@ void DatetimeWorker::setNTPError()
 void DatetimeWorker::setDatetime(const QDateTime &datetime)
 {
     Q_EMIT requestSetAutoHide(false);
-    qDebug() << "start setDatetime";
+    qCDebug(DdcDateTimeWorkder) << "start setDatetime";
     m_setDatetime = new QDateTime(datetime);
     m_timedateInter->SetNTP(false, this, SLOT(setDatetimeStart()), SLOT(setAutoHide()));
 }
 void DatetimeWorker::setDatetimeStart()
 {
     if (m_setDatetime) {
-        qDebug() << "set ntp success, m_timedateInter->SetDate";
+        qCDebug(DdcDateTimeWorkder) << "set ntp success, m_timedateInter->SetDate";
         m_timedateInter->SetDate(*m_setDatetime, this, SLOT(setDateFinished()));
         delete m_setDatetime;
         m_setDatetime = nullptr;

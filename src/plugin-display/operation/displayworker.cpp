@@ -12,6 +12,9 @@
 #include <QDateTime>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 
 const QString DisplayInterface("org.deepin.dde.Display1");
@@ -105,7 +108,7 @@ void DisplayWorker::active()
     if (QDBusError::NoError == reply.error().type())
         isRedshiftValid = reply.value();
     else
-        qWarning() << "Call SupportSetColorTemperature method failed: " << reply.error().message();
+        qCWarning(DdcDisplayWorker) << "Call SupportSetColorTemperature method failed: " << reply.error().message();
     m_model->setRedshiftIsValid(isRedshiftValid);
     QVariant minBrightnessValue = 0.1f;
     minBrightnessValue = m_dconfig->value("minBrightnessValue", minBrightnessValue);
@@ -134,7 +137,7 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
     for (const auto *mon : m_monitors.keys())
         ops << mon->path();
 
-    qDebug() << mons.size();
+    qCDebug(DdcDisplayWorker) << mons.size();
     QList<QString> pathList;
     for (const auto &op : mons) {
         const QString path = op.path();
@@ -274,14 +277,14 @@ void DisplayWorker::setDeviceSharingSwitch(const bool enable)
 
 void DisplayWorker::setCurrentMachineConnect(Machine *mac)
 {
-    qDebug() << " 设置Connect： " << mac->Name();
+    qCDebug(DdcDisplayWorker) << " 设置Connect： " << mac->Name();
     MachineDBusProxy *inter = m_machines.value(mac);
     inter->connect();
 }
 
 void DisplayWorker::setCurrentRequestDeviceSharing(Machine *mac)
 {
-    qDebug() << " 设置 DeviceSharing： " << mac->Name();
+    qCDebug(DdcDisplayWorker) << " 设置 DeviceSharing： " << mac->Name();
     MachineDBusProxy *inter = m_machines.value(mac);
     inter->requestDeviceSharing();
 }
@@ -549,7 +552,7 @@ void DisplayWorker::machinesAdded(const QString &path)
     const QList<QString> &historyDev = m_displayInter->CooperatedMachines();
     for (auto &hisdevPath : historyDev) {
         const QString path = hisdevPath;
-        qDebug() << " hisdevPath UUID： " << path << machine->UUID();
+        qCDebug(DdcDisplayWorker) << " hisdevPath UUID： " << path << machine->UUID();
         if (machine->UUID() == path)
             machine->setHistoryStates(true);
     }
@@ -597,7 +600,7 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
-            qDebug() << call.error().message();
+            qCDebug(DdcDisplayWorker) << call.error().message();
         }
         watcher->deleteLater();
     });

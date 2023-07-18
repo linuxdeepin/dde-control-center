@@ -8,6 +8,9 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDebug>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcSoundWorker, "dcc-sound-worker")
 
 #define GSETTINGS_WAIT_SOUND_RECEIPT "wait-sound-receipt"
 
@@ -102,20 +105,20 @@ void SoundWorker::setPortEnabled(unsigned int cardid, QString portName, bool ena
 void SoundWorker::setSinkBalance(double balance)
 {
     m_soundDBusInter->SetBalanceSink(balance, true);
-    qDebug() << "set balance to " << balance;
+    qCDebug(DdcSoundWorker) << "set balance to " << balance;
 
 }
 
 void SoundWorker::setSourceVolume(double volume)
 {
     m_soundDBusInter->SetSourceVolume(volume, true);
-    qDebug() << "set source volume to " << volume;
+    qCDebug(DdcSoundWorker) << "set source volume to " << volume;
 }
 
 void SoundWorker::setSinkVolume(double volume)
 {
     m_soundDBusInter->SetVolumeSink(volume, true);
-    qDebug() << "set sink volume to " << volume;
+    qCDebug(DdcSoundWorker) << "set sink volume to " << volume;
 }
 
 //切换输入静音状态，flag为false时直接取消静音
@@ -151,7 +154,7 @@ void SoundWorker::setReduceNoise(bool value)
 void SoundWorker::setPort(const Port *port)
 {
     m_soundDBusInter->SetPort(port->cardId(), port->id(), int(port->direction()));
-    qDebug() << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
+    qCDebug(DdcSoundWorker) << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
     m_model->setPort(port);
 }
 
@@ -172,7 +175,7 @@ void SoundWorker::setBluetoothMode(const QString &mode)
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
-    qDebug() << "sink default path:" << path.path();
+    qCDebug(DdcSoundWorker) << "sink default path:" << path.path();
     if (path.path().isEmpty() || path.path() == "/" )
         return; //路径为空
 
@@ -279,7 +282,7 @@ void SoundWorker::cardsChanged(const QString &cards)
 
 void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
 {
-    qDebug() << "active sink port changed to: " << activeSinkPort.name;
+    qCDebug(DdcSoundWorker) << "active sink port changed to: " << activeSinkPort.name;
     m_activeSinkPort = activeSinkPort.name;
 
     for (auto port : m_model->ports()) {
@@ -293,7 +296,7 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
 
 void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
 {
-    qDebug() << "active source port changed to: " << activeSourcePort.name;
+    qCDebug(DdcSoundWorker) << "active source port changed to: " << activeSourcePort.name;
     m_activeSourcePort = activeSourcePort.name;
 
     updatePortActivity();
@@ -335,7 +338,7 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
                     watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
                     reply.value());
     } else {
-        qDebug() << "get sound path error." << watcher->error();
+        qCDebug(DdcSoundWorker) << "get sound path error." << watcher->error();
     }
 
     watcher->deleteLater();

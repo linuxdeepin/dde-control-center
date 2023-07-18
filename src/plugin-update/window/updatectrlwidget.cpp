@@ -21,15 +21,19 @@
 #include "widgets/systemupdateitem.h"
 #include "widgets/unknownupdateitem.h"
 
-#include <QVBoxLayout>
-#include <QSettings>
-#include <QPushButton>
-#include <QScrollArea>
 #include <DFontSizeManager>
 #include <DPalette>
 #include <DSysInfo>
 #include <DLabel>
 #include <DSpinner>
+
+#include <QVBoxLayout>
+#include <QSettings>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcUpdateCtrlWidget, "dcc-update-ctrlwidget")
 
 #define UpgradeWarningSize 500
 #define FullUpdateBtnWidth 92
@@ -283,7 +287,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
-    qDebug() << " ========= UpdateCtrlWidget::setStatus  " << status;
+    qCDebug(DdcUpdateCtrlWidget) << " ========= UpdateCtrlWidget::setStatus  " << status;
     if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::TrialExpired) {
         m_status = Inactive;
     }
@@ -376,7 +380,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
         break;
     default:
-        qDebug() << "unknown status!!!";
+        qCDebug(DdcUpdateCtrlWidget) << "unknown status!!!";
         break;
     }
 }
@@ -510,10 +514,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
         setUpdateJobErrorMessage(errorInfoMap.value(ClassifyUpdateType::Invalid));
     }
 
-    qDebug() << "setModel" << m_model->status();
-    qDebug() << "setModel" << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
-    qDebug() << "setModel" << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
-    qDebug() << "setModel" << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
+    qCDebug(DdcUpdateCtrlWidget) << "setModel" << m_model->status();
+    qCDebug(DdcUpdateCtrlWidget) << "setModel" << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
+    qCDebug(DdcUpdateCtrlWidget) << "setModel" << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
+    qCDebug(DdcUpdateCtrlWidget) << "setModel" << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
 
     if (m_model->enterCheckUpdate()) {
         setStatus(UpdatesStatus::Checking);

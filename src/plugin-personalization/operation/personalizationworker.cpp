@@ -14,6 +14,9 @@
 #include <QCollator>
 #include <QJsonDocument>
 #include <QDBusError>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
 
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
@@ -47,7 +50,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
-        qDebug() << "ChangeProperty is " << propertyName << "; value is" << value;
+        qCDebug(DdcPersonalWorker) << "ChangeProperty is " << propertyName << "; value is" << value;
         if (propertyName == "globaltheme") {
             refreshTheme();
         }
@@ -166,7 +169,7 @@ void PersonalizationWorker::onRefreshedChanged(const QString &type)
 
 void PersonalizationWorker::onToggleWM(const QString &wm)
 {
-    qDebug() << "onToggleWM: " << wm;
+    qCDebug(DdcPersonalWorker) << "onToggleWM: " << wm;
     m_model->setIs3DWm(wm == "deepin wm");
 }
 
@@ -249,7 +252,7 @@ bool PersonalizationWorker::allowSwitchWM()
 void PersonalizationWorker::refreshOpacity(double opacity)
 {
     int slider{ static_cast<int>(opacity * 100) };
-    qDebug() << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
+    qCDebug(DdcPersonalWorker) << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
     m_model->setOpacity(std::pair<int, double>(slider, opacity));
 }
 
@@ -333,12 +336,12 @@ void PersonalizationWorker::setMiniEffect(int effect)
 {
     switch (effect) {
     case 0:
-        qDebug() << "scale";
+        qCDebug(DdcPersonalWorker) << "scale";
         m_personalizationDBusProxy->unloadEffect("magiclamp");
         m_model->setMiniEffect(effect);
         break;
     case 1:
-        qDebug() << "magiclamp";
+        qCDebug(DdcPersonalWorker) << "magiclamp";
         m_personalizationDBusProxy->loadEffect("magiclamp");
         m_model->setMiniEffect(effect);
         break;
@@ -410,6 +413,6 @@ void PersonalizationWatcher::onThumbnail(const QString &json)
 
 void PersonalizationWatcher::errorSlot(const QDBusError &err)
 {
-    qInfo() << err;
+    qCInfo(DdcPersonalWorker) << err;
     deleteLater();
 }
