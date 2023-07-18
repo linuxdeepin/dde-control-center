@@ -85,6 +85,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
     , m_machineid(std::nullopt)
     , m_testingChannelUrl(std::nullopt)
+    , m_isFirstActive(true)
 {
 }
 
@@ -218,6 +219,11 @@ void UpdateWorker::getLicenseState()
 
 void UpdateWorker::activate()
 {
+    if (m_isFirstActive) {
+        init();
+        preInitialize();
+        m_isFirstActive = false;
+    }
     QString checkTime;
     double interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
     m_model->setLastCheckUpdateTime(checkTime);

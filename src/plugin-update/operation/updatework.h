@@ -223,6 +223,8 @@ private:
 
     std::optional<QString> m_machineid;
     std::optional<QUrl> m_testingChannelUrl;
+
+    bool m_isFirstActive;
 };
 
 #endif // UPDATEWORK_H
