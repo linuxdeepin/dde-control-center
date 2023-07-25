@@ -140,13 +140,13 @@ void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
 
 void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 {
-    TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
+    TitleLabel *titleLabel = new TitleLabel(tr("New User"));
     titleLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(titleLabel);
     layout->addSpacing(30);
 
     /* 用户类型 */
-    m_accountChooser->setTitle(tr("Account Type"));
+    m_accountChooser->setTitle(tr("User Type"));
     m_accountChooser->addBackground();
 
     layout->addWidget(m_accountChooser);

@@ -99,7 +99,7 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
 }
 ///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
-    : PageModule("accounts", tr("Accounts"), tr("Account management") , QIcon::fromTheme("dcc_nav_accounts"), parent)
+    : PageModule("accounts", tr("Users"), tr("User management") , QIcon::fromTheme("dcc_nav_accounts"), parent)
     , m_model(nullptr)
     , m_worker(nullptr)
     , m_curLoginUser(nullptr)
@@ -117,7 +117,7 @@ AccountsModule::AccountsModule(QObject *parent)
 
     HorizontalModule *horModule = new HorizontalModule("accountsList", QString());
     horModule->appendChild(new ItemModule("accountsList", QString(), this, &AccountsModule::initAccountsList, false));
-    horModule->appendChild(new ItemModule("createAccount", tr("Create Account"), this, &AccountsModule::initCreateAccount, false), 0, Qt::AlignRight);
+    horModule->appendChild(new ItemModule("createAccount", tr("Create User"), this, &AccountsModule::initCreateAccount, false), 0, Qt::AlignRight);
     appendChild(horModule);
     appendChild(new ItemModule("avatar", QString(), this, &AccountsModule::initAvatar, false), 0, Qt::AlignHCenter);
     horModule = new HorizontalModule("fullName", QString());
@@ -137,11 +137,11 @@ AccountsModule::AccountsModule(QObject *parent)
     horModule = new HorizontalModule("button", QString());
     m_changePasswordModule = new ItemModule("changePassword", tr("Change Password"), this, &AccountsModule::initChangePassword, false);
     horModule->appendChild(m_changePasswordModule);
-    m_deleteAccountModule =new ItemModule("deleteAccount", tr("Delete Account"), this, &AccountsModule::initDeleteAccount, false);
+    m_deleteAccountModule =new ItemModule("deleteUser", tr("Delete User"), this, &AccountsModule::initDeleteAccount, false);
     horModule->appendChild(m_deleteAccountModule);
     appendChild(horModule);
 
-    ItemModule *accountTypeModule = new ItemModule("accountType", tr("Account Type"), this, &AccountsModule::initAccountType);
+    ItemModule *accountTypeModule = new ItemModule("accountType", tr("User Type"), this, &AccountsModule::initAccountType);
     accountTypeModule->setBackground(true);
     m_accountTypeModule = accountTypeModule;
     appendChild(m_accountTypeModule);
@@ -263,8 +263,8 @@ QWidget *AccountsModule::initCreateAccount(ModuleObject *module)
     DFloatingButton *createBtn = new DFloatingButton(nullptr);
     createBtn->setIcon(DStyle::SP_IncreaseElement);
     createBtn->setFixedSize(50, 50);
-    createBtn->setToolTip(tr("Create Account"));
-    createBtn->setAccessibleName(tr("Create Account"));
+    createBtn->setToolTip(tr("Create User"));
+    createBtn->setAccessibleName(tr("Create User"));
     createBtn->setVisible(true);
     connect(createBtn, &QPushButton::clicked, this, &AccountsModule::onCreateAccount);
     return createBtn;
@@ -390,7 +390,7 @@ QWidget *AccountsModule::initDeleteAccount(ModuleObject *module)
 {
     Q_UNUSED(module)
     DWarningButton *deleteAccount = new DWarningButton();
-    deleteAccount->setText(tr("Delete Account"));
+    deleteAccount->setText(tr("Delete User"));
     connect(deleteAccount, &DWarningButton::clicked, this, &AccountsModule::onDeleteUser);
     return deleteAccount;
 }
