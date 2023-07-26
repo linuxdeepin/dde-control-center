@@ -74,6 +74,13 @@ void BluetoothDevice::setConnecting(bool connecting)
     }
 }
 
+void BluetoothDevice::setBattery(int battery) {
+    if (m_battery != battery) {
+        m_battery = battery;
+        Q_EMIT batteryChanged(battery);
+    }
+}
+
 void BluetoothDevice::setDeviceType(const QString &deviceType)
 {
     m_deviceType = deviceType;

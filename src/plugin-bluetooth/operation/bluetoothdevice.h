@@ -30,6 +30,10 @@ public:
 
     void setId(const QString &id);
 
+    inline int battery() const { return m_battery; }
+
+    void setBattery(const int battery);
+
     inline QString address() const { return m_address; }
 
     void setAddress(const QString &addr);
@@ -73,6 +77,7 @@ Q_SIGNALS:
     void stateChanged(const State &state, bool paired) const;
     void trustedChanged(const bool trusted) const;
     void connectingChanged(const bool &connecting) const;
+    void batteryChanged(const int battery) const;
 
 private:
     QString m_id;
@@ -85,6 +90,7 @@ private:
     bool m_connecting;
     bool m_connectState;
     State m_state;
+    int m_battery = 0;
 };
 
 QDebug &operator<<(QDebug &stream, const BluetoothDevice *device);
