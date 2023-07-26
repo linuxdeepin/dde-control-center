@@ -24,6 +24,8 @@ struct BluetoothDeviceItemAction
 {
     const BluetoothDevice *device;
     DViewItemAction *spinnerAction;
+    DViewItemAction *percentageText;
+    DViewItemAction *percentageIcon;
     DViewItemAction *textAction;
     DViewItemAction *spaceAction;
     DViewItemAction *iconAction;
@@ -33,20 +35,29 @@ struct BluetoothDeviceItemAction
 
     explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
+ 
         , spinnerAction(
-                  new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
-        , textAction(new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true))
+                  new DViewItemAction(Qt::AlignVCenter , QSize(), QSize(), false))
+        , percentageText(
+                  new DViewItemAction(Qt::AlignVCenter , QSize(), QSize(), false))
+        , percentageIcon(
+                  new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , textAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), true))
         , spaceAction(
-                  new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false))
-        , iconAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true))
+                  new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , iconAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), true))
         , loadingIndicator(nullptr)
         , item(new DStandardItem())
     {
         iconAction->setData(static_cast<const void *>(device));
+        actionList.append(percentageText);
+        actionList.append(percentageIcon);
         actionList.append(spinnerAction);
         actionList.append(textAction);
         actionList.append(spaceAction);
         actionList.append(iconAction);
+        percentageText->setVisible(false);
+        percentageIcon->setVisible(false);
         spinnerAction->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, actionList);
     }
@@ -167,6 +178,7 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
 
     int row = index.row();
     const BluetoothDevice *device = m_data.at(row)->device;
+
     switch (role) {
     case Qt::EditRole:
     case Qt::DisplayRole:
@@ -231,6 +243,7 @@ void BluetoothDeviceModel::addDevice(const BluetoothDevice *device)
     connect(device, &BluetoothDevice::stateChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
     connect(device, &BluetoothDevice::trustedChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
     connect(device, &BluetoothDevice::connectingChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
+    connect(device, &BluetoothDevice::batteryChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
 
     BluetoothDeviceItemAction *item = new BluetoothDeviceItemAction(device);
     updateItem(item);
@@ -320,7 +333,53 @@ void BluetoothDeviceModel::updateItem(BluetoothDeviceItemAction *item)
     item->iconAction->setVisible(m_paired);
     if (m_paired) {
         item->iconAction->setIcon(m_parent->style()->standardIcon(QStyle::SP_ArrowRight));
+        int battery = device->battery();
+        if (battery != 0) {
+            item->percentageIcon->setVisible(true);
+            item->percentageIcon->setIcon(getBatteryIcon(battery));
+            item->percentageText->setVisible(true);
+            item->percentageText->setText(QString("%1%").arg(battery));
+            return;
+        }
     }
+    item->percentageIcon->setVisible(false);
+    item->percentageText->setVisible(false);
+}
+
+
+
+QIcon BluetoothDeviceModel::getBatteryIcon(int percentage)
+{
+    /* 0-5%、6-10%、11%-20%、21-30%、31-40%、41-50%、51-60%、61%-70%、71-80%、81-90%、91-100% */
+    QString percentageStr;
+    if (percentage <= 5) {
+        percentageStr = "000";
+    } else if (percentage <= 10) {
+        percentageStr = "010";
+    } else if (percentage <= 20) {
+        percentageStr = "020";
+    } else if (percentage <= 30) {
+        percentageStr = "030";
+    } else if (percentage <= 40) {
+        percentageStr = "040";
+    } else if (percentage <= 50) {
+        percentageStr = "050";
+    } else if (percentage <= 60) {
+        percentageStr = "060";
+    } else if (percentage <= 70) {
+        percentageStr = "070";
+    } else if (percentage <= 80) {
+        percentageStr = "080";
+    } else if (percentage <= 90) {
+        percentageStr = "090";
+    } else if (percentage <= 100) {
+        percentageStr = "100";
+    } else {
+        percentageStr = "unknow";
+    }
+
+    return QIcon::fromTheme(QString("battery-%1-symbolic").arg(percentageStr));
+
 }
 
 void BluetoothDeviceModel::showAnonymous(bool show)

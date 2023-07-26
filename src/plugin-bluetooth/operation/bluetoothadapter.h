@@ -38,6 +38,7 @@ public:
 
     void inflate(const QJsonObject &obj);
     void inflateDevice(BluetoothDevice *device, const QJsonObject &deviceObj);
+
 public Q_SLOTS:
     void addDevice(const BluetoothDevice *device);
     void removeDevice(const QString &deviceId);

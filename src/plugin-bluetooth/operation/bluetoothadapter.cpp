@@ -148,6 +148,7 @@ void BluetoothAdapter::inflateDevice(BluetoothDevice *device, const QJsonObject 
     const BluetoothDevice::State state = BluetoothDevice::State(deviceObj["State"].toInt());
     const bool connectState = deviceObj["ConnectState"].toBool();
     const QString icon = deviceObj["Icon"].toString();
+    const int battery = deviceObj["Battery"].toInt();
 
     //    if (icon == "audio-card") {
     //        m_connectingAudioDevice = (BluetoothDevice::StateAvailable == state);
@@ -165,6 +166,7 @@ void BluetoothAdapter::inflateDevice(BluetoothDevice *device, const QJsonObject 
     device->setPaired(paired);
     device->setState(state, connectState);
     device->setDeviceType(icon);
+    device->setBattery(battery);
 }
 
 void BluetoothAdapter::onGetDevices(QString replyStr)

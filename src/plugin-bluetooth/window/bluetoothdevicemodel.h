@@ -41,6 +41,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void showAnonymous(bool show);
+    QIcon getBatteryIcon(int percentage);
 
 private Q_SLOTS:
     void addDevice(const BluetoothDevice *device);

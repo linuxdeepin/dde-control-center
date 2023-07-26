@@ -235,6 +235,7 @@ void BluetoothWorker::addDevice(const QString &json)
     QJsonObject obj = doc.object();
     const QString adapterId = obj["AdapterPath"].toString();
     const QString id = obj["Path"].toString();
+    const int battery = obj["Battery"].toInt();
 
     const BluetoothAdapter *result = m_model->adapterById(adapterId);
     BluetoothAdapter *adapter = const_cast<BluetoothAdapter *>(result);
@@ -243,6 +244,7 @@ void BluetoothWorker::addDevice(const QString &json)
         BluetoothDevice *device = const_cast<BluetoothDevice *>(result1);
         if (!device)
             device = new BluetoothDevice(adapter);
+        device->setBattery(battery);
         adapter->inflateDevice(device, obj);
         adapter->addDevice(device);
     }
