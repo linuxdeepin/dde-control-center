@@ -310,9 +310,12 @@ QWidget *PersonalizationThemeModule::initThemeSwitch(ModuleObject *module)
         QString mode;
         QString themeId = getGlobalThemeId(globalTheme->getDefault(), mode);
         const QMap<QString, QJsonObject> &itemList = globalTheme->getList();
-        if (itemList.contains(themeId))
+        if (itemList.contains(themeId)) {
             m_work->setDefaultByType(itemList.value(themeId)["type"].toString(),
                                      themeId + dataMode);
+            m_work->refreshTheme();
+        }
+
     });
     return box;
 }
