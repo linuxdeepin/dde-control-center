@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Тіркелгілер</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Тіркелгіні жасау</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,11 +431,11 @@
         <translation>Парольді өзгерту</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Тіркелгіні өшіру</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation>Жасау</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Жаңа тіркелгі</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

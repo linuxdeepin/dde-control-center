@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Watumiaji</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Jenga mtumiaji</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,11 +431,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Futa mtumiaji</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation>Jenga</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Mtumiaji mpya</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>บัญชี</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>สร้างบัญชี</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,11 +431,11 @@
         <translation>เปลี่ยนรหัสผ่าน</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>ลบบัญชี</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation>สร้าง</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>บัญชีใหม่</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>खाताहरू</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>खाता सिर्जना गर्नुहोस्</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,11 +431,11 @@
         <translation>गोप्य शब्द बदल्नुहोस</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>खाता मेटाउनुहोस्</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation>सिर्जना गर्नुहोस्</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>नयाँ खाता</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

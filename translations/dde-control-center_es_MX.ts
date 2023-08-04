@@ -411,15 +411,15 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Cuentas</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -431,11 +431,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delete Account</source>
+        <source>Delete User</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>New Account</source>
+        <source>New User</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

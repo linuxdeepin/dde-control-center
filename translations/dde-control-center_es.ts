@@ -62,7 +62,7 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Aplicaciones (*.escritorio)</translation>
+        <translation>Aplicaciones (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Asegúrese de que todas las partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
+        <translation>Asegúrese de que partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Cuentas</translation>
+        <source>Users</source>
+        <translation>Usuarios</translation>
     </message>
     <message>
-        <source>Account management</source>
-        <translation type="unfinished"/>
+        <source>User management</source>
+        <translation>Gestión de usuarios</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Crear cuenta</translation>
+        <source>Create User</source>
+        <translation>Crear usuario</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Cambiar contraseña</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Borrar cuenta</translation>
+        <source>Delete User</source>
+        <translation>Eliminar usuario</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tipo de Cuenta</translation>
+        <source>User Type</source>
+        <translation>Tipo de usuario</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Crear</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Nueva cuenta</translation>
+        <source>New User</source>
+        <translation>Nuevo usuario</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tipo de Cuenta</translation>
+        <source>User Type</source>
+        <translation>Tipo de usuario</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1129,7 +1129,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configuración de Teclado</translation>
+        <translation>Configuración de teclado</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1241,7 +1241,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configuración de Teclado</translation>
+        <translation>Configuración de teclado</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
@@ -1873,7 +1873,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma de gráficos</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -1992,27 +1992,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar panel táctil</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Toque para hacer clic</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplazamiento natural</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
 </context>
 <context>
@@ -2074,7 +2074,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation>Fecha y Hora</translation>
+        <translation>Fecha y hora</translation>
     </message>
 </context>
 <context>
@@ -2426,23 +2426,23 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
 </context>
 <context>
@@ -2758,7 +2758,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation>Personailzar</translation>
+        <translation>Personalizar</translation>
     </message>
 </context>
 <context>
@@ -2829,7 +2829,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2888,197 +2888,197 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Región y formato</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Lunes</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>lunes</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Abril 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>5 de abril, 2020, domingo</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Domingo, 5 de abril de 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Martes</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Miércoles</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Jueves</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Viernes</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Sábado</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Domingo</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuración regional</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* La configuración de la región influirá en los formatos de fecha, hora, número y algunos otros formatos, se habilitará la próxima vez que inicie sesión</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar localizacion</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>Formato de 24 horas</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora corta</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora larga </translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Semanas</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Primer día de la semana</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha corta</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha larga </translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuración regional</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato predeterminado</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
 </context>
 <context>
@@ -3723,7 +3723,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Tal vez no sea seguro que abandones el canal de pruebas interno ahora, ¿todavía quieres irte?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3850,7 +3850,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar interfaz de apagado</translation>
     </message>
 </context>
 <context>
@@ -3877,7 +3877,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Pantalla y Suspender</translation>
+        <translation>Pantalla y suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -3917,7 +3917,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar interfaz de apagado</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -3928,7 +3928,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation>Tableta de Dibujo</translation>
+        <translation>Tableta de dibujo</translation>
     </message>
     <message>
         <source>Mode</source>
