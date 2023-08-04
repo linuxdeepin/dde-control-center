@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>帐户</translation>
+        <source>Users</source>
+	<translation>用户</translation>
     </message>
     <message>
-        <source>Account management</source>
-        <translation>账户管理</translation>
+        <source>User management</source>
+	<translation>用户管理</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>创建帐户</translation>
+        <source>Create User</source>
+	<translation>创建用户</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>修改密码</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>删除帐户</translation>
+        <source>Delete User</source>
+	<translation>删除用户</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>帐户类型</translation>
+        <source>User Type</source>
+	<translation>用户类型</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>创建</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>新帐户</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>帐户类型</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -1992,27 +1992,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-	<translation>指针速度</translation>
+        <translation>指针速度</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-	<translation>禁用触控板</translation>
+        <translation>禁用触控板</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-	<translation>轻触以点击</translation>
+        <translation>轻触以点击</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-	<translation>自然滚动</translation>
+        <translation>自然滚动</translation>
     </message>
     <message>
         <source>Slow</source>
-	<translation>慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-	<translation>快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
@@ -2428,23 +2428,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-	<translation>日期</translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>Time</source>
-	<translation>时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>Date and Time</source>
-	<translation>日期和时间</translation>
+        <translation>日期和时间</translation>
     </message>
     <message>
         <source>Number</source>
-	<translation>数字</translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Currency</source>
-	<translation>货币</translation>
+        <translation>货币</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2831,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>, </source>
-	<translation>, </translation>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2890,7 +2890,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-	<translation>区域与格式</translation>
+        <translation>区域与格式</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -2926,7 +2926,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>2020/04/05</source>
-	<translation>2020/04/05</translation>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
@@ -2942,7 +2942,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>20-4-5</source>
-	<translation>20-4-5</translation>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
@@ -2966,121 +2966,121 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Tuesday</source>
-	<translation>星期二</translation>
+        <translation>星期二</translation>
     </message>
     <message>
         <source>Wednesday</source>
-	<translation>星期三</translation>
+        <translation>星期三</translation>
     </message>
     <message>
         <source>Thursday</source>
-	<translation>星期四</translation>
+        <translation>星期四</translation>
     </message>
     <message>
         <source>Friday</source>
-	<translation>星期五</translation>
+        <translation>星期五</translation>
     </message>
     <message>
         <source>Saturday</source>
-	<translation>星期六</translation>
+        <translation>星期六</translation>
     </message>
     <message>
         <source>Sunday</source>
-	<translation>星期日</translation>
+        <translation>星期日</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-	<translation>地区设置</translation>
+        <translation>地区设置</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-	<translation>* 所在区域影响系统应用的日期、时间、货币纸张等格式，设置完成后在下一次登陆生效。</translation>
+        <translation>* 所在区域影响系统应用的日期、时间、货币纸张等格式，设置完成后在下一次登陆生效。</translation>
     </message>
     <message>
         <source>Locale Show</source>
-	<translation>地区设置</translation>
+        <translation>地区设置</translation>
     </message>
     <message>
         <source>Time</source>
-	<translation>时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>time</source>
-	<translation>时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>Date</source>
-	<translation>日期</translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-	<translation>使用二十四小时时间</translation>
+        <translation>使用二十四小时时间</translation>
     </message>
     <message>
         <source>Short Time</source>
-	<translation>短时间</translation>
+        <translation>短时间</translation>
     </message>
     <message>
         <source>Long Time</source>
-	<translation>长时间</translation>
+        <translation>长时间</translation>
     </message>
     <message>
         <source>Weeks</source>
-	<translation>星期</translation>
+        <translation>星期</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-	<translation>每周第一天</translation>
+        <translation>每周第一天</translation>
     </message>
     <message>
         <source>Short Date</source>
-	<translation>短日期</translation>
+        <translation>短日期</translation>
     </message>
     <message>
         <source>Long Date</source>
-	<translation>长日期</translation>
+        <translation>长日期</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-	<translation>取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-	<translation>确认</translation>
+        <translation>确认</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-	<translation>区域设置</translation>
+        <translation>区域设置</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-	<translation>默认格式</translation>
+        <translation>默认格式</translation>
     </message>
     <message>
         <source>Date</source>
-	<translation>日期</translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>Time</source>
-	<translation>时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>Date And Time</source>
-	<translation>日期和时间</translation>
+        <translation>日期和时间</translation>
     </message>
     <message>
         <source>Number</source>
-	<translation>数字</translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Currency</source>
-	<translation>货币</translation>
+        <translation>货币</translation>
     </message>
 </context>
 <context>

@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Хэрэглэгчийн бүртгэл</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Бүртгэл үүсгэх</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Нууц үг солих</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Бүртгэл устгах</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Бүртгэлийн Төрөл</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Үүсгэх</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Шинэ бүртгэл</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Бүртгэлийн Төрөл</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>

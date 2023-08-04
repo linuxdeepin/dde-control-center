@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Tilit</translation>
+        <source>Users</source>
+        <translation>Käyttäjät</translation>
     </message>
     <message>
-        <source>Account management</source>
+        <source>User management</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Luo käyttäjätili</translation>
+        <source>Create User</source>
+        <translation>Luo käyttäjä</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Vaihda salasana</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Poista tili</translation>
+        <source>Delete User</source>
+        <translation>Poista käyttäjä</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tilin tyyppi</translation>
+        <source>User Type</source>
+        <translation>Käyttäjän tyyppi</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Luo</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Uusi käyttäjätili</translation>
+        <source>New User</source>
+        <translation>Uusi käyttäjä</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tilin tyyppi</translation>
+        <source>User Type</source>
+        <translation>Käyttäjän tyyppi</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2428,23 +2428,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Päivä ja aika</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuutta</translation>
     </message>
 </context>
 <context>
@@ -2890,197 +2890,197 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Alue ja aikamuoto</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Maanantai</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>maanantai</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Huhtikuu 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Huhtikuu 5, 2020, sunnuntai</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Sunnuntai, huhtikuu 5, 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Tiistai</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Keskiviikko</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Torstai</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Perjantai</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Lauantai</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Sunnuntai</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Maa-asetukset</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* Maa-asetukset vaikuttaa päivämäärään, kellonaikaan, numeroihin ja joihinkin muihin asetuksiin ja otetaan käyttöön seuraavan sisäänkirjautumisen yhteydessä</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Esitetään paikallisesti</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>aika</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24h kello</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Viikko</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Viikon ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä päivämäärä</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Maa-asetukset</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Oletusmuoto</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Päivä ja aika</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuutta</translation>
     </message>
 </context>
 <context>

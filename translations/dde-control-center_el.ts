@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Λογαριασμοί </translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Δημιουργία Λογαριασμού</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Διαγραφή λογαριασμού</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Τύπος Λογαριασμού</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Δημιουργία</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Νέος Λογαριασμός</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Τύπος Λογαριασμού</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>

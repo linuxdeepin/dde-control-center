@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Hesaplar</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Hesap Oluştur</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Parolayı Değiştir</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Hesabı Sil</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Hesap Tipi</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Oluştur</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Yeni Hesap</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Hesap Tipi</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>

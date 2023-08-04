@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Comptes</translation>
+        <source>Users</source>
+        <translation>Usuaris</translation>
     </message>
     <message>
-        <source>Account management</source>
-        <translation>Gestió de comptes</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Crea un compte</translation>
+        <source>Create User</source>
+        <translation>Crea un usuari</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Canvia la contrasenya</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Elimina el compte</translation>
+        <source>Delete User</source>
+        <translation>Elimina l&apos;usuari</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tipus de compte</translation>
+        <source>User Type</source>
+        <translation>Tipus d&apos;usuari</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Crea</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Compte nou</translation>
+        <source>New User</source>
+        <translation>Usuari nou</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Tipus de compte</translation>
+        <source>User Type</source>
+        <translation>Tipus d&apos;usuari</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2427,23 +2427,23 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Data i hora</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
 </context>
 <context>
@@ -2889,197 +2889,197 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Regió i format</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Dilluns</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>dilluns</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Abril 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Abril 5, 2020, Diumenge</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Diumenge, Abril 5, 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Dimarts</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Dimecres</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Dijous</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Divendres</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Dissabte</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Diumenge</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuració regional</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* La configuració de la regió influirà en els formats de data, hora, números i alguns altres formats. S&apos;habilitarà la propera vegada que inicieu la sessió.</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Visualització de la configuració local</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24 hores</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora abreujada</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora ampliada</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Setmanes</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Primer dia de la setmana</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Data abreujada</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Data ampliada</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuració regional</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Format per defecte</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Data i hora</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
 </context>
 <context>

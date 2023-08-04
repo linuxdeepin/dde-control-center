@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Felhasználói fiókok</translation>
+        <source>Users</source>
+        <translation>Felhasználók</translation>
     </message>
     <message>
-        <source>Account management</source>
-        <translation>Felhasználói fiókok kezelése</translation>
+        <source>User management</source>
+        <translation>Felhasználók kezelése</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Felhasználói fiók létrehozása</translation>
+        <source>Create User</source>
+        <translation>Felhasználó létrehozása</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Felhasználói fiók törlése</translation>
+        <source>Delete User</source>
+        <translation>Felhasználó törlése</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Felhasználói fiók típusa</translation>
+        <source>User Type</source>
+        <translation>Felhasználó típusa</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Létrehozás</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Új felhasználói fiók</translation>
+        <source>New User</source>
+        <translation>Új Felhasználó</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Felhasználói fiók típusa</translation>
+        <source>User Type</source>
+        <translation>Felhasználó típusa</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2428,23 +2428,23 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Dátum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Idő</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Dátum és Idő</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Szám</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Pénznem</translation>
     </message>
 </context>
 <context>
@@ -2890,197 +2890,201 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Régió és Formátum</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Hétfő</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>Hétfő</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>2020. Április 5.</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>2020. Április 5. - Vasárnap</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Vasárnap, 2020. Április 5.</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5.</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05.</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Kedd</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Szerda</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Csütörtök</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Péntek</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Szombat</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Vasárnap</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Regionális beállítások</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* A régió beállítása befolyásolja a dátum, idő, szám és néhány más adat formátumát, a következő bejelentkezéskor engedélyezve lesz </translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Helyi műsor</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Idő</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>Idő</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Dátum</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24 órás időformátum</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Rövid
+időformátum</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Hosszú
+időformátum</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Hetek</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>A hét első napja</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Rövid
+dátumformátum</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Hosszú
+dátumformátum</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Mégsem</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Megerősítés</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Regionális beállítások</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Álapértelmezett Formátum</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Dátum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Idő</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Dátum és Idő</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Szám</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Pénznem</translation>
     </message>
 </context>
 <context>

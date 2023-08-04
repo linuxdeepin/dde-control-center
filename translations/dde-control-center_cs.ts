@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Účty</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Vytvořit účet</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Změnit heslo</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Smazat účet</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Typ účtu</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Vytvořit</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Nový účet</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Typ účtu</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>

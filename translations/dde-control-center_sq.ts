@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Llogari</translation>
+        <source>Users</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account management</source>
-        <translation>Administrim llogarish</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Krijoni Llogari</translation>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Fshini Llogarinë</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Lloj Llogarie</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Krijoje</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Llogari e Re</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Lloj Llogarie</translation>
+        <source>User Type</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>

@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>অ্যাকাউন্ট সমূহ</translation>
-    </message>
-    <message>
-        <source>Account management</source>
+        <source>Users</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>অ্যাকাউন্ট তৈরি করুন</translation>
+        <source>User management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
@@ -431,11 +431,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>অ্যাকাউন্ট মুছে ফেলুন</translation>
+        <source>Delete User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -834,11 +834,11 @@
         <translation>তৈরি করুন</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>নতুন অ্যাকাউন্ট</translation>
+        <source>New User</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>User Type</source>
         <translation type="unfinished"/>
     </message>
     <message>

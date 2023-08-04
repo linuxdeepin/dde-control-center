@@ -411,16 +411,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>Accounts</translation>
+        <source>Users</source>
+        <translation>Gebruikers</translation>
     </message>
     <message>
-        <source>Account management</source>
-        <translation>Accountbeheer</translation>
+        <source>User management</source>
+        <translation>Gebruikersbeheer</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Account aanmaken</translation>
+        <source>Create User</source>
+        <translation>Gebruiker toevoegen</translation>
     </message>
     <message>
         <source>Username</source>
@@ -431,12 +431,12 @@
         <translation>Wachtwoord wijzigen</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>Account verwijderen</translation>
+        <source>Delete User</source>
+        <translation>Gebruiker verwijderen</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Soort account</translation>
+        <source>User Type</source>
+        <translation>Soort gebruiker</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -834,12 +834,12 @@
         <translation>Aanmaken</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>Nieuw account</translation>
+        <source>New User</source>
+        <translation>Nieuwe gebruiker</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>Soort account</translation>
+        <source>User Type</source>
+        <translation>Soort gebruiker</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2418,23 +2418,23 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tijd</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum en tijd</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Getal</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
 </context>
 <context>
@@ -2880,197 +2880,197 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Regio en opmaak</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Maandag</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>maandag</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>April 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>April 5, 2020, zondag</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>zondag, April 5, 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Dinsdag</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Woensdag</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Donderdag</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Vrijdag</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Zaterdag</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Zondag</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Regionale instellingen</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* De regionale instellingen zĳn van toepassing op de datum-, tĳd- en getalopmaak. Herstart om toe te passen.</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Taal</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tĳd</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>tĳd</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24-uursklok</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Korte tijd</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Lange tijd</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Weken</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Eerste dag van de week</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Korte datum</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Lange datum</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Oké</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Regionale instellingen</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Standaardopmaak</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tĳd</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum en tijd</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Getal</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
 </context>
 <context>
