@@ -313,7 +313,6 @@ QWidget *PersonalizationThemeModule::initThemeSwitch(ModuleObject *module)
         if (itemList.contains(themeId)) {
             m_work->setDefaultByType(itemList.value(themeId)["type"].toString(),
                                      themeId + dataMode);
-            m_work->refreshTheme();
         }
 
     });
