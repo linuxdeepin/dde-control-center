@@ -1996,7 +1996,7 @@
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation>禁用触控板</translation>
+        <translation>启用触控板</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -2831,7 +2831,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>, </source>
-        <translation>, </translation>
+        <translation>、</translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
