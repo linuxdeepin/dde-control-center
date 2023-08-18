@@ -143,10 +143,6 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
         }
 
         mainLayout->addLayout(hBoxLayout);
-        QHBoxLayout *layout = new QHBoxLayout();
-        layout->addLayout(mainLayout, Qt::AlignCenter);
-
-        setLayout(layout);
 
         connect(m_currentAvatarLsv,
                 &AvatarListView::requestUpdateListView,
@@ -160,6 +156,11 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
             addAvatar(item);
         }
     }
+
+    QHBoxLayout *layout = new QHBoxLayout();
+    layout->addLayout(mainLayout, Qt::AlignCenter);
+
+    setLayout(layout);
 
     m_currentAvatarLsv = m_avatarDimensionalLsv;
 }

@@ -583,8 +583,11 @@ void AccountsModule::onModifyIcon()
     if (!w)
         return;
 
-    AvatarListDialog avatarListDialog = AvatarListDialog(m_curUser);
-    avatarListDialog.exec();
+    AvatarListDialog avatarListDialog = AvatarListDialog(m_curUser, m_worker);
+
+    if (avatarListDialog.exec() == QDialog::Rejected) {
+        return;
+    }
 
     auto path = avatarListDialog.get_path();
     if (path.has_value()) {

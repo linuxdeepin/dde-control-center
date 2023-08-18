@@ -30,8 +30,9 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
+AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *parent)
     : Dtk::Widget::DAbstractDialog(parent)
+    , m_worker(worker)
     , m_curUser(usr)
     , m_mainContentLayout(new QHBoxLayout)
     , m_leftContentLayout(new QVBoxLayout)
@@ -116,10 +117,10 @@ AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
     QStackedWidget *avatarSelectWidget = new QStackedWidget(this);
     avatarSelectWidget->setFixedWidth(450);
 
-    for (auto iter = m_avatarFrames.begin(); iter != m_avatarFrames.end(); ++iter) {
-        avatarSelectWidget->addWidget(iter.value());
+    for (const auto &frame : m_avatarFrames) {
+        avatarSelectWidget->addWidget(frame);
 
-        auto listView = iter.value()->getCurrentListView();
+        auto listView = frame->getCurrentListView();
         if (listView && listView->getCurrentListViewRole() != Role::AvatarAdd) {
             connect(listView,
                     &AvatarListView::requestUpdateListView,
@@ -127,8 +128,7 @@ AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
                     [this](bool isNeedSave, const auto &role, const auto &type) {
                         Q_UNUSED(type);
 
-                        for (auto it = m_avatarFrames.begin(); it != m_avatarFrames.end(); ++it) {
-                            auto frame = it.value();
+                        for (auto frame : m_avatarFrames) {
 
                             if (frame->getCurrentRole() != role) {
                                 if (frame->getCurrentListView()) {
@@ -140,8 +140,10 @@ AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
                         if (role == Custom) {
                             // 如果是新添加进来的用户头像, 先保存, 然后再更新用户头像编辑界面
                             if (isNeedSave) {
-                                m_path =
-                                        m_avatarFrames[role]->getCurrentListView()->getAvatarPath();
+                                m_worker->setAvatar(m_curUser,
+                                                    m_avatarFrames[role]
+                                                            ->getCurrentListView()
+                                                            ->getAvatarPath());
 
                                 connect(m_curUser,
                                         &User::currentAvatarChanged,
@@ -282,24 +284,4 @@ CustomAvatarWidget *AvatarListDialog::getCustomAvatarWidget()
 QString AvatarListDialog::getAvatarPath() const
 {
     return m_currentSelectAvatarWidget->getAvatarPath();
-}
-
-void AvatarListDialog::mousePressEvent(QMouseEvent *e)
-{
-    m_lastPos = e->globalPos();
-    QWidget::mousePressEvent(e);
-}
-
-void AvatarListDialog::mouseMoveEvent(QMouseEvent *e)
-{
-    this->move(this->x() + (e->globalX() - m_lastPos.x()),
-               this->y() + (e->globalY() - m_lastPos.y()));
-    m_lastPos = e->globalPos();
-    QWidget::mouseMoveEvent(e);
-}
-
-void AvatarListDialog::mouseReleaseEvent(QMouseEvent *e)
-{
-    m_lastPos = e->globalPos();
-    QWidget::mouseReleaseEvent(e);
 }
