@@ -6,6 +6,7 @@
 #include "avatarlistframe.h"
 #include "avatarlistview.h"
 #include "interface/namespace.h"
+#include "operation/accountsworker.h"
 
 #include <DBlurEffectWidget>
 #include <DDialog>
@@ -25,7 +26,6 @@ DWIDGET_END_NAMESPACE
 namespace DCC_NAMESPACE {
 class CustomAddAvatarWidget;
 class CustomAvatarWidget;
-
 
 class AvatarListDialog : public Dtk::Widget::DAbstractDialog
 {
@@ -53,21 +53,18 @@ public:
 
     enum AvatarItemRole { AvatarItemNameRole = DTK_NAMESPACE::UserRole + 1, AvatarItemIconRole };
 
-    explicit AvatarListDialog(User *usr, QWidget *parent = nullptr);
+    explicit AvatarListDialog(User *user, AccountsWorker *m_worker, QWidget *parent = nullptr);
     virtual ~AvatarListDialog();
 
     QString getAvatarPath() const;
-    inline std::optional<QString> get_path() const { return m_path; }
 
-protected:
-    void mousePressEvent(QMouseEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
+    inline std::optional<QString> get_path() const { return m_path; }
 
 private:
     CustomAvatarWidget *getCustomAvatarWidget();
 
 private:
+    AccountsWorker *m_worker;
     User *m_curUser{ nullptr };
     QHBoxLayout *m_mainContentLayout;
     QVBoxLayout *m_leftContentLayout;
@@ -76,7 +73,6 @@ private:
     QStandardItemModel *m_avatarSelectItemModel;
     AvatarListFrame *m_currentSelectAvatarWidget;
     QMap<int, AvatarListFrame *> m_avatarFrames;
-    QPoint m_lastPos;
     QScrollArea *m_avatarArea;
     std::optional<QString> m_path;
 };
