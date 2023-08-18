@@ -583,15 +583,13 @@ void AccountsModule::onModifyIcon()
     if (!w)
         return;
 
-    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser);
-    avatarListDialog->show();
+    AvatarListDialog avatarListDialog = AvatarListDialog(m_curUser);
+    avatarListDialog.exec();
 
-    // 将窗口移动到屏幕中心位置
-    Dtk::Widget::moveToCenter(avatarListDialog);
-
-    connect(avatarListDialog, &AvatarListDialog::requestSaveAvatar, this, [this](const QString &path){
-        m_worker->setAvatar(m_curUser, path);
-    });
+    auto path = avatarListDialog.get_path();
+    if (path.has_value()) {
+        m_worker->setAvatar(m_curUser, path.value());
+    }
 }
 
 void AccountsModule::setCurrentUser(User *user)
