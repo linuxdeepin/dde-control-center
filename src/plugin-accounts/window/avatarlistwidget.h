@@ -16,6 +16,8 @@
 #include <QScrollArea>
 #include <QWidget>
 
+#include <optional>
+
 DWIDGET_BEGIN_NAMESPACE
 class DFrame;
 DWIDGET_END_NAMESPACE
@@ -24,7 +26,8 @@ namespace DCC_NAMESPACE {
 class CustomAddAvatarWidget;
 class CustomAvatarWidget;
 
-class AvatarListDialog : public Dtk::Widget::DBlurEffectWidget
+
+class AvatarListDialog : public Dtk::Widget::DAbstractDialog
 {
     Q_OBJECT
 public:
@@ -50,10 +53,11 @@ public:
 
     enum AvatarItemRole { AvatarItemNameRole = DTK_NAMESPACE::UserRole + 1, AvatarItemIconRole };
 
-    explicit AvatarListDialog(User *usr);
+    explicit AvatarListDialog(User *usr, QWidget *parent = nullptr);
     virtual ~AvatarListDialog();
 
     QString getAvatarPath() const;
+    inline std::optional<QString> get_path() const { return m_path; }
 
 protected:
     void mousePressEvent(QMouseEvent *e) override;
@@ -62,9 +66,6 @@ protected:
 
 private:
     CustomAvatarWidget *getCustomAvatarWidget();
-
-Q_SIGNALS:
-    void requestSaveAvatar(const QString &avatarPath);
 
 private:
     User *m_curUser{ nullptr };
@@ -77,5 +78,6 @@ private:
     QMap<int, AvatarListFrame *> m_avatarFrames;
     QPoint m_lastPos;
     QScrollArea *m_avatarArea;
+    std::optional<QString> m_path;
 };
 } // namespace DCC_NAMESPACE

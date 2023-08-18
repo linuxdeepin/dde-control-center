@@ -30,18 +30,17 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-AvatarListDialog::AvatarListDialog(User *usr)
-    : m_curUser(usr)
+AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
+    : Dtk::Widget::DAbstractDialog(parent)
+    , m_curUser(usr)
     , m_mainContentLayout(new QHBoxLayout)
     , m_leftContentLayout(new QVBoxLayout)
     , m_rightContentLayout(new QVBoxLayout)
     , m_avatarSelectItem(new DListView(this))
     , m_avatarSelectItemModel(new QStandardItemModel(this))
     , m_avatarArea(new QScrollArea(this))
+    , m_path(std::nullopt)
 {
-    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
-    setWindowFlags(Qt::FramelessWindowHint);
-
     m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
     m_rightContentLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -58,7 +57,7 @@ AvatarListDialog::AvatarListDialog(User *usr)
     closeBtnLayout->addStretch();
     closeBtnLayout->addWidget(closeBtn);
 
-    connect(closeBtn, &QPushButton::clicked, this, &AvatarListDialog::close);
+    connect(closeBtn, &QPushButton::clicked, this, &QDialog::reject);
 
     m_rightContentLayout->addLayout(closeBtnLayout);
 
@@ -80,8 +79,10 @@ AvatarListDialog::AvatarListDialog(User *usr)
             m_avatarSelectItemModel->appendRow(avatarItem);
 
             if (item.role == Role::Custom) {
-                m_avatarFrames[AvatarAdd] = new CustomAddAvatarWidget(m_curUser, Role::Custom, this);
-                m_avatarFrames[Role::Custom] = new CustomAvatarWidget(m_curUser, Role::Custom, this);
+                m_avatarFrames[AvatarAdd] =
+                        new CustomAddAvatarWidget(m_curUser, Role::Custom, this);
+                m_avatarFrames[Role::Custom] =
+                        new CustomAvatarWidget(m_curUser, Role::Custom, this);
             } else {
                 m_avatarFrames[item.role] = new AvatarListFrame(m_curUser, item.role, this);
             }
@@ -139,9 +140,8 @@ AvatarListDialog::AvatarListDialog(User *usr)
                         if (role == Custom) {
                             // 如果是新添加进来的用户头像, 先保存, 然后再更新用户头像编辑界面
                             if (isNeedSave) {
-                                Q_EMIT requestSaveAvatar(m_avatarFrames[role]
-                                                                 ->getCurrentListView()
-                                                                 ->getAvatarPath());
+                                m_path =
+                                        m_avatarFrames[role]->getCurrentListView()->getAvatarPath();
 
                                 connect(m_curUser,
                                         &User::currentAvatarChanged,
@@ -175,8 +175,8 @@ AvatarListDialog::AvatarListDialog(User *usr)
 
     connect(m_avatarSelectItem, &DListView::clicked, this, [this, avatarSelectWidget](auto &index) {
         // 如果没有添加自定义头像, 显示自定义添加图像页面
-        if (!m_avatarFrames[Custom]->isExistCustomAvatar(
-                    m_avatarFrames[Custom]->getCurrentPath(), m_curUser->name())) {
+        if (!m_avatarFrames[Custom]->isExistCustomAvatar(m_avatarFrames[Custom]->getCurrentPath(),
+                                                         m_curUser->name())) {
             if (index.row() == 3) {
                 avatarSelectWidget->setCurrentIndex(index.row() + 1);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
@@ -238,13 +238,13 @@ AvatarListDialog::AvatarListDialog(User *usr)
     connect(saveButton, &QPushButton::clicked, this, [this]() {
         const QString path = getAvatarPath();
         if (!path.isEmpty() && path != m_curUser->currentAvatar()) {
-            Q_EMIT requestSaveAvatar(path);
+            m_path = path;
 
             // 成功设置头像后关闭窗口
-            close();
+            accept();
         }
     });
-    connect(cancelButton, &QPushButton::clicked, this, &AvatarListDialog::close);
+    connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 
     m_rightContentLayout->addLayout(btnLayout);
 
