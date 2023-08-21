@@ -96,6 +96,11 @@ void SystemInfoModel::setEndUserAgreement(const QString &text)
     m_endUserAgreementText = text;
 }
 
+void SystemInfoModel::setEndUserAgreementPath(const QString &path)
+{
+    m_endUserAgreementTextPath = path;
+}
+
 void SystemInfoModel::setGnuLicense(const QPair<QString, QString>& license)
 {
     m_gnuLicense = license;
