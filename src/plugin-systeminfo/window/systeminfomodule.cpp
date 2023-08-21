@@ -106,7 +106,8 @@ void SystemInfoModule::initChildModule()
     ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
     moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>("editionLicense", tr("Edition License"), this, &SystemInfoModule::initGnuLicenseModule));
     moduleAgreement->appendChild(moduleEdition);
-    if (DCC_LICENSE::isEndUserAgreementExist()) {
+    if (auto licensepath = DCC_LICENSE::isEndUserAgreementExist(); licensepath.exist) {
+        m_model->setEndUserAgreementPath(licensepath.path);
         // 三级菜单--协议与隐私政策-最终用户许可协议
         ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
         moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>("endUserLicenseAgreement", tr("End User License Agreement"), this, &SystemInfoModule::initUserLicenseModule));

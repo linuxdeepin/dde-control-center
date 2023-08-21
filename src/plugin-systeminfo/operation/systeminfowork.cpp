@@ -72,7 +72,9 @@ QString SystemInfoWork::getEndUserAgreementText()
         if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
             m_model->setEndUserAgreement(DCC_LICENSE::getEulerEndUserAgreement());
         } else {
-            m_model->setEndUserAgreement(DCC_LICENSE::getEndUserAgreement());
+            if (m_model->endUserAgreementPath().has_value()) {
+                m_model->setEndUserAgreement(DCC_LICENSE::getEndUserAgreement(m_model->endUserAgreementPath().value()));
+            }
         }
     }
     return m_model->endUserAgreement().value();

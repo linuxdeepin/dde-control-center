@@ -37,6 +37,7 @@ public:
     inline QString kernel() const { return m_kernel;}
     inline QString hostName() const { return  m_hostName;}
     inline std::optional<QString> endUserAgreement() const { return m_endUserAgreementText; }
+    inline std::optional<QString> endUserAgreementPath() const { return m_endUserAgreementTextPath; }
     inline std::optional<QPair<QString, QString>> gnuLicense() const { return m_gnuLicense; };
     inline ActiveState licenseState() const { return m_licenseState; }
 
@@ -63,6 +64,7 @@ public Q_SLOTS:
     void setLicenseState(DCC_NAMESPACE::ActiveState state);
     void setHostName(const QString& hostName);
     void setEndUserAgreement(const QString &text);
+    void setEndUserAgreementPath(const QString &path);
     void setGnuLicense(const QPair<QString, QString>& license);
 
 private:
@@ -74,6 +76,7 @@ private:
     QString m_memory;
     QString m_kernel;
     QString m_hostName;
+    std::optional<QString> m_endUserAgreementTextPath;
     std::optional<QString> m_endUserAgreementText;
     std::optional<QPair<QString, QString>> m_gnuLicense;
     DCC_NAMESPACE::ActiveState m_licenseState;
