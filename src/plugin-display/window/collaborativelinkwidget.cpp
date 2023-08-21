@@ -99,6 +99,7 @@ void CollaborativeLinkWidget::initConnect()
 {
     // TODO: 协同开关
     connect(m_deviceSwitch, &SwitchWidget::checkedChanged, this, &CollaborativeLinkWidget::requestCooperationEnable);
+    connect(m_deviceSwitch, &SwitchWidget::checkedChanged, m_deviceCombox, &QWidget::setEnabled);
     connect(m_deviceButton, &QPushButton::clicked, this, &CollaborativeLinkWidget::disconnectMachine);
     connect(m_deviceCombox, &TreeCombox::viewItemPressed, this, &CollaborativeLinkWidget::changeTreeComboxIndex);
 
@@ -120,7 +121,6 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
     m_displayModel = model;
 
     connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceSwitch, &SwitchWidget::setChecked);
-    connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceCombox, &QWidget::setEnabled);
     m_deviceSwitch->setChecked(m_displayModel->DeviceSharingSwitch());
     m_directionComboxItem->setVisible(m_displayModel->DeviceSharingSwitch());
 
