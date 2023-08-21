@@ -47,6 +47,9 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
         w->setTitle(tr("Timezone List"));
         connect(w, &SettingsHead::editChanged, this, &TimezoneModule::onEditClicked);
         connect(this, &TimezoneModule::exitEdit, w, &SettingsHead::toCancel);
+        connect(this, &TimezoneModule::exitEdit, w, [w, this] {
+            w->setEditEnable(m_model->userTimeZones().length() > 1);
+        });
     }));
     appendChild(new WidgetModule<SettingsGroup>("timezoneList", tr("Timezone List"), this, &TimezoneModule::initTimezoneListGroup));
 }
