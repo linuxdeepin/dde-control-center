@@ -350,7 +350,7 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
         return QModelIndex();
     }
     QModelIndex selectIndex = model()->index(currentRow, 0);
-    activated(selectIndex);
+    Q_EMIT activated(selectIndex);
     return selectIndex;
 }
 
@@ -420,19 +420,9 @@ QRegion TabView::visualRegionForSelection(const QItemSelection &selection) const
     return QRegion(rect);
 }
 
-void TabView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command)
+void TabView::setSelection([[maybe_unused]] const QRect &rect, [[maybe_unused]] QItemSelectionModel::SelectionFlags command)
 {
-    int rows = model()->rowCount();
-    QModelIndex selectedIndex;
-    for (int row = 0; row < rows; row++) {
-        QModelIndex index = model()->index(row, 0);
-        QRect rectIndex = visualRect(index);
-        if (!rectIndex.intersected(rect).isEmpty()) {
-            selectedIndex = index;
-            break;
-        }
-    }
-    selectionModel()->select(selectedIndex, command);
+
 }
 
 void TabView::paintEvent(QPaintEvent *e)
