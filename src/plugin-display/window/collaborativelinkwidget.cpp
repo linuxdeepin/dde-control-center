@@ -122,6 +122,7 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
 
     connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceSwitch, &SwitchWidget::setChecked);
     m_deviceSwitch->setChecked(m_displayModel->DeviceSharingSwitch());
+    m_deviceCombox->setEnabled(m_deviceSwitch->checked());
     m_directionComboxItem->setVisible(m_displayModel->DeviceSharingSwitch());
 
     refreshRowItem();
