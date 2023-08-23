@@ -60,12 +60,13 @@ public:
     QList<ModuleObject *> m_childrens;
     ModuleObject *m_currentModule;
 
-    QString m_name;            // 名称，作为每个模块的唯一标识，不可为空
-    QString m_displayName;     // 显示名称，如菜单的名称，页面的标题等，为空则不显示
-    QString m_description;     // 描述，如主菜单的描述信息
-    QStringList m_contentText; // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
-    QVariant m_icon;           // 图标，如主菜单的图标
-    int m_badge;               // 主菜单中的角标, 默认为0不显示，大于0显示
+    QString m_name;                // 名称，作为每个模块的唯一标识，不可为空
+    QString m_displayName;         // 显示名称，如菜单的名称，页面的标题等，为空则不显示
+    QString m_fallbackDescription; // 描述，如主菜单的描述信息，如果m_description为空，该值会跟随插件变换
+    QString m_description;         // 主动设置的的描述信息，当非空，为显示的描述信息
+    QStringList m_contentText;     // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
+    QVariant m_icon;               // 图标，如主菜单的图标
+    int m_badge;                   // 主菜单中的角标, 默认为0不显示，大于0显示
 
     uint32_t m_flags;
 };
@@ -126,15 +127,17 @@ ModuleObject::ModuleObject(const QString &name, const QString &displayName, cons
     d->m_description = description;
     d->m_contentText = contentText;
     d->m_icon = icon;
+    d->m_fallbackDescription = d->modelDescription();
     if (description.isEmpty()) {
-        this->setDescription(d->modelDescription());
         connect(this, &ModuleObject::insertedChild, this, [this](ModuleObject *) {
             Q_D(ModuleObject);
-            this->setDescription(d->modelDescription());
+            d->m_fallbackDescription = d->modelDescription();
+            Q_EMIT moduleDataChanged();
         });
         connect(this, &ModuleObject::removedChild, this, [this](ModuleObject *) {
             Q_D(ModuleObject);
-            this->setDescription(d->modelDescription());
+            d->m_fallbackDescription = d->modelDescription();
+            Q_EMIT moduleDataChanged();
         });
     }
 }
@@ -194,7 +197,12 @@ QString ModuleObject::displayName() const
 QString ModuleObject::description() const
 {
     Q_D(const ModuleObject);
-    return d->m_description;
+    if (d->m_description.isEmpty()) {
+        return d->m_fallbackDescription;
+    } else {
+        return d->m_description;
+    }
+
 }
 QStringList ModuleObject::contentText() const
 {
@@ -285,6 +293,7 @@ void ModuleObject::setDescription(const QString &description)
     Q_D(ModuleObject);
     if (d->m_description != description) {
         d->m_description = description;
+        d->m_fallbackDescription = description;
         Q_EMIT moduleDataChanged();
     }
 }
@@ -340,7 +349,8 @@ void ModuleObject::appendChild(ModuleObject *const module)
     module->setParent(this);
     connect(module, &ModuleObject::visibleChanged, this, [this]() {
         Q_D(ModuleObject);
-        this->setDescription(d->modelDescription());
+        d->m_fallbackDescription = d->modelDescription();
+        Q_EMIT moduleDataChanged();
     });
     Q_EMIT insertedChild(module);
     Q_EMIT childrenSizeChanged(d->m_childrens.size());
@@ -374,7 +384,8 @@ void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObj
     d->m_childrens.insert(before, module);
     connect(module, &ModuleObject::visibleChanged, this, [this]() {
         Q_D(ModuleObject);
-        this->setDescription(d->modelDescription());
+        d->m_fallbackDescription = d->modelDescription();
+        Q_EMIT moduleDataChanged();
     });
     module->setParent(this);
     Q_EMIT insertedChild(module);

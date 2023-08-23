@@ -32,7 +32,7 @@ ModuleObject * DisplayPlugin::module()
     ModuleObject *moduleInterface = new PageModule();
     moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
-    moduleInterface->setDescription(tr("Display"));
+    moduleInterface->setDescription(tr("Light, resolution, scaling and etc"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_display"));
 
     DisplayModule *displayModule = new DisplayModule(moduleInterface);
