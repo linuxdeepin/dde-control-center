@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Ekran</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3053,6 +3061,10 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     </message>
     <message>
         <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>

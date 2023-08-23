@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+	<translation>蓝牙设备管理</translation>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -412,15 +416,15 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-	<translation>用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <source>User management</source>
-	<translation>用户管理</translation>
+        <translation>用户管理</translation>
     </message>
     <message>
         <source>Create User</source>
-	<translation>创建用户</translation>
+        <translation>创建用户</translation>
     </message>
     <message>
         <source>Username</source>
@@ -432,11 +436,11 @@
     </message>
     <message>
         <source>Delete User</source>
-	<translation>删除用户</translation>
+        <translation>删除用户</translation>
     </message>
     <message>
         <source>User Type</source>
-	<translation>用户类型</translation>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>显示</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation>亮度、分辨率、缩放设置等</translation>
     </message>
 </context>
 <context>
@@ -3054,6 +3062,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Regional Setting</source>
         <translation>区域设置</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>

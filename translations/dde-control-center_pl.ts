@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation>Menedżer urządzeń Bluetooth</translation>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Ekran</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation>Jasność, skalowanie, rozdzielczość itp.</translation>
     </message>
 </context>
 <context>
@@ -3054,6 +3062,10 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Regional Setting</source>
         <translation>Ustawienia regionalne</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Szukaj</translation>
     </message>
 </context>
 <context>

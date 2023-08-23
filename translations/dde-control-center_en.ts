@@ -1,9 +1,11 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en_US">
 <context>
     <name>AdapterModule</name>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Allow other Bluetooth devices to find this device</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
@@ -214,6 +216,10 @@
     <name>BluetoothModule</name>
     <message>
         <source>Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bluetooth device manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1115,6 +1121,10 @@
     <name>dccV23::DisplayPlugin</name>
     <message>
         <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3039,6 +3049,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Regional Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
