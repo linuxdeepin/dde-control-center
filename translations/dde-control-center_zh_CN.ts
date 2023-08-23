@@ -472,7 +472,7 @@
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他帐户的全名/用户名重复</translation>
+        <translation>全名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>Full Name</source>
@@ -492,7 +492,7 @@
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>只允许一个帐户开启自动登录，请先关闭%1帐户的自动登录，再进行操作</translation>
+        <translation>只允许一个用户开启自动登录，请先关闭%1用户的自动登录，再进行操作</translation>
     </message>
 </context>
 <context>
@@ -835,11 +835,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>新用户</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Username</source>
@@ -911,11 +911,11 @@
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>用户名与其他帐户的全名/用户名重复</translation>
+        <translation>用户名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他帐户的全名/用户名重复</translation>
+        <translation>全名与其他用户的全名/用户名重复</translation>
     </message>
 </context>
 <context>
@@ -1571,11 +1571,11 @@
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>您确定要删除此帐户吗？</translation>
+        <translation>您确定要删除此用户吗？</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>删除帐户目录</translation>
+        <translation>删除用户目录</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3425,7 +3425,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
-        <translation>当前帐户未绑定Union ID</translation>
+        <translation>当前用户未绑定Union ID</translation>
     </message>
     <message>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
