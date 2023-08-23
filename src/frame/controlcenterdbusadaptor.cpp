@@ -60,7 +60,7 @@ void ControlCenterDBusAdaptor::Hide()
 void ControlCenterDBusAdaptor::Show()
 {
     if (parent()->isMinimized() || !parent()->isVisible())
-        parent()->show();
+        parent()->showNormal();
 
     parent()->activateWindow();
 }
