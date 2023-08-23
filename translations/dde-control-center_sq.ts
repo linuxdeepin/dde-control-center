@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -412,15 +416,15 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>Përdorues</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Administrim përdoruesish</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>Krijoni Përdorues</translation>
     </message>
     <message>
         <source>Username</source>
@@ -432,11 +436,11 @@
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>Fshini Përdorues</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Lloj Përdoruesi</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -835,11 +839,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>Përdorues i Ri</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Lloj Përdoruesi</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Shfaqe</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2427,23 +2435,23 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datë dhe Kohë</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numër</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Monedhë</translation>
     </message>
 </context>
 <context>
@@ -2889,197 +2897,201 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Rajon dhe Format</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>E hënë</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>e hënë</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Prill 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Prill 5, 2020, E diel</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>E diel, Prill 5, 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>E martë</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>E mërkurë</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>E enjte</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>E premte</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>E shtunë</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>E diel</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Rajonale</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>Rregullimi për rajonin do të ndikojë mbi formatet e datave, kohës, numrave dhe disa formate të tjerë, do të aktivizohet herës tjetër që bëni hyrjen</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Shfaqje Vendoreje</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>kohë</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë 24-orëshe</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë e Shkurtër</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë e Gjatë</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Javë</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Dita e Parë e Javës</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë e Shkurtër</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë e Gjatë</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Rajonale</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Kërko</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Format Parazgjedhje</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Datë dhe Kohë</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numër</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Monedhë</translation>
     </message>
 </context>
 <context>
@@ -3364,7 +3376,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>Rregullimet do të kthehen te $1s.</translation>
+        <translation>Rregullimet do të kthehen te %1s.</translation>
     </message>
     <message>
         <source>Revert</source>

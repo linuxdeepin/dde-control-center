@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation>Bluetooth eszköz kezelő</translation>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Képernyő</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation>Fényerő, felbontás, méretarány, stb.</translation>
     </message>
 </context>
 <context>
@@ -3058,6 +3066,10 @@ dátumformátum</translation>
     <message>
         <source>Regional Setting</source>
         <translation>Regionális beállítások</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Keresés</translation>
     </message>
 </context>
 <context>

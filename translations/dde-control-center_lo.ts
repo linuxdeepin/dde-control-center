@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -1115,6 +1119,10 @@
     <name>dccV23::DisplayPlugin</name>
     <message>
         <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3039,6 +3047,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Regional Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>

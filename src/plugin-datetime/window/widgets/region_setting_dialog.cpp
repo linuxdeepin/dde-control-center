@@ -115,7 +115,7 @@ RegionDialog::RegionDialog(LocaleList regions, QWidget *parent)
     {
         QVBoxLayout *layout = new QVBoxLayout;
 
-        m_edit->setPlaceholderText("Search");
+        m_edit->setPlaceholderText(tr("Search"));
         m_edit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
         m_edit->setMinimumWidth(350);
         m_view->setFrameShape(QFrame::NoFrame);

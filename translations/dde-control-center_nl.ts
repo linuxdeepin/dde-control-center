@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation>Bluetooth-apparaatbeheer</translation>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Beeldscherm</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation>Belichting, resolutie, afmetingen, etc.</translation>
     </message>
 </context>
 <context>
@@ -3044,6 +3052,10 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Regional Setting</source>
         <translation>Regionale instellingen</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Zoeken</translation>
     </message>
 </context>
 <context>

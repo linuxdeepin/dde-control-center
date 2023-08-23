@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -416,7 +420,7 @@
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió d&apos;usuaris</translation>
     </message>
     <message>
         <source>Create User</source>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Pantalla</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3053,6 +3061,10 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Regional Setting</source>
         <translation>Configuració regional</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>

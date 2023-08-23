@@ -216,6 +216,10 @@
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
@@ -416,7 +420,7 @@
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjien hallinta</translation>
     </message>
     <message>
         <source>Create User</source>
@@ -1116,6 +1120,10 @@
     <message>
         <source>Display</source>
         <translation>Näyttö</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3054,6 +3062,10 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Regional Setting</source>
         <translation>Maa-asetukset</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
