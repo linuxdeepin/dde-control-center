@@ -97,7 +97,6 @@ private:
     void saveCustomAvatar(const QString &path);
 
 private:
-    QFileDialog *m_fd;
     Dtk::Widget::DFrame *m_addAvatarFrame;
     QLabel *m_addAvatarLabel;
     QLabel *m_hintLabel;

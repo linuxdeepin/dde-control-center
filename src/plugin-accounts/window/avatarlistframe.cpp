@@ -215,7 +215,6 @@ void AvatarListFrame::updateListView(bool isSave, const int &role, const int &ty
 
 CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidget *parent)
     : AvatarListFrame(user, role, parent)
-    , m_fd(new QFileDialog(this))
     , m_addAvatarFrame(new DFrame(this))
     , m_addAvatarLabel(new QLabel(this))
     , m_hintLabel(new QLabel(this))
@@ -257,16 +256,10 @@ CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidge
     setLayout(mainLayout);
     installEventFilter(this);
 
-    m_fd->setAccessibleName("QFileDialog");
-    m_fd->setModal(true);
-    m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 };
 
 CustomAddAvatarWidget::~CustomAddAvatarWidget()
 {
-    if (m_fd) {
-        m_fd->deleteLater();
-    }
 }
 
 void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
@@ -301,18 +294,15 @@ void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
     if (path.isEmpty()) {
         // open file manager to add pic
         QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+        QFileDialog dialog;
+        dialog.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
         if (!directory.isEmpty()) {
-            m_fd->setDirectory(directory.first());
+            dialog.setDirectory(directory.first());
         }
-
-        connect(m_fd, &QFileDialog::finished, this, [this, saveFunc](int result) {
-            if (result == QFileDialog::Accepted) {
-                const QString path = m_fd->selectedFiles().first();
-                saveFunc(path);
-            }
-        });
-
-        m_fd->show();
+        if (dialog.exec() == QFileDialog::Accepted) {
+            const QString path = dialog.selectedFiles().first();
+            saveFunc(path);
+        }
     } else {
         // save file
         saveFunc(path);

@@ -44,7 +44,6 @@ AvatarListView::AvatarListView(User *user, const int &role,
     , m_avatarItemModel(new QStandardItemModel(this))
     , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(80, 80))
-    , m_fd(new QFileDialog(this))
     , m_curUser(user)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center",
                                 QStringLiteral("org.deepin.dde.control-center.accounts"),
@@ -62,34 +61,10 @@ AvatarListView::AvatarListView(User *user, const int &role,
         onItemClicked(index);
     });
 
-    connect(m_fd, &QFileDialog::finished, this, [=](int result) {
-        if (result == QFileDialog::Accepted) {
-            const QString path = m_fd->selectedFiles().first();
-            QFileInfo info(path);
-
-            m_dconfig->setValue("avatarPath", info.absolutePath());
-
-            int row = -1;
-            for (int i = 1; i <= m_avatarItemModel->rowCount(); ++i) {
-                if (path == m_avatarItemModel->index(i, 0).data(AvatarListView::SaveAvatarRole)) {
-                    row = i;
-                    break;
-                }
-            }
-
-            if (row == -1) {
-                return addCustomAvatar(path);
-            }
-
-            onItemClicked(m_avatarItemModel->index(row, 0));
-        }
-    });
 }
 
 AvatarListView::~AvatarListView()
 {
-    if (m_fd)
-        m_fd->deleteLater();
 
     if (m_avatarItemModel) {
         m_avatarItemModel->clear();
@@ -104,8 +79,6 @@ AvatarListView::~AvatarListView()
 
 void AvatarListView::initWidgets()
 {
-    m_fd->setAccessibleName("QFileDialog");
-
     setViewMode(ViewMode::IconMode);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setContentsMargins(0, 0, 0, 0);
@@ -124,8 +97,6 @@ void AvatarListView::initWidgets()
 
     addItemFromDefaultDir(m_path);
 
-    m_fd->setModal(true);
-    m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 }
 
 void AvatarListView::addLastItem()
@@ -277,17 +248,38 @@ void AvatarListView::onItemClicked(const QModelIndex &index)
         return;
     const QString filePath = index.data(SaveAvatarRole).toString();
     if (filePath.isEmpty()) {
+        QFileDialog dialog;
+        dialog.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
         QString dir = m_dconfig->value("avatarPath").toString();
         if (dir.isEmpty() || !QDir(dir).exists()) {
             QStringList directory =
                     QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
             if (!directory.isEmpty()) {
-                m_fd->setDirectory(directory.first());
+                dialog.setDirectory(directory.first());
             }
         } else {
-            m_fd->setDirectory(dir);
+            dialog.setDirectory(dir);
         }
-        m_fd->show();
+        if (dialog.exec() == QFileDialog::Accepted) {
+            const QString path = dialog.selectedFiles().first();
+            QFileInfo info(path);
+
+            m_dconfig->setValue("avatarPath", info.absolutePath());
+
+            int row = -1;
+            for (int i = 1; i <= m_avatarItemModel->rowCount(); ++i) {
+                if (path == m_avatarItemModel->index(i, 0).data(AvatarListView::SaveAvatarRole)) {
+                    row = i;
+                    break;
+                }
+            }
+
+            if (row == -1) {
+                return addCustomAvatar(path);
+            }
+
+            onItemClicked(m_avatarItemModel->index(row, 0));
+        }
     } else {
         if (m_currentSelectIndex.isValid())
             m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
