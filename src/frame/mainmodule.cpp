@@ -120,10 +120,8 @@ public:
             m_sidebarWidget->setVisible(true);
             int sizebar = m_sidebarWidget->gridSize().width();
 #ifdef USE_SIDEBAR
-            m_mainWindow->setSidebarWidget(m_sidebarWidget);
             m_mainWindow->setSidebarWidth(sizebar);
             m_mainWindow->setSidebarVisible(true);
-            m_mainWindow->setSidebarExpanded(true);
 #else
             m_layout->addWidget(m_sidebarWidget);
             m_sidebarWidget->setFixedWidth(sizebar);
@@ -155,7 +153,6 @@ public:
             m_sidebarWidget->setVisible(false);
 #ifdef USE_SIDEBAR
             m_mainWindow->setSidebarWidth(100);
-            m_mainWindow->setSidebarExpanded(false);
             m_mainWindow->setSidebarVisible(false);
 #endif
         }
