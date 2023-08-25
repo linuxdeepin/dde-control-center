@@ -87,7 +87,6 @@ private:
     AvatarItemDelegate *m_avatarItemDelegate;
     QSize m_avatarSize;
     QModelIndex m_currentSelectIndex;
-    QFileDialog *m_fd;
     User *m_curUser;
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
 };

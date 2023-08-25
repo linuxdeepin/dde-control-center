@@ -4,7 +4,6 @@
 #ifndef ADDBUTTONWIDGET_H
 #define ADDBUTTONWIDGET_H
 
-#include "interface/namespace.h"
 #include "defappworker.h"
 #include <QWidget>
 
@@ -26,7 +25,6 @@ public:
     void setDefaultAppsCategory(DefAppWorker::DefaultAppsCategory category);
 
 Q_SIGNALS:
-    void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);
 
 public Q_SLOTS:
@@ -38,7 +36,6 @@ private:
     DefAppWorker::DefaultAppsCategory m_categoryValue;
     QString m_categoryName;
     Category *m_category;
-    QFileDialog *m_createFile;
 };
 
 #endif // ADDBUTTONWIDGET_H

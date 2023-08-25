@@ -17,7 +17,6 @@ AddButtonWidget::AddButtonWidget(DefAppWorker::DefaultAppsCategory category, QWi
     , m_addBtn(new DFloatingButton(DStyle::SP_IncreaseElement))
     , m_categoryValue(category)
     , m_category(nullptr)
-    , m_createFile(new QFileDialog)
 {
     QVBoxLayout *centralLayout = new QVBoxLayout;
 
@@ -26,34 +25,12 @@ AddButtonWidget::AddButtonWidget(DefAppWorker::DefaultAppsCategory category, QWi
 
     connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &AddButtonWidget::onAddBtnClicked);
     m_addBtn->setToolTip(tr("Add Application"));
-    m_createFile->setModal(true);
-    m_createFile->setWindowTitle(tr("Open Desktop file"));
-    QStringList screen;
-    screen << tr("Apps (*.desktop)")
-           << tr("All files (*)");
-    m_createFile->setNameFilters(screen);
-    m_createFile->setAcceptMode(QFileDialog::AcceptOpen);
-    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    if (!directory.isEmpty())
-        m_createFile->setDirectory(directory.first());
 
-    connect(m_createFile, &QFileDialog::finished, this, [ = ](int result) {
-        Q_EMIT requestFrameAutoHide(true);
-        if (result == QFileDialog::Accepted) {
-            QString path = m_createFile->selectedFiles().first();
-            if (path.isEmpty())
-                return;
-
-            QFileInfo info(path);
-            Q_EMIT requestCreateFile(m_categoryName, info);
-        }
-    });
 }
 
 AddButtonWidget::~AddButtonWidget()
 {
-    if (m_createFile)
-        m_createFile->deleteLater();
+
 }
 
 void AddButtonWidget::setModel(DefAppModel * const model)
@@ -104,7 +81,23 @@ void AddButtonWidget::setCategoryName(const QString &name)
 
 void AddButtonWidget::onAddBtnClicked()
 {
-    Q_EMIT requestFrameAutoHide(false);
-    m_createFile->show();
+    QFileDialog dialog = QFileDialog();
+    dialog.setWindowTitle(tr("Open Destkop file"));
+    QStringList screen;
+    screen << tr("Apps (*.desktop)")
+           << tr("All files (*)");
+    dialog.setNameFilters(screen);
+    dialog.setAcceptMode(QFileDialog::AcceptOpen);
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    if (!directory.isEmpty())
+        dialog.setDirectory(directory.first());
+    if(dialog.exec() ==  QDialog::Accepted) {
+        QString path = dialog.selectedFiles().first();
+        if (path.isEmpty())
+            return;
+
+        QFileInfo info(path);
+        Q_EMIT requestCreateFile(m_categoryName, info);
+    }
 }
 
