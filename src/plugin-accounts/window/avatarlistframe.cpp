@@ -262,7 +262,7 @@ CustomAddAvatarWidget::~CustomAddAvatarWidget()
 {
 }
 
-void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
+void CustomAddAvatarWidget::saveCustomAvatar(const QString &avatar_path)
 {
     auto saveFunc = [this](const QString &path) {
         QFile file(path);
@@ -291,7 +291,7 @@ void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
         }
     };
 
-    if (path.isEmpty()) {
+    if (avatar_path.isEmpty()) {
         // open file manager to add pic
         QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
         QFileDialog dialog;
@@ -305,7 +305,7 @@ void CustomAddAvatarWidget::saveCustomAvatar(const QString &path)
         }
     } else {
         // save file
-        saveFunc(path);
+        saveFunc(avatar_path);
     }
 }
 
