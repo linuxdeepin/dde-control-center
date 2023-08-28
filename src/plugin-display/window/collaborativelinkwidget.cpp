@@ -5,13 +5,17 @@
 #include "cooperationsettingsdialog.h"
 #include "treecombox.h"
 
+#include "operation/displaymodel.h"
+#include "operation/machine.h"
+
 #include <widgets/settingsgroup.h>
 #include <widgets/settingsitem.h>
 #include <widgets/switchwidget.h>
 #include <widgets/titlelabel.h>
-#include <DComboBox>
 
+#include <DComboBox>
 #include <DStandardItem>
+
 #include <QBoxLayout>
 #include <QComboBox>
 #include <QLabel>
@@ -19,9 +23,6 @@
 #include <QPushButton>
 #include <QTreeView>
 #include <QWidgetAction>
-
-#include <src/plugin-display/operation/displaymodel.h>
-#include <src/plugin-display/operation/machine.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -37,7 +38,6 @@ CollaborativeLinkWidget::CollaborativeLinkWidget(QWidget *parent)
     , m_deviceComboxModel(new QStandardItemModel(this))
     , m_deviceCombox(new TreeCombox(m_deviceComboxModel, m_deviceComboBoxItem))
     , m_deviceButton(new QPushButton(this))
-    , m_moreSettingsDialog(new CooperationSettingsDialog(this))
     , m_directionComboxItem(new SettingsItem(this))
     , m_directionCombox(new DTK_WIDGET_NAMESPACE::DComboBox(m_directionComboxItem))
     , m_directionComboxModel(new QStandardItemModel(m_directionCombox))
@@ -104,14 +104,6 @@ void CollaborativeLinkWidget::initConnect()
     connect(m_deviceCombox, &TreeCombox::viewItemPressed, this, &CollaborativeLinkWidget::changeTreeComboxIndex);
 
     // 对话框
-    connect(m_moreSettingsDialog, &CooperationSettingsDialog::accepted, this, [this]() {
-        if (m_displayModel->SharedClipboard() != m_moreSettingsDialog->shearClipboardSwitch()->checked()){
-            emit requestOpenSharedClipboard(m_moreSettingsDialog->shearClipboardSwitch()->checked());}
-        if (m_displayModel->SharedDevices() != m_moreSettingsDialog->mousekeyboardSwitch()->checked()){
-            emit requestOpenSharedDevices(m_moreSettingsDialog->mousekeyboardSwitch()->checked());}
-        if (m_displayModel->filesStoragePath() != m_moreSettingsDialog->storagePath())
-            emit requestFilesStoragePath(m_moreSettingsDialog->storagePath());
-    });
 
     connect(m_directionCombox, static_cast<void (DComboBox::*)(int)>(&DComboBox::activated), this, &CollaborativeLinkWidget::changeDirectionComboxIndex, Qt::QueuedConnection);
 }
@@ -137,9 +129,6 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
     if (m_currentMachineDevcice)
         cooperationStatusChanged(m_currentMachineDevcice->deviceSharing());
 
-    connect(model, &DisplayModel::sharedDevicesChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setOpenSharedDevices);
-    connect(model, &DisplayModel::sharedClipboardChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setOpenSharedClipboard);
-    connect(model, &DisplayModel::filesStoragePathChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setFilesStoragePath);
     qDebug() << " CooperationSettingsDialog settings: " << m_displayModel->SharedDevices() << m_displayModel->SharedClipboard();
 }
 
@@ -156,20 +145,24 @@ void CollaborativeLinkWidget::changeTreeComboxIndex(const QModelIndex &index)
 
     // 处理更多配置项
     if (index.row() == m_deviceComboxModel->rowCount() - 1) {
-        m_moreSettingsDialog->setOpenSharedDevices(m_displayModel->SharedDevices());
-        m_moreSettingsDialog->setOpenSharedClipboard(m_displayModel->SharedClipboard());
-        m_moreSettingsDialog->setFilesStoragePath(m_displayModel->filesStoragePath());
-        m_moreSettingsDialog->setButtonDisabled();
-        m_moreSettingsDialog->show();
+        CooperationSettingsDialog dialog;
+        connect(m_displayModel, &DisplayModel::sharedDevicesChanged, &dialog, &CooperationSettingsDialog::setOpenSharedDevices);
+        connect(m_displayModel, &DisplayModel::sharedClipboardChanged, &dialog, &CooperationSettingsDialog::setOpenSharedClipboard);
+        connect(m_displayModel, &DisplayModel::filesStoragePathChanged, &dialog, &CooperationSettingsDialog::setFilesStoragePath);
+        dialog.setOpenSharedDevices(m_displayModel->SharedDevices());
+        dialog.setOpenSharedClipboard(m_displayModel->SharedClipboard());
+        dialog.setFilesStoragePath(m_displayModel->filesStoragePath());
+        dialog.setButtonDisabled();
+        if (dialog.exec() == QDialog::Accepted) {
+            if (m_displayModel->SharedClipboard() != dialog.shearClipboardSwitch()->checked()){
+                emit requestOpenSharedClipboard(dialog.shearClipboardSwitch()->checked());}
+            if (m_displayModel->SharedDevices() != dialog.mousekeyboardSwitch()->checked()){
+                emit requestOpenSharedDevices(dialog.mousekeyboardSwitch()->checked());}
+            if (m_displayModel->filesStoragePath() != dialog.storagePath())
+                emit requestFilesStoragePath(dialog.storagePath());
+        }
         return;
     }
-
-//    DevViewItemType type = index.data(Qt::DisplayRole).value<DevViewItemType>();
-//    qDebug() << " type: " << type;
-//    if (type == DevViewItemType::MoreSettingsItem) {
-//        m_moreSettingsDialog->show();
-//        return;
-//    }
 
     auto tmp = m_deviceComboxModel->index(index.row(), 0);
     auto machine = m_deviceComboxModel->data(tmp, Qt::WhatsThisPropertyRole).value<Machine*>();

@@ -958,6 +958,7 @@ if (BUILD_PLUDIN)
     )
 
     target_include_directories(${Display_Name} PUBLIC
+        src/plugin-display
         ${Display_Includes}
     )
 

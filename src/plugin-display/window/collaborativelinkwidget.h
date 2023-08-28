@@ -7,8 +7,6 @@
 #include <DComboBox>
 #include <QStandardItem>
 #include <QWidget>
-#include "interface/plugininterface.h"
-#include "cooperationsettingsdialog.h"
 #include "treecombox.h"
 
 QT_BEGIN_NAMESPACE
@@ -79,7 +77,6 @@ private:
     QStandardItemModel *m_deviceComboxModel;
     TreeCombox *m_deviceCombox;
     QPushButton *m_deviceButton;
-    CooperationSettingsDialog *m_moreSettingsDialog;
 
     // 连接方向
     DCC_NAMESPACE::SettingsItem *m_directionComboxItem;
