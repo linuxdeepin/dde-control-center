@@ -48,7 +48,6 @@ ModuleObject *CommonInfoPlugin::module()
     CommonInfoModule *moduleInterface = new CommonInfoModule();
     moduleInterface->setName("commoninfo");
     moduleInterface->setDisplayName(tr("General Settings"));
-    moduleInterface->setDescription(tr("General Settings"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_commoninfo"));
 
     //二级菜单--启动菜单
