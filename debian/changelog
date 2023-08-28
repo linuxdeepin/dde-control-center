@@ -1,3 +1,16 @@
+dde-control-center (6.0.23) unstable; urgency=medium
+
+  * fix avatarlistDialog is not modal
+  * not to init filedialog when initialize a class, to speed up the plugin
+  * use categrade log to show the log
+  * fix opening the Control Center in the launcher or right-clicking to open the Control Center fails
+  * disable edit btn when no customzonelist
+  * fix the logic of the shown of description, and update description
+  * bring back missing icon
+  * remote setSelection of the tabbar, we not use it anymore
+  * init device Combobox enable state when active
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 28 Aug 2023 10:55:03 +0800
+
 dde-control-center (6.0.22) unstable; urgency=medium
 
   * when descption is empty, module will use the displayName of child to make
