@@ -34,6 +34,8 @@ const QString PLATFORM_NAME = std::visit([]() -> QString {
     QString platformname = QGuiApplication::platformName();
     if (platformname.contains("xcb")) {
         platformname = "X11";
+    } else if (platformname.contains("wayland")) {
+        platformname = "Wayland";
     }
     return platformname;
 });
