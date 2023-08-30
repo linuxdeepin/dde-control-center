@@ -121,6 +121,10 @@ public Q_SLOTS:
     void setTestingChannelEnable(const bool &enable);
     void checkTestingChannelStatus();
 
+    void setLinglongAutoUpdate(const bool status);
+    void checkLinglongUpdateStatus();
+    void tryLinglongUpdate();
+
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);

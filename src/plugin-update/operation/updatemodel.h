@@ -157,6 +157,8 @@ public:
 
     int autoCheckUpdateCircle() const { return m_autoCheckUpdateCircle; }
 
+    bool linglongAutoUpdate() const { return m_linglongAutoUpdateActived; }
+
     void setAutoCheckUpdateCircle(const int interval);
     bool enterCheckUpdate();
 
@@ -218,6 +220,7 @@ public:
     // Testing Channel
     TestingChannelStatus getTestingChannelStatus() const;
     void setTestingChannelStatus(const TestingChannelStatus &status);
+    void setLinglongAutoUpdate(const bool longlongAutoUpdate);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
@@ -272,6 +275,8 @@ Q_SIGNALS:
     // Testing Channel
     void TestingChannelStatusChanged(const TestingChannelStatus &status);
 
+    void longlongAutoUpdateChanged(const bool longlongAutoUpdate);
+
 private:
     UpdatesStatus m_status;
 
@@ -323,6 +328,7 @@ private:
     TestingChannelStatus m_testingChannelStatus;
 
     bool m_atomicBackingUp;
+    bool m_linglongAutoUpdateActived;
 };
 
 #endif // UPDATEMODEL_H
