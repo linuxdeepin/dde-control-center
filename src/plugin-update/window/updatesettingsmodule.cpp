@@ -307,6 +307,34 @@ void UpdateSettingsModule::initModuleList()
                 });
         appendChild(internalUpdateTip);
     }
+
+    appendChild(new WidgetModule<SwitchWidget>(
+            "Linglong update",
+            tr("linglong update"),
+            [this](SwitchWidget *lingLongUpdateBtn) {
+                lingLongUpdateBtn->addBackground();
+                connect(m_model,
+                        &UpdateModel::longlongAutoUpdateChanged,
+                        lingLongUpdateBtn,
+                        &SwitchWidget::setChecked);
+                connect(lingLongUpdateBtn,
+                        &SwitchWidget::checkedChanged,
+                        m_work,
+                        &UpdateWorker::setLinglongAutoUpdate);
+                lingLongUpdateBtn->setChecked(m_model->linglongAutoUpdate());
+                lingLongUpdateBtn->setTitle(tr("Linglong Package Update"));
+            }));
+    auto internalUpdateTip = new WidgetModule<DTipLabel>(
+            "LinglongUpdateTip",
+            "",
+            [](DTipLabel *lingLongUpdateLabel) {
+                lingLongUpdateLabel->setWordWrap(true);
+                lingLongUpdateLabel->setAlignment(Qt::AlignLeft);
+                lingLongUpdateLabel->setContentsMargins(10, 0, 10, 0);
+                lingLongUpdateLabel->setText(tr(
+                        "If there is update for linglong package, system will update it for you"));
+            });
+    appendChild(internalUpdateTip);
 }
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)

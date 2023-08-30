@@ -40,6 +40,9 @@ const int DesktopProfessionalPlatform = 1; // 桌面专业版
 const int DesktopCommunityPlatform = 3;    // 桌面社区版
 const int ServerPlatform = 6;              // 服务器版
 
+static const QString LINGLONG_TIMER = QStringLiteral("linglong-upgrade.timer");
+static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service");
+
 using Dtk::Widget::DDialog;
 using Dtk::Widget::DLabel;
 using Dtk::Widget::DWaterProgress;
@@ -259,6 +262,8 @@ void UpdateWorker::activate()
     onJobListChanged(m_updateInter->jobList());
 
     testingChannelChangeSlot();
+    checkLinglongUpdateStatus();
+
     licenseStateChangeSlot();
 
     QDBusConnection::systemBus().connect("com.deepin.license",
@@ -267,6 +272,49 @@ void UpdateWorker::activate()
                                          "LicenseStateChange",
                                          this,
                                          SLOT(licenseStateChangeSlot()));
+}
+
+void UpdateWorker::setLinglongAutoUpdate(const bool status)
+{
+    QProcess process;
+    QStringList systemdcommand;
+    if (status) {
+        systemdcommand = QStringList{ "--user", "enable", "--now", LINGLONG_TIMER };
+    } else {
+        systemdcommand = QStringList{ "--user", "disable", "--now", LINGLONG_TIMER };
+    }
+    process.start("systemctl", systemdcommand);
+    process.waitForFinished(-1);
+
+    if (status) {
+        tryLinglongUpdate();
+    }
+    checkLinglongUpdateStatus();
+}
+
+void UpdateWorker::tryLinglongUpdate()
+{
+    QProcess *process = new QProcess;
+    process->start("systemctl", { "--user", "start", LINGLONG_SERVICE });
+    connect(process, &QProcess::errorOccurred, this, [process](QProcess::ProcessError error) {
+        qCWarning(DdcUpdateWork) << "Linglong update Error:" << error;
+        process->deleteLater();
+    });
+    connect(process,
+            static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+            this,
+            [process](int, QProcess::ExitStatus) {
+                process->deleteLater();
+            });
+}
+
+void UpdateWorker::checkLinglongUpdateStatus()
+{
+    QProcess process;
+    process.start("systemctl", { "--user", "is-active", LINGLONG_TIMER });
+    process.waitForFinished();
+    QString text = process.readAllStandardOutput().trimmed();
+    m_model->setLinglongAutoUpdate(text == "active");
 }
 
 void UpdateWorker::deactivate() { }
@@ -659,6 +707,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         m_backupStatus = BackupStatus::Backuped;
         downloadAndInstallUpdates(updateType);
     }
+    tryLinglongUpdate();
 }
 
 void UpdateWorker::setAutoCheckUpdates(const bool autoCheckUpdates)
