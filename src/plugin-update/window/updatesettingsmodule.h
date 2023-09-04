@@ -29,7 +29,7 @@ public:
                                   UpdateWorker *work,
                                   QObject *parent = nullptr);
     virtual ~UpdateSettingsModule();
-    void deactive() override;
+    void active() override;
 
     /**
      * @brief UpdateSettingsModule::initModuleList 初始化页面mouleObj
