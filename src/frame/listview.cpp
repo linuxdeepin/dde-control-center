@@ -444,7 +444,7 @@ void ListView::updateGeometries()
         verticalScrollBar()->setSingleStep(step.height() + spacing());
         verticalScrollBar()->setPageStep(viewport()->height());
 
-        int height = d->m_maxRowCount * (d->m_itemSize.height() + d->m_spacing) - d->m_spacing + (d->m_viewMode == ListMode ? d->m_firstHeightDiff : 0);
+        int height = d->m_maxRowCount * (d->m_itemSize.height() + d->m_spacing) + (d->m_viewMode == ListMode ? d->m_firstHeightDiff : 0);
         if (height < viewport()->height()) {
             verticalScrollBar()->setRange(0, 0);
         } else {
