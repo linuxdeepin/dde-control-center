@@ -257,6 +257,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
     frame->setAutoFillBackground(true);
     frame->setPalette(pa);
 
+    m_avatarSelectItem->setCurrentIndex(m_avatarSelectItem->model()->index(0, 0));
     m_mainContentLayout->addWidget(frame);
 
     setLayout(m_mainContentLayout);
