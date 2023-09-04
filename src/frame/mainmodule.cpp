@@ -25,10 +25,10 @@ using namespace DCC_NAMESPACE;
 constexpr int NavViewMaximumWidth = QWIDGETSIZE_MAX;
 constexpr int NavViewMinimumWidth = 160;
 
-const QSize ListViewItemIconSize_IconMode(84, 84);
-const QSize ListViewItemGridSize_IconMode(280, 84);
-const QSize ListViewItemIconSize_ListMode(32, 32);
-const QSize ListViewItemGridSize_ListMode(168, 48);
+constexpr QSize ListViewItemIconSize_IconMode(84, 84);
+constexpr QSize ListViewItemGridSize_IconMode(280, 84);
+constexpr QSize ListViewItemIconSize_ListMode(32, 32);
+constexpr QSize ListViewItemGridSize_ListMode(168, 48);
 constexpr int ListView_ListMode_MaxWidth = 400;
 constexpr int ListView_IconMode_MaxWidth = 500;
 // mainly about icon and margin

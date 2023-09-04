@@ -7,7 +7,7 @@
 #include "interface/namespace.h"
 #include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
-#include "src/plugin-display/window/recognizewidget.h"
+#include "window/recognizewidget.h"
 
 class Resolution;
 class QVBoxLayout;

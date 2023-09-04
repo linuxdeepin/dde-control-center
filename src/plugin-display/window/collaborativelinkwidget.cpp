@@ -8,10 +8,10 @@
 #include "operation/displaymodel.h"
 #include "operation/machine.h"
 
-#include <widgets/settingsgroup.h>
-#include <widgets/settingsitem.h>
-#include <widgets/switchwidget.h>
-#include <widgets/titlelabel.h>
+#include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
+#include "widgets/switchwidget.h"
+#include "widgets/titlelabel.h"
 
 #include <DComboBox>
 #include <DStandardItem>

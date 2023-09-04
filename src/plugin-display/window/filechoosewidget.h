@@ -5,7 +5,7 @@
 #define FILECHOOSEWIDGET_H
 
 #include "widgets/settingsitem.h"
-#include <dfilechooseredit.h>
+#include <DFileChooserEdit>
 
 QT_BEGIN_NAMESPACE
 class QLabel;

@@ -5,7 +5,9 @@
 #define MONITORFULLWIDGET_H
 
 #include "interface/namespace.h"
+
 #include <DPlatformWindowHandle>
+
 #include <QFrame>
 
 DWIDGET_USE_NAMESPACE

@@ -6,7 +6,7 @@
 #include <QtMath>
 
 #include "rotatewidget.h"
-#include "src/plugin-display/operation/displaymodel.h"
+#include "operation/displaymodel.h"
 
 #include <QLabel>
 #include <QComboBox>

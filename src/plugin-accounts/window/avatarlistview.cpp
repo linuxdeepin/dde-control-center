@@ -145,7 +145,7 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
     // 根据文件名进行排序
     std::sort(list.begin(),
               list.end(),
-              [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
+              [](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
                   return fileinfo1.baseName() < fileinfo2.baseName();
               });
 

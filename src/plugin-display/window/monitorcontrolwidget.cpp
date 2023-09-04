@@ -3,7 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "monitorcontrolwidget.h"
 #include "monitorsground.h"
-#include "src/plugin-display/operation/displaymodel.h"
+#include "operation/displaymodel.h"
 
 #include <QLabel>
 #include <QVBoxLayout>

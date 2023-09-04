@@ -11,7 +11,7 @@
 #include "refreshratewidget.h"
 #include "rotatewidget.h"
 #include "monitorcontrolwidget.h"
-#include "src/plugin-display/operation/displaymodel.h"
+#include "operation/displaymodel.h"
 
 #include <DFontSizeManager>
 

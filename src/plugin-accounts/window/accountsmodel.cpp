@@ -5,13 +5,13 @@
 #include "operation/user.h"
 #include "operation/usermodel.h"
 
+#include <DStyleOptionBackgroundGroup>
+#include <DStyle>
+
 #include <QIcon>
 #include <QDebug>
 #include <QPainter>
 #include <QApplication>
-
-#include <DStyleOptionBackgroundGroup>
-#include <DStyle>
 #include <QPainterPath>
 
 using namespace DCC_NAMESPACE;

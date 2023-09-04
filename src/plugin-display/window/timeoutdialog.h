@@ -6,7 +6,7 @@
 #define TIMEOUTDIALOG_H
 
 #include <QTimer>
-#include <ddialog.h>
+#include <DDialog>
 
 DWIDGET_USE_NAMESPACE
 
