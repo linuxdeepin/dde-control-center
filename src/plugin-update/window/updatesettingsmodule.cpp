@@ -39,7 +39,11 @@ UpdateSettingsModule::UpdateSettingsModule(UpdateModel *model, UpdateWorker *wor
 
 UpdateSettingsModule::~UpdateSettingsModule() { }
 
-void UpdateSettingsModule::deactive() { }
+void UpdateSettingsModule::active()
+{
+    setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates()
+                       || m_model->autoCheckSystemUpdates());
+}
 
 void UpdateSettingsModule::initModuleList()
 {
@@ -303,8 +307,6 @@ void UpdateSettingsModule::initModuleList()
                 });
         appendChild(internalUpdateTip);
     }
-    setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates()
-                       || m_model->autoCheckSystemUpdates());
 }
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)
