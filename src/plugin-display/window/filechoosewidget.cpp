@@ -3,7 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "filechoosewidget.h"
 
-#include <dfilechooseredit.h>
+#include <DFileChooserEdit>
 
 #include <QHBoxLayout>
 #include <QLabel>

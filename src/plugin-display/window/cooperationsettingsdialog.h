@@ -5,14 +5,15 @@
 #define COOPERATIONSETTINGSDIALOG_H
 
 #include "filechoosewidget.h"
+
 #include "interface/namespace.h"
-#include "widgets/titlelabel.h"
+
+#include "widgets/buttontuple.h"
+#include "widgets/switchwidget.h"
 
 #include <DAbstractDialog>
 #include <DSuggestButton>
 #include <DTipLabel>
-#include <buttontuple.h>
-#include <switchwidget.h>
 
 QT_BEGIN_NAMESPACE
 class QDialog;

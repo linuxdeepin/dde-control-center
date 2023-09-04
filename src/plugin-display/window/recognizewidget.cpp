@@ -4,7 +4,7 @@
 
 
 #include "recognizewidget.h"
-#include "src/plugin-display/operation/displaymodel.h"
+#include "operation/displaymodel.h"
 
 #include <QPainter>
 #include <QPainterPath>

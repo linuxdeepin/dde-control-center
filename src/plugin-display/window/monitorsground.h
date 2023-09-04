@@ -7,7 +7,7 @@
 #define MONITORSGROUND_H
 
 #include "interface/namespace.h"
-#include "src/plugin-display/operation/monitor.h"
+#include "operation/monitor.h"
 
 #include <math.h>
 #include <float.h>

@@ -5,10 +5,9 @@
 #define BRIGHTNESSWIDGET_H
 
 #include "interface/namespace.h"
+
 #include "widgets/titlelabel.h"
-#include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
 

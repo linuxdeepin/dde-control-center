@@ -2,8 +2,10 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "brightnesswidget.h"
-#include "src/plugin-display/operation/displaymodel.h"
-#include "src/plugin-display/operation/monitor.h"
+#include "operation/displaymodel.h"
+#include "operation/monitor.h"
+
+#include "widgets/dccslider.h"
 
 #include <DFontSizeManager>
 

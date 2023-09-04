@@ -3,11 +3,9 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include "interface/namespace.h"
 #include <DComboBox>
 #include <DListView>
 #include <DStandardItem>
-#include <src/plugin-display/operation/machine.h>
 
 QT_BEGIN_NAMESPACE
 class QStandardItem;

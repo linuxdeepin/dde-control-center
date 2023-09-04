@@ -6,9 +6,9 @@
 #include "groupitem.h"
 #include "pwqualitymanager.h"
 #include "securitylevelitem.h"
-#include "widgets/dcclistview.h"
-#include "widgets/titlelabel.h"
 
+#include <widgets/dcclistview.h>
+#include <widgets/titlelabel.h>
 #include <widgets/comboxwidget.h>
 #include <widgets/lineeditwidget.h>
 #include <widgets/settingsgroup.h>

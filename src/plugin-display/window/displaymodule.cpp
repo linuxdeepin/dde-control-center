@@ -1,19 +1,21 @@
 //SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "displaymodule.h"
 #include "brightnesswidget.h"
 #include "scalingwidget.h"
 #include "resolutionwidget.h"
 #include "refreshratewidget.h"
 #include "rotatewidget.h"
-#include "secondaryscreendialog.h"
 #include "multiscreenwidget.h"
 #include "collaborativelinkwidget.h"
-#include "src/frame/mainwindow.h"
-#include "src/plugin-display/window/timeoutdialog.h"
-#include "src/plugin-display/operation/displaymodel.h"
-#include "src/plugin-display/operation/displayworker.h"
+#include "timeoutdialog.h"
+
+#include "operation/displaymodel.h"
+#include "operation/displayworker.h"
+
+#include <DMainWindow>
 
 #include <QApplication>
 #include <QDesktopWidget>

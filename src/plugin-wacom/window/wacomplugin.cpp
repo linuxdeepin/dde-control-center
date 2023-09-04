@@ -5,7 +5,7 @@
 #include "wacomplugin.h"
 #include "widgets/widgetmodule.h"
 
-#include <wacommodule.h>
+#include "wacommodule.h"
 
 /*数位板*/
 

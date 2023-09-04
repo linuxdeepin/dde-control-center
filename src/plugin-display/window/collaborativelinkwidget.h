@@ -4,10 +4,12 @@
 #ifndef COLLABORATIVELINKWIDGET_H
 #define COLLABORATIVELINKWIDGET_H
 
+#include "treecombox.h"
+#include "interface/namespace.h"
+
 #include <DComboBox>
 #include <QStandardItem>
 #include <QWidget>
-#include "treecombox.h"
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;

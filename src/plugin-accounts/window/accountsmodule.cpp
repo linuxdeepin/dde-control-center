@@ -21,7 +21,7 @@
 #include "widgets/moduleobjectitem.h"
 #include "widgets/horizontalmodule.h"
 #include "widgets/itemmodule.h"
-#include <widgets/dcclistview.h>
+#include "widgets/dcclistview.h"
 
 #include <QStringList>
 #include <QTimer>
