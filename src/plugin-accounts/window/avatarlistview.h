@@ -70,6 +70,9 @@ public Q_SLOTS:
     void requestAddCustomAvatar(const QString &path);
     void requestUpdateCustomAvatar(const QString &path);
 
+protected:
+    void updateGeometries() override;
+
 private:
     void initWidgets();
     QStandardItem *getCustomAvatar();

@@ -62,6 +62,7 @@ public:
 
 private:
     CustomAvatarWidget *getCustomAvatarWidget();
+    void handleListViewRequestUpdate(bool isSave, const int &role, const int &type);
 
 private:
     AccountsWorker *m_worker;
@@ -73,7 +74,6 @@ private:
     QStandardItemModel *m_avatarSelectItemModel;
     AvatarListFrame *m_currentSelectAvatarWidget;
     QMap<int, AvatarListFrame *> m_avatarFrames;
-    QScrollArea *m_avatarArea;
     std::optional<QString> m_path;
 };
 } // namespace DCC_NAMESPACE
