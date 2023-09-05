@@ -30,6 +30,15 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
+static QScrollArea *get_new_scrollarea(QWidget *parent)
+{
+    QScrollArea *avatarArea = new QScrollArea(parent);
+    avatarArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    avatarArea->setWidgetResizable(true);
+    avatarArea->setFrameShape(QFrame::NoFrame);
+    return avatarArea;
+}
+
 AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *parent)
     : Dtk::Widget::DAbstractDialog(parent)
     , m_worker(worker)
@@ -39,7 +48,6 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
     , m_rightContentLayout(new QVBoxLayout)
     , m_avatarSelectItem(new DListView(this))
     , m_avatarSelectItemModel(new QStandardItemModel(this))
-    , m_avatarArea(new QScrollArea(this))
     , m_path(std::nullopt)
 {
     m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
@@ -118,59 +126,18 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
     avatarSelectWidget->setFixedWidth(450);
 
     for (const auto &frame : m_avatarFrames) {
-        avatarSelectWidget->addWidget(frame);
+        auto scrolllarea = get_new_scrollarea(this);
+        scrolllarea->setWidget(frame);
+        avatarSelectWidget->addWidget(scrolllarea);
 
         auto listView = frame->getCurrentListView();
-        if (listView && listView->getCurrentListViewRole() != Role::AvatarAdd) {
-            connect(listView,
-                    &AvatarListView::requestUpdateListView,
-                    this,
-                    [this](bool isNeedSave, const auto &role, const auto &type) {
-                        Q_UNUSED(type);
-
-                        for (auto frame : m_avatarFrames) {
-
-                            if (frame->getCurrentRole() != role) {
-                                if (frame->getCurrentListView()) {
-                                    frame->getCurrentListView()->setCurrentAvatarUnChecked();
-                                }
-                            }
-                        }
-
-                        if (role == Custom) {
-                            // 如果是新添加进来的用户头像, 先保存, 然后再更新用户头像编辑界面
-                            if (isNeedSave) {
-                                m_worker->setAvatar(m_curUser,
-                                                    m_avatarFrames[role]
-                                                            ->getCurrentListView()
-                                                            ->getAvatarPath());
-
-                                connect(m_curUser,
-                                        &User::currentAvatarChanged,
-                                        this,
-                                        [this](const QString &path) {
-                                            if (path.contains(
-                                                        m_avatarFrames[Custom]->getCurrentPath())) {
-                                                getCustomAvatarWidget()
-                                                        ->getCurrentListView()
-                                                        ->requestUpdateCustomAvatar(path);
-                                                getCustomAvatarWidget()
-                                                        ->getCustomAvatarView()
-                                                        ->setAvatarPath(
-                                                                m_avatarFrames[Custom]
-                                                                        ->getCurrentListView()
-                                                                        ->getAvatarPath());
-                                            }
-                                        });
-
-                                return;
-                            }
-
-                            getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
-                                    m_avatarFrames[role]->getCurrentListView()->getAvatarPath());
-                        }
-                    });
+        if (!listView || listView->getCurrentListViewRole() == Role::AvatarAdd) {
+            continue;
         }
+        connect(listView,
+                &AvatarListView::requestUpdateListView,
+                this,
+                &AvatarListDialog::handleListViewRequestUpdate);
     }
 
     m_currentSelectAvatarWidget = m_avatarFrames[Person];
@@ -194,17 +161,12 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
         }
 
         avatarSelectWidget->setCurrentIndex(index.row());
-        m_currentSelectAvatarWidget =
-                static_cast<AvatarListFrame *>(avatarSelectWidget->currentWidget());
+        QScrollArea *area = static_cast<QScrollArea *>(avatarSelectWidget->currentWidget());
+        m_currentSelectAvatarWidget = static_cast<AvatarListFrame *>(area->widget());
     });
 
     QHBoxLayout *avatarLayout = new QHBoxLayout();
-    avatarLayout->setContentsMargins(0, 0, 0, 0);
-    m_avatarArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    m_avatarArea->setWidgetResizable(false);
-    m_avatarArea->setFrameShape(QFrame::NoFrame);
-    m_avatarArea->setWidget(avatarSelectWidget);
-    avatarLayout->addWidget(m_avatarArea, Qt::AlignCenter);
+    avatarLayout->addWidget(avatarSelectWidget, Qt::AlignCenter);
     m_rightContentLayout->addLayout(avatarLayout);
 
     // 添加（关闭，保存）按钮
@@ -285,4 +247,39 @@ CustomAvatarWidget *AvatarListDialog::getCustomAvatarWidget()
 QString AvatarListDialog::getAvatarPath() const
 {
     return m_currentSelectAvatarWidget->getAvatarPath();
+}
+
+void AvatarListDialog::handleListViewRequestUpdate(bool isSave, const int &role, const int &type)
+{
+
+    Q_UNUSED(type);
+
+    for (auto frame : m_avatarFrames) {
+        if (frame->getCurrentRole() != role) {
+            if (frame->getCurrentListView()) {
+                frame->getCurrentListView()->setCurrentAvatarUnChecked();
+            }
+        }
+    }
+
+    if (role != Custom) {
+        return;
+    }
+    // 如果是新添加进来的用户头像, 先保存, 然后再更新用户头像编辑界面
+    if (isSave) {
+        m_worker->setAvatar(m_curUser, m_avatarFrames[role]->getCurrentListView()->getAvatarPath());
+
+        connect(m_curUser, &User::currentAvatarChanged, this, [this](const QString &path) {
+            if (path.contains(m_avatarFrames[Custom]->getCurrentPath())) {
+                getCustomAvatarWidget()->getCurrentListView()->requestUpdateCustomAvatar(path);
+                getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
+                        m_avatarFrames[Custom]->getCurrentListView()->getAvatarPath());
+            }
+        });
+
+        return;
+    }
+
+    getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
+            m_avatarFrames[role]->getCurrentListView()->getAvatarPath());
 }

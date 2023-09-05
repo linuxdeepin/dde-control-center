@@ -77,6 +77,17 @@ AvatarListView::~AvatarListView()
     }
 }
 
+void AvatarListView::updateGeometries()
+{
+    DListView::updateGeometries();
+    if (model()->rowCount() == 0) {
+        return;
+    }
+    QRect r = rectForIndex(model()->index(model()->rowCount() - 1, 0));
+    QMargins margins = viewportMargins();
+    setFixedHeight(r.y() + r.height() + margins.top() + margins.bottom() + 1);
+}
+
 void AvatarListView::initWidgets()
 {
     setViewMode(ViewMode::IconMode);
