@@ -1992,6 +1992,16 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     QString machineid = machineidopt.value();
     const QString server = ServiceLink;
 
+    // every time, clear the machineid in server
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/" + machineid));
+    connect(http, &QNetworkAccessManager::finished, this, [=](QNetworkReply *reply) {
+        reply->deleteLater();
+        http->deleteLater();
+    });
+    http->deleteResource(request);
+
     // Disable Testing Channel
     if (!enable) {
         if (m_updateInter->PackageExists(TestingChannelPackage)) {
@@ -2023,14 +2033,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
                 return;
             }
         }
-        auto http = new QNetworkAccessManager(this);
-        QNetworkRequest request;
-        request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/" + machineid));
-        connect(http, &QNetworkAccessManager::finished, this, [=](QNetworkReply *reply) {
-            reply->deleteLater();
-            http->deleteLater();
-        });
-        http->deleteResource(request);
+
         return;
     }
     auto testChannelUrlOpt = getTestingChannelUrl();
