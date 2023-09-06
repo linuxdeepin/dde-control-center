@@ -57,8 +57,8 @@
         <translation>Alkalmazás hozzáadása</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Az asztalon levő fájl megnyitása</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>Még nem töltött fel képet. Betallózhat, vagy idehúzhat egy képet</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Képek</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>A feltöltött fájltípus nem támogatott, kérjük töltse fel más formátumban</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Képek</translation>
     </message>
 </context>
 <context>
@@ -2790,7 +2790,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <name>PowerModule</name>
     <message>
         <source>Power</source>
-        <translation>Kikapcsolás</translation>
+        <translation>Energiaellátás</translation>
     </message>
     <message>
         <source>Battery low, please plug in</source>
@@ -3696,6 +3696,18 @@ dátumformátum</translation>
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Csatlakozzon a belső tesztelési csatornához</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

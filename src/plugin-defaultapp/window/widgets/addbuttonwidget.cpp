@@ -82,7 +82,7 @@ void AddButtonWidget::setCategoryName(const QString &name)
 void AddButtonWidget::onAddBtnClicked()
 {
     QFileDialog dialog = QFileDialog();
-    dialog.setWindowTitle(tr("Open Destkop file"));
+    dialog.setWindowTitle(tr("Open Desktop file"));
     QStringList screen;
     screen << tr("Apps (*.desktop)")
            << tr("All files (*)");

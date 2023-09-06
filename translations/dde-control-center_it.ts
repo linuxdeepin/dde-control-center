@@ -57,8 +57,8 @@
         <translation>Aggiungi App</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Apri file del Desktop</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Immagini</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Immagini</translation>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ UnionTech Software si impegna a ricercare e migliorare la sicurezza, l&apos;accu
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Unisciti al canale di test</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

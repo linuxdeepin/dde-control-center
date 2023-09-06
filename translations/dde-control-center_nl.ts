@@ -57,8 +57,8 @@
         <translation>Programma toevoegen</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Bureaubladbestand openen</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>Je hebt nog geen afbeeldingen gekozen. Klik om te kiezen of sleep een afbeelding hierheen.</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Afbeeldingen</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Dit bestandstype wordt niet ondersteund. Probeer het opnieuw.</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Afbeeldingen</translation>
     </message>
 </context>
 <context>
@@ -3682,6 +3682,18 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Intern testkanaal inschakelen</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

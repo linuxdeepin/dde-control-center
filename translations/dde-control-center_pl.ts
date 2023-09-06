@@ -57,8 +57,8 @@
         <translation>Dodaj program</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Otwórz plik .desktop</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>Jeszcze nie załadowano zdjęcia, kliknij lub przeciągnij, aby załadować zdjęcie</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Obrazy</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Załadowany typ pliku jest nieprawidłowy, spróbuj ponownie</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Obrazy</translation>
     </message>
 </context>
 <context>
@@ -1483,11 +1483,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation>błąd wczytywania następujących wtyczek</translation>
+        <translation>Błąd wczytywania następujących wtyczek</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation>nie udało się wczytać wtyczki na czas</translation>
+        <translation>Nie udało się wczytać wtyczki na czas</translation>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Dołącz do wewnętrznego kanału testowego</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

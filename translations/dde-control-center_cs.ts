@@ -57,8 +57,8 @@
         <translation>Přidat aplikaci</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Otevřít soubor spouštěče</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Správa Bluetooth zařízení</translation>
     </message>
 </context>
 <context>
@@ -416,15 +416,15 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>Uživatetelé</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Správa uživatelů</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>Vytvořit uživatele</translation>
     </message>
     <message>
         <source>Username</source>
@@ -436,11 +436,11 @@
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>Smazat uživatele</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ uživatele</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -839,11 +839,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>Nový uživatel</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ uživatele</translation>
     </message>
     <message>
         <source>Username</source>
@@ -929,12 +929,12 @@
         <translation>Ještě jste nenahráli obrázek, můžete jej nahrát kliknutím nebo přetažením.</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Obrázky</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Nahraný typ souboru je nesprávný, nahrajte jej prosím znovu</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Obrázky</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Jas, rozlišení, měřítko zobrazení atd.</translation>
     </message>
 </context>
 <context>
@@ -1483,11 +1483,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation>následující zásuvné moduly se nepodařilo načíst</translation>
+        <translation>následující doplňkové moduly se nepodařilo načíst</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation>zásuvné moduly nelze včas načíst</translation>
+        <translation>Doplňkové moduly se nepodařilo včas načíst</translation>
     </message>
 </context>
 <context>
@@ -1881,7 +1881,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafická platforma</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -2000,27 +2000,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Rychlost ukazatele</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Zapnout touchpad</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Kliknutí klepnutím</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Přirozené posunování</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Pomalé</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rychlé</translation>
     </message>
 </context>
 <context>
@@ -2436,23 +2436,23 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>FormatShowGrid</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum a čas</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Čísla</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Měna</translation>
     </message>
 </context>
 <context>
@@ -2521,11 +2521,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation>Kanál interního testování</translation>
+        <translation>Vývojářský testovací kanál</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation>klikněte zde, abyste otevřeli odkaz</translation>
+        <translation>odkaz otevřete kliknutím sem</translation>
     </message>
 </context>
 <context>
@@ -2839,7 +2839,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2883,7 +2883,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation>Zjišťuje se verze systému, prosím, čekejte...</translation>
+        <translation>Zjišťování verze systému – čekejte prosím…</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -2898,201 +2898,201 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>RegionAndFormatModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"/>
+        <translation>Oblast a formáty</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>pondělí</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>pondělí</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>5. duben 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>5. dubna 2020 (neděle)</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>neděle 5. dubna 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>úterý</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>středa</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>čtvrtek</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>pátek</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>sobota</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>neděle</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Místní nastavení</translation>
     </message>
     <message>
         <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
+        <translation>* Nastavení oblasti ovlivní formáty datumů, času, čísel a některé další formáty. Projeví se až po příštím přihlášení</translation>
     </message>
     <message>
         <source>Locale Show</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazení místních a jazykových nastavení</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>time</source>
-        <translation type="unfinished"/>
+        <translation>čas</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24 hodinový čas</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát času</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát času</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Týdny</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>První den týdne</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát data</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát data</translation>
     </message>
 </context>
 <context>
     <name>RegionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Potvrdit</translation>
     </message>
     <message>
         <source>Regional Setting</source>
-        <translation type="unfinished"/>
+        <translation>Místní nastavení</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Hledat</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatShowPage</name>
     <message>
         <source>Default Format</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí formát</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>Date And Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum a čas</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Čísla</translation>
     </message>
     <message>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Měna</translation>
     </message>
 </context>
 <context>
@@ -3683,7 +3683,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation>Aktualizace z vnitřních zkušebních zdrojů</translation>
+        <translation>Aktualizace z vývojářských testovacích zdrojů</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3691,7 +3691,19 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
-        <translation>Připojte se ke vnitřnímu zkušebnímu kanálu</translation>
+        <translation>Připojit se k vývojářskému testovacímu kanálu</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>
@@ -3737,7 +3749,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Nyní nemusí být bezpečné (fungování systému) opustit vývojářský testovací kanál nyní – chcete ho opustit nyní?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3864,7 +3876,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit rozhraní vypnutí</translation>
     </message>
 </context>
 <context>
@@ -3931,7 +3943,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit rozhraní vypnutí</translation>
     </message>
     <message>
         <source>Do nothing</source>

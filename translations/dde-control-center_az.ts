@@ -57,8 +57,8 @@
         <translation>Tətbiq əlavə edin</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>İş Masası faylını açmaq</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth cihaz idarəetməsi</translation>
     </message>
 </context>
 <context>
@@ -929,12 +929,12 @@
         <translation>Heç bir şəkil yüklənməyib, bir şəkil yükləmək üçün vurun və ya onu buraya atın</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Şəkillər</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Yüklənmiş fayl növü dəstəklənmir, yenidən yükləməniz xahiş olunur</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Şəkillər</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>İşıqlanma, təsvir icazəsi və s</translation>
     </message>
 </context>
 <context>
@@ -3064,7 +3064,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Axtarış</translation>
     </message>
 </context>
 <context>
@@ -3691,6 +3691,18 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Daxili sınaq kanalına qoşul</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

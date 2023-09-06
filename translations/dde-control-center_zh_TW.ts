@@ -57,8 +57,8 @@
         <translation>添加預設程式</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>打開Desktop文件</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>您還沒有上傳過大頭貼，可點擊或拖搜上傳圖片</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>圖片</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>上傳的文件類型不正確，請重新上傳</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>圖片</translation>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>加入內測通道</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>
