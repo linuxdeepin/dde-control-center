@@ -58,7 +58,7 @@
     </message>
     <message>
         <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <translation>打开Desktop文件</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>亮度、分辨率、缩放设置等</translation>
     </message>
 </context>
 <context>
@@ -3065,7 +3065,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
