@@ -57,8 +57,8 @@
         <translation>Lisää sovellus</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Avaa työpöydän tiedosto</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth laitehallinta</translation>
     </message>
 </context>
 <context>
@@ -929,12 +929,12 @@
         <translation>Et ole ladannut kuvaa, voit ladata kuvan painikkeesta tai vetämällä</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Kuvat</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Ladattu tiedostotyyppi on virheellinen, lataa uudelleen</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Kuvat</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Valo, resoluutio, skaalaus jne</translation>
     </message>
 </context>
 <context>
@@ -3065,7 +3065,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Etsi</translation>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Liity testauskanavaan</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

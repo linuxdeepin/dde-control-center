@@ -57,8 +57,8 @@
         <translation>Shtoni Aplikacion</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Hap kartelë Desktopi</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>S’keni ngarkuar foto, mund të klikoni, ose të tërhiqni një figurë, për ta ngarkuar</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Figura</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Lloji i kartelës së ngarkuar është i pasaktë, ju lutemi, ringarkojeni</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Figura</translation>
     </message>
 </context>
 <context>
@@ -3691,6 +3691,18 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Bëhuni Pjesë e Kanalit të Brendshëm të Testimeve</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

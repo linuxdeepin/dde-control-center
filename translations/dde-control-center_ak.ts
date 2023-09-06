@@ -57,7 +57,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open Desktop file</source>
+        <source>Open Destkop file</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -929,11 +929,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Images</source>
+        <source>Uploaded file type is incorrect, please upload again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Uploaded file type is incorrect, please upload again</source>
+        <source>Images</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3677,6 +3677,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Join Internal Testing Channel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
         <translation type="unfinished"/>
     </message>
     <message>

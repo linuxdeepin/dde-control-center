@@ -57,8 +57,8 @@
         <translation>添加默认程序</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>打开Desktop文件</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-	<translation>蓝牙设备管理</translation>
+        <translation>蓝牙设备管理</translation>
     </message>
 </context>
 <context>
@@ -929,12 +929,12 @@
         <translation>您还没有上传过头像，可点击或拖搜上传图片</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>图片</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>上传的文件类型不正确，请重新上传</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>图片</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation>亮度、分辨率、缩放设置等</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3065,7 +3065,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Search</source>
-        <translation>搜索</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>加入内测通道</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation>玲珑更新</translation>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation>玲珑软件更新</translation>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation>当检测到玲珑软件版本更新时系统将自动为你进行软件更新</translation>
     </message>
     <message>
         <source>System Updates</source>

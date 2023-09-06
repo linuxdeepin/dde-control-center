@@ -57,8 +57,8 @@
         <translation>Додати програму</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Відкрити файл робочого столу</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Керування пристроями Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -929,12 +929,12 @@
         <translation>Вами не завантажено зображення. Для завантаження зображення можете клацнути кнопкою миші і перетягти зображення</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Зображення</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>Тип вивантаженого файла є некоректним. Будь ласка, повторіть вивантаження</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Зображення</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Підсвічування, роздільна здатність, масштабування тощо</translation>
     </message>
 </context>
 <context>
@@ -3065,7 +3065,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Шукати</translation>
     </message>
 </context>
 <context>
@@ -3692,6 +3692,18 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Долучитися до каналу внутрішнього тестування</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>

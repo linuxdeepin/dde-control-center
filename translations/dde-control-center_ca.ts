@@ -57,8 +57,8 @@
         <translation>Afegiu-hi una aplicació</translation>
     </message>
     <message>
-        <source>Open Desktop file</source>
-        <translation>Obre un fitxer d&apos;escriptori</translation>
+        <source>Open Destkop file</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -929,12 +929,12 @@
         <translation>No heu penjat cap imatge, podeu clicar o arrossegar per pujar una imatge.</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Imatges</translation>
-    </message>
-    <message>
         <source>Uploaded file type is incorrect, please upload again</source>
         <translation>El tipus de fitxer penjat és incorrecte. Torneu a carregar-lo.</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>Imatges</translation>
     </message>
 </context>
 <context>
@@ -3691,6 +3691,18 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Join Internal Testing Channel</source>
         <translation>Uniu-vos al canal de proves internes</translation>
+    </message>
+    <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Updates</source>
