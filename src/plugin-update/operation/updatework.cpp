@@ -841,17 +841,6 @@ void UpdateWorker::setUpdateLogs(const QJsonArray &array)
         m_updateLogs.append(std::move(item));
     }
     qInfo() << "m_updateLogs size: " << m_updateLogs.size();
-    // 不依赖服务器返回来日志顺序，用systemVersion进行排序
-    // 如果systemVersion版本号相同，则用发布时间排序；不考虑版本号相同且发布时间相同的情况，这种情况应该由运维人员避免
-    std::sort(m_updateLogs.begin(),
-              m_updateLogs.end(),
-              [](const UpdateLogItem &v1, const UpdateLogItem &v2) -> bool {
-                  int compareRet = v1.systemVersion.compare(v2.systemVersion);
-                  if (compareRet == 0) {
-                      return v1.publishTime.compare(v2.publishTime) >= 0;
-                  }
-                  return compareRet > 0;
-              });
 }
 
 void UpdateWorker::checkNetselect()
