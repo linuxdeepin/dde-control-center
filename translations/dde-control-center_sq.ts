@@ -57,8 +57,8 @@
         <translation>Shtoni Aplikacion</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Hap kartelë Desktopi</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3653,6 +3653,18 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Depo Palësh të Treta</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Rregullime të tjera</translation>
     </message>
@@ -3689,19 +3701,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>përditësim i brendshëm</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Bëhuni Pjesë e Kanalit të Brendshëm të Testimeve</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

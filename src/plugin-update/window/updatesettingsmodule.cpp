@@ -330,7 +330,7 @@ void UpdateSettingsModule::initModuleList()
                     internalUpdateLabel->setWordWrap(true);
                     internalUpdateLabel->setAlignment(Qt::AlignLeft);
                     internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
-                    internalUpdateLabel->setText(tr("Join Internal Testing Channel"));
+                    internalUpdateLabel->setText(tr("Join the internal testing channel to get deepin latest updates"));
                 });
         appendChild(internalUpdateTip);
     }

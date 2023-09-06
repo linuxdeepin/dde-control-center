@@ -57,8 +57,8 @@
         <translation>Uygulama Ekle</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Masaüstü Dosyası Aç</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3654,6 +3654,18 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <translation>Üçüncü Taraf Depolar</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Diğer ayarlar</translation>
     </message>
@@ -3690,19 +3702,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Dahili test kanalına katıl</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

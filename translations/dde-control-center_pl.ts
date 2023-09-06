@@ -57,8 +57,8 @@
         <translation>Dodaj program</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Otwórz plik .desktop</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3654,6 +3654,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Zewnętrzne repozytoria</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Pozostałe ustawienia</translation>
     </message>
@@ -3690,19 +3702,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>aktualizacje wewnętrzne</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Dołącz do wewnętrznego kanału testowego</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

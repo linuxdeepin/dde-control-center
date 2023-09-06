@@ -57,7 +57,7 @@
         <translation>添加默认程序</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
+        <source>Open Desktop file</source>
         <translation>打开Desktop文件</translation>
     </message>
     <message>
@@ -3654,6 +3654,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>第三方仓库</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation>玲珑更新</translation>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation>玲珑软件更新</translation>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation>当检测到玲珑软件版本更新时系统将自动为你进行软件更新</translation>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>其他设置</translation>
     </message>
@@ -3690,20 +3702,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>内测更新</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>加入内测通道</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation>玲珑更新</translation>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation>玲珑软件更新</translation>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
-        <translation>当检测到玲珑软件版本更新时系统将自动为你进行软件更新</translation>
+        <source>Join the internal testing channel to get deepin latest updates</source>
+        <translation>加入deepin内测通道，以获取deepin最新更新内容</translation>
     </message>
     <message>
         <source>System Updates</source>
