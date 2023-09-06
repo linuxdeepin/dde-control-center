@@ -1,3 +1,9 @@
+dde-control-center (6.0.25) unstable; urgency=medium
+
+  * bring back missing translations
+
+ -- chenhongtao <chenhongtao@deepin.org>  Wed, 06 Sep 2023 15:26:30 +0800
+
 dde-control-center (6.0.24) unstable; urgency=medium
   * support linglong update
   * fix settings always be disabled
