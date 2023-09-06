@@ -57,8 +57,8 @@
         <translation>Alkalmazás hozzáadása</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Az asztalon levő fájl megnyitása</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3658,6 +3658,18 @@ dátumformátum</translation>
         <translation>Harmadik féltől származó adattárak</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation>Linglong frissítés</translation>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation>Linglong csomag frissítés</translation>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation>Ha van frissítés a Linglong csomaghoz, a rendszer frissíti azt Ön helyett</translation>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Egyéb beállítások</translation>
     </message>
@@ -3694,19 +3706,7 @@ dátumformátum</translation>
         <translation>Belső frissítés</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Csatlakozzon a belső tesztelési csatornához</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

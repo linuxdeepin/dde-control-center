@@ -57,8 +57,8 @@
         <translation>Lisää sovellus</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Avaa työpöydän tiedosto</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3654,6 +3654,18 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Kolmannen osapuolen pakettivarastot</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Muut asetukset</translation>
     </message>
@@ -3690,19 +3702,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>sisäinen päivitys</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Liity testauskanavaan</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

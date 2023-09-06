@@ -57,8 +57,8 @@
         <translation>Tətbiq əlavə edin</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>İş Masası faylını açmaq</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3653,6 +3653,18 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Üçüncü tərəf repazitoriyaları</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Digər ayarlar</translation>
     </message>
@@ -3689,19 +3701,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Daxili yenilənmə</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Daxili sınaq kanalına qoşul</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>

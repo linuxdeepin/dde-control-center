@@ -57,8 +57,8 @@
         <translation>Afegiu-hi una aplicació</translation>
     </message>
     <message>
-        <source>Open Destkop file</source>
-        <translation type="unfinished"/>
+        <source>Open Desktop file</source>
+        <translation>Obre un fitxer d&apos;escriptori</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3653,6 +3653,18 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Repositoris de tercers</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>Altres configuracions</translation>
     </message>
@@ -3689,19 +3701,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>actualització interna</translation>
     </message>
     <message>
-        <source>Join Internal Testing Channel</source>
-        <translation>Uniu-vos al canal de proves internes</translation>
-    </message>
-    <message>
-        <source>linglong update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If there is update for linglong package, system will update it for you</source>
+        <source>Join the internal testing channel to get deepin latest updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
