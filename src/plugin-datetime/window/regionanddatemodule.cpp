@@ -54,6 +54,8 @@ RegionAndFormatModule::RegionAndFormatModule(DatetimeModel *model,
                            tr("Saturday"),
                            tr("Sunday") })
 {
+    // TODO hide region's view
+    if (false) {
     appendChild(new ItemModule("regionalsetting", tr("Regional Setting")));
     appendChild(new ItemModule(
             "RegionSelectButton",
@@ -95,6 +97,7 @@ RegionAndFormatModule::RegionAndFormatModule(DatetimeModel *model,
                 return new FormatShowGrid;
             },
             false));
+    }
 
     appendChild(new ItemModule("timetitle", tr("Time")));
     appendChild(new WidgetModule<SettingsGroup>("Time",
