@@ -73,7 +73,6 @@ public:
             m_area = new QScrollArea(parentWidget);
             m_area->installEventFilter(this);
             m_area->setFrameShape(QFrame::NoFrame);
-            m_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             m_area->setWidgetResizable(true);
             areaWidget->setParent(m_area);
             m_area->setWidget(areaWidget);
