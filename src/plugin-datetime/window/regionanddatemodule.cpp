@@ -61,6 +61,18 @@ RegionAndFormatModule::RegionAndFormatModule(DatetimeModel *model,
             [this](ModuleObject *) {
                 QLocale locale;
                 QString localeName = m_work->getLocaleRegion().value_or(locale.name());
+                auto localeList = m_work->getAllLocale();
+                if (localeList.has_value()) {
+                    auto localeLists = localeList.value();
+                    auto it = std::find_if(localeLists.begin(),
+                                           localeLists.end(),
+                                           [localeName](const LocaleInfo &e) {
+                                               return e.id == localeName;
+                                           });
+                    if (it != localeLists.end()) {
+                        localeName = QString("%1 (%2)").arg(it->name).arg(it->id);
+                    }
+                }
                 auto button = new RegionSettingBtn(localeName);
                 connect(button, &RegionSettingBtn::clicked, this, [this] {
                     auto localeList = m_work->getAllLocale();
