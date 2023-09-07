@@ -118,7 +118,6 @@ public:
         view->setFrameShape(QFrame::NoFrame);
         view->setAutoScroll(true);
         view->setDragEnabled(false);
-        view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         view->setSpacing(5);
         view->setItemSpacing(0);
         view->setSelectionMode(QAbstractItemView::SingleSelection);
