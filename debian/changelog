@@ -1,3 +1,13 @@
+dde-control-center (6.0.26) unstable; urgency=medium
+
+  * fix alert message position error
+  * update the tip of internal switcher
+  * hide region-setting view
+  * show hscrollbar when page width is too big
+  * fix machineid is remembered when joining tesing
+
+ -- chenhongtao <chenhongtao@deepin.org>  Fri, 08 Sep 2023 11:04:30 +0800
+
 dde-control-center (6.0.25) unstable; urgency=medium
 
   * bring back missing translations
