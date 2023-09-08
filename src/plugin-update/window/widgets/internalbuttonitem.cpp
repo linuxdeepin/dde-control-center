@@ -11,7 +11,7 @@
 
 InternalButtonItem::InternalButtonItem(QWidget *parent)
     : SettingsItem(parent)
-    , m_internalLabel(new QLabel(tr("Internal testing channel") + ':', this))
+    , m_internalLabel(new QLabel(tr("Internal testing channel"), this))
     , m_switchbtn(new DSwitchButton(this))
     , m_commandlink(new DCommandLinkButton(tr("click here open the link"), this))
 {
