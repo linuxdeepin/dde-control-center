@@ -49,7 +49,7 @@ using namespace DCC_NAMESPACE;
 #define setConfigHidden(hide) setFlagState(DCC_CONFIG_HIDDEN, hide)
 #define setConfigDisabled(disabled) setFlagState(DCC_CONFIG_DISABLED, disabled)
 
-const QSize MainWindowMininumSize(QSize(800, 600));
+constexpr QSize MainWindowMininumSize(QSize(800, 600));
 
 const QString ControlCenterConfig = QStringLiteral("org.deepin.dde.control-center");
 const QString WidthConfig = QStringLiteral("width");
