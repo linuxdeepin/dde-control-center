@@ -298,7 +298,7 @@ void UpdateSettingsModule::initModuleList()
     if (IsCommunitySystem) {
         appendChild(new UpdateTitleModule("InternalUpdateSetting",
                                           tr("Updates from Internal Testing Sources")));
-        appendChild(new WidgetModule<InternalButtonItem>(
+        auto internalUpdateBtn = new WidgetModule<InternalButtonItem>(
                 "internal update",
                 tr("internal update"),
                 [this](InternalButtonItem *internalBtn) {
@@ -318,23 +318,54 @@ void UpdateSettingsModule::initModuleList()
                                 }
                                 m_work->setTestingChannelEnable(false);
                             });
+
                     connect(m_model,
                             &UpdateModel::TestingChannelStatusChanged,
                             internalBtn,
                             &InternalButtonItem::onModelTestingStatusChanged);
-                }));
+                });
+        internalUpdateBtn->setEnabled(m_model->machineId().has_value());
+        connect(m_model, &UpdateModel::machindIdVisibleChanged, this, [internalUpdateBtn] {
+            internalUpdateBtn->setEnabled(true);
+        });
+        appendChild(internalUpdateBtn);
         auto internalUpdateTip = new WidgetModule<DTipLabel>(
                 "internalUpdateTip",
                 tr(""),
-                [](DTipLabel *internalUpdateLabel) {
+                [this](DTipLabel *internalUpdateLabel) {
                     internalUpdateLabel->setWordWrap(true);
                     internalUpdateLabel->setAlignment(Qt::AlignLeft);
                     internalUpdateLabel->setContentsMargins(10, 0, 10, 0);
-                    internalUpdateLabel->setText(tr("Join the internal testing channel to get deepin latest updates"));
+                    internalUpdateLabel->setText(
+                            tr("Join the internal testing channel to get deepin latest updates"));
+                    internalUpdateLabel->setVisible(m_model->machineId().has_value());
+                    connect(m_model,
+                            &UpdateModel::machindIdVisibleChanged,
+                            this,
+                            [internalUpdateLabel] {
+                                internalUpdateLabel->setVisible(true);
+                            });
                 });
+        auto internalUpdateNoMachineidTip = new WidgetModule<DTipLabel>(
+                "internalUpdateNoMachineidTip",
+                tr(""),
+                [this](DTipLabel *internalUpdateNoMachineIdLabel) {
+                    internalUpdateNoMachineIdLabel->setWordWrap(true);
+                    internalUpdateNoMachineIdLabel->setAlignment(Qt::AlignLeft);
+                    internalUpdateNoMachineIdLabel->setContentsMargins(10, 0, 10, 0);
+                    internalUpdateNoMachineIdLabel->setText(
+                            tr("Please do at least one time system update"));
+                    internalUpdateNoMachineIdLabel->setVisible(!m_model->machineId().has_value());
+                    connect(m_model,
+                            &UpdateModel::machindIdVisibleChanged,
+                            this,
+                            [internalUpdateNoMachineIdLabel] {
+                                internalUpdateNoMachineIdLabel->setVisible(false);
+                            });
+                });
+        appendChild(internalUpdateNoMachineidTip);
         appendChild(internalUpdateTip);
     }
-
 }
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)

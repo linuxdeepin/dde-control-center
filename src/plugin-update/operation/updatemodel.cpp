@@ -60,6 +60,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_testingChannelStatus(TestingChannelStatus::DeActive)
     , m_atomicBackingUp(false)
     , m_linglongAutoUpdateActived(false)
+    , m_machineId(std::nullopt)
 {
 
     qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
@@ -677,4 +678,9 @@ void UpdateModel::setLinglongAutoUpdate(const bool linglongAutoUpdate)
     }
     m_linglongAutoUpdateActived = linglongAutoUpdate;
     Q_EMIT longlongAutoUpdateChanged(m_linglongAutoUpdateActived);
+}
+
+void UpdateModel::setMachineId(const QString &machineId) {
+    m_machineId = machineId;
+    Q_EMIT machindIdVisibleChanged();
 }

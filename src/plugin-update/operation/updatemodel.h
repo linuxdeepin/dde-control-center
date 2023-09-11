@@ -11,6 +11,8 @@
 
 #include <QObject>
 
+#include <optional>
+
 class DownloadInfo : public QObject
 {
     Q_OBJECT
@@ -222,6 +224,10 @@ public:
     void setTestingChannelStatus(const TestingChannelStatus &status);
     void setLinglongAutoUpdate(const bool longlongAutoUpdate);
 
+    inline std::optional<QString> machineId() { return m_machineId; }
+
+    void setMachineId(const QString &machineId);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -277,6 +283,8 @@ Q_SIGNALS:
 
     void longlongAutoUpdateChanged(const bool longlongAutoUpdate);
 
+    void machindIdVisibleChanged();
+
 private:
     UpdatesStatus m_status;
 
@@ -329,6 +337,8 @@ private:
 
     bool m_atomicBackingUp;
     bool m_linglongAutoUpdateActived;
+
+    std::optional<QString> m_machineId;
 };
 
 #endif // UPDATEMODEL_H

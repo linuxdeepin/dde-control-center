@@ -14,6 +14,7 @@
 
 #include <QApplication>
 #include <QDesktopServices>
+#include <QFileSystemWatcher>
 #include <QFuture>
 #include <QFutureWatcher>
 #include <QJsonArray>
@@ -39,6 +40,9 @@ const int LogTypeSecurity = 2;             // 安全更新
 const int DesktopProfessionalPlatform = 1; // 桌面专业版
 const int DesktopCommunityPlatform = 3;    // 桌面社区版
 const int ServerPlatform = 6;              // 服务器版
+
+static const QString LISTING_APT_DIR = QStringLiteral("/etc/apt/apt.conf.d");
+static const QString MACHINE_ID_CONIF = QStringLiteral("/etc/apt/apt.conf.d/99lastore-token.conf");
 
 static const QString LINGLONG_TIMER = QStringLiteral("linglong-upgrade.timer");
 static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service");
@@ -89,7 +93,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_downloadSize(0)
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
-    , m_machineid(std::nullopt)
     , m_testingChannelUrl(std::nullopt)
     , m_isFirstActive(true)
 {
@@ -162,6 +165,15 @@ void UpdateWorker::init()
         QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
         checkUpdatablePackages(updatablePackages);
     });
+
+    if (!updateMachineId().has_value()) {
+        QFileSystemWatcher *fsWatcher = new QFileSystemWatcher(this);
+        fsWatcher->addPath(LISTING_APT_DIR);
+        connect(fsWatcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &) {
+            updateMachineId();
+        });
+    }
+
     connect(m_updateInter, &UpdateDBusProxy::RunningChanged,
             m_model, &UpdateModel::setAtomicBackingUp);
 
@@ -1744,10 +1756,32 @@ void UpdateWorker::onRequestLastoreHeartBeat()
     lastoreManager.asyncCall("GetCheckIntervalAndTime");
 }
 
+std::optional<QString> UpdateWorker::updateMachineId()
+{
+    if (!QFile(MACHINE_ID_CONIF).exists()) {
+        return std::nullopt;
+    }
+
+    QFile f(MACHINE_ID_CONIF);
+    if (f.open(QIODevice::ReadOnly)) {
+        const QString token = f.readAll().trimmed();
+        const auto list = token.split(";");
+        for (const auto &line : list) {
+            const auto key = line.section("=", 0, 0);
+            if (key == "i") {
+                const auto value = line.section("=", 1);
+                m_model->setMachineId(value);
+                return value;
+            }
+        }
+    }
+    return std::nullopt;
+}
+
 std::optional<QString> UpdateWorker::getMachineId()
 {
-    if (m_machineid.has_value()) {
-        return m_machineid.value();
+    if (m_model->machineId().has_value()) {
+        return m_model->machineId().value();
     }
     QProcess process;
     auto args = QStringList();
@@ -1761,7 +1795,7 @@ std::optional<QString> UpdateWorker::getMachineId()
         const auto key = line.section("=", 0, 0);
         if (key == "i") {
             const auto value = line.section("=", 1);
-            m_machineid = value;
+            m_model->setMachineId(value);
             return value;
         }
     }
@@ -1973,7 +2007,7 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
 
     auto machineidopt = getMachineId();
     if (!machineidopt.has_value()) {
-        notifyError(tr("Cannot find machineid"), tr("Cannot find machineid"));
+        qCWarning(DdcUpdateWork) << "Cannot find machineid";
         m_model->setTestingChannelStatus(TestingChannelStatus::NotJoined);
         return;
     }
@@ -2044,13 +2078,13 @@ void UpdateWorker::checkTestingChannelStatus()
     if (m_model->getTestingChannelStatus() == TestingChannelStatus::DeActive) {
         return;
     }
-    if (!m_machineid.has_value()) {
+    if (!m_model->machineId().has_value()) {
         return;
     }
 
     qCDebug(DdcUpdateWork) << "Testing:"
                            << "check testing join status";
-    QString machineid = m_machineid.value();
+    QString machineid = m_model->machineId().value();
     auto http = new QNetworkAccessManager(this);
     QNetworkRequest request;
     request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/status/" + machineid));

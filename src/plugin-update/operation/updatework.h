@@ -117,6 +117,7 @@ public Q_SLOTS:
     std::optional<QUrl> updateTestingChannelUrl();
     std::optional<QUrl> getTestingChannelUrl();
     std::optional<QString> getMachineId();
+    std::optional<QString> updateMachineId();
 
     void setTestingChannelEnable(const bool &enable);
     void checkTestingChannelStatus();
@@ -225,7 +226,6 @@ private:
 
     QList<UpdateLogItem> m_updateLogs;
 
-    std::optional<QString> m_machineid;
     std::optional<QUrl> m_testingChannelUrl;
 
     bool m_isFirstActive;
