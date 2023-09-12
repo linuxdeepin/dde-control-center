@@ -1,3 +1,9 @@
+dde-control-center (6.0.27) unstable; urgency=medium
+
+  * resize window at frist to fit some pages
+
+ -- chenhongtao <chenhongtao@deepin.org> Tue, 12 Sep 2023 09:53:30 +0800
+
 dde-control-center (6.0.26) unstable; urgency=medium
 
   * fix alert message position error
