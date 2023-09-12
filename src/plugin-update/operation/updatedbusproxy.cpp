@@ -185,6 +185,11 @@ QList<QDBusObjectPath> UpdateDBusProxy::jobList()
     return qvariant_cast<QList<QDBusObjectPath>>(m_managerInter->property("JobList"));
 }
 
+QString UpdateDBusProxy::hardwareId()
+{
+    return qvariant_cast<QString>(m_managerInter->property("HardwareId"));
+}
+
 QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::UpdateSource()
 {
     QList<QVariant> argumentList;
