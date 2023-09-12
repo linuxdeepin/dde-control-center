@@ -142,13 +142,32 @@ void CommonBackgroundItem::updateBackground(const QPixmap &pixmap)
 {
     if (pixmap.isNull())
         return;
-    qDebug() << pixmap;
+
     m_basePixmap = pixmap;
 
-    auto ratio = devicePixelRatioF();
-    m_background = m_basePixmap.scaled(size() * ratio,
+    QSize pixmapSize = m_basePixmap.size();
+    QSize showSize = size();
+    QSize finalSize = ((float)showSize.width() / (float)pixmapSize.width()) * pixmapSize;
+    qreal ratio = devicePixelRatioF();
+
+    auto previewPixmap = m_basePixmap.scaled(finalSize,
                                        Qt::IgnoreAspectRatio,
-                                       Qt::FastTransformation);
+                                       Qt::SmoothTransformation);
+
+
+    if (previewPixmap.size().height() <= showSize.height()) {
+        m_background = previewPixmap;
+    } else {
+        qreal centerHeight = (float)previewPixmap.size().height() / 2;
+        qreal offsetHeight = (float)showSize.height() / 2;
+
+        qreal start_y = centerHeight - offsetHeight;
+
+        qreal start_x = 0;
+
+        m_background = previewPixmap.copy(QRect(start_x, start_y, showSize.width(), showSize.height()));
+    }
+
     m_background.setDevicePixelRatio(ratio);
     update();
 }

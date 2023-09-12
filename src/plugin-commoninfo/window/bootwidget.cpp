@@ -3,8 +3,8 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "bootwidget.h"
 #include "commonbackgrounditem.h"
+
 #include "pwqualitymanager.h"
-#include "src/plugin-commoninfo/operation/commoninfowork.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "src/frame/utils.h"
 
@@ -34,6 +34,12 @@ Q_DECLARE_METATYPE(QMargins)
 const QMargins ListViewItemMargin(10, 8, 10, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViewItemMargin);
 
+constexpr static int LISTVIEW_ITEM_SPACING = 3;
+constexpr static int LISTVIEW_ITEM_HEIGHT = 32;
+constexpr static int LISTVIEW_ITEM_HEIGHT_WITH_SPACING = LISTVIEW_ITEM_SPACING + LISTVIEW_ITEM_HEIGHT;
+constexpr static int LISTVIEW_MAX_HEIGHT = 350;
+constexpr static int MAX_BACKGROUND_HEIGHT = LISTVIEW_MAX_HEIGHT + LISTVIEW_ITEM_HEIGHT_WITH_SPACING;
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -51,7 +57,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_listLayout->addSpacing(10);
     m_listLayout->setMargin(0);
 
-    m_bootList = new DListView(this);
+    m_bootList = new CommonInfoListView(this);
     m_bootList->setAccessibleName("List_bootlist");
     m_bootList->setAutoScroll(false);
     m_bootList->setFrameShape(QFrame::NoFrame);
@@ -65,6 +71,13 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_bootList->setMinimumWidth(240);
+    m_bootList->setItemSpacing(LISTVIEW_ITEM_SPACING);
+
+    QSize itemSize = m_bootList->itemSize();
+    itemSize.setHeight(LISTVIEW_ITEM_HEIGHT);
+    m_bootList->setItemSize(itemSize);
+
+    m_bootList->setMaxShowHeight(LISTVIEW_MAX_HEIGHT);
     m_bootList->setWordWrap(true);
 
     DPalette dp = DPaletteHelper::instance()->palette(m_bootList);
@@ -253,11 +266,11 @@ void BootWidget::setEntryList(const QStringList &list)
 void BootWidget::setBootList()
 {
     int cout = m_bootList->count();
-    int height = (cout + 2) * 35;
+    int height = (cout + 2) * LISTVIEW_ITEM_HEIGHT;
 
-    m_listLayout->addWidget(m_bootList);
+    m_listLayout->addWidget(m_bootList, Qt::AlignCenter);
     m_listLayout->addSpacing(15);
-    m_background->setFixedHeight(height + 35 > 350 ? 350 : height + 35);
+    m_background->setFixedHeight(std::min(height + LISTVIEW_ITEM_HEIGHT , MAX_BACKGROUND_HEIGHT));
 }
 
 void BootWidget::onCurrentItem(const QModelIndex &curIndex)
