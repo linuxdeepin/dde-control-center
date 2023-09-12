@@ -1749,21 +1749,10 @@ std::optional<QString> UpdateWorker::getMachineId()
     if (m_machineid.has_value()) {
         return m_machineid.value();
     }
-    QProcess process;
-    auto args = QStringList();
-    args.append("-c");
-    args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
-    process.start("sh", args);
-    process.waitForFinished();
-    const auto token = QString(process.readAllStandardOutput());
-    const auto list = token.split(";");
-    for (const auto &line : list) {
-        const auto key = line.section("=", 0, 0);
-        if (key == "i") {
-            const auto value = line.section("=", 1);
-            m_machineid = value;
-            return value;
-        }
+    QString machineid = m_updateInter->hardwareId();
+    if (!machineid.isEmpty()) {
+        m_machineid = machineid;
+        return machineid;
     }
     return std::nullopt;
 }

@@ -65,6 +65,8 @@ public:
     Q_PROPERTY(QList<QDBusObjectPath> JobList READ jobList NOTIFY JobListChanged)
     QList<QDBusObjectPath> jobList();
 
+    QString hardwareId();
+
     QDBusPendingReply<QDBusObjectPath> UpdateSource();
     void CleanJob(const QString &in0);
     void SetAutoClean(bool in0);
