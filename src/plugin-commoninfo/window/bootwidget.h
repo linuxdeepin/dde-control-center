@@ -4,6 +4,7 @@
 #pragma once
 #include "interface/namespace.h"
 
+#include "commoninfolistview.h"
 #include <DListView>
 
 class QVBoxLayout;
@@ -58,7 +59,7 @@ private:
     DTK_WIDGET_NAMESPACE::DTipLabel *m_grubVerifyLbl;  // grub 验证提示
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_grubModifyPasswdLink; // grub修改密码
     DTK_WIDGET_NAMESPACE::DDialog *m_grubEditAuthDialog = nullptr; // grub修改密码输入框
-    DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
+    CommonInfoListView *m_bootList; // 启动项目列表
     QLabel *m_updatingLabel;    // Updating标签
     CommonBackgroundItem *m_background;          // 背景项
     QVBoxLayout *m_listLayout;
