@@ -40,7 +40,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr("Disclaimer"));
 
-    DTipLabel *tipLabel = new DTipLabel("");
+    DLabel *tipLabel = new DLabel("");
     if (state == DisclaimersObj::Faceid) {
         tipLabel->setText(tr("Before using face recognition, please note that: \n"
                              "1. Your device may be unlocked by people or objects that look or appear similar to you.\n"
