@@ -1,3 +1,12 @@
+dde-control-center (6.0.28) unstable; urgency=medium
+
+  * fix: tabbar height is too large cause page flash
+  * fix: light theme text in discaimer is not clear
+  * fix: listview is not in the center or grub page
+  * fix sidebar expand/collapse status error
+
+ -- chenhongtao <chenhongtao@deepin.org> Thu, 14 Sep 2023 13:56:40 +0800
+
 dde-control-center (6.0.27) unstable; urgency=medium
 
   * resize window at frist to fit some pages
