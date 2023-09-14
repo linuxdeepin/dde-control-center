@@ -206,6 +206,15 @@ TabView::TabView(QWidget *parent)
     setMouseTracking(true);
     setContentsMargins(0, 0, 0, 0);
     setFrameStyle(QFrame::NoFrame);
+
+    // setFixedHeight at the beginning
+    DStyleHelper dstyle(style());
+    QFontMetrics fm = fontMetrics();
+    QSize emptySZ = fm.size(Qt::TextShowMnemonic, QStringLiteral("XXXX"));
+    DStyleOptionButtonBoxButton opt;
+    emptySZ = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, emptySZ, this).expandedTo(QApplication::globalStrut()));
+    setFixedHeight(emptySZ.height() - 5);
+
     viewport()->setAutoFillBackground(false);
 }
 
