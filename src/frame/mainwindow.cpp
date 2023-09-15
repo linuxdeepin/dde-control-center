@@ -84,9 +84,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    int width_remember = width() > 1000 ? width() : 1000;
+    int height_remember = height() > 600 ? height() : 600;
+
     if (m_dconfig->isValid()) {
-        m_dconfig->setValue(WidthConfig, width());
-        m_dconfig->setValue(HeightConfig, height());
+        m_dconfig->setValue(WidthConfig, width_remember);
+        m_dconfig->setValue(HeightConfig, height_remember);
     }
     resizeCurrentModule(0);
 }
