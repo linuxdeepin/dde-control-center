@@ -21,8 +21,6 @@ DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
-constexpr QSize MainWindowStartSize(QSize(1000, 600));
-
 QStringList defaultpath()
 {
     QStringList path;
@@ -97,7 +95,8 @@ int main(int argc, char *argv[])
 
         return -1;
     }
-    DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
+    DLogManager::setLogFormat(
+            "%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
 
     DLogManager::registerJournalAppender();
     DLogManager::registerConsoleAppender();
@@ -125,7 +124,6 @@ int main(int argc, char *argv[])
     QAccessible::installFactory(accessibleFactory);
 
     DCC_NAMESPACE::MainWindow mw;
-    mw.resize(MainWindowStartSize);
 
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
