@@ -69,7 +69,7 @@ void ScalingWidget::addSlider()
     });
     connect(m_displayModel, &DisplayModel::uiScaleChanged, this, [=](const double scale) {
         slider->blockSignals(true);
-        qDebug() << "monitor scaleCahnged ,scale :" << convertToSlider(scale);
+        qDebug() << "monitor scaleChanged ,scale :" << convertToSlider(scale);
         slider->setValue(convertToSlider(scale));
         slider->blockSignals(false);
     });
