@@ -23,6 +23,7 @@ public:
         , m_view(nullptr)
         , m_splitter(nullptr)
         , m_childMargin(20)
+        , m_splitterSize({})
     {
     }
 
@@ -151,13 +152,19 @@ public:
                     onAddChild(tmpChild);
             }
         });
+        QObject::connect(m_splitter, &QSplitter::splitterMoved, m_splitter, [this]([[maybe_unused]] int pos, [[maybe_unused]] int index) {
+            m_splitterSize = m_splitter->sizes();
+        });
         m_childMargin = 0;//20;
         if (qobject_cast<HListModule *>(q->getParent())) {
             m_childMargin = 0;//10;
             m_view->setContentsMargins(10, 0, 10, 10);
         }
         onCurrentModuleChanged(q->currentModule());
-        m_splitter->setSizes({200,600});
+        if (m_splitterSize.isEmpty()) {
+            m_splitterSize = {200, 600};
+        }
+        m_splitter->setSizes(m_splitterSize);
         return m_splitter;
     }
 
@@ -171,6 +178,7 @@ private:
     QHBoxLayout *m_hlayout;
     QList<DCC_NAMESPACE::ModuleObject *> m_extraModules;
     int m_childMargin;
+    QList<int> m_splitterSize;
 };
 }
 
