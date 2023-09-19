@@ -926,7 +926,7 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation>您还没有上传过头像，可点击或拖搜上传图片</translation>
+        <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
