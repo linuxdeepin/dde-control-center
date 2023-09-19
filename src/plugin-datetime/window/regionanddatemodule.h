@@ -28,9 +28,6 @@ public:
 signals:
     void clicked();
 
-public slots:
-    void setRegion(const QString &region);
-
 private:
     QLabel *m_regionLabel;
 };
