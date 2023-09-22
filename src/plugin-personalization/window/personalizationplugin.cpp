@@ -9,7 +9,9 @@
 #include "personalizationdesktopmodule.h"
 
 #include <QLabel>
+#include <DIconTheme>
 
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 const QString gsetting_showSuspend = "showSuspend";
@@ -17,7 +19,7 @@ const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PersonalizationModule::PersonalizationModule(QObject *parent)
-    : HListModule("personalization", tr("Personalization"), QIcon::fromTheme("dcc_nav_personalization"), parent)
+    : HListModule("personalization", tr("Personalization"), DIconTheme::findQIcon("dcc_nav_personalization"), parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)

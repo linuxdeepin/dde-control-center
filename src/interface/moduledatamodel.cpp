@@ -6,12 +6,14 @@
 #include "interface/moduleobject.h"
 
 #include <dstyleoption.h>
+#include <DIconTheme>
 
 #include <QSignalMapper>
 
 #include <algorithm>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 
 ModuleDataModel::ModuleDataModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -60,7 +62,7 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole: {
         auto icon = data->icon();
         if (icon.type() == QVariant::String) {
-            return QIcon::fromTheme(icon.toString());
+            return DIconTheme::findQIcon(icon.toString());
         }
         return data->icon();
     }

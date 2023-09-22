@@ -3,6 +3,8 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include <QApplication>
 #include <DFontSizeManager>
+#include <DIconTheme>
+
 #include "widgets/titlelabel.h"
 #include "interface/pagemodule.h"
 #include "soundplugin.h"
@@ -13,6 +15,7 @@
 #include "soundeffectspage.h"
 #include "devicemanagespage.h"
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -68,7 +71,7 @@ QString SoundPlugin::location() const
 }
 
 SoundModule::SoundModule(QObject *parent)
-    : HListModule("sound", tr("Sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
+    : HListModule("sound", tr("Sound"), DIconTheme::findQIcon("dcc_nav_sound"), parent)
     , m_model(new SoundModel(this))
     , m_work(new SoundWorker(m_model, this))
 {

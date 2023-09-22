@@ -12,6 +12,7 @@
 #include <DFloatingButton>
 #include <DListView>
 #include <DStyle>
+#include <DIconTheme>
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -23,6 +24,7 @@
 
 Q_LOGGING_CATEGORY(DdcDefaultDetailWidget, "dcc-default-detailwidget")
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent)
@@ -103,7 +105,7 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
     QIcon icon(appIcon);
     if (icon.pixmap(size).isNull())
-        icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
+        icon = DIconTheme::findQIcon(appIcon, DIconTheme::findQIcon("application-x-desktop"));
 
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);

@@ -14,8 +14,10 @@
 #include <DIconButton>
 #include <DLineEdit>
 #include <DStyleHelper>
+#include <DIconTheme>
 
 using namespace DCC_NAMESPACE;
+
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
@@ -31,7 +33,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
 {
     setFixedHeight(36);
 
-    m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_editBtn->setIcon(DIconTheme::findQIcon("dcc_edit"));
     m_editBtn->setFlat(true);//设置背景透明
     m_editBtn->setVisible(false);
 

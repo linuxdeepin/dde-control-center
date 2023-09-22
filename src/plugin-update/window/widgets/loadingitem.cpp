@@ -8,7 +8,9 @@
 #include <QIcon>
 #include <QPainter>
 #include <DSysInfo>
+#include <DIconTheme>
 
+DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 LoadingItem::LoadingItem(QFrame *parent)
@@ -91,7 +93,7 @@ void LoadingItem::setImageOrTextVisible(bool state)
 
     QString path = "";
     if (state) {
-        m_labelImage->setPixmap(QIcon::fromTheme("icon_success").pixmap({128, 128}));
+        m_labelImage->setPixmap(DIconTheme::findQIcon("icon_success").pixmap({128, 128}));
     } else {
         m_labelImage->setPixmap(QIcon(":/icons/deepin/builtin/icons/dcc_checking_update.svg").pixmap({128, 128}));
     }

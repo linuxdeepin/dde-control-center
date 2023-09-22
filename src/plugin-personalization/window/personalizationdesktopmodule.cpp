@@ -13,11 +13,13 @@
 
 #include <DSwitchButton>
 #include <DSysInfo>
+#include <DIconTheme>
 
 #include <QComboBox>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel *model,
@@ -89,8 +91,8 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
     transparentSlider->setObjectName("Transparency");
 
     // 设计效果图变更：增加左右图标
-    transparentSlider->setLeftIcon(QIcon::fromTheme("transparency_low"));
-    transparentSlider->setRightIcon(QIcon::fromTheme("transparency_high"));
+    transparentSlider->setLeftIcon(DIconTheme::findQIcon("transparency_low"));
+    transparentSlider->setRightIcon(DIconTheme::findQIcon("transparency_high"));
     transparentSlider->setIconSize(QSize(24, 24));
     DCCSlider *slider = transparentSlider->slider();
     slider->setAccessibleName("transparency");
@@ -145,8 +147,8 @@ QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
     winRoundSlider->slider()->setOrientation(Qt::Horizontal);
     winRoundSlider->setObjectName("winRoundSlider");
     winRoundSlider->setIconSize(QSize(32, 32));
-    winRoundSlider->setLeftIcon(QIcon::fromTheme("round_low"));
-    winRoundSlider->setRightIcon(QIcon::fromTheme("round_high"));
+    winRoundSlider->setLeftIcon(DIconTheme::findQIcon("round_low"));
+    winRoundSlider->setRightIcon(DIconTheme::findQIcon("round_high"));
 
     DCCSlider *sliderRound = winRoundSlider->slider();
     sliderRound->setType(DCCSlider::Vernier);

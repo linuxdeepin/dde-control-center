@@ -9,6 +9,7 @@
 
 #include <DDesktopServices>
 #include <DLabel>
+#include <DIconTheme>
 
 #include <QDir>
 #include <QEvent>
@@ -16,6 +17,7 @@
 #include <QToolButton>
 #include <QValidator>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 // if there is lid, it is laptop
@@ -109,14 +111,14 @@ void HostNameItem::initUI()
     hostNameLayout->setSpacing(0);
     hostNameLayout->setMargin(0);
     m_computerLabel->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    m_computerLabel->setPixmap(QIcon::fromTheme(m_iconName).pixmap(200, 200));
+    m_computerLabel->setPixmap(DIconTheme::findQIcon(m_iconName).pixmap(200, 200));
 
     hostNameLayout->addWidget(m_computerLabel);
 
     QHBoxLayout *editHostLayout = new QHBoxLayout;
     m_hostNameLabel->setForegroundRole(DPalette::TextTips);
 
-    m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_hostNameBtn->setIcon(DIconTheme::findQIcon("dcc_edit"));
     m_hostNameBtn->setIconSize(QSize(12, 12));
     m_hostNameBtn->setFixedSize(36, 36);
 
@@ -151,7 +153,7 @@ void HostNameItem::initUI()
             &DGuiApplicationHelper::themeTypeChanged,
             this,
             [this] {
-                m_computerLabel->setPixmap(QIcon::fromTheme(m_iconName).pixmap(200, 200));
+                m_computerLabel->setPixmap(DIconTheme::findQIcon(m_iconName).pixmap(200, 200));
             });
 }
 

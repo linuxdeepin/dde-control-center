@@ -16,9 +16,11 @@
 #include <QBoxLayout>
 #include <QFile>
 #include <QSvgRenderer>
+#include <DIconTheme>
 
 Q_DECLARE_METATYPE(QMargins)
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 
 QString NotificationPlugin::name() const
 {
@@ -44,7 +46,7 @@ NotificationModule::NotificationModule(QObject *parent)
 {
     setName("notification");
     setDisplayName(tr("Notification"));
-    setIcon(QIcon::fromTheme("dcc_nav_notification"));
+    setIcon(DIconTheme::findQIcon("dcc_nav_notification"));
     if (m_model) {
         delete m_model;
     }
@@ -88,7 +90,7 @@ void NotificationModule::initUi()
 void NotificationModule::onAppListAdded(AppItemModel *item)
 {
     QString softName = item->getAppName();
-    QIcon icon = QIcon::fromTheme(item->getIcon());
+    QIcon icon = DIconTheme::findQIcon(item->getIcon());
     m_appNameList.append(softName);
     PageModule *newpage = new PageModule(softName, softName, icon, nullptr);
     newpage->appendChild(new ItemModule(

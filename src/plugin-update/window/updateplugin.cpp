@@ -14,12 +14,14 @@
 #include "widgets/switchwidget.h"
 
 #include <DFontSizeManager>
+#include <DIconTheme>
 
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(DdcUpdatePlugin, "dcc-update-plugin")
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 QString UpdatePlugin::name() const
@@ -54,7 +56,7 @@ QString UpdatePlugin::location() const
 }
 
 UpdateModule::UpdateModule(QObject *parent)
-    : HListModule("update", tr("Updates"), QIcon::fromTheme("dcc_nav_update"), parent)
+    : HListModule("update", tr("Updates"), DIconTheme::findQIcon("dcc_nav_update"), parent)
     , m_model(new UpdateModel(this))
     , m_work(new UpdateWorker(m_model, this))
 {

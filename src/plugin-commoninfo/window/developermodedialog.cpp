@@ -10,6 +10,7 @@
 #include <DTitlebar>
 #include <DWindowCloseButton>
 #include <DTextBrowser>
+#include <DIconTheme>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -25,6 +26,7 @@
 #include <QJsonDocument>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
@@ -48,7 +50,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     titleIcon->setAccessibleName("DeveloperModeDialog_titleIcon");
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
-    titleIcon->setIcon(QIcon::fromTheme("preferences-system"));
+    titleIcon->setIcon(DIconTheme::findQIcon("preferences-system"));
     titleHBoxLayout->addWidget(titleIcon, Qt::AlignTop);
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle("");

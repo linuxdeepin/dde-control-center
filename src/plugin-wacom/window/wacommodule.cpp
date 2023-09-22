@@ -11,6 +11,7 @@
 #include "widgets/dccslider.h"
 
 #include <DSlider>
+#include <DIconTheme>
 
 #include <QComboBox>
 #include <QLoggingCategory>
@@ -20,9 +21,10 @@ Q_LOGGING_CATEGORY(DdcWacomModule, "dcc-wacom-module")
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 WacomModule::WacomModule(QObject *parent)
-    : PageModule("wacom", tr("Drawing Tablet") , tr("Drawing Tablet"), QIcon::fromTheme("dcc_nav_wacom"), parent)
+    : PageModule("wacom", tr("Drawing Tablet") , tr("Drawing Tablet"), DIconTheme::findQIcon("dcc_nav_wacom"), parent)
     , m_model(new WacomModel(this))
 {
     connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist){

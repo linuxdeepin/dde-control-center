@@ -15,6 +15,7 @@
 
 #include <DComboBox>
 #include <DStandardItem>
+#include <DIconTheme>
 
 #include <QBoxLayout>
 #include <QComboBox>
@@ -25,6 +26,7 @@
 #include <QWidgetAction>
 
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 CollaborativeLinkWidget::CollaborativeLinkWidget(QWidget *parent)
@@ -68,7 +70,7 @@ void CollaborativeLinkWidget::initUI()
     QLabel *devLabel = new QLabel(this);
     devLabel->setText(tr("Connect to"));
     m_deviceButton->setFixedWidth(36);
-    m_deviceButton->setIcon(QIcon::fromTheme("dcc_break"));
+    m_deviceButton->setIcon(DIconTheme::findQIcon("dcc_break"));
     m_deviceButton->setEnabled(false);
 
     m_deviceCombox->setModel(m_deviceComboxModel);
@@ -274,7 +276,7 @@ void CollaborativeLinkWidget::initDirectionItem()
     QStringList textList { tr("On the top"), tr("On the right"), tr("On the bottom"), tr("On the left")};
 
     for (int idx = 0; idx < dirList.size(); idx++) {
-        m_directionCombox->addItem(QIcon::fromTheme(QString("dcc_display_%1").arg(dirList[idx])), textList[idx]);
+        m_directionCombox->addItem(DIconTheme::findQIcon(QString("dcc_display_%1").arg(dirList[idx])), textList[idx]);
     }
 }
 

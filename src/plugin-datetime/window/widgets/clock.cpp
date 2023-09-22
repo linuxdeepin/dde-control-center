@@ -7,6 +7,9 @@
 #include <QPainterPath>
 #include <QIcon>
 #include <QTimer>
+#include <DIconTheme>
+
+DGUI_USE_NAMESPACE
 
 static const QSize clockSize = QSize(224, 224);
 static const QSize pointSize = QSize(145, 15);
@@ -33,7 +36,7 @@ Clock::~Clock()
 
 QPixmap Clock::getPixmap(const QString &name, const QSize size)
 {
-    const QIcon &icon = QIcon::fromTheme(name);
+    const QIcon &icon = DIconTheme::findQIcon(name);
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     QPainter p(&pixmap);

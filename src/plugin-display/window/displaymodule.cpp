@@ -16,11 +16,13 @@
 #include "operation/displayworker.h"
 
 #include <DMainWindow>
+#include <DIconTheme>
 
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QVBoxLayout>
 
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 QString DisplayPlugin::name() const
@@ -35,7 +37,7 @@ ModuleObject * DisplayPlugin::module()
     moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
     moduleInterface->setDescription(tr("Light, resolution, scaling and etc"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_display"));
+    moduleInterface->setIcon(DIconTheme::findQIcon("dcc_nav_display"));
 
     DisplayModule *displayModule = new DisplayModule(moduleInterface);
     moduleInterface->appendChild(displayModule);

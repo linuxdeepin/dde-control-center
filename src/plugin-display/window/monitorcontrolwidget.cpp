@@ -9,14 +9,16 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QIcon>
+#include <DIconTheme>
 
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     : QFrame(parent)
     , m_screensGround(new MonitorsGround(activateHeight,this))
-    , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Identify")))
-    , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
+    , m_recognize(new QPushButton(DIconTheme::findQIcon("dcc_recognize"), tr("Identify")))
+    , m_gather(new QPushButton(DIconTheme::findQIcon("dcc_gather"), tr("Gather Windows")))
     , m_effectiveReminder(new QLabel(this))
 {
     m_screensGround->setAccessibleName("screensGround");

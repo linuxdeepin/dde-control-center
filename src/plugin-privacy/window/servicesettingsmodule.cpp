@@ -64,7 +64,7 @@ void ServiceSettingsModule::initSwitchWidget(DCC_NAMESPACE::SwitchWidget *titleS
 {
     QPixmap pixmap;
     QSize size(42,42);
-    QIcon icon = QIcon::fromTheme(m_currentServiceDate.icon);
+    QIcon icon = DIconTheme::findQIcon(m_currentServiceDate.icon);
     pixmap = icon.pixmap(size);
     titleSwitch->setTitle(m_currentServiceDate.name);
     QLabel *iconLabel = new QLabel;
@@ -117,7 +117,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *settingsGrp)
 
             // 图标
             auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            leftAction->setIcon(QIcon::fromTheme("application-x-desktop"));
+            leftAction->setIcon(DIconTheme::findQIcon("application-x-desktop"));
             item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
             auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);

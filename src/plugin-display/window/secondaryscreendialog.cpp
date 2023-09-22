@@ -14,6 +14,7 @@
 #include "operation/displaymodel.h"
 
 #include <DFontSizeManager>
+#include <DIconTheme>
 
 #include <QGuiApplication>
 #include <QVBoxLayout>
@@ -21,6 +22,7 @@
 #include <QKeyEvent>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 const int ComboxWidth = 200;
@@ -121,8 +123,8 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
             slider->setRange(miniScale, int(BrightnessMaxScale));
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
-            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
-            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setLeftIcon(DIconTheme::findQIcon("dcc_brightnesslow"));
+            slider->setRightIcon(DIconTheme::findQIcon("dcc_brightnesshigh"));
             slider->setIconSize(QSize(24, 24));
             slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
             slider->setValue(int(brightness * BrightnessMaxScale));
@@ -169,8 +171,8 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
             slider->setRange(m_miniScales, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
-            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
-            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setLeftIcon(DIconTheme::findQIcon("dcc_brightnesslow"));
+            slider->setRightIcon(DIconTheme::findQIcon("dcc_brightnesshigh"));
             slider->setIconSize(QSize(24, 24));
             slider->setTickInterval(1);
             slider->setValue(int((brightness + DoubleZero) * maxBacklight));

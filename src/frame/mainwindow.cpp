@@ -22,6 +22,7 @@
 #include <DPushButton>
 #include <DTitlebar>
 #include <DWidgetUtil>
+#include <DIconTheme>
 
 #include <QColor>
 #include <QDBusConnection>
@@ -41,6 +42,7 @@
 #include <QTimer>
 
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -208,7 +210,7 @@ void MainWindow::initUI()
     m_backwardBtn->setAccessibleName("backwardbtn");
 
     titlebar()->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
-    titlebar()->setIcon(QIcon::fromTheme("preferences-system"));
+    titlebar()->setIcon(DIconTheme::findQIcon("preferences-system"));
 
     connect(m_backwardBtn, &DIconButton::clicked, this, &MainWindow::toHome);
 

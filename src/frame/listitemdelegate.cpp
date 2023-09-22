@@ -18,6 +18,7 @@
 #include <DStyle>
 #include <DStyledItemDelegate>
 #include <DGuiApplicationHelper>
+#include <DIconTheme>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
 #    define USE_DCIICON
@@ -180,7 +181,7 @@ void ListItemDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewI
             icon = iconVar.value<QIcon>();
         } else if (iconVar.type() == QVariant::String) {
             const QString &iconstr = iconVar.toString();
-            icon = QIcon::fromTheme(iconstr);
+            icon = DIconTheme::findQIcon(iconstr);
             if (icon.isNull())
                 icon = QIcon(iconstr);
         }

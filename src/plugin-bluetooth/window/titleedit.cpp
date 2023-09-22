@@ -10,7 +10,9 @@
 #include <QHBoxLayout>
 #include <DLineEdit>
 #include <DDesktopServices>
+#include <DIconTheme>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
@@ -28,7 +30,7 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
     DToolButton *editWidget = new DToolButton(this);
-    editWidget->setIcon(QIcon::fromTheme("dcc_edit"));
+    editWidget->setIcon(DIconTheme::findQIcon("dcc_edit"));
     mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);

@@ -7,8 +7,9 @@
 
 #include <DTitlebar>
 #include <DFontSizeManager>
-
 #include <DSuggestButton>
+#include <DIconTheme>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -17,6 +18,7 @@
 #include <QDebug>
 #include <QDialog>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -67,7 +69,7 @@ void AddFaceInfoDialog::initWidget()
 
     // 人脸图片
     m_facePic = new QLabel(this);
-    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128,128));
+    m_facePic->setPixmap(DIconTheme::findQIcon(getFacePicture()).pixmap(128,128));
 
     // 提示信息
     m_resultTips = new QLabel(this);
@@ -162,7 +164,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
 {
     m_currentState = state;
 
-    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
+    m_facePic->setPixmap(DIconTheme::findQIcon(getFacePicture()).pixmap(128, 128));
     if (m_currentState == CharaMangerModel::AddInfoState::StartState) {
         m_resultTips->hide();
 

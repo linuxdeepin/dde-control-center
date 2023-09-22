@@ -16,16 +16,18 @@
 #include <DComboBox>
 #include <DListView>
 #include <DSwitchButton>
+#include <DIconTheme>
 
 #define BALANCE "balance"         // 平衡模式
 #define PERFORMANCE "performance" // 高性能模式
 #define POWERSAVE "powersave"     // 节能模式
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : PageModule("general", tr("General"), QIcon::fromTheme("dcc_general_purpose"), parent)
+    : PageModule("general", tr("General"), DIconTheme::findQIcon("dcc_general_purpose"), parent)
     , m_model(model)
     , m_work(work)
 {

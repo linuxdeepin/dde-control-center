@@ -15,17 +15,19 @@
 #include "widgets/dccslider.h"
 
 #include <DConfig>
+#include <DIconTheme>
 
 #include <QLayout>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 const static QMap<int, int> g_sldLowBatteryMap = { { 0, 10 }, { 1, 15 }, { 2, 20 }, { 3, 25 } };
 
 UseBatteryModule::UseBatteryModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : PageModule("onBattery", tr("On Battery"), tr("On Battery"), QIcon::fromTheme("dcc_battery"), parent)
+    : PageModule("onBattery", tr("On Battery"), tr("On Battery"), DIconTheme::findQIcon("dcc_battery"), parent)
     , m_model(model)
     , m_work(work)
     , m_annos({ "1m", "5m", "10m", "15m", "30m", "1h", tr("Never") })

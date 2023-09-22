@@ -4,15 +4,17 @@
 #include "unionidbindreminderdialog.h"
 #include <QPushButton>
 #include <DDBusSender>
+#include <DIconTheme>
 
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
     : DDialog(tr("The user account is not linked to Union ID"),
               tr("To reset passwords, you should authenticate your Union ID first. Click \"Go to Link\" to finish the settings."))
 {
     setParent(parent);
-    setIcon(QIcon::fromTheme("dialog-warning"));
+    setIcon(DIconTheme::findQIcon("dialog-warning"));
     QStringList buttons;
     buttons << tr("Cancel");
     addButtons(buttons);

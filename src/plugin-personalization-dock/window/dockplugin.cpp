@@ -16,6 +16,7 @@
 #include <DListView>
 #include <DStyle>
 #include <DGuiApplicationHelper>
+#include <DIconTheme>
 
 #include <QApplication>
 #include <QScreen>
@@ -27,6 +28,7 @@
 #include <QStyle>
 #include <QCheckBox>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
@@ -133,9 +135,9 @@ QIcon DockModuleObject::getIcon(const DockItemInfo &dockItemInfo) const
 
     QIcon icon(pixmap);
     if (icon.isNull())
-        icon = QIcon::fromTheme(pluginIconMap.value(dockItemInfo.name));
+        icon = DIconTheme::findQIcon(pluginIconMap.value(dockItemInfo.name));
     if (icon.isNull())
-        icon = QIcon::fromTheme("dcc_dock_plug_in");
+        icon = DIconTheme::findQIcon("dcc_dock_plug_in");
 
     return icon;
 }

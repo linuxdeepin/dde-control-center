@@ -9,15 +9,17 @@
 #include "buttontuple.h"
 
 #include <DPushButton>
+#include <DIconTheme>
 
 #include <QComboBox>
 #include <QPushButton>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 TouchScreenModule::TouchScreenModule(QObject *parent)
-    : PageModule("touchscreen", tr("Touch Screen"), tr("Touch Screen"), QIcon::fromTheme("dcc_nav_touchscreen"), parent)
+    : PageModule("touchscreen", tr("Touch Screen"), tr("Touch Screen"), DIconTheme::findQIcon("dcc_nav_touchscreen"), parent)
 {
     m_model  = new TouchScreenModel(this);
     init();

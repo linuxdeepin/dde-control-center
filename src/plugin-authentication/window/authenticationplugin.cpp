@@ -9,6 +9,9 @@
 #include "faceiddetailwidget.h"
 #include "fingerdetailwidget.h"
 #include "irisdetailwidget.h"
+#include <DIconTheme>
+
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 QString AuthenticationPlugin::name() const
 {
@@ -59,7 +62,7 @@ QString AuthenticationPlugin::location() const
 }
 
 AuthenticationModule::AuthenticationModule(QObject *parent)
-    : HListModule("authentication", tr("Biometric Authentication"), QString(), QIcon::fromTheme("dcc_nav_authentication"), parent)
+    : HListModule("authentication", tr("Biometric Authentication"), QString(), DIconTheme::findQIcon("dcc_nav_authentication"), parent)
     , m_model(new CharaMangerModel(this))
     , m_work(new CharaMangerWorker(m_model, this))
 {

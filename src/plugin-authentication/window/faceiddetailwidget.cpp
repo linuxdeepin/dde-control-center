@@ -9,9 +9,12 @@
 #include <DApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DIconTheme>
 
 #include <QBoxLayout>
 #include <QLabel>
+
+DGUI_USE_NAMESPACE
 
 FaceidDetailWidget::FaceidDetailWidget(CharaMangerModel *model, QWidget *parent)
     : QWidget (parent)
@@ -54,10 +57,10 @@ void FaceidDetailWidget::initFaceidShow()
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
         this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
-        m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+        m_pNotDevice->setPixmap(DIconTheme::findQIcon(getDisplayPath()).pixmap(64, 64));
     });
 
-    m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    m_pNotDevice->setPixmap(DIconTheme::findQIcon(getDisplayPath()).pixmap(64, 64));
     m_pNotDevice->setAlignment(Qt::AlignHCenter);
 
     // 设置高亮字体

@@ -14,12 +14,15 @@
 #include <QApplication>
 #include <QLoggingCategory>
 
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
+
 Q_LOGGING_CATEGORY(DdcBluetoothModule, "dcc-bluetooth-module")
 
 using namespace DCC_NAMESPACE;
 
 BluetoothModule::BluetoothModule(QObject *parent)
-    : PageModule("bluetooth", tr("Bluetooth"), tr("Bluetooth device manager"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
+    : PageModule("bluetooth", tr("Bluetooth"), tr("Bluetooth device manager"), DIconTheme::findQIcon("dcc_nav_bluetooth"), parent)
 {
     m_model = new BluetoothModel(this);
     m_work = new BluetoothWorker(m_model, this);

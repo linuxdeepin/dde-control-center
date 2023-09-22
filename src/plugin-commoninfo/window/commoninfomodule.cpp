@@ -12,9 +12,11 @@
 #include "developermodewidget.h"
 
 #include <DSysInfo>
+#include <DIconTheme>
 #include <QApplication>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 CommonInfoModule::CommonInfoModule(QObject *parent)
@@ -48,7 +50,7 @@ ModuleObject *CommonInfoPlugin::module()
     CommonInfoModule *moduleInterface = new CommonInfoModule();
     moduleInterface->setName("commoninfo");
     moduleInterface->setDisplayName(tr("General Settings"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_commoninfo"));
+    moduleInterface->setIcon(DIconTheme::findQIcon("dcc_nav_commoninfo"));
 
     //二级菜单--启动菜单
     ModuleObject *moduleBootMenu = new PageModule("bootMenu", tr("Boot Menu"));

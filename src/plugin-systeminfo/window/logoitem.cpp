@@ -9,6 +9,9 @@
 #include <QImageReader>
 #include <QLabel>
 
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
+
 #define FRAME_WIDTH 408
 #define NAVBAR_WIDTH 56
 
@@ -47,7 +50,7 @@ void LogoItem::setDescription(bool isVisible)
 
 void LogoItem::setLogo(const QString &logo)
 {
-    m_logo->setPixmap(QIcon::fromTheme(logo).pixmap(100, 20));
+    m_logo->setPixmap(DIconTheme::findQIcon(logo).pixmap(100, 20));
 }
 
 const QString LogoItem::logo()

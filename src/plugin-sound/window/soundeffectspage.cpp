@@ -10,6 +10,7 @@
 
 #include <DIconButton>
 #include <DListView>
+#include <DIconTheme>
 
 #include <QLabel>
 #include <QListView>
@@ -21,6 +22,7 @@
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 const int AnimationDuration = 5000;
@@ -113,7 +115,7 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
     aniAction->setVisible(true);
     connect(m_aniTimer, &QTimer::timeout, this, [=] {
         auto aniIdx = (m_aniDuration / intervalal) % 3 + 1;
-        auto icon = QIcon::fromTheme("dcc_volume" + QString::number(aniIdx));
+        auto icon = DIconTheme::findQIcon("dcc_volume" + QString::number(aniIdx));
         aniAction->setIcon(icon);
 
         m_aniDuration += intervalal;

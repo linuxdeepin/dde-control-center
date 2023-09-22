@@ -19,6 +19,7 @@
 #include <DGuiApplicationHelper>
 #include <DLabel>
 #include <DStyle>
+#include <DIconTheme>
 
 #include <QCheckBox>
 #include <QColorDialog>
@@ -31,6 +32,7 @@
 #include <QToolButton>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
@@ -239,7 +241,7 @@ QWidget *PersonalizationThemeModule::initThemeTitle(ModuleObject *module)
     layout->addWidget(leftWidget);
 
     //    QToolButton *button = new QToolButton();
-    //    button->setIcon(QIcon::fromTheme("help"));
+    //    button->setIcon(DIconTheme::findQIcon("help"));
     //    button->setFixedSize(24, 24);
     //    layout->addWidget(button);
     //    layout->addStretch();
@@ -456,8 +458,8 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
               << "20";
     fontSizeSlider->setAnnotations(annotions);
     fontSizeSlider->setIconSize(QSize(24, 24));
-    fontSizeSlider->setLeftIcon(QIcon::fromTheme("fontsize_decrease"));
-    fontSizeSlider->setRightIcon(QIcon::fromTheme("fontsize_increase"));
+    fontSizeSlider->setLeftIcon(DIconTheme::findQIcon("fontsize_decrease"));
+    fontSizeSlider->setRightIcon(DIconTheme::findQIcon("fontsize_increase"));
 
     DCCSlider *slider = fontSizeSlider->slider();
     slider->setOrientation(Qt::Horizontal);
