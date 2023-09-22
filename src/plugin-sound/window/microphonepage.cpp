@@ -17,6 +17,7 @@
 #include <DGuiApplicationHelper>
 #include <DApplication>
 #include <QDBusPendingReply>
+#include <DIconTheme>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -30,6 +31,7 @@
 #include <QDBusInterface>
 #include <sounddbusproxy.h>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -311,8 +313,8 @@ void MicrophonePage::initSlider()
     slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::NoTicks);
-    slider2->setLeftIcon(QIcon::fromTheme("dcc_feedbacklow"));
-    slider2->setRightIcon(QIcon::fromTheme("dcc_feedbackhigh"));
+    slider2->setLeftIcon(DIconTheme::findQIcon("dcc_feedbacklow"));
+    slider2->setRightIcon(DIconTheme::findQIcon("dcc_feedbackhigh"));
     slider2->setIconSize(QSize(24, 24));
     slider2->setTickInterval(1);
     slider2->setPageStep(1);

@@ -19,6 +19,7 @@
 #ifdef USE_DCIICON
 #    include <DDciIcon>
 #    include <DGuiApplicationHelper>
+#    include <DIconTheme>
 DGUI_USE_NAMESPACE
 #endif
 
@@ -161,7 +162,7 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
             icon = iconVar.value<QIcon>();
         } else if (iconVar.type() == QVariant::String) {
             const QString &iconstr = iconVar.toString();
-            icon = QIcon::fromTheme(iconstr);
+            icon = DIconTheme::findQIcon(iconstr);
             if (icon.isNull())
                 icon = QIcon(iconstr);
         }

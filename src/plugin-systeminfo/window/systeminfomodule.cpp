@@ -29,6 +29,8 @@
 #include <QtConcurrent>
 
 #include <functional>
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
 
 const QString PLATFORM_NAME = std::visit([]() -> QString {
     QString platformname = QGuiApplication::platformName();
@@ -102,21 +104,21 @@ void SystemInfoModule::initChildModule()
     moduleAboutPc->appendChild(copyrightBottom);
 
     // 二级菜单--协议与隐私政策
-    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreements and Privacy Policy"), QIcon::fromTheme("dcc_version"), this);
+    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreements and Privacy Policy"), DIconTheme::findQIcon("dcc_version"), this);
 
     // 三级菜单--协议与隐私政策-版本协议
-    ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
+    ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), DIconTheme::findQIcon("dcc_version"), moduleAgreement);
     moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>("editionLicense", tr("Edition License"), this, &SystemInfoModule::initGnuLicenseModule));
     moduleAgreement->appendChild(moduleEdition);
     if (auto licensepath = DCC_LICENSE::isEndUserAgreementExist(); licensepath.exist) {
         m_model->setEndUserAgreementPath(licensepath.path);
         // 三级菜单--协议与隐私政策-最终用户许可协议
-        ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
+        ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), DIconTheme::findQIcon("dcc_protocol"), moduleAgreement);
         moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>("endUserLicenseAgreement", tr("End User License Agreement"), this, &SystemInfoModule::initUserLicenseModule));
         moduleAgreement->appendChild(moduleUserAgreement);
     }
     // 三级菜单--协议与隐私政策-隐私政策
-    ModuleObject *modulePolicy = new PageModule("privacyPolicy", tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
+    ModuleObject *modulePolicy = new PageModule("privacyPolicy", tr("Privacy Policy"), DIconTheme::findQIcon("dcc_privacy_policy"), moduleAgreement);
     modulePolicy->appendChild(new WidgetModule<PrivacyPolicyWidget>());
     moduleAgreement->appendChild(modulePolicy);
 
@@ -313,7 +315,7 @@ ModuleObject *SystemInfoPlugin::module()
     SystemInfoModule *moduleInterface = new SystemInfoModule();
     moduleInterface->setName("systeminfo");
     moduleInterface->setDisplayName(tr("System Info"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_systeminfo"));
+    moduleInterface->setIcon(DIconTheme::findQIcon("dcc_nav_systeminfo"));
 
     return moduleInterface;
 }

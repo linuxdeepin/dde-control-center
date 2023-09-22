@@ -16,11 +16,13 @@
 #include <DFontSizeManager>
 #include <DIconButton>
 #include <DTipLabel>
+#include <DIconTheme>
 
 #include <QDateTime>
 #include <QGridLayout>
 #include <QPushButton>
 
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using Dtk::Widget::DFontSizeManager;
 using Dtk::Widget::DIconButton;
@@ -255,7 +257,7 @@ RegionSettingBtn::RegionSettingBtn(const QString &region, QWidget *parent)
     center->addStretch();
 
     DIconButton *right = new DIconButton;
-    right->setIcon(QIcon::fromTheme("go-next"));
+    right->setIcon(DIconTheme::findQIcon("go-next"));
     connect(right, &QPushButton::clicked, this, &RegionSettingBtn::clicked);
     center->addWidget(right);
 

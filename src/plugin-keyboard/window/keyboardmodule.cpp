@@ -21,10 +21,12 @@
 #include "interface/pagemodule.h"
 
 #include <DFloatingButton>
+#include <DIconTheme>
 
 #include <QApplication>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 class KeyboardFloatingButton : public DFloatingButton
@@ -45,7 +47,7 @@ ModuleObject *KeyboardPlugin::module()
     KeyboardModule *moduleInterface = new KeyboardModule();
     moduleInterface->setName("keyboard");
     moduleInterface->setDisplayName(tr("Keyboard and Language"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_keyboard"));
+    moduleInterface->setIcon(DIconTheme::findQIcon("dcc_nav_keyboard"));
 
     //二级菜单--键盘
     ModuleObject *moduleKeyBoard = new PageModule("keyboardGeneral", tr("Keyboard"));

@@ -11,10 +11,12 @@
 
 #include <DFloatingButton>
 #include <DStyle>
+#include <DIconTheme>
 
 #include <QApplication>
 #include <QVBoxLayout>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -110,7 +112,7 @@ QString DefAppPlugin::location() const
 }
 
 DefAppModule::DefAppModule(QObject *parent)
-    : VListModule("defapp", tr("Default Applications"), QIcon::fromTheme("dcc_nav_defapp"), parent)
+    : VListModule("defapp", tr("Default Applications"), DIconTheme::findQIcon("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))
     , m_work(new DefAppWorker(m_model, this))
     , m_defApps(nullptr)

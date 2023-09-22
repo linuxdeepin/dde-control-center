@@ -14,6 +14,8 @@
 
 #include <QDebug>
 #include <QApplication>
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 
@@ -45,7 +47,7 @@ ModuleObject *MousePlugin::module()
     MouseModule *moduleInterface = new MouseModule();
     moduleInterface->setName("mouse");
     moduleInterface->setDisplayName(tr("Mouse"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_mouse"));
+    moduleInterface->setIcon(DIconTheme::findQIcon("dcc_nav_mouse"));
 
     //二级菜单--通用
     ModuleObject *moduleGeneral = new PageModule("mouseGeneral", tr("General"));

@@ -4,7 +4,9 @@
 #include "pincodedialog.h"
 
 #include <QLabel>
+#include <DIconTheme>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 static QList<PinCodeDialog *> Instances;
@@ -14,7 +16,7 @@ PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable)
     , m_pinCodeLabel(new QLabel)
 {
     setTitle(tr("The PIN for connecting to the Bluetooth device is:"));
-    setIcon(QIcon::fromTheme("notification-bluetooth-connected"));
+    setIcon(DIconTheme::findQIcon("notification-bluetooth-connected"));
 
     m_pinCodeLabel->setObjectName("PinCodeText");
     addContent(m_pinCodeLabel, Qt::AlignTop | Qt::AlignCenter);

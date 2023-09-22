@@ -11,10 +11,13 @@
 #include <DProgressBar>
 #include <DSysInfo>
 #include <DFontSizeManager>
+#include <DIconTheme>
+
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+    DGUI_USE_NAMESPACE
 
 updateControlPanel::updateControlPanel(QWidget *parent)
     : SettingsItem(parent)
@@ -82,13 +85,13 @@ void updateControlPanel::setButtonIcon(ButtonStatus status)
 {
     switch (status) {
     case ButtonStatus::start:
-        m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
+        m_startButton->setIcon(DIconTheme::findQIcon("dcc_start"));
         break;
     case ButtonStatus::pause:
-        m_startButton->setIcon(QIcon::fromTheme("dcc_pause"));
+        m_startButton->setIcon(DIconTheme::findQIcon("dcc_pause"));
         break;
     case ButtonStatus::retry:
-        m_startButton->setIcon(QIcon::fromTheme("dcc_retry"));
+        m_startButton->setIcon(DIconTheme::findQIcon("dcc_retry"));
         break;
     default:
         m_startButton->setIcon(static_cast<QStyle::StandardPixmap>(-1));
@@ -301,7 +304,7 @@ void updateControlPanel::initUi()
     buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
     buttonLay->setContentsMargins(0, 0, 8, 0);
 
-    m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
+    m_startButton->setIcon(DIconTheme::findQIcon("dcc_start"));
     m_startButton->setIconSize(QSize(32, 32));
     m_startButton->setFlat(true);//设置背景透明
     m_startButton->setFixedSize(32, 32);

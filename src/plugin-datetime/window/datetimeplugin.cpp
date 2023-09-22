@@ -9,10 +9,12 @@
 #include "timesettingmodule.h"
 #include "timezonemodule.h"
 
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : HListModule("datetime", tr("Date and Time"), QIcon::fromTheme("dcc_nav_datetime"), parent)
+    : HListModule("datetime", tr("Date and Time"), DIconTheme::findQIcon("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
     m_model = new DatetimeModel(this);

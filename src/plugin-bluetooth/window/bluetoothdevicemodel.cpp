@@ -8,6 +8,7 @@
 
 #include <DDesktopServices>
 #include <DSpinner>
+#include <DIconTheme>
 
 #include <QApplication>
 #include <QLineEdit>
@@ -16,6 +17,7 @@
 #include <QStyleOptionViewItem>
 #include <QWidget>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 struct BluetoothDeviceItemAction
@@ -171,9 +173,9 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
         if (!device->deviceType().isEmpty())
-            return QIcon::fromTheme(device->deviceType());
+            return DIconTheme::findQIcon(device->deviceType());
         else
-            return QIcon::fromTheme(QString("bluetooth_other"));
+            return DIconTheme::findQIcon(QString("bluetooth_other"));
     case Dtk::RightActionListRole:
         return m_data.at(row)->item->data(role);
     default:

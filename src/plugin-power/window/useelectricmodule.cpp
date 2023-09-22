@@ -13,13 +13,15 @@
 #include "itemmodule.h"
 
 #include <DComboBox>
+#include <DIconTheme>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : PageModule("pluggedIn", tr("Plugged In"), QIcon::fromTheme("dcc_using_electric"), parent)
+    : PageModule("pluggedIn", tr("Plugged In"), DIconTheme::findQIcon("dcc_using_electric"), parent)
     , m_model(model)
     , m_work(work)
 {

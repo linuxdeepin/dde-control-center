@@ -8,6 +8,7 @@
 #include <DTitlebar>
 #include <DFontSizeManager>
 #include <DSuggestButton>
+#include <DIconTheme>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -18,6 +19,7 @@
 #include <QDialog>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 FingerDisclaimer::FingerDisclaimer(QWidget *parent)
@@ -66,7 +68,7 @@ void FingerDisclaimer::initWidget()
     titleIcon->setTitle(tr("Add Fingerprint"));
 
     m_fingerPic = new QLabel(this);
-    m_fingerPic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
+    m_fingerPic->setPixmap(DIconTheme::findQIcon(getFacePicture()).pixmap(128, 128));
 
     // 提示信息
     m_resultTips = new QLabel(this);

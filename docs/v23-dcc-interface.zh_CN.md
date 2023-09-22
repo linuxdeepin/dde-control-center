@@ -189,7 +189,7 @@ ModuleObject *Test1Plugin::module()
 }
 
 Test1ModuleObject::Test1ModuleObject()
-    : HListModule("firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"))
+    : HListModule("firstmenu", tr("主菜单"), tr("我是主菜单"), DIconTheme::findQIcon("preferences-system"))
 {
     // 根节点继承于HListModule
     //-----------正常树构建----------
@@ -288,7 +288,7 @@ QString Plugin::name() const
 ModuleObject* Plugin::module()
 {
     //-----------创建根节点----------
-    ModuleObject *moduleRoot = new ModuleObject("menu3", tr("菜单3"), tr("我是菜单3"), QIcon::fromTheme("preferences-system"), this);
+    ModuleObject *moduleRoot = new ModuleObject("menu3", tr("菜单3"), tr("我是菜单3"), DIconTheme::findQIcon("preferences-system"), this);
     moduleRoot->setChildType(ModuleObject::ChildType::Page);
 
     for (int j = 0; j < 4; j++) {
@@ -302,8 +302,8 @@ ModuleObject* Plugin::module()
 
 QString Plugin::follow() const
 {
-    // 注意这里返回的是上级的url
-    return QStringLiteral("firstmenu");
+    // 注意这里返回的是上级的url
+    return QStringLiteral("firstmenu");
 }
 
 QString Plugin::location() const

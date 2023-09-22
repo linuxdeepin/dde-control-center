@@ -4,6 +4,8 @@
 
 
 #include "timeoutdialog.h"
+#include <DIconTheme>
+DGUI_USE_NAMESPACE
 
 TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *parent)
     : DDialog(parent)
@@ -18,7 +20,7 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
         m_messageModel = tr("Settings will be reverted in %1s.");
     }
     setMessage(m_messageModel.arg(m_timeout));
-    setIcon(QIcon::fromTheme("preferences-system"));
+    setIcon(DIconTheme::findQIcon("preferences-system"));
 
     addButton(tr("Revert"), true, DDialog::ButtonRecommend);
     addButton(tr("Save"));

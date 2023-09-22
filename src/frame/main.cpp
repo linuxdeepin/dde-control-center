@@ -11,12 +11,14 @@
 #include <DApplicationSettings>
 #include <DDBusSender>
 #include <DLog>
+#include <DIconTheme>
 
 #include <QIcon>
 #include <QScreen>
 #include <QStringList>
 
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 constexpr QSize MainWindowStartSize(QSize(1000, 600));
@@ -112,8 +114,8 @@ int main(int argc, char *argv[])
     app->setAttribute(Qt::AA_UseHighDpiPixmaps);
     app->loadTranslator();
     app->setStyle("chameleon");
-    app->setProductIcon(QIcon::fromTheme("preferences-system"));
-    app->setWindowIcon(QIcon::fromTheme("preferences-system"));
+    app->setProductIcon(DIconTheme::findQIcon("preferences-system"));
+    app->setWindowIcon(DIconTheme::findQIcon("preferences-system"));
 
     DApplicationSettings settings;
 

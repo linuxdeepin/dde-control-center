@@ -7,6 +7,7 @@
 #include "avatarcropbox.h"
 
 #include <DSlider>
+#include <DIconTheme>
 
 #include <QColor>
 #include <QDateTime>
@@ -24,6 +25,8 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QWidget>
+
+DGUI_USE_NAMESPACE
 
 const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 
@@ -229,7 +232,7 @@ CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidge
     m_addAvatarFrame->setAcceptDrops(true);
     m_addAvatarFrame->installEventFilter(this);
 
-    m_addAvatarLabel->setPixmap(QIcon::fromTheme("dcc_user_add_icon").pixmap(60, 60));
+    m_addAvatarLabel->setPixmap(DIconTheme::findQIcon("dcc_user_add_icon").pixmap(60, 60));
     m_addAvatarLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
     m_hintLabel->setText(

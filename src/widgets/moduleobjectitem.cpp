@@ -5,6 +5,7 @@
 
 #include <DStyleOption>
 #include <DStyledItemDelegate>
+#include <DIconTheme>
 
 #include <QApplication>
 
@@ -14,6 +15,7 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class ModuleObjectItemPrivate
@@ -102,7 +104,7 @@ void ModuleObjectItem::setRightIcon(DStyle::StandardPixmap st, int index)
 
 void ModuleObjectItem::setRightIcon(const QString &icon, int index)
 {
-    QIcon ico = QIcon::fromTheme(icon);
+    QIcon ico = DIconTheme::findQIcon(icon);
     if (ico.isNull())
         ico = QIcon(icon);
 

@@ -11,15 +11,17 @@
 #include "utils.h"
 
 #include <QLabel>
+#include <DIconTheme>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 const QString gsetting_showSuspend = "showSuspend";
 const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PowerModule::PowerModule(QObject *parent)
-    : HListModule("power", tr("Power"), QIcon::fromTheme("dcc_nav_power"), parent)
+    : HListModule("power", tr("Power"), DIconTheme::findQIcon("dcc_nav_power"), parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)

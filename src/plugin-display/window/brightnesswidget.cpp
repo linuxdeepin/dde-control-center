@@ -8,11 +8,13 @@
 #include "widgets/dccslider.h"
 
 #include <DFontSizeManager>
+#include <DIconTheme>
 
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QSpacerItem>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
@@ -191,8 +193,8 @@ void BrightnessWidget::addSlider()
             slider->setRange(miniScale, int(BrightnessMaxScale));
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
-            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
-            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setLeftIcon(DIconTheme::findQIcon("dcc_brightnesslow"));
+            slider->setRightIcon(DIconTheme::findQIcon("dcc_brightnesshigh"));
             slider->setIconSize(QSize(24, 24));
             slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
             slider->setValue(int(brightness * BrightnessMaxScale));
@@ -242,8 +244,8 @@ void BrightnessWidget::addSlider()
             slider->setRange(m_miniScales, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
-            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
-            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setLeftIcon(DIconTheme::findQIcon("dcc_brightnesslow"));
+            slider->setRightIcon(DIconTheme::findQIcon("dcc_brightnesshigh"));
             slider->setIconSize(QSize(24, 24));
             slider->setTickInterval(1);
             slider->setValue(int((brightness + DoubleZero) * maxBacklight));

@@ -13,6 +13,7 @@
 #include <DListView>
 #include <DSwitchButton>
 #include <DSpinner>
+#include <DIconTheme>
 
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -25,6 +26,7 @@
 #include <QCheckBox>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *model, BluetoothWorker *work, QObject *parent)
@@ -197,7 +199,7 @@ void AdapterModule::initAnonymousCheckBox(QWidget *w)
 
     DIconButton *refreshBtn = new DIconButton(w);
     refreshBtn->setFixedSize(36, 36);
-    refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
+    refreshBtn->setIcon(DIconTheme::findQIcon("dcc_refresh"));
     refreshBtn->setVisible(!m_adapter->discovering());
 
     QHBoxLayout *phlayoutShowAnonymous = new QHBoxLayout;

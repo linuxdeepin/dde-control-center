@@ -6,6 +6,7 @@
 #include "keylabel.h"
 
 #include <DStyle>
+#include <DIconTheme>
 
 #include <QLabel>
 #include <QMouseEvent>
@@ -15,6 +16,7 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 ShortcutItem::ShortcutItem(QFrame *parent)
     : SettingsItem(parent)
@@ -40,7 +42,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->setAlignment(m_title, Qt::AlignLeft);
 
     m_editBtn = new DIconButton(this);
-    m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_editBtn->setIcon(DIconTheme::findQIcon("dcc_edit"));
     m_editBtn->hide();
     m_editBtn->setFixedSize(16, 16);
     m_editBtn->setAccessibleName("EDIT_SHORTCUT_BUTTON");

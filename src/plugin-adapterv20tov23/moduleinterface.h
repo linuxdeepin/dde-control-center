@@ -9,6 +9,10 @@
 #include <QIcon>
 #include <QWidget>
 
+#include <DIconTheme>
+
+DGUI_USE_NAMESPACE
+
 //struct ModuleMetadata {
 //    QString icon;
 //    QString title;
@@ -70,7 +74,7 @@ public:
     /// \return
     ///
     virtual QIcon icon() const {
-        return QIcon::fromTheme(QString("dcc_nav_%1").arg(name()));
+        return DIconTheme::findQIcon(QString("dcc_nav_%1").arg(name()));
     }
 
     ///

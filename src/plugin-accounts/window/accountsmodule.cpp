@@ -41,6 +41,7 @@
 #include <DDesktopServices>
 #include <DFloatingButton>
 #include <DBlurEffectWidget>
+#include <DIconTheme>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 
@@ -49,6 +50,7 @@
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 QString AccountsPlugin::name() const
@@ -99,7 +101,7 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
 }
 ///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
-    : PageModule("accounts", tr("Users"), tr("User management") , QIcon::fromTheme("dcc_nav_accounts"), parent)
+    : PageModule("accounts", tr("Users"), tr("User management") , DIconTheme::findQIcon("dcc_nav_accounts"), parent)
     , m_model(nullptr)
     , m_worker(nullptr)
     , m_curLoginUser(nullptr)
@@ -367,7 +369,7 @@ QWidget *AccountsModule::initFullNameIcon(ModuleObject *module)
 {
     DToolButton *fullNameBtn = new DToolButton();
     fullNameBtn->setAccessibleName("fullName_btn");
-    fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    fullNameBtn->setIcon(DIconTheme::findQIcon("dcc_edit"));
     fullNameBtn->setIconSize(QSize(12, 12));
     //点击用户全名编辑按钮
     connect(fullNameBtn, &DIconButton::clicked, module, [this]() {
@@ -472,7 +474,7 @@ QWidget *AccountsModule::initName(ModuleObject *module)
     Q_UNUSED(module)
     QWidget *w = new QWidget();
     QLabel *shortnameBtn = new QLabel();
-    shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(12, 12));
+    shortnameBtn->setPixmap(DIconTheme::findQIcon("dcc_avatar").pixmap(12, 12));
     QLabel *shortName = new QLabel();
     shortName->setEnabled(false);
     auto updateName = [shortName](User *user, User *oldUser) {
@@ -779,7 +781,7 @@ void AccountsModule::updateFullnameVisible(uint32_t flag, bool state)
 void AccountsModule::onShowSafetyPage(const QString &errorTips)
 {
     DDialog dlg("", errorTips, nullptr);
-    dlg.setIcon(QIcon::fromTheme("preferences-system"));
+    dlg.setIcon(DIconTheme::findQIcon("preferences-system"));
     dlg.addButton(tr("Go to Settings"));
     dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
     connect(this, &AccountsModule::deactivated, &dlg, &DDialog::close);
@@ -808,7 +810,7 @@ void AccountsModule::onLoginModule(ModuleObject *module)
                 m_worker->setAutoLogin(m_curUser, autoLogin);
             } else {
                 DDialog *tipDialog = new DDialog(qobject_cast<QWidget *>(sender()));
-                tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+                tipDialog->setIcon(DIconTheme::findQIcon("dialog-warning"));
                 tipDialog->setModal(true);
                 tipDialog->setAttribute(Qt::WA_DeleteOnClose);
                 tipDialog->addButton(tr("OK"));

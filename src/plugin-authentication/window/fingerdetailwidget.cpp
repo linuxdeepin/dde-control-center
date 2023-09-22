@@ -8,6 +8,7 @@
 #include <DApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DIconTheme>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -16,6 +17,7 @@
 #include <QSize>
 
 using namespace DCC_NAMESPACE;
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 FingerDetailWidget::FingerDetailWidget(QWidget *parent)
@@ -74,10 +76,10 @@ void FingerDetailWidget::initNotFingerDevice()
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
     this, [ = ](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
-        pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+        pNotDevice->setPixmap(DIconTheme::findQIcon(getDisplayPath()).pixmap(64, 64));
 
     });
-    pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    pNotDevice->setPixmap(DIconTheme::findQIcon(getDisplayPath()).pixmap(64, 64));
     pNotDevice->setAlignment(Qt::AlignHCenter);
 
 
