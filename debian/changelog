@@ -4,14 +4,12 @@ dde-control-center (6.0.28) unstable; urgency=medium
   * fix: light theme text in discaimer is not clear
   * fix: listview is not in the center or grub page
   * fix sidebar expand/collapse status error
-
- -- chenhongtao <chenhongtao@deepin.org> Thu, 14 Sep 2023 13:56:40 +0800
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 14 Sep 2023 13:56:40 +0800
 
 dde-control-center (6.0.27) unstable; urgency=medium
 
   * resize window at frist to fit some pages
-
- -- chenhongtao <chenhongtao@deepin.org> Tue, 12 Sep 2023 09:53:30 +0800
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 12 Sep 2023 09:53:30 +0800
 
 dde-control-center (6.0.26) unstable; urgency=medium
 
@@ -20,7 +18,6 @@ dde-control-center (6.0.26) unstable; urgency=medium
   * hide region-setting view
   * show hscrollbar when page width is too big
   * fix machineid is remembered when joining tesing
-
  -- chenhongtao <chenhongtao@deepin.org>  Fri, 08 Sep 2023 11:04:30 +0800
 
 dde-control-center (6.0.25) unstable; urgency=medium
