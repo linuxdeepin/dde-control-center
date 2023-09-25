@@ -725,8 +725,7 @@ void GlobalThemeModel::updateData()
     QStringList keys = m_themeModel->keys();
     if (keys.contains("custom")) {
         keys.removeAll("custom");
-        int i = keys.size() > 5 ? 5 : keys.size();
-        keys.insert(i, "custom"); // 保证自定义在第一页最后一个
+        keys.push_back("custom");
     }
     beginResetModel();
     m_keys = keys;
