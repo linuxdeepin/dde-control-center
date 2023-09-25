@@ -1,3 +1,8 @@
+dde-control-center (6.0.29) unstable; urgency=medium
+
+  * fix: debian warning
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 25 Sep 2023 13:40:40 +0800
+
 dde-control-center (6.0.28) unstable; urgency=medium
 
   * fix: tabbar height is too large cause page flash
