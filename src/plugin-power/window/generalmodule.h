@@ -36,6 +36,7 @@ Q_SIGNALS:
     void requestSetWakeDisplay(const bool &state);                            // 唤醒显示器输入密码
     void requestSetPowerSaveMode(const bool &state);                          // 节能模式
     void requestSetPowerSavingModeLowerBrightnessThreshold(const int &level); // 节能模式亮度降低
+    void requestSetPowerSavingModeAutoBatteryPercentage(const int &level); // 节能模式亮度降低
     void requestSetPowerPlan(const QString &powerPlan);                       // 性能模式的设置
 public Q_SLOTS:
 

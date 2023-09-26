@@ -44,6 +44,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoWhenBatteryLowChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setPowerSavingModeAuto);
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeBrightnessDropPercentChanged, m_powerModel, &PowerModel::setPowerSavingModeLowerBrightnessThreshold);
+    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoBatteryPercentChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoBatteryPercentage);
     connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerPressPowerBtnActionChanged, m_powerModel, &PowerModel::setLinePowerPressPowerBtnAction);
     connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerLidClosedActionChanged, m_powerModel, &PowerModel::setLinePowerLidClosedAction);
     connect(m_powerDBusProxy, &PowerDBusProxy::BatteryPressPowerBtnActionChanged, m_powerModel, &PowerModel::setBatteryPressPowerBtnAction);
@@ -69,6 +70,7 @@ void PowerWorker::active()
     m_powerModel->setSleepOnLidOnPowerClose(m_powerDBusProxy->lidClosedSleep());
     m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
     m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_powerDBusProxy->powerSavingModeAutoWhenBatteryLow());
+    m_powerModel->setPowerSavingModeAutoBatteryPercentage(m_powerDBusProxy->powerSavingModeAutoBatteryPercent());
     m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_powerDBusProxy->powerSavingModeBrightnessDropPercent());
     m_powerModel->setLowPowerNotifyEnable(m_powerDBusProxy->lowPowerNotifyEnable());
     m_powerModel->setLowPowerAutoSleepThreshold(m_powerDBusProxy->lowPowerAutoSleepThreshold());
@@ -212,6 +214,11 @@ void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
 void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
 {
     m_powerDBusProxy->setPowerSavingModeBrightnessDropPercent(dPowerSavingModeLowerBrightnessThreshold);
+}
+
+void PowerWorker::setPowerSavingModeAutoBatteryPercentage(uint dPowerSavingModeBatteryPercentage)
+{
+    m_powerDBusProxy->setPowerSavingModeAutoBatteryPercent(dPowerSavingModeBatteryPercentage);
 }
 
 void PowerWorker::setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction)
