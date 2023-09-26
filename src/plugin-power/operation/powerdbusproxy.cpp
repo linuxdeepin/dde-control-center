@@ -235,6 +235,16 @@ void PowerDBusProxy::setPowerSavingModeBrightnessDropPercent(uint value)
     m_sysPowerInter->setProperty("PowerSavingModeBrightnessDropPercent", QVariant::fromValue(value));
 }
 
+uint PowerDBusProxy::powerSavingModeAutoBatteryPercent()
+{
+    return qvariant_cast<uint>(m_sysPowerInter->property("PowerSavingModeAutoBatteryPercent"));
+}
+
+void PowerDBusProxy::setPowerSavingModeAutoBatteryPercent(uint value)
+{
+    m_sysPowerInter->setProperty("PowerSavingModeAutoBatteryPercent", QVariant::fromValue(value));
+}
+
 QString PowerDBusProxy::mode()
 {
     return qvariant_cast<QString>(m_sysPowerInter->property("Mode"));

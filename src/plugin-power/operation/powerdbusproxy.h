@@ -74,9 +74,15 @@ public:
     Q_PROPERTY(bool PowerSavingModeAutoWhenBatteryLow READ powerSavingModeAutoWhenBatteryLow WRITE setPowerSavingModeAutoWhenBatteryLow NOTIFY PowerSavingModeAutoWhenBatteryLowChanged)
     bool powerSavingModeAutoWhenBatteryLow();
     void setPowerSavingModeAutoWhenBatteryLow(bool value);
+
     Q_PROPERTY(uint PowerSavingModeBrightnessDropPercent READ powerSavingModeBrightnessDropPercent WRITE setPowerSavingModeBrightnessDropPercent NOTIFY PowerSavingModeBrightnessDropPercentChanged)
     uint powerSavingModeBrightnessDropPercent();
     void setPowerSavingModeBrightnessDropPercent(uint value);
+
+    Q_PROPERTY(uint PowerSavingModeAutoBatteryPercent READ powerSavingModeAutoBatteryPercent WRITE setPowerSavingModeAutoBatteryPercent NOTIFY PowerSavingModeAutoBatteryPercentChanged)
+    uint powerSavingModeAutoBatteryPercent();
+    void setPowerSavingModeAutoBatteryPercent(uint value);
+
     Q_PROPERTY(QString Mode READ mode NOTIFY ModeChanged)
     QString mode();
     Q_PROPERTY(bool PowerSavingModeAuto READ powerSavingModeAuto WRITE setPowerSavingModeAuto NOTIFY PowerSavingModeAutoChanged)
@@ -117,6 +123,7 @@ signals:
     void BatteryPercentageChanged(double value) const;
     void PowerSavingModeAutoWhenBatteryLowChanged(bool value) const;
     void PowerSavingModeBrightnessDropPercentChanged(uint value) const;
+    void PowerSavingModeAutoBatteryPercentChanged(uint value) const;
     void ModeChanged(const QString &value) const;
     void BatteryCapacityChanged(double value) const;
 

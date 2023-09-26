@@ -59,6 +59,10 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
             &GeneralModule::requestSetPowerSavingModeLowerBrightnessThreshold,
             m_work,
             &PowerWorker::setPowerSavingModeLowerBrightnessThreshold);
+    connect(this,
+            &GeneralModule::requestSetPowerSavingModeAutoBatteryPercentage,
+            m_work,
+            &PowerWorker::setPowerSavingModeAutoBatteryPercentage);
     connect(this, &GeneralModule::requestSetPowerPlan, m_work, &PowerWorker::setPowerPlan);
     initUI();
 }
@@ -198,7 +202,52 @@ void GeneralModule::initUI()
             itemAutoPowerSavingOnLowBattery,
             &ItemModule::setVisible);
     group->appendChild(itemAutoPowerSavingOnLowBattery);
+    ItemModule *itemAutoPowerSavingOnBatterySlider = new ItemModule(
+            "decreaseBrightness",
+            tr("Decrease Brightness"),
+            [this](ModuleObject *module) -> QWidget * {
+                Q_UNUSED(module)
+                TitledSliderItem *sldLowerBrightness =
+                        new TitledSliderItem(tr("Low battery threshold"));
+                QStringList annotions;
+                annotions << "10%"
+                          << "20%"
+                          << "30%"
+                          << "40%"
+                          << "50%";
+                sldLowerBrightness->setAnnotations(annotions);
+                sldLowerBrightness->slider()->setRange(1, 5);
+                sldLowerBrightness->slider()->setPageStep(10);
+                sldLowerBrightness->slider()->setType(DCCSlider::Vernier);
+                sldLowerBrightness->slider()->setTickPosition(QSlider::NoTicks);
+                sldLowerBrightness->slider()->setValue(m_model->powerSavingModeAutoBatteryPercentage() / 10);
 
+                sldLowerBrightness->setValueLiteral(
+                        QString("%1%").arg(m_model->powerSavingModeAutoBatteryPercentage()));
+                connect(m_model,
+                        &PowerModel::powerSavingModeAutoBatteryPercentageChanged,
+                        sldLowerBrightness,
+                        [sldLowerBrightness](const uint dLevel) {
+                            sldLowerBrightness->slider()->blockSignals(true);
+                            sldLowerBrightness->slider()->setValue(dLevel / 10);
+                            sldLowerBrightness->slider()->blockSignals(false);
+                        });
+                connect(sldLowerBrightness->slider(),
+                        &DCCSlider::valueChanged,
+                        this,
+                        [=](int value) {
+                            sldLowerBrightness->setValueLiteral(annotions[value - 1]);
+                            Q_EMIT requestSetPowerSavingModeAutoBatteryPercentage(value * 10);
+                        });
+                return sldLowerBrightness;
+            },
+            false);
+    itemAutoPowerSavingOnBatterySlider->setVisible(m_model->haveBettary());
+    group->appendChild(itemAutoPowerSavingOnBatterySlider);
+    connect(m_model,
+            &PowerModel::haveBettaryChanged,
+            itemAutoPowerSavingOnBatterySlider,
+            &ItemModule::setVisible);
     ItemModule *itemAutoPowerSavingOnBattery =
             new ItemModule("autoPowerSavingOnBattery",
                            tr("Auto power saving on battery"),

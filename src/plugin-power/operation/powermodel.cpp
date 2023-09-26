@@ -27,6 +27,7 @@ PowerModel::PowerModel(QObject *parent)
     , m_bPowerSavingModeAutoWhenQuantifyLow(0)
     , m_bPowerSavingModeAuto(false)
     , m_dPowerSavingModeLowerBrightnessThreshold(0)
+    , m_dPowerSavingModeAutoBatteryPercentage(0)
     , m_nLinePowerPressPowerBtnAction(0)
     , m_nLinePowerLidClosedAction(0)
     , m_nBatteryPressPowerBtnAction(0)
@@ -201,6 +202,15 @@ void PowerModel::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingMod
         m_dPowerSavingModeLowerBrightnessThreshold = dPowerSavingModeLowerBrightnessThreshold;
 
         Q_EMIT powerSavingModeLowerBrightnessThresholdChanged(dPowerSavingModeLowerBrightnessThreshold);
+    }
+}
+
+void PowerModel::setPowerSavingModeAutoBatteryPercentage(uint dPowerSavingModeAutoBatteryPercentage)
+{
+    if (dPowerSavingModeAutoBatteryPercentage != m_dPowerSavingModeAutoBatteryPercentage) {
+        m_dPowerSavingModeAutoBatteryPercentage = dPowerSavingModeAutoBatteryPercentage;
+
+        Q_EMIT powerSavingModeAutoBatteryPercentageChanged(dPowerSavingModeAutoBatteryPercentage);
     }
 }
 
