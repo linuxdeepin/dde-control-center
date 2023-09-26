@@ -13,6 +13,7 @@
 
 #define SECURITY_QUESTIONS_ERROR_COUNT 1
 
+class PowerDBusProxy;
 class AccountsDBusProxy;
 class UserDBusProxy;
 class SyncDBusProxy;
@@ -79,6 +80,8 @@ public Q_SLOTS:
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
     void checkPwdLimitLevel();
+    void setScreenBlackLock(const bool lock);
+    void setSleepLock(const bool lock);
 
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
@@ -87,7 +90,6 @@ private Q_SLOTS:
     void getPresetGroups();
     void getPresetGroupsResult(QDBusPendingCallWatcher *watch);
     void checkADUser();
-
 private:
     UserDBusProxy *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
@@ -96,6 +98,7 @@ private:
     QList<int> securityQuestionsCheck();
 
 private:
+    PowerDBusProxy *m_powerInter;
     AccountsDBusProxy *m_accountsInter;
     UserDBusProxy *m_userQInter;
     SyncDBusProxy *m_syncInter;

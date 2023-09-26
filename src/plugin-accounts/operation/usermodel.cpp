@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "usermodel.h"
 
@@ -10,14 +10,16 @@ using namespace DCC_NAMESPACE;
 
 UserModel::UserModel(QObject *parent)
     : QObject(parent)
+    , m_sleepLock(false)
+    , m_screenBlackLock(false)
     , m_autoLoginVisable(true)
     , m_noPassWordLoginVisable(true)
     , m_bCreateUserValid(false)
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
     , m_isSecurityHighLever(false)
-{
 
+{
 }
 
 UserModel::~UserModel()
@@ -25,14 +27,14 @@ UserModel::~UserModel()
     qDeleteAll(m_userList.values());
 }
 
-User * UserModel::getUser(const QString &id)
+User *UserModel::getUser(const QString &id)
 {
     return m_userList.value(id, nullptr);
 }
 
 QList<User *> UserModel::userList() const
 {
-    for(auto user : m_userList) {
+    for (auto user : m_userList) {
         if (m_onlineUsers.contains(user->name()))
             user->setOnline(true);
         else
@@ -160,3 +162,40 @@ void UserModel::setADUserLogind(bool isADUserLogind)
 
     Q_EMIT isADUserLoginChanged(isADUserLogind);
 }
+
+void UserModel::setSleepLock(bool sleepLock)
+{
+    if (sleepLock != m_sleepLock) {
+        m_sleepLock = sleepLock;
+
+        Q_EMIT sleepLockChanged(sleepLock);
+    }
+}
+
+void UserModel::setScreenBlackLock(const bool lock)
+{
+    if (lock != m_screenBlackLock) {
+        m_screenBlackLock = lock;
+
+        Q_EMIT screenBlackLockChanged(lock);
+    }
+}
+
+void UserModel::setCanSuspend(bool canSuspend)
+{
+    if (canSuspend != m_canSuspend) {
+        m_canSuspend = canSuspend;
+
+        Q_EMIT suspendChanged(canSuspend);
+    }
+}
+
+void UserModel::setSuspend(bool suspend)
+{
+    if (suspend == m_isSuspend)
+        return;
+    m_isSuspend = suspend;
+    Q_EMIT suspendChanged(suspend);
+}
+
+

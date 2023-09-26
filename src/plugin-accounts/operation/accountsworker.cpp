@@ -8,6 +8,7 @@
 #include "accountsdbusproxy.h"
 #include "userdbusproxy.h"
 #include "securitydbusproxy.h"
+#include "powerdbusproxy.h"
 
 #include <ddbussender.h>
 
@@ -30,8 +31,19 @@ using namespace PolkitQt1;
 
 using namespace DCC_NAMESPACE;
 
+#define POWER_CAN_SLEEP "POWER_CAN_SLEEP"
+#define POWER_CAN_HIBERNATE "POWER_CAN_HIBERNATE"
+
+static const QStringList DCC_CONFIG_FILES {
+    "/etc/deepin/dde-control-center.conf",
+    "/usr/share/dde-control-center/dde-control-center.conf"
+};
+
+
+
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
+    , m_powerInter(new PowerDBusProxy(this))
     , m_accountsInter(new AccountsDBusProxy(this))
     , m_userQInter(new UserDBusProxy(QString("/org/deepin/dde/Accounts1/User%1").arg(getuid()), this))
     , m_syncInter(new SyncDBusProxy(this))
@@ -44,6 +56,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_userModel->setCurrentUserName(m_currentUserName);
     m_userModel->setIsSecurityHighLever(hasOpenSecurity());
 
+    m_userModel->setSuspend(Dtk::Core::DSysInfo::UosServer != Dtk::Core::DSysInfo::uosType());
+    connect(m_powerInter, &PowerDBusProxy::ScreenBlackLockChanged, m_userModel, &UserModel::setScreenBlackLock);
+    connect(m_powerInter, &PowerDBusProxy::SleepLockChanged, m_userModel, &UserModel::setSleepLock);
     connect(m_accountsInter, &AccountsDBusProxy::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
@@ -252,6 +267,20 @@ void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
 
 void AccountsWorker::active()
 {
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
+    const bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
+    QFutureWatcher<bool> *canSleepWatcher = new QFutureWatcher<bool>();
+    connect(canSleepWatcher, &QFutureWatcher<bool>::finished, this, [=] {
+        bool canSuspend = canSleepWatcher->result();
+        bool can_suspend = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSuspend; m_userModel->setCanSuspend(can_suspend);
+        canSleepWatcher->deleteLater();
+    });
+    canSleepWatcher->setFuture(QtConcurrent::run([=] {
+        return m_powerInter->login1ManagerCanSuspend();
+    }));
+    m_userModel->setScreenBlackLock(m_powerInter->screenBlackLock());
+    m_userModel->setSleepLock(m_powerInter->sleepLock());
     for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it) {
         it.key()->setName(it.value()->property("UserName").toString());
         it.key()->setAutoLogin(it.value()->automaticLogin());
@@ -814,4 +843,14 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
     else
         result.error = m_syncInter->lastError();
     return result;
+}
+
+void AccountsWorker::setScreenBlackLock(const bool lock)
+{
+    m_powerInter->setScreenBlackLock(lock);
+}
+
+void AccountsWorker::setSleepLock(const bool lock)
+{
+    m_powerInter->setSleepLock(lock);
 }

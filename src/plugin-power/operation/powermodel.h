@@ -16,12 +16,6 @@ class PowerModel : public QObject
 public:
     explicit PowerModel(QObject *parent = 0);
 
-    inline bool screenBlackLock() const { return m_screenBlackLock; }
-    void setScreenBlackLock(const bool lock);
-
-    inline bool sleepLock() const { return m_sleepLock; }
-    void setSleepLock(bool sleepLock);
-
     inline bool canSuspend() const { return m_canSuspend; }
     void setCanSuspend(bool canSuspend);
 
@@ -164,8 +158,6 @@ private:
     bool m_lidPresent; //以此判断是否为笔记本
     bool m_sleepOnLidOnPowerClose;
     bool m_sleepOnLidOnBatteryClose;
-    bool m_screenBlackLock;
-    bool m_sleepLock;
     bool m_canSuspend;
     bool m_canHibernate;
     int m_screenBlackDelayOnPower;

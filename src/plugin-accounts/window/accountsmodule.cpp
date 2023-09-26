@@ -22,6 +22,7 @@
 #include "widgets/horizontalmodule.h"
 #include "widgets/itemmodule.h"
 #include "widgets/dcclistview.h"
+#include "widgets/settingsgroupmodule.h"
 
 #include <QStringList>
 #include <QTimer>
@@ -35,6 +36,7 @@
 
 #include <DDialog>
 #include <DLabel>
+#include <DSwitchButton>
 #include <DToolButton>
 #include <DWarningButton>
 #include <DSysInfo>
@@ -179,6 +181,49 @@ AccountsModule::AccountsModule(QObject *parent)
                 },
                 false));
     }
+
+    appendChild(new ItemModule("wakeup settings",tr("Wakeup Settings")));
+    auto wakeupGroup = new SettingsGroupModule("wakeupSettingsGroup", tr("Wakeup Settings"));    wakeupGroup->appendChild(
+            new ItemModule("passwordIsRequiredToWakeUpTheComputer",
+                           tr("Password is required to wake up the computer"),
+                           [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
+                               DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
+                               wakeComputerNeedPassword->setChecked(m_model->sleepLock());
+                               wakeComputerNeedPassword->setVisible(
+                                       m_model->canSuspend() && m_model->getSuspend()); // 配置显示
+                               connect(m_model,
+                                       &UserModel::sleepLockChanged,
+                                       wakeComputerNeedPassword,
+                                       &DSwitchButton::setChecked);
+                               connect(m_model,
+                                       &UserModel::suspendChanged,
+                                       wakeComputerNeedPassword,
+                                       &DSwitchButton::setVisible);
+                               connect(wakeComputerNeedPassword,
+                                       &DSwitchButton::checkedChanged,
+                                       m_worker,
+                                       &AccountsWorker::setSleepLock);
+                               return wakeComputerNeedPassword;
+                           }));
+    wakeupGroup->appendChild(
+            new ItemModule("passwordIsRequiredToWakeUpTheMonitor",
+                           tr("Password is required to wake up the monitor"),
+                           [this](ModuleObject *module) -> QWidget * {
+                               Q_UNUSED(module)
+                               DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
+                               wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());
+                               connect(m_model,
+                                       &UserModel::screenBlackLockChanged,
+                                       wakeDisplayNeedPassword,
+                                       &DSwitchButton::setChecked);
+                               connect(wakeDisplayNeedPassword,
+                                       &DSwitchButton::checkedChanged,
+                                       m_worker,
+                                       &AccountsWorker::setScreenBlackLock);
+                               return wakeDisplayNeedPassword;
+                           }));
+    appendChild(wakeupGroup);
 }
 
 AccountsModule::~AccountsModule()

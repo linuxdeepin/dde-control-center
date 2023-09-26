@@ -58,6 +58,18 @@ public:
         ModifyPwdSuccess
     };
 
+    inline bool sleepLock() { return m_sleepLock; }
+    void setSleepLock(bool sleepLock);
+
+    inline bool screenBlackLock() { return m_screenBlackLock; }
+    void setScreenBlackLock(const bool lock);
+
+    inline bool getSuspend() const { return m_isSuspend; }
+    void setSuspend(bool suspend);
+
+    inline bool canSuspend() const { return m_canSuspend; }
+    void setCanSuspend(bool canSuspend);
+
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
@@ -69,7 +81,13 @@ Q_SIGNALS:
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
     void adminCntChange(const int adminCnt);
+    void sleepLockChanged(const bool sleepLock);
+    void screenBlackLockChanged(const bool screenBlackLock);
+    void suspendChanged(bool suspendState);
+
 private:
+    bool m_sleepLock;
+    bool m_screenBlackLock;
     bool m_autoLoginVisable;
     bool m_noPassWordLoginVisable;
     bool m_bCreateUserValid;
@@ -81,6 +99,8 @@ private:
     bool m_isADUserLogind;
     bool m_isSecurityHighLever;
     QStringList m_onlineUsers;
+    bool m_isSuspend;
+    bool m_canSuspend;
 };
 } // namespace DCC_NAMESPACE
 

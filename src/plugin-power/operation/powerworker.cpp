@@ -22,8 +22,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerModel(model)
     , m_powerDBusProxy(new PowerDBusProxy(this))
 {
-    connect(m_powerDBusProxy, &PowerDBusProxy::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
-    connect(m_powerDBusProxy, &PowerDBusProxy::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerDBusProxy, &PowerDBusProxy::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
     connect(m_powerDBusProxy, &PowerDBusProxy::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnPowerClose);
     connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
@@ -63,8 +61,6 @@ void PowerWorker::active()
     m_powerDBusProxy->blockSignals(false);
 
     // refersh data
-    m_powerModel->setScreenBlackLock(m_powerDBusProxy->screenBlackLock());
-    m_powerModel->setSleepLock(m_powerDBusProxy->sleepLock());
     m_powerModel->setLidPresent(m_powerDBusProxy->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerDBusProxy->lidClosedSleep());
     m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
@@ -94,17 +90,7 @@ void PowerWorker::active()
     m_powerModel->setPowerSaveMode(m_powerDBusProxy->powerSavingModeEnabled());
 
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
-    const bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
     const bool envVal_hibernate = QVariant(env.value(POWER_CAN_HIBERNATE)).toBool();
-
-    QFutureWatcher<bool> *canSleepWatcher = new QFutureWatcher<bool>();
-    connect(canSleepWatcher, &QFutureWatcher<bool>::finished, this, [=] {
-        bool canSuspend = canSleepWatcher->result();
-        bool can_suspend = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSuspend;
-        m_powerModel->setCanSuspend(can_suspend);
-        canSleepWatcher->deleteLater();
-    });
 
     QFutureWatcher<bool> *canHibernateWatcher = new QFutureWatcher<bool>();
     connect(canHibernateWatcher, &QFutureWatcher<bool>::finished, this, [=] {
@@ -116,10 +102,6 @@ void PowerWorker::active()
         canHibernateWatcher->deleteLater();
     });
 
-    canSleepWatcher->setFuture(QtConcurrent::run([=] {
-        return m_powerDBusProxy->login1ManagerCanSuspend();
-    }));
-
     canHibernateWatcher->setFuture(QtConcurrent::run([=] {
         return m_powerDBusProxy->login1ManagerCanHibernate();
     }));
@@ -128,16 +110,6 @@ void PowerWorker::active()
 void PowerWorker::deactive()
 {
     m_powerDBusProxy->blockSignals(true);
-}
-
-void PowerWorker::setScreenBlackLock(const bool lock)
-{
-    m_powerDBusProxy->setScreenBlackLock(lock);
-}
-
-void PowerWorker::setSleepLock(const bool lock)
-{
-    m_powerDBusProxy->setSleepLock(lock);
 }
 
 void PowerWorker::setSleepOnLidOnPowerClosed(const bool sleep)

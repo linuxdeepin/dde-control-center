@@ -12,8 +12,6 @@ PowerModel::PowerModel(QObject *parent)
     , m_lidPresent(false)
     , m_sleepOnLidOnPowerClose(false)
     , m_sleepOnLidOnBatteryClose(false)
-    , m_screenBlackLock(false)
-    , m_sleepLock(false)
     , m_canSuspend(true)
     , m_canHibernate(false)
     , m_screenBlackDelayOnPower(0)
@@ -40,15 +38,6 @@ PowerModel::PowerModel(QObject *parent)
     , m_powerPlan("")
     , m_isHighPerformanceSupported(false)
 {
-}
-
-void PowerModel::setScreenBlackLock(const bool lock)
-{
-    if (lock != m_screenBlackLock) {
-        m_screenBlackLock = lock;
-
-        Q_EMIT screenBlackLockChanged(lock);
-    }
 }
 
 void PowerModel::setLidPresent(bool lidPresent)
@@ -267,14 +256,7 @@ void PowerModel::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
     }
 }
 
-void PowerModel::setSleepLock(bool sleepLock)
-{
-    if (sleepLock != m_sleepLock) {
-        m_sleepLock = sleepLock;
 
-        Q_EMIT sleepLockChanged(sleepLock);
-    }
-}
 
 void PowerModel::setCanSuspend(bool canSuspend)
 {

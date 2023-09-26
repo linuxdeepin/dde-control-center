@@ -35,9 +35,6 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
 
-    connect(this, &GeneralModule::requestSetWakeDisplay, m_work, &PowerWorker::setScreenBlackLock);
-    connect(this, &GeneralModule::requestSetWakeComputer, m_work, &PowerWorker::setSleepLock);
-
     connect(this,
             &GeneralModule::requestSetLowBatteryMode,
             m_work,
@@ -266,49 +263,4 @@ void GeneralModule::initUI()
                 return sldLowerBrightness;
             },
             false));
-
-    // 唤醒设置
-    appendChild(new TitleModule("wakeupSettingsTitle", tr("Wakeup Settings")));
-    group = new SettingsGroupModule("wakeupSettingsGroup", tr("Wakeup Settings"));
-    appendChild(group);
-    group->appendChild(
-            new ItemModule("passwordIsRequiredToWakeUpTheComputer",
-                           tr("Password is required to wake up the computer"),
-                           [this](ModuleObject *module) -> QWidget * {
-                               Q_UNUSED(module)
-                               DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
-                               wakeComputerNeedPassword->setChecked(m_model->sleepLock());
-                               wakeComputerNeedPassword->setVisible(
-                                       m_model->canSuspend() && m_model->getSuspend()); // 配置显示
-                               connect(m_model,
-                                       &PowerModel::sleepLockChanged,
-                                       wakeComputerNeedPassword,
-                                       &DSwitchButton::setChecked);
-                               connect(m_model,
-                                       &PowerModel::suspendChanged,
-                                       wakeComputerNeedPassword,
-                                       &DSwitchButton::setVisible);
-                               connect(wakeComputerNeedPassword,
-                                       &DSwitchButton::checkedChanged,
-                                       this,
-                                       &GeneralModule::requestSetWakeComputer);
-                               return wakeComputerNeedPassword;
-                           }));
-    group->appendChild(
-            new ItemModule("passwordIsRequiredToWakeUpTheMonitor",
-                           tr("Password is required to wake up the monitor"),
-                           [this](ModuleObject *module) -> QWidget * {
-                               Q_UNUSED(module)
-                               DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
-                               wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());
-                               connect(m_model,
-                                       &PowerModel::screenBlackLockChanged,
-                                       wakeDisplayNeedPassword,
-                                       &DSwitchButton::setChecked);
-                               connect(wakeDisplayNeedPassword,
-                                       &DSwitchButton::checkedChanged,
-                                       this,
-                                       &GeneralModule::requestSetWakeDisplay);
-                               return wakeDisplayNeedPassword;
-                           }));
 }
