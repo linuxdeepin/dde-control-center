@@ -94,6 +94,8 @@ endif()
 # dconfig
 file(GLOB DCONFIG_FILES "misc/configs/*.json")
 dconfig_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
+file(GLOB DCONFIG_FILE_REGION_FORMAT "misc/configs/common/org.deepin.region-format.json")
+dconfig_meta_files(COMMONID true FILES ${DCONFIG_FILE_REGION_FORMAT})
 
 include_directories(
     include

@@ -7,11 +7,14 @@
 #include <QObject>
 
 #include "zoneinfo.h"
+#include "regionproxy.h"
 
 class DatetimeModel : public QObject
 {
     Q_OBJECT
 public:
+    using Regions = QMap<QString, QLocale>;
+
     explicit DatetimeModel(QObject *parent = nullptr);
 
     inline bool nTP() const { return m_ntp; }
@@ -43,31 +46,47 @@ public:
     inline QString getTimeZone() const { return m_timeZones; }
     void setTimeZoneInfo(const QString &timeZone);
 
-    inline int weekdayFormatType() const { return m_weekdayFormatType; }
-    inline int shortDateFormat() const { return m_shortDateFormat; }
-    inline int longDateFormat() const { return m_longDateFormat; }
-    inline int longTimeFormat() const { return m_longTimeFormat; }
-    inline int shorTimeFormat() const { return m_shorTimeFormat; }
-    inline int weekStartDayFormat() const { return m_weekStartDayFormat; }
-    inline int weekdayFormatTypeCount() const { return m_weekdayFormatTypeCount; }
-    inline int shortDateFormatTypeCount() const { return m_shortDateFormatTypeCount; }
-    inline int longDateFormatTypeCount() const { return m_longDateFormatTypeCount; }
-    inline int longTimeFormatTypeCount() const { return m_longTimeFormatTypeCount; }
-    inline int shorTimeFormatTypeCount() const { return m_shorTimeFormatTypeCount; }
-    inline int weekStartDayFormatTypeCount() const { return m_weekStartDayFormatTypeCount; }
+    inline QString country() const { return m_country; }
+    void setCountry(const QString &country);
 
-    void setWeekdayFormatType(int type);
-    void setShortDateFormat(int type);
-    void setLongDateFormat(int type);
-    void setLongTimeFormat(int type);
-    void setShorTimeFormat(int type);
-    void setWeekStartDayFormat(int type);
-    void setWeekdayFormatTypeCount(int size);
-    void setShortDateFormatTypeCount(int size);
-    void setLongDateFormatTypeCount(int size);
-    void setLongTimeFormatTypeCount(int size);
-    void setShorTimeFormatTypeCount(int size);
-    void setWeekStartDayFormatTypeCount(int size);
+    inline QString localeName() const { return m_localeName; }
+    void setLocaleName(const QString &localeName);
+
+    inline QString langRegion() const { return m_langCountry; }
+    void setLangRegion(const QString &langCountry);
+
+    inline QString firstDayOfWeekFormat() const { return m_firstDayOfWeekFormat; }
+    void setFirstDayOfWeek(const QString &firstDayOfWeekFormat);
+
+    inline QString shortDateFormat() const { return m_shortDateFormat; }
+    void setShortDateFormat(const QString &shortDateFormat);
+
+    inline QString longDateFormat() const { return m_longDateFormat; }
+    void setLongDateFormat(const QString &longDateFormat);
+
+    inline QString shortTimeFormat() const { return m_shortTimeFormat; }
+    void setShortTimeFormat(const QString &shortTimeFormat);
+
+    inline QString longTimeFormat() const { return m_longTimeFormat; }
+    void setLongTimeFormat(const QString &longTimeFormat);
+
+    inline QString currencyFormat() const { return m_currencyFormat; }
+    void setCurrencyFormat(const QString &currencyFormat);
+
+    inline QString numberFormat() const { return m_numberFormat; }
+    void setNumberFormat(const QString &numberFormat);
+
+    inline QString paperFormat() const { return m_paperFormat; }
+    void setPaperFormat(const QString &paperFormat);
+
+    inline RegionFormat regionFormat() const { return m_regionFormat; }
+    void setRegionFormat(const RegionFormat &regionFormat);
+
+    inline QStringList countries() const { return m_countries; }
+    void setCountries(const QStringList &countries);
+
+    inline Regions regions() const { return m_regions; }
+    void setRegions(const Regions &regions);
 
 Q_SIGNALS:
     void NTPChanged(bool value);
@@ -81,13 +100,18 @@ Q_SIGNALS:
     void NTPServerChanged(QString server);
     void NTPServerListChanged(QStringList list);
     void NTPServerNotChanged(QString server);
-    void weekdayFormatTypeChanged(int type);
-    void shortDateFormatChanged(int type);
-    void longDateFormatChanged(int type);
-    void longTimeFormatChanged(int type);
-    void shorTimeFormatChanged(int type);
-    void weekStartDayFormatChanged(int type);
     void timeZoneChanged(QString value);
+    void localeNameChanged(const QString &localeName);
+    void countryChanged(const QString &country);
+    void langCountryChanged(const QString &langCountry);
+    void firstDayOfWeekFormatChanged(const QString &firstDayOfWeekFormat);
+    void shortDateFormatChanged(const QString &shortDateFormat);
+    void longDateFormatChanged(const QString &longDate);
+    void shortTimeFormatChanged(const QString &shortTimeFormat);
+    void longTimeFormatChanged(const QString &longTimeFormat);
+    void currencyFormatChanged(const QString &currencyFormat);
+    void numberFormatChanged(const QString &numberFormat);
+    void paperFormatChanged(const QString &numberFormat);
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
@@ -105,20 +129,20 @@ private:
     QString m_strNtpServerAddress;
     QStringList m_NtpServerList;
     QString m_timeZones;
-
-    int m_weekdayFormatType{ 0 };
-    int m_shortDateFormat{ 0 };
-    int m_longDateFormat{ 0 };
-    int m_longTimeFormat{ 0 };
-    int m_shorTimeFormat{ 0 };
-    int m_weekStartDayFormat{ 0 };
-
-    int m_weekdayFormatTypeCount{ 0 };
-    int m_shortDateFormatTypeCount{ 0 };
-    int m_longDateFormatTypeCount{ 0 };
-    int m_longTimeFormatTypeCount{ 0 };
-    int m_shorTimeFormatTypeCount{ 0 };
-    int m_weekStartDayFormatTypeCount{ 0 };
+    QString m_country;
+    QString m_langCountry;
+    QStringList m_countries;
+    Regions m_regions;
+    QString m_localeName;
+    QString m_firstDayOfWeekFormat;
+    QString m_shortDateFormat;
+    QString m_longDateFormat;
+    QString m_shortTimeFormat;
+    QString m_longTimeFormat;
+    QString m_currencyFormat;
+    QString m_numberFormat;
+    QString m_paperFormat;
+    RegionFormat m_regionFormat;
 };
 
 #endif // DATETIMEMODEL_H

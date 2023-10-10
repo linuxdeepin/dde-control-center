@@ -3,18 +3,24 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimeworker.h"
 #include "datetimedbusproxy.h"
+#include "regionproxy.h"
 #include <QDebug>
 
 #include <QtConcurrent>
 #include <QFutureWatcher>
 #include <QLoggingCategory>
 
+#include <dconfig.h>
+
 Q_LOGGING_CATEGORY(DdcDateTimeWorkder, "dcc-datetime-worker")
+
 
 DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_timedateInter(new DatetimeDBusProxy(this))
+    , m_regionInter(new RegionProxy(this))
+    , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
 {
 #ifndef DCC_DISABLE_TIMEZONE
     connect(m_timedateInter, &DatetimeDBusProxy::UserTimezonesChanged, this, &DatetimeWorker::onTimezoneListChanged);
@@ -38,30 +44,15 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->set24HourFormat(m_timedateInter->use24HourFormat());
 
-    m_model->setWeekdayFormatType(m_timedateInter->weekdayFormat());
-    m_model->setLongDateFormat(m_timedateInter->longDateFormat());
-    m_model->setShortDateFormat(m_timedateInter->shortDateFormat());
-    m_model->setShorTimeFormat(m_timedateInter->shortTimeFormat());
-    m_model->setLongTimeFormat(m_timedateInter->longTimeFormat());
-    m_model->setWeekStartDayFormat(m_timedateInter->weekBegins());
-
-    m_model->setWeekdayFormatTypeCount(3);
-    m_model->setLongDateFormatTypeCount(3);
-    m_model->setShortDateFormatTypeCount(9);
-    m_model->setShorTimeFormatTypeCount(4);
-    m_model->setLongTimeFormatTypeCount(4);
-    m_model->setWeekStartDayFormatTypeCount(2);
-
-    connect(m_timedateInter, &DatetimeDBusProxy::WeekdayFormatChanged, m_model, &DatetimeModel::setWeekdayFormatType);
-    connect(m_timedateInter, &DatetimeDBusProxy::LongDateFormatChanged, m_model, &DatetimeModel::setLongDateFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::ShortDateFormatChanged, m_model, &DatetimeModel::setShortDateFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::ShortTimeFormatChanged, m_model, &DatetimeModel::setShorTimeFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::LongTimeFormatChanged, m_model, &DatetimeModel::setLongTimeFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::WeekBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
     m_model->setNTP(m_timedateInter->nTP());
+
+    m_model->setCountries(m_regionInter->countries());
+    m_model->setRegions(m_regionInter->regions());
+
+    initRegionFormatData();
 }
 
 DatetimeWorker::~DatetimeWorker()
@@ -214,7 +205,6 @@ void DatetimeWorker::getZoneInfoFinished(ZoneInfo zoneInfo)
 
 void DatetimeWorker::refreshNtpServerList()
 {
-
     m_timedateInter->GetSampleNTPServers(this, SLOT(getSampleNTPServersFinished(const QStringList &)));
 }
 
@@ -226,6 +216,94 @@ void DatetimeWorker::getSampleNTPServersFinished(const QStringList &serverList)
 ZoneInfo DatetimeWorker::GetZoneInfo(const QString &zoneId)
 {
     return m_timedateInter->GetZoneInfo(zoneId);
+}
+
+void DatetimeWorker::initRegionFormatData()
+{
+    if (!m_config->isValid())
+        return;
+
+    if (m_config->isDefaultValue(country_key)) {
+        m_model->setCountry(m_regionInter->systemCountry());
+    } else {
+        m_model->setCountry(m_config->value(country_key).toString());
+    }
+    if (m_config->isDefaultValue(languageRegion_key)) {
+        m_model->setLangRegion(m_regionInter->langCountry());
+    } else {
+        m_model->setLangRegion(m_config->value(languageRegion_key).toString());
+    }
+    if (m_config->isDefaultValue(localeName_key)) {
+        m_model->setLocaleName(QLocale::system().name());
+    } else {
+        m_model->setLocaleName(m_config->value(localeName_key).toString());
+    }
+    if (m_config->isDefaultValue(firstDayOfWeek_key)) {
+        m_model->setFirstDayOfWeek(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
+    } else {
+        m_model->setFirstDayOfWeek(m_config->value(firstDayOfWeek_key).toString());
+    }
+    if (m_config->isDefaultValue(shortDateFormat_key)) {
+        m_model->setShortDateFormat(m_regionInter->regionFormat(QLocale::system()).shortDateFormat);
+    } else {
+        m_model->setShortDateFormat(m_config->value(shortDateFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(longDateFormat_key)) {
+        m_model->setLongDateFormat(m_regionInter->regionFormat(QLocale::system()).longDateFormat);
+    } else {
+        m_model->setLongDateFormat(m_config->value(longDateFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(shortTimeFormat_key)) {
+        m_model->setShortTimeFormat(m_regionInter->regionFormat(QLocale::system()).shortTimeFormat);
+    } else {
+        m_model->setShortTimeFormat(m_config->value(shortTimeFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(longTimeFormat_key)) {
+        m_model->setLongTimeFormat(m_regionInter->regionFormat(QLocale::system()).longTimeFormat);
+    } else {
+        m_model->setLongTimeFormat(m_config->value(longTimeFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(currencyFormat_key)) {
+        m_model->setCurrencyFormat(m_regionInter->regionFormat(QLocale::system()).currencyFormat);
+    } else {
+        m_model->setCurrencyFormat(m_config->value(currencyFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(numberFormat_key)) {
+        m_model->setNumberFormat(m_regionInter->regionFormat(QLocale::system()).numberFormat);
+    } else {
+        m_model->setNumberFormat(m_config->value(numberFormat_key).toString());
+    }
+    if (m_config->isDefaultValue(paperFormat_key)) {
+        m_model->setPaperFormat(m_regionInter->regionFormat(QLocale::system()).paperFormat);
+    } else {
+        m_model->setPaperFormat(m_config->value(paperFormat_key).toString());
+    }
+
+    connect(m_config, &DTK_CORE_NAMESPACE::DConfig::valueChanged, this, [this] (const QString &key) {
+        if (key == country_key) {
+            m_model->setCountry(m_config->value(key).toString());
+        } else if (key == languageRegion_key) {
+            m_model->setLangRegion(m_config->value(key).toString());
+        } else if (key == localeName_key) {
+            m_model->setLocaleName(m_config->value(key).toString());
+        } else if (key == firstDayOfWeek_key) {
+            m_model->setFirstDayOfWeek(m_config->value(key).toString());
+        } else if (key == shortDateFormat_key) {
+            m_model->setShortDateFormat(m_config->value(key).toString());
+        } else if (key == longDateFormat_key) {
+            m_model->setLongDateFormat(m_config->value(key).toString());
+        } else if (key == shortTimeFormat_key) {
+            m_model->setShortTimeFormat(m_config->value(key).toString());
+        } else if (key == longTimeFormat_key) {
+            m_model->setLongTimeFormat(m_config->value(key).toString());
+        } else if (key == currencyFormat_key) {
+            m_model->setCurrencyFormat(m_config->value(key).toString());
+        } else if (key == numberFormat_key) {
+            m_model->setNumberFormat(m_config->value(key).toString());
+        } else if (key == paperFormat_key) {
+            m_model->setPaperFormat(m_config->value(key).toString());
+        }
+    });
 }
 
 std::optional<LocaleList> DatetimeWorker::getAllLocale()
@@ -241,4 +319,9 @@ std::optional<QString> DatetimeWorker::getLocaleRegion()
 void DatetimeWorker::setLocaleRegion(const QString &locale)
 {
     m_timedateInter->setLocaleRegion(locale);
+}
+
+void DatetimeWorker::setConfigValue(const QString &key, const QString &value)
+{
+    m_config->setValue(key, value);
 }

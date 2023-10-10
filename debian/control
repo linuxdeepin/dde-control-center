@@ -9,6 +9,7 @@ Build-Depends:
  qtbase5-dev,
  qttools5-dev-tools,
  libdtkwidget-dev,
+ libdtkcore-dev(>5.6.18),
  libdtkcore5-bin,
  qtmultimedia5-dev,
  libdareader-dev,

@@ -116,104 +116,111 @@ void DatetimeModel::setTimeZoneInfo(const QString &timeZone)
     }
 }
 
-void DatetimeModel::setWeekdayFormatType(int type)
+void DatetimeModel::setCountry(const QString &country)
 {
-    if (m_weekdayFormatType == type)
-        return;
-
-    m_weekdayFormatType = type;
-    Q_EMIT weekdayFormatTypeChanged(type);
+    if (m_country != country) {
+        m_country = country;
+        Q_EMIT countryChanged(country);
+    }
 }
 
-void DatetimeModel::setShortDateFormat(int type)
+void DatetimeModel::setLocaleName(const QString &localeName)
 {
-    if (m_shortDateFormat == type)
-        return;
-
-    m_shortDateFormat = type;
-    Q_EMIT shortDateFormatChanged(type);
+    if (m_localeName != localeName) {
+        m_localeName = localeName;
+        Q_EMIT localeNameChanged(localeName);
+    }
 }
 
-void DatetimeModel::setLongDateFormat(int type)
+void DatetimeModel::setLangRegion(const QString &langCountry)
 {
-    if (m_longDateFormat == type)
-        return;
-
-    m_longDateFormat = type;
-    Q_EMIT longDateFormatChanged(type);
+    if (m_langCountry != langCountry) {
+        m_langCountry = langCountry;
+        Q_EMIT langCountryChanged(langCountry);
+    }
 }
 
-void DatetimeModel::setLongTimeFormat(int type)
+void DatetimeModel::setFirstDayOfWeek(const QString &firstDayOfWeekFormat)
 {
-    if (m_longTimeFormat == type)
-        return;
-
-    m_longTimeFormat = type;
-    Q_EMIT longTimeFormatChanged(type);
+    if (m_firstDayOfWeekFormat != firstDayOfWeekFormat) {
+        m_firstDayOfWeekFormat = firstDayOfWeekFormat;
+        Q_EMIT firstDayOfWeekFormatChanged(firstDayOfWeekFormat);
+    }
 }
 
-void DatetimeModel::setShorTimeFormat(int type)
+void DatetimeModel::setShortDateFormat(const QString &shortDateFormat)
 {
-    if (m_shorTimeFormat == type)
-        return;
-
-    m_shorTimeFormat = type;
-    Q_EMIT shorTimeFormatChanged(type);
+    if (m_shortDateFormat != shortDateFormat) {
+        m_shortDateFormat = shortDateFormat;
+        Q_EMIT shortDateFormatChanged(shortDateFormat);
+    }
 }
 
-void DatetimeModel::setWeekStartDayFormat(int type)
+void DatetimeModel::setLongDateFormat(const QString &longDateFormat)
 {
-    if (m_weekStartDayFormat == type)
-        return;
-
-    m_weekStartDayFormat = type;
-    Q_EMIT weekStartDayFormatChanged(type);
+    if (m_longDateFormat != longDateFormat) {
+        m_longDateFormat = longDateFormat;
+        Q_EMIT longDateFormatChanged(longDateFormat);
+    }
 }
 
-void DatetimeModel::setWeekdayFormatTypeCount(int size)
+void DatetimeModel::setShortTimeFormat(const QString &shortTimeFormat)
 {
-    if (m_weekdayFormatTypeCount == size)
-        return;
-
-    m_weekdayFormatTypeCount = size;
+    if (m_shortTimeFormat != shortTimeFormat) {
+        m_shortTimeFormat = shortTimeFormat;
+        Q_EMIT shortTimeFormatChanged(shortTimeFormat);
+    }
 }
 
-void DatetimeModel::setShortDateFormatTypeCount(int size)
+void DatetimeModel::setLongTimeFormat(const QString &longTimeFormat)
 {
-    if (m_shortDateFormatTypeCount == size)
-        return;
-
-    m_shortDateFormatTypeCount = size;
+    if (m_longTimeFormat != longTimeFormat) {
+        m_longTimeFormat = longTimeFormat;
+        Q_EMIT longTimeFormatChanged(longTimeFormat);
+    }
 }
 
-void DatetimeModel::setLongDateFormatTypeCount(int size)
+void DatetimeModel::setCurrencyFormat(const QString &currencyFormat)
 {
-    if (m_longDateFormatTypeCount == size)
-        return;
-
-    m_longDateFormatTypeCount = size;
+    if (m_currencyFormat != currencyFormat) {
+        m_currencyFormat = currencyFormat;
+        Q_EMIT currencyFormatChanged(currencyFormat);
+    }
 }
 
-void DatetimeModel::setLongTimeFormatTypeCount(int size)
+void DatetimeModel::setNumberFormat(const QString &numberFormat)
 {
-    if (m_longTimeFormatTypeCount == size)
-        return;
-
-    m_longTimeFormatTypeCount = size;
+    if (m_numberFormat != numberFormat) {
+        m_numberFormat = numberFormat;
+        Q_EMIT numberFormatChanged(numberFormat);
+    }
 }
 
-void DatetimeModel::setShorTimeFormatTypeCount(int size)
+void DatetimeModel::setPaperFormat(const QString &paperFormat)
 {
-    if (m_shorTimeFormatTypeCount == size)
-        return;
-
-    m_shorTimeFormatTypeCount = size;
+    if (m_paperFormat != paperFormat) {
+        m_paperFormat = paperFormat;
+        Q_EMIT paperFormatChanged(paperFormat);
+    }
 }
 
-void DatetimeModel::setWeekStartDayFormatTypeCount(int size)
+void DatetimeModel::setRegionFormat(const RegionFormat &regionFormat)
 {
-    if (m_weekStartDayFormatTypeCount == size)
-        return;
+    if (m_regionFormat != regionFormat) {
+        m_regionFormat = regionFormat;
+    }
+}
 
-    m_weekStartDayFormatTypeCount = size;
+void DatetimeModel::setCountries(const QStringList &countries)
+{
+    if (m_countries != countries) {
+        m_countries = countries;
+    }
+}
+
+void DatetimeModel::setRegions(const Regions &regions)
+{
+    if (m_regions != regions) {
+        m_regions = regions;
+    }
 }

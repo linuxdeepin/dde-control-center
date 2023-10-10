@@ -11,7 +11,14 @@
 
 #include <optional>
 
+#include <dtkcore_global.h>
+
 class DatetimeDBusProxy;
+class RegionProxy;
+
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
 
 class DatetimeWorker : public QObject
 {
@@ -28,6 +35,7 @@ public:
     std::optional<QString> getLocaleRegion();
 
     void setLocaleRegion(const QString &locale);
+    void setConfigValue(const QString &key, const QString &value);
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
@@ -66,11 +74,14 @@ private Q_SLOTS:
 private:
     void refreshNtpServerList();
     ZoneInfo GetZoneInfo(const QString &zoneId);
+    void initRegionFormatData();
 
 private:
     DatetimeModel *m_model;
     DatetimeDBusProxy *m_timedateInter;
     QDateTime *m_setDatetime;
+    RegionProxy *m_regionInter;
+    DTK_CORE_NAMESPACE::DConfig *m_config;
 };
 
 #endif // DATETIMEWORKER_H
