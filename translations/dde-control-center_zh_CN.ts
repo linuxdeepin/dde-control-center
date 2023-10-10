@@ -2486,12 +2486,16 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>低电量时自动开启</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>使用电池时自动开启</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>自动降低亮度</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>低电量阈值</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>使用电池时自动开启</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
