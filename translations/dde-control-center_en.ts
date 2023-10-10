@@ -2474,11 +2474,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
+        <source>Decrease Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Decrease Brightness</source>
+        <source>Low battery threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
