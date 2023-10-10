@@ -346,3 +346,12 @@ void PowerModel::setShutdown(bool shutdown)
         Q_EMIT shutdownChanged(shutdown);
     }
 }
+
+void PowerModel::setNoPasswdLogin(bool value)
+{
+    if (value != m_noPasswdLogin) {
+        m_noPasswdLogin = value;
+
+        Q_EMIT noPasswdLoginChanged(value);
+    }
+}
