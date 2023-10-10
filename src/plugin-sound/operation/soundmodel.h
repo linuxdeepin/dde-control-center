@@ -115,6 +115,9 @@ public:
     inline bool reduceNoise() const { return m_reduceNoise; }
     void setReduceNoise(bool reduceNoise);
 
+    inline bool pausePlayer() const { return m_pausePlayer; }
+    void setPausePlayer(bool reduceNoise);
+
     inline bool microphoneOn() const { return m_microphoneOn; }
     void setMicrophoneOn(bool microphoneOn);
 
@@ -200,6 +203,7 @@ Q_SIGNALS:
     void maxUIVolumeChanged(double value) const;
     void increaseVolumeChanged(bool value) const;
     void reduceNoiseChanged(bool reduceNoise) const;
+    void pausePlayerChanged(bool pausePlayer) const;
     void isPortEnableChanged(bool enable) const;
     void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
     void bluetoothModeChanged(const QString &mode);
@@ -230,6 +234,7 @@ private:
     bool m_isLaptop;
     bool m_increaseVolume{false};
     bool m_reduceNoise{true};
+    bool m_pausePlayer{true};
     bool m_portEnable{false};
     double m_speakerVolume;
     double m_speakerBalance;

@@ -37,6 +37,7 @@ public Q_SLOTS:
     void setSinkMute(bool flag = true);
     void setIncreaseVolume(bool value);
     void setReduceNoise(bool value);
+    void setPausePlayer(bool value);
 
     void setPort(const Port *port);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);

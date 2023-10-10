@@ -158,6 +158,14 @@ void SoundModel::setReduceNoise(bool reduceNoise)
     }
 }
 
+void SoundModel::setPausePlayer(bool pausePlayer)
+{
+    if (pausePlayer != m_pausePlayer) {
+        m_pausePlayer = pausePlayer;
+        Q_EMIT pausePlayerChanged(pausePlayer);
+    }
+}
+
 
 void SoundModel::setMicrophoneOn(bool microphoneOn)
 {

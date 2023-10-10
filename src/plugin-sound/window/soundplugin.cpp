@@ -4,9 +4,14 @@
 #include <QApplication>
 #include <DFontSizeManager>
 #include <DIconTheme>
+#include <DSwitchButton>
+#include <DTipLabel>
 
 #include "widgets/titlelabel.h"
+#include "widgets/itemmodule.h"
+#include "widgets/widgetmodule.h"
 #include "interface/pagemodule.h"
+
 #include "soundplugin.h"
 #include "soundmodel.h"
 #include "soundworker.h"
@@ -34,6 +39,37 @@ ModuleObject *SoundPlugin::module()
     ModuleObject *moduleOutput = new PageModule("output", tr("Output"));
     OutputModule *outputPage = new OutputModule(soundInterface->model(), soundInterface->work(), moduleOutput);
     moduleOutput->appendChild(outputPage);
+    ItemModule* pauseAudio = new ItemModule("PauseAudio",
+                       tr("Auto pause"),
+                       [soundInterface](ModuleObject *module) -> QWidget * {
+                            Q_UNUSED(module)
+                            DSwitchButton *pluginControl = new DSwitchButton;
+                            auto model = soundInterface->model();
+                            auto work = soundInterface->work();
+                            pluginControl->setChecked(model->pausePlayer());
+                            connect(model,
+                                    &SoundModel::pausePlayerChanged,
+                                    pluginControl,
+                                    &DSwitchButton::setChecked);
+                            connect(pluginControl,
+                                    &DSwitchButton::checkedChanged,
+                                    work,
+                                    &SoundWorker::setPausePlayer);
+                            return pluginControl;
+                       });
+    pauseAudio->setBackground(true);
+    moduleOutput->appendChild(pauseAudio);
+    auto autoLoginTip = new WidgetModule<DTipLabel>(
+       "plugcontroltip",
+       tr(""),
+       [](DTipLabel *plugcontrollabel) {
+           plugcontrollabel->setWordWrap(true);
+           plugcontrollabel->setAlignment(Qt::AlignLeft);
+           plugcontrollabel->setContentsMargins(10, 0, 10, 0);
+           plugcontrollabel->setText(tr("Whether the audio will be automatically paused when the current audio device is unplugged"));
+       });
+    moduleOutput->appendChild(autoLoginTip);
+
     soundInterface->appendChild(moduleOutput);
 
     // 二级 -- 输入
