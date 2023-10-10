@@ -123,6 +123,12 @@ public:
     inline bool isHighPerformanceSupported() const { return m_isHighPerformanceSupported; }
     void setHighPerformanceSupported(bool isHighSupport);
 
+    // ----
+    inline bool isNoPasswdLogin() const { return m_noPasswdLogin; }
+
+    void setNoPasswdLogin(bool value);
+
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -164,6 +170,8 @@ Q_SIGNALS:
     void powerPlanChanged(const QString &value);
     void highPerformaceSupportChanged(bool value);
 
+    void noPasswdLoginChanged(bool value);
+
 private:
     bool m_lidPresent; //以此判断是否为笔记本
     bool m_sleepOnLidOnPowerClose;
@@ -203,6 +211,9 @@ private:
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
+
+    // Account
+    bool m_noPasswdLogin;
 };
 
 #endif // POWERMODEL_H

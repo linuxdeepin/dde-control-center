@@ -22,6 +22,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerModel(model)
     , m_powerDBusProxy(new PowerDBusProxy(this))
 {
+    connect(m_powerDBusProxy, &PowerDBusProxy::noPasswdLoginChanged, m_powerModel, &PowerModel::setNoPasswdLogin);
     connect(m_powerDBusProxy, &PowerDBusProxy::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
     connect(m_powerDBusProxy, &PowerDBusProxy::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerDBusProxy, &PowerDBusProxy::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
@@ -80,6 +81,8 @@ void PowerWorker::active()
     m_powerModel->setBatteryPressPowerBtnAction(m_powerDBusProxy->batteryPressPowerBtnAction());
     m_powerModel->setBatteryLidClosedAction(m_powerDBusProxy->batteryLidClosedAction());
     m_powerModel->setPowerPlan(m_powerDBusProxy->mode());
+
+    m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
 
     setHighPerformanceSupported(m_powerDBusProxy->isHighPerformanceSupported());
 

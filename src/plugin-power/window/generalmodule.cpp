@@ -14,9 +14,9 @@
 #include <titledslideritem.h>
 
 #include <DComboBox>
+#include <DIconTheme>
 #include <DListView>
 #include <DSwitchButton>
-#include <DIconTheme>
 
 #define BALANCE "balance"         // 平衡模式
 #define PERFORMANCE "performance" // 高性能模式
@@ -320,44 +320,63 @@ void GeneralModule::initUI()
     appendChild(new TitleModule("wakeupSettingsTitle", tr("Wakeup Settings")));
     group = new SettingsGroupModule("wakeupSettingsGroup", tr("Wakeup Settings"));
     appendChild(group);
-    group->appendChild(
-            new ItemModule("passwordIsRequiredToWakeUpTheComputer",
-                           tr("Password is required to wake up the computer"),
-                           [this](ModuleObject *module) -> QWidget * {
-                               Q_UNUSED(module)
-                               DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
-                               wakeComputerNeedPassword->setChecked(m_model->sleepLock());
-                               wakeComputerNeedPassword->setVisible(
-                                       m_model->canSuspend() && m_model->getSuspend()); // 配置显示
-                               connect(m_model,
-                                       &PowerModel::sleepLockChanged,
-                                       wakeComputerNeedPassword,
-                                       &DSwitchButton::setChecked);
-                               connect(m_model,
-                                       &PowerModel::suspendChanged,
-                                       wakeComputerNeedPassword,
-                                       &DSwitchButton::setVisible);
-                               connect(wakeComputerNeedPassword,
-                                       &DSwitchButton::checkedChanged,
-                                       this,
-                                       &GeneralModule::requestSetWakeComputer);
-                               return wakeComputerNeedPassword;
-                           }));
+    group->appendChild(new ItemModule(
+            "passwordIsRequiredToWakeUpTheComputer",
+            tr("Password is required to wake up the computer"),
+            [this](ModuleObject *module) -> QWidget * {
+                Q_UNUSED(module)
+                DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
+                wakeComputerNeedPassword->setChecked(m_model->sleepLock()
+                                                     && !m_model->isNoPasswdLogin());
+                wakeComputerNeedPassword->setDisabled(m_model->isNoPasswdLogin());
+                wakeComputerNeedPassword->setVisible(m_model->canSuspend()
+                                                     && m_model->getSuspend()); // 配置显示
+                connect(m_model,
+                        &PowerModel::sleepLockChanged,
+                        wakeComputerNeedPassword,
+                        [wakeComputerNeedPassword, this](bool checked) {
+                            wakeComputerNeedPassword->setChecked(checked
+                                                                 && !m_model->isNoPasswdLogin());
+                        });
+                connect(m_model,
+                        &PowerModel::suspendChanged,
+                        wakeComputerNeedPassword,
+                        &DSwitchButton::setVisible);
+                connect(wakeComputerNeedPassword,
+                        &DSwitchButton::checkedChanged,
+                        this,
+                        &GeneralModule::requestSetWakeComputer);
+                connect(m_model,
+                        &PowerModel::noPasswdLoginChanged,
+                        wakeComputerNeedPassword,
+                        &DSwitchButton::setDisabled);
+                return wakeComputerNeedPassword;
+            }));
     group->appendChild(
             new ItemModule("passwordIsRequiredToWakeUpTheMonitor",
                            tr("Password is required to wake up the monitor"),
                            [this](ModuleObject *module) -> QWidget * {
                                Q_UNUSED(module)
                                DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
-                               wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());
+                               wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock()
+                                                                   && !m_model->isNoPasswdLogin());
+                               wakeDisplayNeedPassword->setDisabled(m_model->isNoPasswdLogin());
                                connect(m_model,
                                        &PowerModel::screenBlackLockChanged,
                                        wakeDisplayNeedPassword,
-                                       &DSwitchButton::setChecked);
+                                       [wakeDisplayNeedPassword, this](bool checked) {
+                                           wakeDisplayNeedPassword->setChecked(
+                                                   checked && !m_model->isNoPasswdLogin());
+                                       });
+
                                connect(wakeDisplayNeedPassword,
                                        &DSwitchButton::checkedChanged,
                                        this,
                                        &GeneralModule::requestSetWakeDisplay);
+                               connect(m_model,
+                                       &PowerModel::noPasswdLoginChanged,
+                                       wakeDisplayNeedPassword,
+                                       &DSwitchButton::setDisabled);
                                return wakeDisplayNeedPassword;
                            }));
 }

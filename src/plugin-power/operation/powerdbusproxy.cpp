@@ -7,8 +7,11 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
-
+#include <QDBusReply>
 #include <QFile>
+#include <QVariant>
+
+#include <unistd.h>
 
 const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
 const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
@@ -26,17 +29,47 @@ const QString UPowerService = QStringLiteral("org.freedesktop.UPower");
 const QString UPowerPath = QStringLiteral("/org/freedesktop/UPower");
 const QString UPowerInterface = QStringLiteral("org.freedesktop.UPower");
 
+const QString accountsService = QStringLiteral("org.deepin.dde.Accounts1");
+const QString defaultAccountsPath = QStringLiteral("/org/deepin/dde/Accounts1");
+const QString accountsInterface = QStringLiteral("org.deepin.dde.Accounts1");
+
+const QString accountsUserInterface = QStringLiteral("org.deepin.dde.Accounts1.User");
+
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 PowerDBusProxy::PowerDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_accountRootInter(new DDBusInterface(accountsService, defaultAccountsPath, accountsInterface, QDBusConnection::systemBus(), this))
+    , m_currentAccountInter(nullptr)
     , m_powerInter(new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
     , m_sysPowerInter(new DDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
     , m_login1ManagerInter(new DDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
     , m_upowerInter(new DDBusInterface(UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
 
 {
+}
+
+std::optional<QString> PowerDBusProxy::findUserById()
+{
+    int id = getuid();
+    QDBusReply<QString> reply = m_accountRootInter->callWithArgumentList(QDBus::CallMode::Block, "FindUserById", {QString::number(id)});
+    if (reply.isValid()) {
+        return reply.value();
+    }
+    return std::nullopt;
+}
+
+bool PowerDBusProxy::noPasswdLogin()
+{
+    if (!m_currentAccountInter) {
+        auto path = findUserById();
+        if (!path.has_value()) {
+            return false;
+        }
+        m_currentAccountInter = new DDBusInterface(accountsInterface, path.value(), accountsUserInterface, QDBusConnection::systemBus(), this);
+    }
+    return qvariant_cast<bool>(m_currentAccountInter->property("NoPasswdLogin"));
 }
 
 // power
