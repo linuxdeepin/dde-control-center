@@ -2,10 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimeplugin.h"
-
 #include "datetimemodel.h"
 #include "datetimeworker.h"
-#include "regionanddatemodule.h"
+#include "regionmodule.h"
 #include "timesettingmodule.h"
 #include "timezonemodule.h"
 
@@ -14,7 +13,7 @@ DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : HListModule("datetime", tr("Date and Time"), DIconTheme::findQIcon("dcc_nav_datetime"), parent)
+    : HListModule("datetime", tr("Time and Format"), DIconTheme::findQIcon("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
     m_model = new DatetimeModel(this);
@@ -22,7 +21,7 @@ DatetimeModule::DatetimeModule(QObject *parent)
 
     appendChild(new TimeSettingModule(m_model, m_work, this));
     appendChild(new TimezoneModule(m_model, m_work, this));
-    appendChild(new RegionAndFormatModule(m_model, m_work, this));
+    appendChild(new RegionModule(m_model, m_work, this));
 }
 
 void DatetimeModule::active()
