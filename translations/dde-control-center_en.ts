@@ -3232,6 +3232,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Auto pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>

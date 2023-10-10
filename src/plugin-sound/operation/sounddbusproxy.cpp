@@ -94,6 +94,16 @@ void SoundDBusProxy::setReduceNoise(bool value)
     m_audioInter->setProperty("ReduceNoise", QVariant::fromValue(value));
 }
 
+bool SoundDBusProxy::pausePlayer()
+{
+    return qvariant_cast<bool>(m_audioInter->property("PausePlayer"));
+}
+
+void SoundDBusProxy::setPausePlayer(bool value)
+{
+    m_audioInter->setProperty("PausePlayer", QVariant::fromValue(value));
+}
+
 void SoundDBusProxy::SetPortEnabled(uint in0, const QString &in1, bool in2)
 {
     QList<QVariant> argumentList;

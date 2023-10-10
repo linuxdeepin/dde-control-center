@@ -3244,6 +3244,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>输出</translation>
     </message>
     <message>
+        <source>Auto pause</source>
+        <translation>插拔管理</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>外设插拔时音频输出是否自动暂停</translation>
+    </message>
+    <message>
         <source>Input</source>
         <translation>输入</translation>
     </message>

@@ -41,6 +41,7 @@ void SoundWorker::initConnect()
     connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
     connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
+    connect(m_soundDBusInter, &SoundDBusProxy::PausePlayerChanged, m_model, &SoundModel::setPausePlayer);
     connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
     connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeChanged, m_model, &SoundModel::setCurrentBluetoothAudioMode);
 
@@ -60,6 +61,7 @@ void SoundWorker::activate()
     m_model->setMaxUIVolume(m_soundDBusInter->maxUIVolume());
     m_model->setIncreaseVolume(m_soundDBusInter->increaseVolume());
     m_model->setReduceNoise(m_soundDBusInter->reduceNoise());
+    m_model->setPausePlayer(m_soundDBusInter->pausePlayer());
     m_model->setBluetoothAudioModeOpts(m_soundDBusInter->bluetoothAudioModeOpts());
     m_model->setCurrentBluetoothAudioMode(m_soundDBusInter->bluetoothAudioMode());
     m_model->setEnableSoundEffect(m_soundDBusInter->enabled());
@@ -149,6 +151,11 @@ void SoundWorker::setIncreaseVolume(bool value)
 void SoundWorker::setReduceNoise(bool value)
 {
     m_soundDBusInter->setReduceNoise(value);
+}
+
+void SoundWorker::setPausePlayer(bool value)
+{
+    m_soundDBusInter->setPausePlayer(value);
 }
 
 void SoundWorker::setPort(const Port *port)

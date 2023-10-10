@@ -67,9 +67,15 @@ public:
     Q_PROPERTY(bool IncreaseVolume READ increaseVolume WRITE setIncreaseVolume NOTIFY IncreaseVolumeChanged)
     bool increaseVolume();
     void setIncreaseVolume(bool value);
+
     Q_PROPERTY(bool ReduceNoise READ reduceNoise WRITE setReduceNoise NOTIFY ReduceNoiseChanged)
     bool reduceNoise();
     void setReduceNoise(bool value);
+
+    Q_PROPERTY(bool PausePlayer READ pausePlayer WRITE setPausePlayer NOTIFY PausePlayerChanged)
+    bool pausePlayer();
+    void setPausePlayer(bool value);
+
     Q_PROPERTY(QString BluetoothAudioMode READ bluetoothAudioMode NOTIFY BluetoothAudioModeChanged)
     QString bluetoothAudioMode();
     Q_PROPERTY(QStringList BluetoothAudioModeOpts READ bluetoothAudioModeOpts NOTIFY BluetoothAudioModeOptsChanged)
@@ -131,6 +137,7 @@ Q_SIGNALS:
     void IncreaseVolumeChanged(bool value) const;
     void MaxUIVolumeChanged(double value) const;
     void ReduceNoiseChanged(bool value) const;
+    void PausePlayerChanged(bool value) const;
     void SinkInputsChanged(const QList<QDBusObjectPath> &value) const;
     void SinksChanged(const QList<QDBusObjectPath> &value) const;
     void SourcesChanged(const QList<QDBusObjectPath> &value) const;
