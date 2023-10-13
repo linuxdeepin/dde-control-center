@@ -2,7 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "fingedisclaimer.h"
+#include "fingerdisclaimer.h"
 #include "charamangermodel.h"
 
 #include <DTitlebar>

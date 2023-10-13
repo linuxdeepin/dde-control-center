@@ -2,7 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "addfingedialog.h"
+#include "addfingerdialog.h"
 #include "charamangermodel.h"
 
 #include <DTitlebar>
@@ -20,7 +20,7 @@ using namespace DCC_NAMESPACE;
 
 #define test false
 
-AddFingeDialog::AddFingeDialog(const QString &thumb, QWidget *parent)
+AddFingerDialog::AddFingerDialog(const QString &thumb, QWidget *parent)
     : DAbstractDialog(parent)
     , m_timer(new QTimer(parent))
     , m_mainLayout(new QVBoxLayout(this))
@@ -36,11 +36,11 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, QWidget *parent)
     QWidget::installEventFilter(this);
 }
 
-AddFingeDialog::~AddFingeDialog()
+AddFingerDialog::~AddFingerDialog()
 {
 }
 
-void AddFingeDialog::initWidget()
+void AddFingerDialog::initWidget()
 {
     setFixedSize(QSize(382,446));
     m_mainLayout->setAlignment(Qt::AlignHCenter);
@@ -76,13 +76,13 @@ void AddFingeDialog::initWidget()
     this->setFocus();
 }
 
-void AddFingeDialog::initData()
+void AddFingerDialog::initData()
 {
     m_cancelBtn->setText((tr("Cancel")));
     m_addBtn->setEnabled(false);
     m_addBtn->setVisible(false);
     m_spaceWidget->setVisible(false);
-    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
+    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingerDialog::close);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
         auto text = m_addBtn->text();
         if (text == tr("Done")) {
@@ -93,16 +93,16 @@ void AddFingeDialog::initData()
     });
 }
 
-void AddFingeDialog::setFingerModel(CharaMangerModel *model)
+void AddFingerDialog::setFingerModel(CharaMangerModel *model)
 {
     m_model = model;
     m_timer->setSingleShot(true);
-    connect(m_timer, &QTimer::timeout, this, &AddFingeDialog::enrollOverTime);
-    connect(m_model, &CharaMangerModel::enrollCompleted, this, &AddFingeDialog::enrollCompleted);
-    connect(m_model, &CharaMangerModel::enrollStagePass, this, &AddFingeDialog::enrollStagePass);
-    connect(m_model, &CharaMangerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
-    connect(m_model, &CharaMangerModel::enrollDisconnected, this, &AddFingeDialog::enrollDisconnected);
-    connect(m_model, &CharaMangerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
+    connect(m_timer, &QTimer::timeout, this, &AddFingerDialog::enrollOverTime);
+    connect(m_model, &CharaMangerModel::enrollCompleted, this, &AddFingerDialog::enrollCompleted);
+    connect(m_model, &CharaMangerModel::enrollStagePass, this, &AddFingerDialog::enrollStagePass);
+    connect(m_model, &CharaMangerModel::enrollFailed, this, &AddFingerDialog::enrollFailed);
+    connect(m_model, &CharaMangerModel::enrollDisconnected, this, &AddFingerDialog::enrollDisconnected);
+    connect(m_model, &CharaMangerModel::enrollRetry, this, &AddFingerDialog::enrollRetry);
     connect(m_model, &CharaMangerModel::lockedChanged, this, [=](bool locked) {
         if (locked) {
 //            close();
@@ -111,12 +111,12 @@ void AddFingeDialog::setFingerModel(CharaMangerModel *model)
     m_timer->start(1000 * 60);//1min
 }
 
-void AddFingeDialog::setUsername(const QString &name)
+void AddFingerDialog::setUsername(const QString &name)
 {
     m_username = name;
 }
 
-void AddFingeDialog::enrollCompleted()
+void AddFingerDialog::enrollCompleted()
 {
     if (!m_isEnrolling) {
         return;
@@ -134,7 +134,7 @@ void AddFingeDialog::enrollCompleted()
     Q_EMIT requestStopEnroll(m_username);
 }
 
-void AddFingeDialog::enrollStagePass(int pro)
+void AddFingerDialog::enrollStagePass(int pro)
 {
     if (!m_isEnrolling) {
         return;
@@ -145,7 +145,7 @@ void AddFingeDialog::enrollStagePass(int pro)
     m_timer->start(1000 * 60);//1min
 }
 
-void AddFingeDialog::enrollFailed(QString title, QString msg)
+void AddFingerDialog::enrollFailed(QString title, QString msg)
 {
     if (!m_isEnrolling) {
         return;
@@ -161,7 +161,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
 
     Q_EMIT requestStopEnroll(m_username);
 }
-void AddFingeDialog::enrollDisconnected()
+void AddFingerDialog::enrollDisconnected()
 {
     Q_EMIT requestStopEnroll(m_username);
 
@@ -177,7 +177,7 @@ void AddFingeDialog::enrollDisconnected()
     Q_EMIT requestStopEnroll(m_username);
 }
 
-void AddFingeDialog::enrollFocusOut()
+void AddFingerDialog::enrollFocusOut()
 {
     Q_EMIT requestStopEnroll(m_username);
 
@@ -194,7 +194,7 @@ void AddFingeDialog::enrollFocusOut()
     Q_EMIT requestStopEnroll(m_username);
 }
 
-void AddFingeDialog::enrollOverTime()
+void AddFingerDialog::enrollOverTime()
 {
     Q_EMIT requestStopEnroll(m_username);
 
@@ -210,7 +210,7 @@ void AddFingeDialog::enrollOverTime()
     Q_EMIT requestStopEnroll(m_username);
 }
 
-void AddFingeDialog::enrollRetry(QString title, QString msg)
+void AddFingerDialog::enrollRetry(QString title, QString msg)
 {
     if (!m_isEnrolling) {
         return;
@@ -221,7 +221,7 @@ void AddFingeDialog::enrollRetry(QString title, QString msg)
     m_fingeWidget->setStatueMsg(title, msg, false);
 }
 
-void AddFingeDialog::setInitStatus()
+void AddFingerDialog::setInitStatus()
 {
     m_isEnrolling = true;
     m_addBtn->setEnabled(false);
@@ -231,7 +231,7 @@ void AddFingeDialog::setInitStatus()
     m_fingeWidget->reEnter();
 }
 
-void AddFingeDialog::closeEvent(QCloseEvent *event)
+void AddFingerDialog::closeEvent(QCloseEvent *event)
 {
     if (m_isEnrolling) {
         Q_EMIT requestStopEnroll(m_username);
@@ -240,7 +240,7 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     QDialog::closeEvent(event);
 }
 
-void AddFingeDialog::keyPressEvent(QKeyEvent *event)
+void AddFingerDialog::keyPressEvent(QKeyEvent *event)
 {
 //    switch (event->key()) {
 //        case Qt::Key_Escape:
@@ -254,7 +254,7 @@ void AddFingeDialog::keyPressEvent(QKeyEvent *event)
     }
 }
 
-bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
+bool AddFingerDialog::eventFilter(QObject *o, QEvent *e)
 {
     if (o == this) {
        if (QEvent::WindowDeactivate == e->type()) {

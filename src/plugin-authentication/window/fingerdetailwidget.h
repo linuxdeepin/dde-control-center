@@ -5,7 +5,7 @@
 
 #include "interface/namespace.h"
 #include "widgets/finger/fingerwidget.h"
-#include "widgets/finger/fingedisclaimer.h"
+#include "widgets/finger/fingerdisclaimer.h"
 
 #include <QWidget>
 
@@ -40,8 +40,8 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void showDeviceStatus(bool hasDevice);
-    void showAddFingeDialog(const QString &name, const QString &thumb);
-    void showFingeDisclaimer(const QString &name, const QString &thumb);
+    void showAddFingerDialog(const QString &name, const QString &thumb);
+    void showFingerDisclaimer(const QString &name, const QString &thumb);
 
 private:
     QString m_currentUserName;
