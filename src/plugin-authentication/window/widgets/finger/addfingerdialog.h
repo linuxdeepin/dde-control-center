@@ -25,12 +25,12 @@ DWIDGET_END_NAMESPACE
 
 //添加指纹对话框
 class CharaMangerModel;
-class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
+class AddFingerDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit AddFingeDialog(const QString &thumb, QWidget *parent = nullptr);
-    ~AddFingeDialog() override;
+    explicit AddFingerDialog(const QString &thumb, QWidget *parent = nullptr);
+    ~AddFingerDialog() override;
 
     void setFingerModel(CharaMangerModel *model);
     void setUsername(const QString &name);

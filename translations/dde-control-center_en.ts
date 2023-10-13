@@ -115,7 +115,7 @@
     </message>
 </context>
 <context>
-    <name>AddFingeDialog</name>
+    <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
