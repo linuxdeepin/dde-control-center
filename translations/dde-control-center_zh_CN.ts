@@ -2502,12 +2502,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>唤醒设置</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>待机恢复时需要密码</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>待机恢复时需要解锁</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>唤醒显示器时需要密码</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>唤醒显示器时需要解锁</translation>
     </message>
 </context>
 <context>
