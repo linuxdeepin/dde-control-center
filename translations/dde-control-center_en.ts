@@ -2490,11 +2490,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
+        <source>Unlocking is required to wake up the computer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
+        <source>Unlocking is required to wake up the monitor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
