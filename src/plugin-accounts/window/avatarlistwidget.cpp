@@ -196,8 +196,8 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
             &CustomAddAvatarWidget::requestUpdateCustomWidget,
             this,
             [avatarSelectWidget, this](const QString &path) {
-                avatarSelectWidget->setCurrentWidget(m_avatarFrames[Custom]);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
+                avatarSelectWidget->setCurrentIndex(3);
                 m_currentSelectAvatarWidget->getCurrentListView()->requestAddCustomAvatar(path);
             });
 
