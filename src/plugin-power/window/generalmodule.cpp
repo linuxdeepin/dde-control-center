@@ -322,7 +322,7 @@ void GeneralModule::initUI()
     appendChild(group);
     group->appendChild(new ItemModule(
             "passwordIsRequiredToWakeUpTheComputer",
-            tr("Password is required to wake up the computer"),
+            tr("Unlocking is required to wake up the computer"),
             [this](ModuleObject *module) -> QWidget * {
                 Q_UNUSED(module)
                 DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
@@ -354,7 +354,7 @@ void GeneralModule::initUI()
             }));
     group->appendChild(
             new ItemModule("passwordIsRequiredToWakeUpTheMonitor",
-                           tr("Password is required to wake up the monitor"),
+                           tr("Unlocking is required to wake up the monitor"),
                            [this](ModuleObject *module) -> QWidget * {
                                Q_UNUSED(module)
                                DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
