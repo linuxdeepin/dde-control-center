@@ -26,6 +26,8 @@ option(ENABLE_ASAN "Enable asan" OFF)
 option(DISABLE_AUTHENTICATION "disable build authentication plugins" OFF)
 option(DISABLE_UPDATE "disable build update plugins" OFF)
 option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
+option(USE_DEEPIN_ZONE "enable special timezone file on deepin" OFF)
+set(DEEPIN_TIME_ZONE_PATH "/usr/share/dde/zoneinfo/zone1970.tab" CACHE STRING "deepin timezone path")
 
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -55,6 +57,11 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(UT_COMPILER -fprofile-instr-generate -ftest-coverage)
 endif()
+
+if (USE_DEEPIN_ZONE)
+    add_definitions(-DUSE_DEEPIN_ZONE)
+    add_definitions(-DDEEPIN_TIME_ZONE_PATH="${DEEPIN_TIME_ZONE_PATH}")
+endif ()
 
 # 增加安全编译参数
 ADD_DEFINITIONS(${SAFE_COMPILER})
@@ -249,10 +256,10 @@ install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATARO
 
 #service
 configure_file(
-    ${CMAKE_SOURCE_DIR}/misc/org.deepin.dde.ControlCenter1.service.in 
-    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service 
+    ${CMAKE_SOURCE_DIR}/misc/org.deepin.dde.ControlCenter1.service.in
+    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
     @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service 
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
 # dev files

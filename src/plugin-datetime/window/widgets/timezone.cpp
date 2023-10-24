@@ -29,10 +29,20 @@ const QString tzDirPath = std::visit([] {
     return tzDirPath;
 });
 
+#if USE_DEEPIN_ZONE
+const QString kZoneTabFileDeepin = QStringLiteral(DEEPIN_TIME_ZONE_PATH);
+const QString kZoneTabFile = std::visit([] {
+    if (QFile(kZoneTabFileDeepin).exists()) {
+        return kZoneTabFileDeepin;
+    }
+    return tzDirPath + "/zone1970.tab";
+});
+#else
 // Absolute path to zone.tab file.
 const QString kZoneTabFile = std::visit([] {
     return tzDirPath + "/zone1970.tab";
 });
+#endif
 
 // Absolute path to backward timezone file.
 const char kTimezoneAliasFile[] = "/timezone_alias";
@@ -179,7 +189,11 @@ QString GetLocalTimezoneName(const QString &timezone, const QString &locale)
     if (timezone.isEmpty()) {
         return false;
     }
-
+#if USE_DEEPIN_ZONE
+    if (kZoneTabFile == kZoneTabFileDeepin && QFile(kZoneTabFile).exists()) {
+        return true;
+    }
+#endif
     // If |filepath| is a file or a symbolic link to file, it is a valid timezone.
     const QString filepath(tzDirPath + QDir::separator() + timezone);
     return QFile::exists(filepath);

@@ -41,7 +41,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setTimeZoneInfo);
 
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
-    m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
+    m_model->setCurrentUseTimeZone(GetZoneInfo(m_timedateInter->timezone()));
     m_model->set24HourFormat(m_timedateInter->use24HourFormat());
 
     refreshNtpServerList();
@@ -116,7 +116,7 @@ void DatetimeWorker::set24HourType(bool state)
 #ifndef DCC_DISABLE_TIMEZONE
 void DatetimeWorker::setTimezone(const QString &timezone)
 {
-    m_timedateInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
+    m_timedateInter->SetTimezone(timezone);
 }
 
 void DatetimeWorker::removeUserTimeZone(const ZoneInfo &info)
