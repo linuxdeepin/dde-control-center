@@ -117,8 +117,6 @@ int main(int argc, char *argv[])
     app->setProductIcon(DIconTheme::findQIcon("preferences-system"));
     app->setWindowIcon(DIconTheme::findQIcon("preferences-system"));
 
-    DApplicationSettings settings;
-
     app->setApplicationDisplayName(QObject::tr("Control Center"));
     app->setApplicationDescription(
             QApplication::translate("main",
