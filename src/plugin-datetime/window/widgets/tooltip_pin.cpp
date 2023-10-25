@@ -1,12 +1,12 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "tooltip_pin.h"
 
 #include <QDebug>
+#include <QPaintEvent>
 #include <QPainter>
 #include <QPainterPath>
-#include <QPaintEvent>
 
 namespace installer {
 
@@ -19,18 +19,18 @@ const int kBorderRadius = 4;
 //  \|/
 const int kTriangleHeight = 6;
 
-}  // namespace
+} // namespace
 
-TooltipPin::TooltipPin(QWidget* parent)
+TooltipPin::TooltipPin(QWidget *parent)
     : QLabel(parent)
     , m_arrowDirection(ArrowDirection::ArrowDown)
 {
-  this->setObjectName("tooltip_pin");
+    this->setObjectName("tooltip_pin");
 
-  this->setAlignment(Qt::AlignHCenter);
+    this->setAlignment(Qt::AlignHCenter);
 
-  // Add 15px margin horizontally.
-  this->setStyleSheet("margin: 0 15px;");
+    // Add 15px margin horizontally.
+    this->setStyleSheet("margin: 0 15px;");
 }
 
 void TooltipPin::setArrowDirection(TooltipPin::ArrowDirection arrowDirection)
@@ -38,7 +38,7 @@ void TooltipPin::setArrowDirection(TooltipPin::ArrowDirection arrowDirection)
     m_arrowDirection = arrowDirection;
 }
 
-void TooltipPin::popup(const QPoint& point)
+void TooltipPin::popup(const QPoint &point)
 {
     if (point.x() < 100) {
         this->move(point.x() + kTriangleHeight / 2, point.y() - this->height() / 8);
@@ -48,7 +48,8 @@ void TooltipPin::popup(const QPoint& point)
     this->show();
 }
 
-void TooltipPin::paintEvent(QPaintEvent* event) {
+void TooltipPin::paintEvent(QPaintEvent *event)
+{
     Q_UNUSED(event);
 
     QPainter painter(this);
@@ -63,7 +64,12 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
 
     if (ArrowLeft == m_arrowDirection) {
         // 矩形区域
-        background_path.addRoundedRect(kTriangleHeight, 0, kWidth - kTriangleHeight, kHeight - kTriangleHeight, kBorderRadius, kBorderRadius);
+        background_path.addRoundedRect(kTriangleHeight,
+                                       0,
+                                       kWidth - kTriangleHeight,
+                                       kHeight - kTriangleHeight,
+                                       kBorderRadius,
+                                       kBorderRadius);
 
         // 三角箭头
         arrow_path.moveTo(kTriangleHeight, (kHeight - kTriangleHeight) / 2 - kTriangleHeight);
@@ -71,7 +77,12 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
         arrow_path.lineTo(kTriangleHeight, (kHeight - kTriangleHeight) / 2 + kTriangleHeight);
     } else {
         // 矩形区域
-        background_path.addRoundedRect(0, 0, kWidth, kHeight - kTriangleHeight, kBorderRadius, kBorderRadius);
+        background_path.addRoundedRect(0,
+                                       0,
+                                       kWidth,
+                                       kHeight - kTriangleHeight,
+                                       kBorderRadius,
+                                       kBorderRadius);
 
         // 三角箭头
         arrow_path.moveTo(kWidth / 2 - kTriangleHeight, kHeight - kTriangleHeight);
@@ -95,4 +106,4 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
     painter.drawText((kWidth - label_length) / 2, 16, this->text());
 }
 
-}  // namespace installer
+} // namespace installer
