@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterModule</name>
     <message>
@@ -1011,6 +1013,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>自定义格式</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>一周第一天</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>短日期</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>长日期</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>短时间</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>长时间</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>数字</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保 存</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1625,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>保 存</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>默认格式</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>一周第一天</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>短日期</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>长日期</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>短时间</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>长时间</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>数字</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保 存</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,8 +2181,8 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>时间日期</translation>
+        <source>Time and Format</source>
+        <translation>时间与格式</translation>
     </message>
 </context>
 <context>
@@ -2168,7 +2268,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -2430,29 +2530,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
-    </message>
-</context>
-<context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>日期</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>日期和时间</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>数字</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>货币</translation>
     </message>
 </context>
 <context>
@@ -2899,204 +2976,70 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>区域与格式</translation>
+        <source>Region</source>
+        <translation>区域</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>星期一</translation>
+        <source>Country region</source>
+        <translation>国家地区</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>周一</translation>
+        <source>Region format</source>
+        <translation>区域格式</translation>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>2020年4月5日</translation>
+        <source>Provide localized services based on your country or region.</source>
+        <translation>根据你所在的国家或区域为您提供本土化服务。</translation>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>2020年4月5日 星期日</translation>
+        <source>Country/region</source>
+        <translation>国家/地区</translation>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>星期日 2020年4月5日</translation>
+        <source>Set the date and time format according to language and region options.</source>
+        <translation>根据语言和区域选项设定日期与时间格式。</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
+        <source>Languange and region</source>
+        <translation>语言和区域</translation>
     </message>
     <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
+        <source>First day of week</source>
+        <translation>一周第一天</translation>
     </message>
     <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>星期二</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>星期三</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>星期四</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>星期五</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>星期六</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>星期日</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>地区设置</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* 所在区域影响系统应用的日期、时间、货币纸张等格式，设置完成后在下一次登陆生效。</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>地区设置</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>日期</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>使用二十四小时时间</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>短时间</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>长时间</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>星期</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>每周第一天</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
+        <source>Short date</source>
         <translation>短日期</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>长日期</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
+        <source>Short time</source>
+        <translation>短时间</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>确认</translation>
+        <source>Long time</source>
+        <translation>长时间</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>区域设置</translation>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>搜索</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>默认格式</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>日期</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>日期和时间</translation>
-    </message>
-    <message>
-        <source>Number</source>
+        <source>Numbers</source>
         <translation>数字</translation>
     </message>
     <message>
-        <source>Currency</source>
-        <translation>货币</translation>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>custom format</source>
+        <translation>自定义格式</translation>
     </message>
 </context>
 <context>
