@@ -7,8 +7,10 @@
 #include <QLabel>
 #include <QDebug>
 #include <dhidpihelper.h>
+#include <DIcon>
 
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 ResultItem::ResultItem(QFrame *parent)
     : SettingsItem(parent),
@@ -38,17 +40,17 @@ void ResultItem::setSuccess(ShowStatus type)
     switch (type) {
     case ShowStatus::NoActive:
         m_pix = ":/icons/deepin/builtin/icons/noactive.svg";
-        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        m_icon->setPixmap(DIcon::loadNxPixmap(m_pix));
         setMessage(tr("Your system is not authorized, please activate first"));
         break;
     case ShowStatus::IsSuccessed:
         m_pix = ":/icons/deepin/builtin/icons/success.svg";
-        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        m_icon->setPixmap(DIcon::loadNxPixmap(m_pix));
         setMessage(tr("Update successful"));
         break;
     case ShowStatus::IsFailed:
         m_pix = ":/icons/deepin/builtin/icons/failed.svg";
-        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        m_icon->setPixmap(DIcon::loadNxPixmap(m_pix));
         setMessage(tr("Failed to update"));
         break;
     default:
