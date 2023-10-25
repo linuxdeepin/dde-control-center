@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterModule</name>
     <message>
@@ -113,7 +115,7 @@
     </message>
 </context>
 <context>
-    <name>AddFingeDialog</name>
+    <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
@@ -215,6 +217,10 @@
     <message>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
+    </message>
+    <message>
+        <source>Bluetooth device manager</source>
+        <translation>蓝牙设备管理</translation>
     </message>
 </context>
 <context>
@@ -411,12 +417,16 @@
 <context>
     <name>dccV23::AccountsModule</name>
     <message>
-        <source>Accounts</source>
-        <translation>帐户</translation>
+        <source>Users</source>
+        <translation>用户</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>创建帐户</translation>
+        <source>User management</source>
+        <translation>用户管理</translation>
+    </message>
+    <message>
+        <source>Create User</source>
+        <translation>创建用户</translation>
     </message>
     <message>
         <source>Username</source>
@@ -427,12 +437,12 @@
         <translation>修改密码</translation>
     </message>
     <message>
-        <source>Delete Account</source>
-        <translation>删除帐户</translation>
+        <source>Delete User</source>
+        <translation>删除用户</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>帐户类型</translation>
+        <source>User Type</source>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -468,7 +478,7 @@
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他帐户的全名/用户名重复</translation>
+        <translation>全名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>Full Name</source>
@@ -488,7 +498,7 @@
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>只允许一个帐户开启自动登录，请先关闭%1帐户的自动登录，再进行操作</translation>
+        <translation>只允许一个用户开启自动登录，请先关闭%1用户的自动登录，再进行操作</translation>
     </message>
 </context>
 <context>
@@ -544,16 +554,47 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Person</source>
+        <translation>人物</translation>
+    </message>
+    <message>
+        <source>Animal</source>
+        <translation>动物</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>创意插图</translation>
+    </message>
+    <message>
+        <source>Expression</source>
+        <translation>表情符号</translation>
+    </message>
+    <message>
+        <source>Custom Picture</source>
+        <translation>自定义图片</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <source>Modify</source>
-        <translation>修改</translation>
+        <source>Save</source>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListWidget</name>
+    <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Dimensional Style</source>
+        <translation>立体风格</translation>
+    </message>
+    <message>
+        <source>Flat Style</source>
+        <translation>平面风格</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation>图片</translation>
@@ -664,7 +705,7 @@
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>通过获取地址位置来辅助系统实现自动调节屏幕颜色偏色</translation>
+        <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色偏色</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
@@ -799,12 +840,12 @@
         <translation>创建</translation>
     </message>
     <message>
-        <source>New Account</source>
-        <translation>新帐户</translation>
+        <source>New User</source>
+        <translation>新用户</translation>
     </message>
     <message>
-        <source>Account Type</source>
-        <translation>帐户类型</translation>
+        <source>User Type</source>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Username</source>
@@ -876,11 +917,26 @@
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>用户名与其他帐户的全名/用户名重复</translation>
+        <translation>用户名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他帐户的全名/用户名重复</translation>
+        <translation>全名与其他用户的全名/用户名重复</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomAddAvatarWidget</name>
+    <message>
+        <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
+        <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
+    </message>
+    <message>
+        <source>Uploaded file type is incorrect, please upload again</source>
+        <translation>上传的文件类型不正确，请重新上传</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation>图片</translation>
     </message>
 </context>
 <context>
@@ -954,6 +1010,53 @@
     <message>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>自定义格式</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>一周第一天</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>短日期</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>长日期</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>短时间</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>长时间</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>数字</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保 存</translation>
     </message>
 </context>
 <context>
@@ -1066,6 +1169,10 @@
     <message>
         <source>Display</source>
         <translation>显示</translation>
+    </message>
+    <message>
+        <source>Light, resolution, scaling and etc</source>
+        <translation>亮度、分辨率、缩放设置等</translation>
     </message>
 </context>
 <context>
@@ -1192,6 +1299,10 @@
     <message>
         <source>Keyboard Settings</source>
         <translation>键盘设置</translation>
+    </message>
+    <message>
+        <source>keyboard Layout</source>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1384,21 +1495,18 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationPlugin</name>
+    <name>dccV23::NotificationModule</name>
+    <message>
+        <source>AppNotify</source>
+        <translation>应用通知</translation>
+    </message>
     <message>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
-</context>
-<context>
-    <name>dccV23::NotificationWidget</name>
     <message>
-        <source>System Notifications</source>
+        <source>SystemNotify</source>
         <translation>系统通知</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>应用通知</translation>
     </message>
 </context>
 <context>
@@ -1418,6 +1526,17 @@
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>开启后若导致触控板不可用，请关闭此选项即可</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::PluginManager</name>
+    <message>
+        <source>following plugins load failed</source>
+        <translation>以下插件加载失败</translation>
+    </message>
+    <message>
+        <source>plugins cannot loaded in time</source>
+        <translation>插件没有及时加载</translation>
     </message>
 </context>
 <context>
@@ -1506,14 +1625,65 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>区域格式</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>默认格式</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>一周第一天</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>短日期</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>长日期</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>短时间</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>长时间</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>数字</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保 存</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>您确定要删除此帐户吗？</translation>
+        <translation>您确定要删除此用户吗？</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>删除帐户目录</translation>
+        <translation>删除用户目录</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1778,6 +1948,10 @@
         <translation>计算机名</translation>
     </message>
     <message>
+        <source>systemInfo</source>
+        <translation>系统信息</translation>
+    </message>
+    <message>
         <source>OS Name</source>
         <translation>产品名称</translation>
     </message>
@@ -1798,10 +1972,6 @@
         <translation>版本授权</translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation>内核版本</translation>
-    </message>
-    <message>
         <source>Processor</source>
         <translation>处理器</translation>
     </message>
@@ -1810,8 +1980,16 @@
         <translation>内存</translation>
     </message>
     <message>
+        <source>Graphics Platform</source>
+        <translation>图形平台</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>内核版本</translation>
+    </message>
+    <message>
         <source>Agreements and Privacy Policy</source>
-        <translation>协议和隐私政策</translation>
+        <translation>协议与隐私政策</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1855,12 +2033,12 @@
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
-        <source>Language List</source>
-        <translation>语言列表</translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation>编 辑</translation>
+    </message>
+    <message>
+        <source>Language List</source>
+        <translation>语言列表</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -1900,29 +2078,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>指针速度</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>轻触以点击</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>自然滚动</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>快</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
@@ -1939,6 +2094,33 @@
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::TouchpadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>指针速度</translation>
+    </message>
+    <message>
+        <source>Enable TouchPad</source>
+        <translation>启用触控板</translation>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation>轻触以点击</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>自然滚动</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>快</translation>
     </message>
 </context>
 <context>
@@ -2041,7 +2223,7 @@
     </message>
     <message>
         <source>Video</source>
-        <translation>视频播放</translation>
+        <translation>视频</translation>
     </message>
     <message>
         <source>Picture</source>
@@ -2086,7 +2268,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -2351,137 +2533,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatSettingModule</name>
-    <message>
-        <source>Time Format</source>
-        <translation>格式设置</translation>
-    </message>
-    <message>
-        <source>Monday</source>
-        <translation>星期一</translation>
-    </message>
-    <message>
-        <source>monday</source>
-        <translation>周一</translation>
-    </message>
-    <message>
-        <source>April 5, 2020</source>
-        <translation>2020年4月5日</translation>
-    </message>
-    <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>2020年4月5日 星期日</translation>
-    </message>
-    <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>星期日 2020年4月5日</translation>
-    </message>
-    <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>星期二</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>星期三</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>星期四</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>星期五</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>星期六</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>星期日</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24小时制</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>星期/周</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>一周首日</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>短日期</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>长日期</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>短时间</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>长时间</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2512,32 +2563,32 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>低电量时自动开启</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>使用电池时自动开启</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>自动降低亮度</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>低电量阈值</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>使用电池时自动开启</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>唤醒设置</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>待机恢复时需要密码</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>待机恢复时需要解锁</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>唤醒显示器时需要密码</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>唤醒显示器时需要解锁</translation>
     </message>
 </context>
 <context>
     <name>HostNameItem</name>
-    <message>
-        <source>Computer Name</source>
-        <translation>计算机名</translation>
-    </message>
     <message>
         <source>It cannot start or end with dashes</source>
         <translation>计算机名不能以 - 开头结尾</translation>
@@ -2545,6 +2596,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>1~63 characters please</source>
         <translation>计算机名长度必须介于1到63个字符之间</translation>
+    </message>
+</context>
+<context>
+    <name>InternalButtonItem</name>
+    <message>
+        <source>Internal testing channel</source>
+        <translation>内测通道</translation>
+    </message>
+    <message>
+        <source>click here open the link</source>
+        <translation>点击这里打开链接</translation>
     </message>
 </context>
 <context>
@@ -2626,7 +2688,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation>桌面版</translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2655,6 +2717,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Magic Lamp</source>
         <translation>魔灯</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>小</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大</translation>
     </message>
 </context>
 <context>
@@ -2845,6 +2919,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>控制中心</translation>
     </message>
     <message>
+        <source>, </source>
+        <translation>、</translation>
+    </message>
+    <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>密码规则配置文件读取错误</translation>
     </message>
@@ -2883,6 +2961,85 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>The settings of touch screen changed</source>
         <translation>已变更触控屏设置</translation>
+    </message>
+    <message>
+        <source>Checking system versions, please wait...</source>
+        <translation>正在对系统版本进行ั验证，请耐心等待...</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>退 出</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>RegionModule</name>
+    <message>
+        <source>Region</source>
+        <translation>区域</translation>
+    </message>
+    <message>
+        <source>Country region</source>
+        <translation>国家地区</translation>
+    </message>
+    <message>
+        <source>Region format</source>
+        <translation>区域格式</translation>
+    </message>
+    <message>
+        <source>Provide localized services based on your country or region.</source>
+        <translation>根据你所在的国家或区域为您提供本土化服务。</translation>
+    </message>
+    <message>
+        <source>Country/region</source>
+        <translation>国家/地区</translation>
+    </message>
+    <message>
+        <source>Set the date and time format according to language and region options.</source>
+        <translation>根据语言和区域选项设定日期与时间格式。</translation>
+    </message>
+    <message>
+        <source>Languange and region</source>
+        <translation>语言和区域</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>一周第一天</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>短日期</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>长日期</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>短时间</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>长时间</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>货币符号</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>数字</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>纸张</translation>
+    </message>
+    <message>
+        <source>custom format</source>
+        <translation>自定义格式</translation>
     </message>
 </context>
 <context>
@@ -3030,6 +3187,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>输出</translation>
     </message>
     <message>
+        <source>Auto pause</source>
+        <translation>插拔管理</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>外设插拔时音频输出是否自动暂停</translation>
+    </message>
+    <message>
         <source>Input</source>
         <translation>输入</translation>
     </message>
@@ -3109,7 +3274,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Server</source>
-        <translation>服务器版</translation>
+        <translation>服务器</translation>
     </message>
     <message>
         <source>Address</source>
@@ -3227,7 +3392,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
-        <translation>当前帐户未绑定Union ID</translation>
+        <translation>当前用户未绑定Union ID</translation>
     </message>
     <message>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
@@ -3444,6 +3609,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>第三方仓库</translation>
     </message>
     <message>
+        <source>linglong update</source>
+        <translation>玲珑更新</translation>
+    </message>
+    <message>
+        <source>Linglong Package Update</source>
+        <translation>玲珑软件更新</translation>
+    </message>
+    <message>
+        <source>If there is update for linglong package, system will update it for you</source>
+        <translation>当检测到玲珑软件版本更新时系统将自动为你进行软件更新</translation>
+    </message>
+    <message>
         <source>Other settings</source>
         <translation>其他设置</translation>
     </message>
@@ -3470,6 +3647,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Clear Package Cache</source>
         <translation>清除软件包缓存</translation>
+    </message>
+    <message>
+        <source>Updates from Internal Testing Sources</source>
+        <translation>从内测通道升级</translation>
+    </message>
+    <message>
+        <source>internal update</source>
+        <translation>内测更新</translation>
+    </message>
+    <message>
+        <source>Join the internal testing channel to get deepin latest updates</source>
+        <translation>加入deepin内测通道，以获取deepin最新更新内容</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3512,6 +3701,34 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Third-party Repositories</source>
         <translation>第三方仓库</translation>
+    </message>
+    <message>
+        <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
+        <translation>退出内测通道可能是不安全的，您确定退出吗？</translation>
+    </message>
+    <message>
+        <source>Your are safe to leave the internal testing channel</source>
+        <translation>您可以安全退出内测通道</translation>
+    </message>
+    <message>
+        <source>Cannot find machineid</source>
+        <translation>找不到机器码</translation>
+    </message>
+    <message>
+        <source>Cannot Uninstall package</source>
+        <translation>不能卸载包</translation>
+    </message>
+    <message>
+        <source>Error when exit testingChannel</source>
+        <translation>在退出内测通道时候有错误</translation>
+    </message>
+    <message>
+        <source>try to manually uninstall package</source>
+        <translation>尝试手动卸载包</translation>
+    </message>
+    <message>
+        <source>Cannot install package</source>
+        <translation>无法安装包</translation>
     </message>
 </context>
 <context>
@@ -3612,6 +3829,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Maximum capacity</source>
         <translation>最大容量</translation>
     </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>进入关机界面</translation>
+    </message>
 </context>
 <context>
     <name>UseElectricModule</name>
@@ -3674,6 +3895,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Turn off the monitor</source>
         <translation>关闭显示器</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>进入关机界面</translation>
     </message>
     <message>
         <source>Do nothing</source>

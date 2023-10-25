@@ -21,3 +21,16 @@ file_filter = translations/keyboard_language_<lang>.ts
 source_file = translations/keyboard_language_en.ts
 source_lang = en
 type = QT
+
+[o:linuxdeepin:p:deepin-desktop-environment:r:datetime_language]
+file_filter = translations/datetime_language_<lang>.ts
+source_file = translations/datetime_language_en.ts
+source_lang = en
+type = QT
+
+
+[o:linuxdeepin:p:deepin-desktop-environment:r:datetime_country]
+file_filter = translations/datetime_country_<lang>.ts
+source_file = translations/datetime_country_en.ts
+source_lang = en
+type = QT
