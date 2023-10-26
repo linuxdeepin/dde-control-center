@@ -11,18 +11,11 @@ url="https://github.com/linuxdeepin/dde-control-center"
 license=('GPL3')
 depends=('dtkwidget-git' 'libpwquality' 'doxygen'
          'deepin-daemon-git' 'startdde-git'
-         'deepin-pw-check-git' 'qt5-wayland' 'kwayland')
+         'deepin-pw-check-git')
 makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 
              'qt5-multimedia' 'qt5-svg' 'dtkcommon-git' 'dtkcore-git' 'dtkwidget-git' 'dtkgui-git'
-             'gtest' 'gmock' 'polkit-qt5' 'deepin-pw-check-git'
-             'qt5-wayland' 'kwayland')
-optdepends=('redshift: automatic color temperature support'
-            'networkmanager-openconnect: for OpenConnect support'
-            'networkmanager-openvpn: for OpenVPN support'
-            'networkmanager-pptp: for PPTP support'
-            'networkmanager-strongswan: for StrongSwan support'
-            'networkmanager-vpnc: for VPNC support'
-            'network-manager-sstp: for SSTP support')
+             'gtest' 'gmock' 'polkit-qt5' 'deepin-pw-check-git')
+optdepends=('redshift: automatic color temperature support')
 # Not packaged: network-manager-l2tp
 conflicts=('deepin-control-center')
 provides=('deepin-control-center')
