@@ -1302,7 +1302,7 @@
     <translation>梅塔语</translation>
     </message>
  <message>
-    <source>Mi'kmaq</source>
+    <source>Mi&apos;kmaq</source>
     <translation>密克马克语</translation>
     </message>
  <message>
@@ -2429,9 +2429,9 @@
     <source>Silesian</source>
     <translation>希莱西亚语</translation>
     </message>
-<message>
-    <source>Walamo</source>
-    <translation>瓦拉莫语</translation>
-    </message>
+ <message>
+      <source>Walamo</source>
+      <translation>瓦拉莫语</translation>
+      </message>
 </context>
 </TS>
