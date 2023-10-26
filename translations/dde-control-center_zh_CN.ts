@@ -1628,7 +1628,7 @@
     <name>dccV23::RegionFormatDialog</name>
     <message>
         <source>Region format</source>
-        <translation>保 存</translation>
+        <translation>区域格式</translation>
     </message>
     <message>
         <source>Default format</source>
