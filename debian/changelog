@@ -1,3 +1,12 @@
+dde-control-center (6.0.31) unstable; urgency=medium
+
+  * feat: country and region format
+  * fix: archlinux obs remove useless depencies
+  * feat: special timezone on deepin
+  * fix: ui error on zone map
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 26 Oct 2023 15:32:19 +0800
+
 dde-control-center (6.0.30) unstable; urgency=medium
 
   * feat: add pausePlayer ability
