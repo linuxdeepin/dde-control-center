@@ -5,6 +5,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include <QDBusReply>
 #include <QObject>
 #include <DDBusInterface>
 
@@ -60,6 +61,8 @@ public:
     // notification
     void Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4,
                 const QStringList &in5, const QVariantMap &in6, const int in7);
+    // groubScale
+    QDBusPendingCall SetScalePlymouth(int scale);
 
 Q_SIGNALS: // SIGNALS
     // deepin id
@@ -93,4 +96,5 @@ private:
     DDBusInterface *m_licenseInter;
     DDBusInterface *m_userexperienceInter;
     DDBusInterface *m_notificationInter;
+    DDBusInterface *m_grubScaleInter;
 };

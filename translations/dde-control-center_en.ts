@@ -839,6 +839,18 @@
         <source>Signature verification failed, unable to get root access</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Start setting the new boot animation, please wait for a minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Setting new boot animation finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The settings will be applied after rebooting the system</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dccV23::CreateAccountPage</name>
@@ -1551,6 +1563,21 @@
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::PlyMouthModule</name>
+    <message>
+        <source>Boot Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big Size</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

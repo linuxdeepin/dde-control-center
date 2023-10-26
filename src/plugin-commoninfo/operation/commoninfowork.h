@@ -21,6 +21,8 @@ public:
     virtual ~CommonInfoWork();
 
     void active();
+    QPixmap getPlymouthFilePixmap();
+    bool isSettingPlymouth() { return m_scaleIsSetting; }
 
 public Q_SLOTS:
     void setBootDelay(bool value);
@@ -34,9 +36,14 @@ public Q_SLOTS:
     void setEnableDeveloperMode(bool enabled);
     void login();
     void deepinIdErrorSlot(int code, const QString &msg);
+    void setPlymouthFactor(int factor);
+
+Q_SIGNALS:
+    void settingScaling(bool);
 
 private:
     QString passwdEncrypt(const QString &password);
+    std::pair<int, QString> getPlyMouthInformation();
 
 private:
     CommonInfoModel *m_commomModel;
@@ -44,5 +51,6 @@ private:
     QProcess *m_process = nullptr;
     QString m_title;
     QString m_content;
+    bool m_scaleIsSetting;
 };
 } // namespace DCC_NAMESPACE

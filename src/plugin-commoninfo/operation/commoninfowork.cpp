@@ -6,11 +6,24 @@
 #include "commoninfoproxy.h"
 #include "widgets/utils.h"
 
+#include <DNotifySender>
+
 #include <signal.h>
 #include <QStandardPaths>
 #include <QDebug>
 #include <QDateTime>
 #include <QProcess>
+#include <QSettings>
+#include <QLoggingCategory>
+#include <QDir>
+
+#include <mutex>
+
+Q_LOGGING_CATEGORY(DccCommonInfoWork, "dcc-commoninfo-work");
+
+std::mutex SCALE_SETTING_GUARD;
+
+static const QString PlyMouthConf = QStringLiteral("/etc/plymouth/plymouthd.conf");
 
 using namespace DCC_NAMESPACE;
 
@@ -84,12 +97,32 @@ static const QString getDevelopModeLicense(const QString &filePath, const QStrin
     return buf;
 }
 
+static void notifyInfo(const QString &summary)
+{
+    DUtil::DNotifySender(summary)
+            .appIcon("dde-control-center")
+            .appName("dde-control-center")
+            .timeOut(5000)
+            .call();
+}
+
+static void notifyInfoWithBody(const QString &summary, const QString &body)
+{
+    DUtil::DNotifySender(summary)
+            .appIcon("dde-control-center")
+            .appName("dde-control-center")
+            .appBody(body)
+            .timeOut(5000)
+            .call();
+}
+
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_commomModel(model)
     , m_commonInfoProxy(new CommonInfoProxy(this))
     , m_title("")
     , m_content("")
+    , m_scaleIsSetting(false)
 {
     //监听开发者在线认证失败的错误接口信息
     connect(m_commonInfoProxy, &CommonInfoProxy::DeepinIdError, this, &CommonInfoWork::deepinIdErrorSlot);
@@ -140,6 +173,9 @@ void CommonInfoWork::active()
     m_commomModel->setBootDelay(m_commonInfoProxy->Timeout() > 1);
     m_commomModel->setGrubEditAuthEnabled(m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
     m_commomModel->setUpdating(m_commonInfoProxy->Updating());
+    auto [factor, themeName] = getPlyMouthInformation();
+    m_commomModel->setPlymouthScale(factor);
+    m_commomModel->setPlymouthTheme(themeName);
     auto AuthorizationState = m_commonInfoProxy->AuthorizationState();
     m_commomModel->setActivation(AuthorizationState == 1 || AuthorizationState == 3);
     m_commomModel->setUeProgram(m_commonInfoProxy->IsEnabled());
@@ -291,6 +327,23 @@ QString CommonInfoWork::passwdEncrypt(const QString &password)
     return pwdOut;
 }
 
+std::pair<int, QString> CommonInfoWork::getPlyMouthInformation()
+{
+    QSettings settings(PlyMouthConf, QSettings::IniFormat);
+
+    QString themeName = settings.value("Daemon/Theme").toString();
+
+    static QStringList ScaleLowDpiThemeNames = {"deepin-ssd-logo", "uos-ssd-logo"};
+    static QStringList ScaleHighDpiThemeNames = {"deepin-hidpi-logo", "deepin-hidpi-ssd-logo", "uos-hidpi-ssd-logo"};
+    if (ScaleLowDpiThemeNames.contains(themeName)) {
+        return {1, themeName};
+    } else if (ScaleHighDpiThemeNames.contains(themeName)) {
+        return {2, themeName};
+    }
+
+    return {0, QString()};
+}
+
 void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
 {
     Q_UNUSED(code);
@@ -325,4 +378,44 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
     }
     //系统通知 认证失败 无法进入开发模式
     m_commonInfoProxy->Notify(in0, in1, in2, in3, in4, in5, in6, in7);
+}
+
+void CommonInfoWork::setPlymouthFactor(int factor)
+{
+    if (factor == m_commomModel->plymouthScale()) {
+        return;
+    }
+    if (m_scaleIsSetting) {
+        return;
+    }
+    std::lock_guard<std::mutex> guard(SCALE_SETTING_GUARD);
+    m_scaleIsSetting = true;
+    QDBusPendingCall call = m_commonInfoProxy->SetScalePlymouth(factor);
+    notifyInfo(tr("Start setting the new boot animation, please wait for a minute"));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, call] {
+        if (call.isError()) {
+            qCWarning(DccCommonInfoWork) << "DBus Error: " << call.error();
+        }
+        auto [factor, themeName] = getPlyMouthInformation();
+        m_commomModel->setPlymouthTheme(themeName);
+        m_commomModel->setPlymouthScale(factor);
+        notifyInfoWithBody(tr("Setting new boot animation finished"),
+                           tr("The settings will be applied after rebooting the system"));
+        m_scaleIsSetting = false;
+        watcher->deleteLater();
+        Q_EMIT settingScaling(false);
+    });
+    Q_EMIT settingScaling(true);
+}
+
+QPixmap CommonInfoWork::getPlymouthFilePixmap()
+{
+    QString theme = m_commomModel->plymouthTheme();
+
+    static QString ThemePath = "/usr/share/plymouth/themes";
+
+    QString logoPath = ThemePath + QDir::separator() + theme + QDir::separator() + "logo.png";
+
+    return QPixmap(logoPath);
 }

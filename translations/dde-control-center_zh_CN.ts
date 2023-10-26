@@ -837,6 +837,18 @@
         <source>Signature verification failed, unable to get root access</source>
         <translation>签名验证失败，无法进入开发者模式</translation>
     </message>
+    <message>
+        <source>Start setting the new boot animation, please wait for a minute</source>
+        <translation>开始设置启动新动画，请稍等一会儿</translation>
+    </message>
+    <message>
+        <source>Setting new boot animation finished</source>
+        <translation>新的启动动画设置完成</translation>
+    </message>
+    <message>
+        <source>The settings will be applied after rebooting the system</source>
+        <translation>新的设置会在重启系统后生效</translation>
+    </message>
 </context>
 <context>
     <name>dccV23::CreateAccountPage</name>
@@ -1550,6 +1562,21 @@
     <message>
         <source>plugins cannot loaded in time</source>
         <translation>插件没有及时加载</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::PlyMouthModule</name>
+    <message>
+        <source>Boot Animation</source>
+        <translation>启动动画</translation>
+    </message>
+    <message>
+        <source>Small Size</source>
+        <translation>小尺寸</translation>
+    </message>
+    <message>
+        <source>Big Size</source>
+        <translation>大尺寸</translation>
     </message>
 </context>
 <context>
