@@ -36,8 +36,9 @@ const QString &NotificationService = QStringLiteral("org.deepin.dde.Notification
 const QString &NotificationPath = QStringLiteral("/org/deepin/dde/Notification1");
 const QString &NotificationInterface = QStringLiteral("org.deepin.dde.Notification");
 
-const QString &PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
-const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");
+const QString &PlyMouthScaleService = QStringLiteral("org.deepin.dde.Daemon1");
+const QString &PlyMouthScalePath = QStringLiteral("/org/deepin/dde/Daemon1");
+const QString &PlyMouthScaleInterface = QStringLiteral("org.deepin.dde.Daemon1");
 
 CommonInfoProxy::CommonInfoProxy(QObject *parent)
     : QObject(parent)
@@ -48,7 +49,10 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
     , m_licenseInter(new DDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
     , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
     , m_notificationInter(new DDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
+    , m_grubScaleInter(new DDBusInterface(PlyMouthScaleService, PlyMouthScalePath, PlyMouthScaleInterface, QDBusConnection::systemBus(), this))
 {
+    // in this function, it will wait for 50 seconds finall return
+    m_grubScaleInter->setTimeout(50000);
 }
 
 bool CommonInfoProxy::IsLogin()
@@ -148,6 +152,11 @@ void CommonInfoProxy::EnableUser(const QString &username, const QString &passwor
         }
         watcher->deleteLater();
     });
+}
+
+QDBusPendingCall CommonInfoProxy::SetScalePlymouth(int scale)
+{
+    return m_grubScaleInter->asyncCallWithArgumentList("ScalePlymouth", { scale });
 }
 
 QString CommonInfoProxy::Background()

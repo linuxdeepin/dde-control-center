@@ -29,6 +29,8 @@ public:
     inline bool isLogin() const { return m_isLogin; }
     inline bool isActivate() const { return m_activation; }
     void setActivation(bool value);
+    inline int plymouthScale() const { return m_plymouthscale; }
+    inline QString plymouthTheme() const { return m_plymouththeme; }
 
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
@@ -42,6 +44,8 @@ Q_SIGNALS:
     void developerModeStateChanged(const bool enable) const;
     void isLoginChenged(bool log) const;
     void LicenseStateChanged(bool state);
+    void plymouthScaleChanged(int scale);
+    void plymouthThemeChanged(const QString &themeName);
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -53,6 +57,8 @@ public Q_SLOTS:
     void setUeProgram(const bool ueProgram); // for user experience program
     void setDeveloperModeState(const bool state);
     void setIsLogin(const bool log);
+    void setPlymouthScale(int scale);
+    void setPlymouthTheme(const QString &themeName);
 
 private:
     bool m_bootDelay;
@@ -67,5 +73,7 @@ private:
     bool m_developerModeState{false}; // for developer mode state
     bool m_isLogin{false};
     bool m_activation;
+    int m_plymouthscale;
+    QString m_plymouththeme;
 };
 } // namespace DCC_NAMESPACE

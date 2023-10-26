@@ -1,7 +1,8 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "commoninfomodel.h"
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -9,8 +10,13 @@ using namespace DCC_NAMESPACE;
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)
     , m_bootDelay(false)
+    , m_themeEnabled(false)
+    , m_updating(false)
+    , m_joinUeProgram(false)
+    , m_activation(false)
+    , m_plymouthscale(0)
+    , m_plymouththeme(QString())
 {
-
 }
 
 void CommonInfoModel::setEntryLists(const QStringList &list)
@@ -104,7 +110,6 @@ void CommonInfoModel::setActivation(bool value)
     }
 }
 
-
 QPixmap CommonInfoModel::background() const
 {
     return m_background;
@@ -125,4 +130,18 @@ bool CommonInfoModel::ueProgram() const
 bool CommonInfoModel::developerModeState() const
 {
     return m_developerModeState;
+}
+
+void CommonInfoModel::setPlymouthScale(int scale)
+{
+    m_plymouthscale = scale;
+
+    Q_EMIT plymouthScaleChanged(scale);
+}
+
+void CommonInfoModel::setPlymouthTheme(const QString &themeName)
+{
+    m_plymouththeme = themeName;
+
+    Q_EMIT plymouthThemeChanged(themeName);
 }
