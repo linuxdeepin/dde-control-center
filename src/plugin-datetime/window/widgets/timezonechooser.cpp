@@ -9,6 +9,7 @@
 #include <dplatformwindowhandle.h>
 #include <DDialogCloseButton>
 #include <DPaletteHelper>
+#include <DTitlebar>
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -44,6 +45,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
+    DTitlebar *titleBar = new DTitlebar(this);
+    titleBar->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleBar->setBackgroundTransparent(true); // 透明
+    titleBar->setMenuVisible(false);
+
     //删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
     m_searchInput->setMinimumSize(350, 36);
     m_cancelBtn->setMinimumSize(200, 36);
@@ -60,15 +66,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
 
-    DDialogCloseButton *closeButton = new DDialogCloseButton;
-    closeButton->setFixedSize(QSize(20, 20));
-
-    QHBoxLayout *wbLayout = new QHBoxLayout;
-    wbLayout->setMargin(6);
-    wbLayout->setSpacing(0);
-    wbLayout->addStretch();
-    wbLayout->addWidget(closeButton);
-
     QHBoxLayout *hLayout = new QHBoxLayout;
     hLayout->addStretch();
     hLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
@@ -79,7 +76,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->addLayout(wbLayout);
+    layout->addWidget(titleBar);
     layout->addWidget(m_title, 0, Qt::AlignHCenter | Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter | Qt::AlignTop);
@@ -96,11 +93,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
         close();
     });
 
-    connect(closeButton, &DDialogCloseButton::clicked, this, [this] {
-        Q_EMIT cancelled();
-
-        close();
-    });
 
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
         Q_EMIT cancelled();
@@ -298,7 +290,7 @@ void TimeZoneChooser::setupSize()
     //先根据屏幕大小，计算出大小合适的地图尺寸
     const double offsetW = 20 * 2.0;
     //close Button height and margin 6.0 * 2 + 20, layout spacing * 4 , title font height, search and btn height 36
-    const double offsetH = 6.0 * 2 + 20 + 10.0 * 4 + fontHeight + 36 * 2;
+    const double offsetH = 10.0 * 2 + 20 + 10.0 * 4 + fontHeight + 36 * 2;
 
     //比对地图和屏幕大小，取其中最小的大小
     const float mapWidth = qMin(MapPixWidth, fitSize.width() - offsetW);
