@@ -281,8 +281,7 @@ void BootWidget::onCurrentItem(const QModelIndex &curIndex)
 
     // 获取当前被选项
     QString selectedText = m_curSelectedIndex.data().toString();
-    if (selectedText.isEmpty())
-        return;
+    // NOTE: If the type of current selected boot entry is submenu whitch is not shown in current boot list, do not care, and do the set action
     if (curText != selectedText) {
         Q_EMIT defaultEntry(curText);
     }
