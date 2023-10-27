@@ -49,9 +49,6 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
     m_model->setNTP(m_timedateInter->nTP());
 
-    m_model->setCountries(m_regionInter->countries());
-    m_model->setRegions(m_regionInter->regions());
-
     initRegionFormatData();
 }
 
@@ -61,6 +58,11 @@ DatetimeWorker::~DatetimeWorker()
 
 void DatetimeWorker::activate()
 {
+    if (!m_regionInter->isActive()) {
+        m_regionInter->active();
+        m_model->setCountries(m_regionInter->countries());
+        m_model->setRegions(m_regionInter->regions());
+    }
     m_model->setNTP(m_timedateInter->nTP());
 #ifndef DCC_DISABLE_TIMEZONE
     m_model->setSystemTimeZoneId(m_timedateInter->timezone());
