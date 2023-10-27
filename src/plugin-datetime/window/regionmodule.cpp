@@ -189,10 +189,8 @@ void RegionModule::initFormatList(DListView *formatList)
 
 void RegionModule::initFormatModificationModule()
 {
-    QWidget *w = nullptr;
-    m_formatModificationModule = new ItemModule("", tr(""), [this, &w](ModuleObject *){
+    m_formatModificationModule = new ItemModule("", tr(""), [this](ModuleObject *){
         QWidget *widget = new QWidget;
-        w = widget;
         QHBoxLayout *hlayout = new QHBoxLayout(widget);
         hlayout->setSpacing(0);
         hlayout->setMargin(0);
