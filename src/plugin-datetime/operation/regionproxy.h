@@ -103,6 +103,9 @@ public:
     static RegionAvailableData allTextData(const QLocale &locale);
     static RegionAvailableData allFormat();
 
+    void active();
+
+    bool isActive() { return m_isActive; }
 private:
     QStringList m_countries;
     Regions m_regions;
@@ -112,6 +115,7 @@ private:
     static RegionAvailableData m_allFormat, m_defaultFormat, m_customFormat;
     static RegionAvailableData customTextData(const QLocale &locale);
     static RegionAvailableData defaultTextData(const QLocale &locale);
+    bool m_isActive;
 };
 
 #endif // REGIONPROXY_H

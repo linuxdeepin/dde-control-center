@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "regionproxy.h"
 
@@ -10,154 +10,228 @@
 static const QDate CurrentDate(2023, 1, 1);
 static const QTime CurrentTime(1, 1, 1);
 
-class Format {
-    enum Type {
-        Date,
-        Time
-    };
+class Format
+{
+    enum Type { Date, Time };
+
 public:
     virtual ~Format() = default;
-    inline QStringList daysText() {
-        return QStringList() << m_locale.dayName(Qt::Monday)
-                             << m_locale.dayName(Qt::Tuesday)
-                             << m_locale.dayName(Qt::Wednesday)
-                             << m_locale.dayName(Qt::Thursday)
-                             << m_locale.dayName(Qt::Friday)
-                             << m_locale.dayName(Qt::Saturday)
+
+    inline QStringList daysText()
+    {
+        return QStringList() << m_locale.dayName(Qt::Monday) << m_locale.dayName(Qt::Tuesday)
+                             << m_locale.dayName(Qt::Wednesday) << m_locale.dayName(Qt::Thursday)
+                             << m_locale.dayName(Qt::Friday) << m_locale.dayName(Qt::Saturday)
                              << m_locale.dayName(Qt::Sunday);
     }
-    inline QStringList shortDatesText() {
-        return textFromFormat(Date, shortDateFormats());
-    }
-    inline QStringList longDatesText() {
-        return textFromFormat(Date, longDateFormats());
-    }
-    inline QStringList shortTimesText() {
-        return textFromFormat(Time, shortTimeFormats());
-    }
-    inline QStringList longTimesText() {
-        return textFromFormat(Time, longTimeFormats());
-    }
+
+    inline QStringList shortDatesText() { return textFromFormat(Date, shortDateFormats()); }
+
+    inline QStringList longDatesText() { return textFromFormat(Date, longDateFormats()); }
+
+    inline QStringList shortTimesText() { return textFromFormat(Time, shortTimeFormats()); }
+
+    inline QStringList longTimesText() { return textFromFormat(Time, longTimeFormats()); }
+
     virtual QStringList shortDateFormats() { return QStringList(); }
+
     virtual QStringList longDateFormats() { return QStringList(); }
+
     virtual QStringList shortTimeFormats() { return QStringList(); }
+
     virtual QStringList longTimeFormats() { return QStringList(); }
+
     void updateState(QDate date, QTime time, QLocale locale)
     {
         m_date = date;
         m_time = time;
         m_locale = locale;
     }
+
 private:
     QStringList textFromFormat(Type type, const QStringList &formats)
     {
         QStringList text;
         for (const QString &format : formats)
-            type == Date ? text << m_locale.toString(m_date, format) :
-                           text << m_locale.toString(m_time, format);
+            type == Date ? text << m_locale.toString(m_date, format)
+                         : text << m_locale.toString(m_time, format);
         return text;
     }
+
 private:
     QDate m_date;
     QTime m_time;
+
 protected:
     QLocale m_locale;
 };
 
-class DefaultFormat : public Format {
+class DefaultFormat : public Format
+{
 public:
-    virtual ~DefaultFormat() override {}
-    virtual QStringList shortDateFormats() override {
+    virtual ~DefaultFormat() override { }
+
+    virtual QStringList shortDateFormats() override
+    {
         return { m_locale.dateFormat(QLocale::ShortFormat) };
     }
-    virtual QStringList longDateFormats() override {
+
+    virtual QStringList longDateFormats() override
+    {
         return { m_locale.dateFormat(QLocale::LongFormat) };
     }
-    virtual QStringList shortTimeFormats() override {
+
+    virtual QStringList shortTimeFormats() override
+    {
         return { m_locale.timeFormat(QLocale::ShortFormat) };
     }
-    virtual QStringList longTimeFormats() override {
+
+    virtual QStringList longTimeFormats() override
+    {
         return { m_locale.timeFormat(QLocale::LongFormat) };
     }
 };
 
-class ChineseSimpliedFormat : public Format {
+class ChineseSimpliedFormat : public Format
+{
 public:
-    virtual QStringList shortDateFormats() override {
-        return { "yyyy/M/d", "yyyy-M-d", "yyyy.M.d",
-                 "yyyy/MM/dd", "yyyy-MM-dd", "yyyy.MM.dd",
-                 "yy/M/d", "yy-M-d", "yy.M.d" };
+    virtual QStringList shortDateFormats() override
+    {
+        return { "yyyy/M/d",   "yyyy-M-d", "yyyy.M.d", "yyyy/MM/dd", "yyyy-MM-dd",
+                 "yyyy.MM.dd", "yy/M/d",   "yy-M-d",   "yy.M.d" };
     }
-    virtual QStringList longDateFormats() override {
-       return { "yyyy年M月d日", "yyyy年M月d日，dddd", "dddd yyyy年M月d日" };
+
+    virtual QStringList longDateFormats() override
+    {
+        return { "yyyy年M月d日", "yyyy年M月d日，dddd", "dddd yyyy年M月d日" };
     }
-    virtual QStringList shortTimeFormats() override {
+
+    virtual QStringList shortTimeFormats() override
+    {
         return { "H:mm", "HH:mm", "ap H:mm", "ap HH:mm" };
     }
-    virtual QStringList longTimeFormats() override {
-       return { "H:mm:ss", "HH:mm:ss", "ap H:mm:ss", "ap HH:mm:ss" };
+
+    virtual QStringList longTimeFormats() override
+    {
+        return { "H:mm:ss", "HH:mm:ss", "ap H:mm:ss", "ap HH:mm:ss" };
     }
 };
 
-class UKFormat : public Format {
+class UKFormat : public Format
+{
 public:
-    virtual QStringList shortDateFormats() override { return { "dd/MM/yyyy", "dd/MM/yy", "d/M/yy", "d.M.yy", "yyyy-MM-dd" }; }
-    virtual QStringList longDateFormats() override { return { "dd MMMMM yyyy", "d MMMM yyyy", "dddd,d MMMM yyyy", "dddd, dd MMMM yyyy" }; }
-    virtual QStringList shortTimeFormats() override { return { "HH:mm", "H:mm", "HH:mm ap", "H:mm ap" }; }
-    virtual QStringList longTimeFormats() override { return { "HH:mm:ss", "H:mm:ss", "HH:mm:ss ap",  "apH:mm:ss ap"}; }
+    virtual QStringList shortDateFormats() override
+    {
+        return { "dd/MM/yyyy", "dd/MM/yy", "d/M/yy", "d.M.yy", "yyyy-MM-dd" };
+    }
+
+    virtual QStringList longDateFormats() override
+    {
+        return { "dd MMMMM yyyy", "d MMMM yyyy", "dddd,d MMMM yyyy", "dddd, dd MMMM yyyy" };
+    }
+
+    virtual QStringList shortTimeFormats() override
+    {
+        return { "HH:mm", "H:mm", "HH:mm ap", "H:mm ap" };
+    }
+
+    virtual QStringList longTimeFormats() override
+    {
+        return { "HH:mm:ss", "H:mm:ss", "HH:mm:ss ap", "apH:mm:ss ap" };
+    }
 };
 
-class USAFormat : public Format {
+class USAFormat : public Format
+{
 public:
-    virtual QStringList shortDateFormats() override { return { "M/d/yyyy", "M/d/yy", "MM/dd/yy", "MM/dd/yyyy", "yy/MM/dd", "yyyy-MM-dd", "dd-MMM-yy" }; }
-    virtual QStringList longDateFormats() override { return { "dddd, MMMM d, yyyy", "MMMM d, yyyy", "dddd, d MMMM, yyyy", "d MMMM, yyyy" }; }
-    virtual QStringList shortTimeFormats() override { return { "H:mm ap", "HH:mm ap", "H:mm", "HH:mm" }; }
-    virtual QStringList longTimeFormats()  override { return {"H:mm:ss ap", "HH:mm:ss ap", "H:mm:ss", "HH:mm:ss"}; }
+    virtual QStringList shortDateFormats() override
+    {
+        return { "M/d/yyyy", "M/d/yy",     "MM/dd/yy", "MM/dd/yyyy",
+                 "yy/MM/dd", "yyyy-MM-dd", "dd-MMM-yy" };
+    }
+
+    virtual QStringList longDateFormats() override
+    {
+        return { "dddd, MMMM d, yyyy", "MMMM d, yyyy", "dddd, d MMMM, yyyy", "d MMMM, yyyy" };
+    }
+
+    virtual QStringList shortTimeFormats() override
+    {
+        return { "H:mm ap", "HH:mm ap", "H:mm", "HH:mm" };
+    }
+
+    virtual QStringList longTimeFormats() override
+    {
+        return { "H:mm:ss ap", "HH:mm:ss ap", "H:mm:ss", "HH:mm:ss" };
+    }
 };
 
-class WorldFormat : public Format {
+class WorldFormat : public Format
+{
 public:
     virtual QStringList shortDateFormats() override { return { "dd/MM/yyyy", "d MMM yyyy" }; }
-    virtual QStringList longDateFormats() override { return { "dddd, d MMMM yyyy", "d MMMM yyyy" }; }
+
+    virtual QStringList longDateFormats() override
+    {
+        return { "dddd, d MMMM yyyy", "d MMMM yyyy" };
+    }
+
     virtual QStringList shortTimeFormats() override { return { "H:mm ap", "HH:mm" }; }
+
     virtual QStringList longTimeFormats() override { return { "H:mm:ss ap", "HH:mm:ss" }; }
 };
 
 RegionAvailableData RegionProxy::m_formatData = RegionAvailableData();
-RegionAvailableData RegionProxy::m_allFormat= RegionAvailableData();
+RegionAvailableData RegionProxy::m_allFormat = RegionAvailableData();
 RegionAvailableData RegionProxy::m_defaultFormat = RegionAvailableData();
 RegionAvailableData RegionProxy::m_customFormat = RegionAvailableData();
 
 RegionProxy::RegionProxy(QObject *parent)
     : QObject(parent)
+    , m_translatorLanguage(nullptr)
+    , m_translatorCountry(nullptr)
+    , m_isActive(false)
 {
+}
+
+void RegionProxy::active()
+{
+    if (m_isActive) {
+        return;
+    }
+    m_isActive = true;
     m_translatorLanguage = new QTranslator(this);
-    m_translatorLanguage->load("/usr/share/dde-control-center/translations/datetime_language_" + QLocale::system().name());
+    m_translatorLanguage->load("/usr/share/dde-control-center/translations/datetime_language_"
+                               + QLocale::system().name());
     qApp->installTranslator(m_translatorLanguage);
     m_translatorCountry = new QTranslator(this);
-    m_translatorCountry->load("/usr/share/dde-control-center/translations/datetime_country_" + QLocale::system().name());
+    m_translatorCountry->load("/usr/share/dde-control-center/translations/datetime_country_"
+                              + QLocale::system().name());
     qApp->installTranslator(m_translatorCountry);
 
-    QList<QLocale> locales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyCountry);
+    QList<QLocale> locales =
+            QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyCountry);
     locales.removeOne(QLocale::C);
     QStringList countries;
     for (const auto &locale : locales) {
         QString script = locale.scriptToString(locale.script());
         QString language = locale.languageToString(locale.language());
         QString country = locale.countryToString(locale.country());
-        QString langCountry = QString("%1 (%2)").arg(QCoreApplication::translate("dcc::datetime::Language", language.toUtf8().data()))
-                                                .arg(QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data()));
+        QString langCountry = QString("%1 (%2)")
+                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                                       language.toUtf8().data()))
+                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                                       country.toUtf8().data()));
         if (!countries.contains(country)) {
             countries << country;
-            m_countries << QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data()));
+            m_countries << QString("%1").arg(
+                    QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data()));
         }
         m_regions.insert(langCountry, locale);
     }
 }
 
-RegionProxy::~RegionProxy()
-{
-}
+RegionProxy::~RegionProxy() { }
 
 Regions RegionProxy::regions() const
 {
@@ -185,8 +259,11 @@ QString RegionProxy::langCountry() const
     QLocale locale = QLocale::system();
     QString language = locale.languageToString(locale.language());
     QString country = locale.countryToString(locale.country());
-    QString langCountry = QString("%1 (%2)").arg(QCoreApplication::translate("dcc::datetime::Language", language.toUtf8().data()))
-                                            .arg(QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data()));
+    QString langCountry = QString("%1 (%2)")
+                                  .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                                   language.toUtf8().data()))
+                                  .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                                   country.toUtf8().data()));
     return langCountry;
 }
 
@@ -229,7 +306,8 @@ RegionAvailableData RegionProxy::customTextData(const QLocale &locale)
     Format *format = nullptr;
     if (locale.country() == QLocale::China && locale.script() == QLocale::SimplifiedHanScript) {
         format = new ChineseSimpliedFormat();
-    } else if (locale.country() == QLocale::UnitedKingdom && locale.language() == QLocale::English) {
+    } else if (locale.country() == QLocale::UnitedKingdom
+               && locale.language() == QLocale::English) {
         format = new UKFormat();
     } else if (locale.country() == QLocale::UnitedStates && locale.language() == QLocale::English) {
         format = new USAFormat();
@@ -281,9 +359,10 @@ RegionAvailableData RegionProxy::defaultTextData(const QLocale &locale)
 
 QDebug operator<<(QDebug debug, const RegionFormat &regionFormat)
 {
-    debug << regionFormat.firstDayOfWeekFormat << regionFormat.shortDateFormat << regionFormat.longDateFormat
-          << regionFormat.shortTimeFormat << regionFormat.longTimeFormat << regionFormat.currencyFormat
-          << regionFormat.numberFormat << regionFormat.paperFormat;
+    debug << regionFormat.firstDayOfWeekFormat << regionFormat.shortDateFormat
+          << regionFormat.longDateFormat << regionFormat.shortTimeFormat
+          << regionFormat.longTimeFormat << regionFormat.currencyFormat << regionFormat.numberFormat
+          << regionFormat.paperFormat;
 
     return debug;
 }
