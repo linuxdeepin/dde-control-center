@@ -18,13 +18,30 @@
 #include <DListView>
 #include <DSwitchButton>
 
-#define BALANCE "balance"         // 平衡模式
-#define PERFORMANCE "performance" // 高性能模式
-#define POWERSAVE "powersave"     // 节能模式
+#define BALANCE "balance"                        // 平衡模式
+#define PERFORMANCE "performance"                // 高性能模式
+#define BALANCEPERFORMANCE "balance_performance" // 高性能模式
+#define POWERSAVE "powersave"                    // 节能模式
 
 using namespace DCC_NAMESPACE;
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
+
+static QString get_translate(const QString &type)
+{
+    if (type == BALANCE) {
+        return QObject::tr("Auto adjust CPU operating frequency based on CPU load condition");
+    }
+    if (type == BALANCEPERFORMANCE) {
+        return QObject::tr(
+                "Aggressively adjust CPU operating frequency based on CPU load condition");
+    }
+    if (type == PERFORMANCE) {
+        return QObject::tr("Be good to imporving performance, but power consumption and heat "
+                           "generation will increase");
+    }
+    return QObject::tr("CPU always works under low frequency, will reduce power consumption");
+}
 
 GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *parent)
     : PageModule("general", tr("General"), DIconTheme::findQIcon("dcc_general_purpose"), parent)
@@ -32,6 +49,7 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     , m_work(work)
 {
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
+    m_powerPlanMap.insert(BALANCEPERFORMANCE, tr("Balance Performance"));
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
 
@@ -77,8 +95,15 @@ void GeneralModule::initUI()
     QMap<QString, QString>::iterator iter;
     for (iter = m_powerPlanMap.begin(); iter != m_powerPlanMap.end(); ++iter) {
         DStandardItem *powerPlanItem = new DStandardItem(iter.value());
+        DStandardItem *powerPlanItemTip = new DStandardItem(::get_translate(iter.key()));
+        powerPlanItemTip->setEnabled(false);
+        powerPlanItemTip->setEditable(false);
+        powerPlanItemTip->setBackgroundRole(DPalette::Window);
+        powerPlanItemTip->setTextColorRole(DPalette::TextTips);
+        powerPlanItemTip->setSizeHint(QSize(-1, 20));
         powerPlanItem->setData(iter.key(), PowerPlanRole);
         m_powerPlanModel->appendRow(powerPlanItem);
+        m_powerPlanModel->appendRow(powerPlanItemTip);
     }
 
     // 　性能设置
@@ -94,7 +119,7 @@ void GeneralModule::initUI()
                 powerplanListview->setModel(m_powerPlanModel);
                 powerplanListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
                 powerplanListview->setBackgroundType(
-                        DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+                        DStyledItemDelegate::BackgroundType::RoundedBackground);
                 powerplanListview->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
                 powerplanListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
                 powerplanListview->setSelectionMode(QAbstractItemView::NoSelection);
@@ -104,10 +129,10 @@ void GeneralModule::initUI()
                     int row_count = m_powerPlanModel->rowCount();
                     if (!isSupport) {
                         int cur_place = powerplanListview->currentIndex().row();
-                        for (int i = 0; i < row_count; ++i) {
+                        for (int i = 0; i < row_count; i += 2) {
                             QStandardItem *items = m_powerPlanModel->item(i, 0);
                             if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
-                                m_powerPlanModel->removeRow(i);
+                                m_powerPlanModel->removeRows(i, 2);
 
                                 if (cur_place == i || cur_place < 0) {
                                     powerplanListview->clicked(m_powerPlanModel->index(0, 0));
@@ -117,7 +142,7 @@ void GeneralModule::initUI()
                         }
                     } else {
                         bool findHighPerform = false;
-                        for (int i = 0; i < row_count; ++i) {
+                        for (int i = 0; i < row_count; i += 2) {
                             QStandardItem *items = m_powerPlanModel->item(i, 0);
                             if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
                                 findHighPerform = true;
@@ -128,12 +153,55 @@ void GeneralModule::initUI()
                             DStandardItem *powerPlanItem =
                                     new DStandardItem(m_powerPlanMap.value(PERFORMANCE));
                             powerPlanItem->setData(PERFORMANCE, PowerPlanRole);
-                            m_powerPlanModel->insertRow(1, powerPlanItem);
+                            if (row_count == 6) {
+                                DStandardItem *powerPlanItemTip =
+                                        new DStandardItem(::get_translate(PERFORMANCE));
+                                m_powerPlanModel->insertRow(4, { powerPlanItem, powerPlanItemTip });
+                            } else {
+                                DStandardItem *powerPlanItemTip =
+                                        new DStandardItem(::get_translate(PERFORMANCE));
+                                m_powerPlanModel->insertRow(2, { powerPlanItem, powerPlanItemTip });
+                            }
                         }
                     }
                 };
                 onHighPerformanceSupportChanged(m_model->isHighPerformanceSupported());
+                auto onBalancePerformanceSupportedChanged = [this, powerplanListview](
+                                                                    const bool isSupport) {
+                    int row_count = m_powerPlanModel->rowCount();
+                    if (!isSupport) {
+                        int cur_place = powerplanListview->currentIndex().row();
+                        for (int i = 0; i < row_count; i += 2) {
+                            QStandardItem *items = m_powerPlanModel->item(i, 0);
+                            if (items->data(PowerPlanRole).toString() == BALANCEPERFORMANCE) {
+                                m_powerPlanModel->removeRows(i, 2);
 
+                                if (cur_place == i || cur_place < 0) {
+                                    powerplanListview->clicked(m_powerPlanModel->index(0, 0));
+                                }
+                                break;
+                            }
+                        }
+                    } else {
+                        bool findBalancePerform = false;
+                        for (int i = 0; i < row_count; i += 2) {
+                            QStandardItem *items = m_powerPlanModel->item(i, 0);
+                            if (items->data(PowerPlanRole).toString() == BALANCEPERFORMANCE) {
+                                findBalancePerform = true;
+                                break;
+                            }
+                        }
+                        if (!findBalancePerform) {
+                            DStandardItem *powerPlanItem =
+                                    new DStandardItem(m_powerPlanMap.value(BALANCEPERFORMANCE));
+                            powerPlanItem->setData(PERFORMANCE, PowerPlanRole);
+                            DStandardItem *powerPlanItemTip =
+                                    new DStandardItem(::get_translate(BALANCEPERFORMANCE));
+                            m_powerPlanModel->insertRow(2, { powerPlanItem, powerPlanItemTip });
+                        }
+                    }
+                };
+                onBalancePerformanceSupportedChanged(m_model->isBalancePerformanceSupported());
                 connect(powerplanListview,
                         &DListView::clicked,
                         this,
@@ -150,7 +218,7 @@ void GeneralModule::initUI()
 
                 auto onCurPowerPlanChanged = [this](const QString &curPowerPlan) {
                     int row_count = m_powerPlanModel->rowCount();
-                    for (int i = 0; i < row_count; ++i) {
+                    for (int i = 0; i < row_count; i += 2) {
                         QStandardItem *items = m_powerPlanModel->item(i, 0);
                         if (items->data(PowerPlanRole).toString() == curPowerPlan) {
                             items->setCheckState(Qt::Checked);
@@ -220,7 +288,8 @@ void GeneralModule::initUI()
                 sldLowerBrightness->slider()->setPageStep(10);
                 sldLowerBrightness->slider()->setType(DCCSlider::Vernier);
                 sldLowerBrightness->slider()->setTickPosition(QSlider::NoTicks);
-                sldLowerBrightness->slider()->setValue(m_model->powerSavingModeAutoBatteryPercentage() / 10);
+                sldLowerBrightness->slider()->setValue(
+                        m_model->powerSavingModeAutoBatteryPercentage() / 10);
 
                 sldLowerBrightness->setValueLiteral(
                         QString("%1%").arg(m_model->powerSavingModeAutoBatteryPercentage()));

@@ -51,6 +51,8 @@ public:
     void setBatteryLidClosedAction(int value);
     Q_PROPERTY(bool IsHighPerformanceSupported READ isHighPerformanceSupported NOTIFY IsHighPerformanceSupportedChanged)
     bool isHighPerformanceSupported();
+    Q_PROPERTY(bool IsBalancePerformanceSupported READ isBalancePerformanceSupported NOTIFY IsBalancePerformanceSupportedChanged)
+    bool isBalancePerformanceSupported();
     Q_PROPERTY(int LinePowerScreenBlackDelay READ linePowerScreenBlackDelay WRITE setLinePowerScreenBlackDelay NOTIFY LinePowerScreenBlackDelayChanged)
     int linePowerScreenBlackDelay();
     void setLinePowerScreenBlackDelay(int value);
@@ -116,6 +118,7 @@ signals:
     void BatteryLockDelayChanged(int value) const;
     void LinePowerLockDelayChanged(int value) const;
     void IsHighPerformanceSupportedChanged(bool value) const;
+    void IsBalancePerformanceSupportedChanged(bool value) const;
     void LinePowerPressPowerBtnActionChanged(int value) const;
     void LinePowerLidClosedActionChanged(int value) const;
     void BatteryPressPowerBtnActionChanged(int value) const;

@@ -35,6 +35,7 @@ public Q_SLOTS:
     void setResponseBatteryLockScreenDelay(const int delay);
     void setResponsePowerLockScreenDelay(const int delay);
     void setHighPerformanceSupported(bool state);
+    void setBalancePerformanceSupported(bool state);
     //------------sp2 add-----------------------
     void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
     void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);

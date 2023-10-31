@@ -85,6 +85,7 @@ void PowerWorker::active()
     m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
 
     setHighPerformanceSupported(m_powerDBusProxy->isHighPerformanceSupported());
+    setBalancePerformanceSupported(m_powerDBusProxy->isBalancePerformanceSupported());
 
     setScreenBlackDelayToModelOnPower(m_powerDBusProxy->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerDBusProxy->linePowerSleepDelay());
@@ -202,6 +203,11 @@ void PowerWorker::setResponsePowerLockScreenDelay(const int delay)
 void PowerWorker::setHighPerformanceSupported(bool state)
 {
     m_powerModel->setHighPerformanceSupported(state);
+}
+
+void PowerWorker::setBalancePerformanceSupported(bool state)
+{
+    m_powerModel->setBalancePerformanceSupported(state);
 }
 
 void PowerWorker::setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode)

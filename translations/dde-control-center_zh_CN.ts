@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterModule</name>
     <message>
@@ -2188,10 +2186,6 @@
 <context>
     <name>DatetimeWorker</name>
     <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>设置系统时区需要认证</translation>
-    </message>
-    <message>
         <source>Authentication is required to change NTP server</source>
         <translation>修改时间服务器需要认证</translation>
     </message>
@@ -2268,7 +2262,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -2541,6 +2535,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Balanced</source>
         <translation>平衡模式</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>性能模式</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2925,6 +2923,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>密码规则配置文件读取错误</translation>
+    </message>
+    <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>根据负载情况自动调整运行频率</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>根据负载情况积极调整运行频率</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>有利于增加性能，会显著提升功耗和发热</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>始终低频率运行，可降低功耗</translation>
     </message>
     <message>
         <source>Activated</source>
