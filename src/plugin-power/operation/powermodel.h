@@ -123,6 +123,8 @@ public:
     inline bool isHighPerformanceSupported() const { return m_isHighPerformanceSupported; }
     void setHighPerformanceSupported(bool isHighSupport);
 
+    inline bool isBalancePerformanceSupported() const { return m_isBalancePerformanceSupported; }
+    void setBalancePerformanceSupported(bool isBalancePerformanceSupported);
     // ----
     inline bool isNoPasswdLogin() const { return m_noPasswdLogin; }
 
@@ -211,6 +213,7 @@ private:
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
+    bool m_isBalancePerformanceSupported;
 
     // Account
     bool m_noPasswdLogin;

@@ -183,6 +183,11 @@ bool PowerDBusProxy::isHighPerformanceSupported()
     return qvariant_cast<bool>(m_powerInter->property("IsHighPerformanceSupported"));
 }
 
+bool PowerDBusProxy::isBalancePerformanceSupported()
+{
+    return qvariant_cast<bool>(m_sysPowerInter->property("IsBalancePerformanceSupported"));
+}
+
 int PowerDBusProxy::linePowerScreenBlackDelay()
 {
     return qvariant_cast<int>(m_powerInter->property("LinePowerScreenBlackDelay"));
