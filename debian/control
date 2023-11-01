@@ -9,7 +9,7 @@ Build-Depends:
  qtbase5-dev,
  qttools5-dev-tools,
  libdtkwidget-dev,
- libdtkcore-dev(>5.6.18),
+ libdtkcore-dev(>>5.6.18),
  libdtkcore5-bin,
  qtmultimedia5-dev,
  libdareader-dev,
@@ -22,7 +22,7 @@ Homepage: https://github.com/linuxdeepin/dde-control-center
 Package: dde-control-center
 Architecture: any
 Depends:
- ${misc:Depends}
+ ${shlibs:Depends} ${misc:Depends}
 Description: New control center for Deepin Desktop Environment,
  Integrated control center with rich functions,Besides providing rich
  system setting items, the function level is simple, the logic is clear,
