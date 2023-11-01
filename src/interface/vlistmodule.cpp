@@ -125,9 +125,9 @@ public:
         m_view = view;
 
         for (auto tmpChild : q->childrens()) {
-            auto page = tmpChild->activePage();
-            if (page) {
-                if (tmpChild->extra()) {
+            if (tmpChild->extra()) {
+                auto page = tmpChild->activePage();
+                if (page) {
                     m_hlayout->addWidget(page);
                     m_extraModules.append(tmpChild);
                 }
