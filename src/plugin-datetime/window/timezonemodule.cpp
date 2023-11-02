@@ -80,7 +80,7 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
                 timezoneitem->setVisible(false);
                 Q_EMIT requestRemoveUserTimeZone(timezoneitem->timeZone());
             });
-            if (zoneInfo.getZoneName() != QTimeZone::systemTimeZoneId()) {
+            if (zoneInfo.getZoneName() != m_model->systemTimeZoneId()) {
                 m_timezoneGroup->insertItem(m_timezoneGroup->itemCount() - 1, timezoneitem);
             }
         }
