@@ -306,6 +306,10 @@ if (UNITTEST)
         "tests/interface/*.cpp"
     )
 
+    set(Interface_Includes
+        include/interface
+    )
+
     add_executable(${UT_Interface_Name}
         ${Interface_SRCS}
         ${UT_Interface_SRCS}
