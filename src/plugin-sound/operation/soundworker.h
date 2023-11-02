@@ -45,6 +45,8 @@ public Q_SLOTS:
     void setBluetoothMode(const QString &mode);
     void refreshSoundEffect();
 
+    void setAudioServer(const QString &value);
+
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
