@@ -50,6 +50,9 @@ void SoundWorker::initConnect()
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_soundDBusInter) m_soundDBusInter->Tick(); });
     connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
+
+    connect(m_soundDBusInter, &SoundDBusProxy::CurrentAudioServerChanged, m_model, &SoundModel::setAudioServer);
+    connect(m_soundDBusInter, &SoundDBusProxy::AudioServerStateChanged, m_model, &SoundModel::setAudioServerChangedState);
 }
 
 void SoundWorker::activate()
@@ -66,6 +69,8 @@ void SoundWorker::activate()
     m_model->setCurrentBluetoothAudioMode(m_soundDBusInter->bluetoothAudioMode());
     m_model->setEnableSoundEffect(m_soundDBusInter->enabled());
     m_model->setWaitSoundReceiptTime(m_waitSoundPortReceipt);
+    m_model->setAudioServer(m_soundDBusInter->audioServer());
+    m_model->setAudioServerChangedState(m_soundDBusInter->audioServerState());
 
     m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
@@ -86,6 +91,12 @@ void SoundWorker::refreshSoundEffect()
 {
     m_model->setEnableSoundEffect(m_soundDBusInter->enabled());
     m_soundDBusInter->GetSoundEnabledMap();
+}
+
+void SoundWorker::setAudioServer(const QString &value)
+{
+    m_soundDBusInter->SetAudioServer(value);
+    m_model->setAudioServer(value);
 }
 
 void SoundWorker::switchSpeaker(bool on)

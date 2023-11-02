@@ -28,6 +28,7 @@ option(DISABLE_AUTHENTICATION "disable build authentication plugins" OFF)
 option(DISABLE_UPDATE "disable build update plugins" OFF)
 option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
 option(USE_DEEPIN_ZONE "enable special timezone file on deepin" OFF)
+option(DISABLE_SOUND_ADVANCED "disable sound advanced settings" OFF)
 set(DEEPIN_TIME_ZONE_PATH "/usr/share/dde/zoneinfo/zone1970.tab" CACHE STRING "deepin timezone path")
 
 # asan 自己有内存泄露，暂不使用
@@ -809,6 +810,10 @@ if (BUILD_PLUGIN)
     add_library(${Sound_Name} MODULE
         ${Sound_SRCS}
     )
+
+    if (DISABLE_SOUND_ADVANCED)
+        target_compile_definitions(${Sound_Name} PUBLIC -DDCC_DISABLE_SOUND_ADVANCED)
+    endif()
 
     set(Sound_Includes
         src/plugin-sound/operation

@@ -31,7 +31,6 @@ public:
     void SetPort(uint in0, const QString &in1, int in2);
 
     void SetBluetoothAudioMode(const QString &in0);
-
     // SoundEffect
     void GetSoundEnabledMap();
     void EnableSound(const QString &name, bool enabled, QObject *receiver, const char *member, const char *errorSlot);
@@ -75,6 +74,14 @@ public:
     Q_PROPERTY(bool PausePlayer READ pausePlayer WRITE setPausePlayer NOTIFY PausePlayerChanged)
     bool pausePlayer();
     void setPausePlayer(bool value);
+
+    Q_PROPERTY(QString CurrentAudioServer READ audioServer WRITE SetAudioServer NOTIFY CurrentAudioServerChanged)
+    QString audioServer();
+    void SetAudioServer(const QString &in0);
+
+    // 音频切换的状态
+    Q_PROPERTY(bool AudioServerState READ audioServerState NOTIFY AudioServerStateChanged)
+    bool audioServerState();
 
     Q_PROPERTY(QString BluetoothAudioMode READ bluetoothAudioMode NOTIFY BluetoothAudioModeChanged)
     QString bluetoothAudioMode();
@@ -141,6 +148,8 @@ Q_SIGNALS:
     void SinkInputsChanged(const QList<QDBusObjectPath> &value) const;
     void SinksChanged(const QList<QDBusObjectPath> &value) const;
     void SourcesChanged(const QList<QDBusObjectPath> &value) const;
+    void CurrentAudioServerChanged(const QString &value) const;
+    void AudioServerStateChanged(const bool state) const;
 
     // SoundEffect SIGNALS
     void EnabledChanged(bool value) const;

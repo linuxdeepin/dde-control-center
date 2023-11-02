@@ -190,6 +190,14 @@ public:
     inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
     void setWaitSoundReceiptTime(const int receiptTime);
 
+    // 设置音频框架
+    inline QString audioServer() const { return m_audioServer; }
+    void setAudioServer(const QString &serverName);
+
+    // 音频框架切换的状态
+    inline bool audioServerChangedState() const { return m_audioServerStatus; }
+    void setAudioServerChangedState(const bool state);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -217,6 +225,11 @@ Q_SIGNALS:
     //声音输出设备是否可见
     void outputDevicesVisibleChanged(QString name, bool flag);
 
+    // 音频框架设置完成
+    void onSetAudioServerFinish(bool value);
+    // 当前音频框架切换的信号
+    void curAudioServerChanged(const QString &audioFrame);
+
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
@@ -228,6 +241,8 @@ Q_SIGNALS:
     void isLaptopChanged(bool isLaptop);
 
 private:
+    QString m_audioServer;     // 当前使用音频框架
+    bool m_audioServerStatus{true};  // 设置音频时的状态
     bool m_speakerOn;
     bool m_microphoneOn;
     bool m_enableSoundEffect;

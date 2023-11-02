@@ -104,6 +104,23 @@ void SoundDBusProxy::setPausePlayer(bool value)
     m_audioInter->setProperty("PausePlayer", QVariant::fromValue(value));
 }
 
+QString SoundDBusProxy::audioServer()
+{
+    return qvariant_cast<QString>(m_audioInter->property("CurrentAudioServer"));
+}
+
+void SoundDBusProxy::SetAudioServer(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    m_audioInter->asyncCallWithArgumentList(QStringLiteral("SetCurrentAudioServer"), argumentList);
+}
+
+bool SoundDBusProxy::audioServerState()
+{
+    return qvariant_cast<bool>(m_audioInter->property("AudioServerState"));
+}
+
 void SoundDBusProxy::SetPortEnabled(uint in0, const QString &in1, bool in2)
 {
     QList<QVariant> argumentList;
