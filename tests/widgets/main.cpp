@@ -11,7 +11,7 @@
 
 int main(int argc, char **argv)
 {
-    // setenv("QT_QPA_PLATFORM", "offscreen", 1);
+    setenv("QT_QPA_PLATFORM", "offscreen", 1);
 
     QApplication app(argc, argv);
 

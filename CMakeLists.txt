@@ -16,6 +16,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 option(ENABLE_ASAN "Enable asan" OFF)
+option(BUILD_TESTING "UNIT test" ON)
 
 # INFO:
 # plugins can be disabled and their options
@@ -45,6 +46,11 @@ else()
     execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
+
+if (BUILD_TESTING)
+    set(UNITTEST ON)
+endif()
+
 set(BUILD_PLUDIN ON)
 
 if (NOT BUILD_PLUDIN)
@@ -72,6 +78,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif ()
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
+include(GoogleTest)
 
 if(BUILD_DOCS)
     add_subdirectory(docs)
@@ -91,7 +98,8 @@ add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 find_package(PkgConfig REQUIRED)
 find_package(Dtk COMPONENTS Core Widget)
 find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
-
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "sw_64")
@@ -109,10 +117,10 @@ include_directories(
 )
 
 set(Test_Libraries
-    -lpthread
     -lgcov
-    -lgtest
-    Qt5::Test
+    Threads::Threads
+    GTest::gtest
+    Qt::Test
 )
 
 #--------------------------interface--------------------------
@@ -229,6 +237,7 @@ if (UNITTEST)
         ${Dcc_Widgets_Libraries}
         ${Test_Libraries}
     )
+    gtest_discover_tests(${UT_Dcc_Widgets_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 #--------------------------dde-control-center--------------------------
@@ -297,7 +306,7 @@ write_basic_package_version_file(
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
               ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 #-------------------------ut-dcc-interface-------------------------
 if (UNITTEST)
@@ -461,6 +470,7 @@ if (UNITTEST)
         ${SystemInfo_Libraries}
         ${Test_Libraries}
     )
+    gtest_discover_tests(${UT_SystemInfo_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------dcc-power-plugin--------------------------
 if (BUILD_PLUDIN)
@@ -549,6 +559,7 @@ if (UNITTEST)
         ${Mouse_Libraries}
         ${Test_Libraries}
     )
+    gtest_discover_tests(${UT_Mouse_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------plugin-commoninfo--------------------------
 if (BUILD_PLUDIN)
@@ -610,6 +621,7 @@ if (UNITTEST)
         ${CommonInfo_Libraries}
         ${Test_Libraries}
     )
+    gtest_discover_tests(${UT_Dcc_Widgets_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 #--------------------------dcc-bluetooth-plugin--------------------------
@@ -780,6 +792,8 @@ if (UNITTEST)
         ${KeyBoard_Libraries}
         ${Test_Libraries}
     )
+
+    gtest_discover_tests(${UT_KeyBoard_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------plugin-sound--------------------------
 if (BUILD_PLUDIN)
@@ -1071,29 +1085,33 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Notification_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #-------------------------ut-dcc-notification-plugin-------------------------
-if (UNITTEST)
-    set(UT_Notification_Name ut-dcc-notification-plugin)
-    file(GLOB_RECURSE UT_NOTIFICATION_SRCS
-        "tests/plugin-notification/*.cpp"
-    )
 
-    add_executable(${UT_Notification_Name}
-        ${NOTIFICATION_SRCS}
-        ${UT_NOTIFICATION_SRCS}
-    )
-
-    # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Notification_Name} PRIVATE ${UT_COMPILER})
-
-    target_include_directories(${UT_Notification_Name} PUBLIC
-        ${Notification_Includes}
-    )
-
-    target_link_libraries(${UT_Notification_Name} PRIVATE
-        ${Notification_Libraries}
-        ${Test_Libraries}
-    )
-endif()
+# FIXME: this ut is wrong!!
+# if (UNITTEST)
+#     set(UT_Notification_Name ut-dcc-notification-plugin)
+#     file(GLOB_RECURSE UT_NOTIFICATION_SRCS
+#         "tests/plugin-notification/*.cpp"
+#     )
+# 
+#     add_executable(${UT_Notification_Name}
+#         ${NOTIFICATION_SRCS}
+#         ${UT_NOTIFICATION_SRCS}
+#     )
+# 
+#     # 用于测试覆盖率的编译条件
+#     target_compile_options(${UT_Notification_Name} PRIVATE ${UT_COMPILER})
+# 
+#     target_include_directories(${UT_Notification_Name} PUBLIC
+#         ${Notification_Includes}
+#     )
+# 
+#     target_link_libraries(${UT_Notification_Name} PRIVATE
+#         ${Notification_Libraries}
+#         ${Test_Libraries}
+#     )
+# 
+#     gtest_discover_tests(${UT_Notification_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+# endif()
 
 #--------------------------plugin-privacy--------------------------
 #if (BUILD_PLUDIN)

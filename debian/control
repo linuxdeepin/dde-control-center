@@ -15,7 +15,8 @@ Build-Depends:
  libdareader-dev,
  libdeepin-pw-check-dev,
  libpolkit-qt5-1-dev,
- doxygen
+ doxygen,
+ libgtest-dev
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
