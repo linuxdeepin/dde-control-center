@@ -51,9 +51,9 @@ if (BUILD_TESTING)
     set(UNITTEST ON)
 endif()
 
-set(BUILD_PLUDIN ON)
+set(BUILD_PLUGIN ON)
 
-if (NOT BUILD_PLUDIN)
+if (NOT BUILD_PLUGIN)
     set(UNITTEST OFF)
 endif()
 # GNU 默认
@@ -411,7 +411,7 @@ if (UNITTEST)
 endif()
 
 #--------------------------plugin-systeminfo--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(SystemInfo_Name dcc-systeminfo-plugin)
     file(GLOB_RECURSE SYSTEMINFO_SRCS
         "src/plugin-systeminfo/window/*.cpp"
@@ -473,7 +473,7 @@ if (UNITTEST)
     gtest_discover_tests(${UT_SystemInfo_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------dcc-power-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Power_Name dcc-power-plugin)
     file(GLOB_RECURSE Power_SRCS
         "src/plugin-power/window/*.cpp"
@@ -508,7 +508,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Power_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-mouse--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Mouse_Name dcc-mouse-plugin)
     file(GLOB_RECURSE MOUSE_SRCS
         "src/plugin-mouse/window/*.cpp"
@@ -562,7 +562,7 @@ if (UNITTEST)
     gtest_discover_tests(${UT_Mouse_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------plugin-commoninfo--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(CommonInfo_Name dcc-commoninfo-plugin)
     pkg_check_modules(DEEPIN_PW_CHECK REQUIRED libdeepin_pw_check)
     file(GLOB_RECURSE COMMONINFO_SRCS
@@ -625,7 +625,7 @@ if (UNITTEST)
 endif()
 
 #--------------------------dcc-bluetooth-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Bluetooth_Name dcc-bluetooth-plugin)
     file(GLOB_RECURSE Bluetooth_SRCS
         "src/plugin-bluetooth/window/*.cpp"
@@ -660,7 +660,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Bluetooth_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------dcc-defaultapp-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(DefaultApp_Name dcc-defaultapp-plugin)
     file(GLOB_RECURSE DefaultApp_SRCS
         "src/plugin-defaultapp/window/*.cpp"
@@ -696,7 +696,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${DefaultApp_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------dcc-datetime-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Datetime_Name dcc-datetime-plugin)
     file(GLOB_RECURSE Datetime_SRCS
         "src/plugin-datetime/window/*.cpp"
@@ -734,7 +734,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Datetime_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-keyboard--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(KeyBoard_Name dcc-keyboard-plugin)
     file(GLOB_RECURSE KEYBOARD_SRCS
         "src/plugin-keyboard/window/*.cpp"
@@ -796,7 +796,7 @@ if (UNITTEST)
     gtest_discover_tests(${UT_KeyBoard_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 #--------------------------plugin-sound--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Sound_Name dcc-sound-plugin)
     file(GLOB_RECURSE Sound_SRCS
         "src/plugin-sound/window/*.cpp"
@@ -832,7 +832,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Sound_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-authentication--------------------------
-if (BUILD_PLUDIN AND NOT DISABLE_AUTHENTICATION)
+if (BUILD_PLUGIN AND NOT DISABLE_AUTHENTICATION)
     message(STATUS "===================================")
     message(STATUS "")
     message(STATUS "WILL BUILD dcc-authentication-plugin")
@@ -876,7 +876,7 @@ if (BUILD_PLUDIN AND NOT DISABLE_AUTHENTICATION)
     install(TARGETS ${Authentication_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-accounts--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     find_package(PolkitQt5-1)
     set(Accounts_Name dcc-accounts-plugin)
     pkg_check_modules(DEEPIN_PW_CHECK libdeepin_pw_check)
@@ -917,7 +917,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Accounts_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-display--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Display_Name dcc-display-plugin)
     file(GLOB_RECURSE DISPLAY_SRCS
         "src/plugin-display/window/*.cpp"
@@ -951,7 +951,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Display_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------dcc-personalization-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Personalization_Name dcc-personalization-plugin)
     file(GLOB_RECURSE Personalization_SRCS
         "src/plugin-personalization/window/*.cpp"
@@ -986,7 +986,7 @@ if (BUILD_PLUDIN)
     install(FILES misc/developdocument.html DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center)
 endif()
 #--------------------------dcc-personalization-dock-plugin--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Plugin_Personalization_Dock_Name dcc-personalization-dock-plugin)
     file(GLOB_RECURSE Plugin_Personalization_Dock_SRCS
         "src/plugin-personalization-dock/window/*.cpp"
@@ -1020,7 +1020,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Plugin_Personalization_Dock_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-Update--------------------------
-if (BUILD_PLUDIN AND NOT DISABLE_UPDATE)
+if (BUILD_PLUGIN AND NOT DISABLE_UPDATE)
     set(Update_Name dcc-update-plugin)
     file(GLOB_RECURSE Update_SRCS
         "src/plugin-update/window/*.cpp"
@@ -1055,7 +1055,7 @@ if (BUILD_PLUDIN AND NOT DISABLE_UPDATE)
     install(TARGETS ${Update_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-notification--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Notification_Name dcc-notification-plugin)
     file(GLOB_RECURSE NOTIFICATION_SRCS
         "src/plugin-notification/window/*.cpp"
@@ -1114,7 +1114,7 @@ endif()
 # endif()
 
 #--------------------------plugin-privacy--------------------------
-#if (BUILD_PLUDIN)
+#if (BUILD_PLUGIN)
 #    set(Privacy_Name dcc-privacy-plugin)
 #    file(GLOB_RECURSE Privacy_SRCS
 #        "src/plugin-privacy/window/*.cpp"
@@ -1153,7 +1153,7 @@ endif()
 #    install(TARGETS ${Privacy_Name} DESTINATION ${MODULE_INSTALL_DIR})
 #endif()
 #--------------------------plugin-touchscreen--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Touchscreen_Name dcc-touchscreen-plugin)
     file(GLOB_RECURSE TOUCHSCREEN_SRCS
         "src/plugin-touchscreen/*.cpp"
@@ -1189,7 +1189,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Touchscreen_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-wacom--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(Wacom_Name dcc-wacom-plugin)
     file(GLOB_RECURSE Wacom_SRCS
         "src/plugin-wacom/window/*.cpp"
@@ -1224,7 +1224,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Wacom_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 #--------------------------plugin-adapterv20tov23--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUGIN)
     set(AdapterV20toV23_Name dcc-adapterv20tov23-plugin)
     file(GLOB_RECURSE ADAPTERV20TOV23_SRCS
         "src/plugin-adapterv20tov23/*.cpp"
