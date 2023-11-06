@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Hong Kong</source>
-        <translation>香港</translation>
+        <translation>中国香港</translation>
     </message>
     <message>
         <source>Japan</source>
@@ -855,11 +855,11 @@
     </message>
     <message>
         <source>Macao</source>
-        <translation>澳门</translation>
+        <translation>中国澳门</translation>
     </message>
     <message>
         <source>Taiwan</source>
-        <translation>台湾</translation>
+        <translation>中国台湾</translation>
     </message>
     <message>
         <source>Afghanistan</source>
