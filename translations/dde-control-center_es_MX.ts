@@ -116,7 +116,7 @@
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Fecha y Hora</translation>
+        <source>Time and Format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation type="unfinished"/>
@@ -2419,29 +2513,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2449,6 +2520,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Balanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Balance Performance</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2472,11 +2547,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
+        <source>Decrease Brightness</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Decrease Brightness</source>
+        <source>Low battery threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2484,11 +2563,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
+        <source>Unlocking is required to wake up the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
+        <source>Unlocking is required to wake up the monitor</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2832,6 +2911,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>¡Se ha producido un error al leer los archivos de configuración de las reglas de contraseña!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Activated</source>
         <translation type="unfinished"/>
     </message>
@@ -2881,203 +2976,65 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
+        <source>Region and format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
+        <source>Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
+        <source>Format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
+        <source>Provide localized services based on your region.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
+        <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
+        <source>Languange and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/4/5</source>
+        <source>First day of week</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-4-5</source>
+        <source>Short date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.4.5</source>
+        <source>Long date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/04/05</source>
+        <source>Short time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-04-05</source>
+        <source>Long time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.04.05</source>
+        <source>Currency symbol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20/4/5</source>
+        <source>Numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20-4-5</source>
+        <source>Paper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20.4.5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
+        <source>custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3224,6 +3181,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Output</source>
         <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input</source>

@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de dispositius bluetooth</translation>
     </message>
 </context>
 <context>
@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Format personalitzat</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Primer dia de la setmana</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Data abreujada</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Data ampliada</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Hora abreujada</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Hora ampliada</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Símbol de la moneda</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Números</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Paper</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Desa-ho</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1108,7 +1155,7 @@
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Reinicia ara</translation>
+        <translation>Reinicia&apos;t ara</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
@@ -1123,7 +1170,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Llum, resolució, escala, etc</translation>
     </message>
 </context>
 <context>
@@ -1573,6 +1620,57 @@
     <message>
         <source>Recommended</source>
         <translation>Recomanada</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Format de la regió</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Format per defecte</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Primer dia</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Data abreujada</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Data ampliada</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Hora abreujada</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Hora ampliada</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Símbol de la moneda</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Números</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Paper</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Desa-ho</translation>
     </message>
 </context>
 <context>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Data i hora</translation>
+        <source>Time and Format</source>
+        <translation>Hora i format</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Cal autenticació per establir la zona horària del sistema.</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Cal autenticació per canviar el servidor NTP.</translation>
@@ -2432,29 +2526,6 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Data</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Hora</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Data i hora</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Número</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Moneda</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2463,6 +2534,10 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Balanced</source>
         <translation>Equilibrat</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Equilibratge del rendiment</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2485,24 +2560,28 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Estalvi d&apos;energia automàtic amb la bateria baixa</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Estalvi d&apos;energia automàtic amb la bateria</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Redueix-ne la brillantor</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Llindar de bateria baixa</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Estalvi d&apos;energia automàtic amb la bateria</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Configuració del despertament</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Cal la contrasenya per despertar l&apos;ordinador.</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>El desblocatge és necessari per a despertar l&apos;ordinador.</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Cal la contrasenya per despertar el monitor..</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>El desblocatge és necessari per a despertar el monitor.</translation>
     </message>
 </context>
 <context>
@@ -2845,6 +2924,22 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Hi ha hagut un error en llegir els fitxers de configuració de les regles de la contrasenya!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Ajust automàtic de la freqüència de funcionament de la CPU segons les condicions de càrrega de la CPU</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Ajusta agressivament la freqüència de funcionament de la CPU segons les condicions de càrrega de la CPU.</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>És bo per millorar el rendiment, però augmentarà el consum d&apos;energia i la generació de calor.</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>La CPU sempre funciona amb baixa freqüència, reduirà el consum d&apos;energia.</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Activat</translation>
     </message>
@@ -2894,204 +2989,66 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Regió i format</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Dilluns</translation>
+        <source>Region</source>
+        <translation>Regió</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>dilluns</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Abril 5, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>Abril 5, 2020, Diumenge</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Diumenge, Abril 5, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Llengua i regió</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Dimarts</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Dimecres</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Dijous</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Divendres</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Dissabte</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Diumenge</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Configuració regional</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* La configuració de la regió influirà en els formats de data, hora, números i alguns altres formats. S&apos;habilitarà la propera vegada que inicieu la sessió.</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Visualització de la configuració local</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Hora</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>hora</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Data</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24 hores</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Hora abreujada</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Hora ampliada</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Setmanes</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>Primer dia de la setmana</translation>
     </message>
     <message>
-        <source>Short Date</source>
+        <source>Short date</source>
         <translation>Data abreujada</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>Data ampliada</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <source>Short time</source>
+        <translation>Hora abreujada</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Confirmeu-ho</translation>
+        <source>Long time</source>
+        <translation>Hora ampliada</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Configuració regional</translation>
+        <source>Currency symbol</source>
+        <translation>Símbol de la moneda</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Cerca</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Format per defecte</translation>
+        <source>Numbers</source>
+        <translation>Números</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Data</translation>
+        <source>Paper</source>
+        <translation>Paper</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Hora</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Data i hora</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Número</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Moneda</translation>
+        <source>custom format</source>
+        <translation>Format personalitzat</translation>
     </message>
 </context>
 <context>
@@ -3237,6 +3194,14 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Output</source>
         <translation>Sortida</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Pausa automàtica</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Si l&apos;àudio es posarà en pausa automàticament quan es desconnecti el dispositiu d&apos;àudio actual.</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3654,15 +3619,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>actualització llarga</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualització del paquet Linglong</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Si hi ha una actualització per al paquet Linglong, el sistema l&apos;actualitzarà.</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3702,7 +3667,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Uniu-vos al canal de proves internes per rebre les darreres actualitzacions del Deepin.</translation>
     </message>
     <message>
         <source>System Updates</source>

@@ -124,11 +124,11 @@
     </message>
     <message>
         <source>Scan Again</source>
-        <translation>Yenidən aşkarlamaq</translation>
+        <translation>Yenidən oxudun</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Aşkarlama dayandırıldı</translation>
+        <translation>Oxutma dayandırılıb</translation>
     </message>
 </context>
 <context>
@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Xüsusi format</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Həftənin ilk günü</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Qısa tarix formatı</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Uzun tarix formatı</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Qısa vaxt formatı</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Uzun vaxt formatı</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Pul vahidi simvolu</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Saylar</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Kağız</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saxlayın</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Bölgə formatı</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>İlkin format</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>İlk gün</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Qısa tarix formatı</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Uzun tarix formatı</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Qısa vaxt formatı</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Uzun vaxt formatı</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Pul vahidi simvolu</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Saylar</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Kağız</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saxlayın</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Tarix və Vaxt</translation>
+        <source>Time and Format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Sistem ssat qurşağının təyin olunması üçün doğrulama tələb olunur</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>NTP serverini dəyişdirmək üçün doğrulama tələb olunur</translation>
@@ -2432,29 +2526,6 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Tarix</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Vaxt</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Tarix və Vaxt</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Nömrə</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Hazırkı</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2463,6 +2534,10 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Balanced</source>
         <translation>Tarazlaşdırılmış</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>High Performance</source>
@@ -2485,24 +2560,28 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Batareya zəif olduqda avtomatik enerjiyə qənaət</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Batareyadan qidalandıqda avtomatik enerjiyə qənaət</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Parlaqlığı azaltmaq</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Aşağı batareya həddi</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Batareyadan qidalandıqda avtomatik enerjiyə qənaət</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Oyatma ayarları</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Kompyuteri oyatmaq üçün şifrə tələb olunur</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>Kiliddən çıxartmaq üçün kompyuteri oyatmaq tələb olunur</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Monitoru oyatmaq üçün şifrə tələb olunur</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>Kiliddən çıxartmaq üçün monitoru oyatmaq lazımdır</translation>
     </message>
 </context>
 <context>
@@ -2845,6 +2924,22 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Şifrə qaydaları üçün tənzimləmə faylının oxunması zamanı xəta baş verdi!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Aktivləşdirildi</translation>
     </message>
@@ -2894,204 +2989,66 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Bölgə və format</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Bazar ertəsi</translation>
+        <source>Region</source>
+        <translation>Bölgə</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>bazar ertəsi</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>5 Aprel, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>5 Aprel, 2020, Bazar</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Bazar, 5 Aprel, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Dil və bölgə</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>5/4/2020</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>05/04/2020</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>5/4/2020</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Çərşənbə axşamı</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Çərşənbə</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Cümə axşamı</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Cümə</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Şənbə</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Bazar</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Bölgə ayarları</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* Bu bölgə üzrə tarix, vaxt, say və bəzi digər formatlar üçün ayardır və növbəti dəfə sistemə daxil olduqdan sonra qüvvəyə minəcək</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Yerli göstəriş</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Vaxt</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>vaxt</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Tarix</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24 saat vaxt formatı</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Qısa vaxt formatı</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Uzun vaxt formatı</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Həftələr</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>Həftənin ilk günü</translation>
     </message>
     <message>
-        <source>Short Date</source>
-        <translation>Qısa tarix formatı</translation>
+        <source>Short date</source>
+        <translation>Qısa tarix</translation>
     </message>
     <message>
-        <source>Long Date</source>
-        <translation>Uzun tarix formatı</translation>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation>Ləğv edin</translation>
+        <source>Long date</source>
+        <translation>Uzun tarix</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Təsdiq edin</translation>
+        <source>Short time</source>
+        <translation>Qısa vaxt</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Bölgə ayarları</translation>
+        <source>Long time</source>
+        <translation>Uzun vaxt</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Axtarış</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Standart format</translation>
+        <source>Currency symbol</source>
+        <translation>Pul vahidi simvolu</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Tarix</translation>
+        <source>Numbers</source>
+        <translation>Saylar</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Vaxt</translation>
+        <source>Paper</source>
+        <translation>Kağız</translation>
     </message>
     <message>
-        <source>Date And Time</source>
-        <translation>Tarix və Vaxt</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Say</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Hazırkı</translation>
+        <source>custom format</source>
+        <translation>xüsusi format</translation>
     </message>
 </context>
 <context>
@@ -3237,6 +3194,14 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Output</source>
         <translation>Çıxış</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Avtomatik fasilə</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Cari səs cihazı çıxarılan zaman səsə avtomatik fasilə veriləcəkdir</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3654,15 +3619,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong yenilənmə</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong paket yenilənməsi</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Əgər linglong paketi üçün yenilənmə varsa, sistem onu sizin üçün yeniləyəcək</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3702,7 +3667,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Ən son Deepin yenilənmələrini almaq üçün daxili sınaq kanalına qoşulun</translation>
     </message>
     <message>
         <source>System Updates</source>

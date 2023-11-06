@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Përgjegjës pajisjesh Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Format vetjak</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Dita e parë e javës</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Datë e shkurtër</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Datë e gjatë</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Kohë e shkurtër</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Kohë e gjatë</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Simbol monedhe</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Numra</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Letër</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Ruaje</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1123,7 +1170,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Ndriçim, qartësi, ripërmasim, etj</translation>
     </message>
 </context>
 <context>
@@ -1573,6 +1620,57 @@
     <message>
         <source>Recommended</source>
         <translation>E rekomanduar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Format rajonesh</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Format parazgjedhje</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Dita e parë</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Datë e shkurtër</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Datë e gjatë</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Kohë e shkurtër</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Kohë e gjatë</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Simbol monedhe</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Numra</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Letër</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Datë dhe Kohë</translation>
+        <source>Time and Format</source>
+        <translation>Kohë dhe Format</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Që të ujdisni zonën kohore të sistemit, lypset mirëfilltësim</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Që të ndryshoni shërbyes NTP, lypset mirëfilltësim</translation>
@@ -2432,29 +2526,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Datë</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Kohë</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Datë dhe Kohë</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Numër</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Monedhë</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2463,6 +2534,10 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Balanced</source>
         <translation>E drejtpeshuar</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Baraspesho Funksionimin</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2485,24 +2560,28 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Kursim i automatizuar energjie, kur bateria është e pakët</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Kursim i automatizuar energjie, kur është nën bateri</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Ule Ndriçimin</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Kufi baterie të pakët</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Kursim i automatizuar energjie, kur është nën bateri</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Rregullime Zgjimi</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Që të zgjohet kompjuteri, lypset fjalëkalim</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>Që të zgjohet kompjuteri, është e domosdoshme shkyçja</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Që të zgjohet monitori, lypset fjalëkalim</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>Që të zgjohet monitori, është e domosdoshme shkyçja</translation>
     </message>
 </context>
 <context>
@@ -2845,6 +2924,22 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Ndodhi një gabim teksa lexoheshin kartelat e formësimit të rregullave të fjalëkalimit!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Rregullo automatikisht frekuencën e punës së CPU-së bazuar në kushte ngarkese të CPU-së</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Rregullo në mënyrë agresive frekuencën e punës së CPU-së bazuar në kushte ngarkese të CPU-së</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>Sillu mirë me përmirësimin e funksionimit, por do të shtohen harxhimi i energjisë dhe prodhimi i nxehtësisë</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>CPU-ja funksionon përherë nën frekuencë të ulët, do të ulet harxhimi i energjisë</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>E aktivizuar</translation>
     </message>
@@ -2894,204 +2989,66 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Rajon dhe Format</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>E hënë</translation>
+        <source>Region</source>
+        <translation>Rajon</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>e hënë</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Prill 5, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>Prill 5, 2020, E diel</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>E diel, Prill 5, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Gjuhë dhe rajon</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
+        <source>First day of week</source>
+        <translation>Dita e parë e javës</translation>
     </message>
     <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
+        <source>Short date</source>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
+        <source>Long date</source>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
+        <source>Short time</source>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
+        <source>Long time</source>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
+        <source>Currency symbol</source>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
+        <source>Numbers</source>
+        <translation>Numra</translation>
     </message>
     <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
+        <source>Paper</source>
+        <translation>Letër</translation>
     </message>
     <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>E martë</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>E mërkurë</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>E enjte</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>E premte</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>E shtunë</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>E diel</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Rregullime Rajonale</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>Rregullimi për rajonin do të ndikojë mbi formatet e datave, kohës, numrave dhe disa formate të tjerë, do të aktivizohet herës tjetër që bëni hyrjen</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Shfaqje Vendoreje</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Kohë</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>kohë</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Datë</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>Kohë 24-orëshe</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Kohë e Shkurtër</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Kohë e Gjatë</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Javë</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation>Dita e Parë e Javës</translation>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation>Datë e Shkurtër</translation>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation>Datë e Gjatë</translation>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Ripohojeni</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Rregullime Rajonale</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Kërko</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Format Parazgjedhje</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Datë</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Kohë</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Datë dhe Kohë</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Numër</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Monedhë</translation>
+        <source>custom format</source>
+        <translation>format vetjak</translation>
     </message>
 </context>
 <context>
@@ -3237,6 +3194,14 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Output</source>
         <translation>Në Dalje</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Pauzë e automatizuar</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Nëse do të ndalet apo jo automatikisht audioja, kur hiqet pajisja audio e çastit</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3654,15 +3619,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>përditësim linglong-u</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Përditësim Pakete Linglong</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Nëse ka përditësim për paketën linglong, sistemi do të bëjë për ju përditësimin</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3702,7 +3667,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Bëhuni pjesë e kanalit të brendshëm të testimeve, që të merrni përditësimet më të reja të deepin-it</translation>
     </message>
     <message>
         <source>System Updates</source>

@@ -2980,27 +2980,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>RegionModule</name>
     <message>
+        <source>Region and format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Country region</source>
+        <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Region format</source>
+        <source>Provide localized services based on your region.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Provide localized services based on your country or region.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Country/region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the date and time format according to language and region options.</source>
+        <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

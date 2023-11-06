@@ -217,6 +217,10 @@ void RegionProxy::active()
         QString script = locale.scriptToString(locale.script());
         QString language = locale.languageToString(locale.language());
         QString country = locale.countryToString(locale.country());
+        if (locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+            language = "Traditional Chinese";
+        if (locale.country() == QLocale::China)
+            language = "Simplified Chinese";
         QString langCountry = QString("%1 (%2)")
                                       .arg(QCoreApplication::translate("dcc::datetime::Language",
                                                                        language.toUtf8().data()))
