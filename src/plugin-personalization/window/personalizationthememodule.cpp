@@ -457,7 +457,9 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
               << "18"
               << "20";
     fontSizeSlider->setAnnotations(annotions);
-    fontSizeSlider->setIconSize(QSize(24, 24));
+
+    fontSizeSlider->setIconSize(QSize(16, 16));
+
     fontSizeSlider->setLeftIcon(DIconTheme::findQIcon("fontsize_decrease"));
     fontSizeSlider->setRightIcon(DIconTheme::findQIcon("fontsize_increase"));
 
