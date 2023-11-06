@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Нетиповий формат</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Перший день тижня</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Дата скорочено</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Дата повністю</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Час скорочено</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Час повністю</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Символ валюти</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Числа</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Папір</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Зберегти</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Формат регіону</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Типовий формат</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Перший день</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Дата скорочено</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Дата повністю</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Час скорочено</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Час повністю</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Символ валюти</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Числа</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Папір</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Зберегти</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Дата і час</translation>
+        <source>Time and Format</source>
+        <translation>Час і форматування</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Аутентифікація потрібна для встановлення системного часового поясу.</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Для зміни NTP-сервера потрібна автентифікація</translation>
@@ -2433,29 +2527,6 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Час</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Дата і час</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Число</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Валюта</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2464,6 +2535,10 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Balanced</source>
         <translation>Збалансований</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Збалансована швидкодія</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2486,24 +2561,28 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Автоматичне заощадження енергії при низькому заряді</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Автоматичне заощадження енергії на акумуляторі</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Зменшити яскравість</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Рівень низького заряду</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Автоматичне заощадження енергії на акумуляторі</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Параметри пробудження</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Для пробудження комп&apos;ютера слід ввести пароль</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>Для пробудження комп&apos;ютера слід його розблокувати</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Щоб увімкнути монітор, необхідно ввести пароль</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>Для пробудження монітора слід його розблокувати</translation>
     </message>
 </context>
 <context>
@@ -2846,6 +2925,22 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Під час спроби прочитати файли налаштувань правил паролів сталася помилка!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Автоматично коригувати частоту роботи процесора на основі умов навантаження на процесор</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Агресивно коригувати частоту роботи процесора на основі умов навантаження на процесор</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>Добре для підвищення швидкодії, але збільшує споживання енергії та розігрів</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>Процесор завжди працює на низькій частоті, зменшує споживання енергії</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Активовано</translation>
     </message>
@@ -2895,204 +2990,66 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Регіон і формат</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Понеділок</translation>
+        <source>Region</source>
+        <translation>Область</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>понеділок</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Квітень 5, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>Квітень 5, 2020, неділя</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Неділя, квітень 5, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Мова і регіон</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Вівторок</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Середа</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Четвер</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>П&apos;ятниця</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Субота</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Неділя</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Параметри регіону</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* Вибір регіону вплине на формати дати, часу, запису чисел та деякі інші формати; його буде застосовано під час наступного входу до системи</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Показ локалі</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Час</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>час</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24-годинний час</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Час скорочено</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Час повністю</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Тижні</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>Перший день тижня</translation>
     </message>
     <message>
-        <source>Short Date</source>
-        <translation>Скорочена дата</translation>
+        <source>Short date</source>
+        <translation>Дата скорочено</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>Дата повністю</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <source>Short time</source>
+        <translation>Час скорочено</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <source>Long time</source>
+        <translation>Час повністю</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Параметри регіону</translation>
+        <source>Currency symbol</source>
+        <translation>Символ валюти</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Шукати</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Типовий формат</translation>
+        <source>Numbers</source>
+        <translation>Числа</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Дата</translation>
+        <source>Paper</source>
+        <translation>Папір</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Час</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Дата і час</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Число</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Валюта</translation>
+        <source>custom format</source>
+        <translation>нетиповий формат</translation>
     </message>
 </context>
 <context>
@@ -3238,6 +3195,14 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Output</source>
         <translation>Вихід</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Автопауза</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Визначає, чи буде відтворення звуку автоматично призупинено, якщо поточний звуковий пристрій від&apos;єднано від комп&apos;ютера</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3655,15 +3620,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>оновлення linglong</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення пакунка Linglong</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Якщо буде виявлено оновлення пакунка linglong, система виконає оновлення</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3703,7 +3668,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Долучіться до каналу внутрішнього тестування, щоб отримати найсвіжіші оновлення deepin</translation>
     </message>
     <message>
         <source>System Updates</source>

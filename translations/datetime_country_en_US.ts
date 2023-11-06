@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>China</source>
-        <translation>China</translation>
+        <translation>Chinese mainland</translation>
     </message>
     <message>
         <source>Hong Kong SAR China</source>
