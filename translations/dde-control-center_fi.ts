@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Mukautettu formaatti</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Viikon ensimmäinen päivä</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Lyhyt päivämäärä</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Pitkä päivämäärä</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Lyhyt aika</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Pitkä aika</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Rahayksikön tunnus</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Numerot</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Arkki</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Tallenna</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Alueen aikamuoto</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Oletusmuoto</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Ensimmäinen päivä</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Lyhyt päivämäärä</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Pitkä päivämäärä</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Lyhyt aika</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Pitkä aika</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Rahayksikön tunnus</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Numerot</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Arkki</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Tallenna</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Päivä ja aika</translation>
+        <source>Time and Format</source>
+        <translation>Aika ja aikamuoto</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Aikavyöhykkeen asettaminen vaatii tunnistautumisen</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>NTP-palvelimen muuttamiseen tarvitaan tunnistautuminen</translation>
@@ -2433,29 +2527,6 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Päivä</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Aika</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Päivä ja aika</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Numero</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Valuutta</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2464,6 +2535,10 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Balanced</source>
         <translation>Tasapainoinen</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Tasapainoinen suoritusteho</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2486,24 +2561,28 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Automaattinen virransäästö alhaisella akulla</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Automaattinen virransäästö akkutilassa</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Pienennä kirkkautta</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Akun alhainen varaus</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Automaattinen virransäästö akkutilassa</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Heräämisen asetukset</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Tietokoneen herättäminen edellyttää salasanaa</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>Lukituksen avaus vaaditaan tietokoneen herättämiseksi</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Näytön herättämiseen tarvitaan salasana</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>Lukituksen avaus vaaditaan näytön herättämiseksi</translation>
     </message>
 </context>
 <context>
@@ -2846,6 +2925,22 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Tapahtui virhe luettaessa määrityksiä salasanasäännöt!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Säädä prosessorin taajuutta automaattisesti kuormituksen perusteella</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Säädä prosessorin taajuutta aggressiivisesti kuormituksen perusteella</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>Parantaa suorituskykyä, mutta virrankulutus ja lämmön tuotto kasvaa</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>Prosessori toimii aina matalalla taajuudella, mikä vähentää virrankulutusta</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Aktivoitu</translation>
     </message>
@@ -2895,204 +2990,66 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Alue ja aikamuoto</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Maanantai</translation>
+        <source>Region</source>
+        <translation>Maa</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>maanantai</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>Huhtikuu 5, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>Huhtikuu 5, 2020, sunnuntai</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Sunnuntai, huhtikuu 5, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Kieli ja asuinalue</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Tiistai</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Keskiviikko</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Torstai</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Perjantai</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Lauantai</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Sunnuntai</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Maa-asetukset</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* Maa-asetukset vaikuttaa päivämäärään, kellonaikaan, numeroihin ja joihinkin muihin asetuksiin ja otetaan käyttöön seuraavan sisäänkirjautumisen yhteydessä</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Esitetään paikallisesti</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Aika</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>aika</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Päivä</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24h kello</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Lyhyt aika</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Pitkä aika</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Viikko</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>Viikon ensimmäinen päivä</translation>
     </message>
     <message>
-        <source>Short Date</source>
+        <source>Short date</source>
         <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>Pitkä päivämäärä</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <source>Short time</source>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Vahvista</translation>
+        <source>Long time</source>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Maa-asetukset</translation>
+        <source>Currency symbol</source>
+        <translation>Rahayksikön tunnus</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Etsi</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Oletusmuoto</translation>
+        <source>Numbers</source>
+        <translation>Numerot</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Päivä</translation>
+        <source>Paper</source>
+        <translation>Arkki</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Aika</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Päivä ja aika</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Numero</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Valuutta</translation>
+        <source>custom format</source>
+        <translation>Mukautettu formaatti</translation>
     </message>
 </context>
 <context>
@@ -3238,6 +3195,14 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Output</source>
         <translation>Ulostulo</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Automaattinen keskeytys</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Keskeytetäänkö ääni automaattisesti, kun nykyinen äänilaite irrotetaan</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3655,15 +3620,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>linglong päivitys</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong pakettipäivitys</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Jos linglong-paketille on päivitys, järjestelmä päivittää sen puolestasi</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3703,7 +3668,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Liity testauskanavaan saadaksesi viimeisimmät päivitykset</translation>
     </message>
     <message>
         <source>System Updates</source>

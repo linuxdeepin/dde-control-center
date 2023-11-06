@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Eigen opmaak</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>Eerste dag van de week</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Korte datum</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Lange datum</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Korte tijd</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Lange tijd</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Valutateken</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Getallen</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Papierformaat</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Opslaan</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Regionale opmaak</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Standaardopmaak</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Eerste van de dag</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Korte datum</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Lange datum</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Korte tijd</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Lange tijd</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Valutateken</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Getallen</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Papierformaat</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Opslaan</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Datum en tijd</translation>
+        <source>Time and Format</source>
+        <translation>Tijd en opmaak</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Voer je wachtwoord in om de systeemtijdzone in te stellen</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Voer je wachtwoord in om de ntp-server te wijzigen</translation>
@@ -2423,29 +2517,6 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Tijd</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Datum en tijd</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Getal</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Valuta</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2454,6 +2525,10 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Balanced</source>
         <translation>Gebalanceerd</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Gebalanceerde prestaties</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2476,23 +2551,27 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Energiebesparing inschakelen bij laag accuniveau</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Energiebesparing inschakelen bij werken op accu</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Helderheid verlagen</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Drempelwaarde laag accuniveau</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Energiebesparing inschakelen bij werken op accu</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Ontwaakinstellingen</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
+        <source>Unlocking is required to wake up the computer</source>
         <translation>Wachtwoord vereisen om computer te ontwaken</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
+        <source>Unlocking is required to wake up the monitor</source>
         <translation>Wachtwoord vereisen om beeldscherm te ontwaken</translation>
     </message>
 </context>
@@ -2836,6 +2915,22 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Er is een fout opgetreden tijdens het uitlezen van de configuratiebestanden omtrent de wachtwoordregels!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Pas de cpu-snelheid automatisch aan op basis van de belasting</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>Pas de cpu-snelheid automatisch op agressieve wijze aan op basis van de belasting</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>Verhoogt de prestaties, maar ook het energieverbruik en warmte</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>Verlaagt de prestaties en het energieverbruik</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Geactiveerd</translation>
     </message>
@@ -2885,204 +2980,66 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Regio en opmaak</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Maandag</translation>
+        <source>Region</source>
+        <translation>Regio</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>maandag</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>April 5, 2020</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>April 5, 2020, zondag</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>zondag, April 5, 2020</translation>
+        <source>Languange and region</source>
+        <translation>Taal en regio</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Dinsdag</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Woensdag</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Donderdag</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Vrijdag</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Zaterdag</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Zondag</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Regionale instellingen</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* De regionale instellingen zĳn van toepassing op de datum-, tĳd- en getalopmaak. Herstart om toe te passen.</translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Taal</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Tĳd</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>tĳd</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24-uursklok</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Korte tijd</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Lange tijd</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Weken</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>Eerste dag van de week</translation>
     </message>
     <message>
-        <source>Short Date</source>
+        <source>Short date</source>
         <translation>Korte datum</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>Lange datum</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <source>Short time</source>
+        <translation>Korte tijd</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Oké</translation>
+        <source>Long time</source>
+        <translation>Lange tijd</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Regionale instellingen</translation>
+        <source>Currency symbol</source>
+        <translation>Valutateken</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Standaardopmaak</translation>
+        <source>Numbers</source>
+        <translation>Getallen</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Datum</translation>
+        <source>Paper</source>
+        <translation>Papierformaat</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Tĳd</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Datum en tijd</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Getal</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Valuta</translation>
+        <source>custom format</source>
+        <translation>Eigen opmaak</translation>
     </message>
 </context>
 <context>
@@ -3228,6 +3185,14 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Output</source>
         <translation>Uitvoer</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Automatisch pauzeren</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Pauzeer audio automatisch als het huidige geluidsapparaat wordt afgekoppeld</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3645,15 +3610,15 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong-update</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong-pakketupdate</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Als er een update van een linglong-pakket is, dan wordt deze automatisch geïnstalleerd</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3693,7 +3658,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Schakel het interne testkanaal in om de nieuwste Deepin-updates te ontvangen</translation>
     </message>
     <message>
         <source>System Updates</source>

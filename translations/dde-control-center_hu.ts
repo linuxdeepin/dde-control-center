@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Scan Again</source>
-        <translation> Ellenőrzés ismétlése</translation>
+        <translation>Újra ellenőrzés</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
@@ -1011,6 +1011,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>Egyedi formátum</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>A hét első napja</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Rövid
+dátumformátum</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Hosszú
+dátumformátum</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Rövid
+időformátum</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Hosszú
+időformátum</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Pénznem szimbóluma</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Számok</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Papír</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Mentés</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1576,6 +1627,61 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>Régió formátuma</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>Álapértelmezett formátum</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>Az első nap</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>Rövid
+dátumformátum</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>Hosszú
+dátumformátum</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>Rövid
+időformátum</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>Hosszú
+időformátum</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>Pénznem szimbóluma</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>Számok</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Papír</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Mentés</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -2081,16 +2187,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Dátum és Idő</translation>
+        <source>Time and Format</source>
+        <translation>Idő és Formátum </translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Hitelesítés szükséges a rendszer időzónájának beállításához</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Hitelesítés szükséges az NTP szerver megváltoztatásához</translation>
@@ -2433,29 +2535,6 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation>Dátum</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Idő</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation>Dátum és Idő</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Szám</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Pénznem</translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2464,6 +2543,10 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <source>Balanced</source>
         <translation>Kiegyensúlyozott</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>Kiegyensúlyozott teljesítményű</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2486,24 +2569,28 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Automatikus energiatakarékosság alacsony akkumulátorszint mellett</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Automatikus energiatakarékosság akkumulátoros üzemmódban</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>Fényerősség csökkentése</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Alacsony akkumulátorszint küszöbértéke</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Automatikus energiatakarékosság akkumulátoros üzemmódban</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Felébresztési beállítások</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Jelszó szükséges a számítógép felébresztéséhez</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation>Feloldás szükséges a számítógép felébresztéséhez</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Jelszó szükséges a monitor felébresztéséhez</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation>Feloldás szükséges  a monitor felébresztéséhez</translation>
     </message>
 </context>
 <context>
@@ -2846,6 +2933,22 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Hiba történt a jelszószabályok konfigurációs fájljainak olvasásakor!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>A processzor működési frekvenciájának automatikus beállítása a processzor terhelési állapota alapján</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>A processzor működési frekvenciájának agresszív beállítása a processzor terhelési állapota alapján</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>Ügyeljen a teljesítmény javítására, de az energiafogyasztás és a hőtermelés növekedni fog</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>A processzor mindig alacsony frekvencián működik, csökkenti az energiafogyasztást</translation>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Aktiválva</translation>
     </message>
@@ -2895,208 +2998,70 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
-        <translation>Régió és Formátum</translation>
+        <source>Region and format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Hétfő</translation>
+        <source>Region</source>
+        <translation>Régió</translation>
     </message>
     <message>
-        <source>monday</source>
-        <translation>Hétfő</translation>
+        <source>Format</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
-        <translation>2020. Április 5.</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation>2020. Április 5. - Vasárnap</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation>Vasárnap, 2020. Április 5.</translation>
+        <source>Languange and region</source>
+        <translation>Nyelv és Régió</translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation>2020/4/5</translation>
-    </message>
-    <message>
-        <source>2020-4-5</source>
-        <translation>2020-4-5</translation>
-    </message>
-    <message>
-        <source>2020.4.5</source>
-        <translation>2020.4.5.</translation>
-    </message>
-    <message>
-        <source>2020/04/05</source>
-        <translation>2020/04/05</translation>
-    </message>
-    <message>
-        <source>2020-04-05</source>
-        <translation>2020-04-05</translation>
-    </message>
-    <message>
-        <source>2020.04.05</source>
-        <translation>2020.04.05.</translation>
-    </message>
-    <message>
-        <source>20/4/5</source>
-        <translation>20/4/5</translation>
-    </message>
-    <message>
-        <source>20-4-5</source>
-        <translation>20-4-5</translation>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation>20.4.5</translation>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation>9:40:07</translation>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation>09:40:07</translation>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation>9:40</translation>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation>09:40</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Kedd</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Szerda</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Csütörtök</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Péntek</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Szombat</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Vasárnap</translation>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation>Regionális beállítások</translation>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation>* A régió beállítása befolyásolja a dátum, idő, szám és néhány más adat formátumát, a következő bejelentkezéskor engedélyezve lesz </translation>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation>Helyi műsor</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Idő</translation>
-    </message>
-    <message>
-        <source>time</source>
-        <translation>Idő</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Dátum</translation>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation>24 órás időformátum</translation>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation>Rövid
-időformátum</translation>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation>Hosszú
-időformátum</translation>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation>Hetek</translation>
-    </message>
-    <message>
-        <source>First Day of Week</source>
+        <source>First day of week</source>
         <translation>A hét első napja</translation>
     </message>
     <message>
-        <source>Short Date</source>
+        <source>Short date</source>
         <translation>Rövid
 dátumformátum</translation>
     </message>
     <message>
-        <source>Long Date</source>
+        <source>Long date</source>
         <translation>Hosszú
 dátumformátum</translation>
     </message>
-</context>
-<context>
-    <name>RegionDialog</name>
     <message>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <source>Short time</source>
+        <translation>Rövid
+időformátum</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Megerősítés</translation>
+        <source>Long time</source>
+        <translation>Hosszú
+időformátum</translation>
     </message>
     <message>
-        <source>Regional Setting</source>
-        <translation>Regionális beállítások</translation>
+        <source>Currency symbol</source>
+        <translation>Pénznem szimbóluma</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Keresés</translation>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation>Álapértelmezett Formátum</translation>
+        <source>Numbers</source>
+        <translation>Számok</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation>Dátum</translation>
+        <source>Paper</source>
+        <translation>Papír</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>Idő</translation>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation>Dátum és Idő</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation>Szám</translation>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation>Pénznem</translation>
+        <source>custom format</source>
+        <translation>Egyedi formátum</translation>
     </message>
 </context>
 <context>
@@ -3242,6 +3207,14 @@ dátumformátum</translation>
     <message>
         <source>Output</source>
         <translation>Kimenet</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Automatikus szüneteltetés</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Meghatározza, hogy a hang automatikusan szünetel, amikor az aktuális audió eszközt leválasztják </translation>
     </message>
     <message>
         <source>Input</source>
@@ -3707,7 +3680,7 @@ dátumformátum</translation>
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Csatlakozzon a belső tesztelési csatornához, hogy megkapja a Deepin® legújabb frissítéseit</translation>
     </message>
     <message>
         <source>System Updates</source>

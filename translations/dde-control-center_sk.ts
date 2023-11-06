@@ -124,11 +124,11 @@
     </message>
     <message>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Znovu skenovať</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Skenovanie pozastavené</translation>
     </message>
 </context>
 <context>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Správca zariadení Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -416,15 +416,15 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>Používatelia</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Správa používateľov</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>Vytvoriť používateľa</translation>
     </message>
     <message>
         <source>Username</source>
@@ -436,11 +436,11 @@
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>Vymazať používateľa</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ používateľa</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -553,23 +553,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Osoba</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Zviera</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustrácia</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Výraz</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Vlastný obrázok</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -588,7 +588,7 @@
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Plochý štýl</translation>
     </message>
 </context>
 <context>
@@ -839,11 +839,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>Nový používateľ</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ používateľa</translation>
     </message>
     <message>
         <source>Username</source>
@@ -926,11 +926,11 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Obrázok ste ešte nenahrali, môžete ho nahrať kliknutím alebo potiahnutím</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Nahraný typ súboru je nesprávny, nahrajte ho prosím znova</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1008,6 +1008,53 @@
     <message>
         <source>Please enter a shortcut</source>
         <translation>Prosím, zadajte skratku</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Zrušiť</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Uložiť</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1170,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Jas, rozlíšenie, mierka a pod.</translation>
     </message>
 </context>
 <context>
@@ -1483,7 +1530,7 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>zlyhalo načítanie nasledujúcich zásuvných modulov</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
@@ -1572,6 +1619,57 @@
     </message>
     <message>
         <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1849,7 +1947,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>systemInfo</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1881,7 +1979,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafická platforma</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -2000,11 +2098,11 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Rýchlosť ukazovateľa</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Povoliť dotykovú plochu TouchPad</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -2012,15 +2110,15 @@
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Prirodzené posúvanie</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Pomaly</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rýchlo</translation>
     </message>
 </context>
 <context>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Čas a dátum</translation>
+        <source>Time and Format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>Na nastavenie časového pásma systému je potrebné overenie</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Na zmenu NTP servera je potrebné overenie</translation>
@@ -2419,29 +2513,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2450,6 +2521,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Balanced</source>
         <translation>Vyvážený</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>High Performance</source>
@@ -2472,11 +2547,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
+        <source>Decrease Brightness</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Decrease Brightness</source>
+        <source>Low battery threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2484,11 +2563,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
+        <source>Unlocking is required to wake up the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
+        <source>Unlocking is required to wake up the monitor</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2507,11 +2586,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Interný testovací kanál</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>kliknite sem a otvorte odkaz</translation>
     </message>
 </context>
 <context>
@@ -2825,10 +2904,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2869,7 +2964,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Kontrola verzií systému, počkajte prosím...</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -2881,203 +2976,65 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
+        <source>Region and format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
+        <source>Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
+        <source>Format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
+        <source>Provide localized services based on your region.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
+        <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
+        <source>Languange and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/4/5</source>
+        <source>First day of week</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-4-5</source>
+        <source>Short date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.4.5</source>
+        <source>Long date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/04/05</source>
+        <source>Short time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-04-05</source>
+        <source>Long time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.04.05</source>
+        <source>Currency symbol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20/4/5</source>
+        <source>Numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20-4-5</source>
+        <source>Paper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20.4.5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
+        <source>custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3224,6 +3181,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Output</source>
         <translation>Výstup</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Či sa zvuk automaticky pozastaví, keď sa aktuálne zvukové zariadenie odpojí</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3641,15 +3606,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizácia Linglong</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizácia balíka Linglong</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Ak bude dostupná aktualizácia pre balík linglong, systém ho aktualizuje za vás</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3681,7 +3646,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizácie z interných testovacích zdrojov</translation>
     </message>
     <message>
         <source>internal update</source>
@@ -3735,7 +3700,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Môže byť nebezpečné, aby ste teraz opustili interný testovací kanál, chcete ho napriek tomu opustiť?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
@@ -3747,7 +3712,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné odinštalovať balík</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
@@ -3759,7 +3724,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné nainštalovať balík</translation>
     </message>
 </context>
 <context>
@@ -3862,7 +3827,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Zobraziť rozhranie vypnutia</translation>
     </message>
 </context>
 <context>
@@ -3929,7 +3894,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Zobraziť rozhranie vypnutia</translation>
     </message>
     <message>
         <source>Do nothing</source>

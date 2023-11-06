@@ -3,23 +3,23 @@
     <name>AdapterModule</name>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Permitir que outros dispositivos Bluetooth localizem este dispositivo</translation>
+        <translation>Permitir que os outros dispositivos encontrem este dispositivo</translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Ative o Bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse...)</translation>
+        <translation>Ative o Bluetooth para detectar dispositivos próximos</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation>Meus dispositivos</translation>
+        <translation>Dispositivos Pareados</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation>Outros dispositivos</translation>
+        <translation>Outros Dispositivos</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Exibir os dispositivos Bluetooth sem nome</translation>
+        <translation>Exibir os dispositivos sem nome</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -116,19 +116,19 @@
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Again</source>
-        <translation>Escanear Novamente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Escaneamento Suspenso</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciador de dispositivos Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -416,7 +416,7 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>Usuários</translation>
     </message>
     <message>
         <source>User management</source>
@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>Excluir usuário</translation>
     </message>
     <message>
         <source>User Type</source>
@@ -606,7 +606,7 @@
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation>Atrasar Inicialização</translation>
+        <translation>Atrasar inicialização</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -691,7 +691,7 @@
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Temperatura de cor</translation>
+        <translation>Temperatura de Cor</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
@@ -699,15 +699,15 @@
     </message>
     <message>
         <source>Night Shift</source>
-        <translation>Luz noturna</translation>
+        <translation>Filtro de luz azul</translation>
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>O tom da tela irá auto-ajustar de acordo com sua localização</translation>
+        <translation>A tonalidade de cor se ajustará automaticamente de acordo com a sua localização</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation>Alterar a temperatura de cor</translation>
+        <translation>Balanço de branco</translation>
     </message>
     <message>
         <source>Cool</source>
@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation>Meus Dispositivos</translation>
+        <translation>Dispositivos Pareados</translation>
     </message>
     <message>
         <source>Other Devices</source>
@@ -1011,6 +1011,53 @@
     </message>
 </context>
 <context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
@@ -1130,14 +1177,14 @@
     <name>dccV23::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation>Teste de clique duplo</translation>
+        <translation>Teste de Clique Duplo</translation>
     </message>
 </context>
 <context>
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Teclado</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1169,7 +1216,7 @@
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Teclado Numérico</translation>
+        <translation>Indicador do Teclado Numérico</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
@@ -1207,7 +1254,7 @@
     <name>dccV23::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation>Leiaute de Teclado</translation>
+        <translation>Layout de Teclado</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -1249,7 +1296,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Teclado</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
@@ -1257,7 +1304,7 @@
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation>Leiaute de Teclado</translation>
+        <translation>Layout de Teclado</translation>
     </message>
     <message>
         <source>Language</source>
@@ -1576,6 +1623,57 @@
     </message>
 </context>
 <context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
@@ -1841,7 +1939,7 @@
     <name>dccV23::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este Computador</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>Computer Name</source>
@@ -1853,7 +1951,7 @@
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do SO</translation>
+        <translation>Sistema Operacional</translation>
     </message>
     <message>
         <source>Version</source>
@@ -1865,7 +1963,7 @@
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Arquitetura</translation>
     </message>
     <message>
         <source>Authorization</source>
@@ -1881,7 +1979,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de Exibição</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -1889,7 +1987,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Acordos e Política de Privacidade</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -2081,16 +2179,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>Data e Hora</translation>
+        <source>Time and Format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>A autenticação é necessária para alterar o fuso horário</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>A autenticação é necessária para alterar o Servidor NTP</translation>
@@ -2194,7 +2288,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show Dock</source>
-        <translation>Show Dock</translation>
+        <translation>Exibir dock</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -2210,7 +2304,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Exibir os aplicativos recentes no Dock</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2218,15 +2312,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Plugin Area</translation>
+        <translation>Área de Plug-ins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Select which icons appear in the Dock</translation>
+        <translation>Selecione quais ícones devem aparecer no Dock</translation>
     </message>
     <message>
         <source>Fashion mode</source>
-        <translation>Fashion mode</translation>
+        <translation>Fashion</translation>
     </message>
     <message>
         <source>Efficient mode</source>
@@ -2254,23 +2348,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Keep shown</translation>
+        <translation>Sempre exibir</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Keep hidden</translation>
+        <translation>Sempre ocultar</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Smart hide</translation>
+        <translation>Ocultar automaticamente</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Small</translation>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Large</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
@@ -2419,29 +2513,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2450,6 +2521,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Balanced</source>
         <translation>Equilibrado</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>High Performance</source>
@@ -2472,24 +2547,28 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Economia de energia automática com bateria fraca</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>Economia de energia automática na bateria</translation>
+        <source>Decrease Brightness</source>
+        <translation>Reduzir brilho</translation>
     </message>
     <message>
-        <source>Decrease Brightness</source>
-        <translation>Diminuir Luminosidade</translation>
+        <source>Low battery threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>Economia de energia automática na bateria</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>Configurações de Acordar</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>Solicitar senha ao acordar o computador</translation>
+        <source>Unlocking is required to wake up the computer</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Solicitar senha ao acordar o monitor</translation>
+        <source>Unlocking is required to wake up the monitor</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2507,7 +2586,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Canal de testes interno</translation>
     </message>
     <message>
         <source>click here open the link</source>
@@ -2563,7 +2642,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Deepin Community</translation>
+        <translation>Copyright© 2011-%1 deepin Community</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -2678,7 +2757,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparência</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2690,11 +2769,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Tema dos Ícones</translation>
+        <translation>Tema de ícone</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>Tema do Cursor</translation>
+        <translation>Tema de cursor</translation>
     </message>
     <message>
         <source>Text Settings</source>
@@ -2761,7 +2840,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PinCodeDialog</name>
     <message>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>O PIN para conectar-se ao dispositivo Bluetooth é:</translation>
+        <translation>O PIN para conectar-se ao dispositivo é:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2832,6 +2911,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Ocorreu um erro durante a leitura dos arquivos de configuração ou regras de senha!</translation>
     </message>
     <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Activated</source>
         <translation>Ativado</translation>
     </message>
@@ -2881,203 +2976,65 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
+        <source>Region and format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
+        <source>Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
+        <source>Format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
+        <source>Provide localized services based on your region.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
+        <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
+        <source>Languange and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/4/5</source>
+        <source>First day of week</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-4-5</source>
+        <source>Short date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.4.5</source>
+        <source>Long date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020/04/05</source>
+        <source>Short time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020-04-05</source>
+        <source>Long time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2020.04.05</source>
+        <source>Currency symbol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20/4/5</source>
+        <source>Numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20-4-5</source>
+        <source>Paper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>20.4.5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
+        <source>custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3226,6 +3183,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Saída</translation>
     </message>
     <message>
+        <source>Auto pause</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Input</source>
         <translation>Entrada</translation>
     </message>
@@ -3266,7 +3231,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Se o volume for superior a 100%, haverá distorção do áudio e o alto-falante poderá ser danificado</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3501,7 +3466,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Verificar se há atualizações</translation>
+        <translation>Atualizações</translation>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
@@ -3543,7 +3508,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation>Verificar se há atualizações</translation>
+        <translation>Atualizações</translation>
     </message>
 </context>
 <context>
@@ -3641,15 +3606,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>atualizar linglong</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes Linglong</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Se houver alguma atualização para os pacotes Linglong, o sistema atualizará para você</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3677,7 +3642,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Clear Package Cache</source>
-        <translation>Esvaziar o Cache de Pacotes</translation>
+        <translation>Limpar cache de pacotes</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
@@ -3869,7 +3834,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UseElectricModule</name>
     <message>
         <source>Plugged In</source>
-        <translation>No Carregador</translation>
+        <translation>Na Tomada</translation>
     </message>
     <message>
         <source>1 Minute</source>

@@ -120,11 +120,11 @@
     </message>
     <message>
         <source>Done</source>
-        <translation>ལེགས་གྲུབ།</translation>
+        <translation>གྲུབ་ཟིན། </translation>
     </message>
     <message>
         <source>Scan Again</source>
-        <translation>ཡི་གེ་ཡང་བསྐྱར་གཏག་རོགས། </translation>
+        <translation>ཡང་བསྐྱར་འབྲི་བ། </translation>
     </message>
     <message>
         <source>Scan Suspended</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"/>
+        <translation>སོ་སྔོན་སྒྲིག་ཆས་དོ་དམ།</translation>
     </message>
 </context>
 <context>
@@ -416,15 +416,15 @@
     <name>dccV23::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན།</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་དོ་དམ།</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་གསར་བཟོ།</translation>
     </message>
     <message>
         <source>Username</source>
@@ -436,11 +436,11 @@
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་སུབ་པ།</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་རིགས།</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -584,11 +584,11 @@
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>ལངས་གཟུགས་ཅན།</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>ངོས་སྙོམ་ཅན།</translation>
     </message>
 </context>
 <context>
@@ -839,11 +839,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་གསར་པ།</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་རིགས།</translation>
     </message>
     <message>
         <source>Username</source>
@@ -926,11 +926,11 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཀྱིས་མགོ་བརྙན་བསྐུར་མྱོང་མེད། གནོན་པའམ་འཐེན་ནས་བསྐུར་ཆོག</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>བསྐུར་བའི་ཡིག་ཆའི་རིགས་ནོར་འདུག ཡང་བསྐྱར་བསྐུར་རོགས།</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1008,6 +1008,53 @@
     <message>
         <source>Please enter a shortcut</source>
         <translation>མྱུར་མཐེབ་འཇུག་རོགས།</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::CustomRegionFormatDialog</name>
+    <message>
+        <source>Custom format</source>
+        <translation>རང་སྒྲུབ་རྣམ་གཞག</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>གཟའ་འཁོར་གཅིག་གི་ཉིན་དང་པོ། </translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>ཚེས་གྲངས་ཐུང་བ།</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>ཚེས་གྲངས་རིང་བ། </translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>དུས་ཚོད་ཐུང་ཐུང་། </translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>དུས་ཚོད་རིང་པོ། </translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>དངུལ་ལོར་མཚོན་རྟགས།</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>ཨང་ཀི།</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>ཤོག་བུ།</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>འདོར་བ། </translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>ཉར་ཚགས། </translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1170,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད། འབྱེད་ཕྱོད། སྐྱེད་སྐྱུང་སྒྲིག་འགོད་སོགས།</translation>
     </message>
 </context>
 <context>
@@ -1483,11 +1530,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>གཤམ་གྱི་གཞུག་བྱ་དག་སྣོན་འཇུག་བྱེད་མ་ཐུབ།</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>གཞུག་བྱ་དུས་ཐོག་ཏུ་སྣོན་འཇུག་བྱས་མེད།</translation>
     </message>
 </context>
 <context>
@@ -1573,6 +1620,57 @@
     <message>
         <source>Recommended</source>
         <translation>འོས་སྦྱོར།</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::RegionFormatDialog</name>
+    <message>
+        <source>Region format</source>
+        <translation>ཁུལ་ཁོངས་རྣམ་གཞག</translation>
+    </message>
+    <message>
+        <source>Default format</source>
+        <translation>སོར་བཞག་རྣམ་གཞག</translation>
+    </message>
+    <message>
+        <source>First of day</source>
+        <translation>གཟའ་འཁོར་གཅིག་གི་ཉིན་དང་པོ། </translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>ཚེས་གྲངས་ཐུང་བ།</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>ཚེས་གྲངས་རིང་བ། </translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>དུས་ཚོད་ཐུང་ཐུང་། </translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>དུས་ཚོད་རིང་པོ། </translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>དངུལ་ལོར་མཚོན་རྟགས།</translation>
+    </message>
+    <message>
+        <source>Numbers</source>
+        <translation>ཨང་ཀི།</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>ཤོག་བུ།</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>འདོར་བ། </translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>ཉར་ཚགས། </translation>
     </message>
 </context>
 <context>
@@ -1881,7 +1979,7 @@
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>རིས་དབྱིབས་ལས་སྟེགས།</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -2000,27 +2098,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>སྟོན་མདའི་མགྱོགས་ཚད།</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>ཐུག་རེག་བརྙན་ཡོལ་འགོ་སློང་།</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>རེག་ཙམ་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>རང་འཁོར།</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>དལ་པོ།</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>མགྱོགས་པོ།</translation>
     </message>
 </context>
 <context>
@@ -2082,16 +2180,12 @@
 <context>
     <name>DatetimeModule</name>
     <message>
-        <source>Date and Time</source>
-        <translation>དུས་ཚོད་དང་ཚེས་གྲངས། </translation>
+        <source>Time and Format</source>
+        <translation>དུས་ཚོད་དང་རྣམ་གཞག</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
-    <message>
-        <source>Authentication is required to set the system timezone</source>
-        <translation>རྒྱུད་ཁོངས་ཀྱི་དུས་ཁུལ་སྒྲིག་འགོད་བྱེད་པར་ར་སྤྲོད་བྱེད་དགོས།</translation>
-    </message>
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>དུས་ཚོད་ཀྱི་ཞབས་ཞུ་འཕྲུལ་ཆས་བཟོ་བཅོས་བྱེད་པར་ར་སྤྲོད་བྱེད་དགོས།</translation>
@@ -2434,29 +2528,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>FormatShowGrid</name>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -2465,6 +2536,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Balanced</source>
         <translation>དོ་མཉམ་དཔེ་རྣམ།</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>ནུས་པའི་དཔེ་རྣམ།</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2487,23 +2562,27 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>གློག་ཚད་རྫོགས་རན་སྐབས་རང་བཞིན་དུ་ཕྱེ་བ།</translation>
     </message>
     <message>
-        <source>Auto power saving on battery</source>
-        <translation>གློག་སྨན་སྤྱོད་སྐབས་རང་བཞིན་གྱིས་ཕྱེ་བ།</translation>
-    </message>
-    <message>
         <source>Decrease Brightness</source>
         <translation>གསལ་ཚད་རང་བཞིན་གྱིས་དམའ་རུ་གཏོང་བ།</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>གློག་ཚད་དམའ་བའི་མཚམས་གྲངས།</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>གློག་སྨན་སྤྱོད་སྐབས་རང་བཞིན་གྱིས་ཕྱེ་བ།</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
         <translation>གཉིད་སད་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <source>Password is required to wake up the computer</source>
+        <source>Unlocking is required to wake up the computer</source>
         <translation>སྒུག་སྡོད་སོར་ཆུད་པར་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
-        <source>Password is required to wake up the monitor</source>
+        <source>Unlocking is required to wake up the monitor</source>
         <translation>མངོན་ཆས་གཉིད་ལས་སད་སྐབས་གསང་ཨང་དགོས།</translation>
     </message>
 </context>
@@ -2522,11 +2601,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>ནང་ཁོངས་ཚོད་ལྟ་བྱེད་ལམ།</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>འདི་མནན་ནས་ཁ་འབྱེད་པ།</translation>
     </message>
 </context>
 <context>
@@ -2644,7 +2723,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"/>
+        <translation>འབྲིང་།</translation>
     </message>
     <message>
         <source>Large</source>
@@ -2840,11 +2919,27 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>གསང་ཨང་སྒྲིག་ལམ་གྱི་ཆ་འགྲིག་ཡིག་ཆ་ཀློག་ལེན་ནོར་བ།</translation>
+    </message>
+    <message>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activated</source>
@@ -2896,204 +2991,66 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>RegionAndFormatModule</name>
+    <name>RegionModule</name>
     <message>
-        <source>Region and Format</source>
+        <source>Region and format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Monday</source>
+        <source>Region</source>
+        <translation>ཁུལ་ཁོངས།</translation>
+    </message>
+    <message>
+        <source>Format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>monday</source>
+        <source>Provide localized services based on your region.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020</source>
+        <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <source>Languange and region</source>
+        <translation>སྐད་བརྡ་དང་ཁུལ་ཁོངས།</translation>
     </message>
     <message>
-        <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <source>First day of week</source>
+        <translation>གཟའ་འཁོར་གཅིག་གི་ཉིན་དང་པོ། </translation>
     </message>
     <message>
-        <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <source>Short date</source>
+        <translation>ཚེས་གྲངས་ཐུང་བ།</translation>
     </message>
     <message>
-        <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <source>Long date</source>
+        <translation>ཚེས་གྲངས་རིང་བ། </translation>
     </message>
     <message>
-        <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <source>Short time</source>
+        <translation>དུས་ཚོད་ཐུང་ཐུང་། </translation>
     </message>
     <message>
-        <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <source>Long time</source>
+        <translation>དུས་ཚོད་རིང་པོ། </translation>
     </message>
     <message>
-        <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <source>Currency symbol</source>
+        <translation>དངུལ་ལོར་མཚོན་རྟགས།</translation>
     </message>
     <message>
-        <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <source>Numbers</source>
+        <translation>ཨང་ཀི།</translation>
     </message>
     <message>
-        <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <source>Paper</source>
+        <translation>ཤོག་བུ།</translation>
     </message>
     <message>
-        <source>20-4-5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>20.4.5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40:07</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>9:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>09:40</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>* The setting of region will influence the formats of date, time, number and some other formats, it will be enabled on the next time of login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Locale Show</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Weeks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First Day of Week</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long Date</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatShowPage</name>
-    <message>
-        <source>Default Format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Date And Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Currency</source>
-        <translation type="unfinished"/>
+        <source>custom format</source>
+        <translation>རང་སྒྲུབ་རྣམ་གཞག</translation>
     </message>
 </context>
 <context>
@@ -3239,6 +3196,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Output</source>
         <translation>ཕྱིར་འདྲེན།</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>འཇུག་འདོན་དོ་དམ།</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input</source>
@@ -3656,11 +3621,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>ལིང་ལུང་གསར་སྒྱུར།</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>ལིང་ལུང་མཉེན་ཆས་གསར་སྒྱུར།</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
@@ -3762,7 +3727,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>ཁུག་མ་བཤིག་མི་ཐུབ།</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
@@ -3877,7 +3842,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>སྒོ་བརྒྱབ་མཐུད་ངོས་སུ་འཛུལ་བ།</translation>
     </message>
 </context>
 <context>
@@ -3944,7 +3909,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>སྒོ་བརྒྱབ་མཐུད་ངོས་སུ་འཛུལ་བ།</translation>
     </message>
     <message>
         <source>Do nothing</source>

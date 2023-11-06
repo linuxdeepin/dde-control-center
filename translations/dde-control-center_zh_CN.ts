@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterModule</name>
     <message>
@@ -2262,7 +2264,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -2992,28 +2994,24 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>RegionModule</name>
     <message>
+        <source>Region and format</source>
+        <translation>区域与格式</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>区域</translation>
     </message>
     <message>
-        <source>Country region</source>
-        <translation>国家地区</translation>
+        <source>Format</source>
+        <translation>格式</translation>
     </message>
     <message>
-        <source>Region format</source>
-        <translation>区域格式</translation>
+        <source>Provide localized services based on your region.</source>
+        <translation>根据您所在的地区为您提供本土化服务</translation>
     </message>
     <message>
-        <source>Provide localized services based on your country or region.</source>
-        <translation>根据你所在的国家或区域为您提供本土化服务。</translation>
-    </message>
-    <message>
-        <source>Country/region</source>
-        <translation>国家/地区</translation>
-    </message>
-    <message>
-        <source>Set the date and time format according to language and region options.</source>
-        <translation>根据语言和区域选项设定日期与时间格式。</translation>
+        <source>Select matching date and time formats based on language and region</source>
+        <translation>根据语言和区域选择匹配日期和时间格式</translation>
     </message>
     <message>
         <source>Languange and region</source>

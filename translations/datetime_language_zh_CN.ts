@@ -367,7 +367,7 @@
     </message>
     <message>
         <source>Chinese</source>
-        <translation>中文</translation>
+        <translation>简体中文</translation>
     </message>
     <message>
         <source>Simplified Chinese</source>
