@@ -17,7 +17,7 @@ DWIDGET_USE_NAMESPACE
 RegionModule::RegionModule(DatetimeModel *model,
                            DatetimeWorker *work,
                            QObject *parent)
-    : PageModule("region", tr("Region"), parent)
+    : PageModule("region", tr("Region and format"), parent)
     , m_model(model)
     , m_work(work)
     , m_locale(QLocale::system())
@@ -27,11 +27,11 @@ RegionModule::RegionModule(DatetimeModel *model,
 
     setNoScroll(false);
 
-    appendChild(new ItemModule("Country", tr("Country region")));
-    appendChild(new WidgetModule<DTipLabel>("CountryTip", tr(""), this, &RegionModule::initCountryTip));
+    appendChild(new ItemModule("RegionTitle", tr("Region")));
+    appendChild(new WidgetModule<DTipLabel>("RegionTip", tr(""), this, &RegionModule::initCountryTip));
     initCountryModule();
     appendChild(m_countryModule);
-    appendChild(new ItemModule("regionFormat", tr("Region format")));
+    appendChild(new ItemModule("regionFormat", tr("Format")));
     appendChild(new WidgetModule<DTipLabel>("regionFormatTip", tr(""), this, &RegionModule::initRegionFormatTip));
     initLangRegionModule();
     appendChild(m_langRegionModule);
@@ -52,12 +52,12 @@ void RegionModule::initCountryTip(DTipLabel *countryTipLabel)
     countryTipLabel->setWordWrap(true);
     countryTipLabel->setAlignment(Qt::AlignLeft);
     countryTipLabel->setContentsMargins(10, 0, 10, 0);
-    countryTipLabel->setText(tr("Provide localized services based on your country or region."));
+    countryTipLabel->setText(tr("Provide localized services based on your region."));
 }
 
 void RegionModule::initCountryModule()
 {
-    m_countryModule = new ItemModule("countryRegion", tr("Country/region"), [this](ModuleObject *){
+    m_countryModule = new ItemModule("Region", tr("Region"), [this](ModuleObject *){
         m_countryCombo = new DComboBox;
         m_countryCombo->addItems(m_model->countries());
         m_countryCombo->setCurrentText(tr(m_model->country().toUtf8()));
@@ -73,7 +73,7 @@ void RegionModule::initRegionFormatTip(DTipLabel *regionFormatTipLabel)
     regionFormatTipLabel->setWordWrap(true);
     regionFormatTipLabel->setAlignment(Qt::AlignLeft);
     regionFormatTipLabel->setContentsMargins(10, 0, 10, 0);
-    regionFormatTipLabel->setText(tr("Set the date and time format according to language and region options."));
+    regionFormatTipLabel->setText(tr("Select matching date and time formats based on language and region"));
 }
 
 void RegionModule::initLangRegionModule()
