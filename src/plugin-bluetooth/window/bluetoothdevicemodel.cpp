@@ -7,8 +7,9 @@
 #include "bluetoothadapter.h"
 
 #include <DDesktopServices>
-#include <DSpinner>
+#include <DGuiApplicationHelper>
 #include <DIconTheme>
+#include <DSpinner>
 
 #include <QApplication>
 #include <QLineEdit>
@@ -35,16 +36,11 @@ struct BluetoothDeviceItemAction
 
     explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
-
-        , spinnerAction(
-                  new DViewItemAction(Qt::AlignVCenter , QSize(), QSize(), false))
-        , percentageText(
-                  new DViewItemAction(Qt::AlignVCenter , QSize(), QSize(), false))
-        , percentageIcon(
-                  new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , spinnerAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , percentageText(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , percentageIcon(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
         , textAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), true))
-        , spaceAction(
-                  new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
+        , spaceAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), false))
         , iconAction(new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), true))
         , loadingIndicator(nullptr)
         , item(new DStandardItem())
@@ -346,8 +342,6 @@ void BluetoothDeviceModel::updateItem(BluetoothDeviceItemAction *item)
     item->percentageText->setVisible(false);
 }
 
-
-
 QIcon BluetoothDeviceModel::getBatteryIcon(int percentage)
 {
     /* 0-5%、6-10%、11%-20%、21-30%、31-40%、41-50%、51-60%、61%-70%、71-80%、81-90%、91-100% */
@@ -378,8 +372,12 @@ QIcon BluetoothDeviceModel::getBatteryIcon(int percentage)
         percentageStr = "unknow";
     }
 
-    return QIcon::fromTheme(QString("battery-%1-symbolic").arg(percentageStr));
-
+    QString iconName = QString("battery-%1-symbolic").arg(percentageStr);
+    QIcon qrcIcon = DIconTheme::findQIcon(iconName, DIconTheme::DontFallbackToQIconFromTheme);
+    auto themeType = DGuiApplicationHelper::instance()->themeType();
+    bool isDarkTheme = themeType == DGuiApplicationHelper::DarkType;
+    QString iconNameSystem = isDarkTheme ? iconName + "-dark" : iconName;
+    return DIconTheme::findQIcon(iconNameSystem, qrcIcon, DIconTheme::IgnoreBuiltinIcons);
 }
 
 void BluetoothDeviceModel::showAnonymous(bool show)
