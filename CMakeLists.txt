@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-set(DVERSION "6.0.32" CACHE STRING "define project version")
+set(DVERSION "6.0.33" CACHE STRING "define project version")
 set(BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
 
 set(PROJECT_NAME dde-control-center)
@@ -1092,24 +1092,24 @@ endif()
 #     file(GLOB_RECURSE UT_NOTIFICATION_SRCS
 #         "tests/plugin-notification/*.cpp"
 #     )
-# 
+#
 #     add_executable(${UT_Notification_Name}
 #         ${NOTIFICATION_SRCS}
 #         ${UT_NOTIFICATION_SRCS}
 #     )
-# 
+#
 #     # 用于测试覆盖率的编译条件
 #     target_compile_options(${UT_Notification_Name} PRIVATE ${UT_COMPILER})
-# 
+#
 #     target_include_directories(${UT_Notification_Name} PUBLIC
 #         ${Notification_Includes}
 #     )
-# 
+#
 #     target_link_libraries(${UT_Notification_Name} PRIVATE
 #         ${Notification_Libraries}
 #         ${Test_Libraries}
 #     )
-# 
+#
 #     gtest_discover_tests(${UT_Notification_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 # endif()
 
