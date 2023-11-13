@@ -1,26 +1,27 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
-
-#include <interface/moduleobject.h>
-#include "widgets/dcclistview.h"
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "defappdetailwidget.h"
+
 #include "defappmodel.h"
 #include "defappworker.h"
+#include "widgets/dcclistview.h"
+
+#include <interface/moduleobject.h>
 
 #include <DFloatingButton>
+#include <DIconTheme>
 #include <DListView>
 #include <DStyle>
-#include <DIconTheme>
 
-#include <QVBoxLayout>
 #include <QDebug>
-#include <QStandardItemModel>
 #include <QIcon>
+#include <QLoggingCategory>
 #include <QMimeDatabase>
 #include <QPointer>
-#include <QLoggingCategory>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
 
 Q_LOGGING_CATEGORY(DdcDefaultDetailWidget, "dcc-default-detailwidget")
 
@@ -28,35 +29,28 @@ DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent)
-    : QWidget(parent)
-    , m_centralLayout(new QVBoxLayout)
-    , m_defApps(new DCC_NAMESPACE::DCCListView)
+    : DCC_NAMESPACE::DCCListView(parent)
     , m_model(new QStandardItemModel(this))
     , m_categoryValue(category)
     , m_category(nullptr)
     , m_systemAppCnt(0)
     , m_userAppCnt(0)
 {
-    m_defApps->setAccessibleName("List_defapplist");
-    m_defApps->setEditTriggers(QListView::NoEditTriggers);
-    m_defApps->setIconSize(QSize(32, 32));
-    m_defApps->setMovement(QListView::Static);
-    m_defApps->setSelectionMode(QListView::NoSelection);
-    m_defApps->setFrameShape(QFrame::NoFrame);
-    m_defApps->setModel(m_model);
-    m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    m_centralLayout->setContentsMargins(0, 0, 20, 0);
-    m_centralLayout->addWidget(m_defApps, 1);
-    setLayout(m_centralLayout);
+    setAccessibleName("List_defapplist");
+    setEditTriggers(QListView::NoEditTriggers);
+    setIconSize(QSize(32, 32));
+    setMovement(QListView::Static);
+    setSelectionMode(QListView::NoSelection);
+    setFrameShape(QFrame::NoFrame);
+    setModel(m_model);
+    setViewportMargins(0, 0, 10, 0);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
-DefappDetailWidget::~DefappDetailWidget()
-{
-}
+DefappDetailWidget::~DefappDetailWidget() { }
 
-void DefappDetailWidget::setModel(DefAppModel *const model)
+void DefappDetailWidget::setDetailModel(DefAppModel *const model)
 {
     switch (m_categoryValue) {
     case DefAppWorker::Browser:
@@ -108,7 +102,8 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
         icon = DIconTheme::findQIcon(appIcon, DIconTheme::findQIcon("application-x-desktop"));
 
     const qreal ratio = devicePixelRatioF();
-    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QPixmap pixmap = icon.pixmap(size * ratio)
+                             .scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     pixmap.setDevicePixelRatio(ratio);
 
     return pixmap;
@@ -116,7 +111,7 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 
 void DefappDetailWidget::addItem(const App &item)
 {
-    qCDebug(DdcDefaultDetailWidget) << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
+    qCDebug(DdcDefaultDetailWidget) << item.Id << ", isUser :" << item.isUser;
     appendItemData(item);
     updateListView(m_category->getDefault());
 }
@@ -124,7 +119,7 @@ void DefappDetailWidget::addItem(const App &item)
 void DefappDetailWidget::removeItem(const App &item)
 {
     qCDebug(DdcDefaultDetailWidget) << "DefappDetailWidget::removeItem id " << item.Id;
-    //update model
+    // update model
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
@@ -143,13 +138,16 @@ void DefappDetailWidget::removeItem(const App &item)
     updateListView(m_category->getDefault());
 }
 
-void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
+void DefappDetailWidget::showInvalidText(DStandardItem *modelItem,
+                                         const QString &name,
+                                         const QString &iconName)
 {
     if (name.isEmpty())
         return;
 
     DViewItemActionList actions;
-    QPointer<DViewItemAction> act(new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
+    QPointer<DViewItemAction> act(
+            new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
     QIcon icon = getAppIcon(iconName, QSize(32, 32));
     act->setIcon(icon);
     act->setTextColorRole(DPalette::TextWarning);
@@ -176,7 +174,7 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
 
         if (id == defaultApp.Id) {
             modelItem->setCheckState(Qt::Checked);
-            //remove user clear button
+            // remove user clear button
             if (!isUser && !canDelete)
                 continue;
 
@@ -185,14 +183,19 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
             showInvalidText(modelItem, name, iconName);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
-            //add user clear button
+            // add user clear button
             if (!isUser && !canDelete)
                 continue;
 
             DViewItemActionList btnActList;
-            QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
+            QPointer<DViewItemAction> delAction(
+                    new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight,
+                                        QSize(21, 21),
+                                        QSize(19, 19),
+                                        true));
 
-            delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
+            delAction->setIcon(
+                    DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
             connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
             btnActList << delAction;
             modelItem->setActionList(Qt::RightEdge, btnActList);
@@ -204,10 +207,9 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
 
 void DefappDetailWidget::onDefaultAppSet(const App &app)
 {
-    qCDebug(DdcDefaultDetailWidget) << Q_FUNC_INFO << app.Name;
+    qCDebug(DdcDefaultDetailWidget) << "SetAppName" << app.Name << this;
     updateListView(app);
 }
-
 
 void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
 {
@@ -215,8 +217,8 @@ void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
         appendItemData(app);
     }
 
-    connect(m_defApps, &DListView::clicked, this, &DefappDetailWidget::onListViewClicked);
-    connect(m_defApps, &DListView::activated, m_defApps, &QListView::clicked);
+    connect(this, &DListView::clicked, this, &DefappDetailWidget::onListViewClicked);
+    connect(this, &DListView::activated, this, &QListView::clicked);
 }
 
 void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
@@ -224,18 +226,18 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    QString id = m_defApps->model()->data(m_defApps->currentIndex(), DefAppIdRole).toString();
+    QString id = this->model()->data(this->currentIndex(), DefAppIdRole).toString();
     App app = getAppById(id);
     if (!isValid(app))
         return;
 
-    qCDebug(DdcDefaultDetailWidget)  <<  "set default app "  << app.Name;
+    qCDebug(DdcDefaultDetailWidget) << "set default app " << app.Name;
     updateListView(app);
-    //set default app
+    // set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
 }
 
-void  DefappDetailWidget::onDelBtnClicked()
+void DefappDetailWidget::onDelBtnClicked()
 {
     DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
     if (!m_actionMap.contains(action))
@@ -248,7 +250,7 @@ void  DefappDetailWidget::onDelBtnClicked()
         return;
 
     qCDebug(DdcDefaultDetailWidget) << "delete app " << app.Id;
-    //delete user app
+    // delete user app
     Q_EMIT requestDelUserApp(m_categoryName, app);
 }
 
@@ -262,9 +264,11 @@ void DefappDetailWidget::onClearAll()
 
 App DefappDetailWidget::getAppById(const QString &appId)
 {
-    auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ](const App & item)->bool{
-        return item.Id == appId;
-    });
+    auto res = std::find_if(m_category->getappItem().cbegin(),
+                            m_category->getappItem().cend(),
+                            [=](const App &item) -> bool {
+                                return item.Id == appId;
+                            });
 
     if (res != m_category->getappItem().cend()) {
         return *res;
@@ -319,5 +323,3 @@ bool DefappDetailWidget::isValid(const App &app)
 {
     return (!app.Id.isNull() && !app.Id.isEmpty());
 }
-
-

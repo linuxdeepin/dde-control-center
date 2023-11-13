@@ -7,11 +7,13 @@
 #include "defappdetailwidget.h"
 #include "defappmodel.h"
 #include "defappworker.h"
-#include "widgets/widgetmodule.h"
+#include "interface/pagemodule.h"
+#include "mimedbusproxyold.h"
+#include "widgets/itemmodule.h"
 
 #include <DFloatingButton>
-#include <DStyle>
 #include <DIconTheme>
+#include <DStyle>
 
 #include <QApplication>
 #include <QVBoxLayout>
@@ -59,49 +61,64 @@ ModuleObject *DefAppPlugin::module()
              tr("Picture"),
              "dcc_photo",
              DefAppWorker::DefaultAppsCategory::Picture),
-        DATE("defappTerminal",
-             tr("Terminal"),
-             "dcc_terminal",
-             DefAppWorker::DefaultAppsCategory::Terminal),
+        // DATE("defappTerminal",
+        //      tr("Terminal"),
+        //      "dcc_terminal",
+        //      DefAppWorker::DefaultAppsCategory::Terminal),
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;
 
     for (DATE iter : moduleInfo) {
-        // 二级按钮页
-        DefAppsButtonModule *moduleDefaultApps = new DefAppsButtonModule(iter.category,
-                                                                         iter.name,
-                                                                         iter.displayName,
-                                                                         iter.icon,
-                                                                         moduleRoot->model(),
-                                                                         moduleRoot->work());
+        PageModule *defappDetail = new PageModule(iter.name,
+                                                  iter.displayName,
+                                                  QVariant::fromValue(iter.icon),
+                                                  moduleRoot);
 
-        // 三级页面
-        DefappDetailModule *defappDetail =
-                new DefappDetailModule(iter.category, moduleRoot->model(), moduleRoot->work());
-        moduleDefaultApps->appendChild(defappDetail);
-
-        ModuleObject *addButton =
-                new WidgetModule<AddButtonWidget>("defappApplistAddbtn",
-                                                  "addDefApp",
-                                                  [iter, moduleRoot](AddButtonWidget *button) {
-                                                      button->setDefaultAppsCategory(iter.category);
-                                                      button->setModel(moduleRoot->model());
-                                                      connect(button,
-                                                              &AddButtonWidget::requestCreateFile,
-                                                              moduleRoot->work(),
-                                                              &DefAppWorker::onCreateFile);
-                                                  });
-        addButton->setExtra();
-        moduleDefaultApps->appendChild(addButton);
-
-        connect(moduleDefaultApps,
-                &DefAppsButtonModule::onButtonClicked,
-                moduleDefaultApps,
-                [moduleDefaultApps] {
-                    moduleDefaultApps->children(0)->trigger();
-                });
-        moduleRoot->appendChild(moduleDefaultApps);
+        defappDetail->appendChild(new ItemModule(
+                "",
+                "",
+                [iter, moduleRoot]([[maybe_unused]] ModuleObject *module) {
+                    DefappDetailWidget *defDetail = new DefappDetailWidget(iter.category);
+                    defDetail->setDetailModel(moduleRoot->model());
+                    // 设置默认程序
+                    if (moduleRoot->isOldInterface()) {
+                        connect(defDetail,
+                                &DefappDetailWidget::requestSetDefaultApp,
+                                moduleRoot->oldWork(),
+                                &DefAppWorkerOld::onSetDefaultApp);
+                        connect(defDetail,
+                                &DefappDetailWidget::requestDelUserApp,
+                                moduleRoot->oldWork(),
+                                &DefAppWorkerOld::onDelUserApp);
+                    } else {
+                        connect(defDetail,
+                                &DefappDetailWidget::requestSetDefaultApp,
+                                moduleRoot->work(),
+                                &DefAppWorker::onSetDefaultApp);
+                        connect(defDetail,
+                                &DefappDetailWidget::requestDelUserApp,
+                                moduleRoot->work(),
+                                &DefAppWorker::onDelUserApp);
+                    }
+                    return defDetail;
+                },
+                false));
+        // TODO: if we need add again?
+        // ModuleObject *addButton =
+        //         new WidgetModule<AddButtonWidget>("defappApplistAddbtn",
+        //                                           "addDefApp",
+        //                                           [iter, moduleRoot](AddButtonWidget *button) {
+        //                                               button->setDefaultAppsCategory(iter.category);
+        //                                               button->setModel(moduleRoot->model());
+        //                                               connect(button,
+        //                                                       &AddButtonWidget::requestCreateFile,
+        //                                                       moduleRoot->work(),
+        //                                                       &DefAppWorker::onCreateFile);
+        //                                           });
+        // addButton->setExtra();
+        // defappDetail->appendChild(addButton);
+        moduleRoot->appendChild(defappDetail);
     }
     return moduleRoot;
 }
@@ -112,66 +129,35 @@ QString DefAppPlugin::location() const
 }
 
 DefAppModule::DefAppModule(QObject *parent)
-    : VListModule("defapp", tr("Default Applications"), DIconTheme::findQIcon("dcc_nav_defapp"), parent)
+    : VListModule(
+            "defapp", tr("Default Applications"), DIconTheme::findQIcon("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))
-    , m_work(new DefAppWorker(m_model, this))
+    , m_isOldInterface(false)
     , m_defApps(nullptr)
 {
+    if (MimeDBusProxyOld::isRegisted()) {
+        m_oldwork = new DefAppWorkerOld(m_model, this);
+        m_isOldInterface = true;
+    } else {
+        m_work = new DefAppWorker(m_model, this);
+    }
 }
 
 DefAppModule::~DefAppModule()
 {
     m_model->deleteLater();
-    m_work->deleteLater();
+    if (m_isOldInterface) {
+        m_oldwork->deleteLater();
+    } else {
+        m_work->deleteLater();
+    }
 }
 
 void DefAppModule::active()
 {
-    m_work->onGetListApps();
-}
-
-DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                                         const QString &name,
-                                         const QString &displayName,
-                                         const QString &icon,
-                                         DefAppModel *model,
-                                         DefAppWorker *work)
-    : PageModule(name, displayName, QVariant::fromValue(icon), nullptr)
-    , m_category(category)
-    , m_model(model)
-    , m_work(work)
-{
-}
-
-DefAppsButtonModule::~DefAppsButtonModule() { }
-
-// QWidget *DefAppsButtonModule::page(){
-//     DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
-//     defDetail->setModel(m_model);
-
-//    return defDetail;
-//}
-
-// 三级页面
-DefappDetailModule::DefappDetailModule(DefAppWorker::DefaultAppsCategory category,
-                                       DefAppModel *model,
-                                       DefAppWorker *work)
-    : ModuleObject("defappApplistDefapp")
-    , m_category(category)
-    , m_model(model)
-    , m_work(work)
-{
-}
-
-QWidget *DefappDetailModule::page()
-{
-    DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
-    defDetail->setModel(m_model);
-    // 设置默认程序
-    connect(defDetail,
-            &DefappDetailWidget::requestSetDefaultApp,
-            m_work,
-            &DefAppWorker::onSetDefaultApp);
-    connect(defDetail, &DefappDetailWidget::requestDelUserApp, m_work, &DefAppWorker::onDelUserApp);
-    return defDetail;
+    if (m_isOldInterface) {
+        m_oldwork->onGetListApps();
+    } else {
+        m_work->onGetListApps();
+    }
 }

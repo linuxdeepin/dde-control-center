@@ -1,34 +1,38 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappworker.h"
+
 #include "defappmodel.h"
+
 #include <QDBusPendingCall>
-#include <QStringList>
-#include <QList>
-#include <QFileInfo>
+#include <QDBusPendingCallWatcher>
 #include <QDebug>
 #include <QDir>
-#include <QJsonDocument>
+#include <QFileInfo>
 #include <QJsonArray>
+#include <QJsonDocument>
 #include <QJsonObject>
+#include <QList>
 #include <QLoggingCategory>
+#include <QStringList>
 
 Q_LOGGING_CATEGORY(DdcDefaultWorker, "dcc-default-worker")
 
-DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
-    QObject(parent),
-    m_defAppModel(model),
-    m_dbusManager(new MimeDBusProxy(this))
+DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
+    : QObject(parent)
+    , m_defAppModel(model)
+    , m_dbusManager(new MimeDBusProxy(this))
 {
 
-    m_stringToCategory.insert("Browser",     Browser);
-    m_stringToCategory.insert("Mail",        Mail);
-    m_stringToCategory.insert("Text",        Text);
-    m_stringToCategory.insert("Music",       Music);
-    m_stringToCategory.insert("Video",       Video);
-    m_stringToCategory.insert("Picture",     Picture);
-    m_stringToCategory.insert("Terminal",    Terminal);
+    m_stringToCategory.insert("Browser", Browser);
+    m_stringToCategory.insert("Mail", Mail);
+    m_stringToCategory.insert("Text", Text);
+    m_stringToCategory.insert("Music", Music);
+    m_stringToCategory.insert("Video", Video);
+    m_stringToCategory.insert("Picture", Picture);
+    // TODO: Terminal do it later
+    // m_stringToCategory.insert("Terminal", Terminal);
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
@@ -55,154 +59,129 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
 
     QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimelist, item.Id);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [call, watcher, this, item, category] {
-        if (!call.isError()) {
-            qCDebug(DdcDefaultWorker) << "Setting MIME " << category << "to " <<  item.Id;
-            auto tosetCategory = getCategory(category);
-            tosetCategory->setDefault(item);
-        } else {
-            qCWarning(DdcDefaultWorker) << "Cannot set MIME" << category << "to" << item.Id;
-        }
-        watcher->deleteLater();
-    });
-
+    connect(watcher,
+            &QDBusPendingCallWatcher::finished,
+            this,
+            [call, watcher, this, item, category] {
+                if (!call.isError()) {
+                    qCDebug(DdcDefaultWorker) << "Setting MIME " << category << "to " << item.Id;
+                    auto tosetCategory = getCategory(category);
+                    tosetCategory->setDefault(item);
+                } else {
+                    qCWarning(DdcDefaultWorker) << "Cannot set MIME" << category << "to" << item.Id;
+                }
+                watcher->deleteLater();
+            });
 }
 
 void DefAppWorker::onGetListApps()
 {
-    //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        const QString type { getTypeByCategory(mimelist.value()) };
+    // 遍历QMap去获取dbus数据
+    for (auto mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd();
+         ++mimelist) {
+        const QString type{ getTypeByCategory(mimelist.value()) };
 
-        getDefaultAppFinished(mimelist.key(), m_dbusManager->GetDefaultApp(type));
-        getListAppFinished(mimelist.key(),m_dbusManager->ListApps(type), false);
-        getListAppFinished(mimelist.key(),m_dbusManager->ListUserApps(type), true);
+        QDBusPendingReply<ObjectMap> call = m_dbusManager->ListApps(type);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher,
+                &QDBusPendingCallWatcher::finished,
+                this,
+                [call, watcher, mimelist, type, this] {
+                    if (call.isError()) {
+                        qCWarning(DdcDefaultWorker) << "Cannot get AppList";
+                        watcher->deleteLater();
+                        return;
+                    }
+                    getListAppFinished(mimelist.key(), call.value());
+
+                    QDBusPendingReply<QString, QDBusObjectPath> getDefaultAppCall =
+                            m_dbusManager->GetDefaultApp(type);
+                    QDBusPendingCallWatcher *defappWatcher =
+                            new QDBusPendingCallWatcher(getDefaultAppCall, this);
+                    connect(defappWatcher,
+                            &QDBusPendingCallWatcher::finished,
+                            this,
+                            [getDefaultAppCall, this, mimelist, type, defappWatcher] {
+                                if (getDefaultAppCall.isError()) {
+                                    qCWarning(DdcDefaultWorker) << "Cannot get DefaultApp";
+                                    defappWatcher->deleteLater();
+                                    return;
+                                }
+                                QString mimeType = getDefaultAppCall.argumentAt<0>();
+                                if (mimeType != type) {
+                                    qCWarning(DdcDefaultWorker) << "MimeType not match";
+                                    defappWatcher->deleteLater();
+                                    return;
+                                }
+                                QDBusObjectPath objectPath = getDefaultAppCall.argumentAt<1>();
+                                if (objectPath.path() == "/") {
+                                    qCWarning(DdcDefaultWorker) << "Cannot find Mime: " << type;
+                                    defappWatcher->deleteLater();
+                                    return;
+                                }
+                                getDefaultAppFinished(mimelist.key(),
+                                                      m_dbusManager->getAppId(objectPath));
+                                defappWatcher->deleteLater();
+                            });
+                    watcher->deleteLater();
+                });
     }
 }
 
-void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
+void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,
+                                [[maybe_unused]] const App &item)
 {
-    Category *category = getCategory(mime);
-
-    category->delUserItem(item);
-    if (item.CanDelete) {
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-        m_dbusManager->DeleteApp(mimelist, item.Id);
-    } else {
-        m_dbusManager->DeleteUserApp(item.Id);
-    }
-
-    //remove file
-    QFile file(m_userLocalPath + item.Id);
-    file.remove();
+    // TODO: later
 }
 
-void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
+void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime,
+                                [[maybe_unused]] const QFileInfo &info)
 {
-    const bool isDesktop = info.suffix() == "desktop";
-
-    if (isDesktop) {
-        QFile file(info.filePath());
-        QString newfile = m_userLocalPath + "deepin-custom-" + info.fileName();
-        file.copy(newfile);
-        file.close();
-
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-        QFileInfo fileInfo(info.filePath());
-
-        const QString &filename = "deepin-custom-" + fileInfo.completeBaseName() + ".desktop";
-
-        m_dbusManager->AddUserApp(mimelist, filename);
-
-        App app;
-        app.Id = filename;
-        app.Name = fileInfo.baseName();
-        app.DisplayName = fileInfo.baseName();
-        app.Icon = "application-default-icon";
-        app.Description = "";
-        app.Exec = info.filePath();
-        app.isUser = true;
-
-        onGetListApps();
-    } else {
-        QFile file(m_userLocalPath + "deepin-custom-" + info.baseName() + ".desktop");
-
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            return;
-        }
-
-        QTextStream out(&file);
-        out << "[Desktop Entry]\n"
-            "Type=Application\n"
-            "Version=1.0\n"
-            "Name=" + info.baseName() + "\n"
-            "Path=" + info.path() + "\n"
-            "Exec=" +  info.filePath() + "\n"
-            "Icon=application-default-icon\n"
-            "Terminal=false\n"
-            "Categories=" + mime + ";"
-#if (QT_VERSION < QT_VERSION_CHECK(5,15,0))
-            << endl;
-#else
-            << Qt::endl;
-#endif
-        out.flush();
-        file.close();
-
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-
-        QFileInfo fileInfo(info.filePath());
-        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
-
-        App app;
-        app.Id = "deepin-custom-" + fileInfo.baseName() + ".desktop";
-        app.Name = fileInfo.baseName();
-        app.DisplayName = fileInfo.baseName();
-        app.Icon = "application-default-icon";
-        app.Description = "";
-        app.Exec = info.filePath();
-        app.isUser = true;
-
-        onGetListApps();
-    }
+    // TODO: later
 }
 
-void DefAppWorker::getListAppFinished(const QString &mime, const QString &defaultApp, bool isUser)
+void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &map)
 {
-    const  QJsonArray defApp = QJsonDocument::fromJson(defaultApp.toUtf8()).array();
-    saveListApp(mime, defApp, isUser);
-}
-
-
-void DefAppWorker::getDefaultAppFinished(const QString &mime, const QString &w)
-{
-    const QJsonObject &defaultApp = QJsonDocument::fromJson(w.toStdString().c_str()).object();
-    saveDefaultApp(mime, defaultApp);
-}
-
-void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, const bool isUser)
-{
-    Category *category = getCategory(mime);
+    Category *category = getCategory(mimeKey);
     if (!category) {
         return;
     }
 
     QList<App> list;
+    QLocale syslocal = QLocale::system();
+    for (const ObjectInterfaceMap &mapInterface : map) {
+        for (const QVariantMap &mapInter : mapInterface) {
+            if (mapInter.count() == 0) {
+                continue;
+            }
 
-    for (const QJsonValue &value : json) {
-        QJsonObject obj = value.toObject();
-        App app;
-        app.Id = obj["Id"].toString();
-        app.Name = obj["Name"].toString();
-        app.DisplayName = obj["DisplayName"].toString();
-        app.Icon = obj["Icon"].toString();
-        app.Description = obj["Description"].toString();
-        app.Exec = obj["Exec"].toString();
-        app.isUser = isUser;
-        app.CanDelete = obj["CanDelete"].toBool();
-        app.MimeTypeFit = obj["MimeTypeFit"].toBool();
+            auto nameMap = qdbus_cast<QMap<QString, QString>>(mapInter["Name"]);
+            QString id = qdbus_cast<QString>(mapInter["ID"]);
 
-        list << app;
+            QString showName = id;
+
+            for (auto it = nameMap.cbegin(); it != nameMap.cend(); it++) {
+                if (QLocale(it.key()) == syslocal) {
+                    showName = it.value();
+                    break;
+                }
+            }
+
+            QString icon;
+            if (auto mapicons = mapInter.value("Icons"); !mapicons.isNull()) {
+                auto icons = qdbus_cast<QMap<QString, QString>>(mapicons);
+                if (!icons.value("Desktop Entry").isNull()) {
+                    icon = icons["Desktop Entry"];
+                }
+            }
+
+            App app;
+            app.Id = id;
+            app.Name = showName;
+            app.DisplayName = showName;
+            app.Icon = icon;
+            list << app;
+        }
     }
 
     QList<App> systemList = category->systemAppList();
@@ -223,43 +202,33 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         }
     }
 
-    if (isUser) {
-        userList = category->userAppList();
-        for (App app : userList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
-        }
-    } else {
-        systemList = category->systemAppList();
-        for (App app : systemList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
+    // TODO: remove it later
+    systemList = category->systemAppList();
+    for (App app : systemList) {
+        if (!list.contains(app)) {
+            category->delUserItem(app);
         }
     }
 
-    category->setCategory(mime);
+    category->setCategory(mimeKey);
 }
 
-void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &json)
+void DefAppWorker::getDefaultAppFinished(const QString &mimeKey, const QString &id)
 {
-    Category *category = getCategory(mime);
+    Category *category = getCategory(mimeKey);
     if (!category) {
         return;
     }
-    category->setCategory(mime);
 
-    App app;
-    app.Id = json["Id"].toString();
-    app.Name = json["Name"].toString();
-    app.DisplayName = json["DisplayName"].toString();
-    app.Icon = json["Icon"].toString();
-    app.Description = json["Description"].toString();
-    app.Exec = json["Exec"].toString();
-    app.isUser = false;
+    auto items = category->getappItem();
+    auto it = std::find_if(items.cbegin(), items.cend(), [id](const App &app) {
+        return app.Id == id;
+    });
 
-    category->setDefault(app);
+    if (it != items.end()) {
+        category->setDefault(*it);
+        category->setCategory(mimeKey);
+    }
 }
 
 Category *DefAppWorker::getCategory(const QString &mime) const
@@ -288,6 +257,7 @@ const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &categor
     return getTypeListByCategory(category)[0];
 }
 
+// clang-format off
 const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory &category)
 {
     switch (category) {
@@ -315,3 +285,5 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
     }
     return QStringList();
 }
+
+// clang-format on

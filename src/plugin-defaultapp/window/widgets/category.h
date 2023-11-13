@@ -4,8 +4,6 @@
 #ifndef CATEGORY_H
 #define CATEGORY_H
 
-#include "include/interface/namespace.h"
-
 #include <QObject>
 #include <QList>
 
