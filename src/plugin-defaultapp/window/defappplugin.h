@@ -5,7 +5,8 @@
 #define DEFAPPPLUGIN_H
 
 #include "defappworker.h"
-#include "interface/pagemodule.h"
+#include "defappworkerold.h"
+
 #include "interface/plugininterface.h"
 #include "interface/vlistmodule.h"
 
@@ -35,7 +36,11 @@ public:
 
     DefAppWorker *work() { return m_work; }
 
+    DefAppWorkerOld *oldWork() { return m_oldwork; }
+
     DefAppModel *model() { return m_model; }
+
+    bool isOldInterface() { return m_isOldInterface; }
 
 protected:
     virtual void active() override;
@@ -43,47 +48,9 @@ protected:
 private:
     DefAppModel *m_model;
     DefAppWorker *m_work;
+    DefAppWorkerOld *m_oldwork;
     ModuleObject *m_defApps;
-};
-
-// 二级按钮菜单
-class DefAppsButtonModule : public DCC_NAMESPACE::PageModule
-{
-    Q_OBJECT
-public:
-    explicit DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                                 const QString &name,
-                                 const QString &displayName,
-                                 const QString &icon,
-                                 DefAppModel *model,
-                                 DefAppWorker *work);
-    ~DefAppsButtonModule();
-
-    //    virtual QWidget *page() override;
-
-Q_SIGNALS:
-    void onButtonClicked();
-
-private:
-    DefAppWorker::DefaultAppsCategory m_category;
-    DefAppModel *m_model;
-    DefAppWorker *m_work;
-};
-
-// 三级菜单
-class DefappDetailModule : public DCC_NAMESPACE::ModuleObject
-{
-    Q_OBJECT
-public:
-    DefappDetailModule(DefAppWorker::DefaultAppsCategory category,
-                       DefAppModel *model,
-                       DefAppWorker *work);
-    virtual QWidget *page() override;
-
-private:
-    DefAppWorker::DefaultAppsCategory m_category;
-    DefAppModel *m_model;
-    DefAppWorker *m_work;
+    bool m_isOldInterface;
 };
 
 #endif // DEFAPPPLUGIN_H

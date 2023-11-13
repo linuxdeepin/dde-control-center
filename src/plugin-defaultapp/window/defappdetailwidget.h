@@ -1,13 +1,16 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include <interface/moduleobject.h>
-#include "interface/namespace.h"
+#include "dcclistview.h"
 #include "defappworker.h"
+#include "interface/namespace.h"
+
+#include <interface/moduleobject.h>
 
 #include <DStyleOption>
+
 #include <QWidget>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -23,14 +26,16 @@ class QIcon;
 QT_END_NAMESPACE
 
 class defappworker;
-class DefappDetailWidget : public QWidget
+
+class DefappDetailWidget : public DCC_NAMESPACE::DCCListView
 {
     Q_OBJECT
 public:
-    explicit DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
+    explicit DefappDetailWidget(DefAppWorker::DefaultAppsCategory category,
+                                QWidget *parent = nullptr);
     virtual ~DefappDetailWidget();
 
-    void setModel(DefAppModel *const model);
+    void setDetailModel(DefAppModel *const model);
     void setCategory(Category *const category);
 
 private:
@@ -40,6 +45,7 @@ private:
     void appendItemData(const App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);
     bool isValid(const App &app);
+
     enum DefAppDataRole {
         DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
@@ -58,17 +64,16 @@ public Q_SLOTS:
     void onListViewClicked(const QModelIndex &index);
     void onDelBtnClicked();
     void onClearAll();
-    DTK_WIDGET_NAMESPACE::DListView *getAppListview() const { return m_defApps; }
 
 private:
     void AppsItemChanged(const QList<App> &list);
     void addItem(const App &item);
     void removeItem(const App &item);
-    void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem, const QString &name, const QString &iconName);
+    void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem,
+                         const QString &name,
+                         const QString &iconName);
 
 private:
-    QVBoxLayout *m_centralLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_defApps;
     QStandardItemModel *m_model;
     QString m_categoryName;
     int m_categoryValue;

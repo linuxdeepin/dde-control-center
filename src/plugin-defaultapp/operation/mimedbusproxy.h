@@ -2,13 +2,23 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef MIMEDBUSPROXY_H
-#define MIMEDBUSPROXY_H
+#pragma once
 
 #include <QObject>
 #include <QDBusPendingReply>
+
 class QDBusInterface;
 class QDBusMessage;
+
+using ObjectInterfaceMap = QMap<QString, QVariantMap>;
+using ObjectMap = QMap<QDBusObjectPath, ObjectInterfaceMap>;
+using QStringMap = QMap<QString, QString>;
+using PropMap = QMap<QString, QStringMap>;
+
+Q_DECLARE_METATYPE(ObjectInterfaceMap)
+Q_DECLARE_METATYPE(ObjectMap)
+Q_DECLARE_METATYPE(QStringMap)
+Q_DECLARE_METATYPE(PropMap)
 
 class MimeDBusProxy : public QObject
 {
@@ -21,17 +31,13 @@ public:
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);
 
-    QString GetDefaultApp(const QString &mimeType);
-    QString ListApps(const QString &mimeType);
+    QDBusPendingReply<QString, QDBusObjectPath> GetDefaultApp(const QString &mimeType);
+    QDBusPendingReply<ObjectMap> ListApps(const QString &mimeType);
+    QString getAppId(const QDBusObjectPath &path);
 
-    QString ListUserApps(const QString &mimeType);
-
-Q_SIGNALS: // SIGNALS
+Q_SIGNALS:
     void Change();
-    // begin property changed signals
 
 private:
     QDBusInterface *m_mimeInter;
 };
-
-#endif // MIMEDBUSPROXY_H

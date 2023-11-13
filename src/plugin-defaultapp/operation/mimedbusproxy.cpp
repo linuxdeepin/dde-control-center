@@ -1,59 +1,82 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "mimedbusproxy.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include <QDBusMetaType>
 #include <QDBusPendingReply>
+#include <QDBusReply>
+#include <QDebug>
+#include <QMetaObject>
 
-const QString MimeService = QStringLiteral("org.deepin.dde.Mime1");
-const QString MimePath = QStringLiteral("/org/deepin/dde/Mime1");
-const QString MimeInterface = QStringLiteral("org.deepin.dde.Mime1");
+const QString ApplicationManagerServer = QStringLiteral("org.desktopspec.ApplicationManager1");
+const QString MimePath = QStringLiteral("/org/desktopspec/ApplicationManager1/MimeManager1");
+const QString MimeInterface = QStringLiteral("org.desktopspec.MimeManager1");
+const QString AMApplicationInterface =
+        QStringLiteral("org.desktopspec.ApplicationManager1.Application");
 
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_mimeInter(new QDBusInterface(MimeService, MimePath, MimeInterface, QDBusConnection::sessionBus(), this))
+    , m_mimeInter(new QDBusInterface(ApplicationManagerServer,
+                                     MimePath,
+                                     MimeInterface,
+                                     QDBusConnection::sessionBus(),
+                                     this))
 {
-    connect(m_mimeInter, SIGNAL(Change()), this, SIGNAL(Change()), Qt::QueuedConnection);
+    qRegisterMetaType<ObjectInterfaceMap>();
+    qDBusRegisterMetaType<ObjectInterfaceMap>();
+    qRegisterMetaType<ObjectMap>();
+    qDBusRegisterMetaType<ObjectMap>();
+    qRegisterMetaType<QStringMap>();
+    qDBusRegisterMetaType<QStringMap>();
+    qRegisterMetaType<PropMap>();
+    qDBusRegisterMetaType<PropMap>();
 }
 
-QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId)
+QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes,
+                                                     const QString &desktopId)
 {
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(mimeTypes) << QVariant::fromValue(desktopId);
-    return m_mimeInter->asyncCallWithArgumentList("SetDefaultApp", argumentList);
+    QStringMap map;
+    map.insert(mimeTypes[0], desktopId);
+    return m_mimeInter->asyncCallWithArgumentList("setDefaultApplication",
+                                                  { QVariant::fromValue(map) });
 }
 
-void MimeDBusProxy::DeleteApp(const QStringList &mimeTypes, const QString &desktopId)
+void MimeDBusProxy::DeleteApp([[maybe_unused]] const QStringList &mimeTypes,
+                              [[maybe_unused]] const QString &desktopId)
 {
-    QDBusPendingReply<QString>(m_mimeInter->asyncCall("DeleteApp", mimeTypes, desktopId));
+    // QDBusPendingReply<QString>(m_mimeInter->asyncCall("DeleteApp", mimeTypes, desktopId));
 }
 
-void MimeDBusProxy::DeleteUserApp(const QString &desktopId)
+void MimeDBusProxy::DeleteUserApp([[maybe_unused]] const QString &desktopId)
 {
-    QDBusPendingReply<QString>(m_mimeInter->asyncCall("DeleteUserApp", desktopId));
+    // QDBusPendingReply<QString>(m_mimeInter->asyncCall("DeleteUserApp", desktopId));
 }
 
-void MimeDBusProxy::AddUserApp(const QStringList &mimeTypes, const QString &desktopId)
+void MimeDBusProxy::AddUserApp([[maybe_unused]] const QStringList &mimeTypes,
+                               [[maybe_unused]] const QString &desktopId)
 {
-    QDBusPendingReply<QString>(m_mimeInter->asyncCall("AddUserApp", mimeTypes, desktopId));
+    // QDBusPendingReply<QString>(m_mimeInter->asyncCall("AddUserApp", mimeTypes, desktopId));
 }
 
-QString MimeDBusProxy::GetDefaultApp(const QString &mimeType)
+QString MimeDBusProxy::getAppId(const QDBusObjectPath &appPath)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("GetDefaultApp", mimeType));
+    auto interface = QDBusInterface(ApplicationManagerServer,
+                                    appPath.path(),
+                                    AMApplicationInterface,
+                                    QDBusConnection::sessionBus(),
+                                    this);
+    return interface.property("ID").toString();
 }
 
-QString MimeDBusProxy::ListApps(const QString &mimeType)
+QDBusPendingReply<QString, QDBusObjectPath> MimeDBusProxy::GetDefaultApp(const QString &mimeType)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListApps", mimeType));
+    return m_mimeInter->asyncCallWithArgumentList("queryDefaultApplication", { mimeType });
 }
 
-QString MimeDBusProxy::ListUserApps(const QString &mimeType)
+QDBusPendingReply<ObjectMap> MimeDBusProxy::ListApps(const QString &mimeType)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListUserApps", mimeType));
+    return m_mimeInter->asyncCallWithArgumentList("listApplications", { mimeType });
 }
-
-
