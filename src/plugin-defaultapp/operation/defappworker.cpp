@@ -155,6 +155,12 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
                 continue;
             }
 
+            if (auto nodisplay = mapInter.value("NoDisplay"); !nodisplay.isNull()) {
+                if (qdbus_cast<bool>(nodisplay)) {
+                    continue;
+                }
+            }
+
             auto nameMap = qdbus_cast<QMap<QString, QString>>(mapInter["Name"]);
             QString id = qdbus_cast<QString>(mapInter["ID"]);
 
