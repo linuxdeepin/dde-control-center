@@ -19,10 +19,13 @@
 
 Q_LOGGING_CATEGORY(DdcDefaultWorker, "dcc-default-worker")
 
+const QString TerminalGSetting = QStringLiteral("com.deepin.desktop.default-applications.terminal");
+
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     : QObject(parent)
     , m_defAppModel(model)
     , m_dbusManager(new MimeDBusProxy(this))
+    , m_defaultTerminal(new QGSettings(TerminalGSetting.toLocal8Bit()))
 {
 
     m_stringToCategory.insert("Browser", Browser);
@@ -31,8 +34,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     m_stringToCategory.insert("Music", Music);
     m_stringToCategory.insert("Video", Video);
     m_stringToCategory.insert("Picture", Picture);
-    // TODO: Terminal do it later
-    // m_stringToCategory.insert("Terminal", Terminal);
+    m_stringToCategory.insert("Terminal", Terminal);
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
@@ -41,6 +43,11 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     // mkdir folder
     QDir dir(m_userLocalPath);
     dir.mkpath(m_userLocalPath);
+}
+
+DefAppWorker::~DefAppWorker()
+{
+    m_defaultTerminal->deleteLater();
 }
 
 void DefAppWorker::active()
@@ -55,6 +62,10 @@ void DefAppWorker::deactive()
 
 void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
 {
+    if (category == "Terminal") {
+        onSetDefaultTerminal(item);
+        return;
+    }
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
 
     QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimelist, item.Id);
@@ -74,11 +85,36 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
             });
 }
 
+void DefAppWorker::onSetDefaultTerminal(const App &item)
+{
+    Category *defaultTerinmalCategory = getCategory("Terminal");
+
+    m_defaultTerminal->set("app-id", item.Id);
+    m_defaultTerminal->set(
+            "exec",
+            QString("gdbus call --session --dest org.desktopspec.ApplicationManager1 --object-path "
+                    "%1 --method org.desktopspec.ApplicationManager1.Application.Launch "
+                    "'' [] {}")
+                    .arg(item.dbusPath));
+
+    defaultTerinmalCategory->setDefault(item);
+}
+
 void DefAppWorker::onGetListApps()
 {
     // 遍历QMap去获取dbus数据
     for (auto mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd();
          ++mimelist) {
+        if (mimelist.key() == "Terminal") {
+            QDBusPendingReply<ObjectMap> call = m_dbusManager->GetManagedObjects();
+            QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+            connect(watcher,
+                    &QDBusPendingCallWatcher::finished,
+                    this,
+                    &DefAppWorker::getManagerObjectFinished);
+            continue;
+        }
+
         const QString type{ getTypeByCategory(mimelist.value()) };
 
         QDBusPendingReply<ObjectMap> call = m_dbusManager->ListApps(type);
@@ -128,6 +164,91 @@ void DefAppWorker::onGetListApps()
     }
 }
 
+void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
+{
+    Category *category = getCategory("Terminal");
+    QList<App> list;
+    QLocale syslocal = QLocale::system();
+    QDBusPendingReply<ObjectMap> reply = *call;
+    if (reply.isError()) {
+        call->deleteLater();
+        return;
+    }
+    ObjectMap map = reply.value();
+    for (auto it = map.cbegin(); it != map.cend(); it++) {
+        QString dbusPath = it.key().path();
+        auto mapInterface = it.value();
+        for (const QVariantMap &mapInter : mapInterface) {
+            if (mapInter.count() == 0) {
+                continue;
+            }
+            if (mapInter.value("Categories").isNull()) {
+                continue;
+            }
+            QStringList cats = qdbus_cast<QStringList>(mapInter["Categories"]);
+            if (!cats.contains("TerminalEmulator")) {
+                continue;
+            }
+            auto nameMap = qdbus_cast<QMap<QString, QString>>(mapInter["Name"]);
+            QString id = qdbus_cast<QString>(mapInter["ID"]);
+
+            QString showName = id;
+
+            for (auto it = nameMap.cbegin(); it != nameMap.cend(); it++) {
+                if (QLocale(it.key()) == syslocal) {
+                    showName = it.value();
+                    break;
+                }
+            }
+
+            QString icon;
+            if (auto mapicons = mapInter.value("Icons"); !mapicons.isNull()) {
+                auto icons = qdbus_cast<QMap<QString, QString>>(mapicons);
+                if (!icons.value("Desktop Entry").isNull()) {
+                    icon = icons["Desktop Entry"];
+                }
+            }
+
+            App app;
+            app.dbusPath = dbusPath;
+            app.Id = id;
+            app.Name = showName;
+            app.DisplayName = showName;
+            app.Icon = icon;
+            app.isUser = false;
+            list << app;
+            break;
+        }
+    }
+
+    QList<App> systemList = category->getappItem();
+
+    for (App app : list) {
+        if (!systemList.contains(app)) {
+            category->addUserItem(app);
+        }
+    }
+
+    systemList = category->getappItem();
+    for (App app : systemList) {
+        if (!list.contains(app)) {
+            category->delUserItem(app);
+        }
+    }
+    category->setCategory("Terminal");
+
+    QString id = m_defaultTerminal->get("app-id").toString();
+    auto it = std::find_if(list.cbegin(), list.cend(), [id](const App &app) {
+        return app.Id == id;
+    });
+
+    if (it != list.cend()) {
+        category->setDefault(*it);
+    }
+
+    call->deleteLater();
+}
+
 void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,
                                 [[maybe_unused]] const App &item)
 {
@@ -149,7 +270,9 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
 
     QList<App> list;
     QLocale syslocal = QLocale::system();
-    for (const ObjectInterfaceMap &mapInterface : map) {
+    for (auto it = map.cbegin(); it != map.cend(); it++) {
+        QString dbusPath = it.key().path();
+        auto mapInterface = it.value();
         for (const QVariantMap &mapInter : mapInterface) {
             if (mapInter.count() == 0) {
                 continue;
@@ -182,34 +305,26 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
             }
 
             App app;
+            app.dbusPath = dbusPath;
             app.Id = id;
             app.Name = showName;
             app.DisplayName = showName;
             app.Icon = icon;
+            app.isUser = false;
             list << app;
+            break;
         }
     }
 
-    QList<App> systemList = category->systemAppList();
-    QList<App> userList = category->userAppList();
-    for (App app : list) {
-        if (app.isUser == false) {
-            for (App appUser : userList) {
-                if (appUser.Exec == app.Exec) {
-                    category->delUserItem(appUser);
-                }
-            }
-        }
-    }
+    QList<App> systemList = category->getappItem();
 
     for (App app : list) {
-        if (!systemList.contains(app) || !userList.contains(app)) {
+        if (!systemList.contains(app)) {
             category->addUserItem(app);
         }
     }
 
-    // TODO: remove it later
-    systemList = category->systemAppList();
+    systemList = category->getappItem();
     for (App app : systemList) {
         if (!list.contains(app)) {
             category->delUserItem(app);

@@ -31,6 +31,7 @@ public:
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);
 
+    QDBusPendingReply<ObjectMap> GetManagedObjects();
     QDBusPendingReply<QString, QDBusObjectPath> GetDefaultApp(const QString &mimeType);
     QDBusPendingReply<ObjectMap> ListApps(const QString &mimeType);
     QString getAppId(const QDBusObjectPath &path);
@@ -40,4 +41,5 @@ Q_SIGNALS:
 
 private:
     QDBusInterface *m_mimeInter;
+    QDBusInterface *m_applicationManagerInter;
 };

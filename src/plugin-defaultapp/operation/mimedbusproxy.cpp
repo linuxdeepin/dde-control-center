@@ -17,6 +17,9 @@ const QString MimeInterface = QStringLiteral("org.desktopspec.MimeManager1");
 const QString AMApplicationInterface =
         QStringLiteral("org.desktopspec.ApplicationManager1.Application");
 
+const QString ObjectManagerInterface = QStringLiteral("org.desktopspec.DBus.ObjectManager");
+const QString ApplicationManager1Path = QStringLiteral("/org/desktopspec/ApplicationManager1");
+
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)
     , m_mimeInter(new QDBusInterface(ApplicationManagerServer,
@@ -24,6 +27,11 @@ MimeDBusProxy::MimeDBusProxy(QObject *parent)
                                      MimeInterface,
                                      QDBusConnection::sessionBus(),
                                      this))
+    , m_applicationManagerInter(new QDBusInterface(ApplicationManagerServer,
+                                                   ApplicationManager1Path,
+                                                   ObjectManagerInterface,
+                                                   QDBusConnection::sessionBus(),
+                                                   this))
 {
     qRegisterMetaType<ObjectInterfaceMap>();
     qDBusRegisterMetaType<ObjectInterfaceMap>();
@@ -33,6 +41,11 @@ MimeDBusProxy::MimeDBusProxy(QObject *parent)
     qDBusRegisterMetaType<QStringMap>();
     qRegisterMetaType<PropMap>();
     qDBusRegisterMetaType<PropMap>();
+}
+
+QDBusPendingReply<ObjectMap> MimeDBusProxy::GetManagedObjects()
+{
+    return m_applicationManagerInter->asyncCall("GetManagedObjects");
 }
 
 QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes,

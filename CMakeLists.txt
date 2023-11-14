@@ -668,6 +668,7 @@ if (BUILD_PLUGIN)
         "src/plugin-defaultapp/operation/*.cpp"
         "src/plugin-defaultapp/operation/qrc/defapp.qrc"
     )
+    pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
 
     add_library(${DefaultApp_Name} MODULE
         ${DefaultApp_SRCS}
@@ -683,6 +684,7 @@ if (BUILD_PLUGIN)
         Qt::Widgets
         Qt::DBus
         Qt::Concurrent
+        PkgConfig::QGSettings
         ${Dcc_Widgets_Name}
     )
     target_include_directories(${DefaultApp_Name} PUBLIC

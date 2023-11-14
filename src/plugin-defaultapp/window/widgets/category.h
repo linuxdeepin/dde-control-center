@@ -8,6 +8,7 @@
 #include <QList>
 
 struct App {
+    QString dbusPath;
     QString Id;
     QString Name;
     QString DisplayName;
