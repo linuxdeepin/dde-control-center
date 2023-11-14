@@ -61,10 +61,10 @@ ModuleObject *DefAppPlugin::module()
              tr("Picture"),
              "dcc_photo",
              DefAppWorker::DefaultAppsCategory::Picture),
-        // DATE("defappTerminal",
-        //      tr("Terminal"),
-        //      "dcc_terminal",
-        //      DefAppWorker::DefaultAppsCategory::Terminal),
+        DATE("defappTerminal",
+             tr("Terminal"),
+             "dcc_terminal",
+             DefAppWorker::DefaultAppsCategory::Terminal),
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;
