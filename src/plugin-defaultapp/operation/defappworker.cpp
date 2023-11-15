@@ -231,7 +231,7 @@ void DefAppWorker::getDefaultAppFinished(const QString &mimeKey, const QString &
         return app.Id == id;
     });
 
-    if (it != items.end()) {
+    if (it != items.cend()) {
         category->setDefault(*it);
         category->setCategory(mimeKey);
     }
