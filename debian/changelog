@@ -1,3 +1,14 @@
+dde-control-center (6.0.34) unstable; urgency=medium
+
+  * fix: is desktop is marked nodisplay, not show it
+  * feat: switch defappplugin to new am
+  * fix: crash when setting default application
+  * chore: set defaultterminal with qgsettings
+  * feat: add audio server switch support
+  * chore: update translations
+
+ -- bluesky <chenchongbiao@deepin.org>  Thu, 16 Nov 2023 15:46:10 +0800
+
 dde-control-center (6.0.33) unstable; urgency=medium
 
   * chore: update translation about region
