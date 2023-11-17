@@ -68,6 +68,8 @@ The executable binary file could be found at `/usr/bin/dde-control-center` after
 
 Execute `dde-control-center -h` to get more details.
 
+Note: `--spec` can be used to debug plugins. The passed in value is the path where the so of plugin is in.
+
 ## Getting help
 
 You can press `F1` to start [deepin-manual](https://github.com/linuxdeepin/deepin-manual) when you focus on DDE Control Center window.
@@ -80,6 +82,32 @@ You may also find these channels useful if you encounter any other issues:
 * [Forum](https://bbs.deepin.org)
 * [WiKi](https://wiki.deepin.org/)
 
+## Develop Plugins with cmake
+
+```cmake
+
+# just show the target link way
+
+find_pacakge(DdeControlCenter REQUIRED)
+find_pacakge(Dtk COMPONENTS Core Widget REQUIRED)
+find_pacakge(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+
+add_library(dcc_exampleplugin SHARED
+    plugin.h
+    plugin.cpp
+)
+
+target_link_libraries(dcc_exampleplugin PRIVATE
+    Dde::DCCWidget
+    Dde::DCCInterface
+    Dtk::Core
+    Dtk::Widget
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Widgets
+)
+
+```
 
 ## Getting involved
 

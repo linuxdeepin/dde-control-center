@@ -202,7 +202,7 @@ Test1ModuleObject::Test1ModuleObject()
             labelModule->setText(QString("我是具体页面%1的第%2个page").arg(i).arg(j));
             module->appendChild(labelModule);
         }
-    
+
         appendChild(module);
     }
     { // ButtonModule页面
@@ -232,11 +232,11 @@ Test1ModuleObject::Test1ModuleObject()
 
         appendChild(module);
     }
- 
+
     //-------特殊按钮及多及嵌套示例-----------
     VListModule *module = new VListModule(QString("menu%1").arg(5), tr("菜单%1").arg(5));
     appendChild(module); // 主菜单添加带有附加按钮的菜单
- 
+
     // 添加VList子项，先添加一个正常子项
     ModuleObject *lstModule1 = new PageModule(QString("menuSpeci1"), tr("特殊菜单1"), module);
     module->appendChild(lstModule1);
@@ -258,7 +258,7 @@ Test1ModuleObject::Test1ModuleObject()
     module2_2->setText("Page中的测试按钮");
     module2_2->setExtra(); // 设置为附加按钮，父ChildType为ModuleObject::Page
     lstModule2->appendChild(module2_2);
- 
+
     ButtonModule *ButtonModule3 = new ButtonModule(QString("pageSpeci3"), QString("特殊页面3"), lstModule2);
     ButtonModule3->setText("测试按钮");
     ButtonModule3->setExtra(); // 设置为附加按钮，父ChildType为ModuleObject::VList
@@ -270,7 +270,7 @@ Test1ModuleObject::Test1ModuleObject()
     ButtonModule *module3_1 = new ButtonModule("testPage", "测试页面", module);
     module3_1->setText("附加按钮测试页面");
     page3->appendChild(module3_1);
- 
+
     ButtonModule *module3_2 = new ButtonModule("buttonClose", "关闭", module);
     module3_2->setText("关闭");
     module3_2->setExtra();
@@ -487,7 +487,7 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     groupModule->appendChild(new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) { return new QLineEdit(); }));
     groupModule->appendChild(new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) { return new QComboBox(); }));
     parent->appendChild(groupModule);
- 
+
     // HorizontalModule测试
     // HorizontalModule提供一个横向布局的ModuleObject，与PageModule(纵向布局)类似
     HorizontalModule *hor = new HorizontalModule("hor", tr("Horizontal Module"));
@@ -579,3 +579,11 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
 }
 ```
 
+
+## Debug 说明
+
+控制中心有一个参数 `--spec`，这个参数接受一个path的变量，用于加载当前文件夹下所有插件，控制中心此时为一个runtime。如果是加载一个子插件，需要将父插件软连接到这个该目录，之后可以调试。
+
+## CMake
+
+控制中心导出两个target `Dde::DCCWidget`和`Dde::DCCInterface`,在`find_package(DdeControlCenter)`后直接在`target_link_libraries`中连接这两个target就可以使用控制中心的库和头文件了。
