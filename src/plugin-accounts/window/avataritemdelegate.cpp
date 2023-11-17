@@ -24,8 +24,9 @@ using namespace DCC_NAMESPACE;
 
 #define CustomAvatarRole 4
 
-AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
+AvatarItemDelegate::AvatarItemDelegate(bool isCustom, QObject *parent)
     : QStyledItemDelegate(parent)
+    , m_isCustom(isCustom)
 {
 }
 
@@ -82,6 +83,28 @@ void AvatarItemDelegate::paint(QPainter *painter,
         painter->setBrush(dh.getColor(&opt, QPalette::Text));
         painter->drawRect(QRectF(x1, y1, tw, 1.0));
         painter->drawRect(QRectF(x2, y2, 1.0, th));
+        return;
+    }
+
+    if (m_isCustom) {
+        painter->setPen(QPen(opt.palette.highlight(), borderWidth));
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRoundedRect(opt.rect.adjusted(1, 1, -1, -1), 8, 8);
+
+        // 在中间绘制选中小图标
+        int radius = 8;
+        int cx = opt.rect.marginsRemoved(margins).right();
+        int cy = opt.rect.marginsRemoved(margins).top();
+        QRect crect(QPoint(cx - radius, cy - radius), QPoint(cx + radius, cy + radius));
+        opt.rect = crect;
+        opt.state |= QStyle::State_On;
+        opt.state &= ~QStyle::State_Selected;
+        if (index.data(Qt::CheckStateRole) == Qt::Checked) {
+            style->drawPrimitive(DStyle::PE_IndicatorItemViewItemCheck, &opt, painter, nullptr);
+        } else {
+            style->drawPrimitive(DStyle::PE_IndicatorTabClose, &opt, painter, nullptr);
+        } // draw + in the end
+        return;
     }
 
     if (index.data(Qt::CheckStateRole) == Qt::Checked) {
@@ -99,8 +122,7 @@ void AvatarItemDelegate::paint(QPainter *painter,
         opt.state &= ~QStyle::State_Selected;
         style->drawPrimitive(DStyle::PE_IndicatorItemViewItemCheck, &opt, painter, nullptr);
         return;
-    }
-    // draw + in the end
+    } // draw + in the end
 }
 
 QSize AvatarItemDelegate::sizeHint(const QStyleOptionViewItem &option,

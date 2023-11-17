@@ -63,6 +63,7 @@ public:
 private:
     CustomAvatarWidget *getCustomAvatarWidget();
     void handleListViewRequestUpdate(bool isSave, const int &role, const int &type);
+    void handleRequestDeleteIcon(const QString &iconPath);
 
 private:
     AccountsWorker *m_worker;
