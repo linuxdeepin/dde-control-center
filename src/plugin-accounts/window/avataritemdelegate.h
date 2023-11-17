@@ -30,7 +30,7 @@ class AvatarItemDelegate : public QStyledItemDelegate
     Q_OBJECT
 
 public:
-    explicit AvatarItemDelegate(QObject *parent = nullptr);
+    explicit AvatarItemDelegate(bool isCustom, QObject *parent = nullptr);
 
     // painting
     void paint(QPainter *painter,
@@ -39,5 +39,9 @@ public:
 
     // set item size
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+private:
+    bool m_isCustom;
 };
-} // namespace DCC_NAMESPACE
+}
+ // namespace DCC_NAMESPACE

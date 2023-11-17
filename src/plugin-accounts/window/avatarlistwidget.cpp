@@ -9,8 +9,8 @@
 #include <DConfig>
 #include <DDialog>
 #include <DDialogCloseButton>
-#include <DStyle>
 #include <DIconTheme>
+#include <DStyle>
 
 #include <QDebug>
 #include <QDir>
@@ -140,6 +140,12 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
                 &AvatarListView::requestUpdateListView,
                 this,
                 &AvatarListDialog::handleListViewRequestUpdate);
+        if (listView->getCurrentListViewRole() == Role::Custom) {
+            connect(listView,
+                    &AvatarListView::requestDeleteUserIcon,
+                    this,
+                    &AvatarListDialog::handleRequestDeleteIcon);
+        }
     }
 
     m_currentSelectAvatarWidget = m_avatarFrames[Person];
@@ -249,6 +255,11 @@ CustomAvatarWidget *AvatarListDialog::getCustomAvatarWidget()
 QString AvatarListDialog::getAvatarPath() const
 {
     return m_currentSelectAvatarWidget->getAvatarPath();
+}
+
+void AvatarListDialog::handleRequestDeleteIcon(const QString &iconPath)
+{
+    m_worker->deleteUserIcon(m_curUser, iconPath);
 }
 
 void AvatarListDialog::handleListViewRequestUpdate(bool isSave, const int &role, const int &type)

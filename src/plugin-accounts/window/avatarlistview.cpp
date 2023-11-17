@@ -6,6 +6,8 @@
 #include "avataritemdelegate.h"
 #include "widgets/accessibleinterface.h"
 
+#include <DConfig>
+
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
@@ -22,27 +24,24 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-#include <DConfig>
-
 const int MaxAvatarSize = 20;
 const int MaxCustomAvatarSize = 4;
 const QString VarDirectory = QStringLiteral(VARDIRECTORY);
-const QString DefaultAvatar = QStringLiteral("lib/AccountsService/icons/animal/dimensional/raccoon.png");
+const QString DefaultAvatar =
+        QStringLiteral("lib/AccountsService/icons/animal/dimensional/raccoon.png");
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-AvatarListView::AvatarListView(User *user, const int &role,
-                               const int &type,
-                               const QString &path,
-                               QWidget *parent)
+AvatarListView::AvatarListView(
+        User *user, const int &role, const int &type, const QString &path, QWidget *parent)
     : DListView(parent)
     , m_currentAvatarRole(role)
     , m_currentAvatarType(type)
     , m_path(path)
     , m_avatarItemModel(new QStandardItemModel(this))
-    , m_avatarItemDelegate(new AvatarItemDelegate(this))
+    , m_avatarItemDelegate(new AvatarItemDelegate(m_currentAvatarRole == Custom, this))
     , m_avatarSize(QSize(80, 80))
     , m_curUser(user)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center",
@@ -60,7 +59,6 @@ AvatarListView::AvatarListView(User *user, const int &role,
         m_save = false;
         onItemClicked(index);
     });
-
 }
 
 AvatarListView::~AvatarListView()
@@ -107,7 +105,6 @@ void AvatarListView::initWidgets()
     setModel(m_avatarItemModel);
 
     addItemFromDefaultDir(m_path);
-
 }
 
 void AvatarListView::addLastItem()
@@ -154,19 +151,16 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
     QFileInfoList list = dir.entryInfoList();
 
     // 根据文件名进行排序
-    std::sort(list.begin(),
-              list.end(),
-              [](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
-                  return fileinfo1.baseName() < fileinfo2.baseName();
-              });
+    std::sort(list.begin(), list.end(), [](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
+        return fileinfo1.baseName() < fileinfo2.baseName();
+    });
 
     const auto &name = m_curUser->name();
     // 当前用户有自定义用户头像时, 需要添加用户添加按钮, 否则不需要添加
     if (m_currentAvatarRole == Custom) {
-        auto res =
-                std::find_if(list.cbegin(), list.cend(), [name](const QFileInfo &info) -> bool {
-                    return info.filePath().contains(name + "-");
-                });
+        auto res = std::find_if(list.cbegin(), list.cend(), [name](const QFileInfo &info) -> bool {
+            return info.filePath().contains(name + "-");
+        });
 
         if (res != list.cend()) {
             addLastItem();
@@ -253,8 +247,34 @@ void AvatarListView::addCustomAvatar(const QString &path)
     }
 }
 
+bool AvatarListView::checkIsToDeleteAvatar(const QModelIndex &index)
+{
+    if (m_currentAvatarRole != Custom) {
+        return false;
+    }
+    if (index.row() == 0) {
+        return false;
+    }
+    auto pos = mapFromGlobal(QCursor::pos());
+    auto rect = visualRect(index);
+    auto rectTopRight = rect.topRight();
+    QRect closeBtnRegion =
+            QRect{ rectTopRight.x() - 16, rectTopRight.y(), 16, 16 };
+    if (closeBtnRegion.contains(pos)) {
+        return true;
+    }
+    return false;
+}
+
 void AvatarListView::onItemClicked(const QModelIndex &index)
 {
+    if (checkIsToDeleteAvatar(index)) {
+        QString iconPath = index.data(AvatarListView::SaveAvatarRole).toString();
+        Q_EMIT requestDeleteUserIcon(iconPath);
+        m_avatarItemModel->removeRow(index.row());
+        return;
+    }
+    // check if is x button, if is x button, then delete the model, and request to remove the icon
     if (index.data(Qt::CheckStateRole) == Qt::Checked)
         return;
     const QString filePath = index.data(SaveAvatarRole).toString();
@@ -330,7 +350,8 @@ void AvatarListView::setCurrentAvatarChecked(const QString &avatar)
     const QString urlPre = "file://";
     // 如果是默认的头像, 需要将路径换成实际的路径
     if (currentAvatar.contains("default")) {
-        const auto defaultAvatar = QString("%1%2/%3").arg(urlPre).arg(VarDirectory).arg(DefaultAvatar);
+        const auto defaultAvatar =
+                QString("%1%2/%3").arg(urlPre).arg(VarDirectory).arg(DefaultAvatar);
         currentAvatar = defaultAvatar;
     }
 
@@ -344,7 +365,9 @@ void AvatarListView::setCurrentAvatarChecked(const QString &avatar)
         return;
 
     for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
-        QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListView::SaveAvatarRole).value<QString>();
+        QString itemAvatar = m_avatarItemModel->index(i, 0)
+                                     .data(AvatarListView::SaveAvatarRole)
+                                     .value<QString>();
         if (currentAvatar != itemAvatar)
             continue;
 

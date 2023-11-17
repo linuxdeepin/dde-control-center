@@ -63,6 +63,7 @@ public:
 
 Q_SIGNALS:
     void requestUpdateListView(bool isSave, const int &role, const int &type);
+    void requestDeleteUserIcon(const QString &iconPath);
 
 public Q_SLOTS:
     void setCurrentAvatarChecked(const QString &avatar);
@@ -76,6 +77,7 @@ protected:
 private:
     void initWidgets();
     QStandardItem *getCustomAvatar();
+    bool checkIsToDeleteAvatar(const QModelIndex &index);
 
 private Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
