@@ -12,6 +12,7 @@
 #include <optional>
 
 #include <dtkcore_global.h>
+#include <qvariant.h>
 
 class DatetimeDBusProxy;
 class RegionProxy;
@@ -35,7 +36,7 @@ public:
     std::optional<QString> getLocaleRegion();
 
     void setLocaleRegion(const QString &locale);
-    void setConfigValue(const QString &key, const QString &value);
+    void setConfigValue(const QString &key, const QVariant &value);
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;

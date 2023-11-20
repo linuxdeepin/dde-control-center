@@ -11,6 +11,7 @@
 #include <QLoggingCategory>
 
 #include <dconfig.h>
+#include <qvariant.h>
 
 Q_LOGGING_CATEGORY(DdcDateTimeWorkder, "dcc-datetime-worker")
 
@@ -241,9 +242,12 @@ void DatetimeWorker::initRegionFormatData()
         m_model->setLocaleName(m_config->value(localeName_key).toString());
     }
     if (m_config->isDefaultValue(firstDayOfWeek_key)) {
-        m_model->setFirstDayOfWeek(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
+        QString day = QLocale::system().standaloneDayName(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
+        m_model->setFirstDayOfWeek(day);
     } else {
-        m_model->setFirstDayOfWeek(m_config->value(firstDayOfWeek_key).toString());
+        QLocale locale(m_config->value(localeName_key).toString());
+        QString day = locale.standaloneDayName(m_config->value(firstDayOfWeek_key).toInt());
+        m_model->setFirstDayOfWeek(day);
     }
     if (m_config->isDefaultValue(shortDateFormat_key)) {
         m_model->setShortDateFormat(m_regionInter->regionFormat(QLocale::system()).shortDateFormat);
@@ -289,7 +293,8 @@ void DatetimeWorker::initRegionFormatData()
         } else if (key == localeName_key) {
             m_model->setLocaleName(m_config->value(key).toString());
         } else if (key == firstDayOfWeek_key) {
-            m_model->setFirstDayOfWeek(m_config->value(key).toString());
+            QLocale locale(m_config->value(localeName_key).toString());
+            m_model->setFirstDayOfWeek(locale.standaloneDayName(m_config->value(key).toInt()));
         } else if (key == shortDateFormat_key) {
             m_model->setShortDateFormat(m_config->value(key).toString());
         } else if (key == longDateFormat_key) {
@@ -323,7 +328,7 @@ void DatetimeWorker::setLocaleRegion(const QString &locale)
     m_timedateInter->setLocaleRegion(locale);
 }
 
-void DatetimeWorker::setConfigValue(const QString &key, const QString &value)
+void DatetimeWorker::setConfigValue(const QString &key, const QVariant &value)
 {
     m_config->setValue(key, value);
 }

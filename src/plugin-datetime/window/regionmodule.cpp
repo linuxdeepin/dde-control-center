@@ -213,8 +213,7 @@ void RegionModule::initFormatModificationModule()
 void RegionModule::updateRegionFormat(const RegionFormat &regionFormat)
 {
     m_regionFormat = regionFormat;
-
-    m_dayAction->setText(regionFormat.firstDayOfWeekFormat);
+    m_dayAction->setText(m_locale.standaloneDayName(regionFormat.firstDayOfWeekFormat));
     m_shortDateAction->setText(m_locale.toString(QDate::currentDate(), regionFormat.shortDateFormat));
     m_longDateAction->setText(m_locale.toString(QDate::currentDate(), regionFormat.longDateFormat));
     m_shortTimeAction->setText(m_locale.toString(QTime::currentTime(), regionFormat.shortTimeFormat));

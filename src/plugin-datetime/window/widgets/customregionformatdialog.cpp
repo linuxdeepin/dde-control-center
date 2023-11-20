@@ -156,7 +156,7 @@ void CustomRegionFormatDialog::initRegionFormat(const QLocale &locale, const Reg
     m_numberValueLabel->setText(RegionProxy::regionFormat(locale).numberFormat);
     m_paperValueLabel->setText(RegionProxy::regionFormat(locale).paperFormat);
 
-    m_dayCombo->setCurrentText(regionFormat.firstDayOfWeekFormat);
+    m_dayCombo->setCurrentText(locale.standaloneDayName(regionFormat.firstDayOfWeekFormat));
     m_shortDateCombo->setCurrentText(locale.toString(QDate(2023, 1, 1), regionFormat.shortDateFormat));
     m_longDateCombo->setCurrentText(locale.toString(QDate(2023, 1, 1), regionFormat.longDateFormat));
     m_shortTimeCombo->setCurrentText(locale.toString(QTime(1, 1, 1), regionFormat.shortTimeFormat));
@@ -166,7 +166,7 @@ void CustomRegionFormatDialog::initRegionFormat(const QLocale &locale, const Reg
 void CustomRegionFormatDialog::onSaved()
 {
     RegionAvailableData regionFormat = RegionProxy::allFormat();
-    m_format.firstDayOfWeekFormat = regionFormat.daysAvailable.at(m_dayCombo->currentIndex());
+    m_format.firstDayOfWeekFormat = m_dayCombo->currentIndex() + 1;
     m_format.shortDateFormat = regionFormat.shortDatesAvailable.at(m_shortDateCombo->currentIndex());
     m_format.longDateFormat = regionFormat.longDatesAvailable.at(m_longDateCombo->currentIndex());
     m_format.shortTimeFormat = regionFormat.shortTimesAvailable.at(m_shortTimeCombo->currentIndex());

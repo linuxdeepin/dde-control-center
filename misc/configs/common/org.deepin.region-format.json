@@ -36,7 +36,7 @@
             "visibility": "public"
         },
         "firstDayOfWeek": {
-            "value": "",
+            "value": 0,
             "serial": 0,
             "flags": ["user-public"],
             "name": "First day of week",
