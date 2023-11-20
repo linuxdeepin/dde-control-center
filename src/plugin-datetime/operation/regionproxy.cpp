@@ -274,7 +274,7 @@ QString RegionProxy::langCountry() const
 RegionFormat RegionProxy::regionFormat(const QLocale &locale)
 {
     RegionFormat regionFormat;
-    regionFormat.firstDayOfWeekFormat = locale.standaloneDayName(locale.firstDayOfWeek());
+    regionFormat.firstDayOfWeekFormat = locale.firstDayOfWeek();
     regionFormat.shortDateFormat = locale.dateFormat(QLocale::ShortFormat);
     regionFormat.longDateFormat = locale.dateFormat(QLocale::LongFormat);
     regionFormat.shortTimeFormat = locale.timeFormat(QLocale::ShortFormat);

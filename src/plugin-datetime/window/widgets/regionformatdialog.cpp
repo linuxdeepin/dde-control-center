@@ -180,7 +180,7 @@ QLabel* RegionFormatDialog::addFormatItem(const QWidget *frame, const QString &n
 void RegionFormatDialog::updateRegionFormat(const QLocale &locale)
 {
     RegionFormat regionFormat = RegionProxy::regionFormat(locale);
-    m_dayLabel->setText(regionFormat.firstDayOfWeekFormat);
+    m_dayLabel->setText(locale.standaloneDayName(regionFormat.firstDayOfWeekFormat));
     m_shortDateLabel->setText(locale.toString(QDate::currentDate(), regionFormat.shortDateFormat));
     m_longDateLabel->setText(locale.toString(QDate::currentDate(), regionFormat.longDateFormat));
     m_shortTimeLabel->setText(locale.toString(QTime::currentTime(), regionFormat.shortTimeFormat));

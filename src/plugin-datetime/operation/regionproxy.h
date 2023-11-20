@@ -21,7 +21,7 @@ const QString numberFormat_key = "numberFormat";
 const QString paperFormat_key = "paperFormat";
 
 struct RegionFormat {
-    QString firstDayOfWeekFormat;
+    int firstDayOfWeekFormat = 0;
     QString shortDateFormat;
     QString longDateFormat;
     QString shortTimeFormat;
