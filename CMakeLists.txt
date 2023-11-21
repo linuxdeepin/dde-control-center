@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-set(DVERSION "6.0.33" CACHE STRING "define project version")
+set(DVERSION "6.0.34" CACHE STRING "define project version")
 set(BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
 
 set(PROJECT_NAME dde-control-center)
@@ -147,7 +147,7 @@ target_include_directories(${Interface_Name} INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center/>
 )
 
-target_link_libraries(${Interface_Name} PRIVATE
+target_link_libraries(${Interface_Name} PUBLIC
     ${Interface_Libraries}
 )
 
@@ -181,12 +181,21 @@ add_library(${Dcc_Widgets_Name} SHARED
 set(Dcc_Widgets_Includes
     include/widgets
 )
-set(Dcc_Widgets_Libraries
+
+set(Dcc_Widgets_Libraries_public
     Dtk::Widget
     Qt::Widgets
+    ${Interface_Name}
+)
+
+set(Dcc_Widgets_Libraries_private
     Qt::Svg
     Qt::DBus
-    ${Interface_Name}
+)
+
+set(Dcc_Widgets_Libraries
+    ${Dcc_Widgets_Libraries_public}
+    ${Dcc_Widgets_Libraries_private}
 )
 
 target_include_directories(${Dcc_Widgets_Name} PUBLIC
@@ -197,8 +206,12 @@ target_include_directories(${Dcc_Widgets_Name} INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center/>
 )
 
+target_link_libraries(${Dcc_Widgets_Name} PUBLIC
+    ${Dcc_Widgets_Libraries_public}
+)
+
 target_link_libraries(${Dcc_Widgets_Name} PRIVATE
-    ${Dcc_Widgets_Libraries}
+    ${Dcc_Widgets_Libraries_private}
 )
 
 set_target_properties(${Dcc_Widgets_Name} PROPERTIES
