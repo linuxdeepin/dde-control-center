@@ -60,7 +60,7 @@ QString AccountsPlugin::name() const
 
 ModuleObject *AccountsPlugin::module()
 {
-    return new AccountsModule();
+    return new AccountsModule(this);
 }
 
 QString AccountsPlugin::location() const
@@ -219,10 +219,25 @@ bool AccountsModule::isSystemAdmin(User *user)
     return user->userType() == User::UserType::Administrator;
 }
 
+static QWidget *findAncestorWidget(const QObject *obj)
+{
+    while (obj) {
+        if (QWidget *w = qobject_cast<QWidget *>(obj->parent()))
+            return w;
+        obj = obj->parent();
+    }
+
+    return nullptr;
+}
+
 QWidget *AccountsModule::initAccountsList(ModuleObject *module)
 {
     Q_UNUSED(module)
-    AccountsListView *userlistView = new AccountsListView();
+
+    QWidget *pw = findAncestorWidget(this);
+    AccountsListView *userlistView = new AccountsListView(pw);
+    userlistView->parentWidget();
+
     userlistView->setMaximumHeight(90);
     userlistView->setFrameShape(QFrame::NoFrame);
     QPalette pa = userlistView->palette();
@@ -267,7 +282,6 @@ QWidget *AccountsModule::initCreateAccount(ModuleObject *module)
     createBtn->setFixedSize(50, 50);
     createBtn->setToolTip(tr("Create User"));
     createBtn->setAccessibleName(tr("Create User"));
-    createBtn->setVisible(true);
     connect(createBtn, &QPushButton::clicked, this, &AccountsModule::onCreateAccount);
     return createBtn;
 }

@@ -29,7 +29,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     , m_updateButton(new DCommandLinkButton("", this))
     , m_showMoreBUtton(new DCommandLinkButton("", this))
     , m_startButton(new DIconButton(this))
-    , m_Progess(new DProgressBar)
+    , m_Progess(new DProgressBar(this))
     , m_buttonStatus(ButtonStatus::invalid)
     , m_progressType(UpdateDProgressType::InvalidType)
     , m_currentValue(0)
@@ -315,7 +315,6 @@ void updateControlPanel::initUi()
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
     m_Progess->setFixedWidth(100);
-    m_Progess->setVisible(true);
 
     m_progressLabel->setVisible(false);
     DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
