@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Ustawienia zaawansowane</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation>Framework Audio</translation>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation>Różne frameworki audio mają swoje wady i zalety, wybierz jeden, który najlepiej spełni Twoje wymagania</translation>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2993,7 +3008,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Region i format</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3001,15 +3016,15 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Format</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Dostarczanie usług względem Twojego regionu.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz pasujący format daty i godziny zależnie od języka i regionu</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3048,8 +3063,8 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Papier</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>Format niestandardowy</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -116,19 +116,19 @@
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Hotovo</translation>
     </message>
     <message>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Nasnímat znovu</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Snímání odloženo</translation>
     </message>
 </context>
 <context>
@@ -160,6 +160,21 @@
     <message>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
+    </message>
+</context>
+<context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1014,47 +1029,47 @@
     <name>dccV23::CustomRegionFormatDialog</name>
     <message>
         <source>Custom format</source>
-        <translation type="unfinished"/>
+        <translation>Uživatelsky určený formát</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>První den týdne</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát data</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát data</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát času</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát času</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol měny</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Čísla</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papír</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Uložit</translation>
     </message>
 </context>
 <context>
@@ -1626,51 +1641,51 @@
     <name>dccV23::RegionFormatDialog</name>
     <message>
         <source>Region format</source>
-        <translation type="unfinished"/>
+        <translation>Formát oblasti</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí formát</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"/>
+        <translation>První den</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát data</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát data</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát času</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát času</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol měny</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Čísla</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papír</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Uložit</translation>
     </message>
 </context>
 <context>
@@ -2180,7 +2195,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation type="unfinished"/>
+        <translation>Čas a formát</translation>
     </message>
 </context>
 <context>
@@ -2538,7 +2553,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Vyvážit výkon</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2566,7 +2581,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Práh nízkého stavu nabití akumulátoru</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -2578,11 +2593,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Unlocking is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Pro probuzení počítače je vyžadováno odemčení</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Pro probuzení obrazovky je vyžadováno odemčení</translation>
     </message>
 </context>
 <context>
@@ -2926,19 +2941,19 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky upravovat operační frekvenci procesoru v závislosti na jeho vytížení</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Agresivně upravovat operační frekvenci procesoru v závislosti na jeho vytížení</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"/>
+        <translation>Zlepší výkon, ale zvýší se spotřeba energie a vytváření tepla</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Procesor vždy funguje na nízké frekvenci – sníží spotřebu energie</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -2993,62 +3008,62 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Oblast a formáty</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Oblast</translation>
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Formát</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Poskytuje lokalizované služby podle toho, kde se nacházíte.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte odpovídající formáty data a času dle jazyka a oblasti</translation>
     </message>
     <message>
         <source>Languange and region</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk a oblast</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>První den týdne</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát data</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát data</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Krátký formát času</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Dlouhý formát času</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol měny</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Čísla</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papír</translation>
     </message>
     <message>
-        <source>custom format</source>
+        <source>Custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3198,11 +3213,11 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Automatické pozastavení</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Zda má být zvuk automaticky pozastavován při odpojení stávajícího zvukového zařízení</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3620,15 +3635,15 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>linglong update</source>
-        <translation type="unfinished"/>
+        <translation>linglong aktualizace</translation>
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace Linglong balíčku</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
-        <translation type="unfinished"/>
+        <translation>Pokud existuje aktualizace pro linglong balíček, systém ho pro vás zaktualizuje</translation>
     </message>
     <message>
         <source>Other settings</source>
@@ -3668,7 +3683,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Připojte se ke vnitřnímu zkušebnímu kanálu a získejte nejnovější aktualizace Deepinu</translation>
     </message>
     <message>
         <source>System Updates</source>

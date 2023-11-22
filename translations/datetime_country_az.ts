@@ -1,1225 +1,1225 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="az" version="2.1">
 <context>
     <name>dcc::datetime::Country</name>
     <message>
         <source>Bermuda</source>
-        <translation type="unfinished"/>
+        <translation>Bermud</translation>
     </message>
     <message>
         <source>Canada</source>
-        <translation type="unfinished"/>
+        <translation>Kanada</translation>
     </message>
     <message>
         <source>Greenland</source>
-        <translation type="unfinished"/>
+        <translation>Qrenlandiya</translation>
     </message>
     <message>
         <source>St. Pierre </source>
-        <translation type="unfinished"/>
+        <translation>M. Pierre </translation>
     </message>
     <message>
         <source>United States</source>
-        <translation type="unfinished"/>
+        <translation>Birləşmiş Ştatlar</translation>
     </message>
     <message>
         <source>US</source>
-        <translation type="unfinished"/>
+        <translation>BŞ</translation>
     </message>
     <message>
         <source>Belize</source>
-        <translation type="unfinished"/>
+        <translation>Beliz</translation>
     </message>
     <message>
         <source>Costa Rica</source>
-        <translation type="unfinished"/>
+        <translation>Kosta-Rika</translation>
     </message>
     <message>
         <source>Guatemala</source>
-        <translation type="unfinished"/>
+        <translation>Qvatemala</translation>
     </message>
     <message>
         <source>Honduras</source>
-        <translation type="unfinished"/>
+        <translation>Honduras</translation>
     </message>
     <message>
         <source>Mexico</source>
-        <translation type="unfinished"/>
+        <translation>Meksika</translation>
     </message>
     <message>
         <source>Nicaragua</source>
-        <translation type="unfinished"/>
+        <translation>Nikaraqua</translation>
     </message>
     <message>
         <source>Panama</source>
-        <translation type="unfinished"/>
+        <translation>Panama</translation>
     </message>
     <message>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>El Salvador</translation>
     </message>
     <message>
         <source>Antigua </source>
-        <translation type="unfinished"/>
+        <translation>Antiqva</translation>
     </message>
     <message>
         <source>Anguilla</source>
-        <translation type="unfinished"/>
+        <translation>Anquliya</translation>
     </message>
     <message>
         <source>Aruba</source>
-        <translation type="unfinished"/>
+        <translation>Aruba</translation>
     </message>
     <message>
         <source>Barbados</source>
-        <translation type="unfinished"/>
+        <translation>Barbados</translation>
     </message>
     <message>
         <source>St. Barthélemy</source>
-        <translation type="unfinished"/>
+        <translation>M. Bartalamey</translation>
     </message>
     <message>
         <source>Caribbean Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>Karib Hollandiyası</translation>
     </message>
     <message>
         <source>Bahamas</source>
-        <translation type="unfinished"/>
+        <translation>Baham adaları</translation>
     </message>
     <message>
         <source>Cuba</source>
-        <translation type="unfinished"/>
+        <translation>Kuba</translation>
     </message>
     <message>
         <source>Curaçao</source>
-        <translation type="unfinished"/>
+        <translation>Kuraçao</translation>
     </message>
     <message>
         <source>Dominica</source>
-        <translation type="unfinished"/>
+        <translation>Dominik</translation>
     </message>
     <message>
         <source>Dominican Republic</source>
-        <translation type="unfinished"/>
+        <translation>Dominik Respublikası</translation>
     </message>
     <message>
         <source>Grenada</source>
-        <translation type="unfinished"/>
+        <translation>Qrenada</translation>
     </message>
     <message>
         <source>Guadeloupe</source>
-        <translation type="unfinished"/>
+        <translation>Qvadelupa</translation>
     </message>
     <message>
         <source>Haiti</source>
-        <translation type="unfinished"/>
+        <translation>Haiti</translation>
     </message>
     <message>
         <source>Jamaica</source>
-        <translation type="unfinished"/>
+        <translation>Yamayka</translation>
     </message>
     <message>
         <source>St. Kitts </source>
-        <translation type="unfinished"/>
+        <translation>M Kitts</translation>
     </message>
     <message>
         <source>Cayman Islands</source>
-        <translation type="unfinished"/>
+        <translation>Kayman adaları</translation>
     </message>
     <message>
         <source>St. Lucia</source>
-        <translation type="unfinished"/>
+        <translation>M. Lusiya</translation>
     </message>
     <message>
         <source>St. Martin</source>
-        <translation type="unfinished"/>
+        <translation>M. Martin</translation>
     </message>
     <message>
         <source>Martinique</source>
-        <translation type="unfinished"/>
+        <translation>Martinika</translation>
     </message>
     <message>
         <source>Montserrat</source>
-        <translation type="unfinished"/>
+        <translation>Montserrat</translation>
     </message>
     <message>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>Puerto Ricko</translation>
     </message>
     <message>
         <source>Sint Maarten</source>
-        <translation type="unfinished"/>
+        <translation>Sint Marten</translation>
     </message>
     <message>
         <source>Turks </source>
-        <translation type="unfinished"/>
+        <translation>Törks</translation>
     </message>
     <message>
         <source>Trinidad </source>
-        <translation type="unfinished"/>
+        <translation>Trinidad </translation>
     </message>
     <message>
         <source>St. Vincent </source>
-        <translation type="unfinished"/>
+        <translation>M. Vinsent</translation>
     </message>
     <message>
         <source>British Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>Britaniya Virgin adaları</translation>
     </message>
     <message>
         <source>U.S. Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>B.Ş. Virgin adaları</translation>
     </message>
     <message>
         <source>Argentina</source>
-        <translation type="unfinished"/>
+        <translation>Argentina</translation>
     </message>
     <message>
         <source>Bolivia</source>
-        <translation type="unfinished"/>
+        <translation>Boliviya</translation>
     </message>
     <message>
         <source>Brazil</source>
-        <translation type="unfinished"/>
+        <translation>Braziliya</translation>
     </message>
     <message>
         <source>Bouvet Island</source>
-        <translation type="unfinished"/>
+        <translation>Bovet adaları</translation>
     </message>
     <message>
         <source>Chile</source>
-        <translation type="unfinished"/>
+        <translation>Çili</translation>
     </message>
     <message>
         <source>Colombia</source>
-        <translation type="unfinished"/>
+        <translation>Kolumbiya</translation>
     </message>
     <message>
         <source>Ecuador</source>
-        <translation type="unfinished"/>
+        <translation>Ekvador</translation>
     </message>
     <message>
         <source>Falkland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Folkland adaları</translation>
     </message>
     <message>
         <source>Falkland Islands (Islas Malvinas)</source>
-        <translation type="unfinished"/>
+        <translation>Folkland adaları (Malvinadaları)</translation>
     </message>
     <message>
         <source>French Guiana</source>
-        <translation type="unfinished"/>
+        <translation>Fransa Qvineyası</translation>
     </message>
     <message>
         <source>South Georgia </source>
-        <translation type="unfinished"/>
+        <translation>Cənubi Corciya</translation>
     </message>
     <message>
         <source>Guyana</source>
-        <translation type="unfinished"/>
+        <translation>Quyana</translation>
     </message>
     <message>
         <source>Peru</source>
-        <translation type="unfinished"/>
+        <translation>Peru</translation>
     </message>
     <message>
         <source>Paraguay</source>
-        <translation type="unfinished"/>
+        <translation>Paraqvay</translation>
     </message>
     <message>
         <source>Suriname</source>
-        <translation type="unfinished"/>
+        <translation>Surinam</translation>
     </message>
     <message>
         <source>Uruguay</source>
-        <translation type="unfinished"/>
+        <translation>Uruqvay</translation>
     </message>
     <message>
         <source>Venezuela</source>
-        <translation type="unfinished"/>
+        <translation>Venesuela</translation>
     </message>
     <message>
         <source>Algeria</source>
-        <translation type="unfinished"/>
+        <translation>Əlcəzair</translation>
     </message>
     <message>
         <source>Egypt</source>
-        <translation type="unfinished"/>
+        <translation>Misir</translation>
     </message>
     <message>
         <source>Western Sahara</source>
-        <translation type="unfinished"/>
+        <translation>Qərbi Saxara</translation>
     </message>
     <message>
         <source>Libya</source>
-        <translation type="unfinished"/>
+        <translation>Liviya</translation>
     </message>
     <message>
         <source>Morocco</source>
-        <translation type="unfinished"/>
+        <translation>Mərakeş</translation>
     </message>
     <message>
         <source>Sudan</source>
-        <translation type="unfinished"/>
+        <translation>Sudan</translation>
     </message>
     <message>
         <source>Tunisia</source>
-        <translation type="unfinished"/>
+        <translation>Tunis</translation>
     </message>
     <message>
         <source>Ceuta </source>
-        <translation type="unfinished"/>
+        <translation>Seuta </translation>
     </message>
     <message>
         <source>Canary Islands</source>
-        <translation type="unfinished"/>
+        <translation>Kanar adaları</translation>
     </message>
     <message>
         <source>Burkina Faso</source>
-        <translation type="unfinished"/>
+        <translation>Burkino Faso</translation>
     </message>
     <message>
         <source>Benin</source>
-        <translation type="unfinished"/>
+        <translation>Benin</translation>
     </message>
     <message>
         <source>Côte d’Ivoire</source>
-        <translation type="unfinished"/>
+        <translation>Kot-d&apos;İivuar</translation>
     </message>
     <message>
         <source>Ivory Coast</source>
-        <translation type="unfinished"/>
+        <translation>Ivory Koast</translation>
     </message>
     <message>
         <source>Cape Verde</source>
-        <translation type="unfinished"/>
+        <translation>Kape-Verde</translation>
     </message>
     <message>
         <source>Ghana</source>
-        <translation type="unfinished"/>
+        <translation>Qana</translation>
     </message>
     <message>
         <source>Gambia</source>
-        <translation type="unfinished"/>
+        <translation>Qambiya</translation>
     </message>
     <message>
         <source>Guinea</source>
-        <translation type="unfinished"/>
+        <translation>Qvineya</translation>
     </message>
     <message>
         <source>Guinea-Bissau</source>
-        <translation type="unfinished"/>
+        <translation>Qvineya-Bisau</translation>
     </message>
     <message>
         <source>Liberia</source>
-        <translation type="unfinished"/>
+        <translation>Liberiya</translation>
     </message>
     <message>
         <source>Mali</source>
-        <translation type="unfinished"/>
+        <translation>Mali</translation>
     </message>
     <message>
         <source>Mauritania</source>
-        <translation type="unfinished"/>
+        <translation>Mavritaniya</translation>
     </message>
     <message>
         <source>Niger</source>
-        <translation type="unfinished"/>
+        <translation>Niger</translation>
     </message>
     <message>
         <source>Nigeria</source>
-        <translation type="unfinished"/>
+        <translation>Nigeriya</translation>
     </message>
     <message>
         <source>St. Helena</source>
-        <translation type="unfinished"/>
+        <translation>M. Elena</translation>
     </message>
     <message>
         <source>Sierra Leone</source>
-        <translation type="unfinished"/>
+        <translation>Sierra-Leone</translation>
     </message>
     <message>
         <source>Senegal</source>
-        <translation type="unfinished"/>
+        <translation>Seneqal</translation>
     </message>
     <message>
         <source>Togo</source>
-        <translation type="unfinished"/>
+        <translation>Toqo</translation>
     </message>
     <message>
         <source>Angola</source>
-        <translation type="unfinished"/>
+        <translation>Anqola</translation>
     </message>
     <message>
         <source>Congo - Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>konqo - Kinşasa</translation>
     </message>
     <message>
         <source>Congo (DRC)</source>
-        <translation type="unfinished"/>
+        <translation>Kongo (KDR)</translation>
     </message>
     <message>
         <source>Central African Republic</source>
-        <translation type="unfinished"/>
+        <translation>Mərkəzi Afrika Respublikası</translation>
     </message>
     <message>
         <source>Congo - Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>Kongo - Brazzavil</translation>
     </message>
     <message>
         <source>Congo (Republic)</source>
-        <translation type="unfinished"/>
+        <translation>Konqo (Respublika)</translation>
     </message>
     <message>
         <source>Cameroon</source>
-        <translation type="unfinished"/>
+        <translation>Kamerum</translation>
     </message>
     <message>
         <source>Gabon</source>
-        <translation type="unfinished"/>
+        <translation>Qabon</translation>
     </message>
     <message>
         <source>Equatorial Guinea</source>
-        <translation type="unfinished"/>
+        <translation>Ekvatorial Qvineya</translation>
     </message>
     <message>
         <source>São Tomé </source>
-        <translation type="unfinished"/>
+        <translation>Sao-Tome </translation>
     </message>
     <message>
         <source>Chad</source>
-        <translation type="unfinished"/>
+        <translation>Çad</translation>
     </message>
     <message>
         <source>Burundi</source>
-        <translation type="unfinished"/>
+        <translation>Burundi</translation>
     </message>
     <message>
         <source>Djibouti</source>
-        <translation type="unfinished"/>
+        <translation>Cibuti</translation>
     </message>
     <message>
         <source>Eritrea</source>
-        <translation type="unfinished"/>
+        <translation>Eritreya</translation>
     </message>
     <message>
         <source>Ethiopia</source>
-        <translation type="unfinished"/>
+        <translation>Efiopiya</translation>
     </message>
     <message>
         <source>British Indian Ocean Territory</source>
-        <translation type="unfinished"/>
+        <translation>Britaniya Hind Okeanı Ərazisi</translation>
     </message>
     <message>
         <source>Kenya</source>
-        <translation type="unfinished"/>
+        <translation>Keniya</translation>
     </message>
     <message>
         <source>Comoros</source>
-        <translation type="unfinished"/>
+        <translation>Komor adaları</translation>
     </message>
     <message>
         <source>Madagascar</source>
-        <translation type="unfinished"/>
+        <translation>Madaqasqar</translation>
     </message>
     <message>
         <source>Mauritius</source>
-        <translation type="unfinished"/>
+        <translation>Mavriki</translation>
     </message>
     <message>
         <source>Malawi</source>
-        <translation type="unfinished"/>
+        <translation>Malavi</translation>
     </message>
     <message>
         <source>Mozambique</source>
-        <translation type="unfinished"/>
+        <translation>Mozambik</translation>
     </message>
     <message>
         <source>Réunion</source>
-        <translation type="unfinished"/>
+        <translation>Reyunyon</translation>
     </message>
     <message>
         <source>Rwanda</source>
-        <translation type="unfinished"/>
+        <translation>Ruanda</translation>
     </message>
     <message>
         <source>Seychelles</source>
-        <translation type="unfinished"/>
+        <translation>Seyşel</translation>
     </message>
     <message>
         <source>Somalia</source>
-        <translation type="unfinished"/>
+        <translation>Somali</translation>
     </message>
     <message>
         <source>South Sudan</source>
-        <translation type="unfinished"/>
+        <translation>Cənubi Sudan</translation>
     </message>
     <message>
         <source>French Southern Territories</source>
-        <translation type="unfinished"/>
+        <translation>Fransız Cənub Ərazisi</translation>
     </message>
     <message>
         <source>Tanzania</source>
-        <translation type="unfinished"/>
+        <translation>Tanzaniya</translation>
     </message>
     <message>
         <source>Uganda</source>
-        <translation type="unfinished"/>
+        <translation>Uqanda</translation>
     </message>
     <message>
         <source>Mayotte</source>
-        <translation type="unfinished"/>
+        <translation>Mayotte</translation>
     </message>
     <message>
         <source>Zambia</source>
-        <translation type="unfinished"/>
+        <translation>Zambiya</translation>
     </message>
     <message>
         <source>Zimbabwe</source>
-        <translation type="unfinished"/>
+        <translation>Zimbabve</translation>
     </message>
     <message>
         <source>Botswana</source>
-        <translation type="unfinished"/>
+        <translation>Botsvana</translation>
     </message>
     <message>
         <source>Lesotho</source>
-        <translation type="unfinished"/>
+        <translation>Lesoto</translation>
     </message>
     <message>
         <source>Namibia</source>
-        <translation type="unfinished"/>
+        <translation>Namibiya</translation>
     </message>
     <message>
         <source>Eswatini</source>
-        <translation type="unfinished"/>
+        <translation>Esvatini</translation>
     </message>
     <message>
         <source>South Africa</source>
-        <translation type="unfinished"/>
+        <translation>Cənibi Afrika</translation>
     </message>
     <message>
         <source>Guernsey</source>
-        <translation type="unfinished"/>
+        <translation>Guernsey</translation>
     </message>
     <message>
         <source>Isle of Man</source>
-        <translation type="unfinished"/>
+        <translation>Mən adası</translation>
     </message>
     <message>
         <source>Jersey</source>
-        <translation type="unfinished"/>
+        <translation>Cersi</translation>
     </message>
     <message>
         <source>Åland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Aland adaları</translation>
     </message>
     <message>
         <source>Denmark</source>
-        <translation type="unfinished"/>
+        <translation>Danimarka</translation>
     </message>
     <message>
         <source>Estonia</source>
-        <translation type="unfinished"/>
+        <translation>Estoniya</translation>
     </message>
     <message>
         <source>Finland</source>
-        <translation type="unfinished"/>
+        <translation>Finlandiya</translation>
     </message>
     <message>
         <source>Faroe Islands</source>
-        <translation type="unfinished"/>
+        <translation>Farer adaları</translation>
     </message>
     <message>
         <source>United Kingdom</source>
-        <translation type="unfinished"/>
+        <translation>Birləşmiş Krallıq</translation>
     </message>
     <message>
         <source>UK</source>
-        <translation type="unfinished"/>
+        <translation>BK</translation>
     </message>
     <message>
         <source>England</source>
-        <translation type="unfinished"/>
+        <translation>İngiltərə</translation>
     </message>
     <message>
         <source>Scotland</source>
-        <translation type="unfinished"/>
+        <translation>Şotlandiya</translation>
     </message>
     <message>
         <source>Wales</source>
-        <translation type="unfinished"/>
+        <translation>Uels</translation>
     </message>
     <message>
         <source>Ireland</source>
-        <translation type="unfinished"/>
+        <translation>İrlandiya</translation>
     </message>
     <message>
         <source>Iceland</source>
-        <translation type="unfinished"/>
+        <translation>İslandiya</translation>
     </message>
     <message>
         <source>Lithuania</source>
-        <translation type="unfinished"/>
+        <translation>Litva</translation>
     </message>
     <message>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Latviya</translation>
     </message>
     <message>
         <source>Norway</source>
-        <translation type="unfinished"/>
+        <translation>Norveç</translation>
     </message>
     <message>
         <source>Sweden</source>
-        <translation type="unfinished"/>
+        <translation>İsveçrə</translation>
     </message>
     <message>
         <source>Svalbard </source>
-        <translation type="unfinished"/>
+        <translation>Svalbard </translation>
     </message>
     <message>
         <source>Austria</source>
-        <translation type="unfinished"/>
+        <translation>Avstriya</translation>
     </message>
     <message>
         <source>Belgium</source>
-        <translation type="unfinished"/>
+        <translation>Belçika</translation>
     </message>
     <message>
         <source>Switzerland</source>
-        <translation type="unfinished"/>
+        <translation>İsveçrə</translation>
     </message>
     <message>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Almaniya</translation>
     </message>
     <message>
         <source>France</source>
-        <translation type="unfinished"/>
+        <translation>Fransa</translation>
     </message>
     <message>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>Lixtenşteyn</translation>
     </message>
     <message>
         <source>Luxembourg</source>
-        <translation type="unfinished"/>
+        <translation>Lüksemburq</translation>
     </message>
     <message>
         <source>Monaco</source>
-        <translation type="unfinished"/>
+        <translation>Manako</translation>
     </message>
     <message>
         <source>Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>Niderland</translation>
     </message>
     <message>
         <source>Bulgaria</source>
-        <translation type="unfinished"/>
+        <translation>Bolqarıstan</translation>
     </message>
     <message>
         <source>Belarus</source>
-        <translation type="unfinished"/>
+        <translation>Belarusiya</translation>
     </message>
     <message>
         <source>Czechia</source>
-        <translation type="unfinished"/>
+        <translation>Çexiya</translation>
     </message>
     <message>
         <source>Czech Republic</source>
-        <translation type="unfinished"/>
+        <translation>Çex Respublikası</translation>
     </message>
     <message>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>Macarıstan</translation>
     </message>
     <message>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>Moldaviya</translation>
     </message>
     <message>
         <source>Poland</source>
-        <translation type="unfinished"/>
+        <translation>Polşa</translation>
     </message>
     <message>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>Rumıniya</translation>
     </message>
     <message>
         <source>Russia</source>
-        <translation type="unfinished"/>
+        <translation>Rusiya</translation>
     </message>
     <message>
         <source>Slovakia</source>
-        <translation type="unfinished"/>
+        <translation>Slovakiya</translation>
     </message>
     <message>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>Ukrayna</translation>
     </message>
     <message>
         <source>Andorra</source>
-        <translation type="unfinished"/>
+        <translation>Andorra</translation>
     </message>
     <message>
         <source>Albania</source>
-        <translation type="unfinished"/>
+        <translation>Albaniya</translation>
     </message>
     <message>
         <source>Bosnia </source>
-        <translation type="unfinished"/>
+        <translation>Bosniya</translation>
     </message>
     <message>
         <source>Spain</source>
-        <translation type="unfinished"/>
+        <translation>İspaniya</translation>
     </message>
     <message>
         <source>Gibraltar</source>
-        <translation type="unfinished"/>
+        <translation>Qibraltar</translation>
     </message>
     <message>
         <source>Greece</source>
-        <translation type="unfinished"/>
+        <translation>Yunanıstan</translation>
     </message>
     <message>
         <source>Croatia</source>
-        <translation type="unfinished"/>
+        <translation>Xorvatiya</translation>
     </message>
     <message>
         <source>Italy</source>
-        <translation type="unfinished"/>
+        <translation>İtaliya</translation>
     </message>
     <message>
         <source>Montenegro</source>
-        <translation type="unfinished"/>
+        <translation>Monteneqro</translation>
     </message>
     <message>
         <source>North Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>Şimali Makedoniya</translation>
     </message>
     <message>
         <source>Malta</source>
-        <translation type="unfinished"/>
+        <translation>Malta</translation>
     </message>
     <message>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Serbiya</translation>
     </message>
     <message>
         <source>Portugal</source>
-        <translation type="unfinished"/>
+        <translation>Portuqaliya</translation>
     </message>
     <message>
         <source>Slovenia</source>
-        <translation type="unfinished"/>
+        <translation>Sloveniya</translation>
     </message>
     <message>
         <source>San Marino</source>
-        <translation type="unfinished"/>
+        <translation>San Marino</translation>
     </message>
     <message>
         <source>Vatican City</source>
-        <translation type="unfinished"/>
+        <translation>Vatikan şəhəri</translation>
     </message>
     <message>
         <source>Kosovo</source>
-        <translation type="unfinished"/>
+        <translation>Kosova</translation>
     </message>
     <message>
         <source>United Arab Emirates</source>
-        <translation type="unfinished"/>
+        <translation>Birləşmiş Ərəb Əmirlikləri</translation>
     </message>
     <message>
         <source>Armenia</source>
-        <translation type="unfinished"/>
+        <translation>Ermənistan</translation>
     </message>
     <message>
         <source>Azerbaijan</source>
-        <translation type="unfinished"/>
+        <translation>Azərbaycan</translation>
     </message>
     <message>
         <source>Bahrain</source>
-        <translation type="unfinished"/>
+        <translation>Bəhreyn</translation>
     </message>
     <message>
         <source>Cyprus</source>
-        <translation type="unfinished"/>
+        <translation>Kipr</translation>
     </message>
     <message>
         <source>Georgia</source>
-        <translation type="unfinished"/>
+        <translation>Gürcüstan</translation>
     </message>
     <message>
         <source>Israel</source>
-        <translation type="unfinished"/>
+        <translation>İsrail</translation>
     </message>
     <message>
         <source>Iraq</source>
-        <translation type="unfinished"/>
+        <translation>İraq</translation>
     </message>
     <message>
         <source>Jordan</source>
-        <translation type="unfinished"/>
+        <translation>İordaniya</translation>
     </message>
     <message>
         <source>Kuwait</source>
-        <translation type="unfinished"/>
+        <translation>Küveyt</translation>
     </message>
     <message>
         <source>Lebanon</source>
-        <translation type="unfinished"/>
+        <translation>Livan</translation>
     </message>
     <message>
         <source>Oman</source>
-        <translation type="unfinished"/>
+        <translation>Oman</translation>
     </message>
     <message>
         <source>Palestinian Territories</source>
-        <translation type="unfinished"/>
+        <translation>Fələstin ərazisi</translation>
     </message>
     <message>
         <source>Palestine</source>
-        <translation type="unfinished"/>
+        <translation>Fələstin</translation>
     </message>
     <message>
         <source>Qatar</source>
-        <translation type="unfinished"/>
+        <translation>Qatar</translation>
     </message>
     <message>
         <source>Saudi Arabia</source>
-        <translation type="unfinished"/>
+        <translation>Səudiyə Ərəbistanı</translation>
     </message>
     <message>
         <source>Syria</source>
-        <translation type="unfinished"/>
+        <translation>Suriya</translation>
     </message>
     <message>
         <source>Turkey</source>
-        <translation type="unfinished"/>
+        <translation>Türkiyə</translation>
     </message>
     <message>
         <source>Yemen</source>
-        <translation type="unfinished"/>
+        <translation>Yəmən</translation>
     </message>
     <message>
         <source>Turkmenistan</source>
-        <translation type="unfinished"/>
+        <translation>Türmənistan</translation>
     </message>
     <message>
         <source>Tajikistan</source>
-        <translation type="unfinished"/>
+        <translation>Tacikistan</translation>
     </message>
     <message>
         <source>Kyrgyzstan</source>
-        <translation type="unfinished"/>
+        <translation>Qırğızıstan</translation>
     </message>
     <message>
         <source>Kazakhstan</source>
-        <translation type="unfinished"/>
+        <translation>Qazağıstan</translation>
     </message>
     <message>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>Özbəkistan</translation>
     </message>
     <message>
         <source>China</source>
-        <translation type="unfinished"/>
+        <translation>Çin</translation>
     </message>
     <message>
         <source>Hong Kong SAR China</source>
-        <translation type="unfinished"/>
+        <translation>Honq-Konq (Çin Xüsusi İnzibati Bölgəsi)</translation>
     </message>
     <message>
         <source>Hong Kong</source>
-        <translation type="unfinished"/>
+        <translation>Honq-Konq</translation>
     </message>
     <message>
         <source>Japan</source>
-        <translation type="unfinished"/>
+        <translation>Yaponiya</translation>
     </message>
     <message>
         <source>North Korea</source>
-        <translation type="unfinished"/>
+        <translation>Şimali Koreya</translation>
     </message>
     <message>
         <source>South Korea</source>
-        <translation type="unfinished"/>
+        <translation>Cənubi Koreya</translation>
     </message>
     <message>
         <source>Mongolia</source>
-        <translation type="unfinished"/>
+        <translation>Monqolustan</translation>
     </message>
     <message>
         <source>Macao SAR China</source>
-        <translation type="unfinished"/>
+        <translation>Makao (Çin Xüsusi İnzibati Bölgəsi)</translation>
     </message>
     <message>
         <source>Macao</source>
-        <translation type="unfinished"/>
+        <translation>Makao</translation>
     </message>
     <message>
         <source>Taiwan</source>
-        <translation type="unfinished"/>
+        <translation>Tayvan</translation>
     </message>
     <message>
         <source>Afghanistan</source>
-        <translation type="unfinished"/>
+        <translation>Əfqanıstan</translation>
     </message>
     <message>
         <source>Bangladesh</source>
-        <translation type="unfinished"/>
+        <translation>Banqladeş</translation>
     </message>
     <message>
         <source>Bhutan</source>
-        <translation type="unfinished"/>
+        <translation>Butan</translation>
     </message>
     <message>
         <source>India</source>
-        <translation type="unfinished"/>
+        <translation>Hindistan</translation>
     </message>
     <message>
         <source>Iran</source>
-        <translation type="unfinished"/>
+        <translation>İran</translation>
     </message>
     <message>
         <source>Sri Lanka</source>
-        <translation type="unfinished"/>
+        <translation>Şri-Lanka</translation>
     </message>
     <message>
         <source>Maldives</source>
-        <translation type="unfinished"/>
+        <translation>Maldiv adaları</translation>
     </message>
     <message>
         <source>Nepal</source>
-        <translation type="unfinished"/>
+        <translation>Nepal</translation>
     </message>
     <message>
         <source>Pakistan</source>
-        <translation type="unfinished"/>
+        <translation>Pakistan</translation>
     </message>
     <message>
         <source>Brunei</source>
-        <translation type="unfinished"/>
+        <translation>Bruney</translation>
     </message>
     <message>
         <source>Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>İndoneziya</translation>
     </message>
     <message>
         <source>Cambodia</source>
-        <translation type="unfinished"/>
+        <translation>Kamboca</translation>
     </message>
     <message>
         <source>Laos</source>
-        <translation type="unfinished"/>
+        <translation>Laos</translation>
     </message>
     <message>
         <source>Myanmar (Burma)</source>
-        <translation type="unfinished"/>
+        <translation>Myanmar (Birma)</translation>
     </message>
     <message>
         <source>Malaysia</source>
-        <translation type="unfinished"/>
+        <translation>Malayziya</translation>
     </message>
     <message>
         <source>Philippines</source>
-        <translation type="unfinished"/>
+        <translation>Filippin</translation>
     </message>
     <message>
         <source>Singapore</source>
-        <translation type="unfinished"/>
+        <translation>Sinqapur</translation>
     </message>
     <message>
         <source>Thailand</source>
-        <translation type="unfinished"/>
+        <translation>Tailand</translation>
     </message>
     <message>
         <source>Timor-Leste</source>
-        <translation type="unfinished"/>
+        <translation>Timur-Leste</translation>
     </message>
     <message>
         <source>Vietnam</source>
-        <translation type="unfinished"/>
+        <translation>Vyetnam</translation>
     </message>
     <message>
         <source>Australia</source>
-        <translation type="unfinished"/>
+        <translation>Avstraliya</translation>
     </message>
     <message>
         <source>Cocos (Keeling) Islands</source>
-        <translation type="unfinished"/>
+        <translation>Kokos (Kiilinq) adaları</translation>
     </message>
     <message>
         <source>Christmas Island</source>
-        <translation type="unfinished"/>
+        <translation>Kristmas adaları</translation>
     </message>
     <message>
         <source>Heard </source>
-        <translation type="unfinished"/>
+        <translation>Herd </translation>
     </message>
     <message>
         <source>Norfolk Island</source>
-        <translation type="unfinished"/>
+        <translation>Norfolk adası</translation>
     </message>
     <message>
         <source>New Zealand</source>
-        <translation type="unfinished"/>
+        <translation>Yeni Zelandiya</translation>
     </message>
     <message>
         <source>Fiji</source>
-        <translation type="unfinished"/>
+        <translation>Fici</translation>
     </message>
     <message>
         <source>New Caledonia</source>
-        <translation type="unfinished"/>
+        <translation>Yeni Kaledoniya</translation>
     </message>
     <message>
         <source>Papua New Guinea</source>
-        <translation type="unfinished"/>
+        <translation>Papua Yeni Qvineya</translation>
     </message>
     <message>
         <source>Solomon Islands</source>
-        <translation type="unfinished"/>
+        <translation>Solomon adaları</translation>
     </message>
     <message>
         <source>Vanuatu</source>
-        <translation type="unfinished"/>
+        <translation>Vanuatu</translation>
     </message>
     <message>
         <source>Micronesia</source>
-        <translation type="unfinished"/>
+        <translation>Mikroneziya</translation>
     </message>
     <message>
         <source>Guam</source>
-        <translation type="unfinished"/>
+        <translation>Quam</translation>
     </message>
     <message>
         <source>Kiribati</source>
-        <translation type="unfinished"/>
+        <translation>Kiribati</translation>
     </message>
     <message>
         <source>Marshall Islands</source>
-        <translation type="unfinished"/>
+        <translation>Marşal adaları</translation>
     </message>
     <message>
         <source>Northern Mariana Islands</source>
-        <translation type="unfinished"/>
+        <translation>Şimali Mariana adaları</translation>
     </message>
     <message>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>Nauru</translation>
     </message>
     <message>
         <source>Palau</source>
-        <translation type="unfinished"/>
+        <translation>Palau</translation>
     </message>
     <message>
         <source>U.S. Outlying Islands</source>
-        <translation type="unfinished"/>
+        <translation>B.Ş. Outlayinq adaları</translation>
     </message>
     <message>
         <source>American Samoa</source>
-        <translation type="unfinished"/>
+        <translation>Amerika Samoası</translation>
     </message>
     <message>
         <source>Cook Islands</source>
-        <translation type="unfinished"/>
+        <translation>Kuk adaları</translation>
     </message>
     <message>
         <source>Niue</source>
-        <translation type="unfinished"/>
+        <translation>Niue</translation>
     </message>
     <message>
         <source>French Polynesia</source>
-        <translation type="unfinished"/>
+        <translation>Fransız Polineziyası</translation>
     </message>
     <message>
         <source>Pitcairn Islands</source>
-        <translation type="unfinished"/>
+        <translation>Pitkarn adaları</translation>
     </message>
     <message>
         <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <translation>Tokelau</translation>
     </message>
     <message>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>Tonqa</translation>
     </message>
     <message>
         <source>Tuvalu</source>
-        <translation type="unfinished"/>
+        <translation>Tuvalu</translation>
     </message>
     <message>
-        <source>Wallis </source>
-        <translation type="unfinished"/>
+        <source>Wallis</source>
+        <translation>Uollis</translation>
     </message>
     <message>
         <source>Samoa</source>
-        <translation type="unfinished"/>
+        <translation>Samoa</translation>
     </message>
     <message>
         <source>Antarctica</source>
-        <translation type="unfinished"/>
+        <translation>Antarktika</translation>
     </message>
     <message>
         <source>Ascension Island</source>
-        <translation type="unfinished"/>
+        <translation>Yüksəliş adası</translation>
     </message>
     <message>
         <source>Clipperton Island</source>
-        <translation type="unfinished"/>
+        <translation>Klipperton adası</translation>
     </message>
     <message>
         <source>Diego Garcia</source>
-        <translation type="unfinished"/>
+        <translation>Dieqo Qarsiya</translation>
     </message>
     <message>
         <source>Tristan da Cunha</source>
-        <translation type="unfinished"/>
+        <translation>Tristan-da-Kunya</translation>
     </message>
     <message>
         <source>Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>Makedoniya</translation>
     </message>
     <message>
-        <source> World</source>
-        <translation type="unfinished"/>
+        <source>World</source>
+        <translation>Dünya</translation>
     </message>
     <message>
-        <source> Myanmar</source>
-        <translation type="unfinished"/>
+        <source>Myanmar</source>
+        <translation>Myanmar</translation>
     </message>
     <message>
-        <source> Macau</source>
-        <translation type="unfinished"/>
+        <source>Macau</source>
+        <translation>Makau</translation>
     </message>
     <message>
-        <source> Bosnia And Herzegowina</source>
-        <translation type="unfinished"/>
+        <source>Bosnia And Herzegowina</source>
+        <translation>Bosniya və Hersoqovina</translation>
     </message>
     <message>
-        <source> Cura Sao</source>
-        <translation type="unfinished"/>
+        <source>Cura Sao</source>
+        <translation>Kuraçao</translation>
     </message>
     <message>
         <source>Bonaire</source>
-        <translation type="unfinished"/>
+        <translation>Bonayre</translation>
     </message>
     <message>
         <source>Antigua And Barbuda</source>
-        <translation type="unfinished"/>
+        <translation>Antiqva və Barbuda</translation>
     </message>
     <message>
         <source>Cocos Islands</source>
-        <translation type="unfinished"/>
+        <translation>Kokos adaları</translation>
     </message>
     <message>
-        <source> Pitcairn</source>
-        <translation type="unfinished"/>
+        <source>Pitcairn</source>
+        <translation>Pitkern</translation>
     </message>
     <message>
         <source>Saint Kitts And Nevis</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Kitts və Nevis</translation>
     </message>
     <message>
         <source>Saint Lucia</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Lusiya</translation>
     </message>
     <message>
         <source>Saint Vincent And The Grenadines</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Vinsent və Qrenadina</translation>
     </message>
     <message>
         <source>Saint Helena</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Yelena</translation>
     </message>
     <message>
         <source>Swaziland</source>
-        <translation type="unfinished"/>
+        <translation>Svaziland</translation>
     </message>
     <message>
-        <source> Trinidad And Tobago</source>
-        <translation type="unfinished"/>
+        <source>Trinidad And Tobago</source>
+        <translation>Trinidad və Tabaqo</translation>
     </message>
     <message>
         <source>Turks And Caicos Islands</source>
-        <translation type="unfinished"/>
+        <translation>Törks və Kaykos adaları</translation>
     </message>
     <message>
-        <source> United States Minor Outlying Islands</source>
-        <translation type="unfinished"/>
+        <source>United States Minor Outlying Islands</source>
+        <translation>Birləşmiş Ştatlar Xırda Outlayinq adaları</translation>
     </message>
     <message>
-        <source> United States Virgin Islands</source>
-        <translation type="unfinished"/>
+        <source>United States Virgin Islands</source>
+        <translation>Birləşmiş Ştatlar Virgin adaları</translation>
     </message>
     <message>
-        <source> Isle Of Man</source>
-        <translation type="unfinished"/>
+        <source>Isle Of Man</source>
+        <translation>Mən adası</translation>
     </message>
     <message>
-        <source> Europe</source>
-        <translation type="unfinished"/>
+        <source>Europe</source>
+        <translation>Avropa</translation>
     </message>
     <message>
         <source>Congo Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>Konqo Kinşasa</translation>
     </message>
     <message>
         <source>Congo Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>Konqo Brazzavil</translation>
     </message>
     <message>
-        <source> Reunion</source>
-        <translation type="unfinished"/>
+        <source>Reunion</source>
+        <translation>Reyunyon</translation>
     </message>
     <message>
-        <source> Saint Pierre And Miquelon</source>
-        <translation type="unfinished"/>
+        <source>Saint Pierre And Miquelon</source>
+        <translation>Müqəddəs Pyer və Mikelon</translation>
     </message>
     <message>
-        <source> Wallis And Futuna Islands</source>
-        <translation type="unfinished"/>
+        <source>Wallis And Futuna Islands</source>
+        <translation>Uels və Futuna adaları</translation>
     </message>
     <message>
         <source>Saint Barthelemy</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Bartalamey</translation>
     </message>
     <message>
         <source>Saint Martin</source>
-        <translation type="unfinished"/>
+        <translation>Müqəddəs Martin</translation>
     </message>
     <message>
-        <source> Vatican City State</source>
-        <translation type="unfinished"/>
+        <source>Vatican City State</source>
+        <translation>Vatikan Şəhər Dövləti</translation>
     </message>
     <message>
-        <source> Svalbard And Jan Mayen Islands</source>
-        <translation type="unfinished"/>
+        <source>Svalbard And Jan Mayen Islands</source>
+        <translation>Svalbard və Jan-Mayen adaları</translation>
     </message>
     <message>
-        <source> East Timor</source>
-        <translation type="unfinished"/>
+        <source>East Timor</source>
+        <translation>Şərqi Timur</translation>
     </message>
     <message>
         <source>Guinea Bissau</source>
-        <translation type="unfinished"/>
+        <translation>Qvineya Bissau</translation>
     </message>
     <message>
-        <source> Sao Tome And Principe</source>
-        <translation type="unfinished"/>
+        <source>Sao Tome And Principe</source>
+        <translation>Sao Tome və Prinsip</translation>
     </message>
     <message>
         <source>Latin America</source>
-        <translation type="unfinished"/>
+        <translation>Latın Amerikası</translation>
     </message>
     <message>
         <source>Ceuta And Melilla</source>
-        <translation type="unfinished"/>
+        <translation>Qveta və Melila</translation>
     </message>
     <message>
         <source>Aland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Aland adaları</translation>
     </message>
 </context>
 </TS>

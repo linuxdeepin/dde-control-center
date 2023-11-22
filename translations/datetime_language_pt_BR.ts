@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
     <name>dcc::datetime::Language</name>
     <message>
@@ -1302,7 +1302,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Mi'kmaq</source>
+        <source>Mi&apos;kmaq</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1667,7 +1667,7 @@
     </message>
     <message>
         <source>Brazilian Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>Português do Brasil</translation>
     </message>
     <message>
         <source>European Portuguese</source>

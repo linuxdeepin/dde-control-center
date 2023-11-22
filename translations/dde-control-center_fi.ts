@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Lisäasetukset</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation>Audio järjestelmä</translation>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation>Audio järjestelmillä on omat etunsa ja haittansa. Voit valita käyttöön sinulle parhaiten sopivan</translation>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2993,7 +3008,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Alue ja aikamuoto</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3001,15 +3016,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Formaatti</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Tarjoaa palveluita maasi tai alueesi perusteella.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Valitse päivämäärä- ja aikamuodot kielen, sekä alueen mukaan</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3048,8 +3063,8 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Arkki</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>Mukautettu formaatti</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2927,19 +2942,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>ཐེག་པའི་གནས་ཚུལ་ལ་གཞིགས་ནས་འཁོར་སྐྱོད་ཀྱི་ཟློས་ཕྱོད་རང་འགུལ་ངང་ལེགས་སྒྲིག་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>ཐེག་པའི་གནས་ཚུལ་ལ་གཞིགས་ནས་འཁོར་སྐྱོད་ཀྱི་ཟློས་ཕྱོད་ལེགས་སྒྲིག་ཧུར་ཐག་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་པ་ཆེ་རུ་གཏོང་བར་ཕན་ཐོགས་ཀྱང་ནུས་པའི་ཟད་གྲོན་དང་ཚ་དྲོད་མཐོ་རུ་མངོན་གསལ་འགྲོ་སྲིད།</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>ཐོག་མཐའ་བར་གསུམ་དུ་ཟློས་ཕྱོད་དམའ་མོས་འཁོར་སྐྱོད་བྱས་ཚེ། ནུས་པ་ཟད་གྲོན་དམའ་རུ་གཏོང་ཐུབ།</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -2994,7 +3009,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>ཁུལ་ཁོངས་དང་རྣམ་གཞག</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3002,15 +3017,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>རྣམ་གཞག</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཡོད་སའི་ཁུལ་ཁོངས་ལ་གཞིགས་ནས་ས་གནས་ཅན་གྱི་ཞབས་ཞུ་འདོན་སྤྲོད་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>སྐད་བརྡ་དང་ཁུལ་ཁོངས་ལ་གཞིགས་ནས་དེ་མཚུངས་ཀྱི་ཚེས་གྲངས་དང་དུས་ཚོད་ཀྱི་རྣམ་གཞག་འདེམས། </translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3049,8 +3064,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ཤོག་བུ།</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>རང་སྒྲུབ་རྣམ་གཞག</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3665,11 +3680,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>ནང་ཁུལ་ཚོད་ལྟ་དང་གསར་སྒྱུར།</translation>
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>deepinནང་ཁོངས་ཚོད་ལྟར་ཞུགས་ན། deepinགསར་སྒྱུར་ནང་དོན་གསར་ཤོས་ཐོབ་སྲིད།</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3715,15 +3730,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>ནང་ཁོངས་ཚོད་ལྟའི་འགྲོ་ལམ་ལས་ཕྱིར་དོན་ཚེ་བདེ་འཇགས་ཡིན་མི་སྲིད་པས། ཕྱིར་དོན་རྒྱུ་གཏན་འཁེལ་ལམ།</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཉིད་ནང་ཁོངས་ཚོད་ལྟའི་འགྲོ་ལམ་ལས་ཕྱིར་དོན་ཆོག</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>འཕྲུལ་འཁོར་ཨང་རྟགས་མ་རྙེད།</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
@@ -3735,11 +3750,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>ལག་ཐབས་ཀྱིས་ཁུག་མ་བཤིག་པ་ཚོད་ལྟ་བྱེད་པ།</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>ཁུག་མ་སྒྲིག་འཇུག་བྱེད་ཐབས་བྲལ།</translation>
     </message>
 </context>
 <context>

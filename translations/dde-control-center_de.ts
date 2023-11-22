@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Erweiterte Einstellung</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -3034,7 +3049,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>custom format</source>
+        <source>Custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>

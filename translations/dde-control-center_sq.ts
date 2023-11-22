@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Rregullime të Mëtejshme</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation>Platformë Audio</translation>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation>Platforma të ndryshme audio kanë përparësitë dhe mangësitë e tyre, zgjidhni atë që i përputhet më mirë përdorimit tuaj</translation>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2992,7 +3007,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Rajon dhe format</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3000,15 +3015,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Format</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Jepni shërbime të lokalizuara, bazuar në rajonin tuaj.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidhni formate datash dhe kohe bazuar në gjuhë dhe rajon</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3047,8 +3062,8 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Letër</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>format vetjak</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

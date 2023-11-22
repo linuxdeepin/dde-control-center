@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2304,7 +2319,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation>Exibir os aplicativos recentes no Dock</translation>
+        <translation>Exibir os aplicativos recentes no dock</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2324,7 +2339,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Efficient mode</source>
-        <translation>Efficient mode</translation>
+        <translation>Eficiente</translation>
     </message>
     <message>
         <source>Top</source>
@@ -3034,7 +3049,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>custom format</source>
+        <source>Custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>

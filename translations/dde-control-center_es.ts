@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Ajustes avanzados</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation>Formato de audio</translation>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation>Los diferentes formatos de audio tienen sus propias ventajas y desventajas, y puedes elegir el que mejor se adapte a tus necesidades</translation>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2991,7 +3006,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Región y formato</translation>
     </message>
     <message>
         <source>Region</source>
@@ -2999,15 +3014,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona servicios localizados según su región.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione formatos de fecha y hora coincidentes según el idioma y la región</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3046,8 +3061,8 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
         <translation>Papel</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>Formato personalizado</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation>Haladó beállítások</translation>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation>Audió keretrendszer</translation>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation>A különböző audió keretrendszereknek megvannak a maga előnyei és hátrányai, és kiválaszthatja a legmegfelelőbbet.</translation>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -3001,7 +3016,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Régió és Formátum</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3009,15 +3024,15 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Formátum</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Az régiója alapján lokalizált szolgáltatások nyújtása.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Válassza ki a megfelelő dátum- és időformátumot a nyelv és a régió alapján</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3060,7 +3075,7 @@ időformátum</translation>
         <translation>Papír</translation>
     </message>
     <message>
-        <source>custom format</source>
+        <source>Custom format</source>
         <translation>Egyedi formátum</translation>
     </message>
 </context>
