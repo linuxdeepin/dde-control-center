@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>dcc::datetime::Language</name>
     <message>
@@ -7,99 +7,99 @@
     </message>
     <message>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>ཡ་ཆི་སྐད།</translation>
     </message>
     <message>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཆའོ་ལི་སྐད།</translation>
     </message>
     <message>
         <source>Adangme</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཏང་མེ་སྐད།</translation>
     </message>
     <message>
         <source>Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཏི་ཀེ་སྐད།</translation>
     </message>
     <message>
         <source>Afar</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཧྥེར་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Afrihili</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཧྥུ་ལི་ཞི་ལི་སྐད།</translation>
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཧྥེ་རི་ཁ་ལྷོ་མའི་ཧོ་ལན་སྐད།</translation>
     </message>
     <message>
         <source>Aghem</source>
-        <translation type="unfinished"/>
+        <translation>ཡ་ཧན་སྐད།</translation>
     </message>
     <message>
         <source>Ainu</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་དབྱི་ནུའུ་སྐད།</translation>
     </message>
     <message>
         <source>Akan</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཁེན་སྐད།</translation>
     </message>
     <message>
         <source>Akkadian</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཁེ་ཏེ་སྐད།</translation>
     </message>
     <message>
         <source>Akoose</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཁུ་སེ་སྐད།</translation>
     </message>
     <message>
         <source>Albanian</source>
-        <translation type="unfinished"/>
+        <translation>ཨར་པ་ནི་ཡ་སྐད།</translation>
     </message>
     <message>
         <source>Aleut</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ལིའུ་ཧྲེན་སྐད།</translation>
     </message>
     <message>
         <source>Amharic</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་མུའུ་ཧ་ལ་སྐད།</translation>
     </message>
     <message>
         <source>Ancient Egyptian</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཨེ་ཅིབ་ཀྱི་སྐད།</translation>
     </message>
     <message>
         <source>Ancient Greek</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཀེ་རི་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Angika</source>
-        <translation type="unfinished"/>
+        <translation>ཨང་ཅ་སྐད།</translation>
     </message>
     <message>
         <source>Arabic</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རབ་ཀྱི་སྐད།</translation>
     </message>
     <message>
         <source>Modern Standard Arabic</source>
-        <translation type="unfinished"/>
+        <translation>དེང་རབས་ཀྱི་ཚད་ལྡན་ཨ་རབ་སྐད།</translation>
     </message>
     <message>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ར་ཀུང་སྐད།</translation>
     </message>
     <message>
         <source>Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ར་སྨི་སྐད།</translation>
     </message>
     <message>
         <source>Arapaho</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ར་ཕ་ཧོ་སྐད།</translation>
     </message>
     <message>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ར་ཝ་ཁེ་སྐད།</translation>
     </message>
     <message>
         <source>Armenian</source>
@@ -107,67 +107,67 @@
     </message>
     <message>
         <source>Aromanian</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རོ་མ་ནི་ཡ་སྐད།</translation>
     </message>
     <message>
         <source>Assamese</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ས་མུའུ་སྐད།</translation>
     </message>
     <message>
         <source>Asturian</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་སི་ཐུ་ལི་ཡ་སི་སྐད།</translation>
     </message>
     <message>
         <source>Asu</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ལེ་སྐད།</translation>
     </message>
     <message>
         <source>Atikamekw</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཐི་ཁ་སྨི་ཁེ་སྐད།</translation>
     </message>
     <message>
         <source>Atsam</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཚན་སྐད།</translation>
     </message>
     <message>
         <source>Avaric</source>
-        <translation type="unfinished"/>
+        <translation>ཨར་ཝ་སྐད།</translation>
     </message>
     <message>
         <source>Avestan</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཝེ་སི་ཐ་སྐད།</translation>
     </message>
     <message>
         <source>Awadhi</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཝ་ཏེ་སྐད།</translation>
     </message>
     <message>
         <source>Aymara</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་མ་ར་སྐད།</translation>
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་སའེ་པའེ་ཅང་སྐད།</translation>
     </message>
     <message>
         <source>Azerbaijani (Arabic)</source>
-        <translation type="unfinished"/>
+        <translation>ལྷོ་ཨ་སའེ་པའེ་ཅང་སྐད།</translation>
     </message>
     <message>
         <source>Azeri</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་སའེ་སྐད།</translation>
     </message>
     <message>
         <source>Bafia</source>
-        <translation type="unfinished"/>
+        <translation>པ་ཧྥེ་ཡ་སྐད།</translation>
     </message>
     <message>
         <source>Bafut</source>
-        <translation type="unfinished"/>
+        <translation>པ་ཧྥེ་ཐེ་སྐད།</translation>
     </message>
     <message>
         <source>Balinese</source>
-        <translation type="unfinished"/>
+        <translation>པ་ལི་སྐད།</translation>
     </message>
     <message>
         <source>Baluchi</source>
@@ -175,43 +175,43 @@
     </message>
     <message>
         <source>Bambara</source>
-        <translation type="unfinished"/>
+        <translation>པན་པ་ར་སྐད།</translation>
     </message>
     <message>
         <source>Bamun</source>
-        <translation type="unfinished"/>
+        <translation>པ་མུའུ་མུའུ་སྐད།</translation>
     </message>
     <message>
         <source>Bangla</source>
-        <translation type="unfinished"/>
+        <translation>བྷང་ག་ལའི་སྐད།</translation>
     </message>
     <message>
         <source>Basaa</source>
-        <translation type="unfinished"/>
+        <translation>པ་ས་སྐད།</translation>
     </message>
     <message>
         <source>Bashkir</source>
-        <translation type="unfinished"/>
+        <translation>པ་ཧྲི་ཅིར་སྐད།</translation>
     </message>
     <message>
         <source>Basque</source>
-        <translation type="unfinished"/>
+        <translation>པ་སི་ཁེ་སྐད།</translation>
     </message>
     <message>
         <source>Beja</source>
-        <translation type="unfinished"/>
+        <translation>པ་ཧྲ་སྐད།</translation>
     </message>
     <message>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>ཨུ་རུ་སུ་དཀར་པོའི་སྐད།</translation>
     </message>
     <message>
         <source>Bemba</source>
-        <translation type="unfinished"/>
+        <translation>པེན་པ་སྐད།</translation>
     </message>
     <message>
         <source>Bena</source>
-        <translation type="unfinished"/>
+        <translation>པེ་ན་སྐད།</translation>
     </message>
     <message>
         <source>Bhojpuri</source>
@@ -223,15 +223,15 @@
     </message>
     <message>
         <source>Bini</source>
-        <translation type="unfinished"/>
+        <translation>པི་ནི་སྐད།</translation>
     </message>
     <message>
         <source>Bislama</source>
-        <translation type="unfinished"/>
+        <translation>པི་སི་ལ་མ་སྐད།</translation>
     </message>
     <message>
         <source>Blin</source>
-        <translation type="unfinished"/>
+        <translation>པི་ལིན་སྐད།</translation>
     </message>
     <message>
         <source>Blissymbols</source>
@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Buginese</source>
-        <translation type="unfinished"/>
+        <translation>པུའུ་ཅི་སྐད།</translation>
     </message>
     <message>
         <source>Bulgarian</source>
@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>Burmese</source>
-        <translation type="unfinished"/>
+        <translation>འབར་མའི་སྐད།</translation>
     </message>
     <message>
         <source>Caddo</source>
@@ -283,15 +283,15 @@
     </message>
     <message>
         <source>Cantonese</source>
-        <translation type="unfinished"/>
+        <translation>ཀོང་ཏུང་གི་སྐད།</translation>
     </message>
     <message>
         <source>Chinese, Cantonese</source>
-        <translation type="unfinished"/>
+        <translation>ཀོང་ཏུང་གི་སྐད།</translation>
     </message>
     <message>
         <source>Carib</source>
-        <translation type="unfinished"/>
+        <translation>ཅ་ལེ་པི་སྐད།</translation>
     </message>
     <message>
         <source>Carolina Algonquian</source>
@@ -367,27 +367,27 @@
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱ་ཡིག</translation>
     </message>
     <message>
         <source>Simplified Chinese</source>
-        <translation type="unfinished"/>
+        <translation>ཟོར་ཡང་རྒྱ་ཡིག</translation>
     </message>
     <message>
         <source>Simplified Mandarin Chinese</source>
-        <translation type="unfinished"/>
+        <translation>དེང་རབས་ཀྱི་ཚད་ལྡན་རྒྱ་སྐད།（ཟོར་ཡང་།）</translation>
     </message>
     <message>
         <source>Traditional Chinese</source>
-        <translation type="unfinished"/>
+        <translation>ཟོར་་ལྕིའི་རྒྱ་ཡིག</translation>
     </message>
     <message>
         <source>Traditional Mandarin Chinese</source>
-        <translation type="unfinished"/>
+        <translation>དེང་རབས་ཀྱི་ཚད་ལྡན་རྒྱ་སྐད།（ཟོར་ལྕི།）</translation>
     </message>
     <message>
         <source>Chinese, Mandarin</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱི་སྐད།</translation>
     </message>
     <message>
         <source>Chinook Jargon</source>
@@ -455,7 +455,7 @@
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>ཅེ་ཁེའི་སྐད།</translation>
     </message>
     <message>
         <source>Dakota</source>
@@ -463,7 +463,7 @@
     </message>
     <message>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>ཏེན་མག་གི་སྐད།</translation>
     </message>
     <message>
         <source>Dargwa</source>
@@ -499,7 +499,7 @@
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"/>
+        <translation>ཧོ་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Flemish</source>
@@ -511,7 +511,7 @@
     </message>
     <message>
         <source>Dzongkha</source>
-        <translation type="unfinished"/>
+        <translation>རྫོང་ཁའི་སྐད།</translation>
     </message>
     <message>
         <source>Eastern Frisian</source>
@@ -535,31 +535,31 @@
     </message>
     <message>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Australian English</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་སི་ཁྲུ་ལི་ཡའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Canadian English</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ན་ཏའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇིའི་སྐད།</translation>
     </message>
     <message>
         <source>UK English</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇིའི་སྐད།</translation>
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>US English</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Erzya</source>
@@ -567,11 +567,11 @@
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>འཛམ་གླིང་སྐད།</translation>
     </message>
     <message>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་སོ་ནི་ཡའི་སྐད།</translation>
     </message>
     <message>
         <source>Ewe</source>
@@ -595,15 +595,15 @@
     </message>
     <message>
         <source>Fijian</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥི་ཅིའི་སྐད།</translation>
     </message>
     <message>
         <source>Filipino</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥི་ལི་ཕིན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥིན་ལན་སྐད།</translation>
     </message>
     <message>
         <source>Fon</source>
@@ -611,15 +611,15 @@
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Canadian French</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ན་ཏའི་ཧྥ་རན་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Swiss French</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཙེར་གྱི་ཧྥ་རན་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Friulian</source>
@@ -643,7 +643,7 @@
     </message>
     <message>
         <source>Gan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>ཅང་ཞིའི་སྐད།</translation>
     </message>
     <message>
         <source>Ganda</source>
@@ -667,11 +667,11 @@
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>འཇར་མན་སྐད།</translation>
     </message>
     <message>
         <source>Austrian German</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་སི་ཁྲུ་རི་ཡའི་འཇར་མན་སྐད།</translation>
     </message>
     <message>
         <source>Swiss High German</source>
@@ -703,7 +703,7 @@
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>གྷི་རིག་གི་སྐད།</translation>
     </message>
     <message>
         <source>Guarani</source>
@@ -767,7 +767,7 @@
     </message>
     <message>
         <source>Hinglish</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱ་གར་གྱི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Hiri Motu</source>
@@ -779,11 +779,11 @@
     </message>
     <message>
         <source>Hmong</source>
-        <translation type="unfinished"/>
+        <translation>མིའོ་རིགས་ཀྱི་སྐད།</translation>
     </message>
     <message>
         <source>Hungarian</source>
-        <translation type="unfinished"/>
+        <translation>ཧང་ག་རིའི་སྐད།</translation>
     </message>
     <message>
         <source>Hupa</source>
@@ -799,7 +799,7 @@
     </message>
     <message>
         <source>Icelandic</source>
-        <translation type="unfinished"/>
+        <translation>འཁྱགས་གླིང་གི་སྐད།</translation>
     </message>
     <message>
         <source>Ido</source>
@@ -819,7 +819,7 @@
     </message>
     <message>
         <source>Indonesian</source>
-        <translation type="unfinished"/>
+        <translation>ཧིན་རྡུ་ཉི་ཞི་ཡའི་སྐད།</translation>
     </message>
     <message>
         <source>Ingush</source>
@@ -831,11 +831,11 @@
     </message>
     <message>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱལ་སྤྱིའི་སྐད།</translation>
     </message>
     <message>
         <source>Interlingue</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱལ་སྤྱིའི་ཡི་གེ།（E）</translation>
     </message>
     <message>
         <source>Inuktitut</source>
@@ -847,15 +847,15 @@
     </message>
     <message>
         <source>Irish</source>
-        <translation type="unfinished"/>
+        <translation>ཨིར་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>དབྱི་ཐ་ལིའི་སྐད།</translation>
     </message>
     <message>
         <source>Japanese</source>
-        <translation type="unfinished"/>
+        <translation>ལྗར་པན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Javanese</source>
@@ -903,7 +903,7 @@
     </message>
     <message>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་རུན་ལན་སྐད།</translation>
     </message>
     <message>
         <source>Kalenjin</source>
@@ -923,15 +923,15 @@
     </message>
     <message>
         <source>Kannada</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ན་ཏ་སྐད།</translation>
     </message>
     <message>
         <source>Kanuri</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ནུའུ་ལི་སྐད།</translation>
     </message>
     <message>
         <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ལ་ཁེར་ཕ་ཁོ་སྐད།</translation>
     </message>
     <message>
         <source>Karachay-Balkar</source>
@@ -943,7 +943,7 @@
     </message>
     <message>
         <source>Kashmiri</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ཆེའི་སྐད།</translation>
     </message>
     <message>
         <source>Kashubian</source>
@@ -955,7 +955,7 @@
     </message>
     <message>
         <source>Kazakh</source>
-        <translation type="unfinished"/>
+        <translation>ཧ་སག་སྐད།</translation>
     </message>
     <message>
         <source>Khasi</source>
@@ -999,7 +999,7 @@
     </message>
     <message>
         <source>Kongo</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོའི་སྐད།</translation>
     </message>
     <message>
         <source>Konkani</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
         <source>Korean</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་རེ་ཡའི་སྐད།</translation>
     </message>
     <message>
         <source>Koro</source>
@@ -1059,39 +1059,39 @@
     </message>
     <message>
         <source>Kyrgyz</source>
-        <translation type="unfinished"/>
+        <translation>ཁོར་ཁེ་ཙིའི་སྐད།</translation>
     </message>
     <message>
         <source>Kʼicheʼ</source>
-        <translation type="unfinished"/>
+        <translation>ཅི་ཆེ་སྐད།</translation>
     </message>
     <message>
         <source>Ladino</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཏི་ནོར་སྐད།</translation>
     </message>
     <message>
         <source>Lakota</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཁོ་ཐ་སྐད།</translation>
     </message>
     <message>
         <source>Lamba</source>
-        <translation type="unfinished"/>
+        <translation>ལན་པ་སྐད།</translation>
     </message>
     <message>
         <source>Langi</source>
-        <translation type="unfinished"/>
+        <translation>ལང་ཅི་སྐད།</translation>
     </message>
     <message>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>ལོ་སིའི་སྐད།</translation>
     </message>
     <message>
         <source>Latin</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཏིང་གི་སྐད།</translation>
     </message>
     <message>
         <source>Latvian</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཐོ་ཝེ་ཡ་སྐད།</translation>
     </message>
     <message>
         <source>Lezghian</source>
@@ -1115,7 +1115,7 @@
     </message>
     <message>
         <source>Lithuanian</source>
-        <translation type="unfinished"/>
+        <translation>ལི་ཐུ་ཝན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Lojban</source>
@@ -1179,19 +1179,19 @@
     </message>
     <message>
         <source>Macedonian</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཆི་ཏུན་སྐད།</translation>
     </message>
     <message>
         <source>Machame</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཆེ་མུའུ་སྐད།</translation>
     </message>
     <message>
         <source>Madurese</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཏུའུ་ལ་སྐད།</translation>
     </message>
     <message>
         <source>Mafa</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཧྥ་སྐད།</translation>
     </message>
     <message>
         <source>Magahi</source>
@@ -1219,7 +1219,7 @@
     </message>
     <message>
         <source>Malay</source>
-        <translation type="unfinished"/>
+        <translation>མ་ལེའི་སྐད།</translation>
     </message>
     <message>
         <source>Malayalam</source>
@@ -1231,11 +1231,11 @@
     </message>
     <message>
         <source>Maltese</source>
-        <translation type="unfinished"/>
+        <translation>མར་ཐའི་སྐད།</translation>
     </message>
     <message>
         <source>Manchu</source>
-        <translation type="unfinished"/>
+        <translation>མན་ཇུའི་སྐད།</translation>
     </message>
     <message>
         <source>Mandar</source>
@@ -1302,7 +1302,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Mi'kmaq</source>
+        <source>Mi&apos;kmaq</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1311,15 +1311,15 @@
     </message>
     <message>
         <source>Middle Dutch</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཧོ་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Middle English</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Middle French</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཧྥ་རན་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Middle High German</source>
@@ -1327,7 +1327,7 @@
     </message>
     <message>
         <source>Middle Irish</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཨིར་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Min Nan Chinese</source>
@@ -1375,7 +1375,7 @@
     </message>
     <message>
         <source>Multiple languages</source>
-        <translation type="unfinished"/>
+        <translation>སྐད་རིགས་སྣ་མང་།</translation>
     </message>
     <message>
         <source>Mundang</source>
@@ -1407,7 +1407,7 @@
     </message>
     <message>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>ནོ་རུའི་སྐད།</translation>
     </message>
     <message>
         <source>Navajo</source>
@@ -1423,7 +1423,7 @@
     </message>
     <message>
         <source>Nepali</source>
-        <translation type="unfinished"/>
+        <translation>བལ་པོའི་སྐད།</translation>
     </message>
     <message>
         <source>Newari</source>
@@ -1499,11 +1499,11 @@
     </message>
     <message>
         <source>Norwegian</source>
-        <translation type="unfinished"/>
+        <translation>ནོར་ཝེའི་སྐད།</translation>
     </message>
     <message>
         <source>Norwegian Bokmål</source>
-        <translation type="unfinished"/>
+        <translation>ནོར་ཝེའི་ཡིག་སྐད།</translation>
     </message>
     <message>
         <source>Norwegian Nynorsk</source>
@@ -1563,11 +1563,11 @@
     </message>
     <message>
         <source>Old English</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་དབྱིན་སྐད།</translation>
     </message>
     <message>
         <source>Old French</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཧྥ་རན་སེའི་སྐད།</translation>
     </message>
     <message>
         <source>Old High German</source>
@@ -1575,7 +1575,7 @@
     </message>
     <message>
         <source>Old Irish</source>
-        <translation type="unfinished"/>
+        <translation>གནའ་བོའི་ཨིར་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Old Norse</source>
@@ -1659,11 +1659,11 @@
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>ཕོ་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>ཕོར་ཐིའུ་ཀལ་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Brazilian Portuguese</source>
@@ -1727,7 +1727,7 @@
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>ཨུ་རུ་སུའི་སྐད།</translation>
     </message>
     <message>
         <source>Rwa</source>
@@ -1783,7 +1783,7 @@
     </message>
     <message>
         <source>Scots</source>
-        <translation type="unfinished"/>
+        <translation>སུའུ་ཀེ་ལན་སྐད།</translation>
     </message>
     <message>
         <source>Scottish Gaelic</source>
@@ -1831,7 +1831,7 @@
     </message>
     <message>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>སི་ཁྲོན་དབྱིས་རིགས་སྐད།</translation>
     </message>
     <message>
         <source>Sicilian</source>
@@ -1863,7 +1863,7 @@
     </message>
     <message>
         <source>Slovak</source>
-        <translation type="unfinished"/>
+        <translation>སི་ལོ་ཝ་ཁེའི་སྐད།</translation>
     </message>
     <message>
         <source>Slovenian</source>
@@ -1879,7 +1879,7 @@
     </message>
     <message>
         <source>Somali</source>
-        <translation type="unfinished"/>
+        <translation>སོ་མ་ལིའི་སྐད།</translation>
     </message>
     <message>
         <source>Soninke</source>
@@ -1923,19 +1923,19 @@
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>སི་ཕེན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Latin American Spanish</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཏིང་མེ་གླིང་གི་སི་ཕེན་སྐད།</translation>
     </message>
     <message>
         <source>European Spanish</source>
-        <translation type="unfinished"/>
+        <translation>ཡོ་རོབ་ཀྱི་སི་ཕེན་སྐད།</translation>
     </message>
     <message>
         <source>Mexican Spanish</source>
-        <translation type="unfinished"/>
+        <translation>མོ་ཞི་ཁོའི་སི་ཕན་སྐད།</translation>
     </message>
     <message>
         <source>Sranan Tongo</source>
@@ -1983,15 +1983,15 @@
     </message>
     <message>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཏེན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Swiss German</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཏེན་གྱི་འཇར་མན་སྐད།</translation>
     </message>
     <message>
         <source>Syriac</source>
-        <translation type="unfinished"/>
+        <translation>སི་རི་ཡའི་སྐད།</translation>
     </message>
     <message>
         <source>Tachelhit</source>
@@ -2019,7 +2019,7 @@
     </message>
     <message>
         <source>Tajik</source>
-        <translation type="unfinished"/>
+        <translation>ཐ་ཅི་ཁེའི་སྐད།</translation>
     </message>
     <message>
         <source>Tamashek</source>
@@ -2059,11 +2059,11 @@
     </message>
     <message>
         <source>Thai</source>
-        <translation type="unfinished"/>
+        <translation>ཐེ་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>བོད་སྐད།</translation>
     </message>
     <message>
         <source>Tigre</source>
@@ -2099,7 +2099,7 @@
     </message>
     <message>
         <source>Tongan</source>
-        <translation type="unfinished"/>
+        <translation>ཐང་ཀའི་སྐད།</translation>
     </message>
     <message>
         <source>Tsimshian</source>
@@ -2119,7 +2119,7 @@
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"/>
+        <translation>ཐུར་ཁེའི་སྐད།</translation>
     </message>
     <message>
         <source>Turkmen</source>
@@ -2151,7 +2151,7 @@
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>ཡུག་རེན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Umbundu</source>
@@ -2171,11 +2171,11 @@
     </message>
     <message>
         <source>Uyghur</source>
-        <translation type="unfinished"/>
+        <translation>ཡུ་གུར་སྐད།</translation>
     </message>
     <message>
         <source>Uzbek</source>
-        <translation type="unfinished"/>
+        <translation>ཝུའུ་ཙི་པིའེ་ཁེའི་སྐད།</translation>
     </message>
     <message>
         <source>Vai</source>
@@ -2195,7 +2195,7 @@
     </message>
     <message>
         <source>Vietnamese</source>
-        <translation type="unfinished"/>
+        <translation>ཝེ་ཐེ་ནམ་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Volapük</source>
@@ -2271,7 +2271,7 @@
     </message>
     <message>
         <source>Xiang Chinese</source>
-        <translation type="unfinished"/>
+        <translation>ཧུའུ་ནན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Yakut</source>
@@ -2283,7 +2283,7 @@
     </message>
     <message>
         <source>Yao</source>
-        <translation type="unfinished"/>
+        <translation>ཡའོ་རིགས་ཀྱི་སྐད།</translation>
     </message>
     <message>
         <source>Yapese</source>
@@ -2319,7 +2319,7 @@
     </message>
     <message>
         <source>Zhuang</source>
-        <translation type="unfinished"/>
+        <translation>ཀྲོང་རིགས་ཀྱི་སྐད།</translation>
     </message>
     <message>
         <source>Zulu</source>
@@ -2331,7 +2331,7 @@
     </message>
     <message>
         <source>Bengali</source>
-        <translation type="unfinished"/>
+        <translation>བྷང་ག་ལའི་སྐད།</translation>
     </message>
     <message>
         <source>Central Morocco Tamazight</source>
@@ -2355,7 +2355,7 @@
     </message>
     <message>
         <source>Greenlandic</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་རུན་ལན་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Jola Fonyi</source>
@@ -2411,11 +2411,11 @@
     </message>
     <message>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>ཡུ་གུར་གྱི་སྐད།</translation>
     </message>
     <message>
         <source>Volapuk</source>
-        <translation type="unfinished"/>
+        <translation>འཛམ་གླིང་སྐད།</translation>
     </message>
     <message>
         <source>Oriya</source>

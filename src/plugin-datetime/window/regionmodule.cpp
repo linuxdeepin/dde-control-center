@@ -194,7 +194,7 @@ void RegionModule::initFormatModificationModule()
         QHBoxLayout *hlayout = new QHBoxLayout(widget);
         hlayout->setSpacing(0);
         hlayout->setMargin(0);
-        DCommandLinkButton *button = new DCommandLinkButton(tr("custom format"));
+        DCommandLinkButton *button = new DCommandLinkButton(tr("Custom format"));
         connect(button, &QPushButton::clicked, this, [this](){
             CustomRegionFormatDialog dlg;
             connect(&dlg, &CustomRegionFormatDialog::customFormatSaved, this, [this](const RegionFormat &regionFormat){

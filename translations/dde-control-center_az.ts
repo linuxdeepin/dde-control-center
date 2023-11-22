@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2180,7 +2195,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation type="unfinished"/>
+        <translation>Tarix və format</translation>
     </message>
 </context>
 <context>
@@ -2537,7 +2552,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Tarazlaşdırılmış məhsuldarlıq</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2925,19 +2940,19 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Yüklənmə şərtlərinə əsasən mərkəzi prosessorun işləmə tezliyinin avtomatik tənzimlənməsi</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Yüklənmə şərtlərinə əsasən mərkəzi prosessorun tezliyinin aqresiv tənzimlənməsi</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"/>
+        <translation>Məhsuldarlığı yaxşılaşdırmağa hazır olun, lakin bu, enerji sərfiyyatını artıracaq və qızmaya səbəb olacaq</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Mərkəzi prosessor həmişə aşağı tezlikdə işləyir, enerji sərfiyyatını azaldır</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -2992,7 +3007,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Bölgə və format</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3000,15 +3015,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Format</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Bölgənizə uyğun yerli dil xidmətlərini təqdim edin.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Dil və bölgənizə uyğun tarix və vaxt formatlarını seçin</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3047,8 +3062,8 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Kağız</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>xüsusi format</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

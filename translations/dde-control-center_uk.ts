@@ -163,6 +163,21 @@
     </message>
 </context>
 <context>
+    <name>AdvancedSettingModule</name>
+    <message>
+        <source>Advanced Setting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio Framework</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2993,7 +3008,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Регіон і формат</translation>
     </message>
     <message>
         <source>Region</source>
@@ -3001,15 +3016,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Формат</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Надавати служби локалізації на основі визначеного вами регіону.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Вибирати відповідні формати дати і часу на основі мови і регіону</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3048,8 +3063,8 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Папір</translation>
     </message>
     <message>
-        <source>custom format</source>
-        <translation>нетиповий формат</translation>
+        <source>Custom format</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

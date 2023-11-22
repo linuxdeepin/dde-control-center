@@ -1,121 +1,121 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>dcc::datetime::Country</name>
     <message>
         <source>Bermuda</source>
-        <translation type="unfinished"/>
+        <translation>པེལ་མུ་ཏ།</translation>
     </message>
     <message>
         <source>Canada</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ན་ཏ།</translation>
     </message>
     <message>
         <source>Greenland</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་རུན་ལན།</translation>
     </message>
     <message>
         <source>St. Pierre </source>
-        <translation type="unfinished"/>
+        <translation>མི་ཁེ་ལོང་།</translation>
     </message>
     <message>
         <source>United States</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་མེ་རི་ཁ།</translation>
     </message>
     <message>
         <source>US</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་མེ་རི་ཁ།</translation>
     </message>
     <message>
         <source>Belize</source>
-        <translation type="unfinished"/>
+        <translation>པེར་ཙེ།</translation>
     </message>
     <message>
         <source>Costa Rica</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་སི་ཐ་རི་ཁ།</translation>
     </message>
     <message>
         <source>Guatemala</source>
-        <translation type="unfinished"/>
+        <translation>ཀུའེ་ཐི་མ་ལ།</translation>
     </message>
     <message>
         <source>Honduras</source>
-        <translation type="unfinished"/>
+        <translation>ཧོང་ཏུ་ར་སི།</translation>
     </message>
     <message>
         <source>Mexico</source>
-        <translation type="unfinished"/>
+        <translation>མོ་ཞི་ཁོ།</translation>
     </message>
     <message>
         <source>Nicaragua</source>
-        <translation type="unfinished"/>
+        <translation>ནི་ཁ་ར་ཀྭ།</translation>
     </message>
     <message>
         <source>Panama</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ན་མ།</translation>
     </message>
     <message>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>སར་ཝ་ཏོལ།</translation>
     </message>
     <message>
         <source>Antigua </source>
-        <translation type="unfinished"/>
+        <translation>པ་པུ་ཏ།</translation>
     </message>
     <message>
         <source>Anguilla</source>
-        <translation type="unfinished"/>
+        <translation>ཨན་ཀུའི་ལ།</translation>
     </message>
     <message>
         <source>Aruba</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རུ་པ།</translation>
     </message>
     <message>
         <source>Barbados</source>
-        <translation type="unfinished"/>
+        <translation>པ་པ་ཏོ་སི།</translation>
     </message>
     <message>
         <source>St. Barthélemy</source>
-        <translation type="unfinished"/>
+        <translation>སན་པ་ཐའེ་ལེ་སྨི།</translation>
     </message>
     <message>
         <source>Caribbean Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>ཧོ་ལན་ཁོངས་ཀྱི་ཅ་ལེ་པི་ཁུལ།</translation>
     </message>
     <message>
         <source>Bahamas</source>
-        <translation type="unfinished"/>
+        <translation>པ་ཧ་མ།</translation>
     </message>
     <message>
         <source>Cuba</source>
-        <translation type="unfinished"/>
+        <translation>ཁུ་པ།</translation>
     </message>
     <message>
         <source>Curaçao</source>
-        <translation type="unfinished"/>
+        <translation>ཁུ་ལ་སུའོ།</translation>
     </message>
     <message>
         <source>Dominica</source>
-        <translation type="unfinished"/>
+        <translation>ཏོ་སྨི་ནི་ཁ།</translation>
     </message>
     <message>
         <source>Dominican Republic</source>
-        <translation type="unfinished"/>
+        <translation>ཏོ་སྨི་ནི་ཁན་སྤྱི་མཐུན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Grenada</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་རེན་ན་ཏ།</translation>
     </message>
     <message>
         <source>Guadeloupe</source>
-        <translation type="unfinished"/>
+        <translation>ཀྭ་ཏེ་ལོ་ཕུ།</translation>
     </message>
     <message>
         <source>Haiti</source>
-        <translation type="unfinished"/>
+        <translation>ཧེ་ཐི།</translation>
     </message>
     <message>
         <source>Jamaica</source>
-        <translation type="unfinished"/>
+        <translation>ཅ་མེ་ཁ།</translation>
     </message>
     <message>
         <source>St. Kitts </source>
@@ -123,31 +123,31 @@
     </message>
     <message>
         <source>Cayman Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཁེ་མན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>St. Lucia</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ལོ་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>St. Martin</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སེའི་ཁོངས་སེན་མ་ཏིང་།</translation>
     </message>
     <message>
         <source>Martinique</source>
-        <translation type="unfinished"/>
+        <translation>མལ་ཐི་ནི་ཁེ།</translation>
     </message>
     <message>
         <source>Montserrat</source>
-        <translation type="unfinished"/>
+        <translation>མོང་ཐེ་སེ་ར་ཐེ།</translation>
     </message>
     <message>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>ཕུལ་ཐོ་རི་ཁོ།</translation>
     </message>
     <message>
         <source>Sint Maarten</source>
-        <translation type="unfinished"/>
+        <translation>ཧོ་ལན་གྱི་ཁོངས་སེན་མ་ཏིང་།</translation>
     </message>
     <message>
         <source>Turks </source>
@@ -163,51 +163,51 @@
     </message>
     <message>
         <source>British Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇིའི་ཁོངས་ཝེར་ཀྲེན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>U.S. Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་ཁོངས་ཝེར་ཀྲེན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Argentina</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཀེན་ཐིན།</translation>
     </message>
     <message>
         <source>Bolivia</source>
-        <translation type="unfinished"/>
+        <translation>པོ་ལི་ཝེ་ཡ།</translation>
     </message>
     <message>
         <source>Brazil</source>
-        <translation type="unfinished"/>
+        <translation>པར་ཙིར།</translation>
     </message>
     <message>
         <source>Bouvet Island</source>
-        <translation type="unfinished"/>
+        <translation>པུའུ་ཝེ་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Chile</source>
-        <translation type="unfinished"/>
+        <translation>ཆི་ལི།</translation>
     </message>
     <message>
         <source>Colombia</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་ལོམ་པི་ཡ།</translation>
     </message>
     <message>
         <source>Ecuador</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་ཁྭ་ཏོར།</translation>
     </message>
     <message>
         <source>Falkland Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥུ་ཁེ་ལན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Falkland Islands (Islas Malvinas)</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥུ་ཁེ་ལན་གླིང་ཚོམ།（མེར་ཝེ་ན་སི་གླིང་ཚོམ།）</translation>
     </message>
     <message>
         <source>French Guiana</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སེའི་ཁོངས་ཀུའེ་ཡ་ན།</translation>
     </message>
     <message>
         <source>South Georgia </source>
@@ -215,55 +215,55 @@
     </message>
     <message>
         <source>Guyana</source>
-        <translation type="unfinished"/>
+        <translation>ཀུའེ་ཡ་ན།</translation>
     </message>
     <message>
         <source>Peru</source>
-        <translation type="unfinished"/>
+        <translation>ཕེ་རུ།</translation>
     </message>
     <message>
         <source>Paraguay</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ར་ཀུའེ།</translation>
     </message>
     <message>
         <source>Suriname</source>
-        <translation type="unfinished"/>
+        <translation>སུའུ་རི་ནམ།</translation>
     </message>
     <message>
         <source>Uruguay</source>
-        <translation type="unfinished"/>
+        <translation>ཝུ་ར་ཀུའེ།</translation>
     </message>
     <message>
         <source>Venezuela</source>
-        <translation type="unfinished"/>
+        <translation>ཝེ་ནེ་ཙུའེ་ལ།</translation>
     </message>
     <message>
         <source>Algeria</source>
-        <translation type="unfinished"/>
+        <translation>ཨར་ཅི་རི་ཡ།</translation>
     </message>
     <message>
         <source>Egypt</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་ཅིབ།</translation>
     </message>
     <message>
         <source>Western Sahara</source>
-        <translation type="unfinished"/>
+        <translation>ས་ཧ་ར་ནུབ་མ།</translation>
     </message>
     <message>
         <source>Libya</source>
-        <translation type="unfinished"/>
+        <translation>ལི་པི་ཡ།</translation>
     </message>
     <message>
         <source>Morocco</source>
-        <translation type="unfinished"/>
+        <translation>མོ་རོ་ཁོ།</translation>
     </message>
     <message>
         <source>Sudan</source>
-        <translation type="unfinished"/>
+        <translation>སུའུ་ཏན།</translation>
     </message>
     <message>
         <source>Tunisia</source>
-        <translation type="unfinished"/>
+        <translation>ཐུ་ནི་སི།</translation>
     </message>
     <message>
         <source>Ceuta </source>
@@ -271,115 +271,115 @@
     </message>
     <message>
         <source>Canary Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཀག་ན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Burkina Faso</source>
-        <translation type="unfinished"/>
+        <translation>པོ་ཁི་ན་ཧྥ་སོ།</translation>
     </message>
     <message>
         <source>Benin</source>
-        <translation type="unfinished"/>
+        <translation>པེ་ནི་ན།</translation>
     </message>
     <message>
         <source>Côte d’Ivoire</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་ཐེ་ཏི་ཝོར།</translation>
     </message>
     <message>
         <source>Ivory Coast</source>
-        <translation type="unfinished"/>
+        <translation>བ་སོ་མཚོ་འགྲམ།</translation>
     </message>
     <message>
         <source>Cape Verde</source>
-        <translation type="unfinished"/>
+        <translation>ཝེར་ཏེ་གླིང་ཟུར།</translation>
     </message>
     <message>
         <source>Ghana</source>
-        <translation type="unfinished"/>
+        <translation>ཀག་ན།</translation>
     </message>
     <message>
         <source>Gambia</source>
-        <translation type="unfinished"/>
+        <translation>ཀམ་པི་ཡ།</translation>
     </message>
     <message>
         <source>Guinea</source>
-        <translation type="unfinished"/>
+        <translation>ཀི་ནེ་ཡ།</translation>
     </message>
     <message>
         <source>Guinea-Bissau</source>
-        <translation type="unfinished"/>
+        <translation>ཀི་ནེ་ཡ་པི་སོ།</translation>
     </message>
     <message>
         <source>Liberia</source>
-        <translation type="unfinished"/>
+        <translation>ལི་པེ་རི་ཡ།</translation>
     </message>
     <message>
         <source>Mali</source>
-        <translation type="unfinished"/>
+        <translation>མ་ལི།</translation>
     </message>
     <message>
         <source>Mauritania</source>
-        <translation type="unfinished"/>
+        <translation>མོ་རི་ཐ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Niger</source>
-        <translation type="unfinished"/>
+        <translation>ནི་ཀྲེར།</translation>
     </message>
     <message>
         <source>Nigeria</source>
-        <translation type="unfinished"/>
+        <translation>ནི་ཀྲེ་རི་ཡ།</translation>
     </message>
     <message>
         <source>St. Helena</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ཧེ་ལེ་ན།</translation>
     </message>
     <message>
         <source>Sierra Leone</source>
-        <translation type="unfinished"/>
+        <translation>སི་ར་ལ་ཨོང་།</translation>
     </message>
     <message>
         <source>Senegal</source>
-        <translation type="unfinished"/>
+        <translation>སེ་ནེ་ཀལ།</translation>
     </message>
     <message>
         <source>Togo</source>
-        <translation type="unfinished"/>
+        <translation>ཐོ་ཀོ།</translation>
     </message>
     <message>
         <source>Angola</source>
-        <translation type="unfinished"/>
+        <translation>ཨན་ཀོ་ལ།</translation>
     </message>
     <message>
         <source>Congo - Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ།</translation>
     </message>
     <message>
         <source>Congo (DRC)</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ་དམངས་གཙོ་སྤྱི་མཐུན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Central African Republic</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཧྥེ་རི་ཁ་དབུས་མ་སྤྱི་མཐུན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Congo - Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ།</translation>
     </message>
     <message>
         <source>Congo (Republic)</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ་སྤྱི་མཐུན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Cameroon</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་མེ་རོང་།</translation>
     </message>
     <message>
         <source>Gabon</source>
-        <translation type="unfinished"/>
+        <translation>ཀ་པོན།</translation>
     </message>
     <message>
         <source>Equatorial Guinea</source>
-        <translation type="unfinished"/>
+        <translation>ཐིག་དམར་ཀུའེ་ནེ་ཡ།</translation>
     </message>
     <message>
         <source>São Tomé </source>
@@ -387,191 +387,191 @@
     </message>
     <message>
         <source>Chad</source>
-        <translation type="unfinished"/>
+        <translation>ཆ་ཏེ།</translation>
     </message>
     <message>
         <source>Burundi</source>
-        <translation type="unfinished"/>
+        <translation>པུ་རུན་ཏི།</translation>
     </message>
     <message>
         <source>Djibouti</source>
-        <translation type="unfinished"/>
+        <translation>ཅི་པོའུ་ཐི།</translation>
     </message>
     <message>
         <source>Eritrea</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་ལི་ཐེ་ལི་ཡ།</translation>
     </message>
     <message>
         <source>Ethiopia</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་ཙེ་ཨོ་ཕི་ཡ།</translation>
     </message>
     <message>
         <source>British Indian Ocean Territory</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇིའི་ཁོངས་ཧིན་རྡུ་དབྱང་རྒྱ་མཚོ་ཆེན་པོའི་མངའ་ཁོངས་ས་ཆ།</translation>
     </message>
     <message>
         <source>Kenya</source>
-        <translation type="unfinished"/>
+        <translation>ཁེན་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Comoros</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་མོ་རོ།</translation>
     </message>
     <message>
         <source>Madagascar</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཏ་ཀ་སི་ཁར།</translation>
     </message>
     <message>
         <source>Mauritius</source>
-        <translation type="unfinished"/>
+        <translation>མོ་རི་ཐིའུ་སི།</translation>
     </message>
     <message>
         <source>Malawi</source>
-        <translation type="unfinished"/>
+        <translation>མ་ལ་ཝེ།</translation>
     </message>
     <message>
         <source>Mozambique</source>
-        <translation type="unfinished"/>
+        <translation>མོ་ཙམ་པི་ཁེ།</translation>
     </message>
     <message>
         <source>Réunion</source>
-        <translation type="unfinished"/>
+        <translation>རོ་ནི་ཝང་།</translation>
     </message>
     <message>
         <source>Rwanda</source>
-        <translation type="unfinished"/>
+        <translation>རུ་ཝང་ཏ།</translation>
     </message>
     <message>
         <source>Seychelles</source>
-        <translation type="unfinished"/>
+        <translation>སེ་ཧྲེར།</translation>
     </message>
     <message>
         <source>Somalia</source>
-        <translation type="unfinished"/>
+        <translation>སོ་མ་ལི།</translation>
     </message>
     <message>
         <source>South Sudan</source>
-        <translation type="unfinished"/>
+        <translation>སུའུ་ཏན་ལྷོ་མ།</translation>
     </message>
     <message>
         <source>French Southern Territories</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སིའི་ཁོངས་ལྷོའི་མངའ་ཁོངས་ས་ཆ།</translation>
     </message>
     <message>
         <source>Tanzania</source>
-        <translation type="unfinished"/>
+        <translation>ཐན་ཙན་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Uganda</source>
-        <translation type="unfinished"/>
+        <translation>ཝུ་ཀན་ཏ།</translation>
     </message>
     <message>
         <source>Mayotte</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཡུའེ་ཐེ།</translation>
     </message>
     <message>
         <source>Zambia</source>
-        <translation type="unfinished"/>
+        <translation>ཙན་པི་ཡ།</translation>
     </message>
     <message>
         <source>Zimbabwe</source>
-        <translation type="unfinished"/>
+        <translation>ཙམ་པབ་ཝེ།</translation>
     </message>
     <message>
         <source>Botswana</source>
-        <translation type="unfinished"/>
+        <translation>པོ་ཚི་ཝ་ན།</translation>
     </message>
     <message>
         <source>Lesotho</source>
-        <translation type="unfinished"/>
+        <translation>ལེ་སོ་ཐོ།</translation>
     </message>
     <message>
         <source>Namibia</source>
-        <translation type="unfinished"/>
+        <translation>ན་སྨི་པི་ཡ།</translation>
     </message>
     <message>
         <source>Eswatini</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཙི་ལན།</translation>
     </message>
     <message>
         <source>South Africa</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་ཧྥེ་རི་ཁ་ལྷོ་མ།</translation>
     </message>
     <message>
         <source>Guernsey</source>
-        <translation type="unfinished"/>
+        <translation>ཀེན་ཞི་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Isle of Man</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཨེན་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Jersey</source>
-        <translation type="unfinished"/>
+        <translation>ཙེ་ཞི་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Åland Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཨའོ་ལན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Denmark</source>
-        <translation type="unfinished"/>
+        <translation>ཏེན་མག</translation>
     </message>
     <message>
         <source>Estonia</source>
-        <translation type="unfinished"/>
+        <translation>ཨེ་སོ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Finland</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥིན་ལན།</translation>
     </message>
     <message>
         <source>Faroe Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རོ་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>United Kingdom</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇི།</translation>
     </message>
     <message>
         <source>UK</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇི།</translation>
     </message>
     <message>
         <source>England</source>
-        <translation type="unfinished"/>
+        <translation>དབྱིན་ཇི།</translation>
     </message>
     <message>
         <source>Scotland</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཀེ་ལན།</translation>
     </message>
     <message>
         <source>Wales</source>
-        <translation type="unfinished"/>
+        <translation>ཝེར་ཧྲི།</translation>
     </message>
     <message>
         <source>Ireland</source>
-        <translation type="unfinished"/>
+        <translation>ཨིར་ལན།</translation>
     </message>
     <message>
         <source>Iceland</source>
-        <translation type="unfinished"/>
+        <translation>འཁྱགས་གླིང་།</translation>
     </message>
     <message>
         <source>Lithuania</source>
-        <translation type="unfinished"/>
+        <translation>ལི་ཐུ་ཝན།</translation>
     </message>
     <message>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཐེ་ཝེ་ཡ།</translation>
     </message>
     <message>
         <source>Norway</source>
-        <translation type="unfinished"/>
+        <translation>ནོར་ཝེ།</translation>
     </message>
     <message>
         <source>Sweden</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཏན།</translation>
     </message>
     <message>
         <source>Svalbard </source>
@@ -579,91 +579,91 @@
     </message>
     <message>
         <source>Austria</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་སི་ཁྲུ་རི་ཡ།</translation>
     </message>
     <message>
         <source>Belgium</source>
-        <translation type="unfinished"/>
+        <translation>པེར་ཀྲེམ།</translation>
     </message>
     <message>
         <source>Switzerland</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཙེར།</translation>
     </message>
     <message>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>འཇར་མན།</translation>
     </message>
     <message>
         <source>France</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སེ།</translation>
     </message>
     <message>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>ལེ་ཁེ་ཐེན་སི་ཐེན།</translation>
     </message>
     <message>
         <source>Luxembourg</source>
-        <translation type="unfinished"/>
+        <translation>ལུ་ཙེམ་པོག</translation>
     </message>
     <message>
         <source>Monaco</source>
-        <translation type="unfinished"/>
+        <translation>མོ་ན་ཁོ།</translation>
     </message>
     <message>
         <source>Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>ཧོ་ལན།</translation>
     </message>
     <message>
         <source>Bulgaria</source>
-        <translation type="unfinished"/>
+        <translation>པུར་ཀ་རི་ཡ།</translation>
     </message>
     <message>
         <source>Belarus</source>
-        <translation type="unfinished"/>
+        <translation>ཨུ་རུ་སུ་དཀར་པོ།</translation>
     </message>
     <message>
         <source>Czechia</source>
-        <translation type="unfinished"/>
+        <translation>ཅེ་ཁེ།</translation>
     </message>
     <message>
         <source>Czech Republic</source>
-        <translation type="unfinished"/>
+        <translation>ཅེ་ཁེ་སྤྱི་མཐུན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>ཧང་ག་རི།</translation>
     </message>
     <message>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>མོར་ཏོ་ཝ།</translation>
     </message>
     <message>
         <source>Poland</source>
-        <translation type="unfinished"/>
+        <translation>ཕོ་ལན།</translation>
     </message>
     <message>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>རོ་མ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Russia</source>
-        <translation type="unfinished"/>
+        <translation>ཨུ་རུ་སུ།</translation>
     </message>
     <message>
         <source>Slovakia</source>
-        <translation type="unfinished"/>
+        <translation>སི་ལོ་ཝ་ཁེ།</translation>
     </message>
     <message>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>ཡུག་རེན།</translation>
     </message>
     <message>
         <source>Andorra</source>
-        <translation type="unfinished"/>
+        <translation>ཨན་ཏོར།</translation>
     </message>
     <message>
         <source>Albania</source>
-        <translation type="unfinished"/>
+        <translation>ཨར་པ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Bosnia </source>
@@ -671,63 +671,63 @@
     </message>
     <message>
         <source>Spain</source>
-        <translation type="unfinished"/>
+        <translation>སི་ཕེན།</translation>
     </message>
     <message>
         <source>Gibraltar</source>
-        <translation type="unfinished"/>
+        <translation>ཀྲེ་པུའུ་ལུའོ་ཐུའོ།</translation>
     </message>
     <message>
         <source>Greece</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་རི་སེ།</translation>
     </message>
     <message>
         <source>Croatia</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་ལུའོ་ཏི་ཡ།</translation>
     </message>
     <message>
         <source>Italy</source>
-        <translation type="unfinished"/>
+        <translation>དབྱི་ཐ་ལི།</translation>
     </message>
     <message>
         <source>Montenegro</source>
-        <translation type="unfinished"/>
+        <translation>ཧི་ཧྲན།</translation>
     </message>
     <message>
         <source>North Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>བྱང་མ་ཆི་ཏུན།</translation>
     </message>
     <message>
         <source>Malta</source>
-        <translation type="unfinished"/>
+        <translation>མར་ཐ།</translation>
     </message>
     <message>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>སེར་ཝེ་ཡ།</translation>
     </message>
     <message>
         <source>Portugal</source>
-        <translation type="unfinished"/>
+        <translation>ཕོར་ཐིའུ་ཀལ།</translation>
     </message>
     <message>
         <source>Slovenia</source>
-        <translation type="unfinished"/>
+        <translation>སི་ལོ་ཝ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>San Marino</source>
-        <translation type="unfinished"/>
+        <translation>སན་མ་རི་ནོ།</translation>
     </message>
     <message>
         <source>Vatican City</source>
-        <translation type="unfinished"/>
+        <translation>ཝ་ཐི་ཁན།</translation>
     </message>
     <message>
         <source>Kosovo</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་སོའོ་ཝོ།</translation>
     </message>
     <message>
         <source>United Arab Emirates</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རབ་མཉམ་འབྲེལ་ཚོ་དཔོན་རྒྱལ་ཁབ།</translation>
     </message>
     <message>
         <source>Armenia</source>
@@ -735,219 +735,219 @@
     </message>
     <message>
         <source>Azerbaijan</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་སའི་པའེ་ཅང་།</translation>
     </message>
     <message>
         <source>Bahrain</source>
-        <translation type="unfinished"/>
+        <translation>པ་རེན།</translation>
     </message>
     <message>
         <source>Cyprus</source>
-        <translation type="unfinished"/>
+        <translation>སེབ་རུ་སི།</translation>
     </message>
     <message>
         <source>Georgia</source>
-        <translation type="unfinished"/>
+        <translation>ཀེ་ལུའུ་ཅི་ཡ།</translation>
     </message>
     <message>
         <source>Israel</source>
-        <translation type="unfinished"/>
+        <translation>དབྱི་སི་རན།</translation>
     </message>
     <message>
         <source>Iraq</source>
-        <translation type="unfinished"/>
+        <translation>དབྱི་རག</translation>
     </message>
     <message>
         <source>Jordan</source>
-        <translation type="unfinished"/>
+        <translation>ཅོར་ཏན།</translation>
     </message>
     <message>
         <source>Kuwait</source>
-        <translation type="unfinished"/>
+        <translation>ཁུ་ཝེ་ཐེ།</translation>
     </message>
     <message>
         <source>Lebanon</source>
-        <translation type="unfinished"/>
+        <translation>ལེ་པ་ནོན།</translation>
     </message>
     <message>
         <source>Oman</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་མན།</translation>
     </message>
     <message>
         <source>Palestinian Territories</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ལེ་སི་ཐན་གྱི་མངའ་ཁོངས་ས་ཆ།</translation>
     </message>
     <message>
         <source>Palestine</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ལེ་སི་ཐན།</translation>
     </message>
     <message>
         <source>Qatar</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ཐར།</translation>
     </message>
     <message>
         <source>Saudi Arabia</source>
-        <translation type="unfinished"/>
+        <translation>སོ་ཏི་ཨ་རབ།</translation>
     </message>
     <message>
         <source>Syria</source>
-        <translation type="unfinished"/>
+        <translation>སི་རི་ཡ།</translation>
     </message>
     <message>
         <source>Turkey</source>
-        <translation type="unfinished"/>
+        <translation>ཐུར་ཁེ།</translation>
     </message>
     <message>
         <source>Yemen</source>
-        <translation type="unfinished"/>
+        <translation>ཡེ་མེན།</translation>
     </message>
     <message>
         <source>Turkmenistan</source>
-        <translation type="unfinished"/>
+        <translation>ཐུའུ་ཁུ་མན་སི་ཐན།</translation>
     </message>
     <message>
         <source>Tajikistan</source>
-        <translation type="unfinished"/>
+        <translation>ཐ་ཅི་ཁེ་སི་ཐན།</translation>
     </message>
     <message>
         <source>Kyrgyzstan</source>
-        <translation type="unfinished"/>
+        <translation>ཅིར་ཅི་སེ་སི་ཐན།</translation>
     </message>
     <message>
         <source>Kazakhstan</source>
-        <translation type="unfinished"/>
+        <translation>ཧ་སག་ཁེ་སི་ཐན།</translation>
     </message>
     <message>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>ཝུའུ་ཙི་པིའེ་ཁེ་སི་ཐན།</translation>
     </message>
     <message>
         <source>China</source>
-        <translation type="unfinished"/>
+        <translation>ཀྲུང་གོ།</translation>
     </message>
     <message>
         <source>Hong Kong SAR China</source>
-        <translation type="unfinished"/>
+        <translation>ཀྲུང་གོའི་ཤང་ཀང་དམིགས་བསལ་སྲིད་འཛིན་ཁུལ།</translation>
     </message>
     <message>
         <source>Hong Kong</source>
-        <translation type="unfinished"/>
+        <translation>ཤང་ཀང་།</translation>
     </message>
     <message>
         <source>Japan</source>
-        <translation type="unfinished"/>
+        <translation>ལྗར་པན།</translation>
     </message>
     <message>
         <source>North Korea</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་རེ་ཡ་ལྷོ་མ།</translation>
     </message>
     <message>
         <source>South Korea</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་རེ་ཡ་བྱང་མ།</translation>
     </message>
     <message>
         <source>Mongolia</source>
-        <translation type="unfinished"/>
+        <translation>མོང་གོལ།</translation>
     </message>
     <message>
         <source>Macao SAR China</source>
-        <translation type="unfinished"/>
+        <translation>ཀྲུང་གོའི་ཨའོ་མོན་དམིགས་བསལ་སྲིད་འཛིན་ཁུལ།</translation>
     </message>
     <message>
         <source>Macao</source>
-        <translation type="unfinished"/>
+        <translation>ཨའོ་མོན།</translation>
     </message>
     <message>
         <source>Taiwan</source>
-        <translation type="unfinished"/>
+        <translation>ཐའེ་ཝན།</translation>
     </message>
     <message>
         <source>Afghanistan</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་་ཧྥུ་ཀ་ནི་སི་ཐན།</translation>
     </message>
     <message>
         <source>Bangladesh</source>
-        <translation type="unfinished"/>
+        <translation>བྷང་ག་ལ།</translation>
     </message>
     <message>
         <source>Bhutan</source>
-        <translation type="unfinished"/>
+        <translation>འབྲུག་ཡུལ།</translation>
     </message>
     <message>
         <source>India</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱ་གར།</translation>
     </message>
     <message>
         <source>Iran</source>
-        <translation type="unfinished"/>
+        <translation>དབྱི་རན།</translation>
     </message>
     <message>
         <source>Sri Lanka</source>
-        <translation type="unfinished"/>
+        <translation>སི་རི་ལན་ཁ།</translation>
     </message>
     <message>
         <source>Maldives</source>
-        <translation type="unfinished"/>
+        <translation>མར་ཏི་ཝེ།</translation>
     </message>
     <message>
         <source>Nepal</source>
-        <translation type="unfinished"/>
+        <translation>བལ་ཡུལ།</translation>
     </message>
     <message>
         <source>Pakistan</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ཁི་སི་ཐན།</translation>
     </message>
     <message>
         <source>Brunei</source>
-        <translation type="unfinished"/>
+        <translation>པུ་རུ་ནེ།</translation>
     </message>
     <message>
         <source>Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>ཧིན་རྡུ་ཉི་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>Cambodia</source>
-        <translation type="unfinished"/>
+        <translation>ཁམ་ཕུ་ཁྲེ།</translation>
     </message>
     <message>
         <source>Laos</source>
-        <translation type="unfinished"/>
+        <translation>ལོ་སི།</translation>
     </message>
     <message>
         <source>Myanmar (Burma)</source>
-        <translation type="unfinished"/>
+        <translation>འབར་མ།</translation>
     </message>
     <message>
         <source>Malaysia</source>
-        <translation type="unfinished"/>
+        <translation>མ་ལེ་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>Philippines</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥི་ལི་ཕིན།</translation>
     </message>
     <message>
         <source>Singapore</source>
-        <translation type="unfinished"/>
+        <translation>སིང་ཀ་ཕོར།</translation>
     </message>
     <message>
         <source>Thailand</source>
-        <translation type="unfinished"/>
+        <translation>ཐེ་ལན།</translation>
     </message>
     <message>
         <source>Timor-Leste</source>
-        <translation type="unfinished"/>
+        <translation>ཐི་མོར་ཤར་མ།</translation>
     </message>
     <message>
         <source>Vietnam</source>
-        <translation type="unfinished"/>
+        <translation>ཝེ་ཐེ་ནམ།</translation>
     </message>
     <message>
         <source>Australia</source>
-        <translation type="unfinished"/>
+        <translation>ཨོ་སི་ཁྲུ་ལི་ཡ།</translation>
     </message>
     <message>
         <source>Cocos (Keeling) Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་ཁོ་སི་（ཅི་ལིན་）གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Christmas Island</source>
@@ -959,259 +959,259 @@
     </message>
     <message>
         <source>Norfolk Island</source>
-        <translation type="unfinished"/>
+        <translation>ནོ་ཧྥུ་ཁེ་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>New Zealand</source>
-        <translation type="unfinished"/>
+        <translation>ནེའུ་ཙི་ལན།</translation>
     </message>
     <message>
         <source>Fiji</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥི་ཅི།</translation>
     </message>
     <message>
         <source>New Caledonia</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ལེ་ཏོ་ནི་ཡ་གསར་པ།</translation>
     </message>
     <message>
         <source>Papua New Guinea</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ཕུ་ཡ་ཀུའི་ནེ་ཡ་གསར་པ།</translation>
     </message>
     <message>
         <source>Solomon Islands</source>
-        <translation type="unfinished"/>
+        <translation>སོ་ལོ་མོན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Vanuatu</source>
-        <translation type="unfinished"/>
+        <translation>ཝ་ནུ་ཨ་ཐུ།</translation>
     </message>
     <message>
         <source>Micronesia</source>
-        <translation type="unfinished"/>
+        <translation>སྨི་ཁེ་རོ་ནི་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>Guam</source>
-        <translation type="unfinished"/>
+        <translation>ཀོམ་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Kiribati</source>
-        <translation type="unfinished"/>
+        <translation>ཁེ་རི་པ་སི།</translation>
     </message>
     <message>
         <source>Marshall Islands</source>
-        <translation type="unfinished"/>
+        <translation>མར་ཧྲོར་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Northern Mariana Islands</source>
-        <translation type="unfinished"/>
+        <translation>མ་རི་ཡ་ན་གླིང་ཚོམ་བྱང་མ།</translation>
     </message>
     <message>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>ནོ་རུ།</translation>
     </message>
     <message>
         <source>Palau</source>
-        <translation type="unfinished"/>
+        <translation>ཕ་ལོ།</translation>
     </message>
     <message>
         <source>U.S. Outlying Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་མངའ་ཁོངས་ཕྱིའི་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>American Samoa</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་ཁོངས་ས་མོ་ཡ།</translation>
     </message>
     <message>
         <source>Cook Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་གེ་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Niue</source>
-        <translation type="unfinished"/>
+        <translation>ནིའུ་ཨེ།</translation>
     </message>
     <message>
         <source>French Polynesia</source>
-        <translation type="unfinished"/>
+        <translation>ཧྥ་རན་སེའི་ཁོངས་ཕོ་ལེ་ནེ་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>Pitcairn Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཕི་ཐེ་ཁེན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <translation>ཐོ་ཁེ་ལོ།</translation>
     </message>
     <message>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>ཐང་ཀ</translation>
     </message>
     <message>
         <source>Tuvalu</source>
-        <translation type="unfinished"/>
+        <translation>ཐུ་ཝ་ལུ།</translation>
     </message>
     <message>
-        <source>Wallis </source>
+        <source>Wallis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Samoa</source>
-        <translation type="unfinished"/>
+        <translation>ས་མོ་ཡ།</translation>
     </message>
     <message>
         <source>Antarctica</source>
-        <translation type="unfinished"/>
+        <translation>ལྷོ་སྣེའི་གླིང་།</translation>
     </message>
     <message>
         <source>Ascension Island</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་སན་སུང་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Clipperton Island</source>
-        <translation type="unfinished"/>
+        <translation>ཁེ་ལི་པོའོ་ཏུན་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Diego Garcia</source>
-        <translation type="unfinished"/>
+        <translation>ཏི་ཀ་ཅ་ཞི་ཡ་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Tristan da Cunha</source>
-        <translation type="unfinished"/>
+        <translation>ཐེ་ལི་སི་ཐན་-ཏ་ཁུ་ནི་ཡ་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>མ་ཆི་ཏུན།</translation>
     </message>
     <message>
-        <source> World</source>
-        <translation type="unfinished"/>
+        <source>World</source>
+        <translation>འཛམ་གླིང་།</translation>
     </message>
     <message>
-        <source> Myanmar</source>
-        <translation type="unfinished"/>
+        <source>Myanmar</source>
+        <translation>འབར་མ།</translation>
     </message>
     <message>
-        <source> Macau</source>
-        <translation type="unfinished"/>
+        <source>Macau</source>
+        <translation>ཨའོ་མོན།</translation>
     </message>
     <message>
-        <source> Bosnia And Herzegowina</source>
-        <translation type="unfinished"/>
+        <source>Bosnia And Herzegowina</source>
+        <translation>པར་ཟིག་ནི་ཡ་དང་ཧེ་སའེ་ཀོ་ཝེ་ན།</translation>
     </message>
     <message>
-        <source> Cura Sao</source>
-        <translation type="unfinished"/>
+        <source>Cura Sao</source>
+        <translation>ཁུ་ལ་ས་ཨའོ།</translation>
     </message>
     <message>
         <source>Bonaire</source>
-        <translation type="unfinished"/>
+        <translation>པོ་ནར།</translation>
     </message>
     <message>
         <source>Antigua And Barbuda</source>
-        <translation type="unfinished"/>
+        <translation>ཨན་ཐི་ཀྭ་དང་པ་པུ་ཏ།</translation>
     </message>
     <message>
         <source>Cocos Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཁོ་གེ་སི་གླིང་ཚོམ།</translation>
     </message>
     <message>
-        <source> Pitcairn</source>
-        <translation type="unfinished"/>
+        <source>Pitcairn</source>
+        <translation>ཕི་ཐེ་ཁེན།</translation>
     </message>
     <message>
         <source>Saint Kitts And Nevis</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ཁི་ཚི་དང་ནི་ཝེ་སི།</translation>
     </message>
     <message>
         <source>Saint Lucia</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ལོ་ཞི་ཡ།</translation>
     </message>
     <message>
         <source>Saint Vincent And The Grenadines</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ཝེན་ཧྲེན་ཐེ་དང་ཀེ་རེན་ན་ཏེན་སི།</translation>
     </message>
     <message>
         <source>Saint Helena</source>
-        <translation type="unfinished"/>
+        <translation>སན་ཐེ་ཧེ་ལེ་ན།</translation>
     </message>
     <message>
         <source>Swaziland</source>
-        <translation type="unfinished"/>
+        <translation>སུའེ་ཙི་ལན།</translation>
     </message>
     <message>
-        <source> Trinidad And Tobago</source>
-        <translation type="unfinished"/>
+        <source>Trinidad And Tobago</source>
+        <translation>ཐེ་རི་ནི་ཏ་དང་ཐོ་པ་ཀོ།</translation>
     </message>
     <message>
         <source>Turks And Caicos Islands</source>
+        <translation>ཐུལ་ཁེ་སི་དང་ཁེ་ཁོ་སི་གླིང་ཚོམ།</translation>
+    </message>
+    <message>
+        <source>United States Minor Outlying Islands</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source> United States Minor Outlying Islands</source>
-        <translation type="unfinished"/>
+        <source>United States Virgin Islands</source>
+        <translation>ཨ་རིའི་ཁོངས་ཝེར་ཀྲེན་གླིང་ཚོམ།</translation>
     </message>
     <message>
-        <source> United States Virgin Islands</source>
-        <translation type="unfinished"/>
+        <source>Isle Of Man</source>
+        <translation>དབྱིན་ཇིའི་ཁོངས་གཏོགས་མན་གླིང་ཕྲན།</translation>
     </message>
     <message>
-        <source> Isle Of Man</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> Europe</source>
-        <translation type="unfinished"/>
+        <source>Europe</source>
+        <translation>གླིང་ཆེན་ཡོ་རོབ།</translation>
     </message>
     <message>
         <source>Congo Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ།</translation>
     </message>
     <message>
         <source>Congo Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>ཁོང་ཀོ།</translation>
     </message>
     <message>
-        <source> Reunion</source>
-        <translation type="unfinished"/>
+        <source>Reunion</source>
+        <translation>རོ་ནི་ཝང་།</translation>
     </message>
     <message>
-        <source> Saint Pierre And Miquelon</source>
-        <translation type="unfinished"/>
+        <source>Saint Pierre And Miquelon</source>
+        <translation>སེན་ཐེ་ཕི་ཨེར་དང་མི་ཁེ་ལོང་གླིང་ཚོམ།</translation>
     </message>
     <message>
-        <source> Wallis And Futuna Islands</source>
-        <translation type="unfinished"/>
+        <source>Wallis And Futuna Islands</source>
+        <translation>ཝ་ལི་སི་དང་ཧྥུ་ཐུ་ན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>Saint Barthelemy</source>
-        <translation type="unfinished"/>
+        <translation>སན་པ་ཐུའོ་ལུའོ་མུའུ།</translation>
     </message>
     <message>
         <source>Saint Martin</source>
+        <translation>སེན་མ་ཏིང་།</translation>
+    </message>
+    <message>
+        <source>Vatican City State</source>
+        <translation>ཝ་ཐི་ཁན།</translation>
+    </message>
+    <message>
+        <source>Svalbard And Jan Mayen Islands</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source> Vatican City State</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> Svalbard And Jan Mayen Islands</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> East Timor</source>
-        <translation type="unfinished"/>
+        <source>East Timor</source>
+        <translation>ཐི་མོར་ཤར་མ།</translation>
     </message>
     <message>
         <source>Guinea Bissau</source>
-        <translation type="unfinished"/>
+        <translation>ཀི་ནེ་ཡ་པི་སོ།</translation>
     </message>
     <message>
-        <source> Sao Tome And Principe</source>
-        <translation type="unfinished"/>
+        <source>Sao Tome And Principe</source>
+        <translation>སོ་ཐོ་མེ་དང་ཕུ་རིན་སི་ཕེ།</translation>
     </message>
     <message>
         <source>Latin America</source>
-        <translation type="unfinished"/>
+        <translation>ལ་ཏིང་མེ་གླིང་།</translation>
     </message>
     <message>
         <source>Ceuta And Melilla</source>
@@ -1219,7 +1219,7 @@
     </message>
     <message>
         <source>Aland Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཨའོ་ལན་གླིང་ཚོམ།</translation>
     </message>
 </context>
 </TS>

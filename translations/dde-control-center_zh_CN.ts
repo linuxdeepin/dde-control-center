@@ -3065,7 +3065,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>纸张</translation>
     </message>
     <message>
-        <source>custom format</source>
+        <source>Custom format</source>
         <translation>自定义格式</translation>
     </message>
 </context>
