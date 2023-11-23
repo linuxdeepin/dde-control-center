@@ -160,7 +160,7 @@ void CustomRegionFormatDialog::initRegionFormat(const QLocale &locale, const Reg
     m_shortDateCombo->setCurrentText(locale.toString(QDate(2023, 1, 1), regionFormat.shortDateFormat));
     m_longDateCombo->setCurrentText(locale.toString(QDate(2023, 1, 1), regionFormat.longDateFormat));
     m_shortTimeCombo->setCurrentText(locale.toString(QTime(1, 1, 1), regionFormat.shortTimeFormat));
-    m_longDateCombo->setCurrentText(locale.toString(QTime(1, 1, 1), regionFormat.longTimeFormat));
+    m_longTimeCombo->setCurrentText(locale.toString(QTime(1, 1, 1), regionFormat.longTimeFormat));
 }
 
 void CustomRegionFormatDialog::onSaved()

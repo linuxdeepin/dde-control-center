@@ -55,8 +55,8 @@ public:
     inline QString langRegion() const { return m_langCountry; }
     void setLangRegion(const QString &langCountry);
 
-    inline QString firstDayOfWeekFormat() const { return m_firstDayOfWeekFormat; }
-    void setFirstDayOfWeek(const QString &firstDayOfWeekFormat);
+    inline int firstDayOfWeekFormat() const { return m_firstDayOfWeekFormat; }
+    void setFirstDayOfWeek(const int &firstDayOfWeekFormat);
 
     inline QString shortDateFormat() const { return m_shortDateFormat; }
     void setShortDateFormat(const QString &shortDateFormat);
@@ -104,7 +104,7 @@ Q_SIGNALS:
     void localeNameChanged(const QString &localeName);
     void countryChanged(const QString &country);
     void langCountryChanged(const QString &langCountry);
-    void firstDayOfWeekFormatChanged(const QString &firstDayOfWeekFormat);
+    void firstDayOfWeekFormatChanged(const int firstDayOfWeekFormat);
     void shortDateFormatChanged(const QString &shortDateFormat);
     void longDateFormatChanged(const QString &longDate);
     void shortTimeFormatChanged(const QString &shortTimeFormat);
@@ -134,7 +134,7 @@ private:
     QStringList m_countries;
     Regions m_regions;
     QString m_localeName;
-    QString m_firstDayOfWeekFormat;
+    int m_firstDayOfWeekFormat;
     QString m_shortDateFormat;
     QString m_longDateFormat;
     QString m_shortTimeFormat;

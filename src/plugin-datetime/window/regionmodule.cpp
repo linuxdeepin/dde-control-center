@@ -42,6 +42,8 @@ RegionModule::RegionModule(DatetimeModel *model,
     initFormatModificationModule();
     appendChild(m_formatModificationModule);
 
+    m_regionFormat = m_model->regionFormat();
+
     connect(m_langRegionModule, &ItemModule::clicked, this, &RegionModule::onLangRegionClicked);
     connect(m_model, &DatetimeModel::localeNameChanged, this, [this](const QString &name){
         m_locale = QLocale(name);
@@ -125,9 +127,12 @@ void RegionModule::initFormatList(DListView *formatList)
     DStandardItem *dayItem = new DStandardItem;
     dayItem->setText(tr("First day of week"));
     m_dayAction = new DViewItemAction;
-    m_dayAction->setText(m_model->firstDayOfWeekFormat());
+    QString day = m_locale.standaloneDayName(m_model->firstDayOfWeekFormat());
+    m_dayAction->setText(day);
     dayItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_dayAction);
-    connect(m_model, &DatetimeModel::firstDayOfWeekFormatChanged, this, [this](const QString &text) { m_dayAction->setText(text.toUtf8()); } );
+    connect(m_model, &DatetimeModel::firstDayOfWeekFormatChanged, this, [this](const int day) { 
+            QString dayStr = m_locale.standaloneDayName(day);
+            m_dayAction->setText(dayStr); } );
 
     // short date
     DStandardItem *shortDateItem = new DStandardItem;
