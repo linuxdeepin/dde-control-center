@@ -68,6 +68,9 @@ void DetailInfoItem::initUi()
     bomboxlayout->addWidget(m_linkDataLabel, 0, Qt::AlignLeft);
     bomboxlayout->addWidget(m_linkLable, 10, Qt::AlignLeft);
 
+    m_linkDataLabel->setVisible(false);
+    m_linkLable->setVisible(false);
+
     mainlayout->addLayout(hboxlayout);
     mainlayout->addSpacing(5);
     mainlayout->addWidget(m_dataLable);
@@ -98,8 +101,16 @@ void DetailInfoItem::setExplaintTitle(QString title)
 void DetailInfoItem::setLinkData(QString data)
 {
     m_linkLable->clear();
+    if (data.isEmpty()) {
+        m_linkDataLabel->setVisible(false);
+        m_linkLable->setVisible(false);
+        return;
+    }
+
     QString value = QString("<a href=\"%1\">%2").arg(data, data);
     m_linkLable->setText(value);
+    m_linkDataLabel->setVisible(true);
+    m_linkLable->setVisible(true);
 }
 
 void DetailInfoItem::setDetailData(QString data)
