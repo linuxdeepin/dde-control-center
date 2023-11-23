@@ -242,12 +242,9 @@ void DatetimeWorker::initRegionFormatData()
         m_model->setLocaleName(m_config->value(localeName_key).toString());
     }
     if (m_config->isDefaultValue(firstDayOfWeek_key)) {
-        QString day = QLocale::system().standaloneDayName(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
-        m_model->setFirstDayOfWeek(day);
+        m_model->setFirstDayOfWeek(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
     } else {
-        QLocale locale(m_config->value(localeName_key).toString());
-        QString day = locale.standaloneDayName(m_config->value(firstDayOfWeek_key).toInt());
-        m_model->setFirstDayOfWeek(day);
+        m_model->setFirstDayOfWeek(m_config->value(firstDayOfWeek_key).toInt());
     }
     if (m_config->isDefaultValue(shortDateFormat_key)) {
         m_model->setShortDateFormat(m_regionInter->regionFormat(QLocale::system()).shortDateFormat);
@@ -285,6 +282,17 @@ void DatetimeWorker::initRegionFormatData()
         m_model->setPaperFormat(m_config->value(paperFormat_key).toString());
     }
 
+    RegionFormat regionFormat;
+    regionFormat.firstDayOfWeekFormat = m_model->firstDayOfWeekFormat();
+    regionFormat.shortDateFormat = m_model->shortDateFormat();
+    regionFormat.longDateFormat = m_model->longDateFormat();
+    regionFormat.shortTimeFormat = m_model->shortTimeFormat();
+    regionFormat.longTimeFormat = m_model->longTimeFormat();
+    regionFormat.paperFormat = m_model->paperFormat();
+    regionFormat.currencyFormat = m_model->currencyFormat();
+    regionFormat.numberFormat = m_model->numberFormat();
+    m_model->setRegionFormat(regionFormat);
+
     connect(m_config, &DTK_CORE_NAMESPACE::DConfig::valueChanged, this, [this] (const QString &key) {
         if (key == country_key) {
             m_model->setCountry(m_config->value(key).toString());
@@ -293,8 +301,7 @@ void DatetimeWorker::initRegionFormatData()
         } else if (key == localeName_key) {
             m_model->setLocaleName(m_config->value(key).toString());
         } else if (key == firstDayOfWeek_key) {
-            QLocale locale(m_config->value(localeName_key).toString());
-            m_model->setFirstDayOfWeek(locale.standaloneDayName(m_config->value(key).toInt()));
+            m_model->setFirstDayOfWeek(m_config->value(key).toInt());
         } else if (key == shortDateFormat_key) {
             m_model->setShortDateFormat(m_config->value(key).toString());
         } else if (key == longDateFormat_key) {

@@ -140,7 +140,7 @@ void DatetimeModel::setLangRegion(const QString &langCountry)
     }
 }
 
-void DatetimeModel::setFirstDayOfWeek(const QString &firstDayOfWeekFormat)
+void DatetimeModel::setFirstDayOfWeek(const int &firstDayOfWeekFormat)
 {
     if (m_firstDayOfWeekFormat != firstDayOfWeekFormat) {
         m_firstDayOfWeekFormat = firstDayOfWeekFormat;
