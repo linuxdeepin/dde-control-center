@@ -9,6 +9,7 @@
 #include "widgets/widgetmodule.h"
 
 #include <dcclistview.h>
+#include <qglobal.h>
 #include <DCommandLinkButton>
 
 using namespace DCC_NAMESPACE;
@@ -59,10 +60,17 @@ void RegionModule::initCountryModule()
 {
     m_countryModule = new ItemModule("Region", tr("Region"), [this](ModuleObject *){
         m_countryCombo = new DComboBox;
-        m_countryCombo->addItems(m_model->countries());
-        m_countryCombo->setCurrentText(tr(m_model->country().toUtf8()));
-        connect(m_countryCombo, &QComboBox::currentTextChanged, this, [this](const QString &value) { m_work->setConfigValue(country_key, value); });
-        connect(m_model, &DatetimeModel::countryChanged, this, [this](const QString &text) { m_countryCombo->setCurrentText(text); });
+        for (const QString &country : m_model->countries()) {
+            m_countryCombo->addItem(QString("%1").arg(
+                    QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data())));
+        }
+        m_countryCombo->setCurrentText(QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country", m_model->country().toUtf8().data())));
+        connect(m_countryCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
+                m_work->setConfigValue(country_key, m_model->countries().at(index));
+                });
+        connect(m_model, &DatetimeModel::countryChanged, this, [this](const QString &text) {
+                m_countryCombo->setCurrentText(QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country", text.toUtf8().data())));
+                });
         return m_countryCombo;
     });
     m_countryModule->setBackground(true);
@@ -81,9 +89,9 @@ void RegionModule::initLangRegionModule()
     m_langRegionModule = new ItemModule("languageRegion", tr("Languange and region"), [this](ModuleObject *){
         QWidget *widget = new QWidget;
         m_langRegionLabel = new QLabel;
-        m_langRegionLabel->setText(tr(m_model->langRegion().toUtf8()));
+        m_langRegionLabel->setText(getTranslation(m_model->langRegion()));
         connect(m_model, &DatetimeModel::langCountryChanged, this, [this](const QString &text){
-            m_langRegionLabel->setText(tr(text.toUtf8()));
+            m_langRegionLabel->setText(getTranslation(text));
         } );
         QLabel *langRegionEnterLabel = new QLabel;
         langRegionEnterLabel->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
@@ -239,10 +247,25 @@ void RegionModule::onLangRegionClicked()
     connect(&dlg, &RegionFormatDialog::regionFormatSaved, this, [this](const QString &langRegion, const QLocale &locale){
         m_langRegion = langRegion;
         m_locale = locale;
-        m_langRegionLabel->setText(langRegion);
+        m_langRegionLabel->setText(getTranslation(langRegion));
         m_work->setConfigValue(languageRegion_key, langRegion);
         m_work->setConfigValue(localeName_key, locale.name());
         updateRegionFormat(RegionProxy::regionFormat(m_locale));
     });
     dlg.exec();
 }
+
+QString RegionModule::getTranslation(const QString &langRegion)
+{
+    QStringList langRegions = langRegion.split(":");
+    if (langRegions.size() >= 2) {
+        QString langCountry = QString("%1 (%2)")
+                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                                       langRegions.at(0).toUtf8().data()))
+                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                                       langRegions.at(1).toUtf8().data()));
+        return langCountry;
+    }
+    return langRegion;
+}
+

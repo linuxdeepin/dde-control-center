@@ -156,9 +156,19 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
     for (auto locale: m_regions) {
         QString langRegion = m_regions.key(locale);
         DStandardItem *item = new DStandardItem;
+        QString langRegionText = langRegion;
+        QStringList langRegions = langRegion.split(":");
+        if (langRegions.size() >= 2) {
+            QString langCountry = QString("%1 (%2)")
+                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                                       langRegions.at(0).toUtf8().data()))
+                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                                       langRegions.at(1).toUtf8().data()));
+            langRegionText = langCountry;
+        }
         item->setData(langRegion, RegionFormatRole::TextRole);
         item->setData(locale, RegionFormatRole::LocaleRole);
-        item->setText(langRegion);
+        item->setText(langRegionText);
         item->setSizeHint(QSize(304, 36));
         m_model->appendRow(item);
     }
