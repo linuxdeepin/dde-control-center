@@ -44,6 +44,7 @@ private:
     void initFormatList(DListView *view);
     void initFormatModificationModule();
     void updateRegionFormat(const RegionFormat &regionFormat);
+    QString getTranslation(const QString &langRegion);
 
 private slots:
     void onLangRegionClicked();

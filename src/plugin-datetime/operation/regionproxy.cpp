@@ -221,15 +221,10 @@ void RegionProxy::active()
             language = "Traditional Chinese";
         if (locale.country() == QLocale::China)
             language = "Simplified Chinese";
-        QString langCountry = QString("%1 (%2)")
-                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                                       language.toUtf8().data()))
-                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                                       country.toUtf8().data()));
+        QString langCountry = QString("%1:%2").arg(language).arg(country);
         if (!countries.contains(country)) {
             countries << country;
-            m_countries << QString("%1").arg(
-                    QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data()));
+            m_countries << country;
         }
         m_regions.insert(langCountry, locale);
     }
@@ -263,11 +258,7 @@ QString RegionProxy::langCountry() const
     QLocale locale = QLocale::system();
     QString language = locale.languageToString(locale.language());
     QString country = locale.countryToString(locale.country());
-    QString langCountry = QString("%1 (%2)")
-                                  .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                                   language.toUtf8().data()))
-                                  .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                                   country.toUtf8().data()));
+    QString langCountry = QString("%1:%2");
     return langCountry;
 }
 
