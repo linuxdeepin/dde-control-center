@@ -121,7 +121,6 @@ void UseBatteryModule::initUI()
             monitorSleepOnBattery->slider()->setTickInterval(1);
             monitorSleepOnBattery->slider()->setPageStep(1);
             monitorSleepOnBattery->setAnnotations(m_annos);
-            monitorSleepOnBattery->addBackground();
             auto setScreenBlackDelayOnBattery = [monitorSleepOnBattery, &delayToLiteralString] (const int delay) {
                 monitorSleepOnBattery->slider()->blockSignals(true);
                 monitorSleepOnBattery->slider()->setValue(delay);
@@ -146,7 +145,6 @@ void UseBatteryModule::initUI()
             autoLockScreen->slider()->setTickInterval(1);
             autoLockScreen->slider()->setPageStep(1);
             autoLockScreen->setAnnotations(m_annos);
-            autoLockScreen->addBackground();
             auto setAutoLockScreenOnBattery = [autoLockScreen, &delayToLiteralString] (const int delay) {
                 autoLockScreen->slider()->blockSignals(true);
                 autoLockScreen->slider()->setValue(delay);
@@ -171,7 +169,6 @@ void UseBatteryModule::initUI()
             computerSleepOnBattery->slider()->setTickInterval(1);
             computerSleepOnBattery->slider()->setPageStep(1);
             computerSleepOnBattery->setAnnotations(m_annos);
-            computerSleepOnBattery->addBackground();
             auto setScreenBlackDelayOnBattery = [computerSleepOnBattery, &delayToLiteralString] (const int delay) {
                 computerSleepOnBattery->slider()->blockSignals(true);
                 computerSleepOnBattery->slider()->setValue(delay);
