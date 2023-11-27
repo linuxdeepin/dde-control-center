@@ -174,6 +174,12 @@ public:
                          });
         m_view = createListView(parentWidget);
         m_sidebarWidget = createListView(parentWidget, true);
+        QObject::connect(q, &MainModule::moduleDataChanged, q, [this, q](){
+            if (auto model = dynamic_cast<ModuleDataModel*>(m_sidebarWidget->model())) {
+                auto index = model->index(q->currentModule());
+                model->dataChanged(index, index);
+            }
+        });
 #ifdef USE_SIDEBAR
         m_mainWindow->setSidebarWidget(m_sidebarWidget);
 #endif

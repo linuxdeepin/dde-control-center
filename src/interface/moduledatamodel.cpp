@@ -157,6 +157,12 @@ void ModuleDataModel::setModuleObject(ModuleObject *const module)
                 Q_UNUSED(state)
                 onDataChanged(tmpChild);
             });
+    // emit moduleDataChanged if module data changed(e.g. setBadge)
+    connect(m_parentObject, &ModuleObject::moduleDataChanged, this, [this]() {
+        if (auto mainModule = dynamic_cast<ModuleObject *>(m_parentObject->parent())) {
+            mainModule->moduleDataChanged();
+        }
+    });
 }
 
 QModelIndex ModuleDataModel::index(ModuleObject *module) const

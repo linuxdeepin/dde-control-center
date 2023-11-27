@@ -1458,6 +1458,8 @@ void UpdateWorker::onClassityInstallStatusChanged(const ClassifyUpdateType type,
         cleanLastoreJob(job);
     } else if (value == "succeed") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateSucceeded);
+        // update updateState ==> setBadge(false)
+        m_model->isUpdatablePackages(false);
     } else if (value == "end") {
         if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
