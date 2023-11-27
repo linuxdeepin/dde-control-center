@@ -132,8 +132,8 @@ DefAppModule::DefAppModule(QObject *parent)
     : VListModule(
             "defapp", tr("Default Applications"), DIconTheme::findQIcon("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))
-    , m_isOldInterface(false)
     , m_defApps(nullptr)
+    , m_isOldInterface(false)
 {
     if (MimeDBusProxyOld::isRegisted()) {
         m_oldwork = new DefAppWorkerOld(m_model, this);
