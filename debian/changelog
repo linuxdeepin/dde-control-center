@@ -1,3 +1,13 @@
+dde-control-center (6.0.35) unstable; urgency=medium
+
+  * when there are no link, detailinfoitem hide the link widgets
+  * fix: slider of battery should not have background
+  * fix typo in datetime region
+  * fix: read point/badge not clear
+  * tidy up the cmake
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 28 Nov 2023 11:25:52 +0800
+
 dde-control-center (6.0.34) unstable; urgency=medium
 
   * fix: is desktop is marked nodisplay, not show it
