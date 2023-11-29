@@ -7,10 +7,13 @@
 #include "interface/namespace.h"
 #include "widgets/switchwidget.h"
 
+#include <dtkgui_global.h>
+#include <dtkwidget_global.h>
 #include <DDesktopServices>
 #include <QModelIndex>
 #include <QWidget>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -38,7 +41,7 @@ public:
 Q_SIGNALS:
     void requestSwitchSoundEffects(bool isOn);
     void requestRefreshList();
-    void requestSetEffectAble(DTK_WIDGET_NAMESPACE::DDesktopServices::SystemSoundEffect effect, bool enable);
+    void requestSetEffectAble(DDesktopServices::SystemSoundEffect effect, bool enable);
 
 public Q_SLOTS:
     void startPlay(const QModelIndex &index);

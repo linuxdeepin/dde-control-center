@@ -35,7 +35,7 @@ struct BluetoothDeviceItemAction
 
     explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
- 
+
         , spinnerAction(
                   new DViewItemAction(Qt::AlignVCenter , QSize(), QSize(), false))
         , percentageText(
@@ -415,7 +415,7 @@ QWidget *BluetoothDeviceDelegate::createEditor(QWidget *parent,
     connect(edit, &QLineEdit::textChanged, edit, [edit](const QString &str) {
         if (str.length() > 32) {
             edit->backspace();
-            Dtk::Widget::DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
     });
     return edit;

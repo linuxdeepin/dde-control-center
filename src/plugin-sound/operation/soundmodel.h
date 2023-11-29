@@ -4,11 +4,14 @@
 #ifndef DCC_SOUND_SOUNDMODEL_H
 #define DCC_SOUND_SOUNDMODEL_H
 
+#include <dtkwidget_global.h>
+#include <dtkgui_global.h>
 #include <DDesktopServices>
 #include <QObject>
 #include <QMap>
 #include <QLabel>
 #include <QDBusObjectPath>
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
