@@ -258,7 +258,7 @@ QString RegionProxy::langCountry() const
     QLocale locale = QLocale::system();
     QString language = locale.languageToString(locale.language());
     QString country = locale.countryToString(locale.country());
-    QString langCountry = QString("%1:%2");
+    QString langCountry = QString("%1:%2").arg(language).arg(country);
     return langCountry;
 }
 
