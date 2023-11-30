@@ -231,7 +231,7 @@ void DatetimeWorker::initRegionFormatData()
     } else {
         m_model->setCountry(m_config->value(country_key).toString());
     }
-    if (m_config->isDefaultValue(languageRegion_key)) {
+    if (m_config->isDefaultValue(languageRegion_key) || m_config->value(languageRegion_key).toString().isEmpty()) {
         m_model->setLangRegion(m_regionInter->langCountry());
     } else {
         m_model->setLangRegion(m_config->value(languageRegion_key).toString());
