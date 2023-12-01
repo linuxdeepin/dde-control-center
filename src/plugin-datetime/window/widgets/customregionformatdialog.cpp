@@ -13,7 +13,7 @@ CustomRegionFormatDialog::CustomRegionFormatDialog(QWidget *parent)
     : DDialog(parent)
 {
     setMinimumSize(540, 590);
-    setTitle(tr("Custom format"));
+    setTitle(tr("Custom Format"));
 
     QWidget *contentWidget = new QWidget;
     QVBoxLayout *mainVLayout = new QVBoxLayout(contentWidget);

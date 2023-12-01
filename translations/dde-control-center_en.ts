@@ -1030,7 +1030,7 @@
 <context>
     <name>dccV23::CustomRegionFormatDialog</name>
     <message>
-        <source>Custom format</source>
+        <source>Custom Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1642,7 +1642,7 @@
 <context>
     <name>dccV23::RegionFormatDialog</name>
     <message>
-        <source>Region format</source>
+        <source>Region Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2995,7 +2995,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>RegionModule</name>
     <message>
-        <source>Region and format</source>
+        <source>Region and Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3051,7 +3051,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Custom format</source>
+        <source>Custom Format</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
