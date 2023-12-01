@@ -24,7 +24,7 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
-    QLabel *headTitle = new QLabel(tr("Region format"));
+    QLabel *headTitle = new QLabel(tr("Region Format"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     headTitle->setAlignment(Qt::AlignCenter);

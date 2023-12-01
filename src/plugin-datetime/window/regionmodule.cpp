@@ -18,7 +18,7 @@ DWIDGET_USE_NAMESPACE
 RegionModule::RegionModule(DatetimeModel *model,
                            DatetimeWorker *work,
                            QObject *parent)
-    : PageModule("region", tr("Region and format"), parent)
+    : PageModule("region", tr("Region and Format"), parent)
     , m_model(model)
     , m_work(work)
     , m_locale(QLocale::system())
@@ -207,7 +207,7 @@ void RegionModule::initFormatModificationModule()
         QHBoxLayout *hlayout = new QHBoxLayout(widget);
         hlayout->setSpacing(0);
         hlayout->setMargin(0);
-        DCommandLinkButton *button = new DCommandLinkButton(tr("Custom format"));
+        DCommandLinkButton *button = new DCommandLinkButton(tr("Custom Format"));
         connect(button, &QPushButton::clicked, this, [this](){
             CustomRegionFormatDialog dlg;
             connect(&dlg, &CustomRegionFormatDialog::customFormatSaved, this, [this](const RegionFormat &regionFormat){
