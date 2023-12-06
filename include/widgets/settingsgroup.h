@@ -53,6 +53,8 @@ public:
     void setBackgroundStyle(BackgroundStyle bgStyle);
     BackgroundStyle backgroundStyle() const { return m_bgStyle; }
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 private:
     BackgroundStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;

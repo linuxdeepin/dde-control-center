@@ -8,6 +8,7 @@
 #include "widgets/accessibleinterface.h"
 
 #include <DBackgroundGroup>
+#include <QSizePolicy>
 
 #include <QVBoxLayout>
 #include <QEvent>
@@ -138,6 +139,17 @@ SettingsItem *SettingsGroup::getItem(int index)
 void SettingsGroup::insertWidget(QWidget *widget)
 {
     m_layout->insertWidget(m_layout->count(), widget);
+}
+
+void SettingsGroup::resizeEvent(QResizeEvent *event)
+{
+    // TODO: maybe here not resize layout, this fixed is not property enough
+    QSizePolicy policy;
+    policy.setVerticalPolicy(QSizePolicy::Expanding);
+    policy.setHorizontalPolicy(QSizePolicy::Expanding);
+    setSizePolicy(policy);
+
+    QFrame::resizeEvent(event);
 }
 
 void SettingsGroup::setBackgroundStyle(BackgroundStyle bgStyle)
