@@ -226,10 +226,11 @@ void DatetimeWorker::initRegionFormatData()
     if (!m_config->isValid())
         return;
 
-    if (m_config->isDefaultValue(country_key)) {
-        m_model->setCountry(m_regionInter->systemCountry());
+    if (auto country_value = m_config->value(country_key).toString();
+        !country_value.isEmpty() && country_value.split(":").size() >= 2) {
+        m_model->setCountry(country_value);
     } else {
-        m_model->setCountry(m_config->value(country_key).toString());
+        m_model->setCountry(m_regionInter->systemCountry());
     }
     if (m_config->isDefaultValue(languageRegion_key) || m_config->value(languageRegion_key).toString().isEmpty()) {
         m_model->setLangRegion(m_regionInter->langCountry());
