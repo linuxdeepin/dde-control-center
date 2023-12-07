@@ -61,9 +61,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     pa.setBrush(QPalette::WindowText, pa.windowText());
     DPaletteHelper::instance()->setPalette(m_title, pa);
 
-    DPlatformWindowHandle handle(this);
-    handle.setWindowRadius(18);
-
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
 
