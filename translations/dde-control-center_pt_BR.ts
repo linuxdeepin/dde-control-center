@@ -163,21 +163,6 @@
     </message>
 </context>
 <context>
-    <name>AdvancedSettingModule</name>
-    <message>
-        <source>Advanced Setting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -792,7 +777,7 @@
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation>Modo de Programador</translation>
+        <translation>Modo de Desenvolvedor</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -1029,39 +1014,39 @@
     <name>dccV23::CustomRegionFormatDialog</name>
     <message>
         <source>Custom format</source>
-        <translation type="unfinished"/>
+        <translation>Formato personalizado</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Primeiro dia da semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data curta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data longa</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora curta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora longa</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo monetário</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho de papel</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1649,35 +1634,35 @@
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"/>
+        <translation>Primeiro dia</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data curta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data longa</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora curta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora longa</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo monetário</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho de papel</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2994,11 +2979,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Região e Formato</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Região</translation>
     </message>
     <message>
         <source>Format</source>
@@ -3018,39 +3003,39 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Primeiro dia da semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data curta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data longa</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora curta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora longa</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo monetário</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho de papel</translation>
     </message>
     <message>
-        <source>Custom format</source>
-        <translation type="unfinished"/>
+        <source>custom format</source>
+        <translation>Formato personalizado</translation>
     </message>
 </context>
 <context>
@@ -3199,11 +3184,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausar automaticamente</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Quando o dispositivo de áudio atual for desconectado, o áudio será automaticamente pausado</translation>
     </message>
     <message>
         <source>Input</source>
@@ -3242,7 +3227,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Amplificar Volume</translation>
+        <translation>Amplificar volume</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
@@ -3324,7 +3309,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso Horário</translation>
+        <translation>Adicionar fuso horário</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3381,7 +3366,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimezoneModule</name>
     <message>
         <source>Timezone List</source>
-        <translation>Lista de fusos horários</translation>
+        <translation>Lista de Fusos Horários</translation>
     </message>
     <message>
         <source>System Timezone</source>
@@ -3389,7 +3374,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso Horário</translation>
+        <translation>Adicionar fuso horário</translation>
     </message>
 </context>
 <context>
@@ -3481,7 +3466,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Atualizações</translation>
+        <translation>Verificar se há atualizações</translation>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
@@ -3523,7 +3508,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation>Atualizações</translation>
+        <translation>Verificar se há atualizações</translation>
     </message>
 </context>
 <context>
@@ -3924,7 +3909,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>

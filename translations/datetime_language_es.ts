@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>dcc::datetime::Language</name>
     <message>
@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>Acoli</translation>
     </message>
     <message>
         <source>Adangme</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Arabic</source>
-        <translation type="unfinished"/>
+        <translation>Árabe</translation>
     </message>
     <message>
         <source>Modern Standard Arabic</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>Aragonés</translation>
     </message>
     <message>
         <source>Aramaic</source>
@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>Armenian</source>
-        <translation type="unfinished"/>
+        <translation>Armenio</translation>
     </message>
     <message>
         <source>Aromanian</source>
@@ -1302,7 +1302,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Mi'kmaq</source>
+        <source>Mi&apos;kmaq</source>
         <translation type="unfinished"/>
     </message>
     <message>
