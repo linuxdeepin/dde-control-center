@@ -59,7 +59,7 @@ struct TimezoneOffset
     long seconds; // Offset seconds.
 };
 
-// Get |timezone| GMT offset.
+// Get |timezone| offset.
 [[maybe_unused]] TimezoneOffset GetTimezoneOffset(const QString &timezone);
 
 } // namespace installer
