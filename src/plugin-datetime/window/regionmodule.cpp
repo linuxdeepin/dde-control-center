@@ -33,11 +33,16 @@ RegionModule::RegionModule(DatetimeModel *model, DatetimeWorker *work, QObject *
 
     setNoScroll(false);
 
-    appendChild(new ItemModule("RegionTitle", tr("Region")));
-    appendChild(
-            new WidgetModule<DTipLabel>("RegionTip", tr(""), this, &RegionModule::initCountryTip));
-    initCountryModule();
-    appendChild(m_countryModule);
+    // NOTE: not provide this feature
+    if (false) {
+        appendChild(new ItemModule("RegionTitle", tr("Region")));
+        appendChild(new WidgetModule<DTipLabel>("RegionTip",
+                                                tr(""),
+                                                this,
+                                                &RegionModule::initCountryTip));
+        initCountryModule();
+        appendChild(m_countryModule);
+    }
     appendChild(new ItemModule("regionFormat", tr("Format")));
     appendChild(new WidgetModule<DTipLabel>("regionFormatTip",
                                             tr(""),
