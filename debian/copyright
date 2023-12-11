@@ -1,5 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dde-control-center
+
 Files: *
 Copyright: 2015 Deepin Technology Co., Ltd.
 License: LGPL-3+

@@ -24,7 +24,7 @@ Homepage: https://github.com/linuxdeepin/dde-control-center
 Package: dde-control-center
 Architecture: any
 Depends:
- ${shlibs:Depends} ${misc:Depends}
+ ${shlibs:Depends}, ${misc:Depends}
 Description: New control center for Deepin Desktop Environment,
  Integrated control center with rich functions,Besides providing rich
  system setting items, the function level is simple, the logic is clear,
@@ -44,5 +44,6 @@ Description: New control center for Deepin Desktop Environment - development fil
 
 Package: dde-control-center-doc
 Architecture: any
+Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
 Description: dde-control-center (document)
  This package contains the doc files of dde-control-center
