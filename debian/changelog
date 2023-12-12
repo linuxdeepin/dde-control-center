@@ -1,3 +1,23 @@
+dde-control-center (6.0.36) unstable; urgency=medium
+
+  * fix: bring back close button for password dialog
+  * fix: settingsgroup in scrollarea is not resized
+  * feat: split plymouth scale settings
+  * fix: atom upgrade status should not be stored
+  * fix: use mask to handle linglong
+  * fix: remembered size should not min than sizehint
+  * chore: hide region feature
+  * chore: add new shotcut
+  * feat: use icu to translate region
+  * chore: add log to plugin-commoninfo
+  * feat: show tooltip when switchlabel text is elided
+  * feat: check package in feature
+  * fix: map dialog radius not follow system
+  * chore: sync translation
+  * chore: find icon from system first
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 12 Dec 2023 16:02:51 +0800
+
 dde-control-center (6.0.35) unstable; urgency=medium
 
   * when there are no link, detailinfoitem hide the link widgets
@@ -176,7 +196,7 @@ dde-control-center (6.0.15) unstable; urgency=medium
 
  -- dengbo <dengbo@uniontech.com>  Wed, 19 Apr 2023 16:47:45 +0800
 
-dde-control-center (6.0.14) unstable; urgency=medium:
+dde-control-center (6.0.14) unstable; urgency=medium
 
   * fix: 控制中心用户头像显示异常
   * feat: add docs build
@@ -453,7 +473,7 @@ dde-control-center (6.0.0.2) UNRELEASED; urgency=medium
 
 dde-control-center (6.0.0.001) unstable; urgency=low
   * update interface version
- -- guoyao <guoyao@uniontech.com>  Web, 1 Jun 2022 09:36:33 +0800
+ -- guoyao <guoyao@uniontech.com>  Wed, 1 Jun 2022 09:36:33 +0800
 
 dde-control-center (1.0.0-1) unstable; urgency=low
   * dde-control-center for v23
