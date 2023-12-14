@@ -86,8 +86,8 @@ public:
 
     // Atomic Upgrade
     void commit(const QString &commitDate);
-    Q_PROPERTY(bool Running READ running NOTIFY RunningChanged)
-    bool running();
+
+    bool atomBackupIsRunning();
 
 signals:
     // updater

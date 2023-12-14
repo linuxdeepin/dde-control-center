@@ -292,7 +292,7 @@ void UpdateDBusProxy::commit(const QString &commitDate)
     m_atomicUpgradeInter->asyncCallWithArgumentList(QStringLiteral("Commit"), argumentList);
 }
 
-bool UpdateDBusProxy::running()
+bool UpdateDBusProxy::atomBackupIsRunning()
 {
     return qvariant_cast<bool>(m_atomicUpgradeInter->property("HasAmbientLightSensor"));
 }

@@ -58,7 +58,6 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
     , m_testingChannelStatus(TestingChannelStatus::DeActive)
-    , m_atomicBackingUp(false)
     , m_linglongAutoUpdateActived(false)
 {
 
@@ -616,16 +615,6 @@ int32_t UpdateModel::submissionType()
 QString UpdateModel::UUID()
 {
     return "02eb924f-4f35-4880-b839-096c3a65f525";
-}
-
-void UpdateModel::setAtomicBackingUp(bool atomicBackingUp)
-{
-    if (m_atomicBackingUp == atomicBackingUp)
-        return;
-
-    m_atomicBackingUp = atomicBackingUp;
-
-    Q_EMIT atomicBackingUpChanged(atomicBackingUp);
 }
 
 QString UpdateModel::utcDateTime2LocalDate(const QString &utcDateTime)
