@@ -14,6 +14,8 @@
 #include <DDBusSender>
 #include <DDesktopServices>
 #include <DMessageManager>
+#include <DSysInfo>
+#include <DTitlebar>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -21,10 +23,8 @@
 #include <QSettings>
 #include <QDebug>
 #include <QDBusReply>
-#include <DSysInfo>
 
 #include <unistd.h>
-
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -53,8 +53,15 @@ ModifyPasswdPage::~ModifyPasswdPage()
 void ModifyPasswdPage::initWidget()
 {
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->addSpacing(40);
+
     mainContentLayout->setSpacing(4);
+
+    auto titleBar = new DTitlebar(this);
+
+    titleBar->setBackgroundTransparent(true);
+
+    mainContentLayout->addWidget(titleBar);
+
     TitleLabel *titleLabel = new TitleLabel(tr("Change Password"));
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     if (!m_isCurrent) {
