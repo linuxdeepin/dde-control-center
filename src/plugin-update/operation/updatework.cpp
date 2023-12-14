@@ -171,8 +171,6 @@ void UpdateWorker::init()
         QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
         checkUpdatablePackages(updatablePackages);
     });
-    connect(m_updateInter, &UpdateDBusProxy::RunningChanged,
-            m_model, &UpdateModel::setAtomicBackingUp);
 
     connect(m_updateInter, &UpdateDBusProxy::ClassifiedUpdatablePackagesChanged,
             this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
@@ -251,7 +249,6 @@ void UpdateWorker::activate()
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_updateInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
-    m_model->setAtomicBackingUp(m_updateInter->running());
 
     setOnBattery(m_updateInter->onBattery());
     setBatteryPercentage(m_updateInter->batteryPercentage());
@@ -709,7 +706,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
                            << " == start Atomic Upgrade == ";
     // 条件不足 1. 分区空间 就是 state = -2    2.  分区格式不支持仓库存储（忽略） 3.
     // 第二更新后的失败更新
-    if (!m_model->atomicBackingUp()) {
+    if (!m_updateInter->atomBackupIsRunning()) {
         backupToAtomicUpgrade();
     } else {
         // 系统环境配置不满足,则直接跳到下一步下载数据

@@ -212,10 +212,6 @@ public:
     int32_t submissionType();
     QString UUID();
 
-    inline bool atomicBackingUp() const { return m_atomicBackingUp; }
-
-    void setAtomicBackingUp(bool atomicBackingUp);
-
     QString utcDateTime2LocalDate(const QString &utcDateTime);
     // Testing Channel
     TestingChannelStatus getTestingChannelStatus() const;
@@ -270,8 +266,6 @@ Q_SIGNALS:
     void updateNotifyChanged(const bool notify);
     void updatablePackagesChanged(const bool isUpdatablePackages);
 
-    // Atomic Upgrade
-    void atomicBackingUpChanged(const bool atomicBackingUp);
     // Testing Channel
     void TestingChannelStatusChanged(const TestingChannelStatus &status);
 
@@ -327,7 +321,6 @@ private:
 
     TestingChannelStatus m_testingChannelStatus;
 
-    bool m_atomicBackingUp;
     bool m_linglongAutoUpdateActived;
 };
 
