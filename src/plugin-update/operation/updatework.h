@@ -177,7 +177,6 @@ private:
 
     // testingChannel
     CanExitTestingChannelStatus checkCanExitTestingChannelDialog();
-    CanExitTestingChannelStatus checkCanExitTestingChannel();
     std::optional<QString> getTestingChannelSource();
     QStringList getSourcesOfPackage(const QString &pkg, const QString &version);
 
