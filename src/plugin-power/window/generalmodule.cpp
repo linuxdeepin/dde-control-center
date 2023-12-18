@@ -100,7 +100,8 @@ void GeneralModule::initUI()
         powerPlanItemTip->setEditable(false);
         powerPlanItemTip->setBackgroundRole(DPalette::Window);
         powerPlanItemTip->setTextColorRole(DPalette::TextTips);
-        powerPlanItemTip->setSizeHint(QSize(-1, 20));
+        powerPlanItemTip->setSizeHint(QSize(-1, 15));
+        powerPlanItemTip->setFontSize(DFontSizeManager::SizeType::T8);
         powerPlanItem->setData(iter.key(), PowerPlanRole);
         m_powerPlanModel->appendRow(powerPlanItem);
         m_powerPlanModel->appendRow(powerPlanItemTip);
