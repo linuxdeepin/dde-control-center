@@ -4,7 +4,6 @@
 #include "updatework.h"
 
 #include "common.h"
-#include "widgets/utils.h"
 
 #include <DConfig>
 #include <DDialog>
@@ -24,6 +23,8 @@
 #include <QNetworkReply>
 #include <QVBoxLayout>
 #include <QtConcurrent>
+
+#include <mutex>
 
 Q_LOGGING_CATEGORY(DccUpdateWork, "dcc-update-work")
 
@@ -46,6 +47,8 @@ static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service
 using Dtk::Widget::DDialog;
 using Dtk::Widget::DLabel;
 using Dtk::Widget::DWaterProgress;
+
+std::mutex CHECK_CANEXIST_GUARD;
 
 inline void notifyError(const QString &summary, const QString &body)
 {
@@ -1898,18 +1901,91 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
                 dialog->deleteLater();
             });
     dialog->setDisabled(true);
-    QFutureWatcher<CanExitTestingChannelStatus> *watcher =
-            new QFutureWatcher<CanExitTestingChannelStatus>(this);
-    QFuture checkerror = QtConcurrent::run([this] {
-        return checkCanExitTestingChannel();
-    });
-    connect(watcher,
-            &QFutureWatcher<CanExitTestingChannelStatus>::finished,
+
+    auto canExit = CanExitTestingChannelStatus::CheckOk;
+    auto testChannelSrc = getTestingChannelSource();
+    if (!testChannelSrc.has_value()) {
+        qCDebug(DccUpdateWork) << "Not have source file";
+        return CanExitTestingChannelStatus::CheckError;
+    }
+    QString testingChannelSource = testChannelSrc.value();
+
+    QProcess dpkgL;
+    dpkgL.start("dpkg", { "-l" });
+    dpkgL.waitForFinished(-1);
+
+    if (dpkgL.exitStatus() == QProcess::CrashExit) {
+        qCWarning(DccUpdateWork) << "run dpkg error:" << dpkgL.readAllStandardError();
+        return CanExitTestingChannelStatus::CheckError;
+    }
+
+    QString data = dpkgL.readAllStandardOutput();
+    QStringList listpkgpre = data.split('\n');
+
+    QList<std::tuple<QString, QString>> listpkg;
+
+    for (const QString &line : listpkgpre) {
+        if (!line.startsWith("ii")) {
+            continue;
+        }
+        auto field = line.split(" ", Qt::SkipEmptyParts);
+        // skip unknown format line
+        if (field.length() <= 2) {
+            continue;
+        }
+        auto pkg = field[1], version = field[2];
+        // skip non system software
+        if (!pkg.contains("dde") && !pkg.contains("deepin") && !pkg.contains("dtk")
+            && !pkg.contains("uos")) {
+            continue;
+        }
+        listpkg.push_back({pkg, version});
+    }
+
+    int partslen = listpkg.length() / 20;
+
+    if (listpkg.length() % 20 != 0) {
+        partslen += 1;
+    }
+
+    QList<QList<std::tuple<QString, QString>>> inputValues;
+
+    for (int i = 0; i < partslen; i++) {
+        int start_pos = i * 20;
+        inputValues.push_back(listpkg.mid(start_pos, 20));
+    }
+
+    std::function<bool(const QList<std::tuple<QString, QString>> list)> checkCanExit =
+            [this, &canExit, testingChannelSource](const QList<std::tuple<QString, QString>> list) {
+                for (const auto &[pkg, version] : list) {
+                    {
+                        std::lock_guard<std::mutex> guard(CHECK_CANEXIST_GUARD);
+                        if (canExit != CanExitTestingChannelStatus::CheckOk) {
+                            return true;
+                        }
+                    }
+
+                    // Does the package exists only in the internal test source
+                    auto sources = getSourcesOfPackage(pkg, version);
+                    if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
+                        std::lock_guard<std::mutex> guard(CHECK_CANEXIST_GUARD);
+                        canExit = CanExitTestingChannelStatus::CheckError;
+                        return true;
+                    }
+                }
+                return true;
+            };
+    QFutureWatcher<bool> *check_watcher = new QFutureWatcher<bool>(this);
+
+    QFuture check_future = QtConcurrent::mapped(inputValues, checkCanExit);
+
+    connect(check_watcher,
+            &QFutureWatcher<bool>::finished,
             this,
-            [watcher, dialog, label] {
-                watcher->deleteLater();
-                auto result = watcher->result();
-                if (result == CanExitTestingChannelStatus::CheckError) {
+            [check_watcher, dialog, label, &canExit] {
+                check_watcher->deleteLater();
+                std::lock_guard<std::mutex> guard(CHECK_CANEXIST_GUARD);
+                if (canExit == CanExitTestingChannelStatus::CheckError) {
                     label->setText(tr("It may be unsafe for you to leave the internal testing "
                                       "channel now, do you still want to leave?"));
                 } else {
@@ -1917,53 +1993,9 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
                 }
                 dialog->setDisabled(false);
             });
-    watcher->setFuture(checkerror);
+    check_watcher->setFuture(check_future);
     dialog->exec();
     return wantexit;
-}
-
-CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannel()
-{
-    auto testChannelSrc = getTestingChannelSource();
-    if (!testChannelSrc.has_value()) {
-        qCDebug(DccUpdateWork) << "Not have source file";
-        return CanExitTestingChannelStatus::CheckError;
-    }
-    QString testingChannelSource = testChannelSrc.value();
-    QProcess dpkgProcess;
-    // exec dpkg -l
-    dpkgProcess.start("dpkg", QStringList("-l"));
-    dpkgProcess.waitForStarted();
-    // read stdout by line
-    while (dpkgProcess.state() == QProcess::Running) {
-        dpkgProcess.waitForReadyRead();
-        while (dpkgProcess.canReadLine()) {
-            QString line(dpkgProcess.readLine());
-            // skip uninstalled
-            if (!line.startsWith("ii")) {
-                continue;
-            }
-            auto field = line.split(" ", Qt::SkipEmptyParts);
-            // skip unknown format line
-            if (field.length() <= 2) {
-                continue;
-            }
-            auto pkg = field[1], version = field[2];
-            // skip non system software
-            if (!pkg.contains("dde") && !pkg.contains("deepin") && !pkg.contains("dtk")
-                && !pkg.contains("uos")) {
-                continue;
-            }
-            // Does the package exists only in the internal test source
-            auto sources = getSourcesOfPackage(pkg, version);
-            if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
-                dpkgProcess.close();
-                qDebug() << "internal package is" << pkg;
-                return CanExitTestingChannelStatus::CheckError;
-            }
-        }
-    }
-    return CanExitTestingChannelStatus::CheckOk;
 }
 
 void UpdateWorker::setTestingChannelEnable(const bool &enable)
