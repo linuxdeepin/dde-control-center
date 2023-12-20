@@ -276,8 +276,6 @@ void BootWidget::setBootList()
 void BootWidget::onCurrentItem(const QModelIndex &curIndex)
 {
     QString curText = curIndex.data().toString();
-    if (curText.isEmpty())
-        return;
 
     // 获取当前被选项
     QString selectedText = m_curSelectedIndex.data().toString();
