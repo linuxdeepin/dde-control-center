@@ -46,7 +46,10 @@ const QStringList &windowFilter = {"maximize",
                                    "minimize",
                                    "begin-move",
                                    "begin-resize",
-                                   "close"};
+                                   "close",
+                                   "toggle-to-left",
+                                   "toggle-to-right"
+};
 
 const QStringList &workspaceFilter = {"switch-to-workspace-left",
                                       "switch-to-workspace-right",
