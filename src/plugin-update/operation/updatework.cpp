@@ -455,7 +455,6 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qCDebug(DccUpdateWork) << "UpdateWorker::setAppUpdateInfo: downloadSize = "
                                << m_downloadSize;
-        m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
         for (uint type = ClassifyUpdateType::SystemUpdate;
              type <= ClassifyUpdateType::SecurityUpdate;
              type++) {
@@ -478,6 +477,7 @@ void UpdateWorker::setUpdateInfo()
                 m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::Default);
             }
         }
+        m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
     }
 }
 
@@ -753,18 +753,17 @@ void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
 
 void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
 {
-    qInfo() << "Handle reply of update log";
+    qCInfo(DccUpdateWork) << "Handle reply of update log";
     if (reply->error() != QNetworkReply::NoError) {
         qWarning() << "Network Error" << reply->errorString();
         return;
     }
     QByteArray respondBody = reply->readAll();
     if (respondBody.isEmpty()) {
-        qWarning() << "Request body is empty";
+        qCWarning(DccUpdateWork) << "Request body is empty";
         return;
     }
 
-    qCDebug(DccUpdateWork) << " Get: respondBody " << respondBody;
     const QJsonDocument &doc = QJsonDocument::fromJson(respondBody);
     const QJsonObject &obj = doc.object();
     if (obj.isEmpty()) {
