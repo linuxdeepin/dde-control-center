@@ -194,6 +194,8 @@ RegionProxy::RegionProxy(QObject *parent)
 {
 }
 
+// TODO: use icu translate instead
+// the locale even has sichuangYi. too many languages
 void RegionProxy::active()
 {
     if (m_isActive) {
@@ -212,14 +214,21 @@ void RegionProxy::active()
     QList<QLocale> locales =
             QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyCountry);
     locales.removeOne(QLocale::C);
+    // NOTE: sorry for Sichuang friends
+    locales.removeOne(QLocale::SichuanYi);
     QStringList countries;
     for (const auto &locale : locales) {
         QString script = locale.scriptToString(locale.script());
         QString language = locale.languageToString(locale.language());
         QString country = locale.countryToString(locale.country());
-        if (locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+        // NOTE: sorry for guangdong friends
+        if (locale.language() == QLocale::Cantonese && locale.language() == QLocale::Chinese) {
+            continue;
+        }
+        if ((locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+            && locale.language() == QLocale::Chinese)
             language = "Traditional Chinese";
-        if (locale.country() == QLocale::China)
+        if (locale.country() == QLocale::China && locale.language() == QLocale::Chinese)
             language = "Simplified Chinese";
         QString langCountry = QString("%1:%2").arg(language).arg(country);
         if (!countries.contains(country)) {
