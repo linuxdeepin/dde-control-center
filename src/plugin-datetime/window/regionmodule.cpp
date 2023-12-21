@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "regionmodule.h"
+
 #include "customregionformatdialog.h"
 #include "datetimemodel.h"
 #include "datetimeworker.h"
@@ -10,10 +11,10 @@
 
 #include <dcclistview.h>
 #include <qglobal.h>
-#include <DCommandLinkButton>
-
 #include <unicode/locid.h>
 #include <unicode/unistr.h>
+
+#include <DCommandLinkButton>
 
 using icu::Locale;
 using icu::UnicodeString;
@@ -21,9 +22,7 @@ using icu::UnicodeString;
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
-RegionModule::RegionModule(DatetimeModel *model,
-                           DatetimeWorker *work,
-                           QObject *parent)
+RegionModule::RegionModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
     : PageModule("region", tr("Region and Format"), parent)
     , m_model(model)
     , m_work(work)
@@ -35,14 +34,18 @@ RegionModule::RegionModule(DatetimeModel *model,
     setNoScroll(false);
 
     appendChild(new ItemModule("RegionTitle", tr("Region")));
-    appendChild(new WidgetModule<DTipLabel>("RegionTip", tr(""), this, &RegionModule::initCountryTip));
+    appendChild(
+            new WidgetModule<DTipLabel>("RegionTip", tr(""), this, &RegionModule::initCountryTip));
     initCountryModule();
     appendChild(m_countryModule);
     appendChild(new ItemModule("regionFormat", tr("Format")));
-    appendChild(new WidgetModule<DTipLabel>("regionFormatTip", tr(""), this, &RegionModule::initRegionFormatTip));
+    appendChild(new WidgetModule<DTipLabel>("regionFormatTip",
+                                            tr(""),
+                                            this,
+                                            &RegionModule::initRegionFormatTip));
     initLangRegionModule();
     appendChild(m_langRegionModule);
-    appendChild(new WidgetModule<DCCListView>("", tr(""), [this](DListView *formatList){
+    appendChild(new WidgetModule<DCCListView>("", tr(""), [this](DListView *formatList) {
         initFormatList(formatList);
     }));
     initFormatModificationModule();
@@ -51,9 +54,9 @@ RegionModule::RegionModule(DatetimeModel *model,
     m_regionFormat = m_model->regionFormat();
 
     connect(m_langRegionModule, &ItemModule::clicked, this, &RegionModule::onLangRegionClicked);
-    connect(m_model, &DatetimeModel::localeNameChanged, this, [this](const QString &name){
+    connect(m_model, &DatetimeModel::localeNameChanged, this, [this](const QString &name) {
         m_locale = QLocale(name);
-    } );
+    });
 }
 
 void RegionModule::initCountryTip(DTipLabel *countryTipLabel)
@@ -66,19 +69,26 @@ void RegionModule::initCountryTip(DTipLabel *countryTipLabel)
 
 void RegionModule::initCountryModule()
 {
-    m_countryModule = new ItemModule("Region", tr("Region"), [this](ModuleObject *){
+    m_countryModule = new ItemModule("Region", tr("Region"), [this](ModuleObject *) {
         m_countryCombo = new DComboBox;
         for (const QString &country : m_model->countries()) {
-            m_countryCombo->addItem(QString("%1").arg(
-                    QCoreApplication::translate("dcc::datetime::Country", country.toUtf8().data())));
+            m_countryCombo->addItem(
+                    QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                                  country.toUtf8().data())));
         }
-        m_countryCombo->setCurrentText(QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country", m_model->country().toUtf8().data())));
-        connect(m_countryCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
-                m_work->setConfigValue(country_key, m_model->countries().at(index));
+        m_countryCombo->setCurrentText(
+                QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                              m_model->country().toUtf8().data())));
+        connect(m_countryCombo,
+                qOverload<int>(&QComboBox::currentIndexChanged),
+                this,
+                [this](int index) {
+                    m_work->setConfigValue(country_key, m_model->countries().at(index));
                 });
         connect(m_model, &DatetimeModel::countryChanged, this, [this](const QString &text) {
-                m_countryCombo->setCurrentText(QString("%1").arg(QCoreApplication::translate("dcc::datetime::Country", text.toUtf8().data())));
-                });
+            m_countryCombo->setCurrentText(QString("%1").arg(
+                    QCoreApplication::translate("dcc::datetime::Country", text.toUtf8().data())));
+        });
         return m_countryCombo;
     });
     m_countryModule->setBackground(true);
@@ -89,34 +99,42 @@ void RegionModule::initRegionFormatTip(DTipLabel *regionFormatTipLabel)
     regionFormatTipLabel->setWordWrap(true);
     regionFormatTipLabel->setAlignment(Qt::AlignLeft);
     regionFormatTipLabel->setContentsMargins(10, 0, 10, 0);
-    regionFormatTipLabel->setText(tr("Select matching date and time formats based on language and region"));
+    regionFormatTipLabel->setText(
+            tr("Select matching date and time formats based on language and region"));
 }
 
 void RegionModule::initLangRegionModule()
 {
-    m_langRegionModule = new ItemModule("languageRegion", tr("Languange and region"), [this](ModuleObject *){
-        QWidget *widget = new QWidget;
-        m_langRegionLabel = new QLabel;
-        m_langRegionLabel->setText(getTranslation(m_model->localeName(),m_model->langRegion()));
-        connect(m_model, &DatetimeModel::langCountryChanged, this, [this](const QString &text){
-            m_langRegionLabel->setText(getTranslation(m_model->localeName(),text));
-        } );
-        QLabel *langRegionEnterLabel = new QLabel;
-        langRegionEnterLabel->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
-        QHBoxLayout *hLayout = new QHBoxLayout;
-        hLayout->addStretch(0);
-        hLayout->addWidget(m_langRegionLabel);
-        hLayout->addWidget(langRegionEnterLabel);
-        widget->setLayout(hLayout);
-        return widget;
-    });
+    m_langRegionModule =
+            new ItemModule("languageRegion", tr("Languange and region"), [this](ModuleObject *) {
+                QWidget *widget = new QWidget;
+                m_langRegionLabel = new QLabel;
+                m_langRegionLabel->setText(
+                        getTranslation(m_model->localeName(), m_model->langRegion()));
+                connect(m_model,
+                        &DatetimeModel::langCountryChanged,
+                        this,
+                        [this](const QString &text) {
+                            m_langRegionLabel->setText(getTranslation(m_model->localeName(), text));
+                        });
+                QLabel *langRegionEnterLabel = new QLabel;
+                langRegionEnterLabel->setPixmap(
+                        DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter)
+                                .pixmap(16, 16));
+                QHBoxLayout *hLayout = new QHBoxLayout;
+                hLayout->addStretch(0);
+                hLayout->addWidget(m_langRegionLabel);
+                hLayout->addWidget(langRegionEnterLabel);
+                widget->setLayout(hLayout);
+                return widget;
+            });
     m_langRegionModule->setBackground(true);
     m_langRegionModule->setClickable(true);
 }
 
 void RegionModule::initFormatList(DListView *formatList)
 {
-    QStandardItemModel* viewModel = new QStandardItemModel;
+    QStandardItemModel *viewModel = new QStandardItemModel;
     formatList->setFrameShape(QFrame::NoFrame);
     formatList->setSelectionMode(QAbstractItemView::NoSelection);
     formatList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -136,9 +154,10 @@ void RegionModule::initFormatList(DListView *formatList)
     QString day = m_locale.standaloneDayName(m_model->firstDayOfWeekFormat());
     m_dayAction->setText(day);
     dayItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_dayAction);
-    connect(m_model, &DatetimeModel::firstDayOfWeekFormatChanged, this, [this](const int day) { 
-            QString dayStr = m_locale.standaloneDayName(day);
-            m_dayAction->setText(dayStr); } );
+    connect(m_model, &DatetimeModel::firstDayOfWeekFormatChanged, this, [this](const int day) {
+        QString dayStr = m_locale.standaloneDayName(day);
+        m_dayAction->setText(dayStr);
+    });
 
     // short date
     DStandardItem *shortDateItem = new DStandardItem;
@@ -146,7 +165,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_shortDateAction = new DViewItemAction;
     m_shortDateAction->setText(m_locale.toString(QDate::currentDate(), m_model->shortDateFormat()));
     shortDateItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_shortDateAction);
-    connect(m_model, &DatetimeModel::shortDateFormatChanged, this, [this](const QString &text) { m_shortDateAction->setText(m_locale.toString(QDate::currentDate(), text)); } );
+    connect(m_model, &DatetimeModel::shortDateFormatChanged, this, [this](const QString &text) {
+        m_shortDateAction->setText(m_locale.toString(QDate::currentDate(), text));
+    });
 
     // long date
     DStandardItem *longDateItem = new DStandardItem;
@@ -154,7 +175,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_longDateAction = new DViewItemAction;
     m_longDateAction->setText(m_locale.toString(QDate::currentDate(), m_model->longDateFormat()));
     longDateItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_longDateAction);
-    connect(m_model, &DatetimeModel::longDateFormatChanged, this, [this](const QString &text) { m_longDateAction->setText(m_locale.toString(QDate::currentDate(), text)); } );
+    connect(m_model, &DatetimeModel::longDateFormatChanged, this, [this](const QString &text) {
+        m_longDateAction->setText(m_locale.toString(QDate::currentDate(), text));
+    });
 
     // short time
     DStandardItem *shortTimeItem = new DStandardItem;
@@ -162,7 +185,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_shortTimeAction = new DViewItemAction;
     m_shortTimeAction->setText(m_locale.toString(QTime::currentTime(), m_model->shortTimeFormat()));
     shortTimeItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_shortTimeAction);
-    connect(m_model, &DatetimeModel::shortTimeFormatChanged, this, [this](const QString &text) { m_shortTimeAction->setText(m_locale.toString(QTime::currentTime(), text)); } );
+    connect(m_model, &DatetimeModel::shortTimeFormatChanged, this, [this](const QString &text) {
+        m_shortTimeAction->setText(m_locale.toString(QTime::currentTime(), text));
+    });
 
     // long time
     DStandardItem *longTimeItem = new DStandardItem;
@@ -170,7 +195,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_longTimeAction = new DViewItemAction;
     m_longTimeAction->setText(m_locale.toString(QTime::currentTime(), m_model->longTimeFormat()));
     longTimeItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_longTimeAction);
-    connect(m_model, &DatetimeModel::longTimeFormatChanged, this, [this](const QString &text) { m_longTimeAction->setText(m_locale.toString(QTime::currentTime(), text)); } );
+    connect(m_model, &DatetimeModel::longTimeFormatChanged, this, [this](const QString &text) {
+        m_longTimeAction->setText(m_locale.toString(QTime::currentTime(), text));
+    });
 
     // currency
     DStandardItem *currencyItem = new DStandardItem;
@@ -178,7 +205,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_currencyAction = new DViewItemAction;
     m_currencyAction->setText(m_model->currencyFormat());
     currencyItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_currencyAction);
-    connect(m_model, &DatetimeModel::currencyFormatChanged, this, [this](const QString &text) { m_currencyAction->setText(text.toUtf8()); } );
+    connect(m_model, &DatetimeModel::currencyFormatChanged, this, [this](const QString &text) {
+        m_currencyAction->setText(text.toUtf8());
+    });
 
     // number
     DStandardItem *numberItem = new DStandardItem;
@@ -186,7 +215,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_numberAction = new DViewItemAction;
     m_numberAction->setText(m_model->numberFormat());
     numberItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_numberAction);
-    connect(m_model, &DatetimeModel::numberFormatChanged, this, [this](const QString &text) { m_numberAction->setText(text.toUtf8()); } );
+    connect(m_model, &DatetimeModel::numberFormatChanged, this, [this](const QString &text) {
+        m_numberAction->setText(text.toUtf8());
+    });
 
     // paper
     DStandardItem *paperItem = new DStandardItem;
@@ -194,7 +225,9 @@ void RegionModule::initFormatList(DListView *formatList)
     m_paperAction = new DViewItemAction;
     m_paperAction->setText(m_model->paperFormat());
     paperItem->setActionList(Qt::RightEdge, DViewItemActionList() << m_paperAction);
-    connect(m_model, &DatetimeModel::paperFormatChanged, this, [this](const QString &text) { m_paperAction->setText(text.toUtf8()); } );
+    connect(m_model, &DatetimeModel::paperFormatChanged, this, [this](const QString &text) {
+        m_paperAction->setText(text.toUtf8());
+    });
 
     viewModel->appendRow(dayItem);
     viewModel->appendRow(shortDateItem);
@@ -208,17 +241,20 @@ void RegionModule::initFormatList(DListView *formatList)
 
 void RegionModule::initFormatModificationModule()
 {
-    m_formatModificationModule = new ItemModule("", tr(""), [this](ModuleObject *){
+    m_formatModificationModule = new ItemModule("", tr(""), [this](ModuleObject *) {
         QWidget *widget = new QWidget;
         QHBoxLayout *hlayout = new QHBoxLayout(widget);
         hlayout->setSpacing(0);
         hlayout->setMargin(0);
         DCommandLinkButton *button = new DCommandLinkButton(tr("Custom Format"));
-        connect(button, &QPushButton::clicked, this, [this](){
+        connect(button, &QPushButton::clicked, this, [this]() {
             CustomRegionFormatDialog dlg;
-            connect(&dlg, &CustomRegionFormatDialog::customFormatSaved, this, [this](const RegionFormat &regionFormat){
-                updateRegionFormat(regionFormat);
-            });
+            connect(&dlg,
+                    &CustomRegionFormatDialog::customFormatSaved,
+                    this,
+                    [this](const RegionFormat &regionFormat) {
+                        updateRegionFormat(regionFormat);
+                    });
             dlg.initRegionFormat(m_locale, m_regionFormat);
             dlg.exec();
         });
@@ -233,9 +269,11 @@ void RegionModule::updateRegionFormat(const RegionFormat &regionFormat)
 {
     m_regionFormat = regionFormat;
     m_dayAction->setText(m_locale.standaloneDayName(regionFormat.firstDayOfWeekFormat));
-    m_shortDateAction->setText(m_locale.toString(QDate::currentDate(), regionFormat.shortDateFormat));
+    m_shortDateAction->setText(
+            m_locale.toString(QDate::currentDate(), regionFormat.shortDateFormat));
     m_longDateAction->setText(m_locale.toString(QDate::currentDate(), regionFormat.longDateFormat));
-    m_shortTimeAction->setText(m_locale.toString(QTime::currentTime(), regionFormat.shortTimeFormat));
+    m_shortTimeAction->setText(
+            m_locale.toString(QTime::currentTime(), regionFormat.shortTimeFormat));
     m_longTimeAction->setText(m_locale.toString(QTime::currentTime(), regionFormat.longTimeFormat));
     m_currencyAction->setText(regionFormat.currencyFormat);
     m_numberAction->setText(regionFormat.numberFormat);
@@ -255,14 +293,17 @@ void RegionModule::onLangRegionClicked()
 {
     RegionFormatDialog dlg(this->m_model);
     qRegisterMetaType<RegionAvailableData>("RegionFormat");
-    connect(&dlg, &RegionFormatDialog::regionFormatSaved, this, [this](const QString &langRegion, const QLocale &locale){
-        m_langRegion = langRegion;
-        m_locale = locale;
-        m_langRegionLabel->setText(getTranslation(locale.name(),langRegion));
-        m_work->setConfigValue(languageRegion_key, langRegion);
-        m_work->setConfigValue(localeName_key, locale.name());
-        updateRegionFormat(RegionProxy::regionFormat(m_locale));
-    });
+    connect(&dlg,
+            &RegionFormatDialog::regionFormatSaved,
+            this,
+            [this](const QString &langRegion, const QLocale &locale) {
+                m_langRegion = langRegion;
+                m_locale = locale;
+                m_langRegionLabel->setText(getTranslation(locale.name(), langRegion));
+                m_work->setConfigValue(languageRegion_key, langRegion);
+                m_work->setConfigValue(localeName_key, locale.name());
+                updateRegionFormat(RegionProxy::regionFormat(m_locale));
+            });
     dlg.exec();
 }
 
@@ -273,11 +314,12 @@ QString RegionModule::getTranslation(const QString &localeName, const QString &l
         return langRegion;
     }
     if (langRegions[0] == "Tranditional Chinese" || langRegions[0] == "Simplified Chinese") {
-        QString langCountry = QString("%1 (%2)")
-                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                                       langRegions.at(0).toUtf8().data()))
-                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                                       langRegions.at(1).toUtf8().data()));
+        QString langCountry =
+                QString("%1 (%2)")
+                        .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                         langRegions.at(0).toUtf8().data()))
+                        .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                         langRegions.at(1).toUtf8().data()));
         return langCountry;
     }
 
@@ -296,4 +338,3 @@ QString RegionModule::getTranslation(const QString &localeName, const QString &l
 
     return langCountry;
 }
-
