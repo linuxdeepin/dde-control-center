@@ -28,6 +28,10 @@
 #include <QVBoxLayout>
 #include <QResizeEvent>
 #include <QLabel>
+#include <QLoggingCategory>
+
+
+Q_LOGGING_CATEGORY(DccCommonInfoBoot, "dcc-commoninfo-bootwidget");
 
 Q_DECLARE_METATYPE(QMargins)
 
@@ -281,8 +285,11 @@ void BootWidget::onCurrentItem(const QModelIndex &curIndex)
 
     // 获取当前被选项
     QString selectedText = m_curSelectedIndex.data().toString();
+
+    qCDebug(DccCommonInfoBoot) << "current text" << curText << "selectedText" << selectedText;
     // NOTE: If the type of current selected boot entry is submenu whitch is not shown in current boot list, do not care, and do the set action
     if (curText != selectedText) {
+        qCInfo(DccCommonInfoBoot) << "start to set first menu to "<< curText;
         Q_EMIT defaultEntry(curText);
     }
 }
