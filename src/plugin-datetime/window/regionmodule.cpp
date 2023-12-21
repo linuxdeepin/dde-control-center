@@ -12,6 +12,12 @@
 #include <qglobal.h>
 #include <DCommandLinkButton>
 
+#include <unicode/locid.h>
+#include <unicode/unistr.h>
+
+using icu::Locale;
+using icu::UnicodeString;
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -91,9 +97,9 @@ void RegionModule::initLangRegionModule()
     m_langRegionModule = new ItemModule("languageRegion", tr("Languange and region"), [this](ModuleObject *){
         QWidget *widget = new QWidget;
         m_langRegionLabel = new QLabel;
-        m_langRegionLabel->setText(getTranslation(m_model->langRegion()));
+        m_langRegionLabel->setText(getTranslation(m_model->localeName(),m_model->langRegion()));
         connect(m_model, &DatetimeModel::langCountryChanged, this, [this](const QString &text){
-            m_langRegionLabel->setText(getTranslation(text));
+            m_langRegionLabel->setText(getTranslation(m_model->localeName(),text));
         } );
         QLabel *langRegionEnterLabel = new QLabel;
         langRegionEnterLabel->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
@@ -252,7 +258,7 @@ void RegionModule::onLangRegionClicked()
     connect(&dlg, &RegionFormatDialog::regionFormatSaved, this, [this](const QString &langRegion, const QLocale &locale){
         m_langRegion = langRegion;
         m_locale = locale;
-        m_langRegionLabel->setText(getTranslation(langRegion));
+        m_langRegionLabel->setText(getTranslation(locale.name(),langRegion));
         m_work->setConfigValue(languageRegion_key, langRegion);
         m_work->setConfigValue(localeName_key, locale.name());
         updateRegionFormat(RegionProxy::regionFormat(m_locale));
@@ -260,10 +266,13 @@ void RegionModule::onLangRegionClicked()
     dlg.exec();
 }
 
-QString RegionModule::getTranslation(const QString &langRegion)
+QString RegionModule::getTranslation(const QString &localeName, const QString &langRegion)
 {
     QStringList langRegions = langRegion.split(":");
-    if (langRegions.size() >= 2) {
+    if (langRegions.size() < 2) {
+        return langRegion;
+    }
+    if (langRegions[0] == "Tranditional Chinese" || langRegions[0] == "Simplified Chinese") {
         QString langCountry = QString("%1 (%2)")
                                       .arg(QCoreApplication::translate("dcc::datetime::Language",
                                                                        langRegions.at(0).toUtf8().data()))
@@ -271,6 +280,20 @@ QString RegionModule::getTranslation(const QString &langRegion)
                                                                        langRegions.at(1).toUtf8().data()));
         return langCountry;
     }
-    return langRegion;
+
+    auto localeSystem = QLocale::system();
+    auto systemLocale = Locale(localeSystem.name().toStdString().data());
+    auto IcuLocale = Locale(localeName.toStdString().data());
+    auto localeHex = UnicodeString(localeName.toStdString().data());
+    std::string displayLanguageIcu;
+    IcuLocale.getDisplayLanguage(systemLocale, localeHex).toUTF8String(displayLanguageIcu);
+    std::string displayCountryIcu;
+    IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
+
+    QString displaylanguage = QString::fromStdString(displayLanguageIcu);
+    QString displayCountry = QString::fromStdString(displayCountryIcu);
+    QString langCountry = QString("%1 (%2)").arg(displaylanguage).arg(displayCountry);
+
+    return langCountry;
 }
 
