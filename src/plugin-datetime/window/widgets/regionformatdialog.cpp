@@ -1,20 +1,21 @@
-//SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "regionformatdialog.h"
+
 #include "datetimemodel.h"
 
-#include <DLabel>
+#include <unicode/locid.h>
+#include <unicode/unistr.h>
+
 #include <DFrame>
+#include <DLabel>
 #include <DSearchEdit>
 #include <DSuggestButton>
 #include <DTitlebar>
 
 #include <QSortFilterProxyModel>
-
-#include <unicode/locid.h>
-#include <unicode/unistr.h>
 
 using icu::Locale;
 using icu::UnicodeString;
@@ -25,13 +26,15 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
     : DAbstractDialog(parent)
 {
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
     QLabel *headTitle = new QLabel(tr("Region Format"));
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(headTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     headTitle->setAlignment(Qt::AlignCenter);
 
@@ -68,7 +71,9 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
     DFrame *rightFrame = new DFrame;
     rightFrame->setFixedSize(344, 520);
     DLabel *titleLabel = new DLabel(tr("Default format"));
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(titleLabel,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     DFrame *formatContentFrame = new DFrame;
     formatContentFrame->setBackgroundRole(DPalette::ItemBackground);
     QVBoxLayout *formatLayout = new QVBoxLayout(formatContentFrame);
@@ -129,9 +134,7 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
     m_proxyModel->setSourceModel(m_model);
 }
 
-RegionFormatDialog::~RegionFormatDialog()
-{
-}
+RegionFormatDialog::~RegionFormatDialog() { }
 
 void RegionFormatDialog::onSearch(const QString &text)
 {
@@ -161,7 +164,7 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
     m_regions = dateTimeModel->regions();
     auto localeSystem = QLocale::system();
     auto systemLocale = Locale(localeSystem.name().toStdString().data());
-    for (auto locale: m_regions) {
+    for (auto locale : m_regions) {
         auto IcuLocale = Locale(locale.name().toStdString().data());
         auto localeHex = UnicodeString(locale.name().toStdString().data());
         std::string displayLanguageIcu;
@@ -172,16 +175,17 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
         QString displayCountry = QString::fromStdString(displayCountryIcu);
         QString langRegion = m_regions.key(locale);
         DStandardItem *item = new DStandardItem;
-        QString langCountry = QString("%1 (%2)")
-                                  .arg(displaylanguage)
-                                  .arg(displayCountry);
+        QString langCountry = QString("%1 (%2)").arg(displaylanguage).arg(displayCountry);
         QStringList langRegions = langRegion.split(":");
-        if (langRegions.size() >= 2 && (langRegions[0] == "Tranditional Chinese" || langRegions[0] == "Simplified Chinese")) {
-            langCountry = QString("%1 (%2)")
-                                      .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                                       langRegions.at(0).toUtf8().data()))
-                                      .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                                       langRegions.at(1).toUtf8().data()));
+        if (langRegions.size() >= 2
+            && (langRegions[0] == "Tranditional Chinese"
+                || langRegions[0] == "Simplified Chinese")) {
+            langCountry =
+                    QString("%1 (%2)")
+                            .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                             langRegions.at(0).toUtf8().data()))
+                            .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                             langRegions.at(1).toUtf8().data()));
         }
         QString langRegionText = langCountry;
         item->setData(langRegion, RegionFormatRole::TextRole);
@@ -192,7 +196,9 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
     }
 }
 
-QLabel* RegionFormatDialog::addFormatItem(const QWidget *frame, const QString &name, const QString &format)
+QLabel *RegionFormatDialog::addFormatItem(const QWidget *frame,
+                                          const QString &name,
+                                          const QString &format)
 {
     QWidget *widget = new QWidget;
     QHBoxLayout *hLayout = new QHBoxLayout(widget);
