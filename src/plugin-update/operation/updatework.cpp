@@ -23,6 +23,7 @@
 #include <QNetworkReply>
 #include <QVBoxLayout>
 #include <QtConcurrent>
+#include <QRegularExpression>
 
 #include <mutex>
 
@@ -43,6 +44,11 @@ const int ServerPlatform = 6;              // 服务器版
 
 static const QString LINGLONG_TIMER = QStringLiteral("linglong-upgrade.timer");
 static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service");
+
+#define CHECK_JOBS_ENV "DCC_PACKAGE_CHECK_JOBS"
+
+// NOTE: start with ii, any space, anychar, any space, anychar, at least one space, anykind of char
+static const QString PACKAGE_REGEX = QStringLiteral("^ii [ \t]+([^ ]+)[ \t]+([^ ]+)[ \t]+.*$");
 
 using Dtk::Widget::DDialog;
 using Dtk::Widget::DLabel;
@@ -1924,16 +1930,15 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
 
     QList<std::tuple<QString, QString>> listpkg;
 
+    QRegularExpression re(PACKAGE_REGEX);
+
     for (const QString &line : listpkgpre) {
-        if (!line.startsWith("ii")) {
+        QRegularExpressionMatch match = re.match(line);
+        if (!match.hasMatch()) {
             continue;
         }
-        auto field = line.split(" ", Qt::SkipEmptyParts);
-        // skip unknown format line
-        if (field.length() <= 2) {
-            continue;
-        }
-        auto pkg = field[1], version = field[2];
+        QString pkg = match.captured(1);
+        QString version = match.captured(2);
         // skip non system software
         if (!pkg.contains("dde") && !pkg.contains("deepin") && !pkg.contains("dtk")
             && !pkg.contains("uos")) {
@@ -1942,17 +1947,27 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
         listpkg.push_back({pkg, version});
     }
 
-    int partslen = listpkg.length() / 20;
+    int taskUnitJobs = 20;
 
-    if (listpkg.length() % 20 != 0) {
-        partslen += 1;
+    if (qEnvironmentVariableIsSet(CHECK_JOBS_ENV)) {
+        auto env = qgetenv(CHECK_JOBS_ENV);
+        int settedJobs = env.toInt();
+        if (settedJobs > 0) {
+            taskUnitJobs = settedJobs;
+        }
+    }
+
+    int pkglen = listpkg.length() / taskUnitJobs;
+
+    if (listpkg.length() % taskUnitJobs != 0) {
+        pkglen += 1;
     }
 
     QList<QList<std::tuple<QString, QString>>> inputValues;
 
-    for (int i = 0; i < partslen; i++) {
-        int start_pos = i * 20;
-        inputValues.push_back(listpkg.mid(start_pos, 20));
+    for (int i = 0; i < pkglen; i++) {
+        int start_pos = i * taskUnitJobs;
+        inputValues.push_back(listpkg.mid(start_pos, taskUnitJobs));
     }
 
     std::function<bool(const QList<std::tuple<QString, QString>> list)> checkCanExit =
