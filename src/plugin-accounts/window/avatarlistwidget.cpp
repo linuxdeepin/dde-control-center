@@ -75,8 +75,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
     QList<AvatarItem> items = {
         AvatarItem(tr("Person"), "dcc_user_human", Role::Person, true),
         AvatarItem(tr("Animal"), "dcc_user_animal", Role::Animal, true),
-        // 图片未提供, 先不加载
-        AvatarItem(tr("Illustration"), "dcc_user_animal", Role::Illustration, false),
+        AvatarItem(tr("Illustration"), "dcc_user_funny", Role::Illustration, true),
         AvatarItem(tr("Expression"), "dcc_user_emoji", Role::Expression, true),
         AvatarItem(tr("Custom Picture"), "dcc_user_custom", Role::Custom, true),
     };
@@ -102,6 +101,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
 
     // 添加选择Item
     m_avatarSelectItem->setModel(m_avatarSelectItemModel);
+    m_avatarSelectItem->setIconSize(QSize{ 16, 16 });
     m_avatarSelectItem->setAccessibleName("List_AvatarSelect");
     m_avatarSelectItem->setFrameShape(QFrame::NoFrame);
     m_avatarSelectItem->setItemSpacing(2);
