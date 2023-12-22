@@ -33,9 +33,9 @@ const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 // 系统用户头像存放路径
 const QString PersonDimensionalPath = QStringLiteral("lib/AccountsService/icons/human/dimensional");
 const QString PersonFlatPath = QStringLiteral("lib/AccountsService/icons/human/flat");
-const QString AnimalDimensionalPath = QStringLiteral("lib/AccountsService/icons/animal/dimensional");
-const QString IllustrationDimensionalPath = QStringLiteral("lib/AccountsService/icons/illustration/dimensional");
-const QString EmojiDimensionalPath = QStringLiteral("lib/AccountsService/icons/emoji/dimensional");
+const QString AnimalDimensionalPath = QStringLiteral("lib/AccountsService/icons/animal");
+const QString IllustrationDimensionalPath = QStringLiteral("lib/AccountsService/icons/illustration");
+const QString EmojiDimensionalPath = QStringLiteral("lib/AccountsService/icons/emoji");
 
 // 用户自定义图像存放路径
 const QString AvatarCustomPath = QStringLiteral("lib/AccountsService/icons/local");
