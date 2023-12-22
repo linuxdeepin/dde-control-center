@@ -32,9 +32,11 @@ void SwitchLabel::resizeEvent(QResizeEvent *event)
     if(len > m_actualSize.width()) {
         str = fontMetrics.elidedText(str, Qt::ElideRight, m_actualSize.width());
         this->setText(str);
+        this->setToolTip(m_sourceText);
     }
     else {
         this->setText(m_sourceText);
+        this->setToolTip("");
     }
 
     QLabel::resizeEvent(event);
