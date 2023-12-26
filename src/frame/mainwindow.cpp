@@ -16,13 +16,13 @@
 #include <DFrame>
 #include <DGuiApplicationHelper>
 #include <DIconButton>
+#include <DIconTheme>
 #include <DListView>
 #include <DPalette>
 #include <DPaletteHelper>
 #include <DPushButton>
 #include <DTitlebar>
 #include <DWidgetUtil>
-#include <DIconTheme>
 
 #include <QColor>
 #include <QDBusConnection>
@@ -96,6 +96,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::showPage(const QString &url, const UrlType &uType)
 {
+    if (qApp->activeModalWidget()) {
+        qInfo() << "controlcenter has modal dialog, cannot switch page";
+        return;
+    }
     qInfo() << "show page url:" << url;
     if (url.isEmpty() || url == "/") {
         toHome();
