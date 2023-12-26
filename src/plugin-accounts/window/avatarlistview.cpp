@@ -272,6 +272,21 @@ void AvatarListView::onItemClicked(const QModelIndex &index)
         QString iconPath = index.data(AvatarListView::SaveAvatarRole).toString();
         Q_EMIT requestDeleteUserIcon(iconPath);
         m_avatarItemModel->removeRow(index.row());
+        if (m_avatarItemModel->rowCount() >= 1) {
+            m_currentSelectIndex = m_avatarItemModel->index(1, 0);
+        } else {
+            m_currentSelectIndex = m_avatarItemModel->index(-1, 0);
+        }
+
+        for (int i = 1; i < m_avatarItemModel->rowCount(); ++i) {
+            auto currentItem = m_avatarItemModel->item(i);
+            if (currentItem->index() == m_currentSelectIndex) {
+                currentItem->setCheckState(Qt::Checked);
+            } else {
+                currentItem->setCheckState(Qt::Unchecked);
+            }
+        }
+
         return;
     }
     // check if is x button, if is x button, then delete the model, and request to remove the icon
@@ -298,7 +313,7 @@ void AvatarListView::onItemClicked(const QModelIndex &index)
             m_dconfig->setValue("avatarPath", info.absolutePath());
 
             int row = -1;
-            for (int i = 1; i <= m_avatarItemModel->rowCount(); ++i) {
+            for (int i = 1; i < m_avatarItemModel->rowCount(); ++i) {
                 if (path == m_avatarItemModel->index(i, 0).data(AvatarListView::SaveAvatarRole)) {
                     row = i;
                     break;
