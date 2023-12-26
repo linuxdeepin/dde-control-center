@@ -268,7 +268,8 @@ bool AvatarListView::checkIsToDeleteAvatar(const QModelIndex &index)
 
 void AvatarListView::onItemClicked(const QModelIndex &index)
 {
-    if (checkIsToDeleteAvatar(index)) {
+    // NOTE: as design, the last one should not bbe deleted
+    if (checkIsToDeleteAvatar(index) && m_avatarItemModel->rowCount() > 2) {
         QString iconPath = index.data(AvatarListView::SaveAvatarRole).toString();
         Q_EMIT requestDeleteUserIcon(iconPath);
         m_avatarItemModel->removeRow(index.row());
