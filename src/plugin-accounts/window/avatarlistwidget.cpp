@@ -154,7 +154,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
         // 如果没有添加自定义头像, 显示自定义添加图像页面
         if (!m_avatarFrames[Custom]->isExistCustomAvatar(m_avatarFrames[Custom]->getCurrentPath(),
                                                          m_curUser->name())) {
-            if (index.row() == 3) {
+            if (index.row() == 4) {
                 avatarSelectWidget->setCurrentIndex(index.row() + 1);
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
 
@@ -163,7 +163,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
         }
 
         // 切换到自定义头像界面, 更新用户头像编辑页面
-        if (index.row() == 3) {
+        if (index.row() == 4) {
             getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
                     m_avatarFrames[Custom]->getCurrentListView()->getAvatarPath());
         }
