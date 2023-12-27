@@ -194,7 +194,6 @@ RegionProxy::RegionProxy(QObject *parent)
 {
 }
 
-// TODO: use icu translate instead
 // the locale even has sichuangYi. too many languages
 void RegionProxy::active()
 {
