@@ -596,19 +596,19 @@ void AccountsModule::onDeleteUser()
 void AccountsModule::onModifyIcon()
 {
     QWidget *w = qobject_cast<QWidget *>(sender());
-    if (!w)
-        return;
-
-    AvatarListDialog avatarListDialog = AvatarListDialog(m_curUser, m_worker);
-
-    if (avatarListDialog.exec() == QDialog::Rejected) {
+    if (!w) {
         return;
     }
 
-    auto path = avatarListDialog.get_path();
-    if (path.has_value()) {
-        m_worker->setAvatar(m_curUser, path.value());
-    }
+    auto *avatarListDialog = new AvatarListDialog(m_curUser, m_worker, w);
+    avatarListDialog->setAttribute(Qt::WA_DeleteOnClose);
+    connect(avatarListDialog, &AvatarListDialog::accepted, this, [this, avatarListDialog]() {
+        auto path = avatarListDialog->get_path();
+        if (path.has_value()) {
+            m_worker->setAvatar(m_curUser, path.value());
+        }
+    });
+    avatarListDialog->open();
 }
 
 void AccountsModule::setCurrentUser(User *user)
