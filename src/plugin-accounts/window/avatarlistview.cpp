@@ -24,8 +24,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-const int MaxAvatarSize = 20;
-const int MaxCustomAvatarSize = 4;
+constexpr int MaxCustomAvatarSize = 4;
 const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 const QString DefaultAvatar =
         QStringLiteral("lib/AccountsService/icons/animal/dimensional/raccoon.png");
@@ -167,7 +166,7 @@ void AvatarListView::addItemFromDefaultDir(const QString &path)
         }
     }
 
-    for (int i = 0; i < MaxAvatarSize && i < list.size(); ++i) {
+    for (int i = 0; i < list.size(); ++i) {
         if (hideList.contains(list.at(i).fileName())) {
             continue;
         }
