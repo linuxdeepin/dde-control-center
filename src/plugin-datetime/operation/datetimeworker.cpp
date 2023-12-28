@@ -339,3 +339,21 @@ void DatetimeWorker::setConfigValue(const QString &key, const QVariant &value)
 {
     m_config->setValue(key, value);
 }
+
+void DatetimeWorker::genLocale(const QString &localeName)
+{
+    static QString localeConfPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QDir::separator() + "locale.conf";
+
+    QSettings settings(localeConfPath, QSettings::IniFormat);
+
+    QString localeSet = localeName + ".UTF-8";
+
+    settings.setValue("LC_NUMERIC", localeSet);
+    settings.setValue("LC_MONETARY", localeSet);
+    settings.setValue("LC_TIME", localeSet);
+    settings.setValue("LC_PAPER", localeSet);
+    settings.setValue("LC_NAME", localeSet);
+    settings.setValue("LC_ADDRESS", localeSet);
+    settings.setValue("LC_TELEPHONE", localeSet);
+    settings.setValue("LC_MEASUREMENT", localeSet);
+}
