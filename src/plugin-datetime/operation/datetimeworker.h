@@ -59,6 +59,8 @@ public Q_SLOTS:
     void setShortTimeFormat(int type);
     void setWeekStartDayFormat(int type);
 
+    void genLocale(const QString &localeName);
+
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);

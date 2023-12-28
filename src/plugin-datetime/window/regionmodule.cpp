@@ -307,6 +307,7 @@ void RegionModule::onLangRegionClicked()
                 m_langRegionLabel->setText(getTranslation(locale.name(), langRegion));
                 m_work->setConfigValue(languageRegion_key, langRegion);
                 m_work->setConfigValue(localeName_key, locale.name());
+                m_work->genLocale(locale.name());
                 updateRegionFormat(RegionProxy::regionFormat(m_locale));
             });
     dlg.exec();
