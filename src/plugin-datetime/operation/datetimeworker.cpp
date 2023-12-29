@@ -338,9 +338,6 @@ void DatetimeWorker::setLocaleRegion(const QString &locale)
 void DatetimeWorker::setConfigValue(const QString &key, const QVariant &value)
 {
     m_config->setValue(key, value);
-    if (key == "localeName") {
-        m_model->setLocaleName(value.toString());
-    }
 }
 
 void DatetimeWorker::genLocale(const QString &localeName)
