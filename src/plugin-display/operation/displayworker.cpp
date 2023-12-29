@@ -5,7 +5,6 @@
 #include "displaymodel.h"
 #include "widgets/utils.h"
 
-#include <DApplicationHelper>
 #include <dconfig.h>
 
 #include <QDebug>

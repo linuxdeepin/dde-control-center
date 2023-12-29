@@ -250,7 +250,7 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
         m_dayWidget->setRange(1, date.daysInMonth());
         qCDebug(DdcDateTimeTimeSettingModule) << " year : " << year << " , month : " << month << " day range : 1 to " << date.daysInMonth();
         if (m_dayWidget->maximum() < m_dayWidget->getCurrentText().toInt()) {
-            m_dayWidget->setCurrentText(QString(m_dayWidget->maximum()));
+            m_dayWidget->setCurrentText(QString::number(m_dayWidget->maximum()));
         }
     };
     connect(m_monthWidget, &DateWidget::editingFinished, this, updateDayRange);

@@ -9,7 +9,6 @@
 #include <QModelIndex>
 #include <QApplication>
 
-#include <DApplicationHelper>
 #include <DPalette>
 #include <DStyleHelper>
 #include <DStyle>

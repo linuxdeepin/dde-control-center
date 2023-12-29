@@ -100,7 +100,6 @@ public Q_SLOTS:
     int isUnstableResource() const;
     void setUpdateLogs(const QJsonArray &array);
 
-    void testMirrorSpeed();
     void checkNetselect();
 
     void licenseStateChangeSlot();

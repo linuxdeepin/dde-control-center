@@ -97,7 +97,7 @@ set(LOCALSTATE_READ_DIR "${CMAKE_INSTALL_FULL_LOCALSTATEDIR}" CACHE STRING "Dir 
 add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 # Find the library
 find_package(PkgConfig REQUIRED)
-find_package(Dtk COMPONENTS Core Widget)
+find_package(Dtk COMPONENTS Core Widget DConfig REQUIRED)
 find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
 find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
@@ -109,9 +109,9 @@ endif()
 
 # dconfig
 file(GLOB DCONFIG_FILES "misc/configs/*.json")
-dconfig_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
+dtk_add_config_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
 file(GLOB DCONFIG_FILE_REGION_FORMAT "misc/configs/common/org.deepin.region-format.json")
-dconfig_meta_files(COMMONID true FILES ${DCONFIG_FILE_REGION_FORMAT})
+dtk_add_config_meta_files(COMMONID true FILES ${DCONFIG_FILE_REGION_FORMAT})
 
 include_directories(
     include
@@ -1060,11 +1060,7 @@ if (BUILD_PLUGIN AND NOT DISABLE_UPDATE)
         src/plugin-update/window
     )
 
-    target_include_directories(${Update_Name} PUBLIC
-        ${Update_Includes}
-    )
-
-    target_link_libraries(${Update_Name} PRIVATE
+    set(Update_Libraries
         ${Dcc_Widgets_Name}
         Qt::Network
         Dtk::Widget
@@ -1075,7 +1071,41 @@ if (BUILD_PLUGIN AND NOT DISABLE_UPDATE)
         ${Dcc_Widgets_Name}
     )
 
+    target_include_directories(${Update_Name} PUBLIC
+        ${Update_Includes}
+    )
+
+    target_link_libraries(${Update_Name} PRIVATE
+        ${Update_Libraries}
+    )
+
     install(TARGETS ${Update_Name} DESTINATION ${MODULE_INSTALL_DIR})
+endif()
+
+if (UNITTEST AND NOT DISABLE_UPDATE)
+    set(UT_Update_Name ut-dcc-update-plugin)
+    file(GLOB_RECURSE UT_UPDATE_SRC
+        "tests/plugin-update/*.cpp"
+    )
+
+    add_executable(${UT_Update_Name}
+        ${Update_SRCS}
+        ${UT_UPDATE_SRC}
+    )
+
+    target_compile_options(${UT_Update_Name} PRIVATE ${UT_COMPILER})
+
+    target_include_directories(${UT_Update_Name} PUBLIC
+        ${Update_Includes}
+    )
+
+    target_link_libraries(${UT_Update_Name} PRIVATE
+        ${Update_Libraries}
+        ${Test_Libraries}
+    )
+
+    gtest_discover_tests(${UT_Update_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+
 endif()
 #--------------------------plugin-notification--------------------------
 if (BUILD_PLUGIN)

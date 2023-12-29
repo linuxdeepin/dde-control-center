@@ -8,12 +8,11 @@
 #include <QScrollBar>
 #include <QModelIndex>
 
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 #include <DPalette>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
-DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {

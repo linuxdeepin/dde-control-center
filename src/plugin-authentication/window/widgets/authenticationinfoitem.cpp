@@ -9,7 +9,7 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 #include <DPaletteHelper>
 #include <DIconButton>
 #include <DLineEdit>

@@ -4,7 +4,6 @@
 
 #include "faceinfowidget.h"
 
-#include <DApplicationHelper>
 #include <DPlatformTheme>
 
 #include <QDBusUnixFileDescriptor>

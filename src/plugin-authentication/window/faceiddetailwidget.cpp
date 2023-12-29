@@ -6,7 +6,7 @@
 #include "widgets/face/addfaceinfodialog.h"
 #include "charamangermodel.h"
 
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DIconTheme>
