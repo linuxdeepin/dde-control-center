@@ -5,10 +5,10 @@
 #include "irisdetailwidget.h"
 #include "charamangermodel.h"
 
-#include <DApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DIconTheme>
+#include <DGuiApplicationHelper>
 
 #include <QBoxLayout>
 #include <QLabel>

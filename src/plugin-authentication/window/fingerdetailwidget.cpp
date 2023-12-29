@@ -5,10 +5,10 @@
 #include "fingerdetailwidget.h"
 #include "charamangermodel.h"
 
-#include <DApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DIconTheme>
+#include <DGuiApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QLabel>

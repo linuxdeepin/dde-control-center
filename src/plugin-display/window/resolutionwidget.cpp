@@ -8,11 +8,12 @@
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 #include <QLabel>
 #include <QStyleOption>
 #include <QStandardItemModel>
 
+DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 

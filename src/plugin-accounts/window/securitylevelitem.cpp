@@ -6,7 +6,7 @@
 #include "pwqualitymanager.h"
 
 #include <DFontSizeManager>
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 
 #include <DLineEdit>
 #include <QFileInfo>
@@ -23,6 +23,7 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 SET_FORM_ACCESSIBLE(SecurityLevelItem, "SecurityLevelItem")
 SecurityLevelItem::SecurityLevelItem(QWidget *parent)
     : QWidget(parent)

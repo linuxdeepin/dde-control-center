@@ -220,7 +220,7 @@ void SpeakerPage::addPort(const Port *port)
             }
         });
         connect(port, &Port::currentPortEnabled, this, [ = ](bool isEnable) {
-            int index = m_outputSoundCbx->comboBox()->findData(port);
+            int index = m_outputSoundCbx->comboBox()->findData(QVariant::fromValue(port));
             // 若端口可用 且没有添加
             if (isEnable && (index == -1) && pi) {
                 m_outputModel->appendRow(pi);

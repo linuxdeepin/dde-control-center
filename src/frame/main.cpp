@@ -7,8 +7,6 @@
 #include "utils.h"
 
 #include <DApplication>
-#include <DApplicationHelper>
-#include <DApplicationSettings>
 #include <DDBusSender>
 #include <DLog>
 #include <DIconTheme>

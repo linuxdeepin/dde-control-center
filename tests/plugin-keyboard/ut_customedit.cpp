@@ -39,7 +39,7 @@ void Tst_CustomEdit::TearDown()
 TEST_F(Tst_CustomEdit, CustomEdit)
 {
     ShortcutInfo info;
-    info.id = 1;
+    info.id = "1";
     info.name = "test";
     info.accels = "Control+W";
     EXPECT_NO_THROW(edit->setShortcut(&info));

@@ -61,7 +61,7 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     PluginData data;
     data.Plugin = nullptr;
     data.Module = nullptr;
-    data.Location = -1;
+    data.Location = "-1";
     auto &&fileName = pair.second;
     QFileInfo fileInfo(fileName);
     QSettings settings(DCC_NAMESPACE::CollapseConfgPath, QSettings::IniFormat);

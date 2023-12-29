@@ -5,7 +5,6 @@
 #include "treecombox.h"
 
 #include <DStyle>
-#include <DApplicationHelper>
 #include <QLabel>
 #include <QPushButton>
 

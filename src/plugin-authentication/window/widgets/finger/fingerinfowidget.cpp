@@ -5,7 +5,7 @@
 #include "fingerinfowidget.h"
 
 #include <DHiDPIHelper>
-#include <DApplicationHelper>
+#include <DGuiApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QDebug>
