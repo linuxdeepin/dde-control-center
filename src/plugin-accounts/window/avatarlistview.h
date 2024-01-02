@@ -73,6 +73,7 @@ public Q_SLOTS:
 
 protected:
     void updateGeometries() override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     void initWidgets();

@@ -49,6 +49,7 @@ AvatarListView::AvatarListView(
                                 this))
 {
     initWidgets();
+    installEventFilter(this);
     connect(this, &DListView::clicked, this, [this](const QModelIndex &index) {
         // 用户自定义图片最多只支持四张
         if (m_currentAvatarRole == Custom && index.row() == 0
@@ -83,6 +84,46 @@ void AvatarListView::updateGeometries()
     QRect r = rectForIndex(model()->index(model()->rowCount() - 1, 0));
     QMargins margins = viewportMargins();
     setFixedHeight(r.y() + r.height() + margins.top() + margins.bottom() + 1);
+}
+
+bool AvatarListView::eventFilter(QObject *object, QEvent *event)
+{
+    if (event->type() != QEvent::KeyPress) {
+        return QObject::eventFilter(object, event);
+    }
+    QKeyEvent *keyevent = static_cast<QKeyEvent *>(event);
+    if (keyevent->key() != Qt::Key_Tab) {
+        return QObject::eventFilter(object, event);
+    }
+    bool is_back_select = keyevent->modifiers() == Qt::Modifier::CTRL;
+    int count = m_avatarItemModel->rowCount();
+    int current_index = m_currentSelectIndex.row();
+    int next_index = 0;
+    if (is_back_select) {
+        if (current_index == 0) {
+            next_index = count - 1;
+        } else {
+            next_index = current_index - 1;
+        }
+    } else {
+        if (current_index == count - 1) {
+            next_index = 0;
+        } else {
+            next_index = current_index + 1;
+        }
+    }
+
+    if (m_currentSelectIndex.isValid()) {
+        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
+    }
+    m_currentSelectIndex = m_avatarItemModel->index(next_index, 0);
+    const QString filePath = m_currentSelectIndex.data(SaveAvatarRole).toString();
+    m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Checked);
+    m_avatarItemModel->item(m_currentSelectIndex.row())
+            ->setData(QVariant::fromValue(filePath), AvatarListView::SaveAvatarRole);
+    Q_EMIT requestUpdateListView(m_save, m_currentAvatarRole, m_currentAvatarType);
+
+    return true;
 }
 
 void AvatarListView::initWidgets()
