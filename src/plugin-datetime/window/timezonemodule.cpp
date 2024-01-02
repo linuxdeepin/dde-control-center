@@ -89,7 +89,6 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
     updateZones();
     connect(m_model, &DatetimeModel::systemTimeZoneIdChanged, m_timezoneGroup, updateZones);
     connect(m_model, &DatetimeModel::userTimeZoneAdded, m_timezoneGroup, updateZones);
-    connect(m_model, &DatetimeModel::userTimeZoneRemoved, m_timezoneGroup, updateZones);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, &TimezoneModule::ensureZoneChooserDialog);
 }
