@@ -164,11 +164,24 @@ void DefAppWorker::onGetListApps()
     }
 }
 
+static QStringList getUILanguages() {
+    QLocale syslocal = QLocale::system();
+
+    QStringList uiLanguages = syslocal.uiLanguages();
+    // the nameMap uses underscore instead of minus sign
+    for (auto &lang : uiLanguages) {
+        lang.replace('-', '_');
+    }
+    uiLanguages << "default";
+
+    return uiLanguages;
+}
+
 void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
 {
     Category *category = getCategory("Terminal");
     QList<App> list;
-    QLocale syslocal = QLocale::system();
+    auto uiLanguages = getUILanguages();
     QDBusPendingReply<ObjectMap> reply = *call;
     if (reply.isError()) {
         call->deleteLater();
@@ -194,9 +207,10 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
 
             QString showName = id;
 
-            for (auto it = nameMap.cbegin(); it != nameMap.cend(); it++) {
-                if (QLocale(it.key()) == syslocal) {
-                    showName = it.value();
+            for (auto &lang : uiLanguages) {
+                auto iter = nameMap.find(lang);
+                if (iter != nameMap.end()) {
+                    showName = iter.value();
                     break;
                 }
             }
@@ -269,7 +283,8 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
     }
 
     QList<App> list;
-    QLocale syslocal = QLocale::system();
+    auto uiLanguages = getUILanguages();
+
     for (auto it = map.cbegin(); it != map.cend(); it++) {
         QString dbusPath = it.key().path();
         auto mapInterface = it.value();
@@ -289,9 +304,10 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
 
             QString showName = id;
 
-            for (auto it = nameMap.cbegin(); it != nameMap.cend(); it++) {
-                if (QLocale(it.key()) == syslocal) {
-                    showName = it.value();
+            for (auto &lang : uiLanguages) {
+                auto iter = nameMap.find(lang);
+                if (iter != nameMap.end()) {
+                    showName = iter.value();
                     break;
                 }
             }
