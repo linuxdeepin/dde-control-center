@@ -136,6 +136,27 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
 
 RegionFormatDialog::~RegionFormatDialog() { }
 
+void RegionFormatDialog::setCurrentRegion(const QString &region)
+{
+    QModelIndex start = m_proxyModel->index(0, 0);
+    if (!start.isValid()) {
+        qWarning() << "startIndex is invalid when setCurrentRegion called!";
+        return;
+    }
+    QModelIndexList results = m_proxyModel->match(start, Qt::DisplayRole, region);
+    if (results.size() > 0) {
+        m_regionListView->setCurrentIndex(results.first());
+        auto realIndex = m_proxyModel->mapToSource(results.first());
+        QStandardItem *selectedItem = m_model->itemFromIndex(realIndex);
+        if (selectedItem) {
+            selectedItem->setCheckState(Qt::Checked);
+            m_lastSelectedIndex = realIndex;
+        }
+    } else {
+        qWarning() << "There is not anything matched in region proxyModel";
+    }
+}
+
 void RegionFormatDialog::onSearch(const QString &text)
 {
     if (text.contains("\\")) {

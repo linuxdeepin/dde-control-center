@@ -31,6 +31,8 @@ public:
     explicit RegionFormatDialog(DatetimeModel *model, QWidget *parent = nullptr);
     ~RegionFormatDialog();
 
+    void setCurrentRegion(const QString &region);
+
 Q_SIGNALS:
     void regionFormatSaved(const QString &langRegion, const QLocale &regionFormat);
 
