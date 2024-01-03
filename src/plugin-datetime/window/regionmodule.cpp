@@ -298,6 +298,7 @@ void RegionModule::onLangRegionClicked()
 {
     RegionFormatDialog dlg(this->m_model);
     qRegisterMetaType<RegionAvailableData>("RegionFormat");
+    dlg.setCurrentRegion(m_langRegionLabel->text());
     connect(&dlg,
             &RegionFormatDialog::regionFormatSaved,
             this,

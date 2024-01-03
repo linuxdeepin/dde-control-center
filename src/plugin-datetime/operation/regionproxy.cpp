@@ -266,6 +266,11 @@ QString RegionProxy::langCountry() const
     QLocale locale = QLocale::system();
     QString language = locale.languageToString(locale.language());
     QString country = locale.countryToString(locale.country());
+    if ((locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+        && locale.language() == QLocale::Chinese)
+        language = "Traditional Chinese";
+    if (locale.country() == QLocale::China && locale.language() == QLocale::Chinese)
+        language = "Simplified Chinese";
     QString langCountry = QString("%1:%2").arg(language).arg(country);
     return langCountry;
 }
