@@ -47,3 +47,9 @@ License: CC0-1.0
 Files: misc/org.deepin.dde.controlcenter.metainfo.xml
 Copyright: None
 License: CC0-1.0
+
+# 3rdparty
+Files: src/plugin-display/wayland/*
+Copyright: Marcus Britanicus, Abrar, rahmanshaber
+License: MIT
+

@@ -35,3 +35,6 @@ build*/
 
 .transifexrc
 lupdate.sh
+
+# nix
+.direnv

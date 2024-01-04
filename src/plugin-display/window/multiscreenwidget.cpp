@@ -24,6 +24,8 @@
 #include <QKeyEvent>
 #include <DMainWindow>
 
+#include <WayQtUtils.hpp>
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -313,6 +315,10 @@ void MultiScreenWidget::initPrimaryList()
 
 void MultiScreenWidget::initSecondaryScreenDialog()
 {
+    if (WQt::Utils::isTreeland()) {
+        // FIXME(treeland): why this will break treeland
+        return;
+    }
     if (m_model->displayMode() == EXTEND_MODE) {
         m_resetSecondaryScreenDlgTimer->stop();
         for (auto dlg : m_secondaryScreenDlgList) {

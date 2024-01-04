@@ -283,3 +283,12 @@ QScreen *Monitor::getQScreen()
 
     return nullptr;
 }
+
+std::optional<Resolution> Monitor::getResolutionById(quint32 id)
+{
+    for (auto res : m_modeList) {
+        if (res.id() == id)
+            return res;
+    }
+    return std::nullopt;
+}
