@@ -30,6 +30,7 @@ option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
 option(USE_DEEPIN_ZONE "enable special timezone file on deepin" OFF)
 option(DISABLE_SOUND_ADVANCED "disable sound advanced settings" OFF)
 set(DEEPIN_TIME_ZONE_PATH "/usr/share/dde/zoneinfo/zone1970.tab" CACHE STRING "deepin timezone path")
+set(LOCALE_I18N_PATH "/usr/share/i18n/SUPPORTED" CACHE STRING "Supported locale path")
 
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -69,6 +70,8 @@ if (USE_DEEPIN_ZONE)
     add_definitions(-DUSE_DEEPIN_ZONE)
     add_definitions(-DDEEPIN_TIME_ZONE_PATH="${DEEPIN_TIME_ZONE_PATH}")
 endif ()
+
+add_definitions(-DLOCALE_I18N_PATH="${LOCALE_I18N_PATH}")
 
 # 增加安全编译参数
 ADD_DEFINITIONS(${SAFE_COMPILER})
