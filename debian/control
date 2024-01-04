@@ -7,6 +7,7 @@ Build-Depends:
  pkg-config,
  cmake,
  qtbase5-dev,
+ qtbase5-private-dev,
  qttools5-dev-tools,
  libdtkwidget-dev,
  libdtkcore-dev(>>5.6.18),
@@ -18,7 +19,8 @@ Build-Depends:
  doxygen,
  libgtest-dev,
  libgsettings-qt-dev,
- libicu-dev
+ libicu-dev,
+ libwayland-dev
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

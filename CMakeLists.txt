@@ -947,6 +947,67 @@ if (BUILD_PLUGIN)
 endif()
 #--------------------------plugin-display--------------------------
 if (BUILD_PLUGIN)
+
+    function(ws_generate_local type input_file output_name)
+        pkg_get_variable(WAYLAND_SCANNER wayland-scanner wayland_scanner)
+        execute_process(COMMAND ${WAYLAND_SCANNER}
+            ${type}-header
+            ${input_file}
+            ${CMAKE_CURRENT_BINARY_DIR}/${output_name}.h
+        )
+
+        execute_process(COMMAND ${WAYLAND_SCANNER}
+            public-code
+            ${input_file}
+            ${CMAKE_CURRENT_BINARY_DIR}/${output_name}.c
+        )
+    endfunction()
+
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(WaylandClient REQUIRED IMPORTED_TARGET wayland-client)
+
+    ws_generate_local(client
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt/protocols/wlr-output-management-unstable-v1.xml
+        wlr-output-management-unstable-v1-client-protocol)
+
+    ws_generate_local(client
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt/protocols/wlr-gamma-control-unstable-v1.xml
+        wlr-gamma-control-unstable-v1-client-protocol)
+
+    ws_generate_local(client
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt/protocols/treeland-output-management.xml
+        treeland-output-management-client-protocol)
+
+    file(GLOB_RECURSE LIBWAYQT_SRCS
+        "src/plugin-display/wayland/libwayqt/*.cpp"
+        "src/plugin-display/wayland/libwayqt/*.hpp"
+        "src/plugin-display/wayland/gammaeffects/*.cpp"
+        "src/plugin-display/wayland/gammaeffects/*.hpp"
+    )
+
+    add_library(libwayqt
+        OBJECT
+        ${LIBWAYQT_SRCS}
+        wlr-output-management-unstable-v1-client-protocol.c
+        wlr-gamma-control-unstable-v1-client-protocol.c
+        treeland-output-management-client-protocol.c
+    )
+
+    target_include_directories(libwayqt
+        PUBLIC
+            "${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt"
+            "${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/gammaeffects"
+        PRIVATE
+            ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    )
+
+    target_link_libraries(libwayqt
+        PUBLIC
+        Qt${QT_VERSION_MAJOR}::Core
+        Qt${QT_VERSION_MAJOR}::Gui
+        PkgConfig::WaylandClient
+    )
+
     set(Display_Name dcc-display-plugin)
     file(GLOB_RECURSE DISPLAY_SRCS
         "src/plugin-display/window/*.cpp"
@@ -966,11 +1027,14 @@ if (BUILD_PLUGIN)
         Qt::Widgets
         Qt::DBus
         Qt::Concurrent
+        $<TARGET_OBJECTS:libwayqt>
+        PkgConfig::WaylandClient
     )
 
     target_include_directories(${Display_Name} PUBLIC
         src/plugin-display
         ${Display_Includes}
+        $<TARGET_PROPERTY:libwayqt,INTERFACE_INCLUDE_DIRECTORIES>
     )
 
     target_link_libraries(${Display_Name} PRIVATE

@@ -10,6 +10,8 @@
 #include <QObject>
 #include <QScreen>
 
+#include <optional>
+
 namespace DCC_NAMESPACE {
 
 class DisplayWorker;
@@ -117,6 +119,7 @@ private Q_SLOTS:
     void setCurrentRotateMode(const unsigned char mode);
     void setAvailableFillModes(const QStringList &fillModeList);
     void setCurrentFillMode(const QString currentFillMode);
+    std::optional<Resolution> getResolutionById(quint32 id);
 
 private:
     int m_x;

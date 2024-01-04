@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYWORKER_H
@@ -13,10 +13,22 @@
 #include <QObject>
 #include <QTimer>
 #include <QProcess>
+#include <DFGammaEffects.hpp>
+
+#define GAMMA_SUPPORT false
+/*
+ * Disable gamma support, There are bugs that need to be fixed in the future
+ */
 
 DCORE_BEGIN_NAMESPACE
 class DConfig;
 DCORE_END_NAMESPACE
+
+namespace WQt {
+    class Output;
+    class Registry;
+    class OutputHead;
+}
 
 namespace DCC_NAMESPACE {
 class DisplayModel;
@@ -62,9 +74,16 @@ private Q_SLOTS:
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
 
+    // for wlroots-based compositors
+    void onWlMonitorListChanged();
+
 private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
+
+    // for wlroots-based compositors
+    void wlMonitorAdded(WQt::OutputHead *head);
+    void wlMonitorRemoved(WQt::OutputHead *head);
 
 Q_SIGNALS:
     void requestUpdateModeList();
@@ -73,6 +92,15 @@ private:
     DisplayModel *m_model;
     DisplayDBusProxy *m_displayInter;
     QMap<Monitor *, MonitorDBusProxy *> m_monitors;
+
+    // for wlroots-based compositors
+    WQt::Registry *m_reg { nullptr };
+    QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
+#if GAMMA_SUPPORT
+    QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
+    QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;
+#endif
+
     double m_currentScale;
     bool m_updateScale;
     QTimer *m_timer;
