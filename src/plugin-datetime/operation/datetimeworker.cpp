@@ -320,6 +320,26 @@ void DatetimeWorker::initRegionFormatData()
     });
 }
 
+std::optional<QStringList> DatetimeWorker::getSupportedLocale()
+{
+    if (m_supportedLocaleList.has_value()) {
+        return m_supportedLocaleList;
+    }
+    static QString LOCALE_LIST_FILE = QStringLiteral(LOCALE_I18N_PATH);
+    QFile file(LOCALE_LIST_FILE);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return std::nullopt;
+    QStringList localelist;
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList out = line.split(" ");
+        localelist.push_back(out[0]);
+    }
+    m_supportedLocaleList = localelist;
+    return m_supportedLocaleList;
+}
+
 std::optional<LocaleList> DatetimeWorker::getAllLocale()
 {
     return m_timedateInter->getLocaleListMap();
@@ -346,7 +366,21 @@ void DatetimeWorker::genLocale(const QString &localeName)
 
     QSettings settings(localeConfPath, QSettings::IniFormat);
 
-    QString localeSet = localeName + ".UTF-8";
+    auto supportedLocaleListRes = getSupportedLocale();
+    if (!supportedLocaleListRes.has_value()) {
+        return;
+    }
+
+    QStringList supportedLocaleList = supportedLocaleListRes.value();
+    QString localeSet;
+    if (QString otherLocaleName = localeName + ".UTF-8";
+        supportedLocaleList.contains(otherLocaleName)) {
+        localeSet = otherLocaleName;
+    } else if (supportedLocaleList.contains(localeName)) {
+        localeSet = localeName;
+    } else {
+        return;
+    }
 
     settings.setValue("LC_NUMERIC", localeSet);
     settings.setValue("LC_MONETARY", localeSet);

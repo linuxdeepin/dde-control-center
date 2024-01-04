@@ -78,6 +78,7 @@ private:
     void refreshNtpServerList();
     ZoneInfo GetZoneInfo(const QString &zoneId);
     void initRegionFormatData();
+    std::optional<QStringList> getSupportedLocale();
 
 private:
     DatetimeModel *m_model;
@@ -85,6 +86,7 @@ private:
     QDateTime *m_setDatetime;
     RegionProxy *m_regionInter;
     DTK_CORE_NAMESPACE::DConfig *m_config;
+    std::optional<QStringList> m_supportedLocaleList;
 };
 
 #endif // DATETIMEWORKER_H
