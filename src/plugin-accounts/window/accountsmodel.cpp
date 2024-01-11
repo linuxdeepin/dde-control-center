@@ -14,6 +14,11 @@
 #include <QApplication>
 #include <QPainterPath>
 
+static constexpr int OnlineLeftReserve = 10;
+static constexpr int OnineDisplayWidthReserve = OnlineLeftReserve * 2;
+static constexpr int DisplayHeight = 15;
+static constexpr QSize OnlineSize = QSize(OnlineLeftReserve, OnlineLeftReserve);
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -146,12 +151,8 @@ void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     QRect decorationRect;
     decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 3), opt.decorationSize);
-    opt.displayAlignment = Qt::AlignCenter;
 
-    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(10, opt.decorationSize.height() + 4), QSize(opt.rect.width(), 15));
-    QRect onlineRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 8), QSize(10, 10));
     opt.displayAlignment = Qt::AlignLeft|Qt::AlignVCenter;
-
 
     // draw the item
     drawBackground(style, painter, opt, decorationRect);
@@ -160,8 +161,17 @@ void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     painter->setPen(opt.palette.color(cg, QPalette::Text));//(opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
     drawDecoration(painter, opt, decorationRect);
 
-    if (index.data(Qt::CheckStateRole) == Qt::Checked)
+    opt.displayAlignment = Qt::AlignCenter;
+
+    bool hasChecked = index.data(Qt::CheckStateRole) == Qt::Checked;
+
+    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 4), QSize(opt.rect.width(), DisplayHeight));
+
+    if (hasChecked) {
+        displayRect = QRect(opt.rect.topLeft() + QPoint(OnlineLeftReserve, opt.decorationSize.height() + 4), QSize(opt.rect.width() - OnineDisplayWidthReserve, DisplayHeight));
+        QRect onlineRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 8), OnlineSize);
         drawOnlineIcon(painter, opt, onlineRect);
+    }
 
     drawDisplay(style, painter, opt, displayRect);
     painter->restore();
