@@ -103,7 +103,7 @@ public:
 
     virtual QStringList longDateFormats() override
     {
-        return { "yyyy年M月d日", "yyyy年M月d日，dddd", "dddd yyyy年M月d日" };
+        return { "yyyy年M月d日", "yyyy年M月d日，dddd", "yyyy年M月d日 dddd", "dddd yyyy年M月d日" };
     }
 
     virtual QStringList shortTimeFormats() override
