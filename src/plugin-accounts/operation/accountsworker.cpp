@@ -549,6 +549,10 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
         if (call.isError()) {
             Q_EMIT user->nopasswdLoginChanged(user->nopasswdLogin());
         }
+        QProcess restartLock;
+        QStringList restartLockCommand = QStringList { "--user", "restart", "dde-lock.service" };
+        restartLock.start("systemctl", restartLockCommand);
+        restartLock.waitForFinished(-1);
         watcher->deleteLater();
     });
 }
