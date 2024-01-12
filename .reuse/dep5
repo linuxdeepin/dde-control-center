@@ -42,3 +42,8 @@ License: CC-BY-4.0
 Files: **/*.cmake **/CMakeLists.txt **/*.in **/*.qrc CMakeLists.txt
 Copyright: None
 License: CC0-1.0
+
+# MetaInfo File
+Files: misc/org.deepin.dde.controlcenter.metainfo.xml
+Copyright: None
+License: CC0-1.0

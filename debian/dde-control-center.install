@@ -3,5 +3,6 @@ usr/lib/*/*.so.*
 usr/lib/*/dde-control-center/modules/*.so
 usr/share/dde-control-center/
 usr/share/dsg/
+usr/share/metainfo
 usr/share/applications/
 usr/share/dbus-1/
