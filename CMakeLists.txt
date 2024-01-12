@@ -325,6 +325,9 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
               ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.controlcenter.metainfo.xml
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
+
 #-------------------------ut-dcc-interface-------------------------
 if (UNITTEST)
     set(UT_Interface_Name ut-dcc-interface)
