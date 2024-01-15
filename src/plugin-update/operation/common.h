@@ -51,6 +51,7 @@ enum UpdatesStatus {
     RecoveryBackingup,
     RecoveryBackingSuccessed,
     RecoveryBackupFailed,
+    RecoveryBackupFailedDiskFull,
     Inactive
 };
 

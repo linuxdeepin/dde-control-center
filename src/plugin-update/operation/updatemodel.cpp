@@ -374,7 +374,8 @@ bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
 
     if (m_status == UpdatesStatus::RecoveryBackingup) {
         if (state == UpdatesStatus::RecoveryBackingSuccessed
-            || state == UpdatesStatus::RecoveryBackupFailed) {
+            || state == UpdatesStatus::RecoveryBackupFailed
+            || state == UpdatesStatus::RecoveryBackupFailedDiskFull) {
             ret = false;
             qCDebug(DdcUpdateModel) << " Backing up End ! , state : " << state;
         } else {

@@ -21,9 +21,9 @@
 #include <QMutexLocker>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QRegularExpression>
 #include <QVBoxLayout>
 #include <QtConcurrent>
-#include <QRegularExpression>
 
 #include <mutex>
 
@@ -36,11 +36,13 @@ const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
 const QString ChangeLogDic = "/usr/share/deepin/";
 const QString UpdateLogTmpFile = "/tmp/deepin-update-log.json";
 
-const int LogTypeSystem = 1;               // 系统更新
-const int LogTypeSecurity = 2;             // 安全更新
-const int DesktopProfessionalPlatform = 1; // 桌面专业版
-const int DesktopCommunityPlatform = 3;    // 桌面社区版
-const int ServerPlatform = 6;              // 服务器版
+constexpr int LogTypeSystem = 1;               // 系统更新
+constexpr int LogTypeSecurity = 2;             // 安全更新
+constexpr int DesktopProfessionalPlatform = 1; // 桌面专业版
+constexpr int DesktopCommunityPlatform = 3;    // 桌面社区版
+constexpr int ServerPlatform = 6;              // 服务器版
+
+constexpr int RecoveryBackupFailedDistFull = -2; // Not enough disk space
 
 static const QString LINGLONG_TIMER = QStringLiteral("linglong-upgrade.timer");
 static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service");
@@ -633,7 +635,9 @@ bool UpdateWorker::getNotUpdateState()
 {
     UpdatesStatus state = m_model->status();
 
-    return state != UpdatesStatus::RecoveryBackupFailed && state != UpdatesStatus::UpdateFailed;
+    return state != UpdatesStatus::RecoveryBackupFailed
+            && state != UpdatesStatus::RecoveryBackupFailedDiskFull
+            && state != UpdatesStatus::UpdateFailed;
 }
 
 void UpdateWorker::resetDownloadInfo(bool state)
@@ -1634,8 +1638,13 @@ void UpdateWorker::handleAtomicStateChanged(int operate,
         break;
     default:
         m_backupStatus = BackupStatus::BackupFailed;
-        m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType,
-                                             UpdatesStatus::RecoveryBackupFailed);
+        if (state == RecoveryBackupFailedDistFull) {
+            m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType,
+                                                 UpdatesStatus::RecoveryBackupFailedDiskFull);
+        } else {
+            m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType,
+                                                 UpdatesStatus::RecoveryBackupFailed);
+        }
         qCDebug(DccUpdateWork) << "handleAtomicStateChanged"
                                << " [Atomic Backup] 备份失败 , message : " << message;
         m_backupStatus = BackupStatus::BackupFailed;
@@ -1944,7 +1953,7 @@ CanExitTestingChannelStatus UpdateWorker::checkCanExitTestingChannelDialog()
             && !pkg.contains("uos")) {
             continue;
         }
-        listpkg.push_back({pkg, version});
+        listpkg.push_back({ pkg, version });
     }
 
     int taskUnitJobs = 20;
