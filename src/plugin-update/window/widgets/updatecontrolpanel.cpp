@@ -17,7 +17,9 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
-    DGUI_USE_NAMESPACE
+DGUI_USE_NAMESPACE
+
+static constexpr int ProcessBarFixedWidth = 130;
 
 updateControlPanel::updateControlPanel(QWidget *parent)
     : SettingsItem(parent)
@@ -314,11 +316,11 @@ void updateControlPanel::initUi()
     m_Progess->setFixedHeight(8);
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
-    m_Progess->setFixedWidth(100);
+    m_Progess->setFixedWidth(ProcessBarFixedWidth);
 
     m_progressLabel->setVisible(false);
     DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
-    m_progressLabel->setFixedWidth(100);
+    m_progressLabel->setFixedWidth(ProcessBarFixedWidth);
     m_progressLabel->setScaledContents(true);
     m_progressLabel->setAlignment(Qt::AlignHCenter);
 
