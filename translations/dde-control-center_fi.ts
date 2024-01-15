@@ -163,21 +163,6 @@
     </message>
 </context>
 <context>
-    <name>AdvancedSettingModule</name>
-    <message>
-        <source>Advanced Setting</source>
-        <translation>Lisäasetukset</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation>Audio järjestelmä</translation>
-    </message>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation>Audio järjestelmillä on omat etunsa ja haittansa. Voit valita käyttöön sinulle parhaiten sopivan</translation>
-    </message>
-</context>
-<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2922,7 +2907,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation>Kuvakaappaus</translation>
+        <translation>Kaappaus</translation>
     </message>
 </context>
 <context>
@@ -3063,8 +3048,8 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Arkki</translation>
     </message>
     <message>
-        <source>Custom format</source>
-        <translation type="unfinished"/>
+        <source>custom format</source>
+        <translation>Mukautettu formaatti</translation>
     </message>
 </context>
 <context>
@@ -3252,15 +3237,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Lähdön äänenvoimakkuus</translation>
+        <translation>Ulostulon voimakkuus</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Äänen lisääminen</translation>
+        <translation>Voimakkuuden tehostin</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Jos äänenvoimakkuus on suurempi kuin 100%, se voi vääristää ääntä ja olla haitallista toistolaitteille</translation>
+        <translation>Jos voimakkuus on suurempi kuin 100%, se voi vääristää ääntä ja olla haitallista toistolaitteille</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3483,7 +3468,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update All</source>
-        <translation>Päivitä kaikki</translation>
+        <translation>Päivitä</translation>
     </message>
     <message>
         <source>Last checking time: </source>

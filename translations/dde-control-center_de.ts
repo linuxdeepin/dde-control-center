@@ -163,21 +163,6 @@
     </message>
 </context>
 <context>
-    <name>AdvancedSettingModule</name>
-    <message>
-        <source>Advanced Setting</source>
-        <translation>Erweiterte Einstellung</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -2195,7 +2180,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation type="unfinished"/>
+        <translation>Zeit und Format</translation>
     </message>
 </context>
 <context>
@@ -2567,7 +2552,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Schwellenwert für niedrigen Akkustand</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -2971,7 +2956,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Touchscreen-Einstellungen</translation>
+        <translation>Tastbildschirm-Einstellungen</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
@@ -2994,15 +2979,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>RegionModule</name>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Region und Format</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Region</translation>
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Format</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
@@ -3014,42 +2999,42 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Languange and region</source>
-        <translation type="unfinished"/>
+        <translation>Sprache und Region</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Erster Tag der Woche</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Kurzes Datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Langes Datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Kurze Zeit</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Lange Zeit</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Währungssymbol</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Zahlen</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papier</translation>
     </message>
     <message>
-        <source>Custom format</source>
+        <source>custom format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3625,7 +3610,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Linglong Package Update</source>
-        <translation type="unfinished"/>
+        <translation>Linglong-Paketaktualisierung</translation>
     </message>
     <message>
         <source>If there is update for linglong package, system will update it for you</source>
@@ -3842,7 +3827,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahrenoberfläche anzeigen</translation>
     </message>
 </context>
 <context>
@@ -3909,7 +3894,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahrenoberfläche anzeigen</translation>
     </message>
     <message>
         <source>Do nothing</source>

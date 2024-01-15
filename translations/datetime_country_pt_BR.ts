@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>El Salvador</translation>
     </message>
     <message>
         <source>Antigua </source>
@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>Anguilla</source>
-        <translation type="unfinished"/>
+        <translation>Anguilla</translation>
     </message>
     <message>
         <source>Aruba</source>
-        <translation type="unfinished"/>
+        <translation>Aruba</translation>
     </message>
     <message>
         <source>Barbados</source>
@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>St. Barthélemy</source>
-        <translation type="unfinished"/>
+        <translation>São Bartolomeu</translation>
     </message>
     <message>
         <source>Caribbean Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>Países Baixos Caribenhos</translation>
     </message>
     <message>
         <source>Bahamas</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Curaçao</source>
-        <translation type="unfinished"/>
+        <translation>Curaçao</translation>
     </message>
     <message>
         <source>Dominica</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>St. Kitts </source>
-        <translation type="unfinished"/>
+        <translation>Ilha de São Cristóvão</translation>
     </message>
     <message>
         <source>Cayman Islands</source>
@@ -135,11 +135,11 @@
     </message>
     <message>
         <source>Martinique</source>
-        <translation type="unfinished"/>
+        <translation>Martinica</translation>
     </message>
     <message>
         <source>Montserrat</source>
-        <translation type="unfinished"/>
+        <translation>Montserrat</translation>
     </message>
     <message>
         <source>Puerto Rico</source>
@@ -147,11 +147,11 @@
     </message>
     <message>
         <source>Sint Maarten</source>
-        <translation type="unfinished"/>
+        <translation>São Martinho</translation>
     </message>
     <message>
         <source>Turks </source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Turcas e Caicos</translation>
     </message>
     <message>
         <source>Trinidad </source>
@@ -163,11 +163,11 @@
     </message>
     <message>
         <source>British Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Virgens Britânicas</translation>
     </message>
     <message>
         <source>U.S. Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Virgens Americanas</translation>
     </message>
     <message>
         <source>Argentina</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Bouvet Island</source>
-        <translation type="unfinished"/>
+        <translation>Ilha Bouvet</translation>
     </message>
     <message>
         <source>Chile</source>
@@ -199,11 +199,11 @@
     </message>
     <message>
         <source>Falkland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Falkland</translation>
     </message>
     <message>
         <source>Falkland Islands (Islas Malvinas)</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Falkland (Ilhas Malvinas)</translation>
     </message>
     <message>
         <source>French Guiana</source>
@@ -247,7 +247,7 @@
     </message>
     <message>
         <source>Western Sahara</source>
-        <translation type="unfinished"/>
+        <translation>Saara Ocidental</translation>
     </message>
     <message>
         <source>Libya</source>
@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Burkina Faso</source>
-        <translation type="unfinished"/>
+        <translation>Burkina Faso</translation>
     </message>
     <message>
         <source>Benin</source>
@@ -283,11 +283,11 @@
     </message>
     <message>
         <source>Côte d’Ivoire</source>
-        <translation type="unfinished"/>
+        <translation>Costa do Marfim</translation>
     </message>
     <message>
         <source>Ivory Coast</source>
-        <translation type="unfinished"/>
+        <translation>Costa do Marfim</translation>
     </message>
     <message>
         <source>Cape Verde</source>
@@ -323,7 +323,7 @@
     </message>
     <message>
         <source>Niger</source>
-        <translation>Níver</translation>
+        <translation>Níger</translation>
     </message>
     <message>
         <source>Nigeria</source>
@@ -331,7 +331,7 @@
     </message>
     <message>
         <source>St. Helena</source>
-        <translation>Santa Henela</translation>
+        <translation>Santa Helena</translation>
     </message>
     <message>
         <source>Sierra Leone</source>
@@ -351,11 +351,11 @@
     </message>
     <message>
         <source>Congo - Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>República Democrática do Congo</translation>
     </message>
     <message>
         <source>Congo (DRC)</source>
-        <translation type="unfinished"/>
+        <translation>República Democrática do Congo</translation>
     </message>
     <message>
         <source>Central African Republic</source>
@@ -363,11 +363,11 @@
     </message>
     <message>
         <source>Congo - Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>República do Congo (Brazzaville)</translation>
     </message>
     <message>
         <source>Congo (Republic)</source>
-        <translation type="unfinished"/>
+        <translation>República do Congo</translation>
     </message>
     <message>
         <source>Cameroon</source>
@@ -387,15 +387,15 @@
     </message>
     <message>
         <source>Chad</source>
-        <translation type="unfinished"/>
+        <translation>Chade</translation>
     </message>
     <message>
         <source>Burundi</source>
-        <translation type="unfinished"/>
+        <translation>Burundi</translation>
     </message>
     <message>
         <source>Djibouti</source>
-        <translation type="unfinished"/>
+        <translation>Djibouti</translation>
     </message>
     <message>
         <source>Eritrea</source>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>British Indian Ocean Territory</source>
-        <translation type="unfinished"/>
+        <translation>Território Britânico do Oceano Índico</translation>
     </message>
     <message>
         <source>Kenya</source>
@@ -415,7 +415,7 @@
     </message>
     <message>
         <source>Comoros</source>
-        <translation type="unfinished"/>
+        <translation>Comores</translation>
     </message>
     <message>
         <source>Madagascar</source>
@@ -423,11 +423,11 @@
     </message>
     <message>
         <source>Mauritius</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Maurício</translation>
     </message>
     <message>
         <source>Malawi</source>
-        <translation type="unfinished"/>
+        <translation>Malawi</translation>
     </message>
     <message>
         <source>Mozambique</source>
@@ -435,7 +435,7 @@
     </message>
     <message>
         <source>Réunion</source>
-        <translation type="unfinished"/>
+        <translation>Ilha da Reunião</translation>
     </message>
     <message>
         <source>Rwanda</source>
@@ -443,7 +443,7 @@
     </message>
     <message>
         <source>Seychelles</source>
-        <translation type="unfinished"/>
+        <translation>Seychelles</translation>
     </message>
     <message>
         <source>Somalia</source>
@@ -455,7 +455,7 @@
     </message>
     <message>
         <source>French Southern Territories</source>
-        <translation type="unfinished"/>
+        <translation>Terras Austrais e Antárticas Francesas</translation>
     </message>
     <message>
         <source>Tanzania</source>
@@ -467,7 +467,7 @@
     </message>
     <message>
         <source>Mayotte</source>
-        <translation type="unfinished"/>
+        <translation>Mayotte</translation>
     </message>
     <message>
         <source>Zambia</source>
@@ -479,11 +479,11 @@
     </message>
     <message>
         <source>Botswana</source>
-        <translation type="unfinished"/>
+        <translation>Botswana</translation>
     </message>
     <message>
         <source>Lesotho</source>
-        <translation type="unfinished"/>
+        <translation>Lesoto</translation>
     </message>
     <message>
         <source>Namibia</source>
@@ -491,7 +491,7 @@
     </message>
     <message>
         <source>Eswatini</source>
-        <translation type="unfinished"/>
+        <translation>Essuatíni</translation>
     </message>
     <message>
         <source>South Africa</source>
@@ -499,19 +499,19 @@
     </message>
     <message>
         <source>Guernsey</source>
-        <translation type="unfinished"/>
+        <translation>Guernsey</translation>
     </message>
     <message>
         <source>Isle of Man</source>
-        <translation type="unfinished"/>
+        <translation>Ilha de Man</translation>
     </message>
     <message>
         <source>Jersey</source>
-        <translation type="unfinished"/>
+        <translation>Jersey</translation>
     </message>
     <message>
         <source>Åland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Åland</translation>
     </message>
     <message>
         <source>Denmark</source>
@@ -527,7 +527,7 @@
     </message>
     <message>
         <source>Faroe Islands</source>
-        <translation type="unfinished"/>
+        <translation>Ilhas Faroé</translation>
     </message>
     <message>
         <source>United Kingdom</source>
@@ -535,7 +535,7 @@
     </message>
     <message>
         <source>UK</source>
-        <translation type="unfinished"/>
+        <translation>Reino Unido</translation>
     </message>
     <message>
         <source>England</source>
@@ -555,7 +555,7 @@
     </message>
     <message>
         <source>Iceland</source>
-        <translation type="unfinished"/>
+        <translation>Islândia</translation>
     </message>
     <message>
         <source>Lithuania</source>
@@ -563,19 +563,19 @@
     </message>
     <message>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Letônia</translation>
     </message>
     <message>
         <source>Norway</source>
-        <translation type="unfinished"/>
+        <translation>Noruega</translation>
     </message>
     <message>
         <source>Sweden</source>
-        <translation>Suíça</translation>
+        <translation>Suécia</translation>
     </message>
     <message>
         <source>Svalbard </source>
-        <translation type="unfinished"/>
+        <translation>Svalbard</translation>
     </message>
     <message>
         <source>Austria</source>
@@ -587,7 +587,7 @@
     </message>
     <message>
         <source>Switzerland</source>
-        <translation type="unfinished"/>
+        <translation>Suíça</translation>
     </message>
     <message>
         <source>Germany</source>
@@ -599,7 +599,7 @@
     </message>
     <message>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>Liechtenstein</translation>
     </message>
     <message>
         <source>Luxembourg</source>
@@ -611,7 +611,7 @@
     </message>
     <message>
         <source>Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>Países Baixos</translation>
     </message>
     <message>
         <source>Bulgaria</source>
@@ -619,15 +619,15 @@
     </message>
     <message>
         <source>Belarus</source>
-        <translation type="unfinished"/>
+        <translation>Belarus</translation>
     </message>
     <message>
         <source>Czechia</source>
-        <translation type="unfinished"/>
+        <translation>República Tcheca</translation>
     </message>
     <message>
         <source>Czech Republic</source>
-        <translation type="unfinished"/>
+        <translation>Tchéquia</translation>
     </message>
     <message>
         <source>Hungary</source>
@@ -643,7 +643,7 @@
     </message>
     <message>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>Romênia</translation>
     </message>
     <message>
         <source>Russia</source>
@@ -651,7 +651,7 @@
     </message>
     <message>
         <source>Slovakia</source>
-        <translation type="unfinished"/>
+        <translation>Eslováquia</translation>
     </message>
     <message>
         <source>Ukraine</source>
@@ -659,27 +659,27 @@
     </message>
     <message>
         <source>Andorra</source>
-        <translation type="unfinished"/>
+        <translation>Andorra</translation>
     </message>
     <message>
         <source>Albania</source>
-        <translation type="unfinished"/>
+        <translation>Albânia</translation>
     </message>
     <message>
         <source>Bosnia </source>
-        <translation type="unfinished"/>
+        <translation>Bósnia e Herzegovina</translation>
     </message>
     <message>
         <source>Spain</source>
-        <translation type="unfinished"/>
+        <translation>Espanha</translation>
     </message>
     <message>
         <source>Gibraltar</source>
-        <translation type="unfinished"/>
+        <translation>Gibraltar</translation>
     </message>
     <message>
         <source>Greece</source>
-        <translation type="unfinished"/>
+        <translation>Grécia</translation>
     </message>
     <message>
         <source>Croatia</source>
@@ -695,11 +695,11 @@
     </message>
     <message>
         <source>North Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>Macedônia do Norte</translation>
     </message>
     <message>
         <source>Malta</source>
-        <translation type="unfinished"/>
+        <translation>Malta</translation>
     </message>
     <message>
         <source>Serbia</source>

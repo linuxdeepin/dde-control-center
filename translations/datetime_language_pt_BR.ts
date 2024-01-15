@@ -3,7 +3,7 @@
     <name>dcc::datetime::Language</name>
     <message>
         <source>Abkhazian</source>
-        <translation type="unfinished"/>
+        <translation>Abecásia</translation>
     </message>
     <message>
         <source>Achinese</source>
