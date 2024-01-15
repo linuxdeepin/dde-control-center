@@ -62,11 +62,11 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Aplicativos (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os arquivos (*)</translation>
     </message>
 </context>
 <context>
@@ -116,11 +116,11 @@
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>Scan Again</source>
@@ -1050,11 +1050,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -1666,11 +1666,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -2180,7 +2180,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation type="unfinished"/>
+        <translation>Hora e Formato</translation>
     </message>
 </context>
 <context>
@@ -2904,7 +2904,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"/>
+        <translation>, </translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -2999,7 +2999,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Languange and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma e região</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -3324,7 +3324,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Salvar as configurações de exibição?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>

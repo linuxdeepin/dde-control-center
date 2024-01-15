@@ -11,11 +11,11 @@
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Moje zariadenia</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Iné zariadenia</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
@@ -1670,7 +1670,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Uložiť</translation>
     </message>
 </context>
 <context>

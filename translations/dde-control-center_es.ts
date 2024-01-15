@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Asegúrese de que partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
+        <translation>Asegúrese de que todas las partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -160,21 +160,6 @@
     <message>
         <source>Try Again</source>
         <translation>Inténtelo de nuevo</translation>
-    </message>
-</context>
-<context>
-    <name>AdvancedSettingModule</name>
-    <message>
-        <source>Advanced Setting</source>
-        <translation>Ajustes avanzados</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation>Formato de audio</translation>
-    </message>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation>Los diferentes formatos de audio tienen sus propias ventajas y desventajas, y puedes elegir el que mejor se adapte a tus necesidades</translation>
     </message>
 </context>
 <context>
@@ -1199,7 +1184,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configuración de teclado</translation>
+        <translation>Configuración de Teclado</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1311,7 +1296,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configuración de teclado</translation>
+        <translation>Configuración de Teclado</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
@@ -2804,7 +2789,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Text Settings</source>
-        <translation>Ajustes de Texto</translation>
+        <translation>Ajustes de texto</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -3054,15 +3039,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Numbers</source>
-        <translation>Número</translation>
+        <translation>Números</translation>
     </message>
     <message>
         <source>Paper</source>
         <translation>Papel</translation>
     </message>
     <message>
-        <source>Custom format</source>
-        <translation type="unfinished"/>
+        <source>custom format</source>
+        <translation>Formato personalizado</translation>
     </message>
 </context>
 <context>
@@ -3881,7 +3866,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Pantalla y suspender</translation>
+        <translation>Pantalla y Suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
