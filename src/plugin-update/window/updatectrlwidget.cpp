@@ -365,6 +365,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::RecoveryBackupFailed:
+    case UpdatesStatus::RecoveryBackupFailedDiskFull:
         showUpdateInfo();
         m_CheckAgainBtn->setEnabled(false);
         break;
@@ -689,7 +690,8 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
         if (updateItem->status() == UpdatesStatus::AutoDownloaded
                 || updateItem->status() == UpdatesStatus::UpdatesAvailable
                 || updateItem->status() == UpdatesStatus::UpdateFailed
-                || updateItem->status() == UpdatesStatus::RecoveryBackupFailed) {
+                || updateItem->status() == UpdatesStatus::RecoveryBackupFailed
+                || updateItem->status() == UpdatesStatus::RecoveryBackupFailedDiskFull) {
             m_isUpdateingAll = false;
         } else {
             isUpdateing = true;

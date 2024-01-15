@@ -183,6 +183,14 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->setCtrlButtonEnabled(true);
         m_controlWidget->setButtonStatus(ButtonStatus::retry);
         break;
+    case UpdatesStatus::RecoveryBackupFailedDiskFull:
+        m_controlWidget->showUpdateProcess(true);
+        m_controlWidget->setProgressType(UpdateDProgressType::Backup);
+        m_controlWidget->setProgressText(tr("System backup failed, space is full"));
+        m_controlWidget->showButton(true);
+        m_controlWidget->setCtrlButtonEnabled(true);
+        m_controlWidget->setButtonStatus(ButtonStatus::retry);
+        break;
     default:
         qDebug() << "unknown status!!!";
         break;
