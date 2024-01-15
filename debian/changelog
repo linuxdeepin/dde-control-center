@@ -1,3 +1,11 @@
+dde-control-center (6.0.39) unstable; urgency=medium
+
+  * feat: add new custom date format
+  * fix: after set password status, restart dde-lock
+  * if dist space is full show the reason
+
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 15 Jan 2024 18:08:52 +0800
+
 dde-control-center (6.0.38) unstable; urgency=medium
 
   * feat: make display of account list show in center
