@@ -24,7 +24,6 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-constexpr int MaxCustomAvatarSize = 4;
 const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 const QString DefaultAvatar =
         QStringLiteral("lib/AccountsService/icons/animal/dimensional/raccoon.png");
@@ -51,11 +50,6 @@ AvatarListView::AvatarListView(
     initWidgets();
     installEventFilter(this);
     connect(this, &DListView::clicked, this, [this](const QModelIndex &index) {
-        // 用户自定义图片最多只支持四张
-        if (m_currentAvatarRole == Custom && index.row() == 0
-            && m_avatarItemModel->rowCount() > MaxCustomAvatarSize) {
-            return;
-        }
         m_save = false;
         onItemClicked(index);
     });
@@ -164,14 +158,11 @@ QStandardItem *AvatarListView::getCustomAvatar()
         return m_avatarItemModel->item(m_currentSelectIndex.row());
     }
 
-    QStandardItem *item = m_avatarItemModel->item(1);
+    QStandardItem *item = new QStandardItem;
     // 默认项MaxAvatarSize个，添加项一个
-    if (m_avatarItemModel->rowCount() < MaxCustomAvatarSize + 1) {
-        item = new QStandardItem();
-        if (m_currentSelectIndex.isValid())
-            m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
-        m_avatarItemModel->insertRow(1, item);
-    }
+    if (m_currentSelectIndex.isValid())
+        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
+    m_avatarItemModel->insertRow(1, item);
     return item;
 }
 
