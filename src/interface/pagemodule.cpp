@@ -80,7 +80,18 @@ public:
                 m_area->setAlignment(Qt::AlignHCenter);
             mainLayout->addWidget(m_area);
         }
-        mainLayout->addLayout(m_hlayout);
+
+        QWidget *controlRestrictorWidget = new QWidget;
+        controlRestrictorWidget->setMinimumWidth(m_minimumWidth);
+        controlRestrictorWidget->setMaximumWidth(m_maximumWidth);
+        controlRestrictorWidget->setLayout(m_hlayout);
+        QHBoxLayout *controlRestrictorLayout = new QHBoxLayout;
+        controlRestrictorLayout->setContentsMargins(m_contentsMargins.left(),
+                                                    0,
+                                                    m_contentsMargins.right(),
+                                                    0);
+        controlRestrictorLayout->addWidget(controlRestrictorWidget);
+        mainLayout->addLayout(controlRestrictorLayout);
 
         m_vlayout = new QVBoxLayout(areaWidget);
         m_vlayout->setContentsMargins(m_contentsMargins);
