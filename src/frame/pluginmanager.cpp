@@ -92,6 +92,21 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
         return data;
     }
 
+    // FIXME: load all plugin under treeland
+    static QByteArray compositor = qgetenv("DDE_CURRENT_COMPOSITER");
+    static QStringList allowedUnderTreeland{ "accounts",
+                                             "display",
+                                             "systeminfo",
+                                             "Default Applications" };
+
+    if (compositor.compare("treeland", Qt::CaseInsensitive) == 0
+        and !allowedUnderTreeland.contains(plugin->name())) {
+        qCWarning(DdcFramePluginManager)
+                << QString("plugin %1 has been banned under treeland.").arg(plugin->name());
+        loader->unload();
+        return data;
+    }
+
     data.Plugin = plugin;
     data.Follow = plugin->follow();
     data.Location = plugin->location();
