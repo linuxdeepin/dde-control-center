@@ -2052,11 +2052,15 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     auto http = new QNetworkAccessManager(this);
     QNetworkRequest request;
     request.setUrl(QUrl(ServiceLink + "/api/v2/public/testing/machine/" + machineid));
-    connect(http, &QNetworkAccessManager::finished, this, [=](QNetworkReply *reply) {
+
+    QEventLoop loop;
+    connect(http, &QNetworkAccessManager::finished, this, [http, &loop](QNetworkReply *reply) {
         reply->deleteLater();
         http->deleteLater();
+        loop.quit();
     });
     http->deleteResource(request);
+    loop.exec();
 
     // Disable Testing Channel
     if (!enable) {
