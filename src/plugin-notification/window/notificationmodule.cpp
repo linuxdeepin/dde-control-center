@@ -12,11 +12,16 @@
 #include "systemnotifywidget.h"
 #include "vlistmodule.h"
 
+#include <DIconTheme>
+
 #include <QApplication>
 #include <QBoxLayout>
+#include <QDebug>
 #include <QFile>
+#include <QLoggingCategory>
 #include <QSvgRenderer>
-#include <DIconTheme>
+
+Q_LOGGING_CATEGORY(DccNotifyModule, "dcc-notify-module");
 
 Q_DECLARE_METATYPE(QMargins)
 using namespace DCC_NAMESPACE;
@@ -90,6 +95,7 @@ void NotificationModule::initUi()
 void NotificationModule::onAppListAdded(AppItemModel *item)
 {
     QString softName = item->getAppName();
+    qCInfo(DccNotifyModule) << "App" << softName << "added";
     QIcon icon = DIconTheme::findQIcon(item->getIcon());
     m_appNameList.append(softName);
     PageModule *newpage = new PageModule(softName, softName, icon, nullptr);
@@ -116,6 +122,7 @@ void NotificationModule::onAppListRemoved(AppItemModel *item)
 {
 
     int index = m_appNameList.indexOf(item->getAppName());
+    qCInfo(DccNotifyModule) << "App" << item->getAppName() << "removed";
     if (index >= 0) {
         m_appNameList.removeAt(index);
         m_appNotify->removeChild(index);
