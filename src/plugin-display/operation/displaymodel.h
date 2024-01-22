@@ -11,7 +11,6 @@
 
 #include "interface/namespace.h"
 #include "monitor.h"
-#include "machine.h"
 #include "types/brightnessmap.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
@@ -42,7 +41,6 @@ public:
     inline double minimumBrightnessScale() const { return m_minimumBrightnessScale; }
     inline const QString primary() const { return m_primary; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
-    inline const QList<Machine *> machineList() const { return m_machines; }
     Monitor *primaryMonitor() const;
     inline const QString defaultFillMode() { return "None"; }
 
@@ -85,20 +83,9 @@ public:
     inline bool brightnessEnable() const { return m_brightnessEnable; }
     void setBrightnessEnable(const bool enable);
 
-    inline bool DeviceSharingSwitch() const { return m_deviceSharingSwitch; }
-    void setDeviceSharingSwitch(const bool enable);
-
     inline bool allSupportFillModes() const { return m_allSupportFillModes; }
     void checkAllSupportFillModes();
 
-    inline bool SharedDevices() const { return m_openSharedDevices; }
-    void setOpenSharedDevices(bool open);
-
-    inline bool SharedClipboard() const { return m_openSharedClipboard; }
-    void setOpenSharedClipboard(bool open);
-
-    inline QString filesStoragePath() const { return m_filesStoragePath; }
-    void setFilesStoragePath(const QString& path);
 
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
@@ -135,8 +122,6 @@ private Q_SLOTS:
     void setRedshiftIsValid(bool redshiftIsValid);
     void monitorAdded(Monitor *mon);
     void monitorRemoved(Monitor *mon);
-    void machinesAdded(Machine *mon);
-    void machinesRemoved(Machine *mon);
     void setAutoLightAdjustIsValid(bool);
     void setmaxBacklightBrightness(const uint value);
 
@@ -150,7 +135,6 @@ private:
     double m_minimumBrightnessScale;
     QString m_primary;
     QList<Monitor *> m_monitors;
-    QList<Machine *> m_machines;
     bool m_redshiftIsValid;
     bool m_RefreshRateEnable {false};
     bool m_isAutoLightAdjust {false};
@@ -163,10 +147,6 @@ private:
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
-    bool m_deviceSharingSwitch;
-    bool m_openSharedDevices;
-    bool m_openSharedClipboard;
-    QString m_filesStoragePath;
 };
 }
 

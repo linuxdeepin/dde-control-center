@@ -62,14 +62,6 @@ Q_SIGNALS:
     void requestSetMainwindowRect(Monitor *monitor, bool isInit);
     void requestSetFillMode(Monitor *monitor, const QString fillMode);
     void requestCurrFillModeChanged(Monitor *monitor, const QString fillMode);
-    void requestCooperationEnable(const bool enabled);
-    void requestCurrentMachineDisconnect(Machine * machine);
-    void requestCurrentMachineConnect(Machine * machine);
-    void requestCurrentDeviceSharingConnect(Machine * machine);
-    void requestOpenSharedDevices(bool open);
-    void requestOpenSharedClipboard(bool open);
-    void requestFilesStoragePath(const QString &path);
-    void requestFlowDirection(Machine * machine, const int& dir);
 
 private:
     void initModeList();
