@@ -25,9 +25,6 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_allowEnableMultiScaleRatio(false)
     , m_resolutionRefreshEnable(true)
     , m_brightnessEnable(true)
-    , m_deviceSharingSwitch(true)
-    , m_openSharedDevices(false)
-    , m_openSharedClipboard(false)
 {
 }
 
@@ -112,20 +109,6 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     checkAllSupportFillModes();
 
     Q_EMIT monitorListChanged();
-}
-
-void DisplayModel::machinesAdded(Machine *mon)
-{
-    if (!m_machines.contains(mon)) {
-        m_machines.append(mon);
-        Q_EMIT machinesListChanged();
-    }
-}
-
-void DisplayModel::machinesRemoved(Machine *mon)
-{
-    m_machines.removeOne(mon);
-    Q_EMIT machinesListChanged();
 }
 
 void DisplayModel::setAutoLightAdjustIsValid(bool ala)
@@ -230,14 +213,6 @@ void DisplayModel::setmaxBacklightBrightness(const uint value)
     }
 }
 
-void DisplayModel::setDeviceSharingSwitch(bool enable)
-{
-    if (m_deviceSharingSwitch != enable) {
-        m_deviceSharingSwitch = enable;
-        Q_EMIT deviceSharingSwitchChanged(enable);
-    }
-}
-
 void DisplayModel::setResolutionRefreshEnable(const bool enable)
 {
     if (m_resolutionRefreshEnable != enable) {
@@ -263,29 +238,4 @@ void DisplayModel::checkAllSupportFillModes()
         }
     }
     m_allSupportFillModes = true;
-}
-
-void DisplayModel::setOpenSharedDevices(bool open)
-{
-    if (m_openSharedDevices != open) {
-        m_openSharedDevices = open;
-        Q_EMIT sharedDevicesChanged(m_openSharedDevices);
-    }
-}
-
-void DisplayModel::setOpenSharedClipboard(bool open)
-{
-    if (m_openSharedClipboard != open) {
-        m_openSharedClipboard = open;
-        Q_EMIT sharedClipboardChanged(m_openSharedClipboard);
-    }
-}
-
-void DisplayModel::setFilesStoragePath(const QString &path)
-{
-    if (m_filesStoragePath != path) {
-        m_filesStoragePath = path;
-        Q_EMIT filesStoragePathChanged(m_filesStoragePath);
-    }
-
 }

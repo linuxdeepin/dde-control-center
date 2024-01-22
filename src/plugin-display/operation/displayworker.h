@@ -6,8 +6,6 @@
 
 #include "interface/namespace.h"
 #include "displaydbusproxy.h"
-#include "machine.h"
-#include "machinedbusproxy.h"
 #include "monitor.h"
 
 #include <dtkcore_global.h>
@@ -53,16 +51,6 @@ public Q_SLOTS:
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
-    // Cooperation Machine
-    void setDeviceSharingSwitch(const bool enable);
-    void setCurrentMachineConnect(Machine *mac);
-    void setCurrentRequestDeviceSharing(Machine *mac);
-    void setCurrentMachineDisconnect(Machine *mac);
-    void setCurrentStopDeviceSharing(Machine *mac);
-    void setOpenSharedDevices(bool on);
-    void setOpenSharedClipboard(bool on);
-    void setFilesStoragePath(const QString& path);
-    void setFlowDirection(Machine *mac, const int& dir);
 
     void backupConfig();
     void clearBackup();
@@ -73,15 +61,10 @@ private Q_SLOTS:
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
-    void onMachinesChanged(const QList<QDBusObjectPath> &machines);
-    void onHistoryDevChanged(const QList<QString> &machines);
 
 private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
-
-    void machinesAdded(const QString &path);
-    void machinesRemoved(const QString &path);
 
 Q_SIGNALS:
     void requestUpdateModeList();
@@ -90,7 +73,6 @@ private:
     DisplayModel *m_model;
     DisplayDBusProxy *m_displayInter;
     QMap<Monitor *, MonitorDBusProxy *> m_monitors;
-    QMap<Machine *, MachineDBusProxy *> m_machines;
     double m_currentScale;
     bool m_updateScale;
     QTimer *m_timer;

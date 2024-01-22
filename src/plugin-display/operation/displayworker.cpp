@@ -35,8 +35,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_timer->setInterval(200);
 
     connect(m_displayInter, &DisplayDBusProxy::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
-    connect(m_displayInter, &DisplayDBusProxy::MachinesChanged, this, &DisplayWorker::onMachinesChanged);
-    connect(m_displayInter, &DisplayDBusProxy::CooperatedMachinesChanged, this, &DisplayWorker::onHistoryDevChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
     connect(m_displayInter, &DisplayDBusProxy::TouchscreensV2Changed, model, &DisplayModel::setTouchscreenList);
@@ -47,7 +45,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
     connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
     connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
-    connect(m_displayInter, &DisplayDBusProxy::DeviceSharingSwitchChanged, m_model, &DisplayModel::setDeviceSharingSwitch);
     connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
     //display redSfit/autoLight
@@ -81,8 +78,6 @@ void DisplayWorker::active()
     onMonitorsBrightnessChanged(m_displayInter->brightness());
     m_model->setBrightnessMap(m_displayInter->brightness());
     onMonitorListChanged(m_displayInter->monitors());
-    onMachinesChanged(m_displayInter->Machines());
-    onHistoryDevChanged(m_displayInter->CooperatedMachines());
 
     m_model->setDisplayMode(m_displayInter->displayMode());
     m_model->setTouchscreenList(m_displayInter->touchscreensV2());
@@ -94,13 +89,6 @@ void DisplayWorker::active()
     m_model->setColorTemperature(m_displayInter->colorTemperatureManual());
     m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
     m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
-    m_model->setDeviceSharingSwitch(m_displayInter->deviceSharingSwitch());
-    m_model->setOpenSharedDevices(m_displayInter->sharedDevices());
-    m_model->setOpenSharedClipboard(m_displayInter->sharedClipboard());
-    m_model->setFilesStoragePath(m_displayInter->filesStoragePath());
-    connect(m_displayInter, &DisplayDBusProxy::SharedClipboardChanged, m_model, &DisplayModel::setOpenSharedClipboard);
-    connect(m_displayInter, &DisplayDBusProxy::SharedDevicesChanged, m_model, &DisplayModel::setOpenSharedDevices);
-    connect(m_displayInter, &DisplayDBusProxy::FilesStoragePathChanged, m_model, &DisplayModel::setFilesStoragePath);
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
@@ -185,40 +173,6 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void DisplayWorker::onMachinesChanged(const QList<QDBusObjectPath> &machines)
-{
-    // TODO: 获取协同接口 同步协同设备
-    QList<QString> machList;
-    QList<QString> existMachines;  //存在的Machine
-
-    for (auto&& mon : m_machines.keys()) {
-        existMachines.append(mon->Path());
-    }
-
-    for (const auto &ma : machines) {
-        const QString path = ma.path();
-        machList << path;
-        if (!existMachines.contains(path))
-            machinesAdded(path);
-    }
-
-    for (const auto &ma : existMachines) {
-        if (!machList.contains(ma)) {
-            machinesRemoved(ma);
-        }
-    }
-}
-
-void DisplayWorker::onHistoryDevChanged(const QList<QString> &machines)
-{
-    for (const auto &hisdevPath : machines) {
-        const QString path = hisdevPath;
-        for (auto&& machine : m_machines.keys()) {
-            machine->setHistoryStates(machine->UUID() == path);
-        }
-    }
-}
-
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
@@ -267,58 +221,6 @@ void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
     MonitorDBusProxy *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
     inter->setCurrentFillMode(fillMode);
-}
-
-void DisplayWorker::setDeviceSharingSwitch(const bool enable)
-{
-     m_displayInter->setDeviceSharingSwitch(enable);
-}
-
-void DisplayWorker::setCurrentMachineConnect(Machine *mac)
-{
-    qCDebug(DdcDisplayWorker) << " 设置Connect： " << mac->Name();
-    MachineDBusProxy *inter = m_machines.value(mac);
-    inter->connect();
-}
-
-void DisplayWorker::setCurrentRequestDeviceSharing(Machine *mac)
-{
-    qCDebug(DdcDisplayWorker) << " 设置 DeviceSharing： " << mac->Name();
-    MachineDBusProxy *inter = m_machines.value(mac);
-    inter->requestDeviceSharing();
-}
-
-void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
-{
-    MachineDBusProxy *inter = m_machines.value(mac);
-    inter->disconnect();
-}
-
-void DisplayWorker::setCurrentStopDeviceSharing(Machine *mac)
-{
-    MachineDBusProxy *inter = m_machines.value(mac);
-    inter->stopDeviceSharing();
-}
-
-void DisplayWorker::setOpenSharedDevices(bool on)
-{
-    m_displayInter->setOpenSharedDevices(on);
-}
-
-void DisplayWorker::setOpenSharedClipboard(bool on)
-{
-    m_displayInter->setOpenSharedClipboard(on);
-}
-
-void DisplayWorker::setFilesStoragePath(const QString &path)
-{
-    m_displayInter->setFilesStoragePath(path);
-}
-
-void DisplayWorker::setFlowDirection(Machine *mac, const int &dir)
-{
-    MachineDBusProxy *inter = m_machines.value(mac);
-    inter->setFlowDirection(dir);
 }
 
 void DisplayWorker::backupConfig()
@@ -525,59 +427,6 @@ void DisplayWorker::monitorRemoved(const QString &path)
     m_monitors.remove(monitor);
 
     monitor->deleteLater();
-}
-
-void DisplayWorker::machinesAdded(const QString &path)
-{
-    MachineDBusProxy *interProxy = new MachineDBusProxy(path, this);
-    Machine *machine = new Machine(this);
-
-    connect(interProxy, &MachineDBusProxy::IPChanged, machine, &Machine::setIP);
-    connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
-    connect(interProxy, &MachineDBusProxy::ConnectedChanged, machine, &Machine::setConnected);
-    connect(interProxy, &MachineDBusProxy::DeviceSharingChanged, machine, &Machine::setDeviceSharing);
-    connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
-    connect(interProxy, &MachineDBusProxy::DirectionChanged, machine, &Machine::setDirection);
-
-    machine->setPath(path);
-    machine->setIP(interProxy->ip());
-    machine->setName(interProxy->name());
-    machine->setConnected(interProxy->connected());
-    machine->setDeviceSharing(interProxy->deviceSharing());
-    machine->setUUID(interProxy->uuid());
-    machine->setDirection(interProxy->direction());
-
-    // 标记历史设备
-    const QList<QString> &historyDev = m_displayInter->CooperatedMachines();
-    for (auto &hisdevPath : historyDev) {
-        const QString path = hisdevPath;
-        qCDebug(DdcDisplayWorker) << " hisdevPath UUID： " << path << machine->UUID();
-        if (machine->UUID() == path)
-            machine->setHistoryStates(true);
-    }
-
-    m_model->machinesAdded(machine);
-    m_machines.insert(machine, interProxy);
-}
-
-void DisplayWorker::machinesRemoved(const QString &path)
-{
-    Machine *machine = nullptr;
-    for (auto it(m_machines.cbegin()); it !=m_machines.cend(); ++it) {
-        if (it.key()->Path() == path) {
-            machine = it.key();
-            break;
-        }
-    }
-
-    if (!machine)
-        return;
-
-    m_model->machinesRemoved(machine);
-    m_machines[machine]->deleteLater();
-    m_machines.remove(machine);
-
-    machine->deleteLater();
 }
 
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
