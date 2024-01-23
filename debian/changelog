@@ -1,3 +1,9 @@
+dde-control-center (6.0.43) unstable; urgency=medium
+
+  * feat: make plugin-display works in treeland
+
+ -- rewine <luhongxu@deepin.org>  Mon, 22 Jan 2024 23:23:44 +0800
+
 dde-control-center (6.0.42) unstable; urgency=medium
 
   *  chore: remove Cooperation in display plugin (https://github.com/linuxdeepin/developer-center/issues/7023)
