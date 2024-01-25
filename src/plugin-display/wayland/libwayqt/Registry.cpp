@@ -25,10 +25,8 @@
 
 #include "treeland-output-management-client-protocol.h"
 #include "wayland-client-protocol.h"
-#include "wlr-gamma-control-unstable-v1-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"
 
-#include <GammaControl.hpp>
 #include <Output.hpp>
 #include <OutputManager.hpp>
 #include <Registry.hpp>
@@ -87,10 +85,6 @@ WQt::Registry::~Registry()
 
     if (mOutputMgr != nullptr) {
         delete mOutputMgr;
-    }
-
-    if (mGammaCtrl != nullptr) {
-        delete mGammaCtrl;
     }
 
     if (mTreeLandOutputMgr != nullptr) {
@@ -174,11 +168,6 @@ WQt::OutputManager *WQt::Registry::outputManager()
     return mOutputMgr;
 }
 
-WQt::GammaControlManager *WQt::Registry::gammaControlManager()
-{
-    return mGammaCtrl;
-}
-
 WQt::TreeLandOutputManager *WQt::Registry::treeLandOutputManager()
 {
     return mTreeLandOutputMgr;
@@ -242,26 +231,6 @@ void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_
 
             mRegisteredInterfaces << OutputManagerInterface;
             emitInterface(OutputManagerInterface, true);
-        }
-    }
-
-    /**
-     * We've implemented version 1.
-     * And wlroots 0.15.0 has version 1 available.
-     */
-    else if (strcmp(interface, zwlr_gamma_control_manager_v1_interface.name) == 0) {
-        mWlrGammaCtrl = (zwlr_gamma_control_manager_v1 *)
-                wl_registry_bind(mObj, name, &zwlr_gamma_control_manager_v1_interface, 1);
-
-        if (!mWlrGammaCtrl) {
-            emitError(WQt::Registry::EmptyGammaControlManager);
-        }
-
-        else {
-            mGammaCtrl = new WQt::GammaControlManager(mWlrGammaCtrl);
-
-            mRegisteredInterfaces << GammaControlManagerInterface;
-            emitInterface(GammaControlManagerInterface, true);
         }
     }
 
