@@ -20,8 +20,6 @@
 #include <OutputManager.hpp>
 #include <Output.hpp>
 #include <TreeLandOutputManager.hpp>
-#include <DFGammaEffects.hpp>
-#include <GammaControl.hpp>
 
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 

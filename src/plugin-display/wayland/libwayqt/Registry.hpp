@@ -48,7 +48,6 @@ class XdgShell;
 
 class Output;
 class OutputManager;
-class GammaControlManager;
 class TreeLandOutputManager;
 } // namespace WQt
 
@@ -64,7 +63,6 @@ public:
         EmptyXdgWmBase,
         EmptyCompositor,
         EmptyOutputManager,
-        EmptyGammaControlManager,
         EmptyTreeLandOuputManager
     };
 
@@ -78,7 +76,6 @@ public:
         XdgWmBaseInterface,
         CompositorInterface,
         OutputManagerInterface,
-        GammaControlManagerInterface,
         TreeLandOutputManagerInterface
     };
 
@@ -119,11 +116,6 @@ public:
     WQt::OutputManager *outputManager();
 
     /**
-     * Gamma Control - Gamma Control Manager
-     */
-    WQt::GammaControlManager *gammaControlManager();
-
-    /**
      * TreeLandOutputManager - Primary Output Manager
      */
     WQt::TreeLandOutputManager *treeLandOutputManager();
@@ -157,7 +149,6 @@ private:
      * Gamma Control Objects
      */
     zwlr_gamma_control_manager_v1 *mWlrGammaCtrl = nullptr;
-    WQt::GammaControlManager *mGammaCtrl = nullptr;
 
     treeland_output_manager_v1 *m_treeland_output_mgr = nullptr;
     WQt::TreeLandOutputManager *mTreeLandOutputMgr = nullptr;

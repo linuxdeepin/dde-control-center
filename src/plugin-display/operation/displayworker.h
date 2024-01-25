@@ -13,11 +13,12 @@
 #include <QObject>
 #include <QTimer>
 #include <QProcess>
-#include <DFGammaEffects.hpp>
 
 #define GAMMA_SUPPORT false
 /*
- * Disable gamma support, There are bugs that need to be fixed in the future
+ * Disable gamma support for treeland now
+ * We can't keep GammaTable when dde-control-center close
+ * We need write a daemon in future
  */
 
 DCORE_BEGIN_NAMESPACE

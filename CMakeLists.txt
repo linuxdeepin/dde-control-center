@@ -971,32 +971,24 @@ if (BUILD_PLUGIN)
         wlr-output-management-unstable-v1-client-protocol)
 
     ws_generate_local(client
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt/protocols/wlr-gamma-control-unstable-v1.xml
-        wlr-gamma-control-unstable-v1-client-protocol)
-
-    ws_generate_local(client
         ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt/protocols/treeland-output-management.xml
         treeland-output-management-client-protocol)
 
     file(GLOB_RECURSE LIBWAYQT_SRCS
         "src/plugin-display/wayland/libwayqt/*.cpp"
         "src/plugin-display/wayland/libwayqt/*.hpp"
-        "src/plugin-display/wayland/gammaeffects/*.cpp"
-        "src/plugin-display/wayland/gammaeffects/*.hpp"
     )
 
     add_library(libwayqt
         OBJECT
         ${LIBWAYQT_SRCS}
         wlr-output-management-unstable-v1-client-protocol.c
-        wlr-gamma-control-unstable-v1-client-protocol.c
         treeland-output-management-client-protocol.c
     )
 
     target_include_directories(libwayqt
         PUBLIC
             "${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/libwayqt"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-display/wayland/gammaeffects"
         PRIVATE
             ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     )
