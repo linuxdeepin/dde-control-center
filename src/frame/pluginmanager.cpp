@@ -93,7 +93,7 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     }
 
     // FIXME: load all plugin under treeland
-    static QByteArray compositor = qgetenv("DDE_CURRENT_COMPOSITER");
+    static QByteArray compositor = qgetenv("DDE_CURRENT_COMPOSITOR");
     static QStringList allowedUnderTreeland{ "accounts",
                                              "display",
                                              "systeminfo",
