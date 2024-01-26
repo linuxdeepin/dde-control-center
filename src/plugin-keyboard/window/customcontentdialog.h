@@ -27,6 +27,10 @@ class CustomContentDialog  : public DAbstractDialog
 public:
     explicit CustomContentDialog(ShortcutModel *model, QWidget *parent = nullptr);
     void setBottomTip(ShortcutInfo *conflict);
+
+protected:
+    void keyPressEvent(QKeyEvent *e) override;
+
 Q_SIGNALS:
     void requestAddKey(const QString &name, const QString &command, const QString &accels);
     void requestUpdateKey(ShortcutInfo *info);
