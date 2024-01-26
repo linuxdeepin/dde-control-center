@@ -143,6 +143,18 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
     });
 }
 
+void CustomContentDialog::keyPressEvent(QKeyEvent *e) {
+    switch (e->key()) {
+    case Qt::Key_Enter:
+    case Qt::Key_Return: {
+        m_buttonTuple->rightButton()->click();
+        return;
+    }
+    }
+
+    DAbstractDialog::keyReleaseEvent(e);
+}
+
 void CustomContentDialog::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
