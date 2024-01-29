@@ -28,9 +28,11 @@ using namespace DCC_NAMESPACE;
 
 CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
     : DAbstractDialog(parent)
+    , m_shortCutNameEdit(new DLineEdit(this))
+    , m_shortCutCmdEdit(new DFileChooserEdit(this))
     , m_conflict(nullptr)
     , m_model(model)
-    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save, this))
 {
     setFixedSize(QSize(400, 388));
     QVBoxLayout *mainVLayout = new QVBoxLayout();
@@ -59,7 +61,6 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
     shortCutNameLayout->setContentsMargins(10, 0, 0, 0);
     listVLayout->addLayout(shortCutNameLayout);
 
-    m_shortCutNameEdit = new DLineEdit;
     m_shortCutNameEdit->lineEdit()->setPlaceholderText(tr("Required"));
     connect(m_shortCutNameEdit, &DLineEdit::textChanged, this, [this] {
         if (!m_shortCutNameEdit->text().isEmpty()) {
@@ -80,7 +81,6 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
     // 该显示方式方式会触发程序异常崩溃，具体详情为当控制中心存在exec()模态显示的对话框界面时，若通过dbus调用切换菜单时，会导致程序崩溃。
     // 模态对话框处于事件监听阻塞状态没有被主动关闭，此时触发切换其他界面则会使阻塞的模态对话框关闭异常而导致程序崩溃。
     // 目前该DFileChooserEdit控件类会触发上诉所描述问题，暂时未解决，待后续完善。。
-    m_shortCutCmdEdit = new DFileChooserEdit(this);
     m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
     m_shortCutNameEdit->setAccessibleName("SHORTCUT_NAME_EDIT");
     m_shortCutCmdEdit->setAccessibleName("SHORTCUT_CMD_EDIT");
@@ -132,7 +132,7 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
 
     mainVLayout->addLayout(listVLayout);
     setLayout(mainVLayout);
-     setContentsMargins(0, 0, 0, 0);
+    setContentsMargins(0, 0, 0, 0);
 
     connect(cancel, &QPushButton::clicked, this, &CustomContentDialog::close);
     connect(ok, &QPushButton::clicked, this, &CustomContentDialog::onShortcut);
