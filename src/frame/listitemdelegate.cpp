@@ -45,8 +45,10 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     bool isIconMode = option.decorationAlignment == Qt::AlignCenter;
     bool isBeginning = (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::Beginning) || (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::OnlyOne);
+    bool isSelected = opt.state & QStyle::State_Selected;
+    bool isHover = opt.state & QStyle::State_MouseOver;
     // 选择高亮背景
-    if (opt.state & QStyle::State_Selected) {
+    if (isSelected) {
         QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
                 ? QPalette::Normal
                 : QPalette::Disabled;
@@ -89,7 +91,9 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     // draw the item
-    drawBackground(style, painter, opt);
+    if (isIconMode || isSelected || isHover) {
+        drawBackground(style, painter, opt);
+    }
     // 图标的绘制用也可能会使用这些颜色
     QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
     painter->setPen(opt.palette.color(cg, (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
