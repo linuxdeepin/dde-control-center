@@ -48,11 +48,11 @@ QDBusPendingReply<ObjectMap> MimeDBusProxy::GetManagedObjects()
     return m_applicationManagerInter->asyncCall("GetManagedObjects");
 }
 
-QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes,
+QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QString &mimeType,
                                                      const QString &desktopId)
 {
     QStringMap map;
-    map.insert(mimeTypes[0], desktopId);
+    map.insert(mimeType, desktopId);
     return m_mimeInter->asyncCallWithArgumentList("setDefaultApplication",
                                                   { QVariant::fromValue(map) });
 }
