@@ -68,21 +68,25 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
     }
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
 
-    QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimelist, item.Id);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher,
-            &QDBusPendingCallWatcher::finished,
-            this,
-            [call, watcher, this, item, category] {
-                if (!call.isError()) {
-                    qCDebug(DdcDefaultWorker) << "Setting MIME " << category << "to " << item.Id;
-                    auto tosetCategory = getCategory(category);
-                    tosetCategory->setDefault(item);
-                } else {
-                    qCWarning(DdcDefaultWorker) << "Cannot set MIME" << category << "to" << item.Id;
-                }
-                watcher->deleteLater();
-            });
+    for (auto mimeType : mimelist) {
+        QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimeType, item.Id);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher,
+                &QDBusPendingCallWatcher::finished,
+                this,
+                [watcher, this, item, category] {
+                    if (!watcher->isError()) {
+                        qCDebug(DdcDefaultWorker)
+                                << "Setting MIME " << category << "to " << item.Id;
+                        auto tosetCategory = getCategory(category);
+                        tosetCategory->setDefault(item);
+                    } else {
+                        qCWarning(DdcDefaultWorker)
+                                << "Cannot set MIME" << category << "to" << item.Id;
+                    }
+                    watcher->deleteLater();
+                });
+    }
 }
 
 void DefAppWorker::onSetDefaultTerminal(const App &item)
@@ -119,52 +123,50 @@ void DefAppWorker::onGetListApps()
 
         QDBusPendingReply<ObjectMap> call = m_dbusManager->ListApps(type);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher,
-                &QDBusPendingCallWatcher::finished,
-                this,
-                [call, watcher, mimelist, type, this] {
-                    if (call.isError()) {
-                        qCWarning(DdcDefaultWorker) << "Cannot get AppList";
-                        watcher->deleteLater();
-                        return;
-                    }
-                    getListAppFinished(mimelist.key(), call.value());
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, mimelist, type, this] {
+            if (watcher->isError()) {
+                qCWarning(DdcDefaultWorker) << "Cannot get AppList";
+                watcher->deleteLater();
+                return;
+            }
+            QDBusPendingReply<ObjectMap> call = *watcher;
+            getListAppFinished(mimelist.key(), call.value());
 
-                    QDBusPendingReply<QString, QDBusObjectPath> getDefaultAppCall =
-                            m_dbusManager->GetDefaultApp(type);
-                    QDBusPendingCallWatcher *defappWatcher =
-                            new QDBusPendingCallWatcher(getDefaultAppCall, this);
-                    connect(defappWatcher,
-                            &QDBusPendingCallWatcher::finished,
-                            this,
-                            [getDefaultAppCall, this, mimelist, type, defappWatcher] {
-                                if (getDefaultAppCall.isError()) {
-                                    qCWarning(DdcDefaultWorker) << "Cannot get DefaultApp";
-                                    defappWatcher->deleteLater();
-                                    return;
-                                }
-                                QString mimeType = getDefaultAppCall.argumentAt<0>();
-                                if (mimeType != type) {
-                                    qCWarning(DdcDefaultWorker) << "MimeType not match";
-                                    defappWatcher->deleteLater();
-                                    return;
-                                }
-                                QDBusObjectPath objectPath = getDefaultAppCall.argumentAt<1>();
-                                if (objectPath.path() == "/") {
-                                    qCWarning(DdcDefaultWorker) << "Cannot find Mime: " << type;
-                                    defappWatcher->deleteLater();
-                                    return;
-                                }
-                                getDefaultAppFinished(mimelist.key(),
-                                                      m_dbusManager->getAppId(objectPath));
-                                defappWatcher->deleteLater();
-                            });
-                    watcher->deleteLater();
-                });
+            QDBusPendingReply<QString, QDBusObjectPath> getDefaultAppCall =
+                    m_dbusManager->GetDefaultApp(type);
+            QDBusPendingCallWatcher *defappWatcher =
+                    new QDBusPendingCallWatcher(getDefaultAppCall, this);
+            connect(defappWatcher,
+                    &QDBusPendingCallWatcher::finished,
+                    this,
+                    [getDefaultAppCall, this, mimelist, type, defappWatcher] {
+                        if (getDefaultAppCall.isError()) {
+                            qCWarning(DdcDefaultWorker) << "Cannot get DefaultApp";
+                            defappWatcher->deleteLater();
+                            return;
+                        }
+                        QString mimeType = getDefaultAppCall.argumentAt<0>();
+                        if (mimeType != type) {
+                            qCWarning(DdcDefaultWorker) << "MimeType not match";
+                            defappWatcher->deleteLater();
+                            return;
+                        }
+                        QDBusObjectPath objectPath = getDefaultAppCall.argumentAt<1>();
+                        if (objectPath.path() == "/") {
+                            qCWarning(DdcDefaultWorker) << "Cannot find Mime: " << type;
+                            defappWatcher->deleteLater();
+                            return;
+                        }
+                        getDefaultAppFinished(mimelist.key(), m_dbusManager->getAppId(objectPath));
+                        defappWatcher->deleteLater();
+                    });
+            watcher->deleteLater();
+        });
     }
 }
 
-static QStringList getUILanguages() {
+static QStringList getUILanguages()
+{
     QLocale syslocal = QLocale::system();
 
     QStringList uiLanguages = syslocal.uiLanguages();

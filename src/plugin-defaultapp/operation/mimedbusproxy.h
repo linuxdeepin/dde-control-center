@@ -26,7 +26,7 @@ class MimeDBusProxy : public QObject
 public:
     explicit MimeDBusProxy(QObject *parent = nullptr);
 
-    QDBusPendingReply<void> SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId);
+    QDBusPendingReply<void> SetDefaultApp(const QString &mime, const QString &desktopId);
     void DeleteApp(const QStringList &mimeTypes, const QString &desktopId);
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);
