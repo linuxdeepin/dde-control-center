@@ -194,7 +194,9 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 void MainWindow::initUI()
 {
     setMinimumSize(MainWindowMininumSize);
-    setCentralWidget(m_rootModule->activePage());
+    auto root = m_rootModule->activePage();
+    root->setAutoFillBackground(true);
+    setCentralWidget(root);
 
     layout()->setMargin(0);
     layout()->setSpacing(0);
@@ -215,6 +217,7 @@ void MainWindow::initUI()
     });
 
     m_backwardBtn->setAccessibleName("backwardbtn");
+    m_backwardBtn->setFlat(true);
 
     titlebar()->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
     titlebar()->setIcon(DIconTheme::findQIcon("preferences-system"));

@@ -45,8 +45,11 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     bool isIconMode = option.decorationAlignment == Qt::AlignCenter;
     bool isBeginning = (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::Beginning) || (opt.viewItemPosition == QStyleOptionViewItem::ViewItemPosition::OnlyOne);
+    bool isSelected = opt.state & QStyle::State_Selected;
+    bool isHover = opt.state & QStyle::State_MouseOver;
+
     // 选择高亮背景
-    if (opt.state & QStyle::State_Selected) {
+    if (isSelected) {
         QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
                 ? QPalette::Normal
                 : QPalette::Disabled;
@@ -56,9 +59,11 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     QVariant value;
 
     QRect decorationRect;
+    int fontHeight = opt.widget->fontMetrics().height();
+    const int firstItemHeight = (opt.rect.height() - (fontHeight * 2 + opt.decorationSize.height())) / 2;
     if (index.data(Qt::DecorationRole).isValid()) {
         if (isBeginning && isIconMode) {
-            decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 15), opt.decorationSize);
+            decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, firstItemHeight), opt.decorationSize);
             opt.displayAlignment = Qt::AlignCenter;
         } else if (isBeginning) {
             opt.decorationSize += QSize(4, 4);
@@ -71,13 +76,12 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     } else {
         decorationRect = QRect();
     }
-    int fontHeight = opt.widget->fontMetrics().height();
     QString text;
     QRect displayRect;
     value = index.data(Qt::DisplayRole);
     if (value.isValid() && !value.isNull()) {
         if (isBeginning && isIconMode) {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 40), QSize(opt.rect.width(), -1));
+            displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + firstItemHeight + 10), QSize(opt.rect.width(), -1));
         } else if (isBeginning || isIconMode) {
             displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight + 5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         } else {
@@ -89,21 +93,27 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     // draw the item
-    drawBackground(style, painter, opt);
+    if (isIconMode || isSelected || isHover) {
+        drawBackground(style, painter, opt);
+    }
     // 图标的绘制用也可能会使用这些颜色
     QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
-    painter->setPen(opt.palette.color(cg, (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+    auto role = (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text;
+    painter->setPen(opt.palette.color(cg, role));
 
     drawDecoration(painter, opt, decorationRect);
 
     drawDisplay(style, painter, opt, displayRect);
 
     if (isIconMode || isBeginning) {
-        painter->setPen(opt.palette.color(QPalette::Disabled, QPalette::Text));
+        painter->save();
+        painter->setPen(opt.palette.color(cg, role));
+        painter->setOpacity(0.7);
         opt.text = index.data(Qt::StatusTipRole).toString();
         int fontSize = opt.font.pointSize();
         opt.font.setPointSize(fontSize - 3);
         drawDisplay(style, painter, opt, tipRect);
+        painter->restore();
     }
 
     drawEllipse(painter, opt, index.data(Dtk::RightActionListRole).toInt());
@@ -118,6 +128,9 @@ void ListItemDelegate::drawBackground(const QStyle *style, QPainter *painter, co
     boption.init(option.widget);
     boption.QStyleOption::operator=(option);
     boption.position = DStyleOptionBackgroundGroup::ItemBackgroundPosition(option.viewItemPosition);
+    bool isIconMode = option.decorationAlignment == Qt::AlignCenter;
+    if (isIconMode)
+        boption.dpalette.setBrush(DPalette::ItemBackground, option.palette.color(QPalette::Base));
 
     if (option.backgroundBrush.style() != Qt::NoBrush) {
         boption.dpalette.setBrush(DPalette::ItemBackground, option.backgroundBrush);
