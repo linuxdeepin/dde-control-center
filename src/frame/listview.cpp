@@ -225,6 +225,9 @@ ListView::ListView(QWidget *parent)
     setAttribute(Qt::WA_MacShowFocusRect);
     scheduleDelayedItemsLayout();
     setMouseTracking(true);
+
+    viewport()->setAutoFillBackground(false);
+    setAutoFillBackground(false);
 }
 
 ListView::~ListView()
@@ -522,7 +525,6 @@ void ListView::paintEvent(QPaintEvent *e)
     int previousRow = -2;
 
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(e->rect(), palette().color(backgroundRole()));
 
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
     for (QVector<QModelIndex>::const_iterator it = toBeRendered.constBegin(); it != end; ++it) {
