@@ -99,7 +99,7 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     drawDisplay(style, painter, opt, displayRect);
 
     if (isIconMode || isBeginning) {
-        painter->setPen(opt.palette.color(QPalette::Disabled, QPalette::Text));
+        painter->setPen(opt.palette.color(QPalette::Disabled, (opt.state & QStyle::State_Selected)? QPalette::HighlightedText : QPalette::Text));
         opt.text = index.data(Qt::StatusTipRole).toString();
         int fontSize = opt.font.pointSize();
         opt.font.setPointSize(fontSize - 3);
