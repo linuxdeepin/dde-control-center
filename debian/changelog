@@ -1,3 +1,15 @@
+dde-control-center (6.0.44) unstable; urgency=medium
+
+  * fix: typo compositor
+  * chore: remove code for gamma control
+  * fix(CustomShortcut): file chooser is opened when Enter pressed
+  * fix: wrong tab index
+  * fix: listview not show item backgound when normal
+  * fix: set all mime type
+  * chore: mask linglong-upgrade.service together
+
+ -- wangfei <wangfei@deepin.org>  Wed, 31 Jan 2024 09:34:03 +0800
+
 dde-control-center (6.0.43) unstable; urgency=medium
 
   * feat: make plugin-display works in treeland
