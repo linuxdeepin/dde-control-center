@@ -297,6 +297,9 @@ void UpdateWorker::setLinglongAutoUpdate(const bool status)
     QStringList systemdcommand;
 
     if (status) {
+        systemdcommand = QStringList{ "--user", "unmask", LINGLONG_SERVICE };
+        process.start("systemctl", systemdcommand);
+        process.waitForFinished(-1);
         systemdcommand = QStringList{ "--user", "unmask", LINGLONG_TIMER };
         process.start("systemctl", systemdcommand);
         process.waitForFinished(-1);
@@ -308,6 +311,12 @@ void UpdateWorker::setLinglongAutoUpdate(const bool status)
         process.start("systemctl", systemdcommand);
         process.waitForFinished(-1);
         systemdcommand = QStringList{ "--user", "mask", LINGLONG_TIMER };
+        process.start("systemctl", systemdcommand);
+        process.waitForFinished(-1);
+        systemdcommand = QStringList{ "--user", "stop", LINGLONG_SERVICE };
+        process.start("systemctl", systemdcommand);
+        process.waitForFinished(-1);
+        systemdcommand = QStringList{ "--user", "mask", LINGLONG_SERVICE };
         process.start("systemctl", systemdcommand);
         process.waitForFinished(-1);
     }
