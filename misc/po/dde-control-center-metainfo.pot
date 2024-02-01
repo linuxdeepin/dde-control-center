@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dde-control-center-metainfo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dde-control-center-metainfo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-01 15:38+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: org.deepin.dde.controlcenter.metainfo.xml:15
+msgid "DDE Control Center"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:16
+msgid "深度控制中心"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:17
+msgid "Deepin 控制中心"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:18
+#: org.deepin.dde.controlcenter.metainfo.xml:29
+msgid "Configuration tools for your computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:19
+msgid "أدوات لضبط حاسبك"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:20
+msgid "Kompyuteriniz üçün tənzimləmə alətləri"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:21
+msgid "Інструменты для наладжвання вашага камп'ютара"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:22
+msgid "Конфигурационни инструменти за вашия компютър"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:23
+#: org.deepin.dde.controlcenter.metainfo.xml:24
+msgid "Eines de configuració per a l'ordinador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:25
+msgid "Konfigurační nástroje pro váš počítač"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:26
+msgid "Konfigurationsværktøjer til din computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:27
+msgid "Einstellungen für Ihren Rechner"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:28
+msgid "Εργαλεία διαμόρφωσης για τον υπολογιστή σας"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:30
+msgid "Agordiloj por via komputilo"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:31
+msgid "Herramientas de configuración para su equipo"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:32
+msgid "Oma arvuti tööriistade seadistamine"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:33
+msgid "Zure ordenagailua konfiguratzeko tresnak"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:34
+msgid "Tietokoneen ylläpitotyökalut"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:35
+msgid "Outils de configuration pour votre ordinateur"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:36
+msgid "Ferramentas de configuración para o computador."
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:37
+msgid "כלי הגדרה למחשב שלך"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:38
+msgid "आपके कंप्यूटर के लिए विन्यास साधन"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:39
+msgid "Beállítóeszközök számítógépéhez"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:40
+msgid "Instrumentos de configuration per tu computator"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:41
+msgid "Peralatan konfigurasi untuk komputermu"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:42
+msgid "Grunnstillingaverkfæri fyrir tölvuna þína"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:43
+msgid "Strumenti di configurazione per il tuo computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:44
+msgid "コンピュータ設定ツール"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:45
+msgid "თქვენი კომპიუტერის თქვენზე მორგების ხელსაწყოები"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:46
+msgid "컴퓨터 설정 도구"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:47
+msgid "Jūsų kompiuterio konfigūravimo įrankiai"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:48
+msgid "നിങ്ങളുടെ കമ്പ്യൂട്ടറിനുള്ള ക്രമീകരണങ്ങൾ"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:49
+msgid "သင့်ကွန်ပြူတာအတွက် ပြင်ဆင်ရေးကိရိယာများ"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:50
+msgid "Oppsettsverktøy for datamaskinen"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:51
+msgid "Hulpmiddelen voor configuratie van uw computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:52
+msgid "Oppsettverktøy for datamaskina"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:53
+msgid "ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਲਈ ਸੰਰਚਨਾ ਟੂਲ"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:54
+msgid "Narzędzia ustawień dla twojego komputera"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:55
+msgid "Ferramentas de configuração do seu computador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:56
+msgid "Ferramentas de configuração para seu computador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:57
+msgid "Unelte de configurare pentru calculator"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:58
+msgid "Инструменты для настройки компьютера"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:59
+msgid "भवतः सङ्गणकस्य कृते समायोजनानिसाधनम्"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:60
+msgid "Koniguračné nástroje pre váš počítač"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:61
+msgid "Orodja za nastavitve vašega računalnika"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:62
+msgid "Inställningsverktyg för datorn"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:63
+msgid "உங்கள் கணினியை அமைக்க உதவும் கருவிகள்"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:64
+msgid "Абзорҳои танзимотӣ барои компютери шумо"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:65
+msgid "Bilgisayarınız için yapılandırma araçları"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:66
+msgid "Інструменти для налаштовування вашого комп'ютера"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:67
+msgid "Các công cụ cấu hình cho máy tính của bạn"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:68
+msgid "xxConfiguration tools for your computerxx"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:69
+msgid "您的计算机的配置工具"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:70
+msgid "適用於您電腦的設定工具"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:73
+msgid ""
+"DDE Control Center allows you to configure and tweak your DDE desktop to "
+"make it better meet your needs."
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:74
+msgid "深度控制中心让您可以按需配置和调整 DDE 桌面环境。"
+msgstr ""

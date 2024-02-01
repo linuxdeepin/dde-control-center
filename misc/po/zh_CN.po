@@ -1,0 +1,227 @@
+#: org.deepin.dde.controlcenter.metainfo.xml:15
+msgid "DDE Control Center"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:16
+msgid ""
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:17
+msgid "Deepin "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:18
+#: org.deepin.dde.controlcenter.metainfo.xml:29
+msgid "Configuration tools for your computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:19
+msgid "  "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:20
+msgid "Kompyuteriniz n tnzimlm altlri"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:21
+msgid "    '"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:22
+msgid "    "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:23
+#: org.deepin.dde.controlcenter.metainfo.xml:24
+msgid "Eines de configuraci per a l'ordinador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:25
+msgid "Konfiguran nstroje pro v pota"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:26
+msgid "Konfigurationsvrktjer til din computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:27
+msgid "Einstellungen fr Ihren Rechner"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:28
+msgid "     "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:30
+msgid "Agordiloj por via komputilo"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:31
+msgid "Herramientas de configuracin para su equipo"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:32
+msgid "Oma arvuti triistade seadistamine"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:33
+msgid "Zure ordenagailua konfiguratzeko tresnak"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:34
+msgid "Tietokoneen yllpitotykalut"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:35
+msgid "Outils de configuration pour votre ordinateur"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:36
+msgid "Ferramentas de configuracin para o computador."
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:37
+msgid "   "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:38
+msgid "     "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:39
+msgid "Bellteszkzk szmtgphez"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:40
+msgid "Instrumentos de configuration per tu computator"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:41
+msgid "Peralatan konfigurasi untuk komputermu"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:42
+msgid "Grunnstillingaverkfri fyrir tlvuna na"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:43
+msgid "Strumenti di configurazione per il tuo computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:44
+msgid ""
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:45
+msgid "    "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:46
+msgid "  "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:47
+msgid "Js kompiuterio konfigravimo rankiai"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:48
+msgid "  "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:49
+msgid " "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:50
+msgid "Oppsettsverkty for datamaskinen"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:51
+msgid "Hulpmiddelen voor configuratie van uw computer"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:52
+msgid "Oppsettverkty for datamaskina"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:53
+msgid "    "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:54
+msgid "Narzdzia ustawie dla twojego komputera"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:55
+msgid "Ferramentas de configurao do seu computador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:56
+msgid "Ferramentas de configurao para seu computador"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:57
+msgid "Unelte de configurare pentru calculator"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:58
+msgid "   "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:59
+msgid "   "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:60
+msgid "Koniguran nstroje pre v pota"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:61
+msgid "Orodja za nastavitve vaega raunalnika"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:62
+msgid "Instllningsverktyg fr datorn"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:63
+msgid "    "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:64
+msgid "    "
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:65
+msgid "Bilgisayarnz iin yaplandrma aralar"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:66
+msgid "    '"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:67
+msgid "Cc cng c cu hnh cho my tnh ca bn"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:68
+msgid "xxConfiguration tools for your computerxx"
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:69
+msgid ""
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:70
+msgid ""
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:73
+msgid ""
+"DDE Control Center allows you to configure and tweak your DDE desktop to "
+"make it better meet your needs."
+msgstr ""
+
+#: org.deepin.dde.controlcenter.metainfo.xml:74
+msgid " DDE "
+msgstr ""
