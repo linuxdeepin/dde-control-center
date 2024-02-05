@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationthemelist.h"
+#include "buttontuple.h"
 #include "model/thememodel.h"
 #include "titlelabel.h"
 
@@ -39,10 +40,12 @@ PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget
     m_listview->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_listview->setViewportMargins(0, 0, 10, 0);
 
-    layout->addWidget(m_listview);
+    auto *viewLayout = new QVBoxLayout;
+    viewLayout->setContentsMargins(10, 10, 0, 0);
+    viewLayout->addWidget(m_listview);
+
+    layout->addLayout(viewLayout);
     // 右侧偏移10像素给滚动条
-    QMargins pageMargins(10, 10, 0, 10);
-    layout->setContentsMargins(pageMargins);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PersonalizationThemeList::onClicked);
 
@@ -51,14 +54,15 @@ PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
-    QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
-    DSuggestButton *saveBtn = new DSuggestButton(tr("Save"));
-    QHBoxLayout *cansaveLayout = new QHBoxLayout;
-    cansaveLayout->addWidget(cancleBtn);
-    cansaveLayout->addWidget(saveBtn);
-    layout->addLayout(cansaveLayout);
+    auto *buttonTuple = new ButtonTuple(dccV23::ButtonTuple::Save, this);
+    buttonTuple->setContentsMargins(10, 0, 10, 10);
+    layout->addWidget(buttonTuple);
 
-    connect(cancleBtn, &QPushButton::clicked, this, &PersonalizationThemeList::reject);
+    QPushButton *cancelBtn = buttonTuple->leftButton();
+    cancelBtn->setText(tr("Cancel"));
+    QPushButton *saveBtn = buttonTuple->rightButton();
+    saveBtn->setText(tr("Save"));
+    connect(cancelBtn, &QPushButton::clicked, this, &PersonalizationThemeList::reject);
     connect(saveBtn, &DSuggestButton::clicked, this, &PersonalizationThemeList::clickSaveBtn);
     resize(540, 640);
 }
