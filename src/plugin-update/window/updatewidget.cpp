@@ -89,8 +89,10 @@ void UpdateWidget::setSystemVersion(QString version)
     if (m_systemVersion != version) {
         m_systemVersion = version;
     }
-
-    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(m_systemVersion));
+    QString uVersion = DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion();
+    if (DSysInfo::uosType() != DSysInfo::UosServer)
+        uVersion.append(" " + DSysInfo::uosEditionName());
+    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(uVersion));
 }
 
 void UpdateWidget::showCheckUpdate()
