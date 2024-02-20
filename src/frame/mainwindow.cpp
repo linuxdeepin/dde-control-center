@@ -438,7 +438,7 @@ void MainWindow::showModule(ModuleObject *const module)
     if (m_currentModule.contains(module) && module->defultModule())
         return;
 
-    m_backwardBtn->setEnabled(module != m_rootModule);
+    m_backwardBtn->setVisible(module != m_rootModule);
     QList<ModuleObject *> modules;
 
     ModuleObject *child = module;
