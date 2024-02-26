@@ -61,6 +61,11 @@ protected:
     void rowsInserted(const QModelIndex &parent, int start, int end) override;
     void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
 
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void verticalScrollbarValueChanged(int value) override;
+    void horizontalScrollbarAction(int value) override;
+    void setHoverIndexAt(const QPoint &p);
+
 protected:
     void paintEvent(QPaintEvent *e) override;
     bool viewportEvent(QEvent *event) override;
