@@ -16,7 +16,7 @@ public:
     ~MainModule() override;
 
     QWidget *page() override;
-    ModuleObject *defultModule() override;
+    ModuleObject *defaultModule() override;
     inline DCC_MODULE_TYPE getClassID() const override { return MAINLAYOUT; }
 
     DCC_DECLARE_PRIVATE(MainModule)

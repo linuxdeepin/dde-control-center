@@ -179,7 +179,7 @@ public:
      *      ModuleObject类默认处理为返回第一个未隐藏的子项
      * @return 默认active的子项
      */
-    virtual ModuleObject *defultModule();
+    virtual ModuleObject *defaultModule();
 
 public Q_SLOTS:
     void setHidden(bool hidden);

@@ -214,7 +214,7 @@ QWidget *MainModule::page()
     return d->page();
 }
 
-ModuleObject *MainModule::defultModule()
+ModuleObject *MainModule::defaultModule()
 {
     return nullptr;
 }
