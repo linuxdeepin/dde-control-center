@@ -473,6 +473,48 @@ void ListView::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int en
     scheduleDelayedItemsLayout();
 }
 
+void ListView::mouseMoveEvent(QMouseEvent *event)
+{
+    setHoverIndexAt(event->pos());
+    QAbstractItemView::mouseMoveEvent(event);
+}
+
+void ListView::verticalScrollbarValueChanged(int value)
+{
+    setHoverIndexAt(viewport()->mapFromGlobal(QCursor::pos()));
+    QAbstractItemView::verticalScrollbarValueChanged(value);
+}
+
+void ListView::horizontalScrollbarAction(int value)
+{
+    setHoverIndexAt(viewport()->mapFromGlobal(QCursor::pos()));
+    QAbstractItemView::horizontalScrollbarAction(value);
+}
+
+void ListView::setHoverIndexAt(const QPoint &p)
+{
+    if (!viewport()->rect().contains(p))
+        return;
+
+    QModelIndex index = indexAt(p);
+
+    Q_D(ListView);
+    if (d->m_hover == index)
+        return;
+
+    if (selectionBehavior() != QAbstractItemView::SelectRows) {
+        update(d->m_hover); //update the old one
+        update(index);     //update the new one
+    } else {
+        QRect oldHoverRect = visualRect(d->m_hover);
+        QRect newHoverRect = visualRect(index);
+        viewport()->update(QRect(0, newHoverRect.y(), viewport()->width(), newHoverRect.height()));
+        viewport()->update(QRect(0, oldHoverRect.y(), viewport()->width(), oldHoverRect.height()));
+    }
+
+    d->m_hover = index;
+}
+
 bool ListView::isIndexHidden(const QModelIndex & /*index*/) const
 {
     return false;
