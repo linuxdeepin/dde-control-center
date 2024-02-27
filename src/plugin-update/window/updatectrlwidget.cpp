@@ -43,7 +43,7 @@ DWIDGET_USE_NAMESPACE
 
 UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : QWidget(parent)
-    , m_model(nullptr)
+    , m_model(model)
     , m_status(UpdatesStatus::Updated)
     , m_checkUpdateItem(new LoadingItem())
     , m_resultItem(new ResultItem())
@@ -64,7 +64,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_lastCheckTimeTip(new QLabel(parent))
     , m_CheckAgainBtn(new QPushButton(tr("Check Again")))
     , m_lastCheckAgainTimeTip(new QLabel(parent))
-    , m_versrionTip(new DLabel(parent))
+    , m_versionTip(new DLabel(parent))
     , m_spinner(new DSpinner(parent))
     , m_updateTipsLab(new DLabel(parent))
     , m_updateSizeLab(new DLabel(parent))
@@ -138,11 +138,12 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateTipsLab->setForegroundRole(DPalette::TextTitle);
     m_updateTipsLab->setVisible(false);
 
-    DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
-    m_versrionTip->setForegroundRole(DPalette::BrightText);
-    m_versrionTip->setEnabled(false);
-    QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
-    m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
+    DFontSizeManager::instance()->bind(m_versionTip, DFontSizeManager::T8);
+    m_versionTip->setForegroundRole(DPalette::BrightText);
+    m_versionTip->setEnabled(false);
+    connect(m_model, &UpdateModel::systemVersionChanged, this, &UpdateCtrlWidget::updateSystemVersionLabel, Qt::UniqueConnection);
+    connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::updateSystemVersionLabel, Qt::UniqueConnection);
+    updateSystemVersionLabel();
 
     updateTitleFirstVLay->addWidget(m_updateTipsLab);
 
@@ -180,7 +181,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addSpacing(10);
-    layout->addWidget(m_versrionTip, 0, Qt::AlignHCenter);
+    layout->addWidget(m_versionTip, 0, Qt::AlignHCenter);
     layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     layout->addWidget(m_upgradeWarningGroup);
     layout->addWidget(m_powerTip);
@@ -233,7 +234,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_updateList->setLayout(contentLayout);
-    setModel(model);
+    initModel();
 
     initConnect();
 }
@@ -313,7 +314,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
     m_CheckAgainBtn->setVisible(false);
     m_lastCheckAgainTimeTip->setVisible(false);
-    m_versrionTip->setVisible(false);
+    m_versionTip->setVisible(false);
     m_updateTipsLab->setVisible(false);
     m_updateSizeLab->setVisible(false);
     m_fullUpdateBtn->setVisible(false);
@@ -461,10 +462,8 @@ void UpdateCtrlWidget::setActiveState(const UiActiveState &activestate)
 }
 
 
-void UpdateCtrlWidget::setModel(UpdateModel *model)
+void UpdateCtrlWidget::initModel()
 {
-    m_model = model;
-
     qRegisterMetaType<UpdateErrorType>("UpdateErrorType");
 
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
@@ -529,11 +528,17 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setLowBattery(m_model->lowBattery());
 }
 
-void UpdateCtrlWidget::setSystemVersion(const QString &version)
+void UpdateCtrlWidget::updateSystemVersionLabel()
 {
-    if (m_systemVersion != version) {
-        m_systemVersion = version;
+#ifndef DISABLE_ACTIVATOR
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
+        m_versionTip->setText(QString("%1: %2").arg(tr("Current Edition")).arg(m_model->systemVersionInfo()));
+    } else {
+        m_versionTip->clear();
     }
+#else
+    m_versionTip->setText(QString("%1: %2").arg(tr("Current Edition")).arg(m_model->systemVersionInfo()));
+#endif
 }
 
 void UpdateCtrlWidget::setSystemUpdateInfo(UpdateItemInfo *updateItemInfo)
@@ -595,7 +600,7 @@ void UpdateCtrlWidget::showUpdateInfo()
 
     m_updateTipsLab->setVisible(true);
     m_updateSizeLab->setVisible(true);
-    m_versrionTip->setVisible(true);
+    m_versionTip->setVisible(true);
 
     m_CheckAgainBtn->setVisible(true);
     emit m_model->updateCheckUpdateTime();

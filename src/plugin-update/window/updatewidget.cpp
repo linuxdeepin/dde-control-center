@@ -68,6 +68,9 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     m_model = const_cast<UpdateModel *>(model);
     m_work = const_cast<UpdateWorker *>(work);
     qRegisterMetaType<ClassifyUpdateType>("ClassifyUpdateType");
+    connect(m_model, &UpdateModel::systemVersionChanged, this, &UpdateWidget::updateSystemVersionLabel, Qt::UniqueConnection);
+    connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateWidget::updateSystemVersionLabel, Qt::UniqueConnection);
+    updateSystemVersionLabel();
 
     UpdateCtrlWidget *updateWidget = new UpdateCtrlWidget(m_model);
     updateWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -77,20 +80,21 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     connect(updateWidget, &UpdateCtrlWidget::requestUpdateCtrl, this, &UpdateWidget::requestUpdateCtrl);
     connect(updateWidget, &UpdateCtrlWidget::requestOpenAppStroe, this, &UpdateWidget::requestOpenAppStroe);
     connect(updateWidget, &UpdateCtrlWidget::requestFixError, this, &UpdateWidget::requestFixError);
-    updateWidget->setSystemVersion(m_systemVersion);
 
     m_layout->addWidget(updateWidget);
 }
 
-void UpdateWidget::setSystemVersion(QString version)
+void UpdateWidget::updateSystemVersionLabel()
 {
-    qDebug() << Q_FUNC_INFO << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
-
-    if (m_systemVersion != version) {
-        m_systemVersion = version;
+#ifndef DISABLE_ACTIVATOR
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
+        m_label->setText(QString("%1: %2").arg(tr("Current Edition")).arg(m_model->systemVersionInfo()));
+    } else {
+        m_label->clear();
     }
-
-    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(m_systemVersion));
+#else
+    m_label->setText(QString("%1: %2").arg(tr("Current Edition")).arg(m_model->systemVersionInfo()));
+#endif
 }
 
 void UpdateWidget::showCheckUpdate()

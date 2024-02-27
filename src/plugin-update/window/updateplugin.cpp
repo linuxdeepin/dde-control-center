@@ -109,32 +109,12 @@ QWidget *checkUpdateModule::page()
 {
     UpdateWidget *updateWidget = new UpdateWidget;
     updateWidget->setModel(m_model, m_worker);
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
-        updateWidget->setSystemVersion(m_model->systemVersionInfo());
-    }
     connect(updateWidget, &UpdateWidget::requestLastoreHeartBeat, m_worker, &UpdateWorker::onRequestLastoreHeartBeat);
-
-#ifndef DISABLE_ACTIVATOR
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
-        updateWidget->setSystemVersion(m_model->systemVersionInfo());
-    }
-#endif
-
-#ifndef DISABLE_ACTIVATOR
-    connect(m_model, &UpdateModel::systemActivationChanged, this, [ = ](UiActiveState systemactivation) {
-        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized || systemactivation == UiActiveState::AuthorizedLapse) {
-            if (updateWidget)
-                updateWidget->setSystemVersion(m_model->systemVersionInfo());
-        }
-    });
-#endif
-
     connect(updateWidget, &UpdateWidget::requestUpdates, m_worker, &UpdateWorker::distUpgrade);
     connect(updateWidget, &UpdateWidget::requestUpdateCtrl, m_worker, &UpdateWorker::OnDownloadJobCtrl);
     connect(updateWidget, &UpdateWidget::requestOpenAppStroe, m_worker, &UpdateWorker::onRequestOpenAppStore);
     connect(updateWidget, &UpdateWidget::requestFixError, m_worker, &UpdateWorker::onFixError);
     updateWidget->displayUpdateContent(UpdateWidget::UpdateType::UpdateCheck);
-
     return updateWidget;
 }
 

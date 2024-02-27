@@ -736,53 +736,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CollaborativeLinkWidget</name>
-    <message>
-        <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PC Collaboration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connect to</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a device for collaboration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Device Orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On the top</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On the right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On the bottom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On the left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Other Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>dccV23::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
@@ -3489,10 +3442,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Current Edition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Updating...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3534,6 +3483,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

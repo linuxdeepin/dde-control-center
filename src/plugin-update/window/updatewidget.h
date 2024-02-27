@@ -43,7 +43,7 @@ public:
     ~UpdateWidget();
 
     void setModel(const UpdateModel *model, const UpdateWorker *work);
-    void setSystemVersion(QString version);
+    void updateSystemVersionLabel();
     void displayUpdateContent(UpdateType index);
 
 private:
