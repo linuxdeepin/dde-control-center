@@ -734,53 +734,6 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CollaborativeLinkWidget</name>
-    <message>
-        <source>Multi-Screen Collaboration</source>
-        <translation>电脑协同设置</translation>
-    </message>
-    <message>
-        <source>PC Collaboration</source>
-        <translation>电脑协同</translation>
-    </message>
-    <message>
-        <source>Connect to</source>
-        <translation>连接设备</translation>
-    </message>
-    <message>
-        <source>Select a device for collaboration</source>
-        <translation>请选择协同设备</translation>
-    </message>
-    <message>
-        <source>Device Orientation</source>
-        <translation>连接方向</translation>
-    </message>
-    <message>
-        <source>On the top</source>
-        <translation>屏幕上方</translation>
-    </message>
-    <message>
-        <source>On the right</source>
-        <translation>屏幕右侧</translation>
-    </message>
-    <message>
-        <source>On the bottom</source>
-        <translation>屏幕下方</translation>
-    </message>
-    <message>
-        <source>On the left</source>
-        <translation>屏幕左侧</translation>
-    </message>
-    <message>
-        <source>My Devices</source>
-        <translation>我的设备</translation>
-    </message>
-    <message>
-        <source>Other Devices</source>
-        <translation>其他设备</translation>
-    </message>
-</context>
-<context>
     <name>dccV23::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
@@ -3501,10 +3454,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>检测到有更新可用</translation>
     </message>
     <message>
-        <source>Current Edition</source>
-        <translation>当前版本</translation>
-    </message>
-    <message>
         <source>Updating...</source>
         <translation>更新中...</translation>
     </message>
@@ -3547,6 +3496,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation>当前版本</translation>
     </message>
     <message>
         <source>Size</source>

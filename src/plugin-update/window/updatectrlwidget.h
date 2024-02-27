@@ -50,8 +50,8 @@ public:
     ~UpdateCtrlWidget();
 
     void initConnect();
-    void setModel(UpdateModel *model);
-    void setSystemVersion(const QString &version);
+    void initModel();
+    void updateSystemVersionLabel();
 
     UpdateErrorType updateJobErrorMessage() const;
     void setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage);
@@ -131,7 +131,7 @@ private:
     QPushButton *m_CheckAgainBtn;
     QLabel *m_lastCheckAgainTimeTip;
 
-    DTK_WIDGET_NAMESPACE::DLabel *m_versrionTip;
+    DTK_WIDGET_NAMESPACE::DLabel *m_versionTip;
 
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DLabel *m_updateTipsLab;
