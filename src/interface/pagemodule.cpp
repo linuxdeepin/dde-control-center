@@ -83,7 +83,7 @@ public:
 
         QWidget *controlRestrictorWidget = new QWidget;
         controlRestrictorWidget->setMinimumWidth(m_minimumWidth);
-        controlRestrictorWidget->setMaximumWidth(m_maximumWidth);
+        controlRestrictorWidget->setMaximumWidth(500);
         controlRestrictorWidget->setLayout(m_hlayout);
         QHBoxLayout *controlRestrictorLayout = new QHBoxLayout;
         controlRestrictorLayout->setContentsMargins(m_contentsMargins.left(),
