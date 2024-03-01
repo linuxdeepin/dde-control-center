@@ -333,7 +333,7 @@ std::pair<int, QString> CommonInfoWork::getPlyMouthInformation()
 
     QString themeName = settings.value("Daemon/Theme").toString();
 
-    static QStringList ScaleLowDpiThemeNames = {"deepin-ssd-logo", "uos-ssd-logo"};
+    static QStringList ScaleLowDpiThemeNames = {"deepin-logo", "deepin-ssd-logo", "uos-ssd-logo"};
     static QStringList ScaleHighDpiThemeNames = {"deepin-hidpi-logo", "deepin-hidpi-ssd-logo", "uos-hidpi-ssd-logo"};
     if (ScaleLowDpiThemeNames.contains(themeName)) {
         return {1, themeName};
