@@ -59,8 +59,9 @@ const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
+// 这个只有 com.xx 全局搜索才翻译设置
 const QString ControlCenterGroupName =
-        "org.deepin.dde-grand-search.group.dde-control-center-setting";
+        "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
