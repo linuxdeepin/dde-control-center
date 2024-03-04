@@ -1,3 +1,14 @@
+dde-control-center (6.0.45) unstable; urgency=medium
+
+  * fix: grand search can not search dcc modules
+  * fix: hover index not repaint
+  * fix: type(defult)
+  * fix: The width of bottom button is too long
+  * fix: version info data source not consistent
+  * fix(PersonalizationThemeList): wrong margins
+
+ -- Yutao Meng <mengyutao@deepin.org>  Mon, 04 Mar 2024 16:46:01 +0800
+
 dde-control-center (6.0.44) unstable; urgency=medium
 
   * fix: typo compositor
