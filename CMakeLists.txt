@@ -328,6 +328,9 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.controlcenter.metainfo.xml
         DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 
+#dde-grand-search-daemon conf
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde-grand-search.dde-control-center-setting.conf
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-grand-search-daemon/plugins/searcher)
 #-------------------------ut-dcc-interface-------------------------
 if (UNITTEST)
     set(UT_Interface_Name ut-dcc-interface)
