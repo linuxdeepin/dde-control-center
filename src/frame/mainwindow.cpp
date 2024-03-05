@@ -435,7 +435,7 @@ void MainWindow::configLayout(QBoxLayout *const layout)
 
 void MainWindow::showModule(ModuleObject *const module)
 {
-    if (m_currentModule.contains(module) && module->defaultModule())
+    if (m_currentModule.contains(module) && module->defultModule())
         return;
 
     m_backwardBtn->setEnabled(module != m_rootModule);
@@ -443,7 +443,7 @@ void MainWindow::showModule(ModuleObject *const module)
 
     ModuleObject *child = module;
     while (child) {
-        child->setCurrentModule(child->defaultModule());
+        child->setCurrentModule(child->defultModule());
         modules.append(child);
         child = child->currentModule();
     }
