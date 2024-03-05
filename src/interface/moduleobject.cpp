@@ -441,7 +441,7 @@ ModuleObject *ModuleObject::currentModule() const
     return d->m_currentModule;
 }
 
-ModuleObject *ModuleObject::defaultModule()
+ModuleObject *ModuleObject::defultModule()
 {
     Q_D(const ModuleObject);
     // 第一个可见项
