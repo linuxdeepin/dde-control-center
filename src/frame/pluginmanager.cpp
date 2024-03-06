@@ -204,21 +204,12 @@ void PluginManager::loadModules(ModuleObject *root, bool async, const QStringLis
         QThread::sleep(10);
         std::lock_guard<std::mutex> guard(PLUGIN_LOAD_GUARD);
         if (!m_pluginsStatus.isEmpty()) {
-            QString failedmessage = tr("following plugins load failed") + ":";
-
             QString logMessage = "Some plugins not loaded in time: ";
             for (const QString &value : m_pluginsStatus) {
-                failedmessage.push_back('\n');
-                failedmessage.push_back(value.split('/').last());
                 logMessage.push_back(value.split('/').last());
                 logMessage.push_back(";");
             }
             qCWarning(DdcFramePluginManager) << logMessage;
-
-            Dtk::Core::DUtil::DNotifySender(tr("plugins cannot loaded in time"))
-                    .appIcon("dde-control-center")
-                    .appBody(failedmessage)
-                    .call();
         }
     });
     if (!async) {
