@@ -345,8 +345,7 @@ bool PowerDBusProxy::CanHibernate()
 bool PowerDBusProxy::login1ManagerCanSuspend()
 {
     QList<QVariant> argumentList;
-    QDBusPendingReply<QString> reply = m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanSuspend"), argumentList);
-    reply.waitForFinished();
+    QDBusPendingReply<QString> reply = m_login1ManagerInter->callWithArgumentList(QDBus::BlockWithGui, QStringLiteral("CanSuspend"), argumentList);
     return reply.value().contains("yes");
 }
 
