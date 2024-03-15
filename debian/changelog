@@ -1,3 +1,10 @@
+dde-control-center (6.0.46) unstable; urgency=medium
+
+  * fix: ui flash when switching power subpage 
+  * Revert "fix: type(defult)"
+
+ -- wangfei <wangfei@deepin.org>  Fri, 15 Mar 2024 10:05:46 +0800
+
 dde-control-center (6.0.45) unstable; urgency=medium
 
   * fix: grand search can not search dcc modules
