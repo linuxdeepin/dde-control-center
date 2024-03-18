@@ -243,10 +243,10 @@ void UseElectricModule::updateComboxActionList()
     if (m_model->getShutdown()) {
         m_comboxOptions.append({ tr("Shut down"), 0 });
     }
-    if (m_work->getCurCanSuspend()) {
+    if (m_model->canSuspend()) {
         m_comboxOptions.append({ tr("Suspend"), 1 });
     }
-    if (m_work->getCurCanHibernate()) {
+    if (m_model->canHibernate()) {
         m_comboxOptions.append({ tr("Hibernate"), 2 });
     }
     m_comboxOptions.append({ tr("Turn off the monitor"), 3 });
