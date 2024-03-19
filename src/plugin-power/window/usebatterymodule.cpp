@@ -56,10 +56,10 @@ void UseBatteryModule::active()
     if (m_model->getShutdown()) {
         m_Options.append({ tr("Shut down"), 0 });
     }
-    if (m_work->getCurCanSuspend()) {
+    if (m_model->canSuspend()) {
         m_Options.append({ tr("Suspend"), 1 });
     }
-    if (m_work->getCurCanHibernate()) {
+    if (m_model->canHibernate()) {
         m_Options.append({ tr("Hibernate"), 2 });
     }
     m_Options.append({ tr("Turn off the monitor"), 3 });
