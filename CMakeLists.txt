@@ -729,7 +729,7 @@ if (BUILD_PLUGIN)
         "src/plugin-datetime/operation/qrc/datetime.qrc"
     )
 
-    find_package(ICU COMPONENTS i18n)
+    find_package(ICU COMPONENTS i18n uc)
 
     add_library(${Datetime_Name} MODULE
         ${Datetime_SRCS}
@@ -749,6 +749,7 @@ if (BUILD_PLUGIN)
         Dtk::Widget
         ${Dcc_Widgets_Name}
         ICU::i18n
+        ICU::uc
     )
 
     target_include_directories(${Datetime_Name} PRIVATE
