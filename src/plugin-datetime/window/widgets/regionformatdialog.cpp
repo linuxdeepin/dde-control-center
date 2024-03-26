@@ -52,6 +52,7 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
     DSearchEdit *searchEdit = new DSearchEdit;
     m_model = new QStandardItemModel(this);
     m_proxyModel = new QSortFilterProxyModel(this);
+    m_proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     m_regionListView = new DListView;
     m_regionListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_regionListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -125,7 +126,7 @@ RegionFormatDialog::RegionFormatDialog(DatetimeModel *datetimeModel, QWidget *pa
 
     setLayout(mainVLayout);
 
-    connect(searchEdit, &DLineEdit::textChanged, this, &RegionFormatDialog::onSearch);
+    connect(searchEdit, &DLineEdit::textChanged, m_proxyModel, &QSortFilterProxyModel::setFilterWildcard);
     connect(cancelBtn, &QPushButton::clicked, this, &RegionFormatDialog::close);
     connect(m_saveBtn, &QPushButton::clicked, this, &RegionFormatDialog::onSaved);
     connect(m_regionListView, &QListView::clicked, this, &RegionFormatDialog::onRegionSelected);
@@ -155,15 +156,6 @@ void RegionFormatDialog::setCurrentRegion(const QString &region)
     } else {
         qWarning() << "There is not anything matched in region proxyModel";
     }
-}
-
-void RegionFormatDialog::onSearch(const QString &text)
-{
-    if (text.contains("\\")) {
-        return;
-    }
-    auto re = QRegularExpression(text, QRegularExpression::CaseInsensitiveOption);
-    m_proxyModel->setFilterRegularExpression(re);
 }
 
 void RegionFormatDialog::onRegionSelected(const QModelIndex &index)

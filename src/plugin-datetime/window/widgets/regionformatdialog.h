@@ -37,7 +37,6 @@ Q_SIGNALS:
     void regionFormatSaved(const QString &langRegion, const QLocale &regionFormat);
 
 private Q_SLOTS:
-    void onSearch(const QString &text);
     void onRegionSelected(const QModelIndex &index);
     void onSaved();
 
