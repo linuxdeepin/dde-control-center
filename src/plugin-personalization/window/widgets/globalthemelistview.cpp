@@ -16,7 +16,7 @@
 #include <DSuggestButton>
 
 DWIDGET_USE_NAMESPACE
-#define TAB_RADIUS 6
+#define TAB_RADIUS 3
 
 class GlobalThemeListViewPrivate
 {
@@ -33,7 +33,7 @@ public:
         , m_currentPage(-1)
         , m_constPage(1)
         , m_drawStartPagePos(0, 285)
-        , m_drawSpaacing(40)
+        , m_drawSpaacing(TAB_RADIUS * 4)
         , m_drawPageButton(LeftButton | RightButton)
     {
         m_rowPerPage = 2;
