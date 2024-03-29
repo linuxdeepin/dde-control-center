@@ -18,6 +18,10 @@
 #include <QDBusPendingCallWatcher>
 #include <QTranslator>
 
+#include <dconfig.h>
+
+const QString localeName_key = "localeName";
+
 using namespace DCC_NAMESPACE;
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
@@ -34,6 +38,7 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     , m_model(model)
     , m_keyboardDBusProxy(new KeyboardDBusProxy(this))
     , m_translatorLanguage(nullptr)
+    , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
 {
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
@@ -754,6 +759,9 @@ void KeyboardWorker::setLang(const QString &value)
 {
     Q_EMIT requestSetAutoHide(false);
 
+    if (m_config->isDefaultValue(localeName_key)) {
+        m_config->setValue(localeName_key, value);
+    }
     QDBusPendingCall call = m_keyboardDBusProxy->SetLocale(value);
     qDebug() << "setLang is " << value;
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);

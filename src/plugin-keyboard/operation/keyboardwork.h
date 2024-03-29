@@ -17,6 +17,10 @@
 class QDBusPendingCallWatcher;
 class QTranslator;
 
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class KeyboardWorker : public QObject
 {
@@ -119,6 +123,7 @@ private:
     KeyboardDBusProxy *m_keyboardDBusProxy;
     ShortcutModel *m_shortcutModel = nullptr;
     QTranslator *m_translatorLanguage;
+    DTK_CORE_NAMESPACE::DConfig *m_config;
 };
 }
 #endif // KEYBOARDWORK_H
