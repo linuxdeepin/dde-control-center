@@ -242,42 +242,50 @@ void DatetimeWorker::initRegionFormatData()
         m_model->setLocaleName(m_config->value(localeName_key).toString());
     }
     if (m_config->isDefaultValue(firstDayOfWeek_key)) {
-        m_model->setFirstDayOfWeek(m_regionInter->regionFormat(QLocale::system()).firstDayOfWeekFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setFirstDayOfWeek(m_regionInter->regionFormat(locale).firstDayOfWeekFormat);
     } else {
         m_model->setFirstDayOfWeek(m_config->value(firstDayOfWeek_key).toInt());
     }
     if (m_config->isDefaultValue(shortDateFormat_key)) {
-        m_model->setShortDateFormat(m_regionInter->regionFormat(QLocale::system()).shortDateFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setShortDateFormat(m_regionInter->regionFormat(locale).shortDateFormat);
     } else {
         m_model->setShortDateFormat(m_config->value(shortDateFormat_key).toString());
     }
     if (m_config->isDefaultValue(longDateFormat_key)) {
-        m_model->setLongDateFormat(m_regionInter->regionFormat(QLocale::system()).longDateFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setLongDateFormat(m_regionInter->regionFormat(locale).longDateFormat);
     } else {
         m_model->setLongDateFormat(m_config->value(longDateFormat_key).toString());
     }
     if (m_config->isDefaultValue(shortTimeFormat_key)) {
-        m_model->setShortTimeFormat(m_regionInter->regionFormat(QLocale::system()).shortTimeFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setShortTimeFormat(m_regionInter->regionFormat(locale).shortTimeFormat);
     } else {
         m_model->setShortTimeFormat(m_config->value(shortTimeFormat_key).toString());
     }
     if (m_config->isDefaultValue(longTimeFormat_key)) {
-        m_model->setLongTimeFormat(m_regionInter->regionFormat(QLocale::system()).longTimeFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setLongTimeFormat(m_regionInter->regionFormat(locale).longTimeFormat);
     } else {
         m_model->setLongTimeFormat(m_config->value(longTimeFormat_key).toString());
     }
     if (m_config->isDefaultValue(currencyFormat_key)) {
-        m_model->setCurrencyFormat(m_regionInter->regionFormat(QLocale::system()).currencyFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setCurrencyFormat(m_regionInter->regionFormat(locale).currencyFormat);
     } else {
         m_model->setCurrencyFormat(m_config->value(currencyFormat_key).toString());
     }
     if (m_config->isDefaultValue(numberFormat_key)) {
-        m_model->setNumberFormat(m_regionInter->regionFormat(QLocale::system()).numberFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setNumberFormat(m_regionInter->regionFormat(locale).numberFormat);
     } else {
         m_model->setNumberFormat(m_config->value(numberFormat_key).toString());
     }
     if (m_config->isDefaultValue(paperFormat_key)) {
-        m_model->setPaperFormat(m_regionInter->regionFormat(QLocale::system()).paperFormat);
+        QLocale locale(QLocale::system().name());
+        m_model->setPaperFormat(m_regionInter->regionFormat(locale).paperFormat);
     } else {
         m_model->setPaperFormat(m_config->value(paperFormat_key).toString());
     }
