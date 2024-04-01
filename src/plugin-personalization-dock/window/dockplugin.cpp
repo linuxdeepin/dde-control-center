@@ -92,7 +92,6 @@ DockModuleObject::DockModuleObject()
     appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
-    appendChild(new WidgetModule<QCheckBox>("recent", tr("Show recent apps in Dock"), this, &DockModuleObject::initShowRecent));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
 
     m_screen->setBackground(true);
@@ -210,27 +209,6 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
             return;
 
         widget->setCurrentText(g_stateMap.key(hideMode)); });
-}
-
-void DockModuleObject::initShowRecent(QCheckBox *checkBox)
-{
-    if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DockDBusProxy);
-
-    checkBox->blockSignals(true);
-    checkBox->setChecked(m_dbusProxy->showRecent());
-    checkBox->blockSignals(false);
-    checkBox->setText(tr("Show recent apps in Dock"));
-    connect(checkBox, &QCheckBox::toggled, checkBox, [this](bool checked)
-            {
-        m_dbusProxy->blockSignals(true);
-        m_dbusProxy->SetShowRecent(checked);
-        m_dbusProxy->blockSignals(false); });
-    connect(m_dbusProxy.get(), &DockDBusProxy::showRecentChanged, checkBox, [=](bool checked)
-            {
-        checkBox->blockSignals(true);
-        checkBox->setChecked(checked);
-        checkBox->blockSignals(false); });
 }
 
 void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
