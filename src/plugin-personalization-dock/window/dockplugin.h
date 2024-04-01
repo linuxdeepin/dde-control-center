@@ -59,7 +59,6 @@ private Q_SLOTS:
     void initMode(DCC_NAMESPACE::ComboxWidget *widget);
     void initPosition(DCC_NAMESPACE::ComboxWidget *widget);
     void initStatus(DCC_NAMESPACE::ComboxWidget *widget);
-    void initShowRecent(QCheckBox *checkBox);
     void initSizeSlider(DCC_NAMESPACE::TitledSliderItem *slider);
     void initScreenTitle(DCC_NAMESPACE::TitleLabel *label);
     QWidget *initScreen(DCC_NAMESPACE::ModuleObject *module);
