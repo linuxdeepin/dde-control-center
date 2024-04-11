@@ -188,13 +188,13 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
         QString displayCountry = QString::fromStdString(displayCountryIcu);
         QString langRegion = m_regions.key(locale);
         DStandardItem *item = new DStandardItem;
-        QString langCountry = QString("%1 (%2)").arg(displaylanguage).arg(displayCountry);
+        QString langCountry = QString("%1(%2)").arg(displaylanguage).arg(displayCountry);
         QStringList langRegions = langRegion.split(":");
         if (langRegions.size() >= 2
             && (langRegions[0] == "Traditional Chinese"
                 || langRegions[0] == "Simplified Chinese")) {
             langCountry =
-                    QString("%1 (%2)")
+                    QString("%1(%2)")
                             .arg(QCoreApplication::translate("dcc::datetime::Language",
                                                              langRegions.at(0).toUtf8().data()))
                             .arg(QCoreApplication::translate("dcc::datetime::Country",

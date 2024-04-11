@@ -324,7 +324,7 @@ QString RegionModule::getTranslation(const QString &localeName, const QString &l
     if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese") {
 
         QString langCountry =
-                QString("%1 (%2)")
+                QString("%1(%2)")
                         .arg(QCoreApplication::translate("dcc::datetime::Language",
                                                          langRegions.at(0).toUtf8().data()))
                         .arg(QCoreApplication::translate("dcc::datetime::Country",
@@ -343,7 +343,7 @@ QString RegionModule::getTranslation(const QString &localeName, const QString &l
 
     QString displaylanguage = QString::fromStdString(displayLanguageIcu);
     QString displayCountry = QString::fromStdString(displayCountryIcu);
-    QString langCountry = QString("%1 (%2)").arg(displaylanguage).arg(displayCountry);
+    QString langCountry = QString("%1(%2)").arg(displaylanguage).arg(displayCountry);
 
     return langCountry;
 }
