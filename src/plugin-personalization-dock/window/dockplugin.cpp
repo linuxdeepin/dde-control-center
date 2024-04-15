@@ -176,6 +176,17 @@ void DockModuleObject::initPosition(ComboxWidget *widget)
     widget->addBackground();
     widget->setTitle(tr("Location"));
     widget->setComboxOption(QStringList() << tr("Top") << tr("Bottom") << tr("Left") << tr("Right"));
+    if (auto model = qobject_cast<QStandardItemModel *>(widget->comboBox()->model())) {
+        if (QStandardItem *itemTop = model->item(0)) {
+            itemTop->setFlags(itemTop->flags() & ~Qt::ItemIsEnabled);
+        }
+        if (QStandardItem *itemLeft = model->item(2)) {
+            itemLeft->setFlags(itemLeft->flags() & ~Qt::ItemIsEnabled);
+        }
+        if (QStandardItem *itemRight = model->item(3)) {
+            itemRight->setFlags(itemRight->flags() & ~Qt::ItemIsEnabled);
+        }
+    }
     widget->setCurrentText(g_positionMap.key(m_dbusProxy->position()));
     connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
             { m_dbusProxy->setPosition(g_positionMap.value(text)); });
@@ -199,6 +210,12 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
     widget->addBackground();
     widget->setTitle(tr("Status"));
     widget->setComboxOption(QStringList() << tr("Keep shown") << tr("Keep hidden") << tr("Smart hide"));
+    if (auto model = qobject_cast<QStandardItemModel *>(widget->comboBox()->model())) {
+        if (QStandardItem *itemHideSelect = model->item(2)) {
+            itemHideSelect->setFlags(itemHideSelect->flags() & ~Qt::ItemIsEnabled);
+        }
+    }
+
     widget->setCurrentText(g_stateMap.key(m_dbusProxy->hideMode()));
     connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
             { m_dbusProxy->setHideMode(g_stateMap.value(text)); });
