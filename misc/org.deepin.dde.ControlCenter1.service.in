@@ -1,3 +1,4 @@
 [D-BUS Service]
 Name=org.deepin.dde.ControlCenter1
 Exec=@CMAKE_INSTALL_FULL_BINDIR@/dde-control-center -d
+SystemdService=dde-control-center.service

@@ -304,6 +304,21 @@ configure_file(
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
+# systemd service
+if (NOT DEFINED SYSTEMD_USER_UNIT_DIR)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(Systemd REQUIRED systemd)
+    pkg_get_variable(SYSTEMD_USER_UNIT_DIR systemd systemduserunitdir)
+endif()
+
+configure_file(
+    ${CMAKE_SOURCE_DIR}/misc/systemd/dde-control-center.service.in
+    ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center.service
+    @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center.service
+        DESTINATION ${SYSTEMD_USER_UNIT_DIR})
+
 # dev files
 file(GLOB HEADERS "include/*")
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)

@@ -14,7 +14,7 @@ depends=('dtkwidget-git' 'libpwquality' 'doxygen'
          'deepin-pw-check-git' 'qt5-gsettings' 'icu')
 makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 
              'qt5-multimedia' 'qt5-svg' 'dtkcommon-git' 'dtkcore-git' 'dtkwidget-git' 'dtkgui-git'
-             'gtest' 'gmock' 'polkit-qt5')
+             'gtest' 'gmock' 'polkit-qt5' 'systemd')
 optdepends=('redshift: automatic color temperature support')
 # Not packaged: network-manager-l2tp
 conflicts=('deepin-control-center')
