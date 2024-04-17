@@ -7,3 +7,4 @@ usr/share/metainfo
 usr/share/applications/
 usr/share/dbus-1/
 usr/lib/*/dde-grand-search-daemon/plugins/searcher/*
+usr/lib/systemd/user/

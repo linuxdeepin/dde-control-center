@@ -1,0 +1,8 @@
+[Unit]
+Description=DDE Control Center background service
+
+[Service]
+ExecStart=@CMAKE_INSTALL_FULL_BINDIR@/dde-control-center -d
+Type=dbus
+BusName=org.deepin.dde.ControlCenter1
+Slice=app.slice
