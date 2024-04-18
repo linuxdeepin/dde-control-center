@@ -35,8 +35,8 @@ using namespace DCC_NAMESPACE;
 
 enum DisplayMode
 {
-    Fashion = 0,   // 时尚模式
-    Efficient = 1, // 高效模式
+    AlignCenter = 0,   // 时尚模式
+    AlignLeft = 1, // 高效模式
 };
 
 enum Position
@@ -89,7 +89,7 @@ DockModuleObject::DockModuleObject()
     setContentsMargins(0, 0, 0, 0);
 
     appendChild(new ItemModule("title", tr("Dock")));
-    appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
+    appendChild(new WidgetModule<ComboxWidget>("alignment", tr("Alignment"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
@@ -146,12 +146,13 @@ void DockModuleObject::initMode(ComboxWidget *widget)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    static QMap<QString, int> g_modeMap = {{tr("Fashion mode"), Fashion}, {tr("Efficient mode"), Efficient}};
-    widget->setAccessibleName("Mode");
-    widget->comboBox()->setAccessibleName("ModeCombox");
+    static QMap<QString, int> g_modeMap = {{tr("Align center"), AlignCenter}, {tr("Align left"), AlignLeft}};
+    widget->setAccessibleName("Alignment");
+    widget->comboBox()->setAccessibleName("AlignmentCombox");
     widget->addBackground();
-    widget->setTitle(tr("Mode"));
-    widget->setComboxOption(QStringList() << tr("Fashion mode") << tr("Efficient mode"));
+
+    widget->setTitle(tr("Alignment"));
+    widget->setComboxOption(QStringList() << tr("Align center") << tr("Align left"));
     widget->setCurrentText(g_modeMap.key(m_dbusProxy->displayMode()));
     connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
             { m_dbusProxy->setDisplayMode(g_modeMap.value(text)); });
@@ -245,12 +246,12 @@ void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
         auto displayMode = m_dbusProxy->displayMode();
 
         slider->slider()->blockSignals(true);
-        if (displayMode == DisplayMode::Fashion)
+        if (displayMode == DisplayMode::AlignCenter)
         {
             if (int(m_dbusProxy->windowSizeFashion()) != slider->slider()->value())
                 slider->slider()->setValue(int(m_dbusProxy->windowSizeFashion()));
         }
-        else if (displayMode == DisplayMode::Efficient)
+        else if (displayMode == DisplayMode::AlignLeft)
         {
             if (int(m_dbusProxy->windowSizeEfficient()) != slider->slider()->value())
                 slider->slider()->setValue(int(m_dbusProxy->windowSizeEfficient()));
