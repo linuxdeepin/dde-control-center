@@ -423,14 +423,14 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AccountSpinBox</name>
+    <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AccountsModule</name>
+    <name>DCC_NAMESPACE::AccountsModule</name>
     <message>
         <source>Users</source>
         <translation type="unfinished"></translation>
@@ -517,7 +517,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AccountsWorker</name>
+    <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
         <translation type="unfinished"></translation>
@@ -544,7 +544,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AppNotifyWidget</name>
+    <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
         <translation type="unfinished"></translation>
@@ -567,7 +567,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListDialog</name>
+    <name>DCC_NAMESPACE::AvatarListDialog</name>
     <message>
         <source>Person</source>
         <translation type="unfinished"></translation>
@@ -598,7 +598,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListFrame</name>
+    <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
         <translation type="unfinished"></translation>
@@ -609,14 +609,14 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListView</name>
+    <name>DCC_NAMESPACE::AvatarListView</name>
     <message>
         <source>Images</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::BootWidget</name>
+    <name>DCC_NAMESPACE::BootWidget</name>
     <message>
         <source>Updating...</source>
         <translation type="unfinished"></translation>
@@ -701,7 +701,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::BrightnessWidget</name>
+    <name>DCC_NAMESPACE::BrightnessWidget</name>
     <message>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
@@ -736,7 +736,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CommonInfoPlugin</name>
+    <name>DCC_NAMESPACE::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
         <translation type="unfinished"></translation>
@@ -755,7 +755,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CommonInfoWork</name>
+    <name>DCC_NAMESPACE::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation type="unfinished"></translation>
@@ -806,7 +806,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CreateAccountPage</name>
+    <name>DCC_NAMESPACE::CreateAccountPage</name>
     <message>
         <source>Group</source>
         <translation type="unfinished"></translation>
@@ -905,7 +905,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CustomAddAvatarWidget</name>
+    <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
         <translation type="unfinished"></translation>
@@ -920,7 +920,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CustomContentDialog</name>
+    <name>DCC_NAMESPACE::CustomContentDialog</name>
     <message>
         <source>Add Custom Shortcut</source>
         <translation type="unfinished"></translation>
@@ -951,7 +951,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CustomEdit</name>
+    <name>DCC_NAMESPACE::CustomEdit</name>
     <message>
         <source>Required</source>
         <translation type="unfinished"></translation>
@@ -982,7 +982,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CustomItem</name>
+    <name>DCC_NAMESPACE::CustomItem</name>
     <message>
         <source>Shortcut</source>
         <translation type="unfinished"></translation>
@@ -993,7 +993,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::CustomRegionFormatDialog</name>
+    <name>DCC_NAMESPACE::CustomRegionFormatDialog</name>
     <message>
         <source>Custom Format</source>
         <translation type="unfinished"></translation>
@@ -1040,14 +1040,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::DetailInfoItem</name>
-    <message>
-        <source>For more details, visit:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::DeveloperModeDialog</name>
+    <name>DCC_NAMESPACE::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
         <translation type="unfinished"></translation>
@@ -1090,7 +1083,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::DeveloperModeWidget</name>
+    <name>DCC_NAMESPACE::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
         <translation type="unfinished"></translation>
@@ -1145,7 +1138,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::DisplayPlugin</name>
+    <name>DCC_NAMESPACE::DisplayPlugin</name>
     <message>
         <source>Display</source>
         <translation type="unfinished"></translation>
@@ -1156,14 +1149,14 @@
     </message>
 </context>
 <context>
-    <name>dccV23::DouTestWidget</name>
+    <name>DCC_NAMESPACE::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::GeneralKBSettingWidget</name>
+    <name>DCC_NAMESPACE::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
         <translation type="unfinished"></translation>
@@ -1206,7 +1199,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::GeneralSettingWidget</name>
+    <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
         <translation type="unfinished"></translation>
@@ -1233,7 +1226,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::KBLayoutSettingWidget</name>
+    <name>DCC_NAMESPACE::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
@@ -1252,7 +1245,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::KeyboardLayoutDialog</name>
+    <name>DCC_NAMESPACE::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
@@ -1267,7 +1260,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::KeyboardPlugin</name>
+    <name>DCC_NAMESPACE::KeyboardPlugin</name>
     <message>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
@@ -1298,14 +1291,14 @@
     </message>
 </context>
 <context>
-    <name>dccV23::MainWindow</name>
+    <name>DCC_NAMESPACE::MainWindow</name>
     <message>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ModifyPasswdPage</name>
+    <name>DCC_NAMESPACE::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
         <translation type="unfinished"></translation>
@@ -1384,7 +1377,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::MonitorControlWidget</name>
+    <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
         <translation type="unfinished"></translation>
@@ -1399,7 +1392,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::MousePlugin</name>
+    <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
@@ -1418,7 +1411,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::MouseSettingWidget</name>
+    <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
@@ -1445,7 +1438,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::MultiScreenWidget</name>
+    <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
         <translation type="unfinished"></translation>
@@ -1475,7 +1468,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationModule</name>
+    <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
         <translation type="unfinished"></translation>
@@ -1490,7 +1483,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::PalmDetectSetting</name>
+    <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
         <translation type="unfinished"></translation>
@@ -1509,18 +1502,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::PluginManager</name>
-    <message>
-        <source>following plugins load failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::PlyMouthModule</name>
+    <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
         <translation type="unfinished"></translation>
@@ -1535,7 +1517,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::PrivacyPolicyWidget</name>
+    <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
         <translation type="unfinished"></translation>
@@ -1554,7 +1536,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::PwqualityManager</name>
+    <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
         <translation type="unfinished"></translation>
@@ -1605,7 +1587,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::RefreshRateWidget</name>
+    <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
         <translation type="unfinished"></translation>
@@ -1620,7 +1602,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::RegionFormatDialog</name>
+    <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
         <translation type="unfinished"></translation>
@@ -1671,7 +1653,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::RemoveUserDialog</name>
+    <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
         <translation type="unfinished"></translation>
@@ -1690,7 +1672,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::ResolutionWidget</name>
+    <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
@@ -1723,7 +1705,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::RotateWidget</name>
+    <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
         <translation type="unfinished"></translation>
@@ -1747,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::ScalingWidget</name>
+    <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation type="unfinished"></translation>
@@ -1758,21 +1740,21 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SearchInput</name>
+    <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SecondaryScreenDialog</name>
+    <name>DCC_NAMESPACE::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SecurityLevelItem</name>
+    <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
         <translation type="unfinished"></translation>
@@ -1787,7 +1769,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SecurityQuestionsPage</name>
+    <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
         <translation type="unfinished"></translation>
@@ -1858,18 +1840,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::ShortCutSettingWidget</name>
+    <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System</source>
         <translation type="unfinished"></translation>
@@ -1900,7 +1871,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::ShortcutContentDialog</name>
+    <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
         <translation type="unfinished"></translation>
@@ -1919,21 +1890,21 @@
     </message>
 </context>
 <context>
-    <name>dccV23::ShortcutItem</name>
+    <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoModel</name>
+    <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoModule</name>
+    <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"></translation>
@@ -2004,14 +1975,14 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoPlugin</name>
+    <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemLanguageSettingDialog</name>
+    <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
@@ -2026,7 +1997,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SystemLanguageWidget</name>
+    <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
@@ -2045,7 +2016,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::SystemNotifyWidget</name>
+    <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
         <translation type="unfinished"></translation>
@@ -2062,7 +2033,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TimeSlotItem</name>
+    <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
         <translation type="unfinished"></translation>
@@ -2073,7 +2044,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchScreenModule</name>
+    <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
         <translation type="unfinished"></translation>
@@ -2092,7 +2063,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TouchpadSettingWidget</name>
+    <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
@@ -2119,7 +2090,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::TrackPointSettingWidget</name>
+    <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
@@ -2134,7 +2105,7 @@
     </message>
 </context>
 <context>
-    <name>dccV23::UserExperienceProgramWidget</name>
+    <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
         <translation type="unfinished"></translation>
@@ -2226,6 +2197,13 @@
     </message>
 </context>
 <context>
+    <name>DetailInfoItem</name>
+    <message>
+        <source>For more details, visit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DisclaimersDialog</name>
     <message>
         <source>Disclaimer</source>
@@ -2288,19 +2266,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show recent apps in Dock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2316,11 +2286,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fashion mode</source>
+        <source>Align center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Efficient mode</source>
+        <source>Align left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3097,6 +3071,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

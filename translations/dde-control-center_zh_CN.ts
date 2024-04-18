@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterModule</name>
     <message>
@@ -421,1739 +423,1710 @@
     </message>
 </context>
 <context>
-    <name>dccV23::AccountSpinBox</name>
+    <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
-        <translation>长期有效</translation>
+        <translation type="unfinished">长期有效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AccountsModule</name>
+    <name>DCC_NAMESPACE::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation>用户</translation>
+        <translation type="unfinished">用户</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation>用户管理</translation>
+        <translation type="unfinished">用户管理</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation>创建用户</translation>
+        <translation type="unfinished">创建用户</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>用户名</translation>
+        <translation type="unfinished">用户名</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>修改密码</translation>
+        <translation type="unfinished">修改密码</translation>
     </message>
     <message>
         <source>Delete User</source>
-        <translation>删除用户</translation>
+        <translation type="unfinished">删除用户</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation>用户类型</translation>
+        <translation type="unfinished">用户类型</translation>
     </message>
     <message>
         <source>Auto Login</source>
-        <translation>自动登录</translation>
+        <translation type="unfinished">自动登录</translation>
     </message>
     <message>
         <source>Login Without Password</source>
-        <translation>无密码登录</translation>
+        <translation type="unfinished">无密码登录</translation>
     </message>
     <message>
         <source>Validity Days</source>
-        <translation>密码有效天数</translation>
+        <translation type="unfinished">密码有效天数</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation>用户组</translation>
+        <translation type="unfinished">用户组</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>名称过长</translation>
+        <translation type="unfinished">名称过长</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>标准用户</translation>
+        <translation type="unfinished">标准用户</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>管理员</translation>
+        <translation type="unfinished">管理员</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>重置密码</translation>
+        <translation type="unfinished">重置密码</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他用户的全名/用户名重复</translation>
+        <translation type="unfinished">全名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation>设置全名</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go to Settings</source>
-        <translation>前往设置</translation>
+        <translation type="unfinished">前往设置</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>确定</translation>
+        <translation type="unfinished">确定</translation>
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>只允许一个用户开启自动登录，请先关闭%1用户的自动登录，再进行操作</translation>
+        <translation type="unfinished">只允许一个用户开启自动登录，请先关闭%1用户的自动登录，再进行操作</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AccountsWorker</name>
+    <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>您的主机成功退出了域服务器</translation>
+        <translation type="unfinished">您的主机成功退出了域服务器</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>您的主机成功加入了域服务器</translation>
+        <translation type="unfinished">您的主机成功加入了域服务器</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>您的主机退出域服务器失败</translation>
+        <translation type="unfinished">您的主机退出域服务器失败</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>您的主机加入域服务器失败</translation>
+        <translation type="unfinished">您的主机加入域服务器失败</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>AD域设置</translation>
+        <translation type="unfinished">AD域设置</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>密码不一致</translation>
+        <translation type="unfinished">密码不一致</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AppNotifyWidget</name>
+    <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation>允许来自%1的通知，可在屏幕中显示消息横幅，也可在通知中心查看历史未读消息。</translation>
+        <translation type="unfinished">允许来自%1的通知，可在屏幕中显示消息横幅，也可在通知中心查看历史未读消息。</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>通知时提示声音</translation>
+        <translation type="unfinished">通知时提示声音</translation>
     </message>
     <message>
         <source>Show messages on lockscreen</source>
-        <translation>锁屏时显示消息</translation>
+        <translation type="unfinished">锁屏时显示消息</translation>
     </message>
     <message>
         <source>Show in notification center</source>
-        <translation>在通知中心显示</translation>
+        <translation type="unfinished">在通知中心显示</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>显示消息预览</translation>
+        <translation type="unfinished">显示消息预览</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListDialog</name>
+    <name>DCC_NAMESPACE::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation>人物</translation>
+        <translation type="unfinished">人物</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation>动物</translation>
+        <translation type="unfinished">动物</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation>创意插图</translation>
+        <translation type="unfinished">创意插图</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation>表情符号</translation>
+        <translation type="unfinished">表情符号</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation>自定义图片</translation>
+        <translation type="unfinished">自定义图片</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation type="unfinished">保存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListFrame</name>
+    <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation>立体风格</translation>
+        <translation type="unfinished">立体风格</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>平面风格</translation>
+        <translation type="unfinished">平面风格</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AvatarListView</name>
+    <name>DCC_NAMESPACE::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation>图片</translation>
+        <translation type="unfinished">图片</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::BootWidget</name>
+    <name>DCC_NAMESPACE::BootWidget</name>
     <message>
         <source>Updating...</source>
-        <translation>更新中...</translation>
+        <translation type="unfinished">更新中...</translation>
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation>启动延时</translation>
+        <translation type="unfinished">启动延时</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>主题</translation>
+        <translation type="unfinished">主题</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
+        <translation type="unfinished">您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation>您可以点击菜单改变默认启动项</translation>
+        <translation type="unfinished">您可以点击菜单改变默认启动项</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>开启主题后您可以在开机时看到主题背景</translation>
+        <translation type="unfinished">开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
         <source>GRUB Authentication</source>
-        <translation>grub验证</translation>
+        <translation type="unfinished">grub验证</translation>
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
-        <translation>开启后进入grub编辑需要密码</translation>
+        <translation type="unfinished">开启后进入grub编辑需要密码</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>修改密码</translation>
+        <translation type="unfinished">修改密码</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>启动菜单</translation>
+        <translation type="unfinished">启动菜单</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
-        <translation>修改grub验证密码</translation>
+        <translation type="unfinished">修改grub验证密码</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>用户名：</translation>
+        <translation type="unfinished">用户名：</translation>
     </message>
     <message>
         <source>root</source>
-        <translation>root</translation>
+        <translation type="unfinished">root</translation>
     </message>
     <message>
         <source>New password:</source>
-        <translation>新密码：</translation>
+        <translation type="unfinished">新密码：</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>重复密码：</translation>
+        <translation type="unfinished">重复密码：</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>必填</translation>
+        <translation type="unfinished">必填</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation>确定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>密码不能为空</translation>
+        <translation type="unfinished">密码不能为空</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>密码不一致</translation>
+        <translation type="unfinished">密码不一致</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::BrightnessWidget</name>
+    <name>DCC_NAMESPACE::BrightnessWidget</name>
     <message>
         <source>Brightness</source>
-        <translation>亮度</translation>
+        <translation type="unfinished">亮度</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>色温</translation>
+        <translation type="unfinished">色温</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation>自动调节亮度</translation>
+        <translation type="unfinished">自动调节亮度</translation>
     </message>
     <message>
         <source>Night Shift</source>
-        <translation>自动调节色温</translation>
+        <translation type="unfinished">自动调节色温</translation>
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色偏色</translation>
+        <translation type="unfinished">通过获取地理位置来辅助系统实现自动调节屏幕颜色偏色</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation>手动调节</translation>
+        <translation type="unfinished">手动调节</translation>
     </message>
     <message>
         <source>Cool</source>
-        <translation>较冷</translation>
+        <translation type="unfinished">较冷</translation>
     </message>
     <message>
         <source>Warm</source>
-        <translation>较暖</translation>
+        <translation type="unfinished">较暖</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CommonInfoPlugin</name>
+    <name>DCC_NAMESPACE::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
-        <translation>通用</translation>
+        <translation type="unfinished">通用</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>启动菜单</translation>
+        <translation type="unfinished">启动菜单</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation>开发者模式</translation>
+        <translation type="unfinished">开发者模式</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>用户体验计划</translation>
+        <translation type="unfinished">用户体验计划</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CommonInfoWork</name>
+    <name>DCC_NAMESPACE::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>同意并加入用户体验计划</translation>
+        <translation type="unfinished">同意并加入用户体验计划</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>开发者模式免责声明</translation>
+        <translation type="unfinished">开发者模式免责声明</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>同意并进入开发者模式</translation>
+        <translation type="unfinished">同意并进入开发者模式</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>进入开发者模式失败</translation>
+        <translation type="unfinished">进入开发者模式失败</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>请先登录Union ID</translation>
+        <translation type="unfinished">请先登录Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>无法获取硬件信息</translation>
+        <translation type="unfinished">无法获取硬件信息</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>无网络连接</translation>
+        <translation type="unfinished">无网络连接</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>证书加载失败，无法进入开发者模式</translation>
+        <translation type="unfinished">证书加载失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>签名验证失败，无法进入开发者模式</translation>
+        <translation type="unfinished">签名验证失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation>开始设置启动新动画，请稍等一会儿</translation>
+        <translation type="unfinished">开始设置启动新动画，请稍等一会儿</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation>新的启动动画设置完成</translation>
+        <translation type="unfinished">新的启动动画设置完成</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation>新的设置会在重启系统后生效</translation>
+        <translation type="unfinished">新的设置会在重启系统后生效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CreateAccountPage</name>
+    <name>DCC_NAMESPACE::CreateAccountPage</name>
     <message>
         <source>Group</source>
-        <translation>用户组</translation>
+        <translation type="unfinished">用户组</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create</source>
-        <translation>创建</translation>
+        <translation type="unfinished">创建</translation>
     </message>
     <message>
         <source>New User</source>
-        <translation>新用户</translation>
+        <translation type="unfinished">新用户</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation>用户类型</translation>
+        <translation type="unfinished">用户类型</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>用户名</translation>
+        <translation type="unfinished">用户名</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation>全名</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>请输入密码</translation>
+        <translation type="unfinished">请输入密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>重复密码</translation>
+        <translation type="unfinished">重复密码</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation>密码提示</translation>
+        <translation type="unfinished">密码提示</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>名称过长</translation>
+        <translation type="unfinished">名称过长</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>密码不一致</translation>
+        <translation type="unfinished">密码不一致</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>标准用户</translation>
+        <translation type="unfinished">标准用户</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>管理员</translation>
+        <translation type="unfinished">管理员</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>自定义用户</translation>
+        <translation type="unfinished">自定义用户</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>必填</translation>
+        <translation type="unfinished">必填</translation>
     </message>
     <message>
         <source>optional</source>
-        <translation>选填</translation>
+        <translation type="unfinished">选填</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
+        <translation type="unfinished">密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation>认证失败</translation>
+        <translation type="unfinished">认证失败</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>用户名长度必须介于3到32个字符之间</translation>
+        <translation type="unfinished">用户名长度必须介于3到32个字符之间</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>首字符必须为字母或数字</translation>
+        <translation type="unfinished">首字符必须为字母或数字</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>用户名不能只包含数字</translation>
+        <translation type="unfinished">用户名不能只包含数字</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>用户名与其他用户的全名/用户名重复</translation>
+        <translation type="unfinished">用户名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>全名与其他用户的全名/用户名重复</translation>
+        <translation type="unfinished">全名与其他用户的全名/用户名重复</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CustomAddAvatarWidget</name>
+    <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
+        <translation type="unfinished">您还没有上传过头像，可点击或拖拽上传图片</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation>上传的文件类型不正确，请重新上传</translation>
+        <translation type="unfinished">上传的文件类型不正确，请重新上传</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>图片</translation>
+        <translation type="unfinished">图片</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CustomContentDialog</name>
+    <name>DCC_NAMESPACE::CustomContentDialog</name>
     <message>
         <source>Add Custom Shortcut</source>
-        <translation>添加自定义快捷键</translation>
+        <translation type="unfinished">添加自定义快捷键</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation type="unfinished">名称</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>必填</translation>
+        <translation type="unfinished">必填</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation>命令</translation>
+        <translation type="unfinished">命令</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation type="unfinished">添加</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
+        <translation type="unfinished">此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CustomEdit</name>
+    <name>DCC_NAMESPACE::CustomEdit</name>
     <message>
         <source>Required</source>
-        <translation>必填</translation>
+        <translation type="unfinished">必填</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation type="unfinished">保存</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>快捷键</translation>
+        <translation type="unfinished">快捷键</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation type="unfinished">名称</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation>命令</translation>
+        <translation type="unfinished">命令</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
+        <translation type="unfinished">此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CustomItem</name>
+    <name>DCC_NAMESPACE::CustomItem</name>
     <message>
         <source>Shortcut</source>
-        <translation>快捷键</translation>
+        <translation type="unfinished">快捷键</translation>
     </message>
     <message>
         <source>Please enter a shortcut</source>
-        <translation>请输入快捷键</translation>
+        <translation type="unfinished">请输入快捷键</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::CustomRegionFormatDialog</name>
+    <name>DCC_NAMESPACE::CustomRegionFormatDialog</name>
     <message>
         <source>Custom Format</source>
-        <translation>自定义格式</translation>
+        <translation type="unfinished">自定义格式</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>一周第一天</translation>
+        <translation type="unfinished">一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>短日期</translation>
+        <translation type="unfinished">短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>长日期</translation>
+        <translation type="unfinished">长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>短时间</translation>
+        <translation type="unfinished">短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>长时间</translation>
+        <translation type="unfinished">长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>货币符号</translation>
+        <translation type="unfinished">货币符号</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation>数字</translation>
+        <translation type="unfinished">数字</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>纸张</translation>
+        <translation type="unfinished">纸张</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取 消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保 存</translation>
+        <translation type="unfinished">保存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::DetailInfoItem</name>
-    <message>
-        <source>For more details, visit:</source>
-        <translation>有关本次更新的详细内容可访问：</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::DeveloperModeDialog</name>
+    <name>DCC_NAMESPACE::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
-        <translation>进入开发者模式</translation>
+        <translation type="unfinished">进入开发者模式</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>在线激活</translation>
+        <translation type="unfinished">在线激活</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>离线激活</translation>
+        <translation type="unfinished">离线激活</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation>进入开发者模式需要登录Union ID</translation>
+        <translation type="unfinished">进入开发者模式需要登录Union ID</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>下一步</translation>
+        <translation type="unfinished">下一步</translation>
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation>导出机器信息</translation>
+        <translation type="unfinished">导出机器信息</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>导入证书</translation>
+        <translation type="unfinished">导入证书</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
-        <translation>1. 导出机器信息</translation>
+        <translation type="unfinished">1. 导出机器信息</translation>
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation>2. 前往https://www.chinauos.com/developMode 下载离线证书</translation>
+        <translation type="unfinished">2. 前往https://www.chinauos.com/developMode 下载离线证书</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation>3. 导入证书</translation>
+        <translation type="unfinished">3. 导入证书</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::DeveloperModeWidget</name>
+    <name>DCC_NAMESPACE::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
-        <translation>进入开发者模式</translation>
+        <translation type="unfinished">进入开发者模式</translation>
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
+        <translation type="unfinished">进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>当前系统未激活，暂无法使用该功能</translation>
+        <translation type="unfinished">当前系统未激活，暂无法使用该功能</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>进入开发者模式失败</translation>
+        <translation type="unfinished">进入开发者模式失败</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>请先登录Union ID</translation>
+        <translation type="unfinished">请先登录Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>无法获取硬件信息</translation>
+        <translation type="unfinished">无法获取硬件信息</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>无网络连接</translation>
+        <translation type="unfinished">无网络连接</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>证书加载失败，无法进入开发者模式</translation>
+        <translation type="unfinished">证书加载失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>签名验证失败，无法进入开发者模式</translation>
+        <translation type="unfinished">签名验证失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>开发者模式部分功能需要重启后生效，是否立即重启？</translation>
+        <translation type="unfinished">开发者模式部分功能需要重启后生效，是否立即重启？</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>现在重启</translation>
+        <translation type="unfinished">现在重启</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation>已进入开发者模式</translation>
+        <translation type="unfinished">已进入开发者模式</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::DisplayPlugin</name>
+    <name>DCC_NAMESPACE::DisplayPlugin</name>
     <message>
         <source>Display</source>
-        <translation>显示</translation>
+        <translation type="unfinished">显示</translation>
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation>亮度、分辨率、缩放设置等</translation>
+        <translation type="unfinished">亮度、分辨率、缩放设置等</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::DouTestWidget</name>
+    <name>DCC_NAMESPACE::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation>双击测试</translation>
+        <translation type="unfinished">双击测试</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::GeneralKBSettingWidget</name>
+    <name>DCC_NAMESPACE::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>键盘设置</translation>
+        <translation type="unfinished">键盘设置</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation>重复延迟</translation>
+        <translation type="unfinished">重复延迟</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>短</translation>
+        <translation type="unfinished">短</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>长</translation>
+        <translation type="unfinished">长</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation>重复速度</translation>
+        <translation type="unfinished">重复速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="unfinished">慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="unfinished">快</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation>请在此测试</translation>
+        <translation type="unfinished">请在此测试</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>启用数字键盘</translation>
+        <translation type="unfinished">启用数字键盘</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation>大写锁定提示</translation>
+        <translation type="unfinished">大写锁定提示</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::GeneralSettingWidget</name>
+    <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation>左手模式</translation>
+        <translation type="unfinished">左手模式</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation>输入时禁用触控板</translation>
+        <translation type="unfinished">输入时禁用触控板</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation>滚动速度</translation>
+        <translation type="unfinished">滚动速度</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation>双击速度</translation>
+        <translation type="unfinished">双击速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="unfinished">慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="unfinished">快</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::KBLayoutSettingWidget</name>
+    <name>DCC_NAMESPACE::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation>键盘布局</translation>
+        <translation type="unfinished">键盘布局</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>编 辑</translation>
+        <translation type="unfinished">编 辑</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation>添加键盘布局</translation>
+        <translation type="unfinished">添加键盘布局</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation type="unfinished">完成</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::KeyboardLayoutDialog</name>
+    <name>DCC_NAMESPACE::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation type="unfinished">添加</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation>添加键盘布局</translation>
+        <translation type="unfinished">添加键盘布局</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::KeyboardPlugin</name>
+    <name>DCC_NAMESPACE::KeyboardPlugin</name>
     <message>
         <source>Keyboard and Language</source>
-        <translation>键盘和语言</translation>
+        <translation type="unfinished">键盘和语言</translation>
     </message>
     <message>
         <source>Keyboard</source>
-        <translation>键盘</translation>
+        <translation type="unfinished">键盘</translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>键盘设置</translation>
+        <translation type="unfinished">键盘设置</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation>键盘布局</translation>
+        <translation type="unfinished">键盘布局</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation>键盘布局</translation>
+        <translation type="unfinished">键盘布局</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation>语言</translation>
+        <translation type="unfinished">语言</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation>快捷键</translation>
+        <translation type="unfinished">快捷键</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::MainWindow</name>
+    <name>DCC_NAMESPACE::MainWindow</name>
     <message>
         <source>Help</source>
-        <translation>帮助</translation>
+        <translation type="unfinished">帮助</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ModifyPasswdPage</name>
+    <name>DCC_NAMESPACE::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
-        <translation>修改密码</translation>
+        <translation type="unfinished">修改密码</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>重置密码</translation>
+        <translation type="unfinished">重置密码</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>重设密码将会清除密钥环内已存储的数据</translation>
+        <translation type="unfinished">重设密码将会清除密钥环内已存储的数据</translation>
     </message>
     <message>
         <source>Current Password</source>
-        <translation>当前密码</translation>
+        <translation type="unfinished">当前密码</translation>
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation>忘记密码？</translation>
+        <translation type="unfinished">忘记密码？</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation>新密码</translation>
+        <translation type="unfinished">新密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>重复密码</translation>
+        <translation type="unfinished">重复密码</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation>密码提示</translation>
+        <translation type="unfinished">密码提示</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation type="unfinished">保存</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>密码不一致</translation>
+        <translation type="unfinished">密码不一致</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>必填</translation>
+        <translation type="unfinished">必填</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>选填</translation>
+        <translation type="unfinished">选填</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>密码不能为空</translation>
+        <translation type="unfinished">密码不能为空</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
+        <translation type="unfinished">密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>密码错误</translation>
+        <translation type="unfinished">密码错误</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>新密码和旧密码不能相同</translation>
+        <translation type="unfinished">新密码和旧密码不能相同</translation>
     </message>
     <message>
         <source>System error</source>
-        <translation>系统错误</translation>
+        <translation type="unfinished">系统错误</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation>网络错误</translation>
+        <translation type="unfinished">网络错误</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::MonitorControlWidget</name>
+    <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation>识别</translation>
+        <translation type="unfinished">识别</translation>
     </message>
     <message>
         <source>Gather Windows</source>
-        <translation>集合窗口</translation>
+        <translation type="unfinished">集合窗口</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>屏幕拼接将在修改完成%1s后生效</translation>
+        <translation type="unfinished">屏幕拼接将在修改完成%1s后生效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::MousePlugin</name>
+    <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation>鼠标</translation>
+        <translation type="unfinished">鼠标</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>通用</translation>
+        <translation type="unfinished">通用</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>触控板</translation>
+        <translation type="unfinished">触控板</translation>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation>指点杆</translation>
+        <translation type="unfinished">指点杆</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::MouseSettingWidget</name>
+    <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>指针速度</translation>
+        <translation type="unfinished">指针速度</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>鼠标加速</translation>
+        <translation type="unfinished">鼠标加速</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>插入鼠标时禁用触控板</translation>
+        <translation type="unfinished">插入鼠标时禁用触控板</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>自然滚动</translation>
+        <translation type="unfinished">自然滚动</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="unfinished">慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="unfinished">快</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::MultiScreenWidget</name>
+    <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation>多屏显示设置</translation>
+        <translation type="unfinished">多屏显示设置</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation type="unfinished">模式</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>主屏幕</translation>
+        <translation type="unfinished">主屏幕</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>复制</translation>
+        <translation type="unfinished">复制</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>扩展</translation>
+        <translation type="unfinished">扩展</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>仅%1屏</translation>
+        <translation type="unfinished">仅%1屏</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::NotificationModule</name>
+    <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation>应用通知</translation>
+        <translation type="unfinished">应用通知</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>通知</translation>
+        <translation type="unfinished">通知</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation>系统通知</translation>
+        <translation type="unfinished">系统通知</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::PalmDetectSetting</name>
+    <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation>掌压检测</translation>
+        <translation type="unfinished">掌压检测</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation>最小接触面</translation>
+        <translation type="unfinished">最小接触面</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation>最小压力值</translation>
+        <translation type="unfinished">最小压力值</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>开启后若导致触控板不可用，请关闭此选项即可</translation>
+        <translation type="unfinished">开启后若导致触控板不可用，请关闭此选项即可</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::PluginManager</name>
-    <message>
-        <source>following plugins load failed</source>
-        <translation>以下插件加载失败</translation>
-    </message>
-    <message>
-        <source>plugins cannot loaded in time</source>
-        <translation>插件没有及时加载</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::PlyMouthModule</name>
+    <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation>启动动画</translation>
+        <translation type="unfinished">启动动画</translation>
     </message>
     <message>
         <source>Small Size</source>
-        <translation>小尺寸</translation>
+        <translation type="unfinished">小尺寸</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation>大尺寸</translation>
+        <translation type="unfinished">大尺寸</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::PrivacyPolicyWidget</name>
+    <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>隐私政策</translation>
+        <translation type="unfinished">隐私政策</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
+        <translation type="unfinished">https://www.deepin.org/zh/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
+        <translation type="unfinished">https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;点击此处&lt;/a&gt;查看我们最新的隐私政策和/或通过访问 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p&gt;</translation>
+        <translation type="unfinished">&lt;p&gt;统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;点击此处&lt;/a&gt;查看我们最新的隐私政策和/或通过访问 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::PwqualityManager</name>
+    <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>密码不能为空</translation>
+        <translation type="unfinished">密码不能为空</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>密码长度不能少于%1个字符</translation>
+        <translation type="unfinished">密码长度不能少于%1个字符</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>密码长度不能超过%1个字符</translation>
+        <translation type="unfinished">密码长度不能超过%1个字符</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
+        <translation type="unfinished">密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>回文字符长度不超过%1位</translation>
+        <translation type="unfinished">回文字符长度不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>单调性字符不超过%1位</translation>
+        <translation type="unfinished">单调性字符不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>重复字符不超过%1位</translation>
+        <translation type="unfinished">重复字符不超过%1位</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
+        <translation type="unfinished">密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>密码不得含有连续4个以上的回文字符</translation>
+        <translation type="unfinished">密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>密码不能是常见单词及组合</translation>
+        <translation type="unfinished">密码不能是常见单词及组合</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>密码过于简单，请增加密码复杂度</translation>
+        <translation type="unfinished">密码过于简单，请增加密码复杂度</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>密码不符合安全要求</translation>
+        <translation type="unfinished">密码不符合安全要求</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::RefreshRateWidget</name>
+    <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation>刷新率</translation>
+        <translation type="unfinished">刷新率</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation>赫兹</translation>
+        <translation type="unfinished">赫兹</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation>推荐</translation>
+        <translation type="unfinished">推荐</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::RegionFormatDialog</name>
+    <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation>区域格式</translation>
+        <translation type="unfinished">区域格式</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation>默认格式</translation>
+        <translation type="unfinished">默认格式</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation>一周第一天</translation>
+        <translation type="unfinished">一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>短日期</translation>
+        <translation type="unfinished">短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>长日期</translation>
+        <translation type="unfinished">长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>短时间</translation>
+        <translation type="unfinished">短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>长时间</translation>
+        <translation type="unfinished">长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>货币符号</translation>
+        <translation type="unfinished">货币符号</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation>数字</translation>
+        <translation type="unfinished">数字</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>纸张</translation>
+        <translation type="unfinished">纸张</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取 消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保 存</translation>
+        <translation type="unfinished">保存</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::RemoveUserDialog</name>
+    <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>您确定要删除此用户吗？</translation>
+        <translation type="unfinished">您确定要删除此用户吗？</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>删除用户目录</translation>
+        <translation type="unfinished">删除用户目录</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation type="unfinished">删除</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ResolutionWidget</name>
+    <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation>分辨率</translation>
+        <translation type="unfinished">分辨率</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>桌面显示</translation>
+        <translation type="unfinished">桌面显示</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation>默认</translation>
+        <translation type="unfinished">默认</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>适应</translation>
+        <translation type="unfinished">适应</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>拉伸</translation>
+        <translation type="unfinished">拉伸</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>居中</translation>
+        <translation type="unfinished">居中</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation>推荐</translation>
+        <translation type="unfinished">推荐</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::RotateWidget</name>
+    <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation>方向</translation>
+        <translation type="unfinished">方向</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation>标准</translation>
+        <translation type="unfinished">标准</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation>90度</translation>
+        <translation type="unfinished">90度</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation>180度</translation>
+        <translation type="unfinished">180度</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation>270度</translation>
+        <translation type="unfinished">270度</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ScalingWidget</name>
+    <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>当前屏幕仅支持1倍缩放</translation>
+        <translation type="unfinished">当前屏幕仅支持1倍缩放</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>屏幕缩放</translation>
+        <translation type="unfinished">屏幕缩放</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SearchInput</name>
+    <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation>搜索</translation>
+        <translation type="unfinished">搜索</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SecondaryScreenDialog</name>
+    <name>DCC_NAMESPACE::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
-        <translation>亮度</translation>
+        <translation type="unfinished">亮度</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SecurityLevelItem</name>
+    <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation>强度低</translation>
+        <translation type="unfinished">强度低</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>强度中</translation>
+        <translation type="unfinished">强度中</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>强度高</translation>
+        <translation type="unfinished">强度高</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SecurityQuestionsPage</name>
+    <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation>安全问题</translation>
+        <translation type="unfinished">安全问题</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation>忘记密码时，可使用安全问题重置密码。</translation>
+        <translation type="unfinished">忘记密码时，可使用安全问题重置密码。</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation>安全问题1</translation>
+        <translation type="unfinished">安全问题1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation>安全问题2</translation>
+        <translation type="unfinished">安全问题2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation>安全问题3</translation>
+        <translation type="unfinished">安全问题3</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation>答案请保持在30个字符以内</translation>
+        <translation type="unfinished">答案请保持在30个字符以内</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation>不能选择重复的问题</translation>
+        <translation type="unfinished">不能选择重复的问题</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation>请选择安全问题</translation>
+        <translation type="unfinished">请选择安全问题</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation>您出生城市的名称是什么？</translation>
+        <translation type="unfinished">您出生城市的名称是什么？</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation>您的母校名称是什么？</translation>
+        <translation type="unfinished">您的母校名称是什么？</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation>您最爱的人是谁？</translation>
+        <translation type="unfinished">您最爱的人是谁？</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation>您最喜欢的动物是什么？</translation>
+        <translation type="unfinished">您最喜欢的动物是什么？</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation>您最喜欢的音乐是什么？</translation>
+        <translation type="unfinished">您最喜欢的音乐是什么？</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation>您的绰号是什么？</translation>
+        <translation type="unfinished">您的绰号是什么？</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation>内容不能为空</translation>
+        <translation type="unfinished">内容不能为空</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation>编 辑</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation>完成</translation>
-    </message>
-</context>
-<context>
-    <name>dccV23::ShortCutSettingWidget</name>
+    <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System</source>
-        <translation>系统管理</translation>
+        <translation type="unfinished">系统管理</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>窗口</translation>
+        <translation type="unfinished">窗口</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>工作区</translation>
+        <translation type="unfinished">工作区</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation>辅助功能</translation>
+        <translation type="unfinished">辅助功能</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation>自定义快捷键</translation>
+        <translation type="unfinished">自定义快捷键</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation>恢复默认</translation>
+        <translation type="unfinished">恢复默认</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>快捷键</translation>
+        <translation type="unfinished">快捷键</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ShortcutContentDialog</name>
+    <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation>请重新设置快捷键</translation>
+        <translation type="unfinished">请重新设置快捷键</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation type="unfinished">替换</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
+        <translation type="unfinished">此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::ShortcutItem</name>
+    <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation>请输入新的快捷键</translation>
+        <translation type="unfinished">请输入新的快捷键</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoModel</name>
+    <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>可用</translation>
+        <translation type="unfinished">可用</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoModule</name>
+    <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation>关于本机</translation>
+        <translation type="unfinished">关于本机</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation>计算机名</translation>
+        <translation type="unfinished">计算机名</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation>系统信息</translation>
+        <translation type="unfinished">系统信息</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>产品名称</translation>
+        <translation type="unfinished">产品名称</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>版本号</translation>
+        <translation type="unfinished">版本号</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation>版本</translation>
+        <translation type="unfinished">版本</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation type="unfinished">类型</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation>版本授权</translation>
+        <translation type="unfinished">版本授权</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation>处理器</translation>
+        <translation type="unfinished">处理器</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>内存</translation>
+        <translation type="unfinished">内存</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>图形平台</translation>
+        <translation type="unfinished">图形平台</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>内核版本</translation>
+        <translation type="unfinished">内核版本</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation>协议与隐私政策</translation>
+        <translation type="unfinished">协议与隐私政策</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation>版本协议</translation>
+        <translation type="unfinished">版本协议</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>最终用户许可协议</translation>
+        <translation type="unfinished">最终用户许可协议</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>隐私政策</translation>
+        <translation type="unfinished">隐私政策</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation>%1位</translation>
+        <translation type="unfinished">%1位</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemInfoPlugin</name>
+    <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation>系统信息</translation>
+        <translation type="unfinished">系统信息</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemLanguageSettingDialog</name>
+    <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation type="unfinished">添加</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation>添加系统语言</translation>
+        <translation type="unfinished">添加系统语言</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemLanguageWidget</name>
+    <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation>编 辑</translation>
+        <translation type="unfinished">编 辑</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation>语言列表</translation>
+        <translation type="unfinished">语言列表</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation>添加语言</translation>
+        <translation type="unfinished">添加语言</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation type="unfinished">完成</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::SystemNotifyWidget</name>
+    <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation>勿扰模式</translation>
+        <translation type="unfinished">勿扰模式</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
+        <translation type="unfinished">所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>在屏幕锁屏时</translation>
+        <translation type="unfinished">在屏幕锁屏时</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::TimeSlotItem</name>
+    <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation>从</translation>
+        <translation type="unfinished">从</translation>
     </message>
     <message>
         <source>To</source>
-        <translation>到</translation>
+        <translation type="unfinished">到</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::TouchScreenModule</name>
+    <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation>触控屏</translation>
+        <translation type="unfinished">触控屏</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation>您可在接入触控屏时设置所在屏幕，或在此进行调整。</translation>
+        <translation type="unfinished">您可在接入触控屏时设置所在屏幕，或在此进行调整。</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV23::TouchpadSettingWidget</name>
+    <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>指针速度</translation>
+        <translation type="unfinished">指针速度</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation>启用触控板</translation>
+        <translation type="unfinished">启用触控板</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>轻触以点击</translation>
+        <translation type="unfinished">轻触以点击</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>自然滚动</translation>
+        <translation type="unfinished">自然滚动</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="unfinished">慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="unfinished">快</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::TrackPointSettingWidget</name>
+    <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>指针速度</translation>
+        <translation type="unfinished">指针速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="unfinished">慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="unfinished">快</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::UserExperienceProgramWidget</name>
+    <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>加入用户体验计划</translation>
+        <translation type="unfinished">加入用户体验计划</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
+        <translation type="unfinished">https://www.deepin.org/zh/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
+        <translation type="unfinished">https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
+        <translation type="unfinished">&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
+        <translation type="unfinished">&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2224,6 +2197,13 @@
     </message>
 </context>
 <context>
+    <name>DetailInfoItem</name>
+    <message>
+        <source>For more details, visit:</source>
+        <translation type="unfinished">有关本次更新的详细内容可访问：</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimersDialog</name>
     <message>
         <source>Disclaimer</source>
@@ -2257,7 +2237,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -2300,20 +2280,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>任务栏位置</translation>
     </message>
     <message>
-        <source>Mode</source>
-        <translation>模式</translation>
-    </message>
-    <message>
         <source>Position</source>
         <translation>位置</translation>
     </message>
     <message>
         <source>Status</source>
         <translation>状态</translation>
-    </message>
-    <message>
-        <source>Show recent apps in Dock</source>
-        <translation>显示最近使用应用</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2326,14 +2298,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>选择显示在任务栏插件区域的图标</translation>
-    </message>
-    <message>
-        <source>Fashion mode</source>
-        <translation>时尚模式</translation>
-    </message>
-    <message>
-        <source>Efficient mode</source>
-        <translation>高效模式</translation>
     </message>
     <message>
         <source>Top</source>
@@ -2382,6 +2346,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Only on main screen</source>
         <translation>仅主屏显示</translation>
+    </message>
+    <message>
+        <source>Align center</source>
+        <translation>居中</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation>靠左</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>应用布局</translation>
     </message>
 </context>
 <context>
@@ -3110,6 +3086,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>No apps requested access to Screen Capture</source>
         <translation>暂无应用请求使用屏幕截图权限</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">编 辑</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">完成</translation>
     </message>
 </context>
 <context>
