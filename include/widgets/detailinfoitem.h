@@ -35,6 +35,9 @@ public:
     void setLinkData(QString data);
     void setDetailData(QString data);
 
+private Q_SLOTS:
+    void onThemeChanged();
+
 private:
     Dtk::Widget::DLabel *m_dateLabel;
     Dtk::Widget::DLabel *m_explainTitle;

@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatecontrolpanel.h"
+#include "common.h"
 
 #include <DFloatingButton>
 #include <DCommandLinkButton>
@@ -200,7 +201,7 @@ void updateControlPanel::setDetail(QString detail)
 {
     m_detailLabel->setVisible(!detail.isEmpty());
     if (!detail.isEmpty()) {
-        m_detailLabel->setText(detail);
+        m_detailLabel->setText(htmlToCorrectColor(detail));
     }
 }
 
@@ -389,5 +390,10 @@ void updateControlPanel::initConnect()
     connect(m_showMoreBUtton, &DCommandLinkButton::clicked, this, &updateControlPanel::showDetail);
     connect(m_updateButton, &DCommandLinkButton::clicked, this, &updateControlPanel::onStartUpdate);
     connect(m_startButton, &DIconButton::clicked, this, &updateControlPanel::onButtonClicked);
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &updateControlPanel::onThemeChanged);
 }
 
+void updateControlPanel::onThemeChanged()
+{
+    m_detailLabel->setText(htmlToCorrectColor(m_detailLabel->text()));
+}

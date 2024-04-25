@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/detailinfoitem.h"
+#include "src/plugin-update/operation/common.h"
 #include "widgets/accessibleinterface.h"
 
 #include <DFontSizeManager>
@@ -24,6 +25,8 @@ DetailInfoItem::DetailInfoItem(QWidget *parent)
     , m_title(new DLabel(this))
 {
     initUi();
+
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &DetailInfoItem::onThemeChanged);
 }
 
 void DetailInfoItem::initUi()
@@ -116,6 +119,10 @@ void DetailInfoItem::setLinkData(QString data)
 void DetailInfoItem::setDetailData(QString data)
 {
     m_dataLable->clear();
-    m_dataLable->setText(data);
+    m_dataLable->setText(htmlToCorrectColor(data));
 }
 
+void DetailInfoItem::onThemeChanged()
+{
+    m_dataLable->setText(htmlToCorrectColor(m_dataLable->text()));
+}
