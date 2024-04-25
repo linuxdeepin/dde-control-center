@@ -92,6 +92,9 @@ public Q_SLOTS:
     void setProgressValue(int value);
     void setButtonIcon(ButtonStatus status);
 
+private Q_SLOTS:
+    void onThemeChanged();
+
 private:
     DTK_WIDGET_NAMESPACE::DLabel *m_titleLable;
     DTK_WIDGET_NAMESPACE::DLabel *m_versionLabel;

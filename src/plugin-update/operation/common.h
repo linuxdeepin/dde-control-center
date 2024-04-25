@@ -7,6 +7,7 @@
 #include <QRegularExpression>
 
 #include <DSysInfo>
+#include <DGuiApplicationHelper>
 
 #include <QString>
 
@@ -163,6 +164,33 @@ enum CanExitTestingChannelStatus {
         v.push_back(match.captured(0).toDouble());
     }
     return v;
+}
+
+[[maybe_unused]] static QString htmlToCorrectColor(const QString &data)
+{
+    const auto colorType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
+    const QString &textColor = (colorType == Dtk::Gui::DGuiApplicationHelper::LightType) ? "rgba(0, 0, 0, 0.6)" : "rgba(255, 255, 255, 0.6)";
+    const QString colorRegexPattern("(background-color:\\s*rgba?\\((\\s*\\d+\\s*),\\s*(\\s*\\d+\\s*),\\s*(\\s*\\d+\\s*)(?:,\\s*(?:\\d*\\.)?\\d+\\s*)?\\);)|(rgba?\\((\\s*\\d+\\s*),\\s*(\\s*\\d+\\s*),\\s*(\\s*\\d+\\s*)(?:,\\s*(?:\\d*\\.)?\\d+\\s*)?\\))");
+
+    QRegularExpression regex(colorRegexPattern);
+
+    QString result;
+    result.reserve(data.size());
+
+    int lastMatchEnd = 0;
+    for (auto it = regex.globalMatch(data); it.hasNext(); ) {
+        auto match = it.next();
+        if (match.hasMatch() && match.captured(1).isEmpty()) { // 匹配到文字颜色，替换
+            result.append(data.midRef(lastMatchEnd, match.capturedStart() - lastMatchEnd));
+            result.append(textColor);
+        } else { // 匹配到背景颜色，删除
+            result.append(data.midRef(lastMatchEnd, match.capturedStart() - lastMatchEnd));
+        }
+        lastMatchEnd = match.capturedEnd();
+    }
+    result.append(data.midRef(lastMatchEnd));
+
+    return result;
 }
 
 #endif // COMMON_H
