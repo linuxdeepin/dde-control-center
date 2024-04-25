@@ -329,7 +329,7 @@ void UseBatteryModule::initUI()
             Q_UNUSED(module)
             DSwitchButton *powerShowTimeToFull = new DSwitchButton();
             // depend dock dconfig setting "showtimetofull"
-            DConfig *cfgDock = DConfig::create("dde-dock", "org.deepin.dde.dock.power", QString(), powerShowTimeToFull);
+            DConfig *cfgDock = DConfig::create("org.deepin.ds.dock", "org.deepin.ds.dock.power", QString(), powerShowTimeToFull);
             powerShowTimeToFull->setChecked(cfgDock->value("showtimetofull").toBool());
             connect(powerShowTimeToFull, &DSwitchButton::checkedChanged, powerShowTimeToFull, [cfgDock, powerShowTimeToFull] (){
                 // 保存设置值
