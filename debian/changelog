@@ -1,3 +1,9 @@
+dde-control-center (6.0.52) unstable; urgency=medium
+
+  * fix: upgrade information mismatch with dark mode(Issue: https://github.com/linuxdeepin/developer-center/issues/7996)
+
+ -- Zhang kun <zhangkun2@uniontech.com>  Fri, 26 Apr 2024 13:30:56 +0800
+
 dde-control-center (6.0.51) unstable; urgency=medium
 
   * feat: Update performance mode listview style
