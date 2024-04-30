@@ -63,7 +63,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->setSpacing(List_Interval);
-    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_contentLayout->addWidget(m_touchMoveSlider);
     m_contentLayout->addWidget(m_touchClickStn);
     m_contentLayout->addWidget(m_touchNaturalScroll);
@@ -72,7 +72,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
 
     QWidget *widget = new QWidget(this);
     widget->setAccessibleName("TouchpadSettingWidget_widget");
-    widget->setContentsMargins(0, 0, 0, 0);
+    widget->setContentsMargins(2, 2, 2, 5);
     widget->setLayout(m_contentLayout);
     m_contentWidget = new ContentWidget(this);
     m_contentWidget->setAccessibleName("ShortCutSettingWidget_ContentWidget");
