@@ -63,7 +63,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->setSpacing(List_Interval);
-    m_contentLayout->setContentsMargins(0, 0, 0, 0);
+    m_contentLayout->setContentsMargins(ThirdPageCmbMargins);
     m_contentLayout->addWidget(m_touchMoveSlider);
     m_contentLayout->addWidget(m_touchClickStn);
     m_contentLayout->addWidget(m_touchNaturalScroll);
