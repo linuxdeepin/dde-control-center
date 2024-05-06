@@ -153,7 +153,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addCustomShortcut);
     vlayout->addLayout(btnLayout);
-    vlayout->setContentsMargins(10, 10, 10, 0); //liwl,2024/05/06
+    vlayout->setContentsMargins(10, 10, 10, 0);
     setLayout(vlayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
