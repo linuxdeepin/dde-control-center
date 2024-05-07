@@ -86,7 +86,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     btnLayout->addWidget(addLayout);
     vLayout->addLayout(btnLayout);
     vLayout->setSpacing(0);
-    vLayout->setContentsMargins(0, 10, 0, 5);
+    vLayout->setContentsMargins(0, 10, 0, 0);
     setLayout(vLayout);
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
