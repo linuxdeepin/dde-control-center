@@ -294,5 +294,5 @@ void UpdateDBusProxy::commit(const QString &commitDate)
 
 bool UpdateDBusProxy::atomBackupIsRunning()
 {
-    return qvariant_cast<bool>(m_atomicUpgradeInter->property("HasAmbientLightSensor"));
+    return qvariant_cast<bool>(m_atomicUpgradeInter->property("Running"));
 }
