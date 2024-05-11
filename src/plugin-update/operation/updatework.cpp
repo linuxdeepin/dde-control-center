@@ -737,7 +737,12 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
                            << " == start Atomic Upgrade == ";
     // 条件不足 1. 分区空间 就是 state = -2    2.  分区格式不支持仓库存储（忽略） 3.
     // 第二更新后的失败更新
-    if (!m_updateInter->atomBackupIsRunning()) {
+
+    DConfig updateSettings(QStringLiteral("org.deepin.dde.control-center.update"));
+    auto var = updateSettings.value("backup");
+    bool shouldBackUp = var.isValid() ? var.toBool() : true;
+    bool isatomBackupIsRunning = m_updateInter->atomBackupIsRunning();
+    if (!isatomBackupIsRunning && shouldBackUp) {
         backupToAtomicUpgrade();
     } else {
         // 系统环境配置不满足,则直接跳到下一步下载数据
@@ -812,9 +817,11 @@ void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
 
 QString UpdateWorker::getUpdateLogAddress() const
 {
+    QObject raii;
     const DConfig *dconfig =
             DConfig::create("org.deepin.dde.control-center",
-                            QStringLiteral("org.deepin.dde.control-center.update"));
+                            QStringLiteral("org.deepin.dde.control-center.update"),
+                            QString(), &raii);
     if (dconfig && dconfig->isValid()) {
         const QString &updateLogAddress = dconfig->value("updateLogAddress").toString();
         if (!updateLogAddress.isEmpty()) {

@@ -13,5 +13,16 @@
             "permissions": "readonly",
             "visibility": "private"
         }
-    }
+    },
+    "backup": {
+            "value": true,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "backup to atomic upgrade ",
+            "name[zh_CN]": "备份",
+            "description[zh_CN]": "更新时是否备份",
+            "description": "Configure whether backup to atomic upgrade",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
   }
