@@ -294,7 +294,7 @@ file(GLOB QM_FILES "translations/*.qm")
 install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 
 #desktop
-install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(FILES misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 #service
 configure_file(
@@ -313,10 +313,10 @@ endif()
 
 configure_file(
     ${CMAKE_SOURCE_DIR}/misc/systemd/dde-control-center.service.in
-    ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center.service
+    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
     @ONLY)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center.service
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
         DESTINATION ${SYSTEMD_USER_UNIT_DIR})
 
 # dev files

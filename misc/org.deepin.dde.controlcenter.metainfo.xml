@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
-  <id>org.deepin.dde.controlcenter</id>
-  <launchable type="desktop-id">dde-control-center.desktop</launchable>
+  <id>org.deepin.dde.control-center</id>
+  <launchable type="desktop-id">org.deepin.dde.control-center.desktop</launchable>
   <project_group>DDE</project_group>
   <compulsory_for_desktop>DDE</compulsory_for_desktop>
   <metadata_license>CC0-1.0</metadata_license>

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DESKTOP_TEMP_FILE=misc/dde-control-center.desktop.tmp
-DESKTOP_SOURCE_FILE=misc/dde-control-center.desktop
+DESKTOP_TEMP_FILE=misc/org.deepin.dde.control-center.desktop.tmp
+DESKTOP_SOURCE_FILE=misc/org.deepin.dde.control-center.desktop
 
 DESKTOP_TS_DIR=translations/desktop/
 
