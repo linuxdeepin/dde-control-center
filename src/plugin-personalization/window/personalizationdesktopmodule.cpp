@@ -85,7 +85,7 @@ QWidget *PersonalizationDesktopModule::initTransparentEffect(ModuleObject *modul
 {
     Q_UNUSED(module)
     TitledSliderItem *transparentSlider = new TitledSliderItem();
-    transparentSlider->setTitle(tr("Transparency"));
+    transparentSlider->setTitle(tr("Opacity"));
     transparentSlider->addBackground();
     transparentSlider->slider()->setOrientation(Qt::Horizontal);
     transparentSlider->setObjectName("Transparency");
