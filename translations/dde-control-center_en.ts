@@ -2677,6 +2677,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Scale</source>
         <translation type="unfinished"></translation>
     </message>

@@ -2672,8 +2672,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>最小化时效果</translation>
     </message>
     <message>
-        <source>Transparency</source>
-        <translation>透明度调节</translation>
+        <source>Opacity</source>
+        <translation>不透明度调节</translation>
     </message>
     <message>
         <source>Rounded Corner</source>
