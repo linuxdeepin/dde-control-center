@@ -1,3 +1,9 @@
+dde-control-center (6.0.54) unstable; urgency=medium
+
+  * release 6.0.54
+
+ -- Mike Chen <chenke@deepin.org>  Mon, 13 May 2024 15:15:21 +0800
+
 dde-control-center (6.0.53) unstable; urgency=medium
 
   * fix: the config file of "showtimetofull" option has changed
