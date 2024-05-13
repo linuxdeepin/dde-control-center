@@ -36,7 +36,7 @@ lupdateProject dde-control-center ${PROJECT_DIR}/src ${PROJECT_DIR}/include
 
 # desktop.ts  无源文件
 # exec ./misc/translate_desktop2ts.sh
-DESKTOP_SOURCE_FILE=misc/dde-control-center.desktop
+DESKTOP_SOURCE_FILE=misc/org.deepin.dde.control-center.desktop
 DESKTOP_TS_DIR=translations/desktop/
 /usr/bin/deepin-desktop-ts-convert desktop2ts $DESKTOP_SOURCE_FILE $DESKTOP_TS_DIR
 
