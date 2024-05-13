@@ -12,9 +12,8 @@
             "description": "",
             "permissions": "readonly",
             "visibility": "private"
-        }
-    },
-    "backup": {
+        },
+        "backup": {
             "value": true,
             "serial": 0,
             "flags": ["global"],
@@ -24,5 +23,6 @@
             "description": "Configure whether backup to atomic upgrade",
             "permissions": "readwrite",
             "visibility": "private"
-        }
+      }
+    }    
   }

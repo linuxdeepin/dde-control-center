@@ -739,10 +739,8 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
     // 第二更新后的失败更新
 
     DConfig updateSettings(QStringLiteral("org.deepin.dde.control-center.update"));
-    auto var = updateSettings.value("backup");
-    bool shouldBackUp = var.isValid() ? var.toBool() : true;
-    bool isatomBackupIsRunning = m_updateInter->atomBackupIsRunning();
-    if (!isatomBackupIsRunning && shouldBackUp) {
+    auto var = updateSettings.value("backup", true);
+    if (var.toBool() && !m_updateInter->atomBackupIsRunning()) {
         backupToAtomicUpgrade();
     } else {
         // 系统环境配置不满足,则直接跳到下一步下载数据
@@ -817,20 +815,19 @@ void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
 
 QString UpdateWorker::getUpdateLogAddress() const
 {
-    QObject raii;
-    const DConfig *dconfig =
-            DConfig::create("org.deepin.dde.control-center",
-                            QStringLiteral("org.deepin.dde.control-center.update"),
-                            QString(), &raii);
-    if (dconfig && dconfig->isValid()) {
-        const QString &updateLogAddress = dconfig->value("updateLogAddress").toString();
+    QScopedPointer<DConfig> dconfig(DConfig::create("org.deepin.dde.control-center",
+                                                    QStringLiteral("org.deepin.dde.control-center.update")));
+
+    const QString fallbackAddr("https://update-platform.uniontech.com/api/v1/systemupdatelogs");
+    if (dconfig) {
+        const QString &updateLogAddress = dconfig->value("updateLogAddress", fallbackAddr).toString();
         if (!updateLogAddress.isEmpty()) {
             qCDebug(DccUpdateWork) << " updateLogAddress " << updateLogAddress;
             return updateLogAddress;
         }
     }
 
-    return "https://update-platform.uniontech.com/api/v1/systemupdatelogs";
+    return fallbackAddr;
 }
 
 /**
@@ -843,9 +840,7 @@ int UpdateWorker::isUnstableResource() const
     qInfo() << Q_FUNC_INFO;
     const int RELEASE_VERSION = 1;
     const int UNSTABLE_VERSION = 2;
-    QObject raii;
-    DConfig *config =
-            DConfig::create("org.deepin.unstable", "org.deepin.unstable", QString(), &raii);
+    QScopedPointer<DConfig> config(DConfig::create("org.deepin.unstable", "org.deepin.unstable"));
     if (!config) {
         qInfo() << "Can not find org.deepin.unstable or an error occurred in DTK";
         return RELEASE_VERSION;
