@@ -219,6 +219,8 @@ void MainWindow::initUI()
 
     m_backwardBtn->setAccessibleName("backwardbtn");
     m_backwardBtn->setFlat(true);
+    // flat iconButton size too small
+    m_backwardBtn->setMinimumSize({32, 32});
 
     titlebar()->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
     titlebar()->setIcon(DIconTheme::findQIcon("preferences-system"));
