@@ -148,6 +148,8 @@ void RegionFormatDialog::setCurrentRegion(const QString &region)
     if (results.size() > 0) {
         m_regionListView->setCurrentIndex(results.first());
         auto realIndex = m_proxyModel->mapToSource(results.first());
+        m_locale = realIndex.data(RegionFormatRole::LocaleRole).toLocale();
+        updateRegionFormat(m_locale);
         QStandardItem *selectedItem = m_model->itemFromIndex(realIndex);
         if (selectedItem) {
             selectedItem->setCheckState(Qt::Checked);
