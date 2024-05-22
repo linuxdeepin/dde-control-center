@@ -67,8 +67,6 @@ public:
     void setDetailLabelVisible(bool visible);
     void setVersionVisible(bool visible);
     void setDatetimeVisible(bool  visible);
-    void setUpdateButtonVisible(bool visible);
-    void setUpdateButtonEnable(bool enable);
 
     const QString getElidedText(QWidget *widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
 
@@ -101,7 +99,6 @@ private:
     DTK_WIDGET_NAMESPACE::DLabel *m_detailLabel;
     DTK_WIDGET_NAMESPACE::DLabel *m_dateLabel;
     DTK_WIDGET_NAMESPACE::DLabel *m_progressLabel;
-    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_updateButton;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_showMoreBUtton;
 
     DTK_WIDGET_NAMESPACE::DIconButton *m_startButton;

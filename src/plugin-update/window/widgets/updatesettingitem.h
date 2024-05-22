@@ -55,8 +55,6 @@ public:
     qlonglong updateSize() const;
     void setUpdateSize(const qlonglong &updateSize);
 
-    void setLowBattery(bool lowBattery);
-
     double getProgressVlaue() const;
     void setProgressVlaue(double progressVlaue);
 

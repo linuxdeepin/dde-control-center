@@ -3435,7 +3435,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update All</source>
+        <source>Download Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3476,6 +3476,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Current Edition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3624,6 +3636,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Auto Install Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ensuring normal system rollback in case of upgrade failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3945,10 +3965,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Backing up </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download and install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

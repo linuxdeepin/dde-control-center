@@ -255,6 +255,36 @@ void UpdateSettingsModule::initModuleList()
                         getAutoInstallUpdateType(m_model->getAutoInstallUpdateType()));
             });
     appendChild(m_autoInstallUpdatesTipsModule);
+    m_backupUpdatesModule = new WidgetModule<SwitchWidget>(
+            "backupUpdates",
+            tr("Backup updates"),
+            [this](SwitchWidget *systemSwitch) {
+                m_backupUpdates = systemSwitch;
+                connect(m_model,
+                        &UpdateModel::backupUpdatesChanged,
+                        m_backupUpdates,
+                        &SwitchWidget::setChecked);
+                connect(m_backupUpdates,
+                        &SwitchWidget::checkedChanged,
+                        this,
+                        &UpdateSettingsModule::requestSetBackupUpdates);
+                m_backupUpdates->setTitle(tr("Backup updates"));
+                m_backupUpdates->addBackground();
+                m_backupUpdates->setChecked(m_model->getBackupUpdates());
+            });
+    appendChild(m_backupUpdatesModule);
+
+    m_backupUpdatesTipModule = new WidgetModule<DTipLabel>(
+            "backupsUpdateTip",
+            tr(""),
+            [this](DTipLabel *systemLabel) {
+                m_backupUpdatesTip = systemLabel;
+                m_backupUpdatesTip->setWordWrap(true);
+                m_backupUpdatesTip->setAlignment(Qt::AlignLeft);
+                m_backupUpdatesTip->setContentsMargins(10, 0, 10, 0);
+                m_backupUpdatesTip->setText(tr("Ensuring normal system rollback in case of upgrade failure"));
+            });
+    appendChild(m_backupUpdatesTipModule);
 
     m_updateNotifyModule = new WidgetModule<SwitchWidget>(
             "updateUpdateNotify",
@@ -334,13 +364,13 @@ void UpdateSettingsModule::initModuleList()
                 });
         appendChild(internalUpdateTip);
     }
-
 }
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)
 {
-    m_autoInstallUpdateModule->setHidden(uiMethod == SettingsMethod::autoDownload);
-    m_autoInstallUpdatesTipsModule->setHidden(uiMethod == SettingsMethod::autoDownload);
+    // v23自动安装开关始终隐藏
+    m_autoInstallUpdateModule->setHidden(true);
+    m_autoInstallUpdatesTipsModule->setHidden(true);
 }
 
 void UpdateSettingsModule::initConnection()
@@ -362,6 +392,10 @@ void UpdateSettingsModule::initConnection()
             &UpdateSettingsModule::requestSetAutoInstall,
             m_work,
             &UpdateWorker::setAutoInstallUpdates);
+    connect(this,
+            &UpdateSettingsModule::requestSetBackupUpdates,
+            m_work,
+            &UpdateWorker::setBackupUpdates);
     connect(this,
             &UpdateSettingsModule::requestSetUpdateNotify,
             m_work,
@@ -413,6 +447,8 @@ void UpdateSettingsModule::setAutoCheckEnable(bool checkstatus)
     setCheckEnable(m_autoDownloadUpdateTipsModule);
     setCheckEnable(m_autoInstallUpdateModule);
     setCheckEnable(m_autoInstallUpdatesTipsModule);
+    setCheckEnable(m_backupUpdatesModule);
+    setCheckEnable(m_backupUpdatesTipModule);
     setCheckEnable(m_updateNotifyModule);
 }
 

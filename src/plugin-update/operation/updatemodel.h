@@ -184,6 +184,9 @@ public:
     bool getAutoInstallUpdates() const;
     void setAutoInstallUpdates(bool autoInstallUpdates);
 
+    bool getBackupUpdates() const;
+    void setBackupUpdates(bool backupsUpdates);
+
     quint64 getAutoInstallUpdateType() const;
     void setAutoInstallUpdateType(const quint64 &autoInstallUpdateType);
 
@@ -222,6 +225,8 @@ Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
     void autoInstallUpdateTypeChanged(const quint64 &autoInstallUpdateType);
+
+    void backupUpdatesChanged(const bool &backupUpdates);
 
     void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
@@ -294,6 +299,7 @@ private:
     bool m_autoDownloadUpdates;
     bool m_autoInstallUpdates;
     quint64 m_autoInstallUpdateType;
+    bool m_backupUpdates;
     bool m_autoCheckUpdates;
     qulonglong m_updateMode;
     bool m_autoCheckSecureUpdates;

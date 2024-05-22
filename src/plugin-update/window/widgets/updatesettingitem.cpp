@@ -109,7 +109,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_controlWidget->showUpdateProcess(false);
-        m_controlWidget->setUpdateButtonVisible(true);
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
@@ -299,11 +298,6 @@ void UpdateSettingItem::setUpdateSize(const qlonglong &updateSize)
         Q_EMIT requestRefreshSize();
         Q_EMIT requestRefreshWidget();
     }
-}
-
-void UpdateSettingItem::setLowBattery(bool lowBattery)
-{
-    m_controlWidget->setUpdateButtonEnable(lowBattery);
 }
 
 void UpdateSettingItem::initConnect()
