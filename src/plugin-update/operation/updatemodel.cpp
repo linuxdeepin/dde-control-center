@@ -43,6 +43,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_autoDownloadUpdates(false)
     , m_autoInstallUpdates(false)
     , m_autoInstallUpdateType(0)
+    , m_backupUpdates(true)
     , m_autoCheckUpdates(false)
     , m_updateMode(0)
     , m_autoCheckSecureUpdates(false)
@@ -505,6 +506,19 @@ void UpdateModel::setAutoInstallUpdates(bool autoInstallUpdates)
     if (m_autoInstallUpdates != autoInstallUpdates) {
         m_autoInstallUpdates = autoInstallUpdates;
         Q_EMIT autoInstallUpdatesChanged(autoInstallUpdates);
+    }
+}
+
+bool UpdateModel::getBackupUpdates() const
+{
+    return m_backupUpdates;
+}
+
+void UpdateModel::setBackupUpdates(bool backupsUpdates)
+{
+    if (m_backupUpdates != backupsUpdates) {
+        m_backupUpdates = backupsUpdates;
+        Q_EMIT backupUpdatesChanged(backupsUpdates);
     }
 }
 

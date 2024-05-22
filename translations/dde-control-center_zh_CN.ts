@@ -3445,8 +3445,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>更新中...</translation>
     </message>
     <message>
-        <source>Update All</source>
-        <translation>全部更新</translation>
+        <source>Download Updates</source>
+        <translation>下载更新</translation>
     </message>
     <message>
         <source>Last checking time: </source>
@@ -3491,6 +3491,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>下载大小</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Update Now</source>
+        <translation>立即更新</translation>
+    </message>
+    <message>
+        <source>The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!</source>
+        <translation>当前已关闭备份更新功能，升级失败系统则无法回退！</translation>
     </message>
 </context>
 <context>
@@ -3635,6 +3647,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Auto Install Updates</source>
         <translation>自动安装</translation>
+    </message>
+    <message>
+        <source>Backup updates</source>
+        <translation>备份更新</translation>
+    </message>
+    <message>
+        <source>Ensuring normal system rollback in case of upgrade failure</source>
+        <translation>升级失败可保证系统正常回退</translation>
     </message>
     <message>
         <source>Updates Notification</source>

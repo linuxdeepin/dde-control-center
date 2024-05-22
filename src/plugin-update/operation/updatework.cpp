@@ -112,6 +112,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_machineid(std::nullopt)
     , m_testingChannelUrl(std::nullopt)
     , m_isFirstActive(true)
+    , m_updateConfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.update"), QString(), this))
 {
 }
 
@@ -177,6 +178,11 @@ void UpdateWorker::init()
             m_model, &UpdateModel::setAutoInstallUpdateType);
     connect(m_updateInter, &UpdateDBusProxy::AutoCheckUpdatesChanged,
             m_model, &UpdateModel::setAutoCheckUpdates);
+    connect(m_updateConfig, &DConfig::valueChanged, m_model, [=](const QString &key){
+        if (key == "backup") {
+            m_model->setBackupUpdates(m_updateConfig->value("backup", true).toBool());
+        }
+    });
     connect(m_updateInter, &UpdateDBusProxy::UpdateModeChanged, m_model, [=](qulonglong value) {
         m_model->setUpdateMode(value);
         QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
@@ -257,6 +263,7 @@ void UpdateWorker::activate()
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setAutoInstallUpdates(m_updateInter->autoInstallUpdates());
     m_model->setAutoInstallUpdateType(m_updateInter->autoInstallUpdateType());
+    m_model->setBackupUpdates(m_updateConfig->value("backup", true).toBool());
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_updateInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
@@ -738,8 +745,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
     // 条件不足 1. 分区空间 就是 state = -2    2.  分区格式不支持仓库存储（忽略） 3.
     // 第二更新后的失败更新
 
-    DConfig updateSettings(QStringLiteral("org.deepin.dde.control-center.update"));
-    auto var = updateSettings.value("backup", true);
+    auto var = m_updateConfig->value("backup", true);
     if (var.toBool() && !m_updateInter->atomBackupIsRunning()) {
         backupToAtomicUpgrade();
     } else {
@@ -774,6 +780,11 @@ void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
 void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
 {
     m_updateInter->setAutoInstallUpdates(autoInstall);
+}
+
+void UpdateWorker::setBackupUpdates(const bool &backupUpdates)
+{
+    m_updateConfig->setValue("backup", backupUpdates);
 }
 
 void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)

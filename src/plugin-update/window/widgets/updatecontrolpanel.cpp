@@ -29,7 +29,6 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     , m_detailLabel(new DTipLabel("", this))
     , m_dateLabel(new DLabel(this))
     , m_progressLabel(new DLabel(this))
-    , m_updateButton(new DCommandLinkButton("", this))
     , m_showMoreBUtton(new DCommandLinkButton("", this))
     , m_startButton(new DIconButton(this))
     , m_Progess(new DProgressBar(this))
@@ -116,7 +115,6 @@ void updateControlPanel::setProgressType(const UpdateDProgressType &progressType
 void updateControlPanel::showUpdateProcess(bool visible)
 {
     m_Progess->setVisible(visible);
-    m_updateButton->setVisible(!visible);
     m_startButton->setVisible(visible);
     m_progressLabel->setVisible(visible);
 }
@@ -158,16 +156,6 @@ void updateControlPanel::setDetailLabelVisible(bool visible)
 void updateControlPanel::setVersionVisible(bool visible)
 {
     m_versionLabel->setVisible(visible);
-}
-
-void updateControlPanel::setUpdateButtonVisible(bool visible)
-{
-    m_updateButton->setVisible(visible);
-}
-
-void updateControlPanel::setUpdateButtonEnable(bool enable)
-{
-    m_updateButton->setEnabled(enable);
 }
 
 ButtonStatus updateControlPanel::getButtonStatus() const
@@ -301,10 +289,6 @@ void updateControlPanel::initUi()
 
     QVBoxLayout *buttonLay = new QVBoxLayout();
     buttonLay->setSpacing(0);
-    m_updateButton->setText(tr("Download and install"));
-    m_updateButton->setForegroundRole(DPalette::Button);
-    DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8);
-    buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
     buttonLay->setContentsMargins(0, 0, 8, 0);
 
     m_startButton->setIcon(DIconTheme::findQIcon("dcc_start"));
@@ -388,7 +372,6 @@ void updateControlPanel::initUi()
 void updateControlPanel::initConnect()
 {
     connect(m_showMoreBUtton, &DCommandLinkButton::clicked, this, &updateControlPanel::showDetail);
-    connect(m_updateButton, &DCommandLinkButton::clicked, this, &updateControlPanel::onStartUpdate);
     connect(m_startButton, &DIconButton::clicked, this, &updateControlPanel::onButtonClicked);
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &updateControlPanel::onThemeChanged);
 }

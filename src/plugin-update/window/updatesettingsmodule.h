@@ -55,6 +55,7 @@ Q_SIGNALS:
 #endif
     void requestShowMirrorsView();
     void requestSetAutoInstall(const bool &autoInstall);
+    void requestSetBackupUpdates(const bool &backupUpdates);
 
 private Q_SLOTS:
     void setUpdateMode();
@@ -85,6 +86,9 @@ private:
     DCC_NAMESPACE::SwitchWidget *m_autoInstallUpdate; // 自动安装
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoInstallUpdatesTips;
 
+    DCC_NAMESPACE::SwitchWidget *m_backupUpdates; // 备份更新
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_backupUpdatesTip;
+
     DCC_NAMESPACE::SwitchWidget *m_updateNotify;   // 更新提醒
     DCC_NAMESPACE::SwitchWidget *m_autoCleanCache; // 清除软件包
 
@@ -93,5 +97,7 @@ private:
     DCC_NAMESPACE::ModuleObject *m_autoDownloadUpdateTipsModule;
     DCC_NAMESPACE::ModuleObject *m_autoInstallUpdateModule;
     DCC_NAMESPACE::ModuleObject *m_autoInstallUpdatesTipsModule;
+    DCC_NAMESPACE::ModuleObject *m_backupUpdatesModule;
+    DCC_NAMESPACE::ModuleObject *m_backupUpdatesTipModule;
     DCC_NAMESPACE::ModuleObject *m_updateNotifyModule;
 };

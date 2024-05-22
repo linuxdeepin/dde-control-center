@@ -20,6 +20,7 @@
 #include "widgets/summaryitem.h"
 #include "widgets/systemupdateitem.h"
 #include "widgets/unknownupdateitem.h"
+#include <DDialog>
 
 #include <DFontSizeManager>
 #include <DPalette>
@@ -162,7 +163,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateingTipsLab->setForegroundRole(DPalette::TextTips);
     updateTitleHLay->addSpacing(5);
     updateTitleHLay->addWidget(m_updateingTipsLab);
-    QString text = tr("Update All");
+    QString text = tr("Download Updates");
 
     m_fullUpdateBtn->setText(text);
     QFontMetrics fontMetrics(font());
@@ -433,9 +434,6 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
         else
             enable = activation;
 
-        m_systemUpdateItem->setLowBattery(enable);
-        m_safeUpdateItem->setLowBattery(enable);
-        m_unknownUpdateItem->setLowBattery(enable);
         m_fullUpdateBtn->setEnabled(enable);
 
         m_powerTip->setVisible(lowBattery);
@@ -640,6 +638,16 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 
 void UpdateCtrlWidget::onFullUpdateClicked()
 {
+    if (!m_model->getBackupUpdates()) {
+        DDialog dialog;
+        dialog.setTitle(tr("The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!"));
+        dialog.addButton(tr("Cancel"));
+        dialog.addButton(tr("Update Now"), false, DDialog::ButtonWarning);
+        int ret = dialog.exec();
+        if (ret != DDialog::Accepted) {
+           return;
+        }
+    }
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
         if (updateItem->status() == UpdatesStatus::UpdatesAvailable
                 || updateItem->status() == UpdatesStatus::UpdateFailed

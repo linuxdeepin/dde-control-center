@@ -11,6 +11,7 @@
 
 #include <QNetworkReply>
 #include <QObject>
+#include <DConfig>
 
 #include <optional>
 
@@ -94,6 +95,7 @@ public Q_SLOTS:
     void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setAutoInstallUpdates(const bool &autoInstall);
+    void setBackupUpdates(const bool &backupUpdates);
 
     void handleUpdateLogsReply(QNetworkReply *reply);
     QString getUpdateLogAddress() const;
@@ -227,6 +229,8 @@ private:
     std::optional<QUrl> m_testingChannelUrl;
 
     bool m_isFirstActive;
+
+    DConfig *m_updateConfig;
 };
 
 #endif // UPDATEWORK_H
