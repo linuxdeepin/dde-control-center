@@ -1,3 +1,10 @@
+dde-control-center (6.0.55) unstable; urgency=medium
+
+  * feat: add backup updates ui(Issue: https://github.com/linuxdeepin/developer-center/issues/8626)
+  * fix: data of datetime is unintialized(Issue: https://github.com/linuxdeepin/developer-center/issues/8248)
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Thu, 23 May 2024 16:08:10 +0800
+
 dde-control-center (6.0.54) unstable; urgency=medium
 
   * release 6.0.54
