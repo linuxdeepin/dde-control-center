@@ -166,16 +166,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     QString text = tr("Download Updates");
 
     m_fullUpdateBtn->setText(text);
-    QFontMetrics fontMetrics(font());
-    int fontWidth = fontMetrics.boundingRect(text).width();
-    if (FullUpdateBtnWidth < fontWidth) {
-        m_fullUpdateBtn->setToolTip(text);
-        text = m_fullUpdateBtn->fontMetrics().elidedText(text, Qt::ElideRight, FullUpdateBtnWidth - 10, 0);
-        m_fullUpdateBtn->setText(text);
-    }
-
-    m_fullUpdateBtn->setFixedSize(FullUpdateBtnWidth, 36);
     m_fullUpdateBtn->setVisible(false);
+    updateTitleHLay->addStretch();
     updateTitleHLay->addWidget(m_fullUpdateBtn);
 
     QVBoxLayout *layout = new QVBoxLayout();
@@ -640,6 +632,7 @@ void UpdateCtrlWidget::onFullUpdateClicked()
 {
     if (!m_model->getBackupUpdates()) {
         DDialog dialog;
+        dialog.setFixedWidth(420);
         dialog.setTitle(tr("The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!"));
         dialog.addButton(tr("Cancel"));
         dialog.addButton(tr("Update Now"), false, DDialog::ButtonWarning);
@@ -676,7 +669,6 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     }
 
     if (m_updateSize == 0) {
-        m_CheckAgainBtn->setEnabled(false);
         m_upgradeWarningGroup->setVisible(false);
     } else if ((static_cast<int64_t>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
         m_upgradeWarningGroup->setVisible(true);
@@ -718,11 +710,7 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
     if (isUpdateing) {
         m_CheckAgainBtn->setEnabled(false);
     } else {
-        if (m_updateSize > 0) {
-            m_CheckAgainBtn->setEnabled(true);
-        } else {
-            m_CheckAgainBtn->setEnabled(false);
-        }
+        m_CheckAgainBtn->setEnabled(true);
     }
 
     showAllUpdate();
