@@ -11,6 +11,7 @@
 #include <DPaletteHelper>
 #include <DPlatformWindowHandle>
 #include <DTitlebar>
+#include <DWindowManagerHelper>
 
 #include <QAbstractItemView>
 #include <QApplication>
@@ -43,7 +44,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     m_blurEffect->setAccessibleName("blurEffect");
 
     setWindowFlags(Qt::Dialog);
-    setAttribute(Qt::WA_TranslucentBackground);
+
+    m_blurEffect->blurEnabled();
+    const bool blurIfPossible = DTK_GUI_NAMESPACE::DWindowManagerHelper::instance()->hasBlurWindow();
+    setAttribute(Qt::WA_TranslucentBackground, blurIfPossible);
+
     setupSize();
 
     DTitlebar *titleBar = new DTitlebar(this);
