@@ -1860,7 +1860,7 @@
 <context>
     <name>dccV23::ShortCutSettingWidget</name>
     <message>
-        <source>System</source>
+        <source>System Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

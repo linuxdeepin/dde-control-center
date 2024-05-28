@@ -1842,7 +1842,7 @@
 <context>
     <name>dccV23::ShortCutSettingWidget</name>
     <message>
-        <source>System</source>
+        <source>System Management</source>
         <translation>系统管理</translation>
     </message>
     <message>
@@ -3602,7 +3602,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>System</source>
-        <translation>系统管理</translation>
+        <translation>系统</translation>
     </message>
     <message>
         <source>Security Updates Only</source>

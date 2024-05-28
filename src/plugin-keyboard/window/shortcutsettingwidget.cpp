@@ -32,7 +32,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchText = QString();
     SettingsHead *systemHead = new SettingsHead();
     systemHead->setEditEnable(false);
-    systemHead->setTitle(tr("System"));
+    systemHead->setTitle(tr("System Management"));
     systemHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_systemGroup = new SettingsGroup();
     m_systemGroup->getLayout()->setMargin(0);
