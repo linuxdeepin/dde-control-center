@@ -283,7 +283,7 @@ void DefappDetailWidget::appendItemData(const App &app)
 {
     qCDebug(DdcDefaultDetailWidget) << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
-    QString appName = app.Name;
+    QString appName = app.DisplayName;
     if (!app.isUser || app.MimeTypeFit) {
         item->setText(appName);
         item->setIcon(getAppIcon(app.Icon, QSize(32, 32)));
