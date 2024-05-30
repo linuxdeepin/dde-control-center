@@ -205,15 +205,27 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
                 continue;
             }
             auto nameMap = qdbus_cast<QMap<QString, QString>>(mapInter["Name"]);
+            auto genericNameMap = qdbus_cast<QMap<QString, QString>>(mapInter["GenericName"]);
             QString id = qdbus_cast<QString>(mapInter["ID"]);
+            bool isDeepinVendor = qdbus_cast<QString>(mapInter["X_Deepin_Vendor"]) == "deepin";
 
-            QString showName = id;
-
+            QString name = id;
             for (auto &lang : uiLanguages) {
                 auto iter = nameMap.find(lang);
                 if (iter != nameMap.end()) {
-                    showName = iter.value();
+                    name = iter.value();
                     break;
+                }
+            }
+
+            QString genericName;
+            if (isDeepinVendor) {
+                for (auto &lang : uiLanguages) {
+                    auto iter = genericNameMap.find(lang);
+                    if (iter != genericNameMap.end()) {
+                        genericName = iter.value();
+                        break;
+                    }
                 }
             }
 
@@ -228,8 +240,8 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
             App app;
             app.dbusPath = dbusPath;
             app.Id = id;
-            app.Name = showName;
-            app.DisplayName = showName;
+            app.Name = name;
+            app.DisplayName = genericName != "" ? genericName : name;
             app.Icon = icon;
             app.isUser = false;
             list << app;
@@ -302,15 +314,27 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
             }
 
             auto nameMap = qdbus_cast<QMap<QString, QString>>(mapInter["Name"]);
+            auto genericNameMap = qdbus_cast<QMap<QString, QString>>(mapInter["GenericName"]);
             QString id = qdbus_cast<QString>(mapInter["ID"]);
+            bool isDeepinVendor = qdbus_cast<QString>(mapInter["X_Deepin_Vendor"]) == "deepin";
 
-            QString showName = id;
-
+            QString name = id;
             for (auto &lang : uiLanguages) {
                 auto iter = nameMap.find(lang);
                 if (iter != nameMap.end()) {
-                    showName = iter.value();
+                    name = iter.value();
                     break;
+                }
+            }
+
+            QString genericName;
+            if (isDeepinVendor) {
+                for (auto &lang : uiLanguages) {
+                    auto iter = genericNameMap.find(lang);
+                    if (iter != genericNameMap.end()) {
+                        genericName = iter.value();
+                        break;
+                    }
                 }
             }
 
@@ -325,8 +349,8 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
             App app;
             app.dbusPath = dbusPath;
             app.Id = id;
-            app.Name = showName;
-            app.DisplayName = showName;
+            app.Name = name;
+            app.DisplayName = genericName != "" ? genericName : name;
             app.Icon = icon;
             app.isUser = false;
             list << app;
