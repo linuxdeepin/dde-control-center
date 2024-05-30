@@ -1,3 +1,9 @@
+dde-control-center (6.0.56) unstable; urgency=medium
+
+  * chore: use GenericName if X-Deepin-Vendor is 'deepin' (linuxdeepin/developer-center#6692)
+
+ -- zsien <quezhiyong@deepin.org>  Thu, 30 May 2024 17:39:02 +0800
+
 dde-control-center (6.0.55) unstable; urgency=medium
 
   * feat: add backup updates ui(Issue: https://github.com/linuxdeepin/developer-center/issues/8626)
