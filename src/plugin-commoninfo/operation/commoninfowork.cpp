@@ -101,7 +101,7 @@ static void notifyInfo(const QString &summary)
 {
     DUtil::DNotifySender(summary)
             .appIcon("dde-control-center")
-            .appName("dde-control-center")
+            .appName(QObject::tr("dde-control-center"))
             .timeOut(5000)
             .call();
 }
@@ -110,7 +110,7 @@ static void notifyInfoWithBody(const QString &summary, const QString &body)
 {
     DUtil::DNotifySender(summary)
             .appIcon("dde-control-center")
-            .appName("dde-control-center")
+            .appName(QObject::tr("dde-control-center"))
             .appBody(body)
             .timeOut(5000)
             .call();
@@ -349,7 +349,7 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
     Q_UNUSED(code);
 
     //初始化Notify 七个参数
-    QString in0("dde-control-center");
+    QString in0(QObject::tr("dde-control-center"));
     uint in1 = 101;
     QString in2("preferences-system");
     QString in3("");

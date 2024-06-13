@@ -2959,6 +2959,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
+    <message>
+        <source>dde-control-center</source>
+        <translation>控制中心</translation>
+    </message>
 </context>
 <context>
     <name>RegionModule</name>
