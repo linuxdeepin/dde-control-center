@@ -194,7 +194,10 @@ void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
         QStringList langRegions = langRegion.split(":");
         if (langRegions.size() >= 2
             && (langRegions[0] == "Traditional Chinese"
-                || langRegions[0] == "Simplified Chinese")) {
+                || langRegions[0] == "Simplified Chinese"
+                || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
+                || langRegions[1] == QLocale::countryToString(QLocale::Macau)
+                || langRegions[1] == QLocale::countryToString(QLocale::Taiwan))) {
             langCountry =
                     QString("%1(%2)")
                             .arg(QCoreApplication::translate("dcc::datetime::Language",
