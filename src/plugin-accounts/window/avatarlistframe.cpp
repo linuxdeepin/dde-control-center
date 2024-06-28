@@ -8,6 +8,7 @@
 
 #include <DSlider>
 #include <DIconTheme>
+#include <DGuiApplicationHelper>
 
 #include <QColor>
 #include <QDateTime>
@@ -219,12 +220,11 @@ void AvatarListFrame::updateListView(bool isSave, const int &role, const int &ty
 CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidget *parent)
     : AvatarListFrame(user, role, parent)
     , m_addAvatarFrame(new DFrame(this))
-    , m_addAvatarLabel(new QLabel(this))
     , m_hintLabel(new QLabel(this))
-    , m_acceptableRect(QRect(16, 50, 400, 240))
-    , m_currentBkColor(0xececec)
-    , m_dragEnterBkColor(0xd4e4f4)
-    , m_dragLeaveBkColor(0xececec)
+    , m_addAvatarIconSpacer(new QSpacerItem(60, 60))
+    , m_isDragIn(false)
+    , m_isHover(false)
+    , m_isPress(false)
 {
     setAcceptDrops(true);
     m_addAvatarFrame->setFixedSize(400, 240);
@@ -232,33 +232,31 @@ CustomAddAvatarWidget::CustomAddAvatarWidget(User *user, const int &role, QWidge
     m_addAvatarFrame->setAcceptDrops(true);
     m_addAvatarFrame->installEventFilter(this);
 
-    m_addAvatarLabel->setPixmap(DIconTheme::findQIcon("dcc_user_add_icon").pixmap(60, 60));
-    m_addAvatarLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    m_addAvatarDciIcon = DDciIcon::fromTheme("dcc_user_add_icon");
 
-    m_hintLabel->setText(
-            tr("You have not uploaded a picture, you can click or drag to upload a picture"));
+    m_hintLabel->setText(tr("You have not uploaded a picture, you can click or drag to upload a picture"));
     m_hintLabel->setAlignment(Qt::AlignCenter);
     m_hintLabel->setWordWrap(true);
 
-    QVBoxLayout *vBLayout = new QVBoxLayout();
-    vBLayout->setContentsMargins(10, 0, 10, 0);
-    vBLayout->addWidget(m_addAvatarLabel, Qt::AlignHCenter | Qt::AlignVCenter);
-    vBLayout->addSpacing(2);
-    vBLayout->addWidget(m_hintLabel, Qt::AlignHCenter);
-    vBLayout->addSpacing(120);
-    m_addAvatarFrame->setLayout(vBLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setAlignment(Qt::AlignHCenter);
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_addAvatarFrame);
+    mainLayout->addStretch();
 
-    QHBoxLayout *hBoxLayout = new QHBoxLayout;
-    hBoxLayout->setContentsMargins(10, 0, 10, 0);
-    hBoxLayout->addWidget(m_addAvatarFrame);
+    QHBoxLayout *iconHLayout = new QHBoxLayout();
+    iconHLayout->addStretch();
+    iconHLayout->addItem(m_addAvatarIconSpacer);
+    iconHLayout->addStretch();
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setContentsMargins(10, 0, 10, 0);
-    mainLayout->addLayout(hBoxLayout);
+    QVBoxLayout *avatarFrameLayout = new QVBoxLayout(m_addAvatarFrame);
+    avatarFrameLayout->addStretch();
+    avatarFrameLayout->addLayout(iconHLayout);
+    avatarFrameLayout->addSpacing(20);
+    avatarFrameLayout->addWidget(m_hintLabel);
+    avatarFrameLayout->addStretch();
 
-    setLayout(mainLayout);
     installEventFilter(this);
-
 };
 
 CustomAddAvatarWidget::~CustomAddAvatarWidget()
@@ -314,18 +312,18 @@ void CustomAddAvatarWidget::saveCustomAvatar(const QString &avatar_path)
 
 void CustomAddAvatarWidget::dragEnterEvent(QDragEnterEvent *event)
 {
-    event->accept(m_acceptableRect);
-    m_currentBkColor = m_dragEnterBkColor;
+    event->accept(m_addAvatarFrame->geometry());
+    m_isDragIn = true;
+    update();
 
-    repaint();
 
     QWidget::dragEnterEvent(event);
 }
 
 void CustomAddAvatarWidget::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    m_currentBkColor = m_dragLeaveBkColor;
-    repaint();
+    m_isDragIn = false;
+    update();
 
     QWidget::dragLeaveEvent(event);
 }
@@ -333,7 +331,6 @@ void CustomAddAvatarWidget::dragLeaveEvent(QDragLeaveEvent *event)
 void CustomAddAvatarWidget::dropEvent(QDropEvent *event)
 {
     auto file = event->mimeData()->urls().first().toLocalFile();
-    m_currentBkColor = m_dragLeaveBkColor;
 
     saveCustomAvatar(file);
     repaint();
@@ -344,32 +341,59 @@ void CustomAddAvatarWidget::paintEvent(QPaintEvent *event)
     Q_UNUSED(event)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    QPen p(QColor(216, 212, 212));
-    p.setWidth(2);
-    p.setStyle(Qt::DashLine);
-    painter.setPen(p);
+    QPen pen;
+    QColor backColor = Qt::transparent;
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        if (m_isPress || m_isDragIn) {
+            backColor = QColor(0, 129, 255, 0.1 * 255);
+        } else if (m_isHover) {
+            backColor = QColor(0, 129, 255, 0.05 * 255);
+        } else {
+            backColor = Qt::transparent;
+        }
+        pen.setColor(QColor(0, 0, 0, 0.2 * 255));
+    } else {
+        if (m_isPress || m_isDragIn) {
+            backColor = QColor(255, 255, 255, 0.1 * 255);
+        } else if (m_isHover) {
+            backColor = QColor(255, 255, 255, 0.05 * 255);
+        } else {
+            backColor = Qt::transparent;
+        }
+        pen.setColor(QColor(255, 255, 255, 255 * 0.2));
+    }
+
+    pen.setWidth(2);
+    pen.setStyle(Qt::DashLine);
+    painter.setPen(pen);
     QPainterPath path;
-    path.addRoundedRect(m_acceptableRect, WINDOW_ROUND_SIZE, WINDOW_ROUND_SIZE);
-    painter.fillPath(path, m_currentBkColor);
+    path.addRoundedRect(m_addAvatarFrame->geometry(), WINDOW_ROUND_SIZE, WINDOW_ROUND_SIZE);
+    painter.fillPath(path, backColor);
     painter.drawPath(path);
+    QRect iconRect = 
+        {m_addAvatarFrame->mapToParent(m_addAvatarIconSpacer->geometry().topLeft()), m_addAvatarIconSpacer->geometry().size()};
+    m_addAvatarDciIcon.paint(&painter, iconRect, qApp->devicePixelRatio(), DDciIcon::Light, DDciIcon::Normal, 
+        Qt::AlignCenter, DDciIconPalette::fromQPalette(palette()));
 }
 
 bool CustomAddAvatarWidget::eventFilter(QObject *object, QEvent *event)
 {
     if (object == m_addAvatarFrame) {
-        if (event->type() == QEvent::Type::Enter || event->type() == QEvent::MouseButtonPress) {
-            m_currentBkColor = m_dragEnterBkColor;
-        } else if (event->type() == QEvent::Type::Leave) {
-            m_currentBkColor = m_dragLeaveBkColor;
+        if (event->type() == QEvent::Enter) {
+            m_isHover = true;
+        } else if (event->type() == QEvent::Leave) {  
+            m_isHover = false;
+            m_isPress = false;
+        } else if (event->type() == QEvent::MouseButtonPress) {
+            m_isPress = true;
         } else if (event->type() == QEvent::MouseButtonRelease) {
-            m_currentBkColor = m_dragLeaveBkColor;
+            m_isPress = false;
             saveCustomAvatar(QString());
         } else {
-            // do nothing;
             return false;
         }
 
-        repaint();
+        update();
         return true;
     }
 
