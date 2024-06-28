@@ -10,6 +10,7 @@
 #include <DFrame>
 
 #include <QScrollArea>
+#include <QSpacerItem>
 
 DWIDGET_BEGIN_NAMESPACE
 class DSlider;
@@ -98,12 +99,12 @@ private:
 
 private:
     Dtk::Widget::DFrame *m_addAvatarFrame;
-    QLabel *m_addAvatarLabel;
     QLabel *m_hintLabel;
-    QRect m_acceptableRect;
-    QColor m_currentBkColor;
-    QColor m_dragEnterBkColor;
-    QColor m_dragLeaveBkColor;
+    QSpacerItem *m_addAvatarIconSpacer;
+    Dtk::Gui::DDciIcon m_addAvatarDciIcon;
+    bool m_isDragIn;
+    bool m_isHover;
+    bool m_isPress;
 };
 
 class CustomAvatarView : public QWidget
