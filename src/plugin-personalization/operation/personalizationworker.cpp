@@ -16,6 +16,9 @@
 #include <QDBusError>
 #include <QLoggingCategory>
 
+#include <DConfig>
+
+DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
 
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
@@ -103,8 +106,13 @@ void PersonalizationWorker::addList(ThemeModel *model, const QString &type, cons
 {
     QList<QString> list;
     QList<QJsonObject> objList;
+    QScopedPointer<DConfig> personalizationConfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.personalization"), QString(), this));
+    auto hideIconThemeList = personalizationConfig->value("hideIconThemes").toStringList();
     for (int i = 0; i != array.size(); i++) {
         QJsonObject object = array.at(i).toObject();
+        if (type == "icon" && hideIconThemeList.contains(object["Name"].toString())) {
+            continue;
+        }
         object.insert("type", QJsonValue(type));
         if (object["Name"].toString() == "Custom") {
             object["Name"] = tr("Custom");
