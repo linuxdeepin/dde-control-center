@@ -124,18 +124,18 @@
     </message>
     <message>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Ler Novamente</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Leitura Suspensa</translation>
     </message>
 </context>
 <context>
     <name>AddIrisInfoDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Registrar Íris</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -147,7 +147,7 @@
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Íris registrada</translation>
     </message>
     <message>
         <source>Done</source>
@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Falha em registrar sua íris</translation>
     </message>
     <message>
         <source>Try Again</source>
@@ -192,7 +192,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Rosto</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -349,19 +349,19 @@
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>Não faça o registro em ambientes escuros, muito claros ou com iluminação de fundo</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <translation>Mantenha seu rosto descoberto</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>A leitura expirou</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>O dispositivo falhou, por favor refaça a leitura</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -372,27 +372,27 @@
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Colaboração</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Compartilhar mouse e teclado</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"/>
+        <translation>Compartilhe seu mouse e teclado entre dispositivos</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Compartihar área de trnsferência</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"/>
+        <translation>Caminho de armazenamemento para arquivos compartilhados</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"/>
+        <translation>Compartilhe o conteúdo copiado entre dispositivos</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -420,11 +420,11 @@
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de Usuário</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>Criar Usuário</translation>
     </message>
     <message>
         <source>Username</source>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Usuário</translation<
     </message>
     <message>
         <source>Auto Login</source>
@@ -553,23 +553,23 @@
     <name>dccV23::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Pessoa</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Animal</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustração</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Expressão</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imagem Customizada</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -584,11 +584,11 @@
     <name>dccV23::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo Dimensional</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo Plano</translation>
     </message>
 </context>
 <context>
@@ -650,7 +650,7 @@
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New password:</source>
@@ -722,39 +722,39 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Colaboração Multitela</translation>
     </message>
     <message>
         <source>PC Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Colaboração de PC</translation>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Conectar a</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Selecione um dispositivo para colaboração</translation>
     </message>
     <message>
         <source>Device Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientação do Dispositivo</translation>
     </message>
     <message>
         <source>On the top</source>
-        <translation type="unfinished"/>
+        <translation>No topo</translation>
     </message>
     <message>
         <source>On the right</source>
-        <translation type="unfinished"/>
+        <translation>À direita</translation>
     </message>
     <message>
         <source>On the bottom</source>
-        <translation type="unfinished"/>
+        <translation>Embaixo</translation>
     </message>
     <message>
         <source>On the left</source>
-        <translation type="unfinished"/>
+        <translation>À esquerda</translation>
     </message>
     <message>
         <source>My Devices</source>
@@ -839,11 +839,11 @@
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>Novo Usuário</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Usuário</translation>
     </message>
     <message>
         <source>Username</source>
@@ -926,11 +926,11 @@
     <name>dccV23::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Você não adicionou um imagem, você pode clicar ou arrastar para adicionar uma imagem</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de arquivo adicionado é inválido, por favor adicione novamente</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1170,7 +1170,7 @@
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Luz, resolução, escala e etc</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1300,7 @@
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout de teclado</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1334,7 +1334,7 @@
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar a senha vai limpar os dados armazenados no chaveiro.</translation>
     </message>
     <message>
         <source>Current Password</source>
@@ -1405,7 +1405,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificar</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1496,7 +1496,7 @@
     <name>dccV23::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Notificação de Aplicações</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -1504,7 +1504,7 @@
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Notificação do Sistema</translation>
     </message>
 </context>
 <context>
@@ -1530,11 +1530,11 @@
     <name>dccV23::PluginManager</name>
     <message>
         <source>following plugins load failed</source>
-        <translation type="unfinished"/>
+        <translation>O carregamento dos seguintes plugins falhou</translation>
     </message>
     <message>
         <source>plugins cannot loaded in time</source>
-        <translation type="unfinished"/>
+        <translation>Os plugins não puderam ser carregados</translation>
     </message>
 </context>
 <context>
@@ -1626,11 +1626,11 @@
     <name>dccV23::RegionFormatDialog</name>
     <message>
         <source>Region format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Formato padrão</translation>
     </message>
     <message>
         <source>First of day</source>
@@ -1797,7 +1797,7 @@
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Essas perguntas serão utilizadas para ajudar a restaurar sua senha caso você a esqueça.</translation>
     </message>
     <message>
         <source>Security question 1</source>
@@ -1947,7 +1947,7 @@
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>Informações do Sistema</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1983,7 +1983,7 @@
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2040,7 +2040,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Idioma</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2098,27 +2098,27 @@
     <name>dccV23::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do Ponteiro</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Ativar TouchPad</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Aperte para Clicar</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rolamento Natural</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Devagar</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
 </context>
 <context>
@@ -2247,14 +2247,28 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"/>
+        <translation>Antes de utilizar reconhecimento facial, note que:
+1. Seu dispositivo pode ser desbloqueado por pessoas ou objetos que se parecem com você.
+2. Reconhecimento facial é menos seguro que senhas digitais ou senhas mistas.
+3. A taxa de sucesso em desbloquear seu dispositivo através de reconhecimento facial será reduzida em cenários com pouca luz, muita luz, com luz de fundo, cenários com ângulo muito grande e outros cenários.
+4. Por favor não dê seu dispositivo para pessoas qualquer, para evitar uso malicioso do reconhecimento facial.
+5. Além dos cenários acima, você deve prestar atenção em outras situações que possam afetar o uso normal do reconhecimento facial.
+
+Para um melhor uso do reconhecimento facial, por favor preste atenção às seguintes questões enquanto estiver inserindo os dados faciais:
+1. Por favor esteja em um lugar bem iluminado, evite luz direta do sol e que outras pessoas apareçam durante a captura.
+2. Por favor preste atenção ao estado do rosto durante a captura, e não deixe que chapéus, cabelo, óculos de sol, máscaras, maquiagem forte e quaisquer outras coisas cubram seu rosto.
+3. Por favor evite balançar ou abaixar a cabeça, fechar os olhos ou mostrar apenas um lado do rosto, e certifique-se que a frente do rosto apareça clara e completamente na caixa de captura.
+</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>&quot;Autenticação biométrica&quot; é uma função para autenticação de identidade de usuário provida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com aqueles armazenados no dispositivo, e a identidade do usuário será verificada baseado no resultado da comparação.
+Por favor note que a UnionTech Software não vai coletar ou acessar suas informações biométricas, que serão armazenadas localmente em seu dispositivo. Por favor, ative a autenticação biométrica somente em seu dispositivo pessoal e use sua própria informação biométrica para operações relacionadas, e imediatamente desative ou apague as informações biométricas de outras pessoas do dispositivo, do contrário você assumirá o risco resultante disso.
+UnionTech Software está comprometida a pesquisar e melhorar a segurança, acurácia e estabilidade da autenticação biométrica. Entretanto, por questões de ambiente, equipamento, técnicas e outros fatores e controle de risco, não há garantia que você passará na autenticação biométrica temporariamente. Portanto, por favor não deixe a autenticação biométrica como a única forma de logar no Sistema Operacional da UnionTech. Se você tiver quaisquer perguntas ou sugestões enqunto estiver usando a autenticação biométrica, você pode nos dar feedback através de &quot;Serviço e Suporte&quot; no Sistema Operacional da UnionTech.
+</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2524,7 +2538,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Desempenho Equilibrado</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2552,7 +2566,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Nível de bateria baixa</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -2564,11 +2578,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Unlocking is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Desbloqueio é requisitado para acordar o computador</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Desbloqueio é requisitado para acordar o monitor</translation>
     </message>
 </context>
 <context>
@@ -2590,7 +2604,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"/>
+        <translation>clique aqui para abrir o link</translation>
     </message>
 </context>
 <context>
@@ -2608,11 +2622,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Manage Irises</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciar Íris</translation>
     </message>
     <message>
         <source>You can add up to 5 irises</source>
-        <translation type="unfinished"/>
+        <translation>Você pode adicionar até 5 íris</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2620,7 +2634,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Iris</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Íris</translation>
     </message>
     <message>
         <source>The name already exists</source>
@@ -2646,7 +2660,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -2708,7 +2722,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"/>
+        <translation>Médio</translation>
     </message>
     <message>
         <source>Large</source>
@@ -2870,7 +2884,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privacidade e Segurança</translation>
     </message>
 </context>
 <context>
@@ -2912,19 +2926,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar frequência de operação da CPU automaticamente baseada na condição de carga da CPU</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar frequência de operação da CPU agresivamente baseada na condição de carga da CPU</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"/>
+        <translation>Será bom em melhorar o desempenho, mas o consumo de energia e geração de calor aumentarão</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>A CPU sempre trabalha em baixa frequência, o que reduzirá o consumo de energia</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -2964,11 +2978,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Verificando versões do sistema, por favor aguarde...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2987,15 +3001,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato</translation>
     </message>
     <message>
         <source>Provide localized services based on your region.</source>
-        <translation type="unfinished"/>
+        <translation>Provém serviços localizados baseados na sua região.</translation>
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
-        <translation type="unfinished"/>
+        <translation>Seleciona formatos de data e hora correspondentes baseados no idioma e região</translation>
     </message>
     <message>
         <source>Languange and region</source>
@@ -3064,44 +3078,43 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicações que podem acessar sua câmera:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicações que podem acessar seu microfone:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicações que podem acessar pastas do usuário:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicações que podem acessar o Calendário:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicações que podem acessar a Captura de Tela:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma aplicação solicitou acesso à câmera</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma aplicação solicitou acesso ao microfone</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma aplicação solicitou acesso às pastas do usuário</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma aplicação solicitou acesso ao Calendário</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
-    </message>
+        <translation>Nenhuma aplicação solicitou acesso à Captura de Tela</translation>
 </context>
 <context>
     <name>SoundEffectsPage</name>
@@ -3328,7 +3341,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>As configurações serão revertidas em %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -3381,7 +3394,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Colaboração</translation>
     </message>
 </context>
 <context>
@@ -3547,7 +3560,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Dependências não atendidas</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
@@ -3598,7 +3611,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Ligue para apenas atualizar vulnerabilidades de segurança e problemas de compatibilidade</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
@@ -3650,11 +3663,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"/>
+        <translation>atualização interna</translation>
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Junte-se ao canal de teste interno para obter as atualizações mais recentes do deepin</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -3666,11 +3679,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instale as atualizações automaticamente quando o download estiver completo</translation>
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instale &quot;%1&quot; automaticamente quando o download estiver completo</translation>
     </message>
 </context>
 <context>
@@ -3700,31 +3713,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"/>
+        <translation>Pode ser inseguro para você deixar o canal de teste interno agora, você ainda quer sair?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
-        <translation type="unfinished"/>
+        <translation>Você está seguro para sair do canal de teste interno</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"/>
+        <translation>machineid não pôde ser encontrado</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível desinstalar o pacote</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"/>
+        <translation>Erro ao sair do canal de teste</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"/>
+        <translation>tente desinstalar o pacote manualmente</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível instalar o pacote</translation>
     </message>
 </context>
 <context>
@@ -3771,11 +3784,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Tela e Suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Desligar o monitor após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3783,7 +3796,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender o computador após</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3795,7 +3808,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -3827,7 +3840,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar a interface de desligamento</translation>
     </message>
 </context>
 <context>
@@ -3854,11 +3867,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Tela e Suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Desligar o monitor após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3866,7 +3879,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender o computador após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3874,7 +3887,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
     <message>
         <source>Shut down</source>
@@ -3894,7 +3907,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar a interface de desligamento</translation>
     </message>
     <message>
         <source>Do nothing</source>
