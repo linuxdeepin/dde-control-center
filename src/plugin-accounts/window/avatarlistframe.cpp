@@ -564,6 +564,11 @@ void CustomAvatarView::endAvatarModify()
     }
 }
 
+void CustomAvatarView::stopAutoExitTimer()
+{
+    m_autoExitTimer->stop();
+}
+
 void CustomAvatarView::onZoomInImage(void)
 {
     m_zoomValue += 0.2;
@@ -656,4 +661,9 @@ void CustomAvatarWidget::enableAvatarScaledItem(bool enabled)
 {
     m_avatarScaledItem->setEnabled(enabled);
     m_avatarScaledItem->setValue(SLIDER_MINIMUM_SIZE);
+}
+
+void CustomAvatarWidget::stopAvatarModify()
+{
+    m_avatarView->stopAutoExitTimer();
 }

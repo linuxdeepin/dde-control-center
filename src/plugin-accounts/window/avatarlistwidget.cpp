@@ -168,6 +168,10 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
                     m_avatarFrames[Custom]->getCurrentListView()->getAvatarPath());
         }
 
+        if (auto customFrame = qobject_cast<CustomAvatarWidget*>(m_avatarFrames[Custom])) {
+            customFrame->stopAvatarModify();
+        }
+
         avatarSelectWidget->setCurrentIndex(index.row());
         QScrollArea *area = static_cast<QScrollArea *>(avatarSelectWidget->currentWidget());
         m_currentSelectAvatarWidget = static_cast<AvatarListFrame *>(area->widget());
@@ -191,12 +195,8 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
 
     connect(getCustomAvatarWidget()->getCustomAvatarView(),
             &CustomAvatarView::requestSaveCustomAvatar,
-            this,
-            [this](const QString &path) {
-                if (!path.isEmpty()) {
-                    m_currentSelectAvatarWidget->getCurrentListView()->saveAvatar(path);
-                }
-            });
+            m_avatarFrames[Custom]->getCurrentListView(),
+            &AvatarListView::saveAvatar);
 
     connect(static_cast<CustomAddAvatarWidget *>(m_avatarFrames[AvatarAdd]),
             &CustomAddAvatarWidget::requestUpdateCustomWidget,
