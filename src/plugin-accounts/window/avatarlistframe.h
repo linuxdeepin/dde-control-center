@@ -130,6 +130,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void startAvatarModify();
     void endAvatarModify();
+    void stopAutoExitTimer();
     void setZoomValue(const int value);
     QString getCroppedImage();
 
@@ -160,6 +161,7 @@ public:
     ~CustomAvatarWidget() override = default;
 
     void enableAvatarScaledItem(bool enabled);
+    void stopAvatarModify();
 
     inline CustomAvatarView *getCustomAvatarView() { return m_avatarView; }
 
