@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundworker.h"
 
 #include <QJsonDocument>
@@ -57,6 +57,7 @@ void SoundWorker::initConnect()
 
 void SoundWorker::activate()
 {
+
     m_model->setDefaultSink(m_soundDBusInter->defaultSink());
     m_model->setDefaultSource(m_soundDBusInter->defaultSource());
     m_model->setAudioCards(m_soundDBusInter->cardsWithoutUnavailable());
@@ -71,6 +72,9 @@ void SoundWorker::activate()
     m_model->setWaitSoundReceiptTime(m_waitSoundPortReceipt);
     m_model->setAudioServer(m_soundDBusInter->audioServer());
     m_model->setAudioServerChangedState(m_soundDBusInter->audioServerState());
+
+    refreshSoundEffect();
+    m_model->updateSoundEffectsModel();
 
     m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
@@ -122,6 +126,16 @@ void SoundWorker::setSinkBalance(double balance)
 
 }
 
+void SoundWorker::setActiveOutPutPort(int index)
+{
+
+}
+
+void SoundWorker::setSoundEffectEnable(int index, bool enable)
+{
+  //  m_model->queryEffectData()
+}
+
 void SoundWorker::setSourceVolume(double volume)
 {
     m_soundDBusInter->SetSourceVolume(volume, true);
@@ -130,6 +144,7 @@ void SoundWorker::setSourceVolume(double volume)
 
 void SoundWorker::setSinkVolume(double volume)
 {
+    qWarning()<<__FUNCTION__<<volume;
     m_soundDBusInter->SetVolumeSink(volume, true);
     qCDebug(DdcSoundWorker) << "set sink volume to " << volume;
 }
@@ -169,7 +184,7 @@ void SoundWorker::setPausePlayer(bool value)
     m_soundDBusInter->setPausePlayer(value);
 }
 
-void SoundWorker::setPort(const Port *port)
+void SoundWorker::setPort(Port *port)
 {
     m_soundDBusInter->SetPort(port->cardId(), port->id(), int(port->direction()));
     qCDebug(DdcSoundWorker) << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
@@ -345,6 +360,8 @@ void SoundWorker::getSoundEnabledMapFinished(QMap<QString, bool> map)
         QString path = m_soundDBusInter->GetSoundFile(it.key());
         m_model->updateSoundEffectPath(type, path);
     }
+
+    m_model->updateSoundEffectsModel();
 }
 
 
@@ -368,5 +385,13 @@ void SoundWorker::updatePortActivity()
         const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
+
+        if (isActiveOuputPort) {
+            m_model->setActiveOutPutPort(port);
+        }
+
+        if (isActiveInputPort) {
+            m_model->setActiveinPutPort(port);
+        }
     }
 }

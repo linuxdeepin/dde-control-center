@@ -1,39 +1,56 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-#include "accessible.h"
 #include "controlcenterdbusadaptor.h"
-#include "mainwindow.h"
-#include "utils.h"
+#include "dccapp.h"
+#include "dccmodel.h"
+#include "dccobject.h"
+#include "src/frame/dccmanager.h"
 
-#include <DApplication>
 #include <DDBusSender>
-#include <DLog>
+#include <DGuiApplicationHelper>
 #include <DIconTheme>
+#include <DLog>
 
+#include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <QDBusConnection>
+#include <QGuiApplication>
 #include <QIcon>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QScreen>
 #include <QStringList>
+#include <QWindow>
 
-DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
+void registerQml(const char *uri)
+{
+    qmlRegisterModule(uri, 1, 0);
+    qmlRegisterType<dccV25::DccObject>(uri, 1, 0, "DccObject");
+    qmlRegisterType<dccV25::DccModel>(uri, 1, 0, "DccModel");
+    qmlRegisterSingletonInstance(uri, 1, 0, "DccApp", dccV25::DccApp::instance());
+}
+
 QStringList defaultpath()
 {
-    QStringList path;
-#ifdef QT_DEBUG
-    path.append(qApp->applicationDirPath());
-#else
-    path.append(DCC_NAMESPACE::PLUGIN_DIRECTORY);
-    path.append(DCC_NAMESPACE::OLD_PLUGIN_DIRECTORY);
-#endif
+    const QStringList path{ QStringLiteral(DefaultPluginsDirectory) };
+    // , QStringLiteral("/usr/lib/dde-control-center/modules/") };
     return path;
 }
 
 int main(int argc, char *argv[])
 {
-    DApplication *app = DApplication::globalApplication(argc, argv);
+    DGuiApplicationHelper::setAttribute(DGuiApplicationHelper::DontSaveApplicationTheme, true);
+    DGuiApplicationHelper::setAttribute(DGuiApplicationHelper::UseInactiveColorGroup, false);
+
+    QGuiApplication *app = new QGuiApplication(argc, argv);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif // (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
 
@@ -64,37 +81,23 @@ int main(int argc, char *argv[])
     const QString &reqPage = parser.value(pageOption);
     const QString &refPluginDir = parser.value(pluginDir);
 
-    if (!app->setSingleInstance(app->applicationName())) {
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerService(DccDBusService)) {
+        qDebug() << "dbus service already registered!"
+                 << "pid is:" << qApp->applicationPid();
         if (parser.isSet(toggleOption)) {
-            DDBusSender()
-                    .service("org.deepin.dde.ControlCenter1")
-                    .interface("org.deepin.dde.ControlCenter1")
-                    .path("/org/deepin/dde/ControlCenter1")
-                    .method("Toggle")
-                    .call();
+            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Toggle").call();
         }
 
         if (!reqPage.isEmpty()) {
-            DDBusSender()
-                    .service("org.deepin.dde.ControlCenter1")
-                    .interface("org.deepin.dde.ControlCenter1")
-                    .path("/org/deepin/dde/ControlCenter1")
-                    .method("ShowPage")
-                    .arg(reqPage)
-                    .call();
+            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("ShowPage").arg(reqPage).call();
         } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
-            DDBusSender()
-                    .service("org.deepin.dde.ControlCenter1")
-                    .interface("org.deepin.dde.ControlCenter1")
-                    .path("/org/deepin/dde/ControlCenter1")
-                    .method("Show")
-                    .call();
+            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Show").call();
         }
 
         return -1;
     }
-    DLogManager::setLogFormat(
-            "%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
+    DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
 
     DLogManager::registerJournalAppender();
     DLogManager::registerConsoleAppender();
@@ -108,43 +111,54 @@ int main(int argc, char *argv[])
 #else
     app->setApplicationVersion("6.0");
 #endif
-    app->setAttribute(Qt::AA_UseHighDpiPixmaps);
-    app->loadTranslator();
-    app->setStyle("chameleon");
-    app->setProductIcon(DIconTheme::findQIcon("preferences-system"));
     app->setWindowIcon(DIconTheme::findQIcon("preferences-system"));
 
     app->setApplicationDisplayName(QObject::tr("Control Center"));
-    app->setApplicationDescription(
-            QApplication::translate("main",
-                                    "Control Center provides the options for system settings."));
+    // app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
-    QAccessible::installFactory(accessibleFactory);
+    // QAccessible::installFactory(accessibleFactory);
 
-    DCC_NAMESPACE::MainWindow mw;
+    dccV25::DccManager *dccManager = new dccV25::DccManager();
+    registerQml("Dcc");
+    dccManager->init();
+    QQmlApplicationEngine *engine = dccManager->engine();
+    engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));
+    // engine->load(QUrl( "/home/cxr/git/v25/build/dcc-v25-unknown-Debug/lib/DccWindow.qml"));
+    QList<QObject *> objs = engine->rootObjects();
+    for (auto &&obj : objs) {
+        QWindow *w = qobject_cast<QWindow *>(obj);
+        if (w) {
+            // w->setFlags(Qt::FramelessWindowHint| Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint | Qt::WindowTitleHint | Qt::Window);
+            qWarning() << __FUNCTION__ << "=====flags========" << w->flags();
+            dccManager->setMainWindow(w);
+            break;
+        }
+    }
+    if (!dccManager->mainWindow()) {
+        qWarning() << "";
+        return 1;
+    }
 
-    DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
-    DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
+    dccV25::ControlCenterDBusAdaptor *adaptor = new dccV25::ControlCenterDBusAdaptor(dccManager);
+    dccV25::DBusControlCenterGrandSearchService *grandSearchadAptor = new dccV25::DBusControlCenterGrandSearchService(dccManager);
 
     if (!refPluginDir.isEmpty()) {
-        mw.loadModules(true, { refPluginDir });
+        dccManager->loadModules(true, { refPluginDir });
         QDBusConnection conn = QDBusConnection::sessionBus();
-        if (!conn.registerService("org.deepin.dde.ControlCenter1")
-            || !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
+        if (!conn.registerObject(DccDBusPath, dccManager)) {
             qDebug() << "dbus service already registered!"
                      << "pid is:" << qApp->applicationPid();
             if (!parser.isSet(showOption))
                 return -1;
         }
-        mw.show();
+        adaptor->Show();
         return app->exec();
     }
 
-    mw.loadModules(!parser.isSet(dbusOption), defaultpath());
+    dccManager->loadModules(!parser.isSet(dbusOption), defaultpath());
 
-    QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("org.deepin.dde.ControlCenter1")
-        || !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
+    // QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerObject(DccDBusPath, dccManager)) {
         qDebug() << "dbus service already registered!"
                  << "pid is:" << qApp->applicationPid();
         if (!parser.isSet(showOption))
@@ -152,11 +166,11 @@ int main(int argc, char *argv[])
     }
 
     if (!reqPage.isEmpty()) {
-        adaptor.ShowPage(reqPage);
+        adaptor->ShowPage(reqPage);
     }
 
     if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
-        adaptor.Show();
+        adaptor->Show();
     }
 
 #ifdef QT_DEBUG
@@ -164,14 +178,10 @@ int main(int argc, char *argv[])
     // 发布版本，不会直接显示，为了满足在被dbus调用时，
     // 如果dbus参数错误，不会有任何UI上的变化
     if (1 == argc) {
-        DDBusSender()
-                .service("org.deepin.dde.ControlCenter1")
-                .interface("org.deepin.dde.ControlCenter1")
-                .path("/org/deepin/dde/ControlCenter1")
-                .method("Show")
-                .call();
+        DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Show").call();
     }
 #endif
-
-    return app->exec();
+    int exitCode = app->exec();
+    delete dccManager;
+    return exitCode;
 }

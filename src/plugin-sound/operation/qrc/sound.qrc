@@ -5,5 +5,7 @@
         <file>actions/dcc_volume1_32px.svg</file>
         <file>actions/dcc_volume2_32px.svg</file>
         <file>actions/dcc_volume3_32px.svg</file>
+        <file>actions/checked.png</file>
+        <file>actions/nocheck.png</file>
     </qresource>
 </RCC>

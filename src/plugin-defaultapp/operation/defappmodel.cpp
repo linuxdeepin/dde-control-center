@@ -1,11 +1,13 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappmodel.h"
 
 DefAppModel::DefAppModel(QObject *parent)
     :QObject(parent)
 {
+    tr("adfasdfsdgggg4554555555555555555555asdf");
+    setObjectName(tr("adff=========adsfads3453"));
     m_modBrowser = new Category(this);
     m_modMail = new Category(this);
     m_modText = new Category(this);
