@@ -6,21 +6,21 @@ Build-Depends:
  debhelper-compat (= 12),
  pkg-config,
  cmake,
- qtbase5-dev,
- qtbase5-private-dev,
- qttools5-dev-tools,
- libdtkwidget-dev,
- libdtkcore-dev(>>5.6.18),
- libdtkcore5-bin,
- qtmultimedia5-dev,
- libdareader-dev,
- libdeepin-pw-check-dev,
- libpolkit-qt5-1-dev,
+ qt6-base-dev,
+ qt6-declarative-dev,
+ qt6-tools-dev,
+ libdtkcommon-dev,
+ libdtk6gui-dev,
+ libdtk6core-dev,
  doxygen,
  libgtest-dev,
  libgsettings-qt-dev,
- libicu-dev,
- libwayland-dev,
+ extra-cmake-modules,
+ libqt6svg6,
+ deepin-gettext-tools,
+ qml6-module-qtquick-layouts,
+ qml6-module-qtquick-window,
+ qml6-module-qt-labs-qmlmodels,
  systemd,
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
@@ -28,7 +28,11 @@ Homepage: https://github.com/linuxdeepin/dde-control-center
 Package: dde-control-center
 Architecture: any
 Depends:
- ${shlibs:Depends}, ${misc:Depends}
+ ${shlibs:Depends}, ${misc:Depends},
+ qml6-module-qtquick-layouts,
+ qml6-module-qtquick-window,
+ qml6-module-qt-labs-qmlmodels,
+ libdtk6declarative,
 Description: New control center for Deepin Desktop Environment,
  Integrated control center with rich functions,Besides providing rich
  system setting items, the function level is simple, the logic is clear,

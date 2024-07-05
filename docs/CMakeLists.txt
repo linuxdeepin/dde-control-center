@@ -1,8 +1,8 @@
 find_package(Doxygen REQUIRED)
 
-set(QCH_INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/qt5/doc CACHE STRING "QCH install location")
+set(QCH_INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/qt6/doc CACHE STRING "QCH install location")
 
-find_program(QHelpGenerator_EXECUTABLE NAMES qhelpgenerator-qt5 qhelpgenerator)
+find_program(QHelpGenerator_EXECUTABLE NAMES qt6-documentation-tools qhelpgenerator)
 
 set(DOXYGEN_GENERATE_HTML YES CACHE STRING "Doxygen HTML output")
 set(DOXYGEN_GENERATE_XML YES CACHE STRING "Doxygen XML output")
@@ -45,7 +45,7 @@ if(BUILD_THEME)
 endif()
 
 set(DOXYGEN_MACRO_EXPANSION "YES")
-set(DOXYGEN_PREDEFINED "DCC_NAMESPACE=dccv23")
+# set(DOXYGEN_PREDEFINED "DCC_NAMESPACE=dccv23")
 
 doxygen_add_docs(doxygen
     ${PROJECT_SOURCE_DIR}/include

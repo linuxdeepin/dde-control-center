@@ -1,44 +1,44 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include "interface/namespace.h"
-
-#include <QtCore/QObject>
-#include <QtDBus/QtDBus>
+#include <QDBusAbstractAdaptor>
+#include <QRect>
 
 QT_BEGIN_NAMESPACE
-class QByteArray;
-template<class T> class QList;
-template<class Key, class Value> class QMap;
-class QString;
-class QStringList;
-class QVariant;
+class QTimer;
 QT_END_NAMESPACE
 
 /*
  * Adaptor class for interface com.deepin.dde.ControlCenter
  */
+#define DccDBusService "org.deepin.dde.ControlCenter1"
+#define DccDBusInterface "org.deepin.dde.ControlCenter1"
+#define DccDBusPath "/org/deepin/dde/ControlCenter1"
 
-namespace DCC_NAMESPACE
-{
+namespace dccV25 {
 
-class MainWindow;
+class DccManager;
 
-class ControlCenterDBusAdaptor: public QDBusAbstractAdaptor
+class ControlCenterDBusAdaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter1")
+    Q_CLASSINFO("D-Bus Interface", DccDBusInterface)
 
 public:
-    explicit ControlCenterDBusAdaptor(MainWindow *parent);
+    Q_PROPERTY(QRect Rect READ rect)
+    Q_PROPERTY(QString Page READ page)
+    Q_PROPERTY(QString Path READ path)
+    explicit ControlCenterDBusAdaptor(DccManager *parent);
     virtual ~ControlCenterDBusAdaptor();
 
-    inline MainWindow *parent() const;
+    inline DccManager *parent() const;
 
 public:
     const QRect rect() const;
+    const QString page() const;
+    const QString path() const;
 
 public Q_SLOTS: // METHODS
     void Exit();
@@ -49,18 +49,22 @@ public Q_SLOTS: // METHODS
     void Toggle();
     QString GetAllModule();
 
+private:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void updatePage();
+    void updateRect();
 };
 
-class DBusControlCenterGrandSearchService: public QDBusAbstractAdaptor
+class DBusControlCenterGrandSearchService : public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter1.GrandSearch")
+    Q_CLASSINFO("D-Bus Interface", DccDBusInterface ".GrandSearch")
 
 public:
-    explicit DBusControlCenterGrandSearchService(MainWindow *parent);
+    explicit DBusControlCenterGrandSearchService(DccManager *parent);
     virtual ~DBusControlCenterGrandSearchService();
 
-    inline MainWindow *parent() const;
+    inline DccManager *parent() const;
 
 public Q_SLOTS: // METHODS
     QString Search(const QString json);
@@ -71,4 +75,4 @@ private:
     QTimer *m_autoExitTimer;
 };
 
-} // namespace DCC_NAMESPACE
+} // namespace dccV25

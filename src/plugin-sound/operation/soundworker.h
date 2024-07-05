@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDWORKER_H
 #define SOUNDWORKER_H
 
@@ -12,34 +12,45 @@
 
 #include <DDesktopServices>
 #include "qdbusconnectioninterface.h"
-
-DWIDGET_USE_NAMESPACE
+#include <QtQml/qqml.h>
+#include <QTimer>
 
 class SoundWorker : public QObject
 {
     Q_OBJECT
+
+    QML_NAMED_ELEMENT(SoundWorker)
+    QML_SINGLETON
 public:
     explicit SoundWorker(SoundModel *model, QObject * parent = 0);
 
     void activate();
     void deactivate();
 
+    Q_INVOKABLE void setSinkVolume(double volume);
+    Q_INVOKABLE void setReduceNoise(bool value);
+    Q_INVOKABLE void setPausePlayer(bool value);
+    Q_INVOKABLE void setIncreaseVolume(bool value);
+    Q_INVOKABLE void setSinkBalance(double balance);
+    Q_INVOKABLE void setActiveOutPutPort(int index);
+    Q_INVOKABLE void setSoundEffectEnable(int index, bool enable);
+    Q_INVOKABLE void setSourceVolume(double volume);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
     void switchMicrophone(bool on);
 
     void setPortEnabled(unsigned int cardid,QString portName,bool enable);
-    void setSinkBalance(double balance);
-    void setSourceVolume(double volume);
-    void setSinkVolume(double volume);
+//    void setSinkBalance(double balance);
+//    void setSourceVolume(double volume);
+//    Q_INVOKABLE void setSinkVolume(double volume);
     void setSourceMute(bool flag = true);
     void setSinkMute(bool flag = true);
-    void setIncreaseVolume(bool value);
-    void setReduceNoise(bool value);
-    void setPausePlayer(bool value);
+//    void setIncreaseVolume(bool value);
+//    void setReduceNoise(bool value);
+//    void setPausePlayer(bool value);
 
-    void setPort(const Port *port);
+    void setPort(Port *port);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
     void enableAllSoundEffect(bool enable);
     void setBluetoothMode(const QString &mode);
