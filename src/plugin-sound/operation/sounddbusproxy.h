@@ -1,10 +1,9 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDDBUSPROXY_H
 #define SOUNDDBUSPROXY_H
 
-#include "interface/namespace.h"
 #include "audioport.h"
 
 #include <DDBusInterface>

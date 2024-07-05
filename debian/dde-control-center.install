@@ -1,6 +1,6 @@
 usr/bin/
-usr/lib/*/*.so.*
-usr/lib/*/dde-control-center/modules/*.so
+usr/lib/*/*.so
+usr/lib/*/dde-control-center/
 usr/share/dde-control-center/
 usr/share/dsg/
 usr/share/metainfo

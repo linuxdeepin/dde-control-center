@@ -1,8 +1,8 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "sounddbusproxy.h"
-#include "widgets/dccdbusinterface.h"
+// #include "widgets/dccdbusinterface.h"
 
 #include "audioport.h"
 #include <QDBusArgument>
@@ -27,7 +27,7 @@ const static QString SinkInterface = QStringLiteral("org.deepin.dde.Audio1.Sink"
 const static QString SourceInterface = QStringLiteral("org.deepin.dde.Audio1.Source");
 const static QString MeterInterface = QStringLiteral("org.deepin.dde.Audio1.Meter");
 
-using namespace DCC_NAMESPACE;
+// using namespace DCC_NAMESPACE;
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
     : QObject(parent)
     , m_audioInter(new DDBusInterface(AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))

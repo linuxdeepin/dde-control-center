@@ -1,23 +1,20 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
 #define DCC_SOUND_SOUNDMODEL_H
 
-#include <dtkwidget_global.h>
 #include <dtkgui_global.h>
 #include <DDesktopServices>
 #include <QObject>
 #include <QMap>
-#include <QLabel>
 #include <QDBusObjectPath>
-DGUI_USE_NAMESPACE
-DWIDGET_USE_NAMESPACE
+#include <QtQml/qqml.h>
 
-DWIDGET_BEGIN_NAMESPACE
-class DIconButton;
-class DToolButton;
-DWIDGET_END_NAMESPACE
+#include "soundeffectsmodel.h"
+
+DGUI_USE_NAMESPACE
+
 
 QT_BEGIN_NAMESPACE
 class QStandardItemModel;
@@ -84,27 +81,24 @@ private:
     Direction m_direction;
 };
 
-class SoundLabel : public QLabel
-{
-    Q_OBJECT
-public:
-    explicit SoundLabel(QWidget *parent = nullptr);
-    void mouseReleaseEvent(QMouseEvent *e) override;
-    virtual ~SoundLabel() {}
-    void setIcon(const QIcon &icon);
-    void setIconSize(const QSize &size);
-
-private:
-    bool m_mute;
-    DTK_WIDGET_NAMESPACE::DToolButton *m_btn;
-
-Q_SIGNALS:
-    void clicked(bool checked);
-};
-
 class SoundModel : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
+    Q_PROPERTY(double speakerVolume READ speakerVolume  NOTIFY speakerVolumeChanged)
+    Q_PROPERTY(bool increaseVolume READ isIncreaseVolume NOTIFY increaseVolumeChanged)
+    Q_PROPERTY(double speakerBalance READ speakerBalance NOTIFY speakerBalanceChanged)
+    Q_PROPERTY(QStringList outPutPortCombo READ outPutPortCombo NOTIFY outPutPortComboChanged)
+    Q_PROPERTY(bool pausePlayer READ pausePlayer NOTIFY pausePlayerChanged)
+
+    Q_PROPERTY(double microphoneVolume READ microphoneVolume NOTIFY microphoneVolumeChanged)
+    Q_PROPERTY(bool reduceNoise READ reduceNoise NOTIFY reduceNoiseChanged)
+    Q_PROPERTY(int outPutPortComboIndex READ outPutPortComboIndex NOTIFY outPutPortComboIndexChanged FINAL)
+    Q_PROPERTY(double microphoneFeedback READ microphoneFeedback NOTIFY microphoneFeedbackChanged)
+
+    QML_NAMED_ELEMENT(SoundModel)
+    QML_SINGLETON
 public:
     explicit SoundModel(QObject *parent = 0);
     ~SoundModel();
@@ -124,18 +118,25 @@ public:
     inline bool microphoneOn() const { return m_microphoneOn; }
     void setMicrophoneOn(bool microphoneOn);
 
-    inline double speakerBalance() const { return m_speakerBalance; }
+    inline double speakerBalance() const { return m_speakerBalance ; }
     void setSpeakerBalance(double speakerBalance);
 
     inline double microphoneVolume() const { return m_microphoneVolume; }
     void setMicrophoneVolume(double microphoneVolume);
+
+    inline QStringList outPutPortCombo() const
+    {
+        return m_outPutPortCombo;
+    }
+
+    void setOutPutPortCombo(const QStringList& outPutPort);
 
 #ifndef DCC_DISABLE_FEEDBACK
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
     void setMicrophoneFeedback(double microphoneFeedback);
 #endif
 
-    void setPort(const Port *port);
+    void setPort(Port *port);
     void addPort(Port *port);
     void removePort(const QString &portId, const uint &cardId);
     bool containsPort(const Port *port);
@@ -201,6 +202,11 @@ public:
     inline bool audioServerChangedState() const { return m_audioServerStatus; }
     void setAudioServerChangedState(const bool state);
 
+    void updateSoundEffectsModel();
+
+private:
+
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -219,7 +225,8 @@ Q_SIGNALS:
     void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
     void bluetoothModeChanged(const QString &mode);
 
-    void setPortChanged(const Port* port) const;
+    void setPortChanged(Port* port) const;
+    void outPutPortComboChanged(const QStringList &outPutPort) const;
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
@@ -242,6 +249,16 @@ Q_SIGNALS:
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
     void isLaptopChanged(bool isLaptop);
+
+    void titleChanged(QString title);
+
+    void outPutPortComboIndexChanged();
+
+    void inPutPortComboChanged();
+
+    void inPutPortComboIndexChanged();
+
+    void soundEffectsModelChanged();
 
 private:
     QString m_audioServer;     // 当前使用音频框架
@@ -281,6 +298,48 @@ private:
 
     bool m_inputVisibled;
     bool m_outputVisibled;
+
+    QString m_title;
+
+    QStringList m_outPutPortCombo;
+    int m_outPutPortComboIndex;
+    Port* m_activeOutPutPort;
+
+    QStringList m_inPutPortCombo;
+    int m_inPutPortComboIndex;
+    Port* m_activeinPutPort;
+
+    SoundEffectsModel* m_soundEffectsModel;
+
+    Q_PROPERTY(QStringList inPutPortCombo READ inPutPortCombo WRITE setInPutPortCombo NOTIFY inPutPortComboChanged FINAL)
+    Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
+
+public:
+
+    QString title() const
+    {
+        return m_title;
+    }
+
+    void setTitle(const QString& title)
+    {
+        this->m_title = title;
+    }
+    int outPutPortComboIndex() const;
+    void setOutPutPortComboIndex(int newOutPutPortComboIndex);
+    Port *activeOutPutPort() const;
+    void setActiveOutPutPort(Port *newActiveOutPutPort);
+    QStringList inPutPortCombo() const;
+    void setInPutPortCombo(const QStringList &newInPutPortCombo);
+    int inPutPortComboIndex() const;
+    void setInPutPortComboIndex(int newInPutPortComboIndex);
+    Port *activeinPutPort() const;
+    void setActiveinPutPort(Port *newActiveinPutPort);
+
+    Q_INVOKABLE SoundEffectsModel* soundEffectsModel() const;
+
+    Q_INVOKABLE QString getListName(int index) const;
+    Q_INVOKABLE int getSoundEffectsRowCount() const;
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H
