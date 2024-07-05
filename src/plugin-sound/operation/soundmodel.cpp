@@ -1,22 +1,17 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundmodel.h"
 
-#include <DIconButton>
 #include <DSysInfo>
-#include <DToolButton>
 
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QDebug>
-#include <QHBoxLayout>
 #include <QLoggingCategory>
 #include <QStandardItemModel>
 
 Q_LOGGING_CATEGORY(DdcSoundModel, "dcc-sound-model")
-
-Q_DECLARE_METATYPE(const Port *)
 
 const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::uosType();
 const static bool IsServerSystem = (Dtk::Core::DSysInfo::UosServer == UosType); //是否是服务器版
@@ -39,38 +34,6 @@ static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP
     { DDesktopServices::SystemSoundEffect::SSE_Error, "dialog-error" }
 };
 
-SoundLabel::SoundLabel(QWidget *parent)
-    : QLabel(parent)
-    , m_mute(false)
-    , m_btn(new DTK_WIDGET_NAMESPACE::DToolButton(this))
-{
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->addWidget(m_btn);
-
-    connect(m_btn, &DIconButton::clicked, this, [this]() {
-        this->m_mute = !this->m_mute;
-        Q_EMIT clicked(this->m_mute);
-    });
-}
-
-void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
-{
-    Q_UNUSED(e)
-    m_mute = !m_mute;
-    Q_EMIT clicked(m_mute);
-}
-
-void SoundLabel::setIcon(const QIcon &icon)
-{
-    m_btn->setIcon(icon);
-}
-
-void SoundLabel::setIconSize(const QSize &size)
-{
-    m_btn->setIconSize(size);
-}
-
 SoundModel::SoundModel(QObject *parent)
     : QObject(parent)
     , m_speakerOn(true)
@@ -88,7 +51,22 @@ SoundModel::SoundModel(QObject *parent)
     , m_soundEffectMapBattery{}
     , m_inputVisibled(false)
     , m_outputVisibled(false)
+    , m_soundEffectsModel(new SoundEffectsModel(this))
 {
+
+    // setTitle("ddddddddddddddd");
+    // SoundEffectsData* data1 = new SoundEffectsData;
+    // data1->setName("sssssssss");
+    // data1->setDispalyText("vvvvvvvvvvvvv");
+    // data1->setChecked(true);
+    // m_soundEffectsModel->addData(*data1);
+
+    // SoundEffectsData* data2 = new SoundEffectsData;
+    // data2->setName("dddddddddd");
+    // data2->setDispalyText("hhhhhhhhhhh");
+    // data2->setChecked(false);
+    // m_soundEffectsModel->addData(*data2);
+
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
         { tr("Shut down"), DDesktopServices::SSE_Shutdown },
@@ -132,6 +110,67 @@ SoundModel::~SoundModel()
         if (port)
             port->deleteLater();
     }
+}
+
+Port *SoundModel::activeinPutPort() const
+{
+    return m_activeinPutPort;
+}
+
+void SoundModel::setActiveinPutPort(Port *newActiveinPutPort)
+{
+    m_activeinPutPort = newActiveinPutPort;
+    setInPutPortComboIndex(m_inPutPortCombo.indexOf(m_activeinPutPort->name() + "(" + m_activeinPutPort->cardName() + ")"));
+}
+
+int SoundModel::inPutPortComboIndex() const
+{
+    return m_inPutPortComboIndex;
+}
+
+void SoundModel::setInPutPortComboIndex(int newInPutPortComboIndex)
+{
+    if (m_inPutPortComboIndex == newInPutPortComboIndex)
+        return;
+    m_inPutPortComboIndex = newInPutPortComboIndex;
+    emit inPutPortComboIndexChanged();
+}
+
+QStringList SoundModel::inPutPortCombo() const
+{
+    return m_inPutPortCombo;
+}
+
+void SoundModel::setInPutPortCombo(const QStringList &newInPutPortCombo)
+{
+    if (m_inPutPortCombo == newInPutPortCombo)
+        return;
+    m_inPutPortCombo = newInPutPortCombo;
+    emit inPutPortComboChanged();
+}
+
+Port *SoundModel::activeOutPutPort() const
+{
+    return m_activeOutPutPort;
+}
+
+void SoundModel::setActiveOutPutPort(Port *newActiveOutPutPort)
+{
+    m_activeOutPutPort = newActiveOutPutPort;
+    setOutPutPortComboIndex(m_outPutPortCombo.indexOf(m_activeOutPutPort->name() + "(" + m_activeOutPutPort->cardName() + ")"));
+}
+
+int SoundModel::outPutPortComboIndex() const
+{
+    return m_outPutPortComboIndex;
+}
+
+void SoundModel::setOutPutPortComboIndex(int newOutPutPortComboIndex)
+{
+    if (newOutPutPortComboIndex < 0 || m_outPutPortComboIndex == newOutPutPortComboIndex)
+        return;
+    m_outPutPortComboIndex = newOutPutPortComboIndex;
+    emit outPutPortComboIndexChanged();
 }
 
 void SoundModel::setSpeakerOn(bool speakerOn)
@@ -178,6 +217,8 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
 void SoundModel::setSpeakerBalance(double speakerBalance)
 {
     if (!qFuzzyCompare(speakerBalance, m_speakerBalance)) {
+
+
         m_speakerBalance = speakerBalance;
 
         Q_EMIT speakerBalanceChanged(speakerBalance);
@@ -202,8 +243,14 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 }
 #endif
 
-void SoundModel::setPort(const Port *port)
+void SoundModel::setPort(Port *port)
 {
+    if (port->direction() == Port::Direction::Out) {
+        setActiveOutPutPort(port);
+    }
+    if (port->direction() == Port::Direction::In) {
+        setActiveinPutPort(port);
+    }
     Q_EMIT setPortChanged(port);
 }
 
@@ -214,8 +261,11 @@ void SoundModel::addPort(Port *port)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.append(port);
+
+            m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
         } else {
             m_inputPorts.append(port);
+            m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
         }
 
         Q_EMIT portAdded(port);
@@ -232,6 +282,8 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
+
+
         } else {
             m_inputPorts.removeOne(port);
         }
@@ -436,12 +488,57 @@ void SoundModel::setAudioServerChangedState(const bool state)
     }
 }
 
+void SoundModel::updateSoundEffectsModel()
+{
+    m_soundEffectsModel->clearData();
+    SoundEffectList list = soundEffectMap();
+
+    for (std::pair<QString, DDesktopServices::SystemSoundEffect> item : list) {
+        if (m_soundEffectData.contains(item.second) && m_soundEffectPaths.contains(item.second)) {
+            SoundEffectsData* data = new SoundEffectsData;
+            data->setName(item.first);
+            data->setSystemSoundEffect(item.second);
+            data->setChecked(m_soundEffectData[item.second]);
+            data->setPath(m_soundEffectPaths[item.second]);
+            m_soundEffectsModel->addData(data);
+        }
+    }
+}
+
+SoundEffectsModel* SoundModel::soundEffectsModel() const
+{
+    return m_soundEffectsModel;
+}
+
+QString SoundModel::getListName(int index) const
+{
+    if (index == 0) {
+        return "zzzzzzzzzzzzz";
+    } else if (index == 1) {
+        return "hhhhhhhhhhhhhhh";
+    } else {
+        return "ffffffffffffffffff";
+    }
+}
+
+int SoundModel::getSoundEffectsRowCount() const
+{
+    return 11;
+    //return m_soundEffectsModel ? m_soundEffectsModel->Rowc
+}
+
 void SoundModel::setAudioServer(const QString &audioServer)
 {
     if (m_audioServer != audioServer) {
         m_audioServer = audioServer;
         Q_EMIT curAudioServerChanged(audioServer);
     }
+}
+
+void SoundModel::setOutPutPortCombo(const QStringList& outPutPort)
+{
+    m_outPutPortCombo = outPutPort;
+    Q_EMIT outPutPortComboChanged(m_outPutPortCombo);
 }
 
 void Port::setId(const QString &id)
@@ -510,3 +607,4 @@ void Port::setIsBluetoothPort(const bool isBlue)
         Q_EMIT currentBluetoothPortChanged(isBlue);
     }
 }
+

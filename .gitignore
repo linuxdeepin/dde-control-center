@@ -19,6 +19,17 @@ build*/
 *.autosave
 *.user*
 
+debian/files
+debian/tmp
+obj-x86_64-linux-gnu
+debian/debhelper-build-stamp
+debian/dde-control-center
+debian/dde-control-center-dev
+debian/dde-control-center-doc
+*.log
+*.substvars
+.debhelper
+
 # qm file is auto generate from .ts file
 *.qm
 
