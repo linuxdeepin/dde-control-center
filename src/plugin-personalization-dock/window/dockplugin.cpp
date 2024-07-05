@@ -34,6 +34,8 @@ DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 
+const int ICON_SIZE = 16;
+
 enum DisplayMode
 {
     AlignCenter = 0,   // 时尚模式
@@ -121,25 +123,32 @@ DockModuleObject::DockModuleObject()
         appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("Plugin Area"), this, &DockModuleObject::initPluginTitle));
         appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("Select which icons appear in the Dock"), this, &DockModuleObject::initPluginTips));
         appendChild(new WidgetModule<DListView>("pluginArea", QString(), this, &DockModuleObject::initPluginView));
+    } else {
+        qWarning() << "dock plugins dbus call failed: " << reply.error().name();
     }
 }
 
-QIcon DockModuleObject::getIcon(const DockItemInfo &dockItemInfo) const
+QIcon DockModuleObject::getIcon(const QString &dccIcon, bool isDeactivate) const
 {
-    static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant", "dcc_dock_assistant"}, {"show-desktop", "dcc_dock_desktop"}, {"onboard", "dcc_dock_keyboard"}, {"notifications", "dcc_dock_notify"}, {"shutdown", "dcc_dock_power"}, {"multitasking", "dcc_dock_task"}, {"system-monitor", "dcc_dock_systemmonitor"}, {"grand-search", "dcc_dock_grandsearch"}, {"trash", "dcc_dock_trash"}};
-    QPixmap pixmap;
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::ColorType::LightType)
-        pixmap.loadFromData(dockItemInfo.iconLight);
-    else
-        pixmap.loadFromData(dockItemInfo.iconDark);
+    auto originPixmap = QIcon(dccIcon).pixmap(ICON_SIZE, ICON_SIZE);
+    auto pm = originPixmap.copy();
+    QPainter pa(&pm);
+    QColor color;
+    pa.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    auto palette = qApp->palette();
+    color = palette.color(!isDeactivate ? QPalette::Active : QPalette::Inactive, QPalette::WindowText);
+    pa.fillRect(pm.rect(), color);
+    return QIcon(pm);
+}
 
-    QIcon icon(pixmap);
-    if (icon.isNull())
-        icon = DIconTheme::findQIcon(pluginIconMap.value(dockItemInfo.name));
-    if (icon.isNull())
-        icon = DIconTheme::findQIcon("dcc_dock_plug_in");
-
-    return icon;
+bool DockModuleObject::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_view) {
+        if (event->type() == QEvent::Show || event->type() == QEvent::WindowDeactivate || event->type() == QEvent::WindowActivate) {
+            updateIcons();
+        }
+    }
+    return DCC_NAMESPACE::PageModule::eventFilter(watched, event);
 }
 
 void DockModuleObject::initMode(ComboxWidget *widget)
@@ -341,7 +350,7 @@ void DockModuleObject::initPluginView(DListView *view)
 
     QDBusPendingReply<DockItemInfos> reply = m_dbusProxy->plugins();
     DockItemInfos plugins = reply.value();
-
+    m_view = view;
     view->setAccessibleName("PluginList");
     view->setAccessibleName("pluginList");
     view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -351,6 +360,7 @@ void DockModuleObject::initPluginView(DListView *view)
     view->setFrameShape(DListView::NoFrame);
     view->setViewportMargins(0, 0, 0, 0);
     view->setItemSpacing(1);
+    view->installEventFilter(this);
 
     QMargins itemMargins(view->itemMargins());
     itemMargins.setLeft(14);
@@ -363,15 +373,16 @@ void DockModuleObject::initPluginView(DListView *view)
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
-    QStandardItemModel *pluginModel = new QStandardItemModel(this);
-    view->setModel(pluginModel);
+    m_pluginModel = new QStandardItemModel(this);
+    view->setModel(m_pluginModel);
 
-    auto updateItemCheckStatus = [=](const QString &name, bool visible)
+    auto updateItemCheckStatus = [=](const QString &itemKey, bool visible)
     {
-        for (int i = 0; i < pluginModel->rowCount(); ++i)
+        for (int i = 0; i < m_pluginModel->rowCount(); ++i)
         {
-            auto item = static_cast<DStandardItem *>(pluginModel->item(i));
-            if (item->text() != name || item->actionList(Qt::Edge::RightEdge).size() < 1)
+            auto item = static_cast<DStandardItem *>(m_pluginModel->item(i));
+            auto key = item->data(Dtk::UserRole + 3 ).toString();
+            if (key != itemKey || item->actionList(Qt::Edge::RightEdge).size() < 1)
                 continue;
 
             auto action = item->actionList(Qt::Edge::RightEdge).first();
@@ -391,7 +402,7 @@ void DockModuleObject::initPluginView(DListView *view)
 
                    // 插件图标
             auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            leftAction->setIcon(getIcon(dockItem));
+            leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow()));
             item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
             auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
@@ -399,19 +410,21 @@ void DockModuleObject::initPluginView(DListView *view)
             auto checkIcon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
             rightAction->setIcon(checkIcon);
             item->setActionList(Qt::Edge::RightEdge, {rightAction});
-            pluginModel->appendRow(item);
+            m_pluginModel->appendRow(item);
 
             item->setData(dockItem.visible, Dtk::UserRole + 1);
+            item->setData(dockItem.dcc_icon, Dtk::UserRole + 2);
+            item->setData(dockItem.itemKey, Dtk::UserRole + 3);
 
             connect(rightAction, &DViewItemAction::triggered, view, [=]
                     {
                         bool visible = !item->data(Dtk::UserRole + 1).toBool();
                         m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, visible);
-                        updateItemCheckStatus(dockItem.displayName, visible);
+                        updateItemCheckStatus(dockItem.itemKey, visible);
                         item->setData(visible, Dtk::UserRole + 1); });
             // 主题发生变化触发的信号
-            connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem]()
-                    { leftAction->setIcon(getIcon(dockItem)); });
+            connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem, view]()
+                    { leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow())); });
         }
     };
     initPluginModel(plugins);
@@ -423,7 +436,7 @@ void DockModuleObject::initPluginView(DListView *view)
     connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, view, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
     // 开关窗口特效时刷新插件列表
     connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasCompositeChanged, this, [=] {
-        pluginModel->clear();
+        m_pluginModel->clear();
         if (m_dbusProxy.isNull())
             m_dbusProxy.reset(new DockDBusProxy);
 
@@ -457,4 +470,16 @@ void DockModuleObject::updateScreenVisible()
 
     m_screenTitle->setHidden(!screenIsShow);
     m_screen->setHidden(!screenIsShow);
+}
+
+void DockModuleObject::updateIcons()
+{
+    for (int i = 0; i < m_pluginModel->rowCount(); i++) {
+        auto item = dynamic_cast<DStandardItem*>(m_pluginModel->item(i));
+        if (!item || item->data(Dtk::UserRole + 2).toString().isEmpty())
+            continue;
+        for (auto action : item->actionList(Qt::Edge::LeftEdge)) {
+            action->setIcon(getIcon(item->data(Dtk::UserRole + 2).toString(), !m_view->isActiveWindow()));
+        }
+    }
 }
