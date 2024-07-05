@@ -16,8 +16,7 @@ struct DockItemInfo
     QString displayName;
     QString itemKey;
     QString settingKey;
-    QByteArray iconLight;
-    QByteArray iconDark;
+    QString dcc_icon;
     bool visible;
 };
 
