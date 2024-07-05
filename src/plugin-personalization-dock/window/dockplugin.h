@@ -29,7 +29,7 @@ class DockDBusProxy;
 class QCheckBox;
 class QDBusMessage;
 class DockItemInfo;
-
+class QStandardItemModel;
 class DockPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
@@ -52,8 +52,12 @@ class DockModuleObject : public DCC_NAMESPACE::PageModule
 public:
     explicit DockModuleObject();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+    
 private:
-    QIcon getIcon(const DockItemInfo &dockItemInfo) const;
+    QIcon getIcon(const QString &dccIcon, bool isDeactivate) const;
+    void updateIcons();
 
 private Q_SLOTS:
     void initMode(DCC_NAMESPACE::ComboxWidget *widget);
@@ -73,6 +77,8 @@ private:
     QScopedPointer<QDBusInterface> m_displayProxy;
     DCC_NAMESPACE::ItemModule *m_screenTitle;
     DCC_NAMESPACE::ItemModule *m_screen;
+    QStandardItemModel *m_pluginModel;
+    DListView *m_view;
 };
 
 #endif // DOCKPLUGIN_H
