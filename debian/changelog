@@ -1,3 +1,9 @@
+dde-control-center (6.0.58) unstable; urgency=medium
+
+  * chore: compatible to new dock 
+
+ -- Wang Fei <wangfei@deepin.org>  Tue, 09 Jul 2024 11:41:02 +0800
+
 dde-control-center (6.0.57) unstable; urgency=medium
 
   * feat: Add translations for dde-control-center in plymouth notifications(Issue: https://github.com/linuxdeepin/developer-center/issues/8998)
