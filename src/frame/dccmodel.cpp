@@ -36,13 +36,11 @@ void DccModel::setRoot(DccObject *root)
     Q_EMIT rootChanged(m_root);
     if (!m_root)
         return;
-    qCWarning(dccLog) << __FUNCTION__ << __LINE__ << this << root << DccObject::Private::FromObject(root)->getChildren().size();
     connect(m_root, &DccObject::childAboutToBeAdded, this, &DccModel::AboutToAddObject);
     connect(m_root, &DccObject::childAdded, this, &DccModel::addObject);
     connect(m_root, &DccObject::childAboutToBeRemoved, this, &DccModel::AboutToRemoveObject);
     connect(m_root, &DccObject::childRemoved, this, &DccModel::removeObject);
     for (auto &&obj : DccObject::Private::FromObject(m_root)->getChildren()) {
-        qCWarning(dccLog) << __FUNCTION__ <<obj;
         connectObject(obj);
     }
 }
@@ -176,10 +174,9 @@ void DccModel::updateObject()
     }
 }
 
-void DccModel::AboutToAddObject(const DccObject *parent, int pos)
+void DccModel::AboutToAddObject(const DccObject *, int pos)
 {
-    QModelIndex i = index(parent);
-    beginInsertRows(i, pos, pos);
+    beginInsertRows(QModelIndex(), pos, pos);
 }
 
 void DccModel::addObject(const DccObject *child)
@@ -188,10 +185,9 @@ void DccModel::addObject(const DccObject *child)
     connectObject(child);
 }
 
-void DccModel::AboutToRemoveObject(const DccObject *parent, int pos)
+void DccModel::AboutToRemoveObject(const DccObject *, int pos)
 {
-    QModelIndex i = index(parent);
-    beginRemoveRows(i, pos, pos);
+    beginRemoveRows(QModelIndex(), pos, pos);
 }
 
 void DccModel::removeObject(const DccObject *child)

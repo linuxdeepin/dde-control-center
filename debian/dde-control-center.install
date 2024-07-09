@@ -1,5 +1,5 @@
 usr/bin/
-usr/lib/*/*.so
+usr/lib/*/*.so*
 usr/lib/*/dde-control-center/
 usr/share/dde-control-center/
 usr/share/dsg/

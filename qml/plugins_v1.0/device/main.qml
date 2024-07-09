@@ -5,7 +5,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
 
-import Dcc 1.0
+import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
@@ -16,7 +16,7 @@ DccObject {
         icon: "bluetooth"
         weight: 10
         pageType: DccObject.Item
-        page:Rectangle{
+        page:Rectangle {
             width: 240
             height: 100
             anchors.margins: 10
@@ -39,7 +39,7 @@ DccObject {
                 text: dccObj.displayName
                 // Layout.fillWidth: true
             }
-            // Text{
+            // Text {
             //     anchors.left:  img.right
             //     anchors.top: display.bottom
             //     // width:200
@@ -76,7 +76,7 @@ DccObject {
         icon: "mouse"
         weight: 30
         pageType: DccObject.Editor
-        page: Text{
+        page: Text {
             text: "aaaaaaaa"
         }
 
@@ -89,7 +89,7 @@ DccObject {
         icon: "keyboard"
         weight: 40
         pageType: DccObject.Editor
-        page: Text{
+        page: Text {
             text: "aaaaaaaa"
         }
     }

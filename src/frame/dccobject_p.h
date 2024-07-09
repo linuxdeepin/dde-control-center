@@ -71,6 +71,7 @@ protected:
     QVector<DccObject *> m_objects;
     QObjectList m_data;
     QQmlComponent *m_page;
+    QQuickItem *m_sectionItem;
 
     QString m_parentName;
     QString m_displayName;
