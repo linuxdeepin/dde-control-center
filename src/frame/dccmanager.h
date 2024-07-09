@@ -30,27 +30,27 @@ public:
     void setMainWindow(QWindow *window);
     void loadModules(bool async, const QStringList &dirs);
 
-    int width() const;
-    int height() const;
-    QString path() const;
+    int width() const override;
+    int height() const override;
+    QString path() const override;
 
-    inline DccObject *root() const { return m_root; }
+    inline DccObject *root() const override { return m_root; }
 
-    inline DccObject *activeObject() const { return m_activeObject; }
+    inline DccObject *activeObject() const override { return m_activeObject; }
 
     inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
 public Q_SLOTS:
-    DccObject *object(const QString &name);
-    void addObject(DccObject *obj);
-    void removeObject(const DccObject *obj);
-    void removeObject(const QString &name);
-    void showPage(const QString &url);
-    void showPage(DccObject *obj, const QString &cmd);
-    QWindow *mainWindow();
-    void setShowPath(const QString &path);
+    DccObject *object(const QString &name) override;
+    void addObject(DccObject *obj) override;
+    void removeObject(DccObject *obj) override;
+    void removeObject(const QString &name) override;
+    void showPage(const QString &url) override;
+    void showPage(DccObject *obj, const QString &cmd) override;
+    QWindow *mainWindow() override;
+    void setShowPath(const QString &path) override;
     // DBus Search
     QString search(const QString json);
     bool stop(const QString json);

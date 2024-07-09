@@ -206,31 +206,6 @@ install(EXPORT DdeControlCenterInterfaceTargets
         NAMESPACE Dde::
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
 )
-
-#--------------------------dccwidgets library----------------------------
-
-# #------------------------dccwidgets library test--------------------------
-# if (UNITTEST)
-#     set(UT_Dcc_Widgets_Name ut-dcc-widgets)
-#     file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
-#         "tests/widgets/*.cpp"
-#     )
-#     add_executable(${UT_Dcc_Widgets_Name}
-#         ${Dcc_Widgets_SRCS}
-#         ${UT_Dcc_Widgets_SRCS}
-#     )
-#     # 用于测试覆盖率的编译条件
-#     target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE ${UT_COMPILER})
-#     target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
-#         ${Dcc_Widgets_Includes}
-#     )
-#     target_link_libraries(${UT_Dcc_Widgets_Name} PRIVATE
-#         ${Dcc_Widgets_Libraries}
-#         ${Test_Libraries}
-#     )
-#     gtest_discover_tests(${UT_Dcc_Widgets_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
-# endif()
-
 #--------------------------dde-control-center--------------------------
 set(Control_Center_Name dde-control-center)
 file(GLOB_RECURSE Control_Center_SRCS
@@ -266,7 +241,7 @@ target_link_libraries(${Control_Center_Name} PRIVATE
     dcc-interface
 )
 
-file(GLOB qmlFiles  "qml/*.qml")
+file(GLOB_RECURSE qmlFiles  "qml/*.qml")
 # file(COPY ${qmlFiles} DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 add_custom_target(${Control_Center_Name}_qml ALL
     SOURCES ${qmlFiles}
@@ -341,108 +316,6 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.controlcenter.meta
 #dde-grand-search-daemon conf
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde-grand-search.dde-control-center-setting.conf
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-grand-search-daemon/plugins/searcher)
-# #-------------------------ut-dcc-interface-------------------------
-# if (UNITTEST)
-#     set(UT_Interface_Name ut-dcc-interface)
-#     file(GLOB_RECURSE UT_Interface_SRCS
-#         "tests/interface/*.cpp"
-#     )
-
-#     set(Interface_Includes
-#         include/interface
-#     )
-
-#     add_executable(${UT_Interface_Name}
-#         ${Interface_SRCS}
-#         ${UT_Interface_SRCS}
-#     )
-
-#     # 用于测试覆盖率的编译条件
-#     target_compile_options(${UT_Interface_Name} PRIVATE ${UT_COMPILER})
-
-#     target_include_directories(${UT_Interface_Name} PUBLIC
-#         ${Interface_Includes}
-#     )
-
-#     target_link_libraries(${UT_Interface_Name} PRIVATE
-#         ${Interface_Libraries}
-#         ${Test_Libraries}
-#     )
-# endif()
-# #-------------------------ut-dcc-frame-------------------------
-# if (UNITTEST)
-#     set(UT_Frame_Name ut-dcc-frame)
-#     file(GLOB_RECURSE UT_Frame_SRCS
-#         "tests/frame/*.cpp"
-#     )
-
-#     add_executable(${UT_Frame_Name}
-#         ${Control_Center_SRCS}
-#         ${UT_Frame_SRCS}
-#     )
-
-#     # 用于测试覆盖率的编译条件
-#     target_compile_options(${UT_Frame_Name} PRIVATE ${UT_COMPILER})
-
-#     target_link_libraries(${UT_Frame_Name} PRIVATE
-#         ${Control_Center_Libraries}
-#         ${Test_Libraries}
-#     )
-# endif()
-# #--------------------------plugin-test1--------------------------
-# if (UNITTEST)
-#     set(Plugin_Test1_Name plugin-test1)
-#     file(GLOB_RECURSE Plugin_Test1_SRCS
-#         "tests/plugin-test1/*.h"
-#         "tests/plugin-test1/*.cpp"
-#     )
-
-#     add_library(${Plugin_Test1_Name} MODULE
-#         ${Plugin_Test1_SRCS}
-#     )
-
-#     set(Plugin_Test1_Libraries
-#         ${Interface_Name}
-#         Qt::Gui
-#         Qt::DBus
-#         ${DTK_NS}::Gui
-#     )
-
-#     target_link_libraries(${Plugin_Test1_Name} PRIVATE
-#         ${Plugin_Test1_Libraries}
-#     )
-# endif()
-
-# #--------------------------plugin-test2--------------------------
-# if (UNITTEST)
-#     set(Plugin_Test2_Name plugin-test2)
-#     file(GLOB_RECURSE Plugin_Test2_SRCS
-#         "tests/plugin-test2/*.h"
-#         "tests/plugin-test2/*.cpp"
-#     )
-
-#     add_library(${Plugin_Test2_Name} MODULE
-#         ${Plugin_Test2_SRCS}
-#     )
-
-#     set(Plugin_Test2_Includes
-#         ${QT_NS}::Gui
-#         ${QT_NS}::DBus
-#     )
-#     set(Plugin_Test2_Libraries
-#         ${Interface_Name}
-#         ${QT_NS}::Gui
-#         ${QT_NS}::DBus
-#     )
-#     target_include_directories(${Plugin_Test2_Name} PUBLIC
-#         ${Plugin_Test2_Includes}
-#     )
-
-#     target_link_libraries(${Plugin_Test2_Name} PRIVATE
-#         ${Plugin_Test2_Libraries}
-#     )
-# endif()
-
 
 #--------------------------plugin-sound--------------------------
 if (BUILD_PLUGIN)
@@ -499,6 +372,7 @@ if (BUILD_PLUGIN)
     )
     set(DefaultApp_Includes
         src/plugin-defaultapp/operation
+        include/interface
     )
     set(DefaultApp_Libraries
         ${DTK_NS}::Gui

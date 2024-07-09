@@ -69,11 +69,12 @@ bool DccObject::Private::addChild(DccObject *child)
         }
     }
 
-    Q_EMIT q_ptr->childAboutToBeAdded(q_ptr, m_children.size());
+    Q_EMIT q_ptr->childAboutToBeAdded(q_ptr, index);
     m_children.insert(m_children.begin() + index, child);
     DccObject::Private::FromObject(child)->SetParent(q_ptr);
     child->setParent(q_ptr);
     Q_EMIT q_ptr->childAdded(child);
+    Q_EMIT q_ptr->childrenChanged(m_children);
     return true;
 }
 
@@ -93,6 +94,7 @@ void DccObject::Private::removeChild(int index)
     DccObject::Private::FromObject(child)->SetParent(nullptr);
     child->setParent(nullptr);
     Q_EMIT q_ptr->childRemoved(child);
+    Q_EMIT q_ptr->childrenChanged(m_children);
 }
 
 void DccObject::Private::removeChild(DccObject *child)
@@ -124,7 +126,6 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
 
 void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o)
 {
-    // qWarning() << __FUNCTION__ << __LINE__ << data << o;
     if (!o)
         return;
     DccObject::Private *that = reinterpret_cast<DccObject::Private *>(data->data);
@@ -133,7 +134,6 @@ void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o
     if (DccObject *obj = qobject_cast<DccObject *>(o)) {
         DccObject::Private *parent = reinterpret_cast<DccObject::Private *>(data->data);
         parent->m_objects.append(obj);
-        // qWarning() << __FUNCTION__ << __LINE__ << obj->parentName();
     }
 }
 
@@ -306,13 +306,11 @@ void DccObject::setHasBackground(bool hasBackground)
 
 DccObject *DccObject::currentObject()
 {
-    qWarning() << __FUNCTION__ << this << p_ptr->m_currentObject;
     return p_ptr->m_currentObject;
 }
 
 void DccObject::setCurrentObject(DccObject *obj)
 {
-    qWarning() << __FUNCTION__ << this << p_ptr->m_currentObject << obj;
     if (p_ptr->m_currentObject != obj) {
         if (p_ptr->m_currentObject) {
             Q_EMIT p_ptr->m_currentObject->deactive();
@@ -354,7 +352,6 @@ void DccObject::setPageType(uint type)
 
 QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    qWarning() << __FUNCTION__ << __LINE__ << name() << p_ptr << p_ptr->m_page;
     QQuickItem *sectionItem = nullptr;
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
@@ -391,7 +388,6 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
 
 QQmlComponent *DccObject::page() const
 {
-    qWarning() << __FUNCTION__ << __LINE__ << name() << p_ptr << p_ptr->m_page;
     return p_ptr->m_page;
 }
 
@@ -401,7 +397,6 @@ void DccObject::setPage(QQmlComponent *page)
         p_ptr->m_page = page;
         Q_EMIT pageChanged(p_ptr->m_page);
     }
-    qWarning() << __FUNCTION__ << __LINE__ << name() << p_ptr << p_ptr->m_page;
 }
 
 QQmlListProperty<QObject> DccObject::data()
@@ -416,7 +411,6 @@ const QVector<DccObject *> &DccObject::getChildren() const
 
 void DccObject::trigger()
 {
-    qWarning() << __FUNCTION__ << __LINE__ << this;
     Q_EMIT triggered();
 }
 } // namespace dccV25
