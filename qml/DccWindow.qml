@@ -5,36 +5,23 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
 
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
 
-import Dcc 1.0
+import org.deepin.dcc 1.0
 
-Window {
+D.ApplicationWindow {
     id: root
     visible: false
-    // flags: Qt.FramelessWindowHint | Qt.Window
-    // flags: Qt.FramelessWindowHint| Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.Window
-    flags: Qt.Window| Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
-    property int bw: 3
+    flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
-    // color: "#f8f8f8"
     color: "transparent"
     DWindow.enabled: true
 
-    DciIcon {
-        z: 10
-        height: 50
-        width: 50
-        anchors.left: parent.left
-        anchors.top: parent.top
-        name: "preferences-system"
-        sourceSize: Qt.size(32, 32)
-    }
-    TitleBar {
+    D.TitleBar {
         id: titleBar
-        // z:10
-        // anchors.right: parent.right
-        // anchors.top: parent.top
+        icon.name: "preferences-system"
+        focusPolicy: Qt.TabFocus
+        activeFocusOnTab:true
     }
     Item {
         anchors.fill: titleBar
@@ -46,34 +33,24 @@ Window {
 
     Control {
         id: centralView
-        // padding: 100
-        focusPolicy:Qt.TabFocus
+        focusPolicy: Qt.TabFocus
         anchors.fill: parent
     }
     Component {
         id: rootLayout
-        SwipeView{
-            // StackView {
+        SwipeView {
             id: stackView
             currentIndex: 0
             interactive: false
-            // highlightMoveDuration : 0
-            HomePage{ }
-            SecondPage{ }
-            // property int activePage: -1
-            // initialItem:  DccApp.root.currentObject == null? "HomePage.qml" :"Page2.qml"
-            // anchors.fill: parent
+            HomePage { }
+            SecondPage { }
             Connections {
                 target: DccApp
-                onActiveObjectChanged: {
-                    console.log(DccApp.root)
-                    console.log(DccApp.activeObject)
+                function onActiveObjectChanged(activeObject) {
                     if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
-                        // stackView.push("HomePage.qml")
                         stackView.currentIndex = 0
                     } else if (stackView.activePage !== 1 && DccApp.root !== DccApp.activeObject) {
                         stackView.currentIndex = 1
-                        // stackView.push("Page2.qml")
                     }
                 }
             }
@@ -87,8 +64,5 @@ Window {
         root.y = (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout
         centralView.contentItem = DccApp.root.getSectionItem()
-        console.warn("==========root.flags=======")
-        console.warn(root.flags)
-        console.log(root.flags)
     }
 }

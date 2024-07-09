@@ -1,13 +1,12 @@
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-import Dcc 1.0
-import org.deepin.dtk 1.0 as D
+import org.deepin.dcc 1.0
 
 DccObject {
-    name:"defaultapp"
-    parentName:"system"
+    name: "defaultapp"
+    parentName: "system"
     displayName: qsTr("Default App")
-    icon:"defaultapp"
+    icon: "defapp"
     weight: 60
 }

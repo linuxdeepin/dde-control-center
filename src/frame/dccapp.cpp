@@ -16,9 +16,6 @@ DccApp::DccApp(QObject *parent)
 {
     Q_ASSERT(!dccApp);
     dccApp = this;
-    // connect(parent, &DccManager::pathChanged, this, &DccApp::pathChanged);
-    // connect(parent, &DccManager::rootChanged, this, &DccApp::rootChanged);
-    // connect(parent, &DccManager::activeObjectChanged, this, &DccApp::activeObjectChanged);
 }
 
 DccApp::~DccApp() { }
@@ -55,7 +52,7 @@ DccObject *DccApp::object(const QString &name)
 
 void DccApp::addObject(DccObject *obj) { }
 
-void DccApp::removeObject(const DccObject *obj) { }
+void DccApp::removeObject(DccObject *obj) { }
 
 void DccApp::removeObject(const QString &name) { }
 
@@ -69,5 +66,9 @@ QWindow *DccApp::mainWindow()
 }
 
 void DccApp::setShowPath(const QString &path) { }
+
+void DccApp::addSearch(const QString &key, const QString &url) { }
+
+void DccApp::removeSearch(const QString &key) { }
 
 } // namespace dccV25

@@ -14,7 +14,6 @@ Build-Depends:
  libdtk6core-dev,
  doxygen,
  libgtest-dev,
- libgsettings-qt-dev,
  extra-cmake-modules,
  libqt6svg6,
  deepin-gettext-tools,

@@ -25,9 +25,8 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     : QObject(parent)
     , m_defAppModel(model)
     , m_dbusManager(new MimeDBusProxy(this))
-    , m_defaultTerminal(new QGSettings(TerminalGSetting.toLocal8Bit()))
+    // , m_defaultTerminal(new QGSettings(TerminalGSetting.toLocal8Bit()))
 {
-
     m_stringToCategory.insert("Browser", Browser);
     m_stringToCategory.insert("Mail", Mail);
     m_stringToCategory.insert("Text", Text);
@@ -47,7 +46,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
 
 DefAppWorker::~DefAppWorker()
 {
-    m_defaultTerminal->deleteLater();
+    // m_defaultTerminal->deleteLater();
 }
 
 void DefAppWorker::active()
@@ -93,13 +92,13 @@ void DefAppWorker::onSetDefaultTerminal(const App &item)
 {
     Category *defaultTerinmalCategory = getCategory("Terminal");
 
-    m_defaultTerminal->set("app-id", item.Id);
-    m_defaultTerminal->set(
-            "exec",
-            QString("gdbus call --session --dest org.desktopspec.ApplicationManager1 --object-path "
-                    "%1 --method org.desktopspec.ApplicationManager1.Application.Launch "
-                    "'' [] {}")
-                    .arg(item.dbusPath));
+    // m_defaultTerminal->set("app-id", item.Id);
+    // m_defaultTerminal->set(
+    //         "exec",
+    //         QString("gdbus call --session --dest org.desktopspec.ApplicationManager1 --object-path "
+    //                 "%1 --method org.desktopspec.ApplicationManager1.Application.Launch "
+    //                 "'' [] {}")
+    //                 .arg(item.dbusPath));
 
     defaultTerinmalCategory->setDefault(item);
 }
@@ -265,14 +264,14 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
     }
     category->setCategory("Terminal");
 
-    QString id = m_defaultTerminal->get("app-id").toString();
-    auto it = std::find_if(list.cbegin(), list.cend(), [id](const App &app) {
-        return app.Id == id;
-    });
+    // QString id = m_defaultTerminal->get("app-id").toString();
+    // auto it = std::find_if(list.cbegin(), list.cend(), [id](const App &app) {
+    //     return app.Id == id;
+    // });
 
-    if (it != list.cend()) {
-        category->setDefault(*it);
-    }
+    // if (it != list.cend()) {
+    //     category->setDefault(*it);
+    // }
 
     call->deleteLater();
 }
