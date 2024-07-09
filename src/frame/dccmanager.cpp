@@ -145,7 +145,7 @@ void DccManager::addObject(DccObject *obj)
     }
 }
 
-void DccManager::removeObject(const DccObject *obj)
+void DccManager::removeObject(DccObject *obj)
 {
     if (!obj)
         return;

@@ -55,7 +55,7 @@ DccObject *DccApp::object(const QString &name)
 
 void DccApp::addObject(DccObject *obj) { }
 
-void DccApp::removeObject(const DccObject *obj) { }
+void DccApp::removeObject(DccObject *obj) { }
 
 void DccApp::removeObject(const QString &name) { }
 

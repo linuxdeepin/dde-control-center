@@ -30,7 +30,7 @@ public:
 public Q_SLOTS:
     virtual DccObject *object(const QString &name);
     virtual void addObject(DccObject *obj);
-    virtual void removeObject(const DccObject *obj);
+    virtual void removeObject(DccObject *obj);
     virtual void removeObject(const QString &name);
     virtual void showPage(const QString &url);
     virtual void showPage(DccObject *obj, const QString &cmd);
