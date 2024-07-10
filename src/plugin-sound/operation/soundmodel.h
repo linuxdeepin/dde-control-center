@@ -96,6 +96,7 @@ class SoundModel : public QObject
     Q_PROPERTY(bool reduceNoise READ reduceNoise NOTIFY reduceNoiseChanged)
     Q_PROPERTY(int outPutPortComboIndex READ outPutPortComboIndex NOTIFY outPutPortComboIndexChanged FINAL)
     Q_PROPERTY(double microphoneFeedback READ microphoneFeedback NOTIFY microphoneFeedbackChanged)
+    Q_PROPERTY(bool enableSoundEffect READ enableSoundEffect NOTIFY enableSoundEffectChanged)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -203,7 +204,9 @@ public:
     void setAudioServerChangedState(const bool state);
 
     void updateSoundEffectsModel();
+    QString getSoundEffectsType(int index);
 
+    void setSoundEffectEnable(int index, bool enable);
 private:
 
 
