@@ -30,7 +30,10 @@ public:
     void addData(SoundEffectsData* data);
     void removeData(SoundEffectsData* data);
     void clearData();
-    void getSystemSoundEffect(int index);
+    SoundEffectsData* getSystemSoundEffect(int index);
+    int getRowCount();
+
+    void updateSoundEffectsData(int index, bool enable);
 
 protected:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -45,10 +48,7 @@ protected:
     }
 
 
-signals:
-
-
-private:
+    private:
 
     QList<SoundEffectsData*> m_soundEffectsData;
 };

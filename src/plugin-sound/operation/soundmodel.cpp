@@ -505,6 +505,17 @@ void SoundModel::updateSoundEffectsModel()
     }
 }
 
+QString SoundModel::getSoundEffectsType(int index)
+{
+    SoundEffectsData* data = m_soundEffectsModel->getSystemSoundEffect(index);
+    return data ? getNameByEffectType(data->systemSoundEffect()) : "";
+}
+
+void SoundModel::setSoundEffectEnable(int index, bool enable)
+{
+    m_soundEffectsModel->updateSoundEffectsData(index, enable);
+}
+
 SoundEffectsModel* SoundModel::soundEffectsModel() const
 {
     return m_soundEffectsModel;
@@ -523,8 +534,7 @@ QString SoundModel::getListName(int index) const
 
 int SoundModel::getSoundEffectsRowCount() const
 {
-    return 11;
-    //return m_soundEffectsModel ? m_soundEffectsModel->Rowc
+    return m_soundEffectsModel ? m_soundEffectsModel->getRowCount() : 0;
 }
 
 void SoundModel::setAudioServer(const QString &audioServer)
