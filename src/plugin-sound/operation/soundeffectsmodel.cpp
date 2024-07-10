@@ -29,12 +29,29 @@ void SoundEffectsModel::clearData()
     m_soundEffectsData.clear();
 }
 
-// SoundEffectsData SoundEffectsModel::getSystemSoundEffect(int index)
-// {
-//     if (m_soundEffectsData.count() < index) {
-//         return "";
-//     }
-// }
+SoundEffectsData* SoundEffectsModel::getSystemSoundEffect(int index)
+{
+    if (m_soundEffectsData.count() < index || index < 0) {
+        return nullptr;
+    }
+
+    return m_soundEffectsData.at(index);
+}
+
+int SoundEffectsModel::getRowCount()
+{
+    return m_soundEffectsData.count();
+}
+
+void SoundEffectsModel::updateSoundEffectsData(int index, bool enable)
+{
+    if (index < 0 || index >= m_soundEffectsData.size())
+        return;
+
+    m_soundEffectsData[index]->setChecked(enable);
+    QModelIndex modelIndex = createIndex(index, 0);
+    emit dataChanged(modelIndex, modelIndex, { IsChecked });
+}
 
 int SoundEffectsModel::rowCount(const QModelIndex &parent) const
 {

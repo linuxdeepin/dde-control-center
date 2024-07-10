@@ -50,11 +50,13 @@ Rectangle {
             ColumnLayout {
                 width: parent.width
                 height: parent.height
-                Layout.preferredHeight: parent.height
+
                 ColumnLayout {
+
                     width: parent.width
                     height: 40
                     Layout.preferredHeight: 40
+                    Layout.alignment: Qt.AlignTop
                     RowLayout {
                         width: parent.width
                         height: parent.height
@@ -69,7 +71,11 @@ Rectangle {
 
                         Switch {
                             Layout.alignment: Qt.AlignRight
-                            checked: true
+                            checked: dccData.model().enableSoundEffect
+
+                            onCheckedChanged: {
+                                dccData.worker().enableAllSoundEffect(checked)
+                            }
                         }
                     }
 
@@ -85,13 +91,14 @@ Rectangle {
                     implicitHeight: contentHeight
                     width: parent.width - 40
                     model: dccData.model().soundEffectsModel()
+                    visible: dccData.model().enableSoundEffect
 
                     delegate: ItemDelegate {
                         width: itemDelegateMaxWidth
                         height: 40
                         backgroundVisible: true
                         corners: getCornersForBackground(index,
-                                                         ListView.view.count)
+                            ListView.view.count)
                         contentFlow: true
                         cascadeSelected: true
                         content: ColumnLayout {
@@ -123,7 +130,7 @@ Rectangle {
                                         }
                                         visible: model.isChecked
                                         onClicked: {
-                                            dccData.worker().setPausePlayer(checked)
+                                            dccData.worker().setSoundEffectEnable(index, false)
                                         }
                                     }
                                     IconButton {
@@ -137,6 +144,9 @@ Rectangle {
                                             border.width: 0
                                         }
                                         visible: !model.isChecked
+                                        onClicked: {
+                                            dccData.worker().setSoundEffectEnable(index, true)
+                                        }
                                     }
                                 }
                             }
