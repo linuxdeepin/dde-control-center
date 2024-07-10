@@ -133,7 +133,10 @@ void SoundWorker::setActiveOutPutPort(int index)
 
 void SoundWorker::setSoundEffectEnable(int index, bool enable)
 {
-  //  m_model->queryEffectData()
+    m_soundDBusInter->EnableSound(m_model->getSoundEffectsType(index), enable, this , SLOT(refreshSoundEffect()), SLOT(refreshSoundEffect()));
+
+    // 目前后端没有提供属性，前端先改了，后端增加属性后从后端获取
+    m_model->setSoundEffectEnable(index, enable);
 }
 
 void SoundWorker::setSourceVolume(double volume)

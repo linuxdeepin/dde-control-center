@@ -35,6 +35,7 @@ public:
     Q_INVOKABLE void setActiveOutPutPort(int index);
     Q_INVOKABLE void setSoundEffectEnable(int index, bool enable);
     Q_INVOKABLE void setSourceVolume(double volume);
+    Q_INVOKABLE void enableAllSoundEffect(bool enable);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
@@ -52,7 +53,7 @@ public Q_SLOTS:
 
     void setPort(Port *port);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
-    void enableAllSoundEffect(bool enable);
+//    void enableAllSoundEffect(bool enable);
     void setBluetoothMode(const QString &mode);
     void refreshSoundEffect();
 
