@@ -3,29 +3,49 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappmodel.h"
 
+#include "QtQml/qqml.h"
+#include "categorymodel.h"
 #include "dccfactory.h"
+#include "defappworker.h"
+#include "defappworkerold.h"
+#include "mimedbusproxyold.h"
 
 DefAppModel::DefAppModel(QObject *parent)
     : QObject(parent)
 {
-    m_modBrowser = new Category(this);
-    m_modMail = new Category(this);
-    m_modText = new Category(this);
-    m_modMusic = new Category(this);
-    m_modVideo = new Category(this);
-    m_modPicture = new Category(this);
-    m_modTerminal = new Category(this);
+    qmlRegisterType<CategoryModel>("DefApp", 1, 0, "CategoryModel");
+    for (int i = 0; i < Count; i++) {
+        m_categoryModel[i] = new CategoryModel(new Category(this));
+    }
+    if (MimeDBusProxyOld::isRegisted()) {
+        m_oldwork = new DefAppWorkerOld(this, this);
+        m_isOldInterface = true;
+        for (int i = 0; i < Count; i++) {
+            m_categoryModel[i] = new CategoryModel(new Category(this));
+            connect(m_categoryModel[i], &CategoryModel::requestCreateFile, m_oldwork, &DefAppWorkerOld::onCreateFile);
+            connect(m_categoryModel[i], &CategoryModel::requestDelUserApp, m_oldwork, &DefAppWorkerOld::onDelUserApp);
+            connect(m_categoryModel[i], &CategoryModel::requestSetDefaultApp, m_oldwork, &DefAppWorkerOld::onSetDefaultApp);
+        }
+        m_oldwork->active();
+        m_oldwork->onGetListApps();
+    } else {
+        m_work = new DefAppWorker(this, this);
+        for (int i = 0; i < Count; i++) {
+            m_categoryModel[i] = new CategoryModel(new Category(this));
+            connect(m_categoryModel[i], &CategoryModel::requestCreateFile, m_work, &DefAppWorker::onCreateFile);
+            connect(m_categoryModel[i], &CategoryModel::requestDelUserApp, m_work, &DefAppWorker::onDelUserApp);
+            connect(m_categoryModel[i], &CategoryModel::requestSetDefaultApp, m_work, &DefAppWorker::onSetDefaultApp);
+        }
+        m_work->active();
+        m_work->onGetListApps();
+    }
 }
 
 DefAppModel::~DefAppModel()
 {
-    m_modBrowser->deleteLater();
-    m_modMail->deleteLater();
-    m_modText->deleteLater();
-    m_modMusic->deleteLater();
-    m_modVideo->deleteLater();
-    m_modPicture->deleteLater();
-    m_modTerminal->deleteLater();
+    for (int i = 0; i < Count; i++) {
+        m_categoryModel[i]->deleteLater();
+    }
 }
 
 DCC_FACTORY_CLASS(DefAppModel)

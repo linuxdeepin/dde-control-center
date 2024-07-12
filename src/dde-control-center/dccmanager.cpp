@@ -5,7 +5,7 @@
 
 #include "dccapp.h"
 #include "pluginmanager.h"
-#include "src/interface/dccobject_p.h"
+#include "src/frame/dccobject_p.h"
 
 #include <QCoreApplication>
 #include <QLoggingCategory>
@@ -176,8 +176,11 @@ void DccManager::showPage(DccObject *obj, const QString &cmd)
     // m_backwardBtn->setVisible(obj != m_root);
     QList<DccObject *> modules;
     DccObject *tmpObj = obj;
-    while (tmpObj->pageType() & DccObject::Control) { // 页面中的控件，则激活项为父项
+    while (tmpObj && (tmpObj->pageType() & DccObject::Control)) { // 页面中的控件，则激活项为父项
         tmpObj = DccObject::Private(tmpObj).getParent();
+    }
+    if (!tmpObj) {
+        return;
     }
     modules.append(tmpObj);
     DccObject *p = DccObject::Private::FromObject(tmpObj)->getParent();

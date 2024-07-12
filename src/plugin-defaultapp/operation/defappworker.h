@@ -9,7 +9,6 @@
 #include <QObject>
 #include <QMap>
 
-#include <QGSettings>
 #include <QDBusPendingCall>
 
 #include "mimedbusproxy.h"
@@ -62,7 +61,7 @@ private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
     Category* getCategory(const QString &mime) const;
-    QGSettings *m_defaultTerminal;
+    // QGSettings *m_defaultTerminal;
 };
 
 #endif // DEFAPPWORKER_H

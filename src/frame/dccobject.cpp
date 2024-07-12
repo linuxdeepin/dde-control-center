@@ -21,6 +21,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_currentObject(nullptr)
     , m_defultObject(nullptr)
     , m_page(nullptr)
+    , m_sectionItem(nullptr)
     , m_weight(-1)
     , m_pageType(0)
 {
@@ -352,29 +353,28 @@ void DccObject::setPageType(uint type)
 
 QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    QQuickItem *sectionItem = nullptr;
+    if(p_ptr->m_sectionItem)
+        return p_ptr->m_sectionItem;
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
         QQmlContext *context = new QQmlContext(creationContext);
         context->setContextProperty("dccObj", this);
         QObject *nobj = p_ptr->m_page->beginCreate(context);
         if (nobj) {
-            // QQml_setParent_noEvent(context, nobj);
-            sectionItem = qobject_cast<QQuickItem *>(nobj);
-            if (!sectionItem) {
+            p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(nobj);
+            if (!p_ptr->m_sectionItem) {
                 delete nobj;
             } else {
-                if (qFuzzyIsNull(sectionItem->z()))
-                    sectionItem->setZ(2);
+                if (qFuzzyIsNull(p_ptr->m_sectionItem->z()))
+                    p_ptr->m_sectionItem->setZ(2);
                 // QQml_setParent_noEvent(sectionItem, contentItem);
                 if (QQuickItem *p = qobject_cast<QQuickItem *>(parent)) {
-                    sectionItem->setParentItem(p);
-                    sectionItem->setParent(p);
+                    p_ptr->m_sectionItem->setParentItem(p);
+                    p_ptr->m_sectionItem->setParent(p);
                 } else if (QQuickWindow *p = qobject_cast<QQuickWindow *>(parent)) {
-                    sectionItem->setParent(p);
-                    // sectionItem->window()->setTransientParent(p);
+                    p_ptr->m_sectionItem->setParent(p);
                 } else {
-                    sectionItem->setParent(this);
+                    p_ptr->m_sectionItem->setParent(this);
                 }
             }
             // sections are not controlled by FxListItemSG, so apply attached properties here
@@ -383,7 +383,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
         }
         p_ptr->m_page->completeCreate();
     }
-    return sectionItem;
+    return p_ptr->m_sectionItem;
 }
 
 QQmlComponent *DccObject::page() const
