@@ -5,10 +5,13 @@
 #define DEFAPPMODEL_H
 
 #include "category.h"
+#include "categorymodel.h"
 
 #include <QObject>
 
 class Category;
+class DefAppWorker;
+class DefAppWorkerOld;
 
 class DefAppModel : public QObject
 {
@@ -17,27 +20,51 @@ public:
     explicit DefAppModel(QObject *parent = 0);
     ~DefAppModel();
 
-    Category *getModBrowser() { return m_modBrowser; }
+    enum DefAppCategory {
+        Browser = 0,
+        Mail,
+        Text,
+        Music,
+        Video,
+        Picture,
+        Terminal,
+        Count,
+    };
 
-    Category *getModMail() { return m_modMail; }
+public Q_SLOTS:
 
-    Category *getModText() { return m_modText; }
+    inline CategoryModel *browser() const { return m_categoryModel[Browser]; }
 
-    Category *getModMusic() { return m_modMusic; }
+    inline CategoryModel *mail() const { return m_categoryModel[Mail]; }
 
-    Category *getModVideo() { return m_modVideo; }
+    inline CategoryModel *text() const { return m_categoryModel[Text]; }
 
-    Category *getModPicture() { return m_modPicture; }
+    inline CategoryModel *music() const { return m_categoryModel[Music]; }
 
-    Category *getModTerminal() { return m_modTerminal; }
+    inline CategoryModel *video() const { return m_categoryModel[Video]; }
+
+    inline CategoryModel *picture() const { return m_categoryModel[Picture]; }
+
+    inline CategoryModel *terminal() const { return m_categoryModel[Terminal]; }
+
+    inline Category *getModBrowser() const { return m_categoryModel[Browser]->category(); }
+
+    inline Category *getModMail() const { return m_categoryModel[Mail]->category(); }
+
+    inline Category *getModText() const { return m_categoryModel[Text]->category(); }
+
+    inline Category *getModMusic() const { return m_categoryModel[Music]->category(); }
+
+    inline Category *getModVideo() const { return m_categoryModel[Video]->category(); }
+
+    inline Category *getModPicture() const { return m_categoryModel[Picture]->category(); }
+
+    inline Category *getModTerminal() const { return m_categoryModel[Terminal]->category(); }
 
 private:
-    Category *m_modBrowser;
-    Category *m_modMail;
-    Category *m_modText;
-    Category *m_modMusic;
-    Category *m_modVideo;
-    Category *m_modPicture;
-    Category *m_modTerminal;
+    CategoryModel *m_categoryModel[Count];
+    DefAppWorker *m_work;
+    DefAppWorkerOld *m_oldwork;
+    bool m_isOldInterface;
 };
 #endif // DEFAPPMODEL_H

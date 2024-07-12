@@ -2,15 +2,13 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "controlcenterdbusadaptor.h"
-#include "dccapp.h"
-#include "dccmodel.h"
-#include "dccobject.h"
-#include "src/frame/dccmanager.h"
+#include "dccmanager.h"
 
 #include <DDBusSender>
 #include <DGuiApplicationHelper>
 #include <DIconTheme>
 #include <DLog>
+#include <DPalette>
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -25,14 +23,6 @@
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
-
-void registerQml(const char *uri)
-{
-    qmlRegisterModule(uri, 1, 0);
-    qmlRegisterType<dccV25::DccObject>(uri, 1, 0, "DccObject");
-    qmlRegisterType<dccV25::DccModel>(uri, 1, 0, "DccModel");
-    qmlRegisterSingletonInstance(uri, 1, 0, "DccApp", dccV25::DccApp::instance());
-}
 
 QStringList defaultpath()
 {
@@ -117,9 +107,11 @@ int main(int argc, char *argv[])
     // app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
     // QAccessible::installFactory(accessibleFactory);
+    DPalette dPalette = app->palette();
+    dPalette.setColor(DPalette::Window, QColor("#F0F5F8"));
+    app->setPalette(dPalette);
 
     dccV25::DccManager *dccManager = new dccV25::DccManager();
-    registerQml("Dcc");
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
     engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));
@@ -128,8 +120,6 @@ int main(int argc, char *argv[])
     for (auto &&obj : objs) {
         QWindow *w = qobject_cast<QWindow *>(obj);
         if (w) {
-            // w->setFlags(Qt::FramelessWindowHint| Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint | Qt::WindowTitleHint | Qt::Window);
-            qWarning() << __FUNCTION__ << "=====flags========" << w->flags();
             dccManager->setMainWindow(w);
             break;
         }

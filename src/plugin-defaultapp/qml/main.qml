@@ -1,62 +1,95 @@
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 2.3
+// import org.deepin.dtk 1.0 as D
 
-import Dcc 1.0
-import org.deepin.dtk 1.0 as D
+import org.deepin.dcc 1.0
+import DefApp 1.0
 
 DccObject {
     DccObject {
-        name:"defappWebpage"
-        parentName:"defaultapp"
+        id: defappWebpage
+        name: "defappWebpage"
+        parentName: "defaultapp"
         displayName: qsTr("Webpage")
-        icon:"dcc_browser"
+        icon: "dcc_browser"
         weight: 10
+        DetailItem {
+            parentObj: defappWebpage
+            categoryModel: dccData.browser()
+        }
     }
     DccObject {
-        name:"defappMail"
-        parentName:"defaultapp"
+        id: defappMail
+        name: "defappMail"
+        parentName: "defaultapp"
         displayName: qsTr("Mail")
-        icon:"dcc_mail"
+        icon: "dcc_mail"
         weight: 20
+        DetailItem {
+            parentObj: defappMail
+            categoryModel: dccData.mail()
+        }
     }
     DccObject {
-        name:"defappText"
-        parentName:"defaultapp"
+        id: defappText
+        name: "defappText"
+        parentName: "defaultapp"
         displayName: qsTr("Text")
-        icon:"dcc_text"
+        icon: "dcc_text"
         weight: 30
+        DetailItem {
+            parentObj: defappText
+            categoryModel: dccData.text()
+        }
     }
     DccObject {
-        name:"defappMusic"
-        parentName:"defaultapp"
+        id: defappMusic
+        name: "defappMusic"
+        parentName: "defaultapp"
         displayName: qsTr("Music")
-        icon:"dcc_music"
+        icon: "dcc_music"
         weight: 40
+        DetailItem {
+            parentObj: defappMusic
+            categoryModel: dccData.music()
+        }
     }
     DccObject {
-        name:"defappVideo"
-        parentName:"defaultapp"
+        id: defappVideo
+        name: "defappVideo"
+        parentName: "defaultapp"
         displayName: qsTr("Video")
-        icon:"dcc_video"
+        icon: "dcc_video"
         weight: 50
+        DetailItem {
+            parentObj: defappVideo
+            categoryModel: dccData.video()
+        }
     }
     DccObject {
-        name:"defappPicture"
-        parentName:"defaultapp"
+        id: defappPicture
+        name: "defappPicture"
+        parentName: "defaultapp"
         displayName: qsTr("Picture")
-        icon:"dcc_photo"
+        icon: "dcc_photo"
         weight: 60
+        DetailItem {
+            parentObj: defappPicture
+            categoryModel: dccData.picture()
+        }
     }
     DccObject {
-        name:"defappTerminal"
-        parentName:"defaultapp"
+        id: defappTerminal
+        name: "defappTerminal"
+        parentName: "defaultapp"
         displayName: qsTr("Terminal")
-        icon:"dcc_terminal"
+        icon: "dcc_terminal"
         weight: 70
+        DetailItem {
+            parentObj: defappTerminal
+            categoryModel: dccData.terminal()
+        }
     }
 }
 

@@ -4,33 +4,24 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
-// import QtQuick.Controls 1.0
+import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels 1.2
-// import QtQuick.Controls.Basic 2.3
-// import QtLocation 5.6
 
 import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DStyle
 
-import Dcc 1.0
+import org.deepin.dcc 1.0
 
-// Page
 SplitView {
     id: root
-    // anchors.fill: parent
-         // orientation: Qt.Vertical
-    // anchors.fill: parent
     orientation: Qt.Horizontal
     StyledBehindWindowBlur {
         id: leftView
         control: null
-            // DccApp.mainWindow()
-        // parent.parent.parent.parent.parent.parent
-        // anchors.fill: parent
+        // DccApp.mainWindow()
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        // anchors.right: title.left
         SplitView.preferredWidth: 300
 
         SearchEdit {
@@ -47,110 +38,58 @@ SplitView {
         }
         ListView {
             id: list
-            opacity: 0.6;
             visible: true
             anchors.top: searchEdit.bottom
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.margins:  10
-            // anchors.centerIn: parent
+            anchors.margins: 10
+            currentIndex: dccObj.children.indexOf(dccObj.currentObject)
+            activeFocusOnTab: true
             clip: true
-            spacing: 5
-            // anchors.left: parent.left
-            // anchors.right:parent.right
-
-            // x:bw;
-            // cellWidth:250
-            // cellHeight:69
-
-            Keys.enabled: true
-            Keys.onPressed: {
-                switch (event.key) {
-                    case Qt.Key_Escape:
-                        root.close()
-                        break
-                    case Qt.Key_F:
-                        if (root.visibility != 5)
-                            root.showFullScreen()
-                        else
-                            root.showNormal()
-                        break
-                    case Qt.Key_Enter:
-                    case Qt.Key_Return:
-                        var obj = dccModel.getObject(currentIndex);
-                        if (obj) {
-                            obj.trigger();
-                        }
-                        break
-                    default:
-                        return
-                }
-                event.accepted = true
-            }
-
-
-
-            highlight: Rectangle {
-                z: 2;
-                opacity: 0.5;
-                color: "lightsteelblue";
-                radius: 8
-            }
+            spacing: 8
+            // highlight: Item {
+            //     z: 2
+            //     FocusBoxBorder {
+            //         anchors {
+            //             fill: parent
+            //             margins: 5
+            //         }
+            //         radius: 8
+            //         color: parent.palette.highlight
+            //         // visible: parent.activeFocus
+            //     }
+            // }
             focus: true
             model: DccModel {
                 id: dccModel
                 root: dccObj
             }
-            delegate: Rectangle{
+            delegate: ItemDelegate {
+                text: model.display
                 width: parent.width
-                height: 64
-                anchors.margins: 10
-                radius: 8
-                Image {
-                     source: model.decoration.url(Qt.size(64, 64))
-                 }
-                DciIcon {
-                    id: img
-                    height: 50
-                    width: 50
-                    anchors.left: parent.left
+                font: DTK.fontManager.t4
+                checked: dccObj.currentObject === model.item
+                backgroundVisible: false
+                icon {
                     name: model.item.icon
-                    sourceSize: Qt.size(32, 32)
+                    width: 48
+                    height: 48
                 }
-                Text {
-                    // anchors.leftMargin: 20
-                    id: display
-                    // width:200
-                    anchors.bottom: parent.verticalCenter
-                    anchors.left: img.right
-                    text: model.display
-                    // Layout.fillWidth: true
-                }
-                Text{
-                    anchors.left: img.right
-                    anchors.top: display.bottom
-                    // width:200
-                    opacity: 0.5
-                    text: model.item.name
-                }
+
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
                         model.item.trigger();
-                        console.log(model.item.name)
+                        console.log(model.item.name, model.display, model.item.icon)
                     }
                 }
             }
         }
 
     }
-    Rectangle {
-        // width: 200
-        // anchors.left: leftView.right
-        // anchors.right: parent.right
-        // anchors.top: parent.top
-        // anchors.bottom: parent.bottom
+    Page {
+        SplitView.minimumWidth: 500
         Button {
             id: breakBut
             text: "<"
@@ -173,135 +112,88 @@ SplitView {
             anchors.leftMargin: 20
             // anchors.verticalCenter:   parent.verticalCenter
             height: 50
-            verticalAlignment : Text.AlignVCenter
+            verticalAlignment: Text.AlignVCenter
             text: DccApp.path
             // linkColor: linkHovered?"red":"green"
             // linkHovered:
             // font.underline : true
-            onLinkActivated: DccApp.showPage(link)
-            // style: "a { text-decoration: none; }"
-            onLinkHovered: function (link){
+            onLinkActivated: function (link) { DccApp.showPage(link) }
+            onLinkHovered: function (link) {
                 console.log(link)
             }
-        }/*
-        Text {
-            id: title
-            anchors.top: parent.top
-            anchors.left: breakBut.right
-            // anchors.horizontalCenter:   parent.horizontalCenter
-            height: 50
-            text: DccApp.path
-            // linkColor: linkHovered?"red":"green"
-            // linkHovered:
-            font.underline : false
-            onLinkActivated: DccApp.showPage(link)
-            // style: "a { text-decoration: none; }"
-            onLinkHovered: function (link){
-                console.log(link)
-            }
-        }*/
-        Control {
+        }
+        StackView {
             id: rightView
             clip: true
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: title.bottom
-            anchors.bottom: parent.bottom
-            // anchors.fill: parent
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: title.bottom
+                bottom: parent.bottom
+                leftMargin: 60
+                rightMargin: 60
+            }
         }
     }
     Component {
         id: menuComponent
-        // property var model
-        Rectangle{
+        ItemDelegate {
             width: parent.width
-            height: 64
-            anchors.margins: 10
-            radius: 8
-
-            DciIcon {
-                id: img
-                height: 50
-                width: 50
-                anchors.left: parent.left
+            topInset: 5
+            bottomInset: 5
+            icon {
                 name: model.item.icon
-                sourceSize: Qt.size(32, 32)
+                width: 48
+                height: 48
             }
-            Text {
-                // anchors.leftMargin: 20
-                id: display
-                // width:200
-                anchors.bottom: parent.verticalCenter
-                anchors.left: img.right
-                text: model.display
-                // Layout.fillWidth: true
+            contentFlow: true
+            content: RowLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight : false
+                ColumnLayout {
+                    Label {
+                        text: model.display
+                        font: DTK.fontManager.t4
+                        elide: Text.ElideRight
+                    }
+                    Label {
+                        visible: text !== ""
+                        font: DTK.fontManager.t8
+                        text: model.item.description
+                    }
+                }
+                IconLabel {
+                    Layout.alignment : Qt.AlignRight
+                    Layout.rightMargin : 10
+                    icon.name: "arrow_ordinary_right"
+                }
             }
-            Text{
-                anchors.left: img.right
-                anchors.top: display.bottom
-                // width:200
-                opacity: 0.5
-                text: model.item.name
+            background: DccListViewBackground {
+                separatorVisible: false
             }
-            Text{
-                anchors.margins: 20
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                // width:200
-                // opacity: 0.5
-                text: ">"
-            }
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     model.item.trigger();
-                    console.log(model.item.name)
+                    console.log(model.item.name, model.display, model.item.icon)
                 }
             }
         }
     }
     Component {
         id: editorComponent
-        Rectangle{
+        ItemDelegate {
             width: parent.width
-            height: 64
-            anchors.margins: 10
-            radius: 8
-
-            DciIcon {
-                id: img
-                height: 50
-                width: 50
-                anchors.left: parent.left
-                name: model.item.icon
-                sourceSize: Qt.size(32, 32)
-            }
-            Text {
-                id: display
-                anchors.bottom: model.item.description !== "" ?parent.verticalCenter:anchors.bottom
-                anchors.verticalCenter: model.item.description !== "" ?anchors.verticalCenter:parent.verticalCenter
-                anchors.left: img.right
-                text: model.display
-            }
-            Text{
-                anchors.left: img.right
-                anchors.top: display.bottom
-                visible: model.item.description !== ""
-                // width:200
-                opacity: 0.5
-                text: model.item.description
-            }
-            Control {
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
+            backgroundVisible: false
+            checkable: false
+            icon.name: model.icon
+            text: model.display
+            content: Control {
                 contentItem: model.item.getSectionItem()
             }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    model.item.trigger();
-                    console.log(model.item.name)
-                }
+            background: DccListViewBackground {
+                separatorVisible: false
             }
         }
     }
@@ -316,14 +208,10 @@ SplitView {
     Component {
         id: rightLayout
         ListView {
-            anchors.fill: parent
-            // highlight: Rectangle {
-            //     z: 2;
-            //     opacity: 0.5;
-            //     color: "lightsteelblue";
-            //     radius: 8
-            // }
             focus: true
+            // anchors.topMargin: 10
+            // anchors.fill: parent
+            // height: contentHeight
             model: DccModel {
                 id: dccModel
                 root: dccObj
@@ -340,19 +228,18 @@ SplitView {
     }
     function updateRightView() {
         var activeObj = DccApp.activeObject
-        if (activeObj == dccObj)
+        if (activeObj === dccObj)
             return;
 
-        if (activeObj.page == null) {
+        if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        rightView.contentItem = activeObj.getSectionItem()
+        rightView.replace(activeObj.getSectionItem())
     }
     Connections {
         target: DccApp
-        onActiveObjectChanged: updateRightView()
+        function onActiveObjectChanged() { updateRightView() }
     }
     Component.onCompleted: updateRightView()
-
 }
 

@@ -36,6 +36,8 @@ public Q_SLOTS:
     virtual void showPage(DccObject *obj, const QString &cmd);
     virtual QWindow *mainWindow();
     virtual void setShowPath(const QString &path);
+    virtual void addSearch(const QString &key, const QString &url);
+    virtual void removeSearch(const QString &key);
 
 Q_SIGNALS:
     void pathChanged(const QString &path);
