@@ -17,6 +17,7 @@
 #include <DStyle>
 #include <DGuiApplicationHelper>
 #include <DIconTheme>
+#include <DWindowManagerHelper>
 
 #include <QApplication>
 #include <QScreen>
@@ -381,42 +382,55 @@ void DockModuleObject::initPluginView(DListView *view)
             break;
         }
     };
+    auto initPluginModel = [=] (DockItemInfos plugins) {
+        for (DockItemInfo dockItem : plugins)
+        {
+            DStandardItem *item = new DStandardItem(dockItem.displayName);
+            item->setFontSize(DFontSizeManager::T8);
+            QSize size(16, 16);
 
-    for (DockItemInfo dockItem : plugins)
-    {
-        DStandardItem *item = new DStandardItem(dockItem.displayName);
-        item->setFontSize(DFontSizeManager::T8);
-        QSize size(16, 16);
+                   // 插件图标
+            auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
+            leftAction->setIcon(getIcon(dockItem));
+            item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
-        // 插件图标
-        auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        leftAction->setIcon(getIcon(dockItem));
-        item->setActionList(Qt::Edge::LeftEdge, {leftAction});
+            auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
+            auto checkstatus = dockItem.visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
+            auto checkIcon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
+            rightAction->setIcon(checkIcon);
+            item->setActionList(Qt::Edge::RightEdge, {rightAction});
+            pluginModel->appendRow(item);
 
-        auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        auto checkstatus = dockItem.visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
-        auto checkIcon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
-        rightAction->setIcon(checkIcon);
-        item->setActionList(Qt::Edge::RightEdge, {rightAction});
-        pluginModel->appendRow(item);
+            item->setData(dockItem.visible, Dtk::UserRole + 1);
 
-        item->setData(dockItem.visible, Dtk::UserRole + 1);
+            connect(rightAction, &DViewItemAction::triggered, view, [=]
+                    {
+                        bool visible = !item->data(Dtk::UserRole + 1).toBool();
+                        m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, visible);
+                        updateItemCheckStatus(dockItem.displayName, visible);
+                        item->setData(visible, Dtk::UserRole + 1); });
+            // 主题发生变化触发的信号
+            connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem]()
+                    { leftAction->setIcon(getIcon(dockItem)); });
+        }
+    };
+    initPluginModel(plugins);
 
-        connect(rightAction, &DViewItemAction::triggered, view, [=]
-                {
-            bool visible = !item->data(Dtk::UserRole + 1).toBool();
-            m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, visible);
-            updateItemCheckStatus(dockItem.displayName, visible);
-            item->setData(visible, Dtk::UserRole + 1); });
-        // 主题发生变化触发的信号
-        connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem]()
-                { leftAction->setIcon(getIcon(dockItem)); });
-    }
     // 固定大小,防止滚动
     int lineHeight = view->visualRect(view->indexAt(QPoint(0, 0))).height();
     view->setMinimumHeight(lineHeight * plugins.size() + 10);
 
     connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, view, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
+    // 开关窗口特效时刷新插件列表
+    connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasCompositeChanged, this, [=] {
+        pluginModel->clear();
+        if (m_dbusProxy.isNull())
+            m_dbusProxy.reset(new DockDBusProxy);
+
+        QDBusPendingReply<DockItemInfos> reply = m_dbusProxy->plugins();
+        DockItemInfos plugins = reply.value();
+        initPluginModel(plugins);
+    });
 }
 
 void DockModuleObject::onDisplayPropertiesChanged(const QDBusMessage &dbusMessage)

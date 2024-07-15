@@ -321,7 +321,10 @@ QString RegionModule::getTranslation(const QString &localeName, const QString &l
     if (langRegions.size() < 2) {
         return langRegion;
     }
-    if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese") {
+    if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese"
+        || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
+        || langRegions[1] == QLocale::countryToString(QLocale::Macau)
+        || langRegions[1] == QLocale::countryToString(QLocale::Taiwan)) {
 
         QString langCountry =
                 QString("%1(%2)")
