@@ -27,8 +27,6 @@ QStringList systemFilter = {"terminal",
                             "switch-group",
                             "switch-group-backward",
                             "preview-workspace",
-                            "expose-windows",
-                            "expose-all-windows",
                             "launcher",
                             "switch-applications",
                             "switch-applications-backward",
@@ -135,13 +133,9 @@ void ShortcutModel::onParseInfo(const QString &info)
         QStringList systemFilterServer = systemFilter;
         systemFilterServer.removeOne("wm-switcher");
         systemFilterServer.removeOne("preview-workspace");
-        systemFilterServer.removeOne("expose-windows");
-        systemFilterServer.removeOne("expose-all-windows");
         systemShortKeys = systemFilterServer;
     } else if (false == m_windowSwitchState) {
         QStringList systemFilterServer = systemFilter;
-        systemFilterServer.removeOne("expose-all-windows");
-        systemFilterServer.removeOne("expose-windows");
         systemFilterServer.removeOne("preview-workspace");
         systemShortKeys = systemFilterServer;
     } else {
