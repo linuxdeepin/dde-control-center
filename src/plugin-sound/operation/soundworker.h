@@ -36,6 +36,7 @@ public:
     Q_INVOKABLE void setSoundEffectEnable(int index, bool enable);
     Q_INVOKABLE void setSourceVolume(double volume);
     Q_INVOKABLE void enableAllSoundEffect(bool enable);
+    Q_INVOKABLE void setPortEnableIndex(int index, bool checked, int portType);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);

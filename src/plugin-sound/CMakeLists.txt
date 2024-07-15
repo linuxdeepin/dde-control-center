@@ -9,6 +9,12 @@ add_library(${Sound_Name} MODULE
     ${Sound_SRCS}
     operation/soundInteraction.cpp
     operation/soundInteraction.h
+    operation/soundDeviceModel.cpp
+    operation/soundDeviceModel.h
+    operation/soundDeviceData.cpp
+    operation/soundDeviceData.h
+    operation/port.cpp
+    operation/port.h
 )
 
 if (DISABLE_SOUND_ADVANCED)

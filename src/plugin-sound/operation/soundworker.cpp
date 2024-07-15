@@ -76,6 +76,9 @@ void SoundWorker::activate()
     refreshSoundEffect();
     m_model->updateSoundEffectsModel();
 
+    // m_model->initSoundDeviceModel(Port::In);
+    // m_model->initSoundDeviceModel(Port::Out);
+
     m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
 
@@ -196,12 +199,24 @@ void SoundWorker::setPort(Port *port)
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect), enable, this , SLOT(refreshSoundEffect()), SLOT(refreshSoundEffect()));
+    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect),
+                                  enable,
+                                  this,
+                                  SLOT(refreshSoundEffect()),
+                                  SLOT(refreshSoundEffect()));
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
 {
     m_soundDBusInter->setEnabled(enable);
+}
+
+void SoundWorker::setPortEnableIndex(int index, bool checked, int portType)
+{
+    SoundDeviceData* data = m_model->getSoundDeviceData(index, portType);
+    if (data) {
+        setPortEnabled(data->getCardId(), data->getPortId(), checked);
+    }
 }
 
 void SoundWorker::setBluetoothMode(const QString &mode)
@@ -291,6 +306,8 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setCardName(cardName);
                 port->setEnabled(isEnabled);
                 port->setIsBluetoothPort(isBluetooth);
+
+                m_model->updateSoundDeviceModel(port);
 
                 const bool isActiveOuputPort = (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
                 const bool isActiveInputPort = (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
