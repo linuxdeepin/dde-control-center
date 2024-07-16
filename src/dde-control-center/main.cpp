@@ -107,9 +107,6 @@ int main(int argc, char *argv[])
     // app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
     // QAccessible::installFactory(accessibleFactory);
-    DPalette dPalette = app->palette();
-    dPalette.setColor(DPalette::Window, QColor("#F0F5F8"));
-    app->setPalette(dPalette);
 
     dccV25::DccManager *dccManager = new dccV25::DccManager();
     dccManager->init();

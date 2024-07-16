@@ -5,7 +5,7 @@
 
 #include "dccapp.h"
 #include "pluginmanager.h"
-#include "src/frame/dccobject_p.h"
+#include "dccobject_p.h"
 
 #include <QCoreApplication>
 #include <QLoggingCategory>

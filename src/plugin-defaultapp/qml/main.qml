@@ -1,8 +1,7 @@
+
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
-
 import org.deepin.dcc 1.0
 import DefApp 1.0
 
@@ -14,6 +13,7 @@ DccObject {
         displayName: qsTr("Webpage")
         icon: "dcc_browser"
         weight: 10
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappWebpage
             categoryModel: dccData.browser()
@@ -26,6 +26,7 @@ DccObject {
         displayName: qsTr("Mail")
         icon: "dcc_mail"
         weight: 20
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappMail
             categoryModel: dccData.mail()
@@ -38,6 +39,7 @@ DccObject {
         displayName: qsTr("Text")
         icon: "dcc_text"
         weight: 30
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappText
             categoryModel: dccData.text()
@@ -50,6 +52,7 @@ DccObject {
         displayName: qsTr("Music")
         icon: "dcc_music"
         weight: 40
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappMusic
             categoryModel: dccData.music()
@@ -62,6 +65,7 @@ DccObject {
         displayName: qsTr("Video")
         icon: "dcc_video"
         weight: 50
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappVideo
             categoryModel: dccData.video()
@@ -74,6 +78,7 @@ DccObject {
         displayName: qsTr("Picture")
         icon: "dcc_photo"
         weight: 60
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappPicture
             categoryModel: dccData.picture()
@@ -86,13 +91,10 @@ DccObject {
         displayName: qsTr("Terminal")
         icon: "dcc_terminal"
         weight: 70
+        page: DccGroupView {}
         DetailItem {
             parentObj: defappTerminal
             categoryModel: dccData.terminal()
         }
     }
 }
-
-
-
-
