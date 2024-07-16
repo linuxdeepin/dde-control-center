@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
+import Qt.labs.qmlmodels 1.2
 
 import org.deepin.dtk 1.0 as D
 
@@ -35,22 +35,26 @@ DccObject {
             }
 
             Button {
-                Layout.alignment : Qt.AlignRight
+                Layout.alignment: Qt.AlignRight
                 Layout.maximumWidth: 30
                 Layout.maximumHeight: 30
                 Layout.margins: 0
                 enabled: canDelete
-                text: "-"
+                icon.name: "action_reduce"
                 onClicked: {
                     console.log(parentObj.name, "-")
                 }
+                Component.onCompleted: {
+                    enabled = false
+                    update()
+                }
             }
             Button {
-                Layout.alignment : Qt.AlignRight
+                Layout.alignment: Qt.AlignRight
                 Layout.maximumWidth: 30
                 Layout.maximumHeight: 30
                 Layout.margins: 0
-                text: "+"
+                icon.name: "action_add"
                 onClicked: {
                     fileDialog.open()
                 }
@@ -72,50 +76,41 @@ DccObject {
             currentIndex: -1
             focus: true
             height: contentHeight
+            anchors.left: parent.left
+            anchors.right: parent.right
             spacing: 0
-            Keys.enabled: true
-            Keys.onPressed: function(event) {
-                switch (event.key) {
-                    case Qt.Key_Plus:
-                        console.log(event.key, currentIndex)
-                        break
-                    case Qt.Key_Space:
-                    case Qt.Key_Enter:
-                    case Qt.Key_Return:
-                        console.log(event.key, currentIndex)
-                        break
-                    default:
-                        return
-                }
-                event.accepted = true
-            }
+
             onCurrentIndexChanged: function () {
                 if (currentIndex > 0) {
                     canDelete = currentItem.canDelete
                 }
             }
             model: categoryModel
-            // /*
+            boundsBehavior: Flickable.StopAtBounds
             delegate: ItemDelegate {
                 property string name: model.id
                 property bool canDelete: model.canDelete
+
+                // spacing: 0
+                // padding: 0
                 text: model.display
                 icon.name: model.icon
                 checked: true
+                backgroundVisible: false
                 cascadeSelected: index !== currentIndex
                 anchors.left: parent.left
                 anchors.right: parent.right
                 // checkable: false
                 indicatorVisible: model.isDefault
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        if (!model.isDefault) {
-                            categoryModel.setDefaultApp(model.id)
-                        }
+
+                onClicked: {
+                    if (!model.isDefault) {
+                        categoryModel.setDefaultApp(model.id)
                     }
                 }
-                background: DccListViewBackground { }
+                background: DccListViewBackground {
+                    separatorVisible: true
+                }
             }
         }
     }

@@ -23,6 +23,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_page(nullptr)
     , m_sectionItem(nullptr)
     , m_weight(-1)
+    , m_badge(0)
     , m_pageType(0)
 {
 }
@@ -37,10 +38,18 @@ bool DccObject::Private::getFlagState(uint32_t flag) const
 bool DccObject::Private::setFlagState(uint32_t flag, bool state)
 {
     if (getFlagState(flag) != state) {
+        bool hidden = getFlagState(DCC_ALL_HIDDEN);
+        bool disabled = getFlagState(DCC_ALL_DISABLED);
         if (state)
             m_flags |= flag;
         else
             m_flags &= (~flag);
+        if (hidden != getFlagState(DCC_ALL_HIDDEN)) {
+            Q_EMIT q_ptr->visibleToAppChanged(hidden);
+        }
+        if (disabled != getFlagState(DCC_ALL_DISABLED)) {
+            Q_EMIT q_ptr->enabledChanged(disabled);
+        }
         return true;
     }
     return false;
@@ -177,6 +186,7 @@ QString DccObject::name() const
 void DccObject::setName(const QString &name)
 {
     setObjectName(name);
+    Q_EMIT nameChanged(name);
 }
 
 QString DccObject::parentName() const
@@ -188,6 +198,7 @@ void DccObject::setParentName(const QString &parentName)
 {
     if (p_ptr->m_parentName != parentName) {
         p_ptr->m_parentName = parentName;
+        Q_EMIT parentNameChanged(p_ptr->m_parentName);
     }
 }
 
@@ -262,7 +273,9 @@ bool DccObject::isVisible() const
 
 void DccObject::setVisible(bool isVisible)
 {
-    p_ptr->setFlagState(DCC_HIDDEN, !isVisible);
+    if (p_ptr->setFlagState(DCC_HIDDEN, !isVisible)) {
+        Q_EMIT visibleChanged(isVisible);
+    }
 }
 
 bool DccObject::isVisibleToApp() const
@@ -277,32 +290,14 @@ bool DccObject::isEnabled() const
 
 void DccObject::setEnabled(bool enabled)
 {
-    p_ptr->setFlagState(DCC_DISABLED, !enabled);
+    if (p_ptr->setFlagState(DCC_DISABLED, !enabled)) {
+        Q_EMIT enabledChanged(enabled);
+    }
 }
 
 bool DccObject::isEnabledToApp() const
 {
     return !p_ptr->getFlagState(DCC_ALL_DISABLED);
-}
-
-bool DccObject::labelVisible() const
-{
-    return !p_ptr->getFlagState(DCC_LABELHIDDEN);
-}
-
-void DccObject::setLabelVisible(bool labelVisible)
-{
-    p_ptr->setFlagState(DCC_LABELHIDDEN, !labelVisible);
-}
-
-bool DccObject::hasBackground() const
-{
-    return p_ptr->getFlagState(DCC_HASBACKGROUND);
-}
-
-void DccObject::setHasBackground(bool hasBackground)
-{
-    p_ptr->setFlagState(DCC_HASBACKGROUND, hasBackground);
 }
 
 DccObject *DccObject::currentObject()
@@ -353,7 +348,7 @@ void DccObject::setPageType(uint type)
 
 QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    if(p_ptr->m_sectionItem)
+    if (p_ptr->m_sectionItem)
         return p_ptr->m_sectionItem;
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();

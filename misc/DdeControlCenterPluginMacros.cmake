@@ -33,40 +33,44 @@ function(dcc_install_plugin)
 endfunction()
 
 function(dcc_handle_plugin_translation)
-    set(oneValueArgs NAME)
+    set(oneValueArgs NAME SOURCE_DIR)
     set(multiValueArgs QML_FILES SOURCE_FILES )
     cmake_parse_arguments(_config "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
+    if(NOT _config_SOURCE_DIR)
+        set(_config_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+    endif()
+
     if(NOT _config_QML_FILES)
-        file(GLOB_RECURSE _config_QML_FILES ${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml)
-        file(GLOB additional_QML_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.qml)
+        file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/qml/*.qml)
+        file(GLOB additional_QML_FILES ${_config_SOURCE_DIR}/*.qml)
         list(APPEND _config_QML_FILES ${additional_QML_FILES})
     endif()
 
     if(NOT _config_SOURCE_FILES)
-        file(GLOB_RECURSE _config_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+        file(GLOB_RECURSE _config_SOURCE_FILES ${_config_SOURCE_DIR}/*.cpp)
     endif()
 
     set(TRANSLATION_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_az.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_bo.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_ca.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_es.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_fi.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_fr.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_hu.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_it.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_ja.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_ko.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_nb_NO.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_pl.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_pt_BR.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_ru.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_uk.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_zh_CN.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_zh_HK.ts
-        ${CMAKE_CURRENT_SOURCE_DIR}/translations/${_config_NAME}_zh_TW.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_az.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_bo.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ca.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_es.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_fi.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_fr.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_hu.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_it.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ja.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ko.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_nb_NO.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_pl.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_pt_BR.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ru.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_uk.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_CN.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_HK.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_TW.ts
     )
 
     # set(plugin_dirs ${PROJECT_BINARY_DIR}/plugins/${_config_NAME}/)
