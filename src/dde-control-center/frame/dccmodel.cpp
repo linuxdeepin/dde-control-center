@@ -11,8 +11,22 @@
 
 namespace dccV25 {
 static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.model");
-#define DccItemRole (Qt::UserRole + 300)
-#define DccPageTypeRole (Qt::UserRole + 301)
+
+// #define DccItemRole (Qt::UserRole + 300)
+// #define DccPageTypeRole (Qt::UserRole + 301)
+enum DccModelRole {
+    DccItemRole = Qt::UserRole + 300,
+    DccPageTypeRole,
+    DccViewItemPositionRole,
+};
+
+enum DccItemPostition {
+    Invalid,
+    Beginning,
+    Middle,
+    End,
+    OnlyOne,
+};
 
 DccModel::DccModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -55,13 +69,14 @@ DccObject *DccModel::getObject(int row)
 
 QHash<int, QByteArray> DccModel::roleNames() const
 {
-    QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
-    // names[Qt::DisplayRole] = "display";
+    QHash<int, QByteArray> names;// = QAbstractItemModel::roleNames();
+    names[Qt::DisplayRole] = "display";
     // names[Qt::StatusTipRole] = "description";
     // names[Qt::DecorationRole] = "decoration";
     names[DccItemRole] = "item";
     names[DccPageTypeRole] = "pageType";
-    qCWarning(dccLog) << __FUNCTION__ << __LINE__ << names;
+    names[DccViewItemPositionRole] = "position";
+    // qCWarning(dccLog) << __FUNCTION__ << __LINE__ << names;
     return names;
 }
 
@@ -153,6 +168,17 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue(DccObject::Menu);
         }
         return QVariant::fromValue(item->pageType());
+    case DccViewItemPositionRole: {
+        int count = rowCount();
+        if (index.row() == 0) {
+            return count == 1 ? OnlyOne : Beginning;
+        } else if (index.row() == count - 1) {
+            return End;
+        } else {
+            return Middle;
+        }
+    }
+        return Invalid;
     case Qt::DisplayRole:
         return item->displayName();
     case Qt::StatusTipRole:
