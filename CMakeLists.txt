@@ -136,16 +136,14 @@ set(DDE_CONTROL_CENTER_TRANSLATION_INSTALL_DIR ${DCC_TRANSLATION_INSTALL_DIR})
 set(DDE_CONTROL_CENTER_PLUGIN_INSTALL_DIR ${DCC_PLUGINS_INSTALL_DIR})
 
 set(LOCALSTATE_READ_DIR "${CMAKE_INSTALL_FULL_LOCALSTATEDIR}" CACHE STRING "Dir to find modifiable single-machine data")
+set(DCC_PROJECT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(${DTK_NS} REQUIRED COMPONENTS Core Gui  )
-# find_package(QT NAMES ${QT_NS} REQUIRED COMPONENTS Core Quick)
 find_package(${QT_NS} COMPONENTS Core Quick Gui Network DBus Concurrent Test LinguistTools REQUIRED)
-# find_package(${QT_NS} COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
 find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
-# pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "sw_64")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
@@ -167,160 +165,8 @@ set(Test_Libraries
     GTest::gtest
     Qt::Test
 )
-# set()
-#--------------------------frame--------------------------
-set(DCC_Library dde-control-center_frame)
-set(DCCFrame_Name ${DCC_Library})
-file(GLOB DCCFrame_SRCS
-    "include/*.h"
-    "src/frame/*.cpp"
-)
 
-add_library(${DCCFrame_Name} SHARED
-    ${DCCFrame_SRCS}
-)
-
-target_include_directories(${DCCFrame_Name} PRIVATE
-    include
-)
-
-set(DCCFrame_Libraries
-    ${DTK_NS}::Gui
-    Qt::Gui
-    Qt::Quick
-)
-
-target_link_libraries(${DCCFrame_Name} PRIVATE
-    ${DCCFrame_Libraries}
-)
-
-set_target_properties(${DCCFrame_Name} PROPERTIES
-    VERSION ${CMAKE_PROJECT_VERSION}
-    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-    OUTPUT_NAME dde-control-center
-    EXPORT_NAME Control-Center
-)
-
-install(TARGETS ${DCCFrame_Name}
-        EXPORT DdeControlCenterInterfaceTargets
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center
-)
-
-install(EXPORT DdeControlCenterInterfaceTargets
-        FILE DdeControlCenterInterfaceTargets.cmake
-        NAMESPACE Dde::
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-)
-#--------------------------qml-plugin--------------------------
-add_subdirectory(src/frame/plugin)
-#--------------------------dde-control-center--------------------------
-set(Control_Center_Name dde-control-center)
-file(GLOB_RECURSE Control_Center_SRCS
-    "src/dde-control-center/*.h"
-    "src/dde-control-center/*.cpp"
-)
-
-add_executable(${Control_Center_Name}
-    ${Control_Center_SRCS}
-    src/dde-control-center/qrc/dcc.qrc
-)
-
-target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CMAKE_PROJECT_VERSION}")
-
-target_include_directories(${Control_Center_Name} PRIVATE
-    include/interface
-)
-
-set(Control_Center_Libraries
-    ${DCC_Library}
-    ${DTK_NS}::Gui
-    Qt::Gui
-    Qt::DBus
-    Qt::Concurrent
-    Qt::Quick
-)
-
-target_link_libraries(${Control_Center_Name} PRIVATE
-    ${Control_Center_Libraries}
-)
-
-file(GLOB_RECURSE qmlFiles  "qml/*.qml")
-# file(COPY ${qmlFiles} DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
-add_custom_target(${Control_Center_Name}_qml ALL
-    SOURCES ${qmlFiles}
-)
-add_custom_command(TARGET ${Control_Center_Name}_qml
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/qml" ${DCC_LIBDIR}
-)
-# file(GLOB pluginFiles  "qml/plugins/*")
-# file(COPY ${pluginFiles} DESTINATION s${DCC_PLUGINS_INSTALL_DIR})
-dcc_handle_plugin_translation(NAME ${Control_Center_Name})
-# bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/qml/" DESTINATION ${DCC_INSTALL_DIR})
-
-#----------------------------install config------------------------------
-# qm files
-# file(GLOB QM_FILES "translations/*.qm")
-# install(FILES ${QM_FILES} DESTINATION ${DCC_TRANSLATION_INSTALL_DIR})
-
-#desktop
-install(FILES misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
-
-#service
-configure_file(
-    ${CMAKE_SOURCE_DIR}/misc/org.deepin.dde.ControlCenter1.service.in
-    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
-    @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
-        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
-
-# systemd service
-if (NOT DEFINED SYSTEMD_USER_UNIT_DIR)
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(Systemd REQUIRED systemd)
-    pkg_get_variable(SYSTEMD_USER_UNIT_DIR systemd systemduserunitdir)
-endif()
-
-configure_file(
-    ${CMAKE_SOURCE_DIR}/misc/systemd/dde-control-center.service.in
-    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
-    @ONLY)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
-        DESTINATION ${SYSTEMD_USER_UNIT_DIR})
-
-# dev files
-file(GLOB HEADERS "include/*")
-set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
-install(FILES ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
-
-configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-    PATH_VARS INCLUDE_INSTALL_DIR
-    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-
-write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake"
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY SameMajorVersion
-)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-              ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
-
-install(FILES "${PROJECT_SOURCE_DIR}/misc/DdeControlCenterPluginMacros.cmake" DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
-
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.controlcenter.metainfo.xml
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
-
-#dde-grand-search-daemon conf
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde-grand-search.dde-control-center-setting.conf
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-grand-search-daemon/plugins/searcher)
-
+add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------
 add_subdirectory(src/plugin-sound)
 add_subdirectory(src/plugin-defaultapp)
