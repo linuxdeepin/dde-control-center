@@ -46,7 +46,7 @@ NotificationModule::NotificationModule(QObject *parent)
     : HListModule(parent)
     , m_model(nullptr)
     , m_worker(nullptr)
-    , m_appNotify(new VListModule(tr("AppNotify"), tr("AppNotify"), this))
+    , m_appNotify(new VListModule("AppNotify", tr("AppNotify"), this))
     , m_appNameList{}
 {
     setName("notification");
@@ -73,7 +73,7 @@ void NotificationModule::active()
 
 void NotificationModule::initUi()
 {
-    ModuleObject *systemNotify = new PageModule(tr("SystemNotify"), tr("SystemNotify"), this);
+    ModuleObject *systemNotify = new PageModule("SystemNotify", tr("SystemNotify"), this);
     systemNotify->appendChild(new ItemModule(
             "SystemNotify",
             "SystemNotify",
