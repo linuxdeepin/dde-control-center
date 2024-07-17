@@ -12,47 +12,48 @@ import org.deepin.dcc 1.0
 
 Rectangle {
 
-    color: "transparent"
-    height: 700
-    width: parent.width -80
+    readonly property int itemDelegateMaxWidth: parent.width
+   // color: "transparent"
+    color: Qt.rgba(0, 0, 0, 0) // 设置为完全透明
+
+//    height: 350
+    implicitHeight: control.implicitHeight
+    width: itemDelegateMaxWidth
     anchors {
         left: parent.left
-        leftMargin: 40 // 设置左边间距为20
-        rightMargin: 40
     }
 
     ColumnLayout {
         id: control
-
-        function toPercent(value) {
+        function toPercent(value: string) {
             return Number(value * 100).toFixed(0) + "%"
         }
 
-        //    implicitWidth: parent.width
-        Layout.preferredHeight: parent.height
-        spacing: 10
-        width: parent.width - 40
+        width: itemDelegateMaxWidth
 
         Text {
-            font: DTK.fontManager.t5
+            height: 20
+            font: DTK.fontManager.t4
             text: "输出"
             Layout.leftMargin: 10
+            color: "black"
+
         }
 
-
         Rectangle {
-            border.color: "black"
+            id: control2
+            border.color: "white"
             border.width: 1
             color: "white"
-            height: 350
-            width: parent.width
-            radius: 10
 
+            width: itemDelegateMaxWidth
+            radius: 10
+            height: control1.implicitHeight
             ColumnLayout {
                 id: control1
-                width: parent.width -20
-                height: parent.height
-                Layout.preferredHeight: parent.height
+                width: itemDelegateMaxWidth -20
+
+                spacing: 5
                 anchors {
                     left: parent.left
                     leftMargin: 10 // 设置左边间距为20
@@ -60,19 +61,20 @@ Rectangle {
                 }
 
                 RowLayout {
-                    width: parent.width
+                    width: itemDelegateMaxWidth
                     height: 30
-                    Layout.preferredWidth: parent.width
+                    Layout.preferredWidth: itemDelegateMaxWidth
                     Text {
-                        font: DTK.fontManager.t6
+                        font: DTK.fontManager.t4
+                        textFormat: "AutoText"
                         text: "输出音量"
-                        Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                        verticalAlignment: "AlignVCenter"
+                        opacity: 0.7
                     }
 
                     RowLayout {
-                        height: parent.height
                         Layout.alignment: Qt.AlignRight
-
+                        visible: outPutCombo.count > 0
                         Label {
                             Layout.alignment: Qt.AlignTop
                             Layout.topMargin: 2
@@ -121,29 +123,29 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
 
                 RowLayout {
                     id: aaa
-                    height: 60
-                    width: parent.width
-                    Layout.preferredWidth: parent.width
+                    implicitHeight: 50
+                    width: itemDelegateMaxWidth
+                    Layout.preferredWidth: itemDelegateMaxWidth
+                    visible: outPutCombo.count > 0
                     ColumnLayout {
-                        id: sss
                         Layout.alignment: Qt.AlignLeft
-                        height: parent.height
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "音量增强"
+                            opacity: 0.7
                         }
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                            font: DTK.fontManager.t7
-                            opacity: 0.7
+                            font: DTK.fontManager.t5
+                            opacity: 0.5
                             text: "音量大于100%时可能会导致音效失真,同时损害您的音频输出设备"
                         }
                     }
@@ -164,21 +166,23 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
 
                 RowLayout {
-                    Layout.preferredWidth: parent.width
-                    height: 20
+                    Layout.preferredWidth: itemDelegateMaxWidth
+                    implicitHeight: 20
+                    visible: outPutCombo.count > 0
 
                     Item {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.topMargin: 15
                         Text {
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "音量平衡"
+                            opacity: 0.7
                         }
                     }
 
@@ -215,71 +219,24 @@ Rectangle {
                     }
                 }
 
-                // Rectangle {
-                //     Layout.alignment: Qt.AlignHCenter
-                //     color: "black"
-                //     height: 1
-                //     width: parent.width - 20
-                // }
-                //
-                // RowLayout {
-                //     height: 60
-                //     width: parent.width
-                //
-                //     ColumnLayout {
-                //         Layout.alignment: Qt.AlignLeft
-                //         Layout.leftMargin: 10
-                //         Text {
-                //             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                //             font: DTK.fontManager.t6
-                //             text: "单声道音频"
-                //         }
-                //         Text {
-                //             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                //             font: DTK.fontManager.t7
-                //             opacity: 0.7
-                //             text: "将左声道和右声道合并为一个声道"
-                //         }
-                //     }
-                //
-                //     Item {
-                //         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                //         Layout.fillWidth: true
-                //         Layout.leftMargin: 10
-                //         Layout.topMargin: 10
-                //
-                //     }
-                //     Item {
-                //         Layout.alignment: Qt.AlignTop
-                //         Layout.fillWidth: true
-                //         Layout.rightMargin: 10
-                //         Layout.topMargin: 20
-                //
-                //         Switch {
-                //             anchors.right: parent.right
-                //             checked: dccData.model().increaseVolume
-                //         }
-                //     }
-                // }
-
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
 
                 RowLayout {
-                    height: 60
-                    width: parent.width
-                    Layout.preferredWidth: parent.width
-
+                    implicitHeight: 60
+                    width: itemDelegateMaxWidth
+                    Layout.preferredWidth: itemDelegateMaxWidth
+                    visible: outPutCombo.count > 0
                     ColumnLayout {
                         Layout.alignment: Qt.AlignLeft
-                        height: parent.height
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "插拔管理"
+                            opacity: 0.7
                         }
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -314,33 +271,36 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
 
                 RowLayout {
-                    spacing: 10
-                    width: parent.width
-                    Layout.preferredWidth: parent.width
+                   // spacing: 10
+                    width: itemDelegateMaxWidth
+                    Layout.preferredWidth: itemDelegateMaxWidth
                     Layout.bottomMargin: 10
                     Layout.alignment: Qt.AlignVCenter
+                    implicitHeight: 30
 
                     Text {
                         Layout.alignment: Qt.AlignLeft
                         Layout.topMargin: 10
-                        font: DTK.fontManager.t6
+                        font: DTK.fontManager.t4
                         text: "输出设备"
+                        opacity: 0.7
                     }
                     ComboBox {
+                        id: outPutCombo
                         Layout.alignment: Qt.AlignRight
                         Layout.rightMargin: 10
                         flat: true
                         currentIndex: dccData.model().outPutPortComboIndex
                         model: dccData.model().outPutPortCombo
-                        background: {
-                            color: "white"
-                        }
+                        // background: {
+                        //     color: "white"
+                        // }
                         onCurrentIndexChanged: {
                             console.log("Selected index:", currentIndex)
                         }
@@ -349,8 +309,9 @@ Rectangle {
             }
         }
 
-        MicrophonePage {
+        Item {
             width: parent.width
+            implicitHeight: 40
         }
     }
 }

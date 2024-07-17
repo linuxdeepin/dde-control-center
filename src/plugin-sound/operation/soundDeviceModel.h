@@ -1,55 +1,60 @@
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-#ifndef SOUNDEFFECTSMODEL_H
-#define SOUNDEFFECTSMODEL_H
 
 #include <QObject>
+#ifndef SOUNDDEVICEMODEL_H
+#define SOUNDDEVICEMODEL_H
+
 #include <QAbstractListModel>
-
-
-#include "soundEffectsData.h"
 #include <QtQml/qqml.h>
 
-class SoundEffectsModel : public QAbstractListModel
-{
+#include "soundDeviceData.h"
+//#include "soundmodel.h"
+
+#include "port.h"
+
+class SoundDeviceModel: public QAbstractListModel {
+
     Q_OBJECT
 
-    QML_NAMED_ELEMENT(SoundEffectsModel)
+    QML_NAMED_ELEMENT(SoundDeviceModel)
     QML_SINGLETON
-public:
 
+public:
     enum soundEffectsRoles{
         NameRole = Qt::UserRole + 1,
-        DisplayTextRole,
         IsChecked
     };
 
-    explicit SoundEffectsModel(QObject *parent = nullptr);
+    explicit SoundDeviceModel(QObject *parent = nullptr);
 
-    void addData(SoundEffectsData* data);
-    void removeData(SoundEffectsData* data);
     void clearData();
-    SoundEffectsData* getSystemSoundEffect(int index);
+    void addData(Port* port);
+    void removeData(Port* port);
     int getRowCount();
 
-    void updateSoundEffectsData(int index, bool enable);
+    SoundDeviceData* getSoundDeviceData(int index);
+    void updateSoundDeviceData(Port* port);
 
 protected:
+
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     QHash<int, QByteArray> roleNames() const override {
         QHash<int, QByteArray> roles;
         roles[NameRole] = "name";
-        roles[DisplayTextRole] = "dispalyText";
         roles[IsChecked] = "isChecked";
         return roles;
     }
 
 
-    private:
-    QList<SoundEffectsData*> m_soundEffectsData;
+private:
+    QList<SoundDeviceData*> m_soundDeviceDatas;
+    QList<Port*> m_ports;
 };
 
-#endif // SOUNDEFFECTSMODEL_H
+
+
+#endif //SOUNDDEVICEMODEL_H
