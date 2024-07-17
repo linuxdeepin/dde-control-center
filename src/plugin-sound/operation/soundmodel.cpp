@@ -52,21 +52,9 @@ SoundModel::SoundModel(QObject *parent)
     , m_inputVisibled(false)
     , m_outputVisibled(false)
     , m_soundEffectsModel(new SoundEffectsModel(this))
+    , m_soundOutputDeviceModel(new SoundDeviceModel(this))
+    , m_soundInputDeviceModel(new SoundDeviceModel(this))
 {
-
-    // setTitle("ddddddddddddddd");
-    // SoundEffectsData* data1 = new SoundEffectsData;
-    // data1->setName("sssssssss");
-    // data1->setDispalyText("vvvvvvvvvvvvv");
-    // data1->setChecked(true);
-    // m_soundEffectsModel->addData(*data1);
-
-    // SoundEffectsData* data2 = new SoundEffectsData;
-    // data2->setName("dddddddddd");
-    // data2->setDispalyText("hhhhhhhhhhh");
-    // data2->setChecked(false);
-    // m_soundEffectsModel->addData(*data2);
-
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
         { tr("Shut down"), DDesktopServices::SSE_Shutdown },
@@ -263,9 +251,11 @@ void SoundModel::addPort(Port *port)
             m_outputPorts.append(port);
 
             m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            m_soundOutputDeviceModel->addData(port);
         } else {
             m_inputPorts.append(port);
             m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            m_soundInputDeviceModel->addData(port);
         }
 
         Q_EMIT portAdded(port);
@@ -282,10 +272,14 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
+            m_outPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
 
+            m_soundOutputDeviceModel->removeData(port);
 
         } else {
             m_inputPorts.removeOne(port);
+            m_inPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
+            m_soundInputDeviceModel->removeData(port);
         }
         port->deleteLater();
     }
@@ -516,6 +510,91 @@ void SoundModel::setSoundEffectEnable(int index, bool enable)
     m_soundEffectsModel->updateSoundEffectsData(index, enable);
 }
 
+void SoundModel::initSoundDeviceModel(Port::Direction direction)
+{
+    SoundDeviceModel *model =
+            direction == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
+    QList<Port *> ports = direction == Port::In ? m_inputPorts : m_outputPorts;
+    model->clearData();
+
+    for (Port *port : ports) {
+        model->addData(port);
+    }
+}
+
+SoundDeviceData *SoundModel::getSoundDeviceData(int index, int portType)
+{
+    SoundDeviceModel *soundDeviceModel =
+            portType == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
+    return soundDeviceModel ? soundDeviceModel->getSoundDeviceData(index) : nullptr;
+}
+
+void SoundModel::updateSoundDeviceModel(Port *port)
+{
+    if (port->direction() == Port::In ) {
+        m_soundInputDeviceModel->updateSoundDeviceData(port);
+        return;
+    }
+
+    if (port->direction() == Port::Out) {
+        m_soundOutputDeviceModel->updateSoundDeviceData(port);
+        return;
+    }
+}
+
+void SoundModel::setOutPutCount(int newOutPutCount)
+{
+    if (m_outPutCount == newOutPutCount)
+        return;
+    m_outPutCount = newOutPutCount;
+    emit outPutCountChanged();
+}
+
+void SoundModel::setInPutPortCount(int newInPutPortCount)
+{
+    if (m_inPutPortCount == newInPutPortCount)
+        return;
+    m_inPutPortCount = newInPutPortCount;
+    emit inPutPortCountChanged();
+}
+
+int SoundModel::outPutCount() const
+{
+    return m_outPutCount;
+}
+
+int SoundModel::inPutPortCount() const
+{
+    return m_inPutPortCount;
+}
+
+SoundDeviceModel *SoundModel::soundOutputDeviceModel() const
+{
+    return m_soundOutputDeviceModel;
+}
+
+void SoundModel::setSoundOutputDeviceModel(SoundDeviceModel *newSoundOutputDeviceModel)
+{
+    m_soundOutputDeviceModel = newSoundOutputDeviceModel;
+}
+
+int SoundModel::getDeviceManagerRowCount(int portType) const
+{
+    SoundDeviceModel* soundDeviceModel = portType == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
+    return soundDeviceModel ? soundDeviceModel->getRowCount() : 0;
+}
+
+SoundDeviceModel *SoundModel::soundInputDeviceModel() const
+{
+    return m_soundInputDeviceModel;
+}
+
+void SoundModel::setSoundInputDeviceModel(SoundDeviceModel *newSoundInputDeviceModel)
+{
+    m_soundInputDeviceModel = newSoundInputDeviceModel;
+}
+
+
 SoundEffectsModel* SoundModel::soundEffectsModel() const
 {
     return m_soundEffectsModel;
@@ -549,72 +628,5 @@ void SoundModel::setOutPutPortCombo(const QStringList& outPutPort)
 {
     m_outPutPortCombo = outPutPort;
     Q_EMIT outPutPortComboChanged(m_outPutPortCombo);
-}
-
-void Port::setId(const QString &id)
-{
-    if (id != m_id) {
-        m_id = id;
-        Q_EMIT idChanged(id);
-    }
-}
-
-void Port::setName(const QString &name)
-{
-    if (name != m_name) {
-        m_name = name;
-        Q_EMIT nameChanged(name);
-    }
-}
-
-void Port::setCardName(const QString &cardName)
-{
-    if (cardName != m_cardName) {
-        m_cardName = cardName;
-        Q_EMIT cardNameChanged(cardName);
-    }
-}
-
-void Port::setIsActive(bool isActive)
-{
-    if (isActive != m_isActive) {
-        m_isActive = isActive;
-        if (m_direction == Port::In)
-            Q_EMIT isInputActiveChanged(isActive);
-        else
-            Q_EMIT isOutputActiveChanged(isActive);
-    }
-}
-
-void Port::setDirection(const Direction &direction)
-{
-    if (direction != m_direction) {
-        m_direction = direction;
-        Q_EMIT directionChanged(direction);
-    }
-}
-
-void Port::setCardId(const uint &cardId)
-{
-    if (cardId != m_cardId) {
-        m_cardId = cardId;
-        Q_EMIT cardIdChanged(cardId);
-    }
-}
-
-void Port::setEnabled(const bool enabled)
-{
-    if (enabled != m_enabled) {
-        m_enabled = enabled;
-        Q_EMIT currentPortEnabled(enabled);
-    }
-}
-
-void Port::setIsBluetoothPort(const bool isBlue)
-{
-    if (m_isBluetoothPort != isBlue) {
-        m_isBluetoothPort = isBlue;
-        Q_EMIT currentBluetoothPortChanged(isBlue);
-    }
 }
 
