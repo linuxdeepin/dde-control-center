@@ -12,36 +12,36 @@ import org.deepin.dcc 1.0
 
 Rectangle {
 
+//    border.color: "white"
     color: "transparent"
-    height: 700
-    width: parent.width -80
+
+    height: 730
+    //height: parent.height
+    width: parent.width
     anchors {
         left: parent.left
-        leftMargin: 40 // 设置左边间距为20
-        rightMargin: 40
     }
 
     ColumnLayout {
         id: control
 
-        function toPercent(value) {
+        function toPercent(value: string) {
             return Number(value * 100).toFixed(0) + "%"
         }
 
-        //    implicitWidth: parent.width
         Layout.preferredHeight: parent.height
         spacing: 10
-        width: parent.width - 40
+        width: parent.width
 
         Text {
-            font: DTK.fontManager.t5
+            font: DTK.fontManager.t4
             text: "输出"
             Layout.leftMargin: 10
         }
 
 
         Rectangle {
-            border.color: "black"
+            border.color: "white"
             border.width: 1
             color: "white"
             height: 350
@@ -64,9 +64,12 @@ Rectangle {
                     height: 30
                     Layout.preferredWidth: parent.width
                     Text {
-                        font: DTK.fontManager.t6
+                        font: DTK.fontManager.t4
+                        textFormat: "AutoText"
                         text: "输出音量"
-                        Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                   //     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                        verticalAlignment: "AlignVCenter"
+                        opacity: 0.7
                     }
 
                     RowLayout {
@@ -121,7 +124,7 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
@@ -137,13 +140,14 @@ Rectangle {
                         height: parent.height
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "音量增强"
+                            opacity: 0.7
                         }
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                            font: DTK.fontManager.t7
-                            opacity: 0.7
+                            font: DTK.fontManager.t5
+                            opacity: 0.5
                             text: "音量大于100%时可能会导致音效失真,同时损害您的音频输出设备"
                         }
                     }
@@ -164,7 +168,7 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
@@ -177,8 +181,9 @@ Rectangle {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.topMargin: 15
                         Text {
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "音量平衡"
+                            opacity: 0.7
                         }
                     }
 
@@ -217,7 +222,7 @@ Rectangle {
 
                 // Rectangle {
                 //     Layout.alignment: Qt.AlignHCenter
-                //     color: "black"
+                //     color: "#f2f2f2"
                 //     height: 1
                 //     width: parent.width - 20
                 // }
@@ -263,7 +268,7 @@ Rectangle {
                 // }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
@@ -278,8 +283,9 @@ Rectangle {
                         height: parent.height
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            font: DTK.fontManager.t6
+                            font: DTK.fontManager.t4
                             text: "插拔管理"
+                            opacity: 0.7
                         }
                         Text {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -314,7 +320,7 @@ Rectangle {
                 }
 
                 Rectangle {
-                    color: "black"
+                    color: "#f2f2f2"
                     height: 1
                     Layout.preferredWidth: control1.width
                 }
@@ -329,8 +335,9 @@ Rectangle {
                     Text {
                         Layout.alignment: Qt.AlignLeft
                         Layout.topMargin: 10
-                        font: DTK.fontManager.t6
+                        font: DTK.fontManager.t4
                         text: "输出设备"
+                        opacity: 0.7
                     }
                     ComboBox {
                         Layout.alignment: Qt.AlignRight
@@ -349,6 +356,10 @@ Rectangle {
             }
         }
 
+        Item {
+            width:parent.width
+            height: 10
+        }
         MicrophonePage {
             width: parent.width
         }

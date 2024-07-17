@@ -12,6 +12,8 @@
 #include <QtQml/qqml.h>
 
 #include "soundeffectsmodel.h"
+#include "soundDeviceModel.h"
+#include "port.h"
 
 DGUI_USE_NAMESPACE
 
@@ -22,64 +24,6 @@ class QString;
 QT_END_NAMESPACE
 
 using SoundEffectList = QList<std::pair<QString, DDesktopServices::SystemSoundEffect>>;
-
-class Port : public QObject
-{
-    Q_OBJECT
-public:
-    enum Direction {
-        Out = 1,
-        In = 2
-    };
-
-    explicit Port(QObject * parent) : QObject(parent),m_id(""), m_name(""), m_cardName(""), m_cardId(0), m_isActive(false), m_enabled(false), m_isBluetoothPort(false), m_direction(Out){}
-    virtual ~Port() {}
-
-    inline QString id() const { return m_id; }
-    void setId(const QString &id);
-
-    inline QString name() const { return m_name; }
-    void setName(const QString &name);
-
-    inline QString cardName() const { return m_cardName; }
-    void setCardName(const QString &cardName);
-
-    inline bool isActive() const { return m_isActive; }
-    void setIsActive(bool isActive);
-
-    inline Direction direction() const { return m_direction; }
-    void setDirection(const Direction &direction);
-
-    inline uint cardId() const { return m_cardId; }
-    void setCardId(const uint &cardId);
-
-    inline bool isEnabled() const { return m_enabled; }
-    void setEnabled(const bool enabled);
-
-    inline bool isBluetoothPort() const  { return m_isBluetoothPort; }
-    void setIsBluetoothPort(const bool isBlue);
-
-Q_SIGNALS:
-    void idChanged(QString id) const;
-    void nameChanged(QString name) const;
-    void cardNameChanged(QString name) const;
-    void isInputActiveChanged(bool active) const;
-    void isOutputActiveChanged(bool active) const;
-    void directionChanged(Direction direction) const;
-    void cardIdChanged(uint cardId) const;
-    void currentPortEnabled(bool enable) const;
-    void currentBluetoothPortChanged(bool isBlue) const;
-
-private:
-    QString m_id;
-    QString m_name;
-    QString m_cardName;
-    uint m_cardId;
-    bool m_isActive;
-    bool m_enabled;
-    bool m_isBluetoothPort;
-    Direction m_direction;
-};
 
 class SoundModel : public QObject
 {
@@ -203,10 +147,16 @@ public:
     inline bool audioServerChangedState() const { return m_audioServerStatus; }
     void setAudioServerChangedState(const bool state);
 
+    // 更新系统声效ui数据
     void updateSoundEffectsModel();
     QString getSoundEffectsType(int index);
 
     void setSoundEffectEnable(int index, bool enable);
+
+    // 初始化输入设备ui数据
+    void initSoundDeviceModel(Port::Direction direction);
+    SoundDeviceData* getSoundDeviceData(int index, int portType);
+    void updateSoundDeviceModel(Port* port);
 private:
 
 
@@ -313,6 +263,8 @@ private:
     Port* m_activeinPutPort;
 
     SoundEffectsModel* m_soundEffectsModel;
+    SoundDeviceModel* m_soundInputDeviceModel;
+    SoundDeviceModel* m_soundOutputDeviceModel;
 
     Q_PROPERTY(QStringList inPutPortCombo READ inPutPortCombo WRITE setInPutPortCombo NOTIFY inPutPortComboChanged FINAL)
     Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
@@ -343,6 +295,11 @@ public:
 
     Q_INVOKABLE QString getListName(int index) const;
     Q_INVOKABLE int getSoundEffectsRowCount() const;
+    Q_INVOKABLE SoundDeviceModel *soundInputDeviceModel() const;
+    void setSoundInputDeviceModel(SoundDeviceModel *newSoundInputDeviceModel);
+    Q_INVOKABLE SoundDeviceModel *soundOutputDeviceModel() const;
+    void setSoundOutputDeviceModel(SoundDeviceModel *newSoundOutputDeviceModel);
+    Q_INVOKABLE int getDeviceManagerRowCount(int portType) const;
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H

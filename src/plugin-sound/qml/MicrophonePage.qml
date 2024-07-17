@@ -15,13 +15,13 @@ ColumnLayout {
     }
 
     Text {
-        font: DTK.fontManager.t5
+        font: DTK.fontManager.t4
         text: "输入"
         Layout.leftMargin: 10
     }
 
     Rectangle {
-        border.color: "black"
+        border.color: "white"
         border.width: 1
         color: "white"
         height: 250
@@ -41,10 +41,11 @@ ColumnLayout {
                 Layout.alignment: Qt.AlignVCenter
 
                 Text {
-                    font: DTK.fontManager.t7
+                    font: DTK.fontManager.t4
                     text: "输入音量"
                     Layout.alignment: Qt.AlignLeft
                     Layout.leftMargin: 10
+                    opacity: 0.7
                 }
                 RowLayout {
                     Layout.alignment: Qt.AlignRight
@@ -101,7 +102,7 @@ ColumnLayout {
 
             Rectangle {
                 Layout.alignment: Qt.AlignHCenter
-                color: "black"
+                color: "#f2f2f2"
                 height: 1
                 Layout.preferredWidth: control.width - 20
             }
@@ -113,10 +114,11 @@ ColumnLayout {
                 Layout.alignment: Qt.AlignVCenter
 
                 Text {
-                    font: DTK.fontManager.t7
+                    font: DTK.fontManager.t4
                     text: "反馈音量"
                     Layout.alignment: Qt.AlignLeft
                     Layout.leftMargin: 10
+                    opacity: 0.7
                 }
 
                 RowLayout {
@@ -146,7 +148,7 @@ ColumnLayout {
             }
             Rectangle {
                 Layout.alignment: Qt.AlignHCenter
-                color: "black"
+                color: "#f2f2f2"
                 height: 1
                 Layout.preferredWidth: control.width - 20
             }
@@ -158,9 +160,10 @@ ColumnLayout {
 
                 Text {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                    font: DTK.fontManager.t6
+                    font: DTK.fontManager.t4
                     text: "噪音抑制"
                     Layout.leftMargin: 10
+                    opacity: 0.7
                 }
 
                 Switch {
@@ -175,7 +178,7 @@ ColumnLayout {
 
             Rectangle {
                 Layout.alignment: Qt.AlignHCenter
-                color: "black"
+                color: "#f2f2f2"
                 height: 1
                 Layout.preferredWidth: control.width - 20
             }
@@ -192,8 +195,9 @@ ColumnLayout {
                     Layout.alignment: Qt.AlignLeft
                     Layout.leftMargin: 10
                     Layout.topMargin: 10
-                    font: DTK.fontManager.t6
+                    font: DTK.fontManager.t4
                     text: "输入设备"
+                    opacity: 0.7
                 }
                 ComboBox {
                     Layout.alignment: Qt.AlignRight
