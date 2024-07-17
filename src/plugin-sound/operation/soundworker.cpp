@@ -331,6 +331,9 @@ void SoundWorker::cardsChanged(const QString &cards)
             m_model->removePort(port->id(), port->cardId());
         }
     }
+
+    m_model->setInPutPortCount(m_model->inPutPortCombo().count());
+    m_model->setOutPutCount(m_model->outPutPortCombo().count());
 }
 
 void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)

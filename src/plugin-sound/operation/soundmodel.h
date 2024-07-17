@@ -213,6 +213,10 @@ Q_SIGNALS:
 
     void soundEffectsModelChanged();
 
+    void inPutPortCountChanged();
+
+    void outPutCountChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -266,8 +270,14 @@ private:
     SoundDeviceModel* m_soundInputDeviceModel;
     SoundDeviceModel* m_soundOutputDeviceModel;
 
+    int m_inPutPortCount;
+    int m_outPutCount;
+
     Q_PROPERTY(QStringList inPutPortCombo READ inPutPortCombo WRITE setInPutPortCombo NOTIFY inPutPortComboChanged FINAL)
     Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
+
+    Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
+    Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
 
 public:
 
@@ -300,6 +310,10 @@ public:
     Q_INVOKABLE SoundDeviceModel *soundOutputDeviceModel() const;
     void setSoundOutputDeviceModel(SoundDeviceModel *newSoundOutputDeviceModel);
     Q_INVOKABLE int getDeviceManagerRowCount(int portType) const;
+    int inPutPortCount() const;
+    int outPutCount() const;
+    void setInPutPortCount(int newInPutPortCount);
+    void setOutPutCount(int newOutPutCount);
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H

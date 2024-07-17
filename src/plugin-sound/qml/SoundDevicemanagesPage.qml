@@ -12,7 +12,6 @@ import QtQuick.Controls 2.15
 Rectangle {
 
     readonly property int itemDelegateMaxWidth: parent.width
-
     anchors {
         left: parent.left
         top: parent.top
@@ -20,11 +19,10 @@ Rectangle {
     }
     color: "transparent"
     width: itemDelegateMaxWidth
-    height: 40 * dccData.model().getDeviceManagerRowCount(1) + 40 * dccData.model().getDeviceManagerRowCount(2) + 100
+    implicitHeight: controlAll.implicitHeight
     ColumnLayout {
-        height: parent.height
+        id: controlAll
         width: parent.width
-        // Layout.preferredHeight: parent.height
         spacing: 5
         Text {
             height: 40
