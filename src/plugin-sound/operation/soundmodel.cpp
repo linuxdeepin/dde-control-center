@@ -258,7 +258,6 @@ void SoundModel::addPort(Port *port)
             m_soundInputDeviceModel->addData(port);
         }
 
-
         Q_EMIT portAdded(port);
         Q_EMIT soundDeviceStatusChanged();
     }
@@ -273,10 +272,13 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
+            m_outPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
+
             m_soundOutputDeviceModel->removeData(port);
 
         } else {
             m_inputPorts.removeOne(port);
+            m_inPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
             m_soundInputDeviceModel->removeData(port);
         }
         port->deleteLater();
@@ -538,6 +540,32 @@ void SoundModel::updateSoundDeviceModel(Port *port)
         m_soundOutputDeviceModel->updateSoundDeviceData(port);
         return;
     }
+}
+
+void SoundModel::setOutPutCount(int newOutPutCount)
+{
+    if (m_outPutCount == newOutPutCount)
+        return;
+    m_outPutCount = newOutPutCount;
+    emit outPutCountChanged();
+}
+
+void SoundModel::setInPutPortCount(int newInPutPortCount)
+{
+    if (m_inPutPortCount == newInPutPortCount)
+        return;
+    m_inPutPortCount = newInPutPortCount;
+    emit inPutPortCountChanged();
+}
+
+int SoundModel::outPutCount() const
+{
+    return m_outPutCount;
+}
+
+int SoundModel::inPutPortCount() const
+{
+    return m_inPutPortCount;
 }
 
 SoundDeviceModel *SoundModel::soundOutputDeviceModel() const
