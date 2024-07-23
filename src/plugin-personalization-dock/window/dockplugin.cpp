@@ -423,7 +423,7 @@ void DockModuleObject::initPluginView(DListView *view)
                         updateItemCheckStatus(dockItem.itemKey, visible);
                         item->setData(visible, Dtk::UserRole + 1); });
             // 主题发生变化触发的信号
-            connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem, view]()
+            connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, view, [leftAction, this, dockItem, view]()
                     { leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow())); });
         }
     };
