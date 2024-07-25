@@ -56,7 +56,7 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event);
     
 private:
-    QIcon getIcon(const QString &dccIcon, bool isDeactivate) const;
+    QIcon getIcon(const QString &dccIcon, bool isDeactivate, QString itemKey) const;
     void updateIcons();
 
 private Q_SLOTS:
