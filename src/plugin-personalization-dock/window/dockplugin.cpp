@@ -57,6 +57,18 @@ enum HideMode
     SmartHide = 2,   // 智能隐藏
 };
 
+static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant",    "dcc_dock_assistant"}
+    , {"show-desktop",   "dcc_dock_desktop"}
+    , {"onboard",        "dcc_dock_keyboard"}
+    , {"notifications",  "dcc_dock_notify"}
+    , {"shutdown",       "dcc_dock_power"}
+    , {"multitasking",   "dcc_dock_task"}
+    , {"datetime",       "dcc_dock_time"}
+    , {"system-monitor", "dcc_dock_systemmonitor"}
+    , {"grand-search",   "dcc_dock_grandsearch"}
+    , {"trash",          "dcc_dock_trash"}
+    , {"shot-start-plugin",  "shot-start-plugin"}};
+
 DockPlugin::DockPlugin(QObject *parent)
     : PluginInterface(parent)
 {
@@ -128,7 +140,7 @@ DockModuleObject::DockModuleObject()
     }
 }
 
-QIcon DockModuleObject::getIcon(const QString &dccIcon, bool isDeactivate) const
+QIcon DockModuleObject::getIcon(const QString &dccIcon, bool isDeactivate, QString itemKey) const
 {
     auto originPixmap = QIcon(dccIcon).pixmap(ICON_SIZE, ICON_SIZE);
     auto pm = originPixmap.copy();
@@ -138,7 +150,21 @@ QIcon DockModuleObject::getIcon(const QString &dccIcon, bool isDeactivate) const
     auto palette = qApp->palette();
     color = palette.color(!isDeactivate ? QPalette::Active : QPalette::Inactive, QPalette::WindowText);
     pa.fillRect(pm.rect(), color);
-    return QIcon(pm);
+
+    QIcon pluginIcon;
+    if (!pm.isNull()) {
+        pluginIcon = QIcon(pm);
+    } else if (pluginIconMap.contains(itemKey)) {
+        pluginIcon = QIcon::fromTheme(pluginIconMap.value(itemKey));
+    } else {
+        pluginIcon = QIcon::fromTheme(itemKey);
+    }
+    // 如果获取不到图标则使用默认图标
+    if (pluginIcon.isNull()) {
+        pluginIcon = QIcon::fromTheme("dcc_dock_plug_in");
+    }
+
+    return pluginIcon;
 }
 
 bool DockModuleObject::eventFilter(QObject *watched, QEvent *event)
@@ -402,7 +428,7 @@ void DockModuleObject::initPluginView(DListView *view)
 
                    // 插件图标
             auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow()));
+            leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow(), dockItem.itemKey));
             item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
             auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
@@ -424,7 +450,7 @@ void DockModuleObject::initPluginView(DListView *view)
                         item->setData(visible, Dtk::UserRole + 1); });
             // 主题发生变化触发的信号
             connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, view, [leftAction, this, dockItem, view]()
-                    { leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow())); });
+                    { leftAction->setIcon(getIcon(dockItem.dcc_icon, !view->isActiveWindow(),dockItem.itemKey)); });
         }
     };
     initPluginModel(plugins);
@@ -479,7 +505,7 @@ void DockModuleObject::updateIcons()
         if (!item || item->data(Dtk::UserRole + 2).toString().isEmpty())
             continue;
         for (auto action : item->actionList(Qt::Edge::LeftEdge)) {
-            action->setIcon(getIcon(item->data(Dtk::UserRole + 2).toString(), !m_view->isActiveWindow()));
+            action->setIcon(getIcon(item->data(Dtk::UserRole + 2).toString(), !m_view->isActiveWindow(), item->data(Dtk::UserRole + 3).toString()));
         }
     }
 }
