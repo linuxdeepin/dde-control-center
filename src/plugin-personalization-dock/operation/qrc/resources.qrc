@@ -11,5 +11,6 @@
         <file>texts/dcc_dock_trash_16px.svg</file>
         <file>texts/dcc_dock_grandsearch_16px.svg</file>
         <file>texts/dcc_dock_systemmonitor_16px.svg</file>
+        <file>texts/dcc_dock_shot_start_plugin_16px.svg</file>
     </qresource>
 </RCC>

@@ -67,7 +67,7 @@ static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant",    "dcc_do
     , {"system-monitor", "dcc_dock_systemmonitor"}
     , {"grand-search",   "dcc_dock_grandsearch"}
     , {"trash",          "dcc_dock_trash"}
-    , {"shot-start-plugin",  "shot-start-plugin"}};
+    , {"shot-start-plugin",  "dcc_dock_shot_start_plugin"}};
 
 DockPlugin::DockPlugin(QObject *parent)
     : PluginInterface(parent)
