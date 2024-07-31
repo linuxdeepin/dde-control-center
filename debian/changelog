@@ -1,3 +1,10 @@
+dde-control-center (6.0.60) unstable; urgency=medium
+
+  * fix: Fixed the problem that the icon cannot be retrieved from the system monitor (#1661)(issue: 9833)
+  * fix: Add screenshot plug-in icon (#1662)(Issue: 9944)
+
+ -- zyz <zhaoyingzhen@uniontech.com>  Wed, 31 Jul 2024 14:48:00 +0800
+
 dde-control-center (6.0.59) unstable; urgency=medium
 
   * fix: module object name setting error (#1655)(Influence: module can jump normally)
