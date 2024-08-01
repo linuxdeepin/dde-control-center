@@ -261,7 +261,8 @@ void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
 
     slider->setAccessibleName("Slider");
     slider->addBackground();
-    slider->slider()->setRange(40, 100);
+    // dde-shell dock panel min size:37
+    slider->slider()->setRange(37, 100);
     QStringList ranges;
     ranges << tr("Small") << "" << tr("Large");
     slider->setAnnotations(ranges);
