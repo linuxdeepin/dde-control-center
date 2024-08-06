@@ -236,11 +236,6 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
     widget->addBackground();
     widget->setTitle(tr("Status"));
     widget->setComboxOption(QStringList() << tr("Keep shown") << tr("Keep hidden") << tr("Smart hide"));
-    if (auto model = qobject_cast<QStandardItemModel *>(widget->comboBox()->model())) {
-        if (QStandardItem *itemHideSelect = model->item(2)) {
-            itemHideSelect->setFlags(itemHideSelect->flags() & ~Qt::ItemIsEnabled);
-        }
-    }
 
     widget->setCurrentText(g_stateMap.key(m_dbusProxy->hideMode()));
     connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
