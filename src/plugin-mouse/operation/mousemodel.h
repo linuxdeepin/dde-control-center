@@ -4,12 +4,13 @@
 #ifndef MOUSEMODEL_H
 #define MOUSEMODEL_H
 
-#include "interface/namespace.h"
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QDebug>
 
 namespace DCC_NAMESPACE {
+class MouseWorker;
 class MouseModel : public QObject
 {
     Q_OBJECT
@@ -17,6 +18,18 @@ class MouseModel : public QObject
 public:
     explicit MouseModel(QObject *parent = nullptr);
     ~MouseModel();
+
+    Q_PROPERTY(int scrollSpeed READ scrollSpeed WRITE setScrollSpeed NOTIFY scrollSpeedChanged FINAL)
+    Q_PROPERTY(int doubleSpeed READ doubleSpeed WRITE setDoubleSpeed NOTIFY doubleSpeedChanged FINAL)
+    Q_PROPERTY(bool leftHandState READ leftHandState WRITE setLeftHandState NOTIFY leftHandStateChanged FINAL)
+    Q_PROPERTY(int mouseMoveSpeed READ mouseMoveSpeed WRITE setMouseMoveSpeed NOTIFY mouseMoveSpeedChanged FINAL)
+    Q_PROPERTY(bool accelProfile READ accelProfile WRITE setAccelProfile NOTIFY accelProfileChanged FINAL)
+    Q_PROPERTY(bool disTpad READ disTpad WRITE setDisTpad NOTIFY disTpadChanged FINAL)
+    Q_PROPERTY(bool tpadExist READ tpadExist WRITE setTpadExist NOTIFY tpadExistChanged FINAL)
+    Q_PROPERTY(bool mouseNaturalScroll READ mouseNaturalScroll WRITE setMouseNaturalScroll NOTIFY mouseNaturalScrollChanged FINAL)
+    Q_PROPERTY(int tpadMoveSpeed READ tpadMoveSpeed WRITE setTpadMoveSpeed NOTIFY tpadMoveSpeedChanged FINAL)
+    Q_PROPERTY(bool tapClick READ tapClick WRITE setTapClick NOTIFY tapClickChanged FINAL)
+    Q_PROPERTY(bool tpadNaturalScroll READ tpadNaturalScroll WRITE setTpadNaturalScroll NOTIFY tpadNaturalScrollChanged FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -66,14 +79,14 @@ public:
     inline int palmMinz() const { return m_palmMinz; }
     void setPalmMinz(int palmMinz);
 
-    bool tapclick() const { return m_tapclick; }
-    void setTapClick(bool tapclick);
+    bool tapClick() const { return m_tapClick; }
+    void setTapClick(bool tapClick);
 
     bool tapEnabled() const { return m_touchpadEnabled; }
     void setTapEnabled(bool tapEnabled);
 
-    uint scrollSpeed() const { return m_scrollSpeed; }
-    void setScrollSpeed(uint speed);
+    int scrollSpeed() const { return m_scrollSpeed; }
+    void setScrollSpeed(int speed);
 
 Q_SIGNALS:
     void leftHandStateChanged(bool state);
@@ -92,9 +105,9 @@ Q_SIGNALS:
     void palmDetectChanged(bool detect);
     void palmMinWidthChanged(int palmMinWidth);
     void palmMinzChanged(int palmMinz);
-    void tapClickChanged(bool tapclick);
-    void tapEnabledChanged(bool tapclick);
-    void scrollSpeedChanged(uint speed);
+    void tapClickChanged(bool tapClick);
+    void tapEnabledChanged(bool tapClick);
+    void scrollSpeedChanged(int speed);
 
 private:
     bool m_leftHandState;
@@ -107,7 +120,7 @@ private:
     bool m_accelProfile;
     bool m_disTpad;
     bool m_palmDetect;
-    bool m_tapclick;
+    bool m_tapClick;
     bool m_touchpadEnabled;
     int  m_doubleSpeed;
     int  m_mouseMoveSpeed;
@@ -115,7 +128,8 @@ private:
     int  m_redPointMoveSpeed;
     int  m_palmMinWidth;
     int  m_palmMinz;
-    uint  m_scrollSpeed;
+    int  m_scrollSpeed;
+    MouseWorker* m_worker;
 };
 
 }

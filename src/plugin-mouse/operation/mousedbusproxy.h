@@ -17,11 +17,11 @@ class MouseDBusProxy : public QObject
     Q_OBJECT
 public:
     explicit MouseDBusProxy(MouseWorker *worker, QObject *parent = nullptr);
-    void active();
     void deactive();
     void init();
 
 public Q_SLOTS:
+    void active();
     void onDefaultReset();
     void setLeftHandState(const bool state);
     void setDouClick(const int &value);

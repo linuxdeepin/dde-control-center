@@ -4,7 +4,6 @@
 #ifndef MOUSEWORKER_H
 #define MOUSEWORKER_H
 
-#include "interface/namespace.h"
 #include "mousemodel.h"
 
 #include <QObject>
