@@ -71,18 +71,6 @@ DccObject {
     }
     DccObject {
         parentName: "device"
-        name: "mouse"
-        displayName: qsTr("mouse")
-        icon: "mouse"
-        weight: 30
-        pageType: DccObject.Editor
-        page: Text {
-            text: "aaaaaaaa"
-        }
-
-    }
-    DccObject {
-        parentName: "device"
         name: "keyboard"
         displayName: qsTr("keyboard")
         description: qsTr("key")

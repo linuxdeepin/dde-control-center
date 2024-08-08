@@ -2,6 +2,8 @@
     <qresource prefix="/icons/deepin/builtin">
         <file>icons/dcc_nav_mouse_42px.svg</file>
         <file>icons/dcc_nav_mouse_84px.svg</file>
+        <file>icons/dcc_nav_touchpad_1_42px.png</file>
+        <file>icons/dcc_nav_touchpad_2_42px.png</file>
     </qresource>
     <qresource prefix="/mouse">
         <file>double_test/bow_head/bow_head_00001.png</file>
@@ -152,5 +154,10 @@
         <file>double_test/raise_head_ears/raise_head_ears_00007@2x.png</file>
         <file>double_test/raise_head_ears/raise_head_ears_00008@2x.png</file>
         <file>double_test/raise_head_ears/raise_head_ears_00009@2x.png</file>
+    </qresource>
+    <qresource prefix="/mouse/icons">
+        <file>icons/Four_finger_click.dci</file>
+        <file>icons/Three_fingers_left_and_right.dci</file>
+        <file>icons/Two_fingers_up_and_down.dci</file>
     </qresource>
 </RCC>
