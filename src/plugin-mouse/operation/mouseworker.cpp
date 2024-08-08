@@ -3,6 +3,8 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mouseworker.h"
 
+#include "mousedbusproxy.h"
+
 using namespace DCC_NAMESPACE;
 const QString Service = "org.deepin.dde.InputDevices1";
 
@@ -10,7 +12,8 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
 {
-
+    MouseDBusProxy* proxy = new MouseDBusProxy(this, this);
+    QMetaObject::invokeMethod(proxy, "active", Qt::QueuedConnection);
 }
 
 void MouseWorker::setMouseExist(bool exist)

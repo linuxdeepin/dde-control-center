@@ -2,6 +2,9 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousemodel.h"
+#include "dccfactory.h"
+#include "mouseworker.h"
+#include "mousedbusproxy.h"
 
 using namespace DCC_NAMESPACE;
 MouseModel::MouseModel(QObject *parent)
@@ -16,7 +19,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_accelProfile(true)
     , m_disTpad(false)
     , m_palmDetect(false)
-    , m_tapclick(false)
+    , m_tapClick(false)
     , m_touchpadEnabled(true)
     , m_doubleSpeed(1)
     , m_mouseMoveSpeed(1)
@@ -25,6 +28,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_palmMinWidth(1)
     , m_palmMinz(100)
     , m_scrollSpeed(1)
+    , m_worker(new MouseWorker(this, this))
 {
 }
 
@@ -40,6 +44,7 @@ void MouseModel::setLeftHandState(const bool state)
 
     m_leftHandState = state;
 
+    QMetaObject::invokeMethod(m_worker,"onLeftHandStateChanged", Qt::QueuedConnection, m_leftHandState);
     Q_EMIT leftHandStateChanged(state);
 }
 
@@ -90,6 +95,7 @@ void MouseModel::setDoubleSpeed(int doubleSpeed)
 
     m_doubleSpeed = doubleSpeed;
 
+    QMetaObject::invokeMethod(m_worker,"onDouClickChanged", Qt::QueuedConnection, m_doubleSpeed);
     Q_EMIT doubleSpeedChanged(doubleSpeed);
 }
 
@@ -100,6 +106,7 @@ void MouseModel::setMouseNaturalScroll(bool mouseNaturalScroll)
 
     m_mouseNaturalScroll = mouseNaturalScroll;
 
+    QMetaObject::invokeMethod(m_worker,"onMouseNaturalScrollStateChanged", Qt::QueuedConnection, m_mouseNaturalScroll);
     Q_EMIT mouseNaturalScrollChanged(mouseNaturalScroll);
 }
 
@@ -110,6 +117,7 @@ void MouseModel::setTpadNaturalScroll(bool tpadNaturalScroll)
 
     m_tpadNaturalScroll = tpadNaturalScroll;
 
+    QMetaObject::invokeMethod(m_worker,"onTouchNaturalScrollStateChanged", Qt::QueuedConnection, m_tpadNaturalScroll);
     Q_EMIT tpadNaturalScrollChanged(tpadNaturalScroll);
 }
 
@@ -120,6 +128,7 @@ void MouseModel::setMouseMoveSpeed(int mouseMoveSpeed)
 
     m_mouseMoveSpeed = mouseMoveSpeed;
 
+    QMetaObject::invokeMethod(m_worker,"onMouseMotionAccelerationChanged", Qt::QueuedConnection, m_mouseMoveSpeed);
     Q_EMIT mouseMoveSpeedChanged(mouseMoveSpeed);
 }
 
@@ -130,6 +139,7 @@ void MouseModel::setTpadMoveSpeed(int tpadMoveSpeed)
 
     m_tpadMoveSpeed = tpadMoveSpeed;
 
+    QMetaObject::invokeMethod(m_worker,"onTouchpadMotionAccelerationChanged", Qt::QueuedConnection, m_tpadMoveSpeed);
     Q_EMIT tpadMoveSpeedChanged(tpadMoveSpeed);
 }
 
@@ -140,6 +150,7 @@ void MouseModel::setAccelProfile(bool useAdaptiveProfile)
 
     m_accelProfile = useAdaptiveProfile;
 
+    QMetaObject::invokeMethod(m_worker,"onAccelProfileChanged", Qt::QueuedConnection, m_accelProfile);
     Q_EMIT accelProfileChanged(useAdaptiveProfile);
 }
 
@@ -150,6 +161,7 @@ void MouseModel::setDisTpad(bool disTpad)
 
     m_disTpad = disTpad;
 
+    QMetaObject::invokeMethod(m_worker,"onDisTouchPadChanged", Qt::QueuedConnection, m_disTpad);
     Q_EMIT disTpadChanged(disTpad);
 }
 
@@ -193,14 +205,15 @@ void MouseModel::setPalmMinz(int palmMinz)
     Q_EMIT palmMinzChanged(palmMinz);
 }
 
-void MouseModel::setTapClick(bool tapclick)
+void MouseModel::setTapClick(bool tapClick)
 {
-    if (m_tapclick == tapclick)
+    if (m_tapClick == tapClick)
         return;
 
-    m_tapclick = tapclick;
+    m_tapClick = tapClick;
 
-    Q_EMIT tapClickChanged(tapclick);
+    QMetaObject::invokeMethod(m_worker,"onTapClick", Qt::QueuedConnection, m_tapClick);
+    Q_EMIT tapClickChanged(tapClick);
 }
 
 void MouseModel::setTapEnabled(bool tabEnabled)
@@ -213,12 +226,16 @@ void MouseModel::setTapEnabled(bool tabEnabled)
     Q_EMIT tapEnabledChanged(tabEnabled);
 }
 
-void MouseModel::setScrollSpeed(uint speed)
+void MouseModel::setScrollSpeed(int speed)
 {
     if (m_scrollSpeed == speed)
         return;
 
     m_scrollSpeed = speed;
 
+    QMetaObject::invokeMethod(m_worker,"onScrollSpeedChanged", Qt::QueuedConnection, m_scrollSpeed);
     Q_EMIT scrollSpeedChanged(speed);
 }
+DCC_FACTORY_CLASS(MouseModel)
+
+#include "mousemodel.moc"

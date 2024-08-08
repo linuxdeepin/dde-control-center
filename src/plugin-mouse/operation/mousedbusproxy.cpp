@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousedbusproxy.h"
 
-#include <QApplication>
 #include <QFutureWatcher>
 #include <QtConcurrent>
 #include <QDBusConnection>
