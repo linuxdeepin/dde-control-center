@@ -13,6 +13,7 @@ Item {
     implicitWidth: DS.Style.itemDelegate.width
     implicitHeight: DS.Style.itemDelegate.height
     property bool separatorVisible: false
+    property bool highlightEnable: true
     property bool isGroup: false
     property alias control: root.parent
     property int position: isGroup ? updatePosition() : 0
@@ -77,22 +78,28 @@ Item {
     }
     Loader {
         anchors.fill: parent
-        active: checked && !control.cascadeSelected
+        anchors.topMargin: 1
+        anchors.bottomMargin: 1
+        active: highlightEnable && checked && !control.cascadeSelected
         sourceComponent: D.HighlightPanel {}
     }
 
     function updatePosition() {
-        if (control.ListView.view) {
-            let count = control.ListView.view.count
-            if (index == 0) {
-                position = count === 1 ? 4 : 1
-            } else if (index === count - 1) {
-                position = 3
-            } else {
-                position = 2
-            }
-            return position
+        let count = 0
+        if (model.count) {
+            count = model.count
+        } else if (control.ListView.view) {
+            count = control.ListView.view.count
         }
+
+        if (index == 0) {
+            position = count === 1 ? 4 : 1
+        } else if (index === count - 1) {
+            position = 3
+        } else {
+            position = 2
+        }
+        return position
     }
     onPositionChanged: rectBg.updateItemBg()
 }

@@ -13,7 +13,7 @@
 DefAppModel::DefAppModel(QObject *parent)
     : QObject(parent)
 {
-    qmlRegisterType<CategoryModel>("DefApp", 1, 0, "CategoryModel");
+    qmlRegisterType<CategoryModel>("org.deepin.dcc.defApp", 1, 0, "CategoryModel");
     for (int i = 0; i < Count; i++) {
         m_categoryModel[i] = new CategoryModel(new Category(this));
     }

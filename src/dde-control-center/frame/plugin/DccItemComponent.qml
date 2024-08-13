@@ -7,6 +7,7 @@ ItemDelegate {
     id: root
     property alias isGroup: background.isGroup
     property alias separatorVisible: background.separatorVisible
+
     width: parent.width
     backgroundVisible: false
     checkable: false
