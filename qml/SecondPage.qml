@@ -106,8 +106,6 @@ SplitView {
                 right: parent.right
                 top: title.bottom
                 bottom: parent.bottom
-                leftMargin: 60
-                rightMargin: 60
             }
         }
     }

@@ -15,10 +15,12 @@ class DccModel : public QAbstractItemModel
 
 public:
     Q_PROPERTY(DccObject * root READ root WRITE setRoot NOTIFY rootChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
     explicit DccModel(QObject *parent = nullptr);
     ~DccModel() override;
 
     DccObject *root() const;
+    int count() const;
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index(const DccObject *object);
     // Basic functionality:
@@ -42,6 +44,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void rootChanged(DccObject *root);
+    void countChanged();
 
 private:
     void connectObject(const DccObject *obj);

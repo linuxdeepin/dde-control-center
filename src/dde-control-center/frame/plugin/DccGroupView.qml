@@ -9,41 +9,52 @@ import Qt.labs.qmlmodels 1.2
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
-ListView {
-    focus: true
-    implicitHeight: contentHeight
-    // anchors.fill: parent
-    clip: true
-    model: DccModel {
-        id: dccModel
-        root: dccObj
-    }
-    //禁止listview控件回弹，解决白色空白出现
-    boundsBehavior: Flickable.StopAtBounds
-    delegate: DelegateChooser {
-        role: "pageType"
-        DelegateChoice {
-            roleValue: DccObject.Menu
-            delegate: DccMenuComponent {
-                isGroup: true
-                separatorVisible: true
-                backgroundVisible: true
+Rectangle {
+    id: root
+    property bool isGroup: true
+    property alias spacing: layoutView.spacing
+
+    color: "transparent"
+    implicitHeight: layoutView.height
+    Layout.fillWidth: true
+    ColumnLayout {
+        id: layoutView
+        width: parent.width
+        spacing: 0
+        Repeater {
+            model: DccModel {
+                root: dccObj
             }
-        }
-        DelegateChoice {
-            roleValue: DccObject.Editor
-            delegate: DccEditorComponent {
-                isGroup: true
-                separatorVisible: true
-                backgroundVisible: true
-            }
-        }
-        DelegateChoice {
-            roleValue: DccObject.Item
-            delegate: DccItemComponent {
-                isGroup: true
-                separatorVisible: true
-                backgroundVisible: true
+
+            delegate: DelegateChooser {
+                role: "pageType"
+                DelegateChoice {
+                    roleValue: DccObject.Menu
+                    delegate: DccMenuComponent {
+                        isGroup: root.isGroup
+                        separatorVisible: root.isGroup
+                        backgroundVisible: true
+                        Layout.fillWidth: true
+                    }
+                }
+                DelegateChoice {
+                    roleValue: DccObject.Editor
+                    delegate: DccEditorComponent {
+                        isGroup: root.isGroup
+                        separatorVisible: root.isGroup
+                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        Layout.fillWidth: true
+                    }
+                }
+                DelegateChoice {
+                    roleValue: DccObject.Item
+                    delegate: DccItemComponent {
+                        isGroup: root.isGroup
+                        separatorVisible: root.isGroup
+                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        Layout.fillWidth: true
+                    }
+                }
             }
         }
     }

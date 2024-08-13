@@ -9,7 +9,7 @@ import Qt.labs.qmlmodels 1.2
 import org.deepin.dtk 1.0 as D
 
 import org.deepin.dcc 1.0
-import DefApp 1.0
+import org.deepin.dcc.defApp 1.0
 
 DccObject {
     id: root
@@ -69,47 +69,33 @@ DccObject {
         parentName: parentObj.name
         weight: 20
         pageType: DccObject.Item
-        page: ListView {
-            id: view
+        page: ColumnLayout {
             clip: true
-            activeFocusOnTab: true
-            currentIndex: -1
-            focus: true
-            height: contentHeight
-            anchors.left: parent.left
-            anchors.right: parent.right
             spacing: 0
+            Repeater {
+                model: categoryModel
+                delegate: ItemDelegate {
+                    property string name: model.id
+                    property bool canDelete: model.canDelete
 
-            onCurrentIndexChanged: function () {
-                if (currentIndex > 0) {
-                    canDelete = currentItem.canDelete
-                }
-            }
-            model: categoryModel
-            boundsBehavior: Flickable.StopAtBounds
-            delegate: ItemDelegate {
-                property string name: model.id
-                property bool canDelete: model.canDelete
+                    text: model.display
+                    icon.name: model.icon
+                    checked: true
+                    backgroundVisible: false
+                    cascadeSelected: true
+                    Layout.fillWidth: true
+                    // checkable: false
+                    indicatorVisible: model.isDefault
 
-                // spacing: 0
-                // padding: 0
-                text: model.display
-                icon.name: model.icon
-                checked: true
-                backgroundVisible: false
-                cascadeSelected: index !== currentIndex
-                anchors.left: parent.left
-                anchors.right: parent.right
-                // checkable: false
-                indicatorVisible: model.isDefault
-
-                onClicked: {
-                    if (!model.isDefault) {
-                        categoryModel.setDefaultApp(model.id)
+                    onClicked: {
+                        if (!model.isDefault) {
+                            categoryModel.setDefaultApp(model.id)
+                        }
                     }
-                }
-                background: DccListViewBackground {
-                    separatorVisible: true
+                    background: DccListViewBackground {
+                        separatorVisible: true
+                        highlightEnable: false
+                    }
                 }
             }
         }
