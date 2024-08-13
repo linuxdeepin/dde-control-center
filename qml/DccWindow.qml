@@ -11,8 +11,7 @@ import org.deepin.dcc 1.0
 D.ApplicationWindow {
     id: root
     visible: false
-    flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint
-           | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
+    flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
     color: "transparent"
     DWindow.enabled: true
@@ -46,17 +45,34 @@ D.ApplicationWindow {
             id: stackView
             currentIndex: 0
             interactive: false
-            HomePage {}
-            SecondPage {}
+            HomePage {
+                id: homePage
+            }
+            SecondPage {
+                id: secondPage
+            }
+            Timer {
+                id: hideTimer
+                interval: 500
+                repeat: false
+                onTriggered: {
+                    homePage.visible = stackView.currentIndex === 0
+                    secondPage.visible = stackView.currentIndex === 1
+                }
+            }
             Connections {
                 target: DccApp
                 function onActiveObjectChanged(activeObject) {
-                    if (stackView.currentIndex !== 0
-                            && DccApp.root === DccApp.activeObject) {
+                    if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
+                        homePage.visible = true
+                        secondPage.visible = true
                         stackView.currentIndex = 0
-                    } else if (stackView.activePage !== 1
-                               && DccApp.root !== DccApp.activeObject) {
+                        hideTimer.restart()
+                    } else if (stackView.activePage !== 1 && DccApp.root !== DccApp.activeObject) {
+                        homePage.visible = true
+                        secondPage.visible = true
                         stackView.currentIndex = 1
+                        hideTimer.restart()
                     }
                 }
             }

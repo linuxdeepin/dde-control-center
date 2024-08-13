@@ -112,7 +112,6 @@ int main(int argc, char *argv[])
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
     engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));
-    // engine->load(QUrl( "/home/cxr/git/v25/build/dcc-v25-unknown-Debug/lib/DccWindow.qml"));
     QList<QObject *> objs = engine->rootObjects();
     for (auto &&obj : objs) {
         QWindow *w = qobject_cast<QWindow *>(obj);

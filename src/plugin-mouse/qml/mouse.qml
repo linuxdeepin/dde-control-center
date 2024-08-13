@@ -9,5 +9,5 @@ DccObject {
     displayName: qsTr("Mouse and Touchpad")
     description: qsTr("Common、Mouse、Touchpad")
     icon:"dcc_nav_mouse"
-    weight: 29
+    weight: 30
 }

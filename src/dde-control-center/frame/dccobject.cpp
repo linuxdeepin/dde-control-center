@@ -25,6 +25,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_weight(-1)
     , m_badge(0)
     , m_pageType(0)
+    , m_flags(0)
 {
 }
 
@@ -298,6 +299,18 @@ void DccObject::setEnabled(bool enabled)
 bool DccObject::isEnabledToApp() const
 {
     return !p_ptr->getFlagState(DCC_ALL_DISABLED);
+}
+
+bool DccObject::hasBackground() const
+{
+    return p_ptr->getFlagState(DCC_HASBACKGROUND);
+}
+
+void DccObject::setHasBackground(bool hasBackground)
+{
+    if (p_ptr->setFlagState(DCC_HASBACKGROUND, hasBackground)) {
+        Q_EMIT hasBackgroundChanged(hasBackground);
+    }
 }
 
 DccObject *DccObject::currentObject()

@@ -12,12 +12,11 @@
 namespace dccV25 {
 static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.model");
 
-// #define DccItemRole (Qt::UserRole + 300)
-// #define DccPageTypeRole (Qt::UserRole + 301)
 enum DccModelRole {
     DccItemRole = Qt::UserRole + 300,
     DccPageTypeRole,
     DccViewItemPositionRole,
+    DccCountRole,
 };
 
 enum DccItemPostition {
@@ -40,6 +39,11 @@ DccModel::~DccModel() { }
 DccObject *DccModel::root() const
 {
     return m_root;
+}
+
+int DccModel::count() const
+{
+    return rowCount();
 }
 
 void DccModel::setRoot(DccObject *root)
@@ -76,6 +80,7 @@ QHash<int, QByteArray> DccModel::roleNames() const
     names[DccItemRole] = "item";
     names[DccPageTypeRole] = "pageType";
     names[DccViewItemPositionRole] = "position";
+    names[DccCountRole] = "count";
     // qCWarning(dccLog) << __FUNCTION__ << __LINE__ << names;
     return names;
 }
@@ -164,9 +169,6 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
     case DccItemRole:
         return QVariant::fromValue(item);
     case DccPageTypeRole:
-        if (item->pageType() < DccObject::UserType && !item->page()) {
-            return QVariant::fromValue(DccObject::Menu);
-        }
         return QVariant::fromValue(item->pageType());
     case DccViewItemPositionRole: {
         int count = rowCount();
@@ -179,6 +181,8 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
         }
     }
         return Invalid;
+    case DccCountRole:
+        return rowCount();
     case Qt::DisplayRole:
         return item->displayName();
     case Qt::StatusTipRole:
@@ -209,6 +213,7 @@ void DccModel::addObject(const DccObject *child)
 {
     endInsertRows();
     connectObject(child);
+    Q_EMIT countChanged();
 }
 
 void DccModel::AboutToRemoveObject(const DccObject *, int pos)
@@ -220,6 +225,8 @@ void DccModel::removeObject(const DccObject *child)
 {
     endRemoveRows();
     disconnectObject(child);
+    Q_EMIT countChanged();
+
 }
 
 void DccModel::connectObject(const DccObject *obj)

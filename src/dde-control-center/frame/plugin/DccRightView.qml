@@ -3,28 +3,25 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Qt.labs.qmlmodels 1.2
+import QtQuick.Layouts 1.15
 
-ListView {
-    focus: true
-    model: DccModel {
-        id: dccModel
-        root: dccObj
+Flickable {
+    property alias spacing: groupView.spacing
+    property alias isGroup: groupView.isGroup
+
+    contentHeight: groupView.height
+    ScrollBar.vertical: ScrollBar {
+        width: 10
     }
-    //禁止listview控件回弹，解决白色空白出现
-    boundsBehavior: Flickable.StopAtBounds
-    delegate: DelegateChooser {
-        role: "pageType"
-        DelegateChoice {
-            roleValue: DccObject.Menu
-            delegate: DccMenuComponent {}
-        }
-        DelegateChoice {
-            roleValue: DccObject.Editor
-            delegate: DccEditorComponent {}
-        }
-        DelegateChoice {
-            roleValue: DccObject.Item
-            delegate: DccItemComponent {}
+    DccGroupView {
+        id: groupView
+        isGroup: false
+        height: implicitHeight + 10
+        anchors {
+            left: parent.left
+            right: parent.right
+            leftMargin: 60
+            rightMargin: 60
         }
     }
 }
