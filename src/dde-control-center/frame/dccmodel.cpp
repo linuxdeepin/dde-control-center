@@ -169,9 +169,6 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
     case DccItemRole:
         return QVariant::fromValue(item);
     case DccPageTypeRole:
-        if (item->pageType() < DccObject::UserType && !item->page()) {
-            return QVariant::fromValue(DccObject::Menu);
-        }
         return QVariant::fromValue(item->pageType());
     case DccViewItemPositionRole: {
         int count = rowCount();

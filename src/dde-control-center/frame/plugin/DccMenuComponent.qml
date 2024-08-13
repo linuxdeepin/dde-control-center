@@ -32,6 +32,7 @@ ItemDelegate {
             Label {
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
+                elide: Text.ElideRight
                 text: model.item.description
             }
         }
