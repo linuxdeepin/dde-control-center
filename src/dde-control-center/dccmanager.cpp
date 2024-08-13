@@ -207,7 +207,6 @@ void DccManager::showPage(DccObject *obj, const QString &cmd)
         Q_EMIT activeObjectChanged(m_activeObject);
     }
     Q_EMIT pathChanged(path());
-    qWarning()<<__FUNCTION__<<m_activeObject<<m_activeObject->getChildren();
 }
 
 QWindow *DccManager::mainWindow()

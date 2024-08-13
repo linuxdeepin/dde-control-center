@@ -160,4 +160,9 @@
         <file>icons/Three_fingers_left_and_right.dci</file>
         <file>icons/Two_fingers_up_and_down.dci</file>
     </qresource>
+    <qresource prefix="/dsg">
+        <file>icons/Four_finger_click.dci</file>
+        <file>icons/Three_fingers_left_and_right.dci</file>
+        <file>icons/Two_fingers_up_and_down.dci</file>
+    </qresource>
 </RCC>

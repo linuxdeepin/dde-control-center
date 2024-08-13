@@ -28,6 +28,8 @@ public:
     Q_PROPERTY(bool visibleToApp READ isVisibleToApp NOTIFY visibleToAppChanged) // 未设置隐藏且未被配置隐藏则为true
     Q_PROPERTY(bool enabledToApp READ isEnabledToApp NOTIFY enabledToAppChanged) // 未设置禁用且未被配置禁用则为true
 
+    Q_PROPERTY(bool hasBackground READ hasBackground WRITE setHasBackground NOTIFY hasBackgroundChanged DESIGNABLE false)
+
     Q_PROPERTY(DccObject* currentObject READ currentObject WRITE setCurrentObject NOTIFY currentObjectChanged DESIGNABLE false)
     Q_PROPERTY(DccObject* defultObject READ defultObject WRITE setDefultObject NOTIFY defultObjectChanged DESIGNABLE false)
     Q_PROPERTY(QVector<DccObject *> children READ getChildren NOTIFY childrenChanged DESIGNABLE false)
@@ -68,6 +70,9 @@ public:
     bool isEnabled() const;
     void setEnabled(bool enabled);
     bool isEnabledToApp() const;
+
+    bool hasBackground() const;
+    void setHasBackground(bool hasBackground);
 
     DccObject *currentObject();
     void setCurrentObject(DccObject *obj);
@@ -124,6 +129,8 @@ Q_SIGNALS:
     void enabledChanged(bool enabled);
     void visibleToAppChanged(bool visibleToApp);
     void enabledToAppChanged(bool enabledToApp);
+
+    void hasBackgroundChanged(bool hasBackground);
 
     void currentObjectChanged(DccObject *obj);
     void defultObjectChanged(DccObject *obj);

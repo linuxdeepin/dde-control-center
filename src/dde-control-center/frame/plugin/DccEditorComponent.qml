@@ -11,7 +11,7 @@ D.ItemDelegate {
     width: parent.width
     backgroundVisible: false
     checkable: false
-    icon.name: model.icon
+    icon.name: model.item.icon
     text: model.display
     content: Control {
         contentItem: model.item.getSectionItem()
