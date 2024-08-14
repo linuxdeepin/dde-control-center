@@ -29,7 +29,6 @@ class SoundModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(double speakerVolume READ speakerVolume  NOTIFY speakerVolumeChanged)
     Q_PROPERTY(bool increaseVolume READ isIncreaseVolume NOTIFY increaseVolumeChanged)
     Q_PROPERTY(double speakerBalance READ speakerBalance NOTIFY speakerBalanceChanged)
@@ -41,6 +40,10 @@ class SoundModel : public QObject
     Q_PROPERTY(int outPutPortComboIndex READ outPutPortComboIndex NOTIFY outPutPortComboIndexChanged FINAL)
     Q_PROPERTY(double microphoneFeedback READ microphoneFeedback NOTIFY microphoneFeedbackChanged)
     Q_PROPERTY(bool enableSoundEffect READ enableSoundEffect NOTIFY enableSoundEffectChanged)
+    Q_PROPERTY(QStringList inPutPortCombo READ inPutPortCombo WRITE setInPutPortCombo NOTIFY inPutPortComboChanged FINAL)
+    Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
+    Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
+    Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -69,11 +72,7 @@ public:
     inline double microphoneVolume() const { return m_microphoneVolume; }
     void setMicrophoneVolume(double microphoneVolume);
 
-    inline QStringList outPutPortCombo() const
-    {
-        return m_outPutPortCombo;
-    }
-
+    inline QStringList outPutPortCombo() const { return m_outPutPortCombo;}
     void setOutPutPortCombo(const QStringList& outPutPort);
 
 #ifndef DCC_DISABLE_FEEDBACK
@@ -157,6 +156,30 @@ public:
     void initSoundDeviceModel(Port::Direction direction);
     SoundDeviceData* getSoundDeviceData(int index, int portType);
     void updateSoundDeviceModel(Port* port);
+
+    int outPutPortComboIndex() const;
+    void setOutPutPortComboIndex(int newOutPutPortComboIndex);
+    Port *activeOutPutPort() const;
+    void setActiveOutPutPort(Port *newActiveOutPutPort);
+    QStringList inPutPortCombo() const;
+    void setInPutPortCombo(const QStringList &newInPutPortCombo);
+    int inPutPortComboIndex() const;
+    void setInPutPortComboIndex(int newInPutPortComboIndex);
+    Port *activeinPutPort() const;
+    void setActiveinPutPort(Port *newActiveinPutPort);
+
+    Q_INVOKABLE SoundEffectsModel* soundEffectsModel() const;
+    Q_INVOKABLE QString getListName(int index) const;
+    Q_INVOKABLE int getSoundEffectsRowCount() const;
+    Q_INVOKABLE SoundDeviceModel *soundInputDeviceModel() const;
+    void setSoundInputDeviceModel(SoundDeviceModel *newSoundInputDeviceModel);
+    Q_INVOKABLE SoundDeviceModel *soundOutputDeviceModel() const;
+    void setSoundOutputDeviceModel(SoundDeviceModel *newSoundOutputDeviceModel);
+    Q_INVOKABLE int getDeviceManagerRowCount(int portType) const;
+    int inPutPortCount() const;
+    int outPutCount() const;
+    void setInPutPortCount(int newInPutPortCount);
+    void setOutPutCount(int newOutPutCount);
 private:
 
 
@@ -203,18 +226,11 @@ Q_SIGNALS:
     void enableSoundEffectChanged(bool enableSoundEffect);
     void isLaptopChanged(bool isLaptop);
 
-    void titleChanged(QString title);
-
     void outPutPortComboIndexChanged();
-
     void inPutPortComboChanged();
-
     void inPutPortComboIndexChanged();
-
     void soundEffectsModelChanged();
-
     void inPutPortCountChanged();
-
     void outPutCountChanged();
 
 private:
@@ -256,8 +272,6 @@ private:
     bool m_inputVisibled;
     bool m_outputVisibled;
 
-    QString m_title;
-
     QStringList m_outPutPortCombo;
     int m_outPutPortComboIndex;
     Port* m_activeOutPutPort;
@@ -272,48 +286,6 @@ private:
 
     int m_inPutPortCount;
     int m_outPutCount;
-
-    Q_PROPERTY(QStringList inPutPortCombo READ inPutPortCombo WRITE setInPutPortCombo NOTIFY inPutPortComboChanged FINAL)
-    Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
-
-    Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
-    Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
-
-public:
-
-    QString title() const
-    {
-        return m_title;
-    }
-
-    void setTitle(const QString& title)
-    {
-        this->m_title = title;
-    }
-    int outPutPortComboIndex() const;
-    void setOutPutPortComboIndex(int newOutPutPortComboIndex);
-    Port *activeOutPutPort() const;
-    void setActiveOutPutPort(Port *newActiveOutPutPort);
-    QStringList inPutPortCombo() const;
-    void setInPutPortCombo(const QStringList &newInPutPortCombo);
-    int inPutPortComboIndex() const;
-    void setInPutPortComboIndex(int newInPutPortComboIndex);
-    Port *activeinPutPort() const;
-    void setActiveinPutPort(Port *newActiveinPutPort);
-
-    Q_INVOKABLE SoundEffectsModel* soundEffectsModel() const;
-
-    Q_INVOKABLE QString getListName(int index) const;
-    Q_INVOKABLE int getSoundEffectsRowCount() const;
-    Q_INVOKABLE SoundDeviceModel *soundInputDeviceModel() const;
-    void setSoundInputDeviceModel(SoundDeviceModel *newSoundInputDeviceModel);
-    Q_INVOKABLE SoundDeviceModel *soundOutputDeviceModel() const;
-    void setSoundOutputDeviceModel(SoundDeviceModel *newSoundOutputDeviceModel);
-    Q_INVOKABLE int getDeviceManagerRowCount(int portType) const;
-    int inPutPortCount() const;
-    int outPutCount() const;
-    void setInPutPortCount(int newInPutPortCount);
-    void setOutPutCount(int newOutPutCount);
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H

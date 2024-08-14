@@ -9,9 +9,9 @@ import org.deepin.dtk 1.0 as D
 
 DccObject {
     DccObject {
-        name: "inAndOutPut"
+        name: "outPut"
         parentName: "sound"
-        displayName: qsTr("输出/输入")
+        displayName: qsTr("输出")
         icon: "system"
         weight: 10
         pageType: DccObject.Item
@@ -23,12 +23,26 @@ DccObject {
         SpeakerPage {}
     }
     DccObject {
+        name: "inPut"
+        parentName: "sound"
+        displayName: qsTr("输入")
+        icon: "system"
+        weight: 20
+        pageType: DccObject.Item
+        page: DccGroupView {
+            spacing: 5
+            isGroup: false
+            height: implicitHeight + 20
+        }
+        MicrophonePage {}
+    }
+    DccObject {
         name: "soundEffectsPage"
         parentName: "sound"
         displayName: qsTr("系统音效")
         description: qsTr("控制系统声音效果")
         icon: "system"
-        weight: 20
+        weight: 30
         page: DccRightView {
             isGroup: true
         }
@@ -40,7 +54,7 @@ DccObject {
         displayName: qsTr("设备管理")
         description: qsTr("选择是否启用设备")
         icon: "system"
-        weight: 30
+        weight: 40
         SoundDevicemanagesPage {}
     }
 }

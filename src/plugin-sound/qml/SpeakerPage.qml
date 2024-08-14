@@ -15,7 +15,7 @@ DccObject {
     }
     DccObject {
         name: "output"
-        parentName: "sound/inAndOutPut"
+        parentName: "sound/outPut"
         displayName: qsTr("输出")
         weight: 10
         hasBackground: false
@@ -30,13 +30,13 @@ DccObject {
     }
     DccObject {
         name: "outputGroup"
-        parentName: "sound/inAndOutPut"
+        parentName: "sound/outPut"
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
             name: "outputVolume"
-            parentName: "sound/inAndOutPut/outputGroup"
+            parentName: "sound/outPut/outputGroup"
             displayName: qsTr("输出音量")
             weight: 10
             pageType: DccObject.Editor
@@ -86,7 +86,7 @@ DccObject {
         }
         DccObject {
             name: "volumeEnhancement"
-            parentName: "sound/inAndOutPut/outputGroup"
+            parentName: "sound/outPut/outputGroup"
             displayName: qsTr("音量增强")
             description: qsTr("音量大于100%时可能会导致音效失真,同时损害您的音频输出设备")
             weight: 20
@@ -102,7 +102,7 @@ DccObject {
         }
         DccObject {
             name: "volumeBalance"
-            parentName: "sound/inAndOutPut/outputGroup"
+            parentName: "sound/outPut/outputGroup"
             displayName: qsTr("音量平衡")
             weight: 30
             pageType: DccObject.Editor
@@ -139,7 +139,7 @@ DccObject {
         }
         DccObject {
             name: "plugAndUnplugManagement"
-            parentName: "sound/inAndOutPut/outputGroup"
+            parentName: "sound/outPut/outputGroup"
             displayName: qsTr("插拔管理")
             description: qsTr("外设插拔时音频输出是否自动暂停")
             weight: 40
@@ -153,7 +153,7 @@ DccObject {
         }
         DccObject {
             name: "outputDevice"
-            parentName: "sound/inAndOutPut/outputGroup"
+            parentName: "sound/outPut/outputGroup"
             displayName: qsTr("输出设备")
             weight: 50
             pageType: DccObject.Editor
