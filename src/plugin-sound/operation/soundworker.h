@@ -43,18 +43,11 @@ public Q_SLOTS:
     void switchMicrophone(bool on);
 
     void setPortEnabled(unsigned int cardid,QString portName,bool enable);
-//    void setSinkBalance(double balance);
-//    void setSourceVolume(double volume);
-//    Q_INVOKABLE void setSinkVolume(double volume);
     void setSourceMute(bool flag = true);
     void setSinkMute(bool flag = true);
-//    void setIncreaseVolume(bool value);
-//    void setReduceNoise(bool value);
-//    void setPausePlayer(bool value);
 
     void setPort(Port *port);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
-//    void enableAllSoundEffect(bool enable);
     void setBluetoothMode(const QString &mode);
     void refreshSoundEffect();
 
