@@ -1,3 +1,9 @@
+dde-control-center (6.0.62) unstable; urgency=medium
+
+  * bump version to 6.0.62
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 14 Aug 2024 14:42:16 +0800
+
 dde-control-center (6.0.61) unstable; urgency=medium
 
   * fix: dock panel min size error(Issue: 10069)(Influence: can adjust dock's min size)
