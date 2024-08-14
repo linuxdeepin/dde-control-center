@@ -15,6 +15,7 @@ class QStandardItemModel;
 namespace DCC_NAMESPACE {
 
 class ModuleObject;
+class CompleterView;
 
 class DccCompleter : public QCompleter
 {
@@ -33,6 +34,11 @@ public:
     explicit DccCompleterStyledItemDelegate(QObject *parent = nullptr);
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+protected:
+    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    QRect calculateIconRect(const QRect &rect) const;
+    QRect calculateTextRect(const QRect &rect) const;
 };
 
 class SearchWidget : public Dtk::Widget::DSearchEdit
@@ -61,6 +67,7 @@ private slots:
 private:
     QStandardItemModel *m_model;
     DccCompleter *m_completer;
+    CompleterView *m_completerView;
     ModuleObject *m_rootModule;
     bool m_bIsChinese;
     QSet<QString> m_allText; // 去重

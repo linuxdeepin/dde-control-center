@@ -2,14 +2,18 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "searchwidget.h"
+#include "completerview.h"
 #include "interface/moduleobject.h"
 
 #include <DPinyin>
+#include <DSizeMode>
+#include <DFontSizeManager>
 
 #include <QKeyEvent>
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QStandardItemModel>
+#include <QToolTip>
 #include <QDebug>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
@@ -122,7 +126,7 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
         }
     }
     QVariant iconVar = p->icon();
-    QRect iconRect = QRect(1, option.rect.y() + 1, option.rect.height() - 2, option.rect.height() - 2);
+    QRect iconRect = calculateIconRect(option.rect);
 #ifdef USE_DCIICON
     DDciIcon dciIcon;
     if (iconVar.canConvert<DDciIcon>()) {
@@ -178,32 +182,71 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
         }
     }
     // draw text
+    QRect textRect = calculateTextRect(option.rect);
+    auto font = option.font;
+    font.setPixelSize(DFontSizeManager::instance()->fontPixelSize(DFontSizeManager::T6));
+    const QFontMetrics fontMetrics(font);
+    QString newText = fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, textRect.width());
+
     if (option.state & (QStyle::State_Selected | QStyle::State_MouseOver)) {
         painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
     } else {
         painter->setPen(option.palette.color(cg, QPalette::Text));
     }
-    painter->setFont(option.font);
-    painter->drawText(option.rect.adjusted(option.rect.height() + 8, 0, 0, 0), Qt::AlignVCenter, index.data(Qt::DisplayRole).toString());
+    painter->setFont(font);
+    painter->drawText(textRect, Qt::AlignVCenter, newText);
 }
 
 QSize DccCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QSize s = QStyledItemDelegate::sizeHint(option, index);
-    s.setHeight(24);
+    s.setHeight(DSizeModeHelper::element(24, 36));
     return s;
+}
+
+bool DccCompleterStyledItemDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    switch (event->type()) {
+    case QEvent::WhatsThis:
+    case QEvent::ToolTip: {
+        QString text = index.data(Qt::DisplayRole).toString();
+        auto font = option.font;
+        font.setPixelSize(DFontSizeManager::instance()->fontPixelSize(DFontSizeManager::T6));
+        const QFontMetrics fontMetrics(font);
+        if (fontMetrics.size(0, text).width() <= calculateTextRect(option.rect).width()) {
+            QToolTip::showText(event->globalPos(), QString());
+            event->setAccepted(true);
+            return true;
+        }
+    } break;
+    default:
+        break;
+    }
+    return QStyledItemDelegate::helpEvent(event, view, option, index);
+}
+
+QRect DccCompleterStyledItemDelegate::calculateIconRect(const QRect &rect) const
+{
+    return QRect(8, rect.y() + (rect.height() - 24) / 2, 24, 24);
+}
+
+QRect DccCompleterStyledItemDelegate::calculateTextRect(const QRect &rect) const
+{
+    return rect.adjusted(calculateIconRect(rect).right() + 8, 0, -8, 0);
 }
 
 SearchWidget::SearchWidget(QWidget *parent)
     : DSearchEdit(parent)
     , m_model(new QStandardItemModel(this))
     , m_completer(new DccCompleter(m_model, this))
+    , m_completerView(new CompleterView(this))
     , m_bIsChinese(false)
 {
     const QString &language = QLocale::system().name();
     m_bIsChinese = language == "zh_CN" || language == "zh_HK" || language == "zh_TW";
 
     DccCompleterStyledItemDelegate *delegate = new DccCompleterStyledItemDelegate(m_completer);
+    m_completer->setPopup(m_completerView);
     m_completer->popup()->setItemDelegate(delegate);
     m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
 
@@ -306,13 +349,7 @@ void SearchWidget::removeModule(ModuleObject *const module)
 
 QString SearchWidget::convertUrl(const QStringList &displayNames)
 {
-    QStringList sections = displayNames;
-    QString result = sections.takeAt(0);
-    if (!sections.isEmpty()) {
-        result += " --> ";
-        result += sections.join(" / ");
-    }
-    return result;
+    return displayNames.join(" / ");
 }
 
 void SearchWidget::onReturnPressed()
@@ -338,6 +375,12 @@ void SearchWidget::onSearchTextChange(const QString &text)
     Q_EMIT focusChanged(true);
     //实现自动补全
     onAutoComplete(t);
+
+    m_completerView->resize(m_completerView->width(), m_completerView->height() + m_completerView->margin());
+    // 当搜索popup弹窗在搜索框上方时，因为resize导致popup的高度增加了margin()，所以需要上移margin()，否则会遮盖搜索框，再增加6x与搜索框间隔
+    if (this->mapToGlobal(this->geometry().topLeft()).y() > m_completerView->geometry().y()) {
+        m_completerView->move(m_completerView->x(), m_completerView->y() - m_completerView->margin() - 6);
+    }
 }
 
 void SearchWidget::onAutoComplete(const QString &text)
