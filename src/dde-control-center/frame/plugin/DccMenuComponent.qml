@@ -11,9 +11,11 @@ import org.deepin.dtk.style 1.0 as DS
 ItemDelegate {
     property alias isGroup: background.isGroup
     property alias separatorVisible: background.separatorVisible
-    width: parent.width
+
+    Layout.fillWidth: true
     topInset: 5
     bottomInset: 5
+    enabled: model.item.enabledToApp
     icon {
         name: model.item.icon
         width: 48

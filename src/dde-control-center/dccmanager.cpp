@@ -4,8 +4,8 @@
 #include "dccmanager.h"
 
 #include "dccapp.h"
-#include "pluginmanager.h"
 #include "dccobject_p.h"
+#include "pluginmanager.h"
 
 #include <QCoreApplication>
 #include <QLoggingCategory>
@@ -113,6 +113,13 @@ DccObject *DccManager::object(const QString &name)
     return nullptr;
 }
 
+inline void noRepeatAdd(QVector<DccObject *> &list, DccObject *obj)
+{
+    if (!list.contains(obj)) {
+        list.append(obj);
+    }
+}
+
 void DccManager::addObject(DccObject *obj)
 {
     if (!obj)
@@ -122,25 +129,32 @@ void DccManager::addObject(DccObject *obj)
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
         if (o->parentName().isEmpty()) {
-            m_noParentObject.append(o);
-        } else if (DccObject *parentObj = getObjectByUrl(m_root, o->parentName())) {
-            DccObject::Private::FromObject(parentObj)->addChild(o);
-            connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
+            m_noParentObjects.insert(o);
         } else {
-            m_noAddObject.append(o);
+            connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
+            connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::QueuedConnection);
+            if (contains(m_hideModule, o)) {
+                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
+            }
+            if (contains(m_disableModule, o)) {
+                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_DISABLED, true);
+            }
+            if (!o->isVisibleToApp()) {
+                noRepeatAdd(m_hideObjects, o);
+            } else if (!addObjectToParent(o)) {
+                noRepeatAdd(m_noAddObjects, o);
+            }
         }
 
         objs.append(DccObject::Private::FromObject(o)->getObjects());
     }
     // 处理m_noAddObject
-    objs.append(m_noAddObject);
+    objs.append(m_noAddObjects);
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
-        if (DccObject *parentObj = getObjectByUrl(m_root, o->parentName())) {
-            DccObject::Private::FromObject(parentObj)->addChild(o);
-            connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
-            m_noAddObject.removeOne(o);
-            objs = m_noAddObject;
+        if (addObjectToParent(o)) {
+            m_noAddObjects.removeOne(o);
+            objs = m_noAddObjects;
         }
     }
 }
@@ -153,7 +167,7 @@ void DccManager::removeObject(DccObject *obj)
 
 void DccManager::removeObject(const QString &name)
 {
-    removeObject(getObjectByUrl(m_root, name));
+    removeObject(findObject(name));
 }
 
 void DccManager::showPage(const QString &url)
@@ -165,7 +179,7 @@ void DccManager::showPage(const QString &url)
         int i = url.indexOf('.');
         QString cmd = i != -1 ? url.mid(i + 1, -1) : QString();
         qWarning() << __FUNCTION__ << __LINE__ << url.mid(0, i) << cmd;
-        showPage(getObjectByUrl(m_root, url.mid(0, i)), cmd);
+        showPage(findObject(url.mid(0, i)), cmd);
     }
 }
 
@@ -234,13 +248,56 @@ bool DccManager::action(const QString json)
 void DccManager::initConfig()
 {
     if (!m_dconfig->isValid()) {
-        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
+        qCWarning(dccLog()) << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
         return;
     }
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
+}
+
+bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+{
+    for (auto &&url : urls) {
+        if (isEqual(url, obj))
+            return true;
+    }
+    return false;
+}
+
+bool DccManager::isEqual(const QString &url, const DccObject *obj)
+{
+    QString path = "/" + url;
+    QString objPath = "/" + obj->parentName() + "/" + obj->name();
+    for (auto it = path.rbegin(), itObj = objPath.rbegin(); it != path.rend() && itObj != objPath.rend(); ++it, ++itObj) {
+        if (*it != *itObj) {
+            return false;
+        }
+    }
+    return true;
+}
+
+DccObject *DccManager::findObject(const QString &url)
+{
+    QString path = url;
+    if (path.startsWith("/")) {
+        path = path.mid(1);
+    }
+    QVector<QVector<DccObject *>> objs;
+    objs.append({ m_root });
+    objs.append(m_hideObjects);
+    while (!objs.isEmpty()) {
+        QVector<DccObject *> subObjs = objs.takeFirst();
+        while (!subObjs.isEmpty()) {
+            DccObject *obj = subObjs.takeFirst();
+            if (isEqual(path, obj)) {
+                return obj;
+            }
+            subObjs.append(obj->getChildren());
+        }
+    }
+    return nullptr;
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
@@ -252,34 +309,6 @@ QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
         }
     }
     return addSet;
-}
-
-DccObject *DccManager::getObjectByUrl(DccObject *const root, const QString &url)
-{
-    DccObject *target = nullptr;
-    QStringList names = url.split('/', Qt::SkipEmptyParts);
-    // if (!names.isEmpty() && names.first() == root->name()) {
-    //     names.takeFirst();
-    // }
-    QVector<DccObject *> objs;
-    objs.append(root);
-    while (!names.isEmpty() && !objs.isEmpty()) {
-        const QString &name = names.takeFirst();
-        while (!objs.isEmpty()) {
-            DccObject *obj = objs.takeFirst();
-            if (obj->name() == name) {
-                if (names.isEmpty()) {
-                    target = obj;
-                } else {
-                    objs = obj->getChildren();
-                }
-                break;
-            } else {
-                objs.append(obj->getChildren());
-            }
-        }
-    }
-    return names.isEmpty() ? target : nullptr;
 }
 
 void DccManager::updateModuleConfig(const QString &key)
@@ -303,14 +332,16 @@ void DccManager::updateModuleConfig(const QString &key)
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {
-        DccObject *obj = getObjectByUrl(m_root, url);
-        if (obj)
+        DccObject *obj = findObject(url);
+        if (obj) {
             DccObject::Private::FromObject(obj)->setFlagState(type, true);
+        }
     }
     for (auto &&url : removeModuleConfig) {
-        DccObject *obj = getObjectByUrl(m_root, url);
-        if (obj)
+        DccObject *obj = findObject(url);
+        if (obj) {
             DccObject::Private::FromObject(obj)->setFlagState(type, false);
+        }
     }
 }
 
@@ -320,6 +351,40 @@ void DccManager::onTriggered()
     if (obj) {
         showPage(obj, QString());
     }
+}
+
+void DccManager::onVisible(bool visible)
+{
+    DccObject *obj = qobject_cast<DccObject *>(sender());
+    if (!obj) {
+        return;
+    }
+    if (visible) {
+        m_hideObjects.removeOne(obj);
+        addObjectToParent(obj);
+    } else {
+        removeObjectFromParent(obj);
+        noRepeatAdd(m_hideObjects, obj);
+    }
+}
+
+bool DccManager::addObjectToParent(DccObject *obj)
+{
+    if (DccObject *parentObj = findObject(obj->parentName())) {
+        DccObject::Private::FromObject(parentObj)->addChild(obj);
+        return true;
+    }
+    return false;
+}
+
+bool DccManager::removeObjectFromParent(DccObject *obj)
+{
+    DccObject *parentObj = DccObject::Private::FromObject(obj)->getParent();
+    if (parentObj) {
+        DccObject::Private::FromObject(parentObj)->removeChild(obj);
+        return true;
+    }
+    return false;
 }
 
 } // namespace dccV25

@@ -12,6 +12,7 @@ import org.deepin.dcc 1.0
 
 SplitView {
     id: root
+    property var activeObject: null
     orientation: Qt.Horizontal
     StyledBehindWindowBlur {
         id: leftView
@@ -36,7 +37,7 @@ SplitView {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: 10
-            currentIndex: dccObj.children.indexOf(dccObj.currentObject)
+            currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
             clip: true
             spacing: 8
@@ -47,7 +48,7 @@ SplitView {
             }
             delegate: ItemDelegate {
                 text: model.display
-                width: parent.width
+                width: parent ? parent.width : 300
                 font: DTK.fontManager.t4
                 checked: dccObj.currentObject === model.item
                 backgroundVisible: false
@@ -113,14 +114,25 @@ SplitView {
         id: rightLayout
         DccRightView {}
     }
+    function updateActiveObj(obj: var) {
+        if (activeObject !== null) {
+            console.log("deactive", activeObject)
+            activeObject.deactive()
+        }
+        activeObject = obj
+    }
+
     function updateRightView() {
         var activeObj = DccApp.activeObject
-        if (activeObj === dccObj)
+        if (activeObj === dccObj) {
+            updateActiveObj(null)
             return
+        }
 
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
+        updateActiveObj(activeObj)
         rightView.replace(activeObj.getSectionItem())
     }
     Connections {

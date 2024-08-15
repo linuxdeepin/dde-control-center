@@ -8,6 +8,7 @@
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <QTimer>
 
 namespace dccV25 {
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
@@ -49,7 +50,7 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
         if (disabled != getFlagState(DCC_ALL_DISABLED)) {
-            Q_EMIT q_ptr->enabledChanged(disabled);
+            Q_EMIT q_ptr->enabledToAppChanged(disabled);
         }
         return true;
     }
@@ -172,6 +173,21 @@ DccObject::DccObject(QObject *parent)
     : QObject(parent)
     , p_ptr(new DccObject::Private(this))
 {
+    connect(this, &DccObject::deactive, this, [this]() {
+        if (p_ptr->m_sectionItem) {
+            QQuickItem *item = p_ptr->m_sectionItem;
+            p_ptr->m_sectionItem = nullptr;
+            for (auto &&child : p_ptr->m_children) {
+                if (child->p_ptr->m_sectionItem) {
+                    Q_EMIT child->deactive();
+                }
+            }
+            // 延时delete等动画完成
+            QTimer::singleShot(500, item, [item]() {
+                item->deleteLater();
+            });
+        }
+    });
 }
 
 DccObject::~DccObject()

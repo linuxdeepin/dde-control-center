@@ -63,18 +63,23 @@ public Q_SLOTS:
 
 private:
     void initConfig();
-    DccObject *getObjectByUrl(DccObject *const root, const QString &url);
+    bool contains(const QSet<QString> &urls, const DccObject *obj);
+    bool isEqual(const QString &url, const DccObject *obj);
+    DccObject *findObject(const QString &url);
 
 private Q_SLOTS:
     void updateModuleConfig(const QString &key);
     void onTriggered();
+    void onVisible(bool visible);
+    bool addObjectToParent(DccObject *obj);
+    bool removeObjectFromParent(DccObject *obj);
 
 private:
     DccObject *m_root;
     DccObject *m_activeObject;
-    QList<DccObject *> m_hideObject;
-    QList<DccObject *> m_noAddObject;    // 未找到父对象的
-    QList<DccObject *> m_noParentObject; // 没有父对象的
+    QVector<DccObject *> m_hideObjects;  // 隐藏的项
+    QVector<DccObject *> m_noAddObjects; // 未找到父对象的
+    QSet<DccObject *> m_noParentObjects; // 没有父对象的
 
     QVector<DccObject *> m_currentObjects;
 

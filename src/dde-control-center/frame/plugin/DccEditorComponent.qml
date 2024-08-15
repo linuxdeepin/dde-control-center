@@ -7,11 +7,15 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
+    id: root
     property alias isGroup: background.isGroup
     property alias separatorVisible: background.separatorVisible
-    width: parent.width
+    property var item: model.item
+
+    Layout.fillWidth: true
     backgroundVisible: false
     checkable: false
+    enabled: model.item.enabledToApp
     icon.name: model.item.icon
     contentFlow: true
     content: RowLayout {
@@ -39,5 +43,8 @@ D.ItemDelegate {
     background: DccListViewBackground {
         id: background
         separatorVisible: false
+    }
+    Component.onDestruction: {
+        root.item.deactive()
     }
 }

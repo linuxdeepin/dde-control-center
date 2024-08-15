@@ -127,7 +127,7 @@ Page {
                     }
                     Label {
                         id: description
-                        // width: parent.width
+                        Layout.maximumWidth: 140
                         visible: text !== ""
                         font: DTK.fontManager.t8
                         text: updateDescription()
