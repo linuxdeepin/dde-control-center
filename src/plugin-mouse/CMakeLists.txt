@@ -8,7 +8,7 @@ if (BUILD_PLUGIN)
         "qml/*.qml"
     )
     find_package(${QT_NS} COMPONENTS Concurrent REQUIRED COMPONENTS Qml)
-    pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
+    # pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
     add_library(${Mouse_Name} MODULE
         ${mouse_SRCS}
     )
@@ -21,7 +21,7 @@ if (BUILD_PLUGIN)
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Qml
-        PkgConfig::QGSettings
+        # PkgConfig::QGSettings
         ${Interface_Name}
         Qt::Concurrent
     )

@@ -107,7 +107,6 @@ public Q_SLOTS:
 Q_SIGNALS:
     void triggered();
 
-Q_SIGNALS:
     void active(const QString &cmd);
     void deactive();
 

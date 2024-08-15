@@ -9,6 +9,9 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTimer>
 #include <QWindow>
 
@@ -104,7 +107,28 @@ void ControlCenterDBusAdaptor::Toggle()
 
 QString ControlCenterDBusAdaptor::GetAllModule()
 {
-    return "parent()->getAllModule()";
+    DccObject *root = parent()->root();
+    QList<QPair<DccObject *, QStringList>> modules;
+    for (auto &&child : root->getChildren()) {
+        modules.append({ child, { child->name(), child->displayName() } });
+    }
+
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        const auto &urlInfo = modules.takeFirst();
+        QJsonObject obj;
+        obj.insert("url", urlInfo.second.at(0));
+        obj.insert("displayName", urlInfo.second.at(1));
+        obj.insert("weight", urlInfo.first->weight());
+        arr.append(obj);
+        const QList<DccObject *> &children = urlInfo.first->getChildren();
+        for (auto it = children.crbegin(); it != children.crend(); ++it)
+            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
+    }
+
+    QJsonDocument doc;
+    doc.setArray(arr);
+    return doc.toJson(QJsonDocument::Compact);
 }
 
 bool ControlCenterDBusAdaptor::eventFilter(QObject *obj, QEvent *event)
