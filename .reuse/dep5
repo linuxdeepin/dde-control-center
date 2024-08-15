@@ -53,3 +53,13 @@ Files: src/plugin-display/wayland/*
 Copyright: Marcus Britanicus, Abrar, rahmanshaber
 License: MIT
 
+######## dcc-old ########
+# translation
+Files: dcc-old/translations/*
+Copyright: UnionTech Software Technology Co., Ltd.
+License: GPL-3.0-or-later
+
+# 3rdparty
+Files: dcc-old/src/plugin-display/wayland/*
+Copyright: Marcus Britanicus, Abrar, rahmanshaber
+License: MIT

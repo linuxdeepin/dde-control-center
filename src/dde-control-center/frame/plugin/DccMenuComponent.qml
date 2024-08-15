@@ -9,11 +9,14 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 ItemDelegate {
-    property alias isGroup: background.isGroup
+    property bool isGroup: false
     property alias separatorVisible: background.separatorVisible
-    width: parent.width
+    corners: isGroup ? getCornersForBackground(index, model.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+
+    Layout.fillWidth: true
     topInset: 5
     bottomInset: 5
+    enabled: model.item.enabledToApp
     icon {
         name: model.item.icon
         width: 48
@@ -24,16 +27,17 @@ ItemDelegate {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
-            Label {
+            Layout.fillWidth: true
+            DccLabel {
+                Layout.fillWidth: true
                 text: model.display
-                font: D.DTK.fontManager.t4
-                elide: Text.ElideRight
             }
-            Label {
+            DccLabel {
+                Layout.fillWidth: true
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
-                elide: Text.ElideRight
                 text: model.item.description
+                opacity: 0.5
             }
         }
         D.IconLabel {
@@ -50,5 +54,8 @@ ItemDelegate {
     onClicked: {
         model.item.trigger()
         console.log(model.item.name, model.display, model.item.icon)
+    }
+    Component.onCompleted: {
+        model.item.anchorsItem = root
     }
 }

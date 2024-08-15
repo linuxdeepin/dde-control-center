@@ -13,9 +13,12 @@
 QT_BEGIN_NAMESPACE
 class QWindow;
 class QQmlApplicationEngine;
+class QAbstractItemModel;
 QT_END_NAMESPACE
 
 namespace dccV25 {
+class NavigationModel;
+class SearchModel;
 class PluginManager;
 
 class DccManager : public DccApp
@@ -25,6 +28,7 @@ public:
     explicit DccManager(QObject *parent = nullptr);
     ~DccManager() override;
 
+    static bool installTranslator(const QString &name);
     void init();
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
@@ -32,7 +36,6 @@ public:
 
     int width() const override;
     int height() const override;
-    QString path() const override;
 
     inline DccObject *root() const override { return m_root; }
 
@@ -49,32 +52,45 @@ public Q_SLOTS:
     void removeObject(const QString &name) override;
     void showPage(const QString &url) override;
     void showPage(DccObject *obj, const QString &cmd) override;
-    QWindow *mainWindow() override;
+    QWindow *mainWindow() const override;
+    QAbstractItemModel *navModel() const override;
+    QSortFilterProxyModel *searchModel() const override;
     void setShowPath(const QString &path) override;
+    void showHelp();
     // DBus Search
-    QString search(const QString json);
-    bool stop(const QString json);
-    bool action(const QString json);
+    QString search(const QString &json);
+    bool stop(const QString &json);
+    bool action(const QString &json);
 
-    // Q_SIGNALS:
+Q_SIGNALS:
+    void activeItemChanged(QQuickItem *item);
     //     void pathChanged(const QString &path);
     //     void rootChanged(DccObject *root);
     //     void activeObjectChanged(DccObject *activeObject);
 
 private:
     void initConfig();
-    DccObject *getObjectByUrl(DccObject *const root, const QString &url);
+    bool contains(const QSet<QString> &urls, const DccObject *obj);
+    bool isEqual(const QString &url, const DccObject *obj);
+    DccObject *findObject(const QString &url);
 
 private Q_SLOTS:
+    void doShowPage(DccObject *obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
     void onTriggered();
+    void onVisible(bool visible);
+    void onObjectAdded(DccObject *obj);
+    void onObjectRemoved(DccObject *obj);
+    void onObjectDisplayChanged();
+    bool addObjectToParent(DccObject *obj);
+    bool removeObjectFromParent(DccObject *obj);
 
 private:
     DccObject *m_root;
     DccObject *m_activeObject;
-    QList<DccObject *> m_hideObject;
-    QList<DccObject *> m_noAddObject;    // 未找到父对象的
-    QList<DccObject *> m_noParentObject; // 没有父对象的
+    QVector<DccObject *> m_hideObjects;  // 隐藏的项
+    QVector<DccObject *> m_noAddObjects; // 未找到父对象的
+    QSet<DccObject *> m_noParentObjects; // 没有父对象的
 
     QVector<DccObject *> m_currentObjects;
 
@@ -84,6 +100,8 @@ private:
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
     QQmlApplicationEngine *m_engine;
+    NavigationModel *m_navModel;
+    SearchModel *m_searchModel;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H

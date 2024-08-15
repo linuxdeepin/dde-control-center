@@ -19,6 +19,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(ENABLE_ASAN "Enable asan" OFF)
 option(BUILD_TESTING "UNIT test" OFF)
 
+# dcc-v23
+set(BUILD_DCC_OLD ON)
+if (BUILD_DCC_OLD)
+    add_subdirectory(dcc-old)
+endif()
+
 set(QT_NS Qt6)
 set(DTK_NS Dtk6)
 set(ASQT_NS AppStreamQt)
@@ -58,7 +64,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     endif()
 else()
     # generate qm
-    execute_process(COMMAND bash "misc/translate_generation.sh" "${CMAKE_CURRENT_BINARY_DIR}"
+    execute_process(COMMAND bash "misc/translate_generation.sh" "${CMAKE_CURRENT_BINARY_DIR}/src/dde-control-center"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     # generate desktop translate
     execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
@@ -104,9 +110,8 @@ if(BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
-set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations" CACHE STRING "Install dir for dde-control-center translate files")
+set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations/v1.0" CACHE STRING "Install dir for dde-control-center translate files")
 
-add_definitions(-DTRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR}")
 # 输出目录
 set(DCC_LIBDIR ${PROJECT_BINARY_DIR}/lib)
 # 插件目录
@@ -116,11 +121,14 @@ set(DCC_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/dde-control-center)
 set(DCC_PREFIX "")
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(DCC_DEBUG_LIBDIR ${DCC_LIBDIR})
+    set(DCC_TRANSLATE_READ_DIR ${PROJECT_BINARY_DIR}/src/dde-control-center)
 else()
     set(DCC_DEBUG_LIBDIR ${DCC_INSTALL_DIR})
     set(DCC_PREFIX "/usr/")
+    set(DCC_TRANSLATE_READ_DIR ${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR})
 endif()
 
+add_definitions(-DTRANSLATE_READ_DIR="${DCC_TRANSLATE_READ_DIR}")
 # 插件安装目录
 set(DCC_PLUGINS_INSTALL_DIR ${DCC_DEBUG_LIBDIR}/${DCC_PLUGINS_DIR} CACHE STRING "Install dir for dde-control-center plugins")
 # 插件读取目录
@@ -165,6 +173,13 @@ set(Test_Libraries
     GTest::gtest
     Qt::Test
 )
+if (BUILD_DCC_OLD)
+    configure_file(
+        ${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center.in
+        ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center
+        @ONLY)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center DESTINATION ${CMAKE_INSTALL_BINDIR})
+endif()
 
 add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------

@@ -6,7 +6,12 @@
 #include "dccobject.h"
 
 #include <QObject>
+
+QT_BEGIN_NAMESPACE
 class QWindow;
+class QAbstractItemModel;
+class QSortFilterProxyModel;
+QT_END_NAMESPACE
 
 namespace dccV25 {
 class DccApp : public QObject
@@ -19,11 +24,9 @@ public:
     Q_PROPERTY(int height READ height)
     Q_PROPERTY(DccObject * root READ root NOTIFY rootChanged)
     Q_PROPERTY(DccObject * activeObject READ activeObject NOTIFY activeObjectChanged)
-    Q_PROPERTY(QString path READ path NOTIFY pathChanged FINAL)
 
     virtual int width() const;
     virtual int height() const;
-    virtual QString path() const;
     virtual DccObject *root() const;
     virtual DccObject *activeObject() const;
 
@@ -34,15 +37,17 @@ public Q_SLOTS:
     virtual void removeObject(const QString &name);
     virtual void showPage(const QString &url);
     virtual void showPage(DccObject *obj, const QString &cmd);
-    virtual QWindow *mainWindow();
+    virtual QWindow *mainWindow() const;
+    virtual QAbstractItemModel *navModel() const;
+    virtual QSortFilterProxyModel *searchModel() const;
     virtual void setShowPath(const QString &path);
     virtual void addSearch(const QString &key, const QString &url);
     virtual void removeSearch(const QString &key);
 
 Q_SIGNALS:
-    void pathChanged(const QString &path);
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
+    void activeItemChanged(QQuickItem *item);
 
 protected:
     explicit DccApp(QObject *parent = nullptr);

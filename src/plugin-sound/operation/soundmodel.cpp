@@ -256,6 +256,7 @@ void SoundModel::addPort(Port *port)
             m_inputPorts.append(port);
             m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
             m_soundInputDeviceModel->addData(port);
+            emit inPutPortComboChanged();
         }
 
         Q_EMIT portAdded(port);
@@ -280,6 +281,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
             m_inputPorts.removeOne(port);
             m_inPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
             m_soundInputDeviceModel->removeData(port);
+            emit inPutPortComboChanged();
         }
         port->deleteLater();
     }
