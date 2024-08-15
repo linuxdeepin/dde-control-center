@@ -7,27 +7,33 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
-    property alias isGroup: background.isGroup
+    id: root
+    property bool isGroup: false
     property alias separatorVisible: background.separatorVisible
-    width: parent.width
+    property var item: model.item
+
+    corners: isGroup ? getCornersForBackground(index, model.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+    Layout.fillWidth: true
     backgroundVisible: false
     checkable: false
+    enabled: model.item.enabledToApp
     icon.name: model.item.icon
     contentFlow: true
     content: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
-            Label {
+            Layout.fillWidth: true
+            DccLabel {
+                Layout.fillWidth: true
                 text: model.display
-                font: D.DTK.fontManager.t4
-                elide: Text.ElideRight
             }
-            Label {
+            DccLabel {
+                Layout.fillWidth: true
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
-                elide: Text.ElideRight
                 text: model.item.description
+                opacity: 0.5
             }
         }
         Control {
@@ -39,5 +45,8 @@ D.ItemDelegate {
     background: DccListViewBackground {
         id: background
         separatorVisible: false
+    }
+    Component.onCompleted: {
+        model.item.anchorsItem = root
     }
 }

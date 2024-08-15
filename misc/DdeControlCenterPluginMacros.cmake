@@ -43,7 +43,7 @@ function(dcc_handle_plugin_translation)
 
     if(NOT _config_QML_FILES)
         file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/qml/*.qml)
-        file(GLOB additional_QML_FILES ${_config_SOURCE_DIR}/*.qml)
+        file(GLOB_RECURSE additional_QML_FILES ${_config_SOURCE_DIR}/*.qml)
         list(APPEND _config_QML_FILES ${additional_QML_FILES})
     endif()
 

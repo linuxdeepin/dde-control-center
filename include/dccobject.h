@@ -7,7 +7,7 @@
 #include <QObject>
 #include <QQmlComponent>
 #include <QQmlListProperty>
-class QQuickItem;
+#include <QQuickItem>
 
 namespace dccV25 {
 class DccObject : public QObject
@@ -27,6 +27,7 @@ public:
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged DESIGNABLE false)
     Q_PROPERTY(bool visibleToApp READ isVisibleToApp NOTIFY visibleToAppChanged) // 未设置隐藏且未被配置隐藏则为true
     Q_PROPERTY(bool enabledToApp READ isEnabledToApp NOTIFY enabledToAppChanged) // 未设置禁用且未被配置禁用则为true
+    Q_PROPERTY(bool canSearch READ canSearch WRITE setCanSearch NOTIFY canSearchChanged DESIGNABLE false)
 
     Q_PROPERTY(bool hasBackground READ hasBackground WRITE setHasBackground NOTIFY hasBackgroundChanged DESIGNABLE false)
 
@@ -36,6 +37,7 @@ public:
 
     Q_PROPERTY(uint pageType READ pageType WRITE setPageType NOTIFY pageTypeChanged)
     Q_PROPERTY(QQmlComponent* page READ page WRITE setPage NOTIFY pageChanged)
+    Q_PROPERTY(QQuickItem* anchorsItem READ anchorsItem WRITE setAnchorsItem NOTIFY anchorsItemChanged)
 
     Q_PROPERTY(QQmlListProperty<QObject> data READ data DESIGNABLE false)
     Q_CLASSINFO("DefaultProperty", "data")
@@ -71,6 +73,10 @@ public:
     void setEnabled(bool enabled);
     bool isEnabledToApp() const;
 
+    // 是否参与搜索，默认参与搜索
+    bool canSearch() const;
+    void setCanSearch(bool canSearch);
+
     bool hasBackground() const;
     void setHasBackground(bool hasBackground);
 
@@ -94,6 +100,8 @@ public:
     uint pageType() const;
     void setPageType(uint type);
     Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent = nullptr);
+    QQuickItem *anchorsItem();
+    void setAnchorsItem(QQuickItem *item);
     QQmlComponent *page() const;
     void setPage(QQmlComponent *page);
 
@@ -107,14 +115,13 @@ public Q_SLOTS:
 Q_SIGNALS:
     void triggered();
 
-Q_SIGNALS:
     void active(const QString &cmd);
     void deactive();
 
     void childAboutToBeAdded(const DccObject *parent, int pos);
-    void childAdded(const DccObject *child);
+    void childAdded(DccObject *child);
     void childAboutToBeRemoved(const DccObject *parent, int pos);
-    void childRemoved(const DccObject *child);
+    void childRemoved(DccObject *child);
     void childrenChanged(const QVector<DccObject *> &children);
 
     void nameChanged(const QString &name);
@@ -129,6 +136,7 @@ Q_SIGNALS:
     void enabledChanged(bool enabled);
     void visibleToAppChanged(bool visibleToApp);
     void enabledToAppChanged(bool enabledToApp);
+    void canSearchChanged(bool canSearch);
 
     void hasBackgroundChanged(bool hasBackground);
 
@@ -137,6 +145,7 @@ Q_SIGNALS:
 
     void pageTypeChanged(uint type);
     void pageChanged(QQmlComponent *page);
+    void anchorsItemChanged(QQuickItem *item);
 
 protected:
     DccObject::Private *p_ptr;

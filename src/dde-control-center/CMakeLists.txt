@@ -84,7 +84,11 @@ add_custom_command(TARGET ${Control_Center_Name}_qml
 
 dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR})
 # bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+if (BUILD_DCC_OLD)
+    install(TARGETS ${Control_Center_Name} DESTINATION ${DCC_DEBUG_LIBDIR})
+else()
+    install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+endif()
 install(DIRECTORY "${DCC_PROJECT_ROOT_DIR}/qml/" DESTINATION ${DCC_INSTALL_DIR})
 #----------------------------install config------------------------------
 #desktop

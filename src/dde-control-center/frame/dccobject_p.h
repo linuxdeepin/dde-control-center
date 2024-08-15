@@ -22,17 +22,14 @@
 #define DCC_HASBACKGROUND 0x00004000 // 扩展按钮(子项)
 #define DCC_EXTRA 0x00800000         // 扩展按钮(子项)
 
-#define DCC_EXTRA 0x00800000    // 扩展按钮(子项)
-#define DCC_NOSEARCH 0x04000000 // 不参与搜索
+#define DCC_EXTRA 0x00800000     // 扩展按钮(子项)
+#define DCC_CANSEARCH 0x04000000 // 不参与搜索
 
 namespace dccV25 {
 class DccObject::Private
 {
 public:
     static DccObject::Private *FromObject(const DccObject *obj);
-
-    explicit Private(DccObject *obj);
-    virtual ~Private();
 
     bool getFlagState(uint32_t flag) const;
     bool setFlagState(uint32_t flag, bool state);
@@ -52,7 +49,10 @@ public:
     DccObject *getChild(int childPos) const;
     int getChildIndex(const DccObject *child) const;
 
-private:
+protected:
+    explicit Private(DccObject *obj);
+    virtual ~Private();
+
     virtual inline void SetParent(DccObject *anObject) { m_parent = anObject; }
 
 private:
@@ -72,6 +72,7 @@ protected:
     QObjectList m_data;
     QQmlComponent *m_page;
     QQuickItem *m_sectionItem;
+    QQuickItem *m_anchorsItem;
 
     QString m_parentName;
     QString m_displayName;

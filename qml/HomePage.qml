@@ -6,31 +6,59 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
-
-Page {
+Control {
     id: root
-    SearchEdit {
-        id: searchEdit
+    property bool contentVisible: true
+
+    property real cellWidth: 240
+    property real cellHeight: 64
+    property real cellSpacing: 10
+
+    Item {
+        id: header
+        implicitHeight: 50
         anchors {
+            // bottom: parent.bottom
             top: parent.top
-            horizontalCenter: parent.horizontalCenter
-            margins: 10
+            left: parent.left
+            right: parent.right
         }
-        activeFocusOnTab: true
-        implicitWidth: (parent.width / 2) > 280 ? 280 : (parent.width / 2)
+
+        SearchBar {
+            visible: contentVisible
+            model: DccApp.searchModel()
+            onClicked: function (model) {
+                DccApp.showPage(model.url)
+            }
+        }
+        Rectangle {
+            id: separator
+            visible: contentVisible
+            anchors {
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            color: palette.shadow // "#F2F2F2"
+            // color: palette.placeholderText
+            height: 2
+        }
     }
+
     function updateMargin() {
         if (width > grid.cellWidth) {
-            var count = parseInt((width - 10) / (grid.cellWidth))
+            var count = parseInt((width - root.cellSpacing) / (grid.cellWidth))
             var length = dccObj.children.length
             if (length < count) {
                 count = length
             }
-            grid.anchors.leftMargin = (width - count * (grid.cellWidth)) / 2 + 5
+            grid.anchors.leftMargin = (width - count * (grid.cellWidth)) / 2 + (root.cellSpacing / 2)
         } else {
-            grid.anchors.leftMargin = 10
+            grid.anchors.leftMargin = root.cellSpacing
         }
     }
     onWidthChanged: updateMargin()
@@ -40,21 +68,28 @@ Page {
             updateMargin()
         }
     }
+
+    Rectangle {
+        id: background
+        z: -1
+        anchors.fill: parent
+        color: palette.window
+    }
+
     GridView {
         id: grid
 
         anchors {
-            top: searchEdit.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-            topMargin: 10
-            leftMargin: 10
+            fill: parent
+            topMargin: root.cellSpacing + header.height
+            leftMargin: root.cellSpacing
         }
 
         clip: true
-        cellWidth: 250
-        cellHeight: 69
+        cellWidth: root.cellWidth + root.cellSpacing
+        cellHeight: root.cellHeight + root.cellSpacing
+
+        visible: contentVisible
 
         activeFocusOnTab: true
 
@@ -91,17 +126,14 @@ Page {
             id: dccModel
             root: dccObj
         }
-        // /*
         delegate: ItemDelegate {
-            // text: model.display
-            width: 240
-            height: 64
-            anchors.margins: 10
-            // radius: 8
+            width: root.cellWidth
+            height: root.cellHeight
+            padding: 12
             icon {
                 name: model.item.icon
-                width: 48
-                height: 48
+                width: 32
+                height: 32
             }
             contentFlow: true
             background: DccListViewBackground {
@@ -110,36 +142,33 @@ Page {
             clip: true
 
             content: RowLayout {
-                // Layout.fillWidth: true
+                Layout.fillWidth: true
                 Layout.fillHeight: true
                 ColumnLayout {
-                    // anchors.left: img.right
-                    // anchors.verticalCenter: parent.verticalCenter
-                    // Layout.fillWidth: true
-                    // Layout.maximumWidth: 150
-                    Layout.maximumWidth: 140
+                    Layout.leftMargin: 5
+                    Layout.maximumWidth: 160
                     Label {
                         id: display
-                        Layout.maximumWidth: 140
+                        Layout.maximumWidth: 160
                         text: model.display
-                        font: DTK.fontManager.t4
+                        color: palette.brightText
                         elide: Text.ElideRight
                     }
                     Label {
                         id: description
-                        // width: parent.width
+                        Layout.maximumWidth: 160
                         visible: text !== ""
-                        font: DTK.fontManager.t8
+                        font: DTK.fontManager.t10
                         text: updateDescription()
+                        color: palette.brightText
+                        opacity: 0.5
                         elide: Text.ElideRight
                         function updateDescription() {
-                            if (model.item.description === ""
-                                    && model.item.children.length > 0) {
-                                var len = model.item.children.length
-                                        < 3 ? model.item.children.length : 3
-                                var desc = model.item.children[0].name
+                            if (model.item.description === "" && model.item.children.length > 0) {
+                                var len = model.item.children.length < 3 ? model.item.children.length : 3
+                                var desc = model.item.children[0].displayName
                                 for (var i = 1; i < len; ++i) {
-                                    desc += qsTr(",") + model.item.children[i].name
+                                    desc += qsTr(",") + model.item.children[i].displayName
                                 }
                                 return desc + (model.item.children.length <= 3 ? "" : qsTr(" ..."))
                             }
@@ -155,7 +184,7 @@ Page {
                 }
                 Rectangle {
                     Layout.alignment: Qt.AlignRight
-                    Layout.rightMargin: 10
+                    Layout.rightMargin: -2
                     visible: model.item.badge !== 0
                     height: 16
                     width: 16

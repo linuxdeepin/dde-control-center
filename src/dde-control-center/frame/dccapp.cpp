@@ -30,11 +30,6 @@ int DccApp::height() const
     return 0;
 }
 
-QString DccApp::path() const
-{
-    return QString();
-}
-
 DccObject *DccApp::root() const
 {
     return nullptr;
@@ -60,7 +55,17 @@ void DccApp::showPage(const QString &url) { }
 
 void DccApp::showPage(DccObject *obj, const QString &cmd) { }
 
-QWindow *DccApp::mainWindow()
+QWindow *DccApp::mainWindow() const
+{
+    return nullptr;
+}
+
+QAbstractItemModel *DccApp::navModel() const
+{
+    return nullptr;
+}
+
+QSortFilterProxyModel *DccApp::searchModel() const
 {
     return nullptr;
 }

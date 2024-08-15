@@ -31,7 +31,6 @@ DccModel::DccModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_root(nullptr)
 {
-    qCWarning(dccLog) << __FUNCTION__ << __LINE__ << this;
 }
 
 DccModel::~DccModel() { }
@@ -73,10 +72,10 @@ DccObject *DccModel::getObject(int row)
 
 QHash<int, QByteArray> DccModel::roleNames() const
 {
-    QHash<int, QByteArray> names;// = QAbstractItemModel::roleNames();
+    QHash<int, QByteArray> names;
     names[Qt::DisplayRole] = "display";
-    // names[Qt::StatusTipRole] = "description";
-    // names[Qt::DecorationRole] = "decoration";
+    names[Qt::StatusTipRole] = "description";
+    names[Qt::DecorationRole] = "decoration";
     names[DccItemRole] = "item";
     names[DccPageTypeRole] = "pageType";
     names[DccViewItemPositionRole] = "position";
@@ -164,7 +163,7 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
     // qCWarning(dccLog) << __FUNCTION__ << index << role;
     if (!index.isValid())
         return QVariant();
-    const DccObject *item = static_cast<const DccObject *>(index.internalPointer());
+    DccObject *item = static_cast<DccObject *>(index.internalPointer());
     switch (role) {
     case DccItemRole:
         return QVariant::fromValue(item);
@@ -196,10 +195,8 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
 void DccModel::updateObject()
 {
     DccObject *obj = qobject_cast<DccObject *>(sender());
-    qWarning() << __FUNCTION__ << __LINE__ << obj << sender();
     if (obj) {
         QModelIndex i = index(obj);
-        qWarning() << __FUNCTION__ << __LINE__ << obj << i;
         emit dataChanged(i, i);
     }
 }
@@ -226,7 +223,6 @@ void DccModel::removeObject(const DccObject *child)
     endRemoveRows();
     disconnectObject(child);
     Q_EMIT countChanged();
-
 }
 
 void DccModel::connectObject(const DccObject *obj)

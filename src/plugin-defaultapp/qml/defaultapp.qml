@@ -7,5 +7,5 @@ DccObject {
     parentName: "system"
     displayName: qsTr("Default App")
     icon: "defapp"
-    weight: 60
+    weight: 40
 }

@@ -21,6 +21,19 @@ Build-Depends:
  qml6-module-qtquick-window,
  qml6-module-qt-labs-qmlmodels,
  systemd,
+ qtbase5-dev,
+ qtbase5-private-dev,
+ qttools5-dev-tools,
+ libdtkwidget-dev,
+ libdtkcore-dev(>>5.6.18),
+ libdtkcore5-bin,
+ qtmultimedia5-dev,
+ libdareader-dev,
+ libdeepin-pw-check-dev,
+ libpolkit-qt5-1-dev,
+ libgsettings-qt-dev,
+ libicu-dev,
+ libwayland-dev,
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

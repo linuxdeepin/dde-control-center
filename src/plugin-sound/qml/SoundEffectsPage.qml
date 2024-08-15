@@ -29,6 +29,7 @@ DccObject {
         visible: dccData.model().enableSoundEffect
         pageType: DccObject.Item
         page: DeviceListView {
+            backgroundVisible: false
             model: dccData.model().soundEffectsModel()
             onClicked: function (index, checked) {
                 dccData.worker().setSoundEffectEnable(index, checked)

@@ -6,6 +6,7 @@ import Qt.labs.qmlmodels 1.2
 import QtQuick.Layouts 1.15
 
 Flickable {
+    id: root
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup
 
@@ -22,6 +23,12 @@ Flickable {
             right: parent.right
             leftMargin: 60
             rightMargin: 60
+        }
+    }
+    Connections {
+        target: DccApp
+        function onActiveItemChanged(item) {
+            root.contentY = root.contentY + item.mapToItem(root, 0, 0).y
         }
     }
 }

@@ -13,20 +13,32 @@ import org.deepin.dcc 1.0
 SplitView {
     id: root
     orientation: Qt.Horizontal
+    handle: Rectangle {
+        implicitWidth: 2
+        color: palette.light // "#B9DEFB"
+    }
+
     StyledBehindWindowBlur {
         id: leftView
         control: null // DccApp.mainWindow()
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        SplitView.preferredWidth: 300
+        SplitView.preferredWidth: 180
 
-        SearchEdit {
+        SearchBar {
             id: searchEdit
-            y: 50
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: 10
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: 10
+                topMargin: 50
+            }
+
+            model: DccApp.searchModel()
+            onClicked: function (model) {
+                DccApp.showPage(model.url)
+            }
         }
         ListView {
             id: list
@@ -36,7 +48,7 @@ SplitView {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: 10
-            currentIndex: dccObj.children.indexOf(dccObj.currentObject)
+            currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
             clip: true
             spacing: 8
@@ -47,8 +59,7 @@ SplitView {
             }
             delegate: ItemDelegate {
                 text: model.display
-                width: parent.width
-                font: DTK.fontManager.t4
+                width: parent ? parent.width : 300
                 checked: dccObj.currentObject === model.item
                 backgroundVisible: false
                 icon {
@@ -72,40 +83,47 @@ SplitView {
             }
         }
     }
-    Page {
+
+    Rectangle {
         SplitView.minimumWidth: 500
-        ToolButton {
-            id: breakBut
-            icon.name: "arrow_ordinary_left"
-            anchors.left: parent.left
-            anchors.verticalCenter: title.verticalCenter
-            anchors.margins: 10
-            height: 16
-            width: 16
-            onClicked: dccObj.trigger()
-        }
-        Label {
-            id: title
-            anchors.left: breakBut.right
-            anchors.leftMargin: 40
-            height: 50
-            verticalAlignment: Text.AlignVCenter
-            text: DccApp.path
-            onLinkActivated: function (link) {
-                DccApp.showPage(link)
+        color: palette.window
+        RowLayout {
+            id: header
+            implicitHeight: 50
+            anchors {
+                left: parent.left
+                right: parent.right
             }
-            onLinkHovered: function (link) {
-                console.log(link)
+            ToolButton {
+                id: breakBut
+                icon.name: "arrow_ordinary_left"
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                Layout.margins: 10
+                implicitHeight: 16
+                implicitWidth: 16
+                onClicked: dccObj.trigger()
+            }
+
+            Crumb {
+                implicitHeight: parent.implicitHeight
+                implicitWidth: 160
+                Layout.fillWidth: true
+                Layout.leftMargin: 40
+                Layout.rightMargin: 200
+                model: DccApp.navModel()
+                onClicked: function (model) {
+                    DccApp.showPage(model.url)
+                }
             }
         }
         StackView {
             id: rightView
             clip: true
             anchors {
+                top: header.bottom
+                bottom: parent.bottom
                 left: parent.left
                 right: parent.right
-                top: title.bottom
-                bottom: parent.bottom
             }
         }
     }
@@ -113,11 +131,12 @@ SplitView {
         id: rightLayout
         DccRightView {}
     }
+
     function updateRightView() {
         var activeObj = DccApp.activeObject
-        if (activeObj === dccObj)
+        if (activeObj === dccObj) {
             return
-
+        }
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }

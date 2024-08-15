@@ -238,7 +238,7 @@ void PluginManager::mainLoading()
         createMain(component);
 }
 
-void loadPlugin(const QPair<PluginManager *, PluginData *> &pair)
+void loadPlugin(const QPair<PluginManager *, PluginData *> pair)
 {
     PluginManager *self = pair.first;
     PluginData *plugin = pair.second;
@@ -347,6 +347,7 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
             continue;
         }
         PluginData *plugin = new PluginData(lib.baseName(), filepath);
+        DccManager::installTranslator(plugin->name);
         loadModule(plugin);
         libraryList.append({ this, plugin });
         m_plugins.append(plugin);

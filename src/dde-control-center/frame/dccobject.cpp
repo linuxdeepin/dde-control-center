@@ -8,6 +8,7 @@
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <QTimer>
 
 namespace dccV25 {
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
@@ -22,6 +23,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_defultObject(nullptr)
     , m_page(nullptr)
     , m_sectionItem(nullptr)
+    , m_anchorsItem(nullptr)
     , m_weight(-1)
     , m_badge(0)
     , m_pageType(0)
@@ -49,7 +51,7 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
         if (disabled != getFlagState(DCC_ALL_DISABLED)) {
-            Q_EMIT q_ptr->enabledChanged(disabled);
+            Q_EMIT q_ptr->enabledToAppChanged(disabled);
         }
         return true;
     }
@@ -172,6 +174,22 @@ DccObject::DccObject(QObject *parent)
     : QObject(parent)
     , p_ptr(new DccObject::Private(this))
 {
+    connect(this, &DccObject::deactive, this, [this]() {
+        if (p_ptr->m_sectionItem) {
+            QQuickItem *item = p_ptr->m_sectionItem;
+            p_ptr->m_sectionItem = nullptr;
+            setAnchorsItem(nullptr);
+            for (auto &&child : p_ptr->m_children) {
+                if (child->p_ptr->m_sectionItem) {
+                    Q_EMIT child->deactive();
+                }
+            }
+            // 延时delete等动画完成
+            QTimer::singleShot(500, item, [item]() {
+                item->deleteLater();
+            });
+        }
+    });
 }
 
 DccObject::~DccObject()
@@ -301,6 +319,18 @@ bool DccObject::isEnabledToApp() const
     return !p_ptr->getFlagState(DCC_ALL_DISABLED);
 }
 
+bool DccObject::canSearch() const
+{
+    return !p_ptr->getFlagState(DCC_CANSEARCH);
+}
+
+void DccObject::setCanSearch(bool canSearch)
+{
+    if (p_ptr->setFlagState(DCC_CANSEARCH, !canSearch)) {
+        Q_EMIT canSearchChanged(canSearch);
+    }
+}
+
 bool DccObject::hasBackground() const
 {
     return p_ptr->getFlagState(DCC_HASBACKGROUND);
@@ -367,6 +397,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
         QQmlContext *context = new QQmlContext(creationContext);
         context->setContextProperty("dccObj", this);
+#if 0
         QObject *nobj = p_ptr->m_page->beginCreate(context);
         if (nobj) {
             p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(nobj);
@@ -390,8 +421,23 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
             delete context;
         }
         p_ptr->m_page->completeCreate();
+#endif
+        p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
     }
     return p_ptr->m_sectionItem;
+}
+
+QQuickItem *DccObject::anchorsItem()
+{
+    return p_ptr->m_anchorsItem;
+}
+
+void DccObject::setAnchorsItem(QQuickItem *item)
+{
+    if (item != p_ptr->m_anchorsItem) {
+        p_ptr->m_anchorsItem = item;
+        Q_EMIT anchorsItemChanged(p_ptr->m_anchorsItem);
+    }
 }
 
 QQmlComponent *DccObject::page() const

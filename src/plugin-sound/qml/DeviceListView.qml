@@ -10,6 +10,7 @@ import org.deepin.dcc 1.0
 Rectangle {
     id: root
     property alias model: repeater.model
+    property bool backgroundVisible: true
     signal clicked(int index, bool checked)
 
     color: "transparent"
@@ -24,10 +25,11 @@ Rectangle {
             id: repeater
             delegate: ItemDelegate {
                 Layout.fillWidth: true
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
+                leftPadding: 10
+                rightPadding: 10
                 implicitHeight: 40
                 cascadeSelected: true
+                backgroundVisible: root.backgroundVisible
                 text: model.name
                 content: IconButton {
                     icon.name: model.isChecked ? "qrc:/icons/deepin/builtin/actions/checked.png" : "qrc:/icons/deepin/builtin/actions/nocheck.png"
