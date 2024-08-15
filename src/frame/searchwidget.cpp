@@ -392,6 +392,6 @@ void SearchWidget::onAutoComplete(const QString &text)
         QString str = text;
         str.remove(' ');
         m_completer->setCompletionPrefix(str);
-        m_completer->complete();
+        m_completer->complete(rect().adjusted(0, 0, 0, 8));
     }
 }
