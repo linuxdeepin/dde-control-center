@@ -65,6 +65,11 @@ QWindow *DccApp::mainWindow()
     return nullptr;
 }
 
+QAbstractItemModel *DccApp::navModel()
+{
+    return nullptr;
+}
+
 void DccApp::setShowPath(const QString &path) { }
 
 void DccApp::addSearch(const QString &key, const QString &url) { }

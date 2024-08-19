@@ -49,7 +49,6 @@ SplitView {
             delegate: ItemDelegate {
                 text: model.display
                 width: parent ? parent.width : 300
-                font: DTK.fontManager.t4
                 checked: dccObj.currentObject === model.item
                 backgroundVisible: false
                 icon {
@@ -79,24 +78,25 @@ SplitView {
             id: breakBut
             icon.name: "arrow_ordinary_left"
             anchors.left: parent.left
-            anchors.verticalCenter: title.verticalCenter
+            anchors.verticalCenter: crumb.verticalCenter
             anchors.margins: 10
             height: 16
             width: 16
             onClicked: dccObj.trigger()
         }
-        Label {
-            id: title
-            anchors.left: breakBut.right
-            anchors.leftMargin: 40
-            height: 50
-            verticalAlignment: Text.AlignVCenter
-            text: DccApp.path
-            onLinkActivated: function (link) {
-                DccApp.showPage(link)
+        Crumb {
+            id: crumb
+            anchors {
+                left: breakBut.right
+                leftMargin: 40
+                right: parent.right
+                rightMargin: 200
             }
-            onLinkHovered: function (link) {
-                console.log(link)
+            height: 50
+
+            model: DccApp.navModel()
+            onClicked: function (model) {
+                DccApp.showPage(model.url)
             }
         }
         StackView {
@@ -105,7 +105,7 @@ SplitView {
             anchors {
                 left: parent.left
                 right: parent.right
-                top: title.bottom
+                top: crumb.bottom
                 bottom: parent.bottom
             }
         }

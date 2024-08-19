@@ -5,6 +5,7 @@
 
 #include "dccapp.h"
 #include "dccobject_p.h"
+#include "navigationmodel.h"
 #include "pluginmanager.h"
 
 #include <QCoreApplication>
@@ -31,6 +32,7 @@ DccManager::DccManager(QObject *parent)
     , m_window(nullptr)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), this))
     , m_engine(nullptr)
+    , m_navModel(new NavigationModel(this))
 {
     m_root->setName("root");
     m_root->setDefultObject(nullptr);
@@ -220,6 +222,7 @@ void DccManager::showPage(DccObject *obj, const QString &cmd)
         m_activeObject = m_currentObjects.last();
         Q_EMIT activeObjectChanged(m_activeObject);
     }
+    m_navModel->setNavigationObject(m_currentObjects);
     Q_EMIT pathChanged(path());
 }
 
@@ -243,6 +246,11 @@ bool DccManager::stop(const QString json)
 bool DccManager::action(const QString json)
 {
     return true;
+}
+
+QAbstractItemModel *DccManager::navModel()
+{
+    return m_navModel;
 }
 
 void DccManager::initConfig()

@@ -6,7 +6,11 @@
 #include "dccobject.h"
 
 #include <QObject>
+
+QT_BEGIN_NAMESPACE
 class QWindow;
+class QAbstractItemModel;
+QT_END_NAMESPACE
 
 namespace dccV25 {
 class DccApp : public QObject
@@ -35,6 +39,7 @@ public Q_SLOTS:
     virtual void showPage(const QString &url);
     virtual void showPage(DccObject *obj, const QString &cmd);
     virtual QWindow *mainWindow();
+    virtual QAbstractItemModel *navModel();
     virtual void setShowPath(const QString &path);
     virtual void addSearch(const QString &key, const QString &url);
     virtual void removeSearch(const QString &key);

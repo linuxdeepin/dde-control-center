@@ -80,8 +80,8 @@ D.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        root.width = DccApp.width
-        root.height = DccApp.height
+        root.width = 700 //DccApp.width
+        root.height = 472 //DccApp.height
         root.x = (Screen.width - root.width) / 2
         root.y = (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout
