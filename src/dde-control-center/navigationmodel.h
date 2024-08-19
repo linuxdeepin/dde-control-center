@@ -14,7 +14,7 @@ class NavigationModel : public QAbstractItemModel
     Q_OBJECT
 public:
     explicit NavigationModel(QObject *parent = nullptr);
-    void setNavigationObject(const QVector<DccObject *> objs);
+    void setNavigationObject(const QVector<DccObject *> &objs);
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

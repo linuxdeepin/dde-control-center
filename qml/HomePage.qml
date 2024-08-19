@@ -6,20 +6,61 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
 
 Page {
     id: root
-    SearchEdit {
-        id: searchEdit
+    property bool contentVisible: true
+
+    Rectangle {
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
             margins: 10
         }
-        activeFocusOnTab: true
-        implicitWidth: (parent.width / 2) > 280 ? 280 : (parent.width / 2)
+
+        visible: contentVisible
+        implicitHeight: 32
+        implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
+        color: "transparent"
+        radius: DS.Style.control.radius
+        border.color: "#E1E7EB"
+        border.width: 1
+
+        SearchEdit {
+            id: searchEdit
+            anchors.fill: parent
+            anchors.margins: 1
+            activeFocusOnTab: true
+
+            // focus: true
+            placeholderTextColor: palette.brightText
+            padding: 1
+
+            property Palette nomalPalette: Palette {
+                normal: ("#FCFCFC")
+                normalDark: ("#FCFCFC")
+                hovered: (palette.text)
+                hoveredDark: ("#FCFCFC")
+            }
+
+            backgroundColor: nomalPalette
+        }
+    }
+    Rectangle {
+        id: separator
+        y: 50
+        visible: contentVisible
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+
+        color: "#F2F2F2"
+        // color: palette.placeholderText
+        height: 2
     }
     function updateMargin() {
         if (width > grid.cellWidth) {
@@ -44,7 +85,7 @@ Page {
         id: grid
 
         anchors {
-            top: searchEdit.bottom
+            top: separator.bottom
             left: parent.left
             right: parent.right
             bottom: parent.bottom
@@ -55,6 +96,7 @@ Page {
         clip: true
         cellWidth: 225
         cellHeight: 68
+        visible: contentVisible
 
         activeFocusOnTab: true
 
@@ -131,9 +173,9 @@ Page {
                         function updateDescription() {
                             if (model.item.description === "" && model.item.children.length > 0) {
                                 var len = model.item.children.length < 3 ? model.item.children.length : 3
-                                var desc = model.item.children[0].name
+                                var desc = model.item.children[0].displayName
                                 for (var i = 1; i < len; ++i) {
-                                    desc += qsTr(",") + model.item.children[i].name
+                                    desc += qsTr(",") + model.item.children[i].displayName
                                 }
                                 return desc + (model.item.children.length <= 3 ? "" : qsTr(" ..."))
                             }

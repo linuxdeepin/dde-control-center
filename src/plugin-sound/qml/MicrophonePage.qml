@@ -47,7 +47,7 @@ DccObject {
             displayName: qsTr("输入音量")
             weight: 10
             pageType: DccObject.Editor
-            //visible: inPutCombo.count > 0
+            visible: dccData.model().inPutPortCombo.length !== 0
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
 
@@ -104,7 +104,7 @@ DccObject {
             displayName: qsTr("反馈音量")
             weight: 20
             pageType: DccObject.Editor
-            visible: inPutCombo.count > 0
+            visible: dccData.model().inPutPortCombo.length !== 0
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10

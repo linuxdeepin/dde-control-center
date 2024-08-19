@@ -23,7 +23,7 @@ NavigationModel::NavigationModel(QObject *parent)
 {
 }
 
-void NavigationModel::setNavigationObject(const QVector<DccObject *> objs)
+void NavigationModel::setNavigationObject(const QVector<DccObject *> &objs)
 {
     beginResetModel();
     m_data.clear();

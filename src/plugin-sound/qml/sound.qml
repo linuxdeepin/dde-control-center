@@ -4,8 +4,8 @@ import org.deepin.dcc 1.0
 
 DccObject {
     name: "sound"
-    parentName: "device"
+    parentName: "system"
     displayName: qsTr("sound")
     icon: "system"
-    weight: 60
+    weight: 20
 }

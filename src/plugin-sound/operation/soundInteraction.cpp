@@ -27,7 +27,6 @@ soundInteraction::~soundInteraction()
 
 SoundModel *soundInteraction::model() const
 {
-    qWarning() <<__FUNCTION__<<__LINE__<<m_soundModel;
     return m_soundModel;
 }
 

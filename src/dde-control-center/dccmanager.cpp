@@ -12,6 +12,7 @@
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QTranslator>
 #include <QWindow>
 
 DCORE_USE_NAMESPACE
@@ -55,6 +56,19 @@ DccManager::~DccManager()
     // delete m_engine;
     // m_engine = nullptr;
     delete m_root;
+}
+
+bool DccManager::installTranslator(const QString &name)
+{
+    QTranslator *translator = new QTranslator();
+    bool loadOk = translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR);
+    if (loadOk) {
+        qApp->installTranslator(translator);
+    } else {
+        delete translator;
+        qCWarning(dccLog()) << "install translator fail:" << name << ", dir:" << TRANSLATE_READ_DIR;
+    }
+    return loadOk;
 }
 
 void DccManager::init()
