@@ -53,8 +53,8 @@ Page {
         }
 
         clip: true
-        cellWidth: 250
-        cellHeight: 69
+        cellWidth: 225
+        cellHeight: 68
 
         activeFocusOnTab: true
 
@@ -91,17 +91,14 @@ Page {
             id: dccModel
             root: dccObj
         }
-        // /*
         delegate: ItemDelegate {
-            // text: model.display
-            width: 240
-            height: 64
-            anchors.margins: 10
-            // radius: 8
+            width: 215
+            height: 58
+            padding: 12
             icon {
                 name: model.item.icon
-                width: 48
-                height: 48
+                width: 32
+                height: 32
             }
             contentFlow: true
             background: DccListViewBackground {
@@ -110,33 +107,30 @@ Page {
             clip: true
 
             content: RowLayout {
-                // Layout.fillWidth: true
+                Layout.fillWidth: true
                 Layout.fillHeight: true
                 ColumnLayout {
-                    // anchors.left: img.right
-                    // anchors.verticalCenter: parent.verticalCenter
-                    // Layout.fillWidth: true
-                    // Layout.maximumWidth: 150
-                    Layout.maximumWidth: 140
+                    Layout.leftMargin: 5
+                    Layout.maximumWidth: 130
                     Label {
                         id: display
-                        Layout.maximumWidth: 140
+                        Layout.maximumWidth: 130
                         text: model.display
-                        font: DTK.fontManager.t4
+                        color: palette.brightText
                         elide: Text.ElideRight
                     }
                     Label {
                         id: description
-                        Layout.maximumWidth: 140
+                        Layout.maximumWidth: 130
                         visible: text !== ""
-                        font: DTK.fontManager.t8
+                        font: DTK.fontManager.t10
                         text: updateDescription()
+                        color: palette.brightText
+                        opacity: 0.5
                         elide: Text.ElideRight
                         function updateDescription() {
-                            if (model.item.description === ""
-                                    && model.item.children.length > 0) {
-                                var len = model.item.children.length
-                                        < 3 ? model.item.children.length : 3
+                            if (model.item.description === "" && model.item.children.length > 0) {
+                                var len = model.item.children.length < 3 ? model.item.children.length : 3
                                 var desc = model.item.children[0].name
                                 for (var i = 1; i < len; ++i) {
                                     desc += qsTr(",") + model.item.children[i].name
@@ -155,7 +149,7 @@ Page {
                 }
                 Rectangle {
                     Layout.alignment: Qt.AlignRight
-                    Layout.rightMargin: 10
+                    Layout.rightMargin: -2
                     visible: model.item.badge !== 0
                     height: 16
                     width: 16

@@ -28,7 +28,6 @@ ItemDelegate {
         ColumnLayout {
             Label {
                 text: model.display
-                font: D.DTK.fontManager.t4
                 elide: Text.ElideRight
             }
             Label {

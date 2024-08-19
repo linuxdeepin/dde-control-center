@@ -13,9 +13,11 @@
 QT_BEGIN_NAMESPACE
 class QWindow;
 class QQmlApplicationEngine;
+class QAbstractItemModel;
 QT_END_NAMESPACE
 
 namespace dccV25 {
+class NavigationModel;
 class PluginManager;
 
 class DccManager : public DccApp
@@ -50,6 +52,7 @@ public Q_SLOTS:
     void showPage(const QString &url) override;
     void showPage(DccObject *obj, const QString &cmd) override;
     QWindow *mainWindow() override;
+    QAbstractItemModel *navModel() override;
     void setShowPath(const QString &path) override;
     // DBus Search
     QString search(const QString json);
@@ -89,6 +92,7 @@ private:
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
     QQmlApplicationEngine *m_engine;
+    NavigationModel *m_navModel;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H
