@@ -10,6 +10,9 @@ import org.deepin.dcc 1.0
 
 D.ApplicationWindow {
     id: root
+    property string appProductName: Qt.application.displayName
+    property string appLicense: "LGPL-3.0-or-later"
+
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
@@ -21,6 +24,22 @@ D.ApplicationWindow {
         icon.name: "preferences-system"
         focusPolicy: Qt.TabFocus
         activeFocusOnTab: true
+        implicitHeight: 40
+
+        aboutDialog: D.AboutDialog {
+            productIcon: "preferences-system"
+            modality: Qt.NonModal
+            productName: appProductName
+            companyLogo: "file://" + DTK.deepinDistributionOrgLogo
+            websiteName: DTK.deepinWebsiteName
+            websiteLink: DTK.deepinWebsiteLink
+            description: qsTr("qml inspect is used to developer as a debug tool.")
+            license: appLicense === "" ? "" : qsTr("%1 is released under %2").arg(appProductName).arg(appLicense)
+        }
+        embedMode: false
+        autoHideOnFullscreen: true
+        focus: true
+        Keys.onSpacePressed: Window.window.visibility = Window.FullScreen
     }
     Item {
         anchors.fill: titleBar
@@ -56,7 +75,7 @@ D.ApplicationWindow {
                 interval: 500
                 repeat: false
                 onTriggered: {
-                    homePage.visible = stackView.currentIndex === 0
+                    homePage.contentVisible = stackView.currentIndex === 0
                     secondPage.visible = stackView.currentIndex === 1
                 }
             }
@@ -64,12 +83,12 @@ D.ApplicationWindow {
                 target: DccApp
                 function onActiveObjectChanged(activeObject) {
                     if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
-                        homePage.visible = true
+                        homePage.contentVisible = true
                         secondPage.visible = true
                         stackView.currentIndex = 0
                         hideTimer.restart()
                     } else if (stackView.activePage !== 1 && DccApp.root !== DccApp.activeObject) {
-                        homePage.visible = true
+                        homePage.contentVisible = true
                         secondPage.visible = true
                         stackView.currentIndex = 1
                         hideTimer.restart()
@@ -80,8 +99,8 @@ D.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        root.width = 700 //DccApp.width
-        root.height = 472 //DccApp.height
+        root.width = DccApp.width
+        root.height = DccApp.height
         root.x = (Screen.width - root.width) / 2
         root.y = (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout

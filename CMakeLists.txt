@@ -106,7 +106,6 @@ endif()
 
 set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations" CACHE STRING "Install dir for dde-control-center translate files")
 
-add_definitions(-DTRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR}")
 # 输出目录
 set(DCC_LIBDIR ${PROJECT_BINARY_DIR}/lib)
 # 插件目录
@@ -116,11 +115,14 @@ set(DCC_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/dde-control-center)
 set(DCC_PREFIX "")
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(DCC_DEBUG_LIBDIR ${DCC_LIBDIR})
+    set(DCC_TRANSLATE_READ_DIR ${PROJECT_BINARY_DIR}/src/dde-control-center)
 else()
     set(DCC_DEBUG_LIBDIR ${DCC_INSTALL_DIR})
     set(DCC_PREFIX "/usr/")
+    set(DCC_TRANSLATE_READ_DIR ${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR})
 endif()
 
+add_definitions(-DTRANSLATE_READ_DIR="${DCC_TRANSLATE_READ_DIR}")
 # 插件安装目录
 set(DCC_PLUGINS_INSTALL_DIR ${DCC_DEBUG_LIBDIR}/${DCC_PLUGINS_DIR} CACHE STRING "Install dir for dde-control-center plugins")
 # 插件读取目录

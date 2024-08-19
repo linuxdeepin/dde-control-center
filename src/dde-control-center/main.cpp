@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     app->setApplicationVersion("6.0");
 #endif
     app->setWindowIcon(DIconTheme::findQIcon("preferences-system"));
-
+    dccV25::DccManager::installTranslator("dde-control-center");
     app->setApplicationDisplayName(QObject::tr("Control Center"));
     // app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 

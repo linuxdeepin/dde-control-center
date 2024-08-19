@@ -59,7 +59,7 @@ DccObject {
             }
             D.TipsSlider {
                 id: scrollSlider
-                readonly property var tips: [("Slow"), (""), (""), (""), (""), (""), ("Fast")]
+                readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
                 Layout.margins: 10
@@ -217,7 +217,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [("Scroll Page")]
+                model: [qsTr("Scroll Page")]
                 currentIndex: 0
             }
         }
@@ -230,7 +230,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [("Scroll Page")]
+                model: [qsTr("Scroll Page")]
                 currentIndex: 0
             }
         }
@@ -243,7 +243,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [("Scroll Page")]
+                model: [qsTr("Scroll Page")]
                 currentIndex: 0
             }
         }
