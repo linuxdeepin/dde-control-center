@@ -19,7 +19,7 @@ DccObject {
     DccObject {
         name: "title"
         parentName: parentObj.name
-        displayName: qsTr("选择打开“ ") + parentObj.displayName + qsTr("”的默认程序 ")
+        displayName: qsTr("Please choose the default program to open '%1'").arg(parentObj.displayName)
         weight: 10
         pageType: DccObject.Editor
         page: RowLayout {
