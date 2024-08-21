@@ -19,21 +19,39 @@ D.ApplicationWindow {
     color: "transparent"
     DWindow.enabled: true
 
+    Shortcut {
+        context: Qt.ApplicationShortcut
+        sequences: [StandardKey.HelpContents, "F1"]
+        onActivated: DccApp.showHelp()
+        onActivatedAmbiguously: DccApp.showHelp()
+    }
     D.TitleBar {
         id: titleBar
         icon.name: "preferences-system"
         focusPolicy: Qt.TabFocus
         activeFocusOnTab: true
         implicitHeight: 40
-
+        menu: Menu {
+            D.ThemeMenu {}
+            D.MenuSeparator {}
+            D.HelpAction {
+                onTriggered: DccApp.showHelp()
+            }
+            D.AboutAction {
+                aboutDialog: titleBar.aboutDialog
+            }
+            D.QuitAction {}
+        }
         aboutDialog: D.AboutDialog {
+            id: aboutDialog
+            DWindow.enabled: true
             productIcon: "preferences-system"
             modality: Qt.NonModal
             productName: appProductName
             companyLogo: "file://" + DTK.deepinDistributionOrgLogo
             websiteName: DTK.deepinWebsiteName
             websiteLink: DTK.deepinWebsiteLink
-            description: qsTr("qml inspect is used to developer as a debug tool.")
+            description: qsTr("Control Center provides the options for system settings.")
             license: appLicense === "" ? "" : qsTr("%1 is released under %2").arg(appProductName).arg(appLicense)
         }
         embedMode: false
@@ -69,6 +87,7 @@ D.ApplicationWindow {
             }
             SecondPage {
                 id: secondPage
+                visible: false
             }
             Timer {
                 id: hideTimer
@@ -87,7 +106,7 @@ D.ApplicationWindow {
                         secondPage.visible = true
                         stackView.currentIndex = 0
                         hideTimer.restart()
-                    } else if (stackView.activePage !== 1 && DccApp.root !== DccApp.activeObject) {
+                    } else if (stackView.currentIndex !== 1 && DccApp.root !== DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
                         stackView.currentIndex = 1

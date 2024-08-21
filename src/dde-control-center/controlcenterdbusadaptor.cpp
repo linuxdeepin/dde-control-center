@@ -29,7 +29,7 @@ ControlCenterDBusAdaptor::ControlCenterDBusAdaptor(DccManager *parent)
     : QDBusAbstractAdaptor(parent)
 {
     parent->mainWindow()->installEventFilter(this);
-    connect(parent, &DccManager::pathChanged, this, &ControlCenterDBusAdaptor::updatePage);
+    connect(parent, &DccManager::activeObjectChanged, this, &ControlCenterDBusAdaptor::updatePage);
 }
 
 ControlCenterDBusAdaptor::~ControlCenterDBusAdaptor() { }

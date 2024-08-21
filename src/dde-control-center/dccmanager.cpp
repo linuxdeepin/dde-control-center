@@ -9,6 +9,9 @@
 #include "pluginmanager.h"
 
 #include <QCoreApplication>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -46,8 +49,8 @@ DccManager::DccManager(QObject *parent)
 
 DccManager::~DccManager()
 {
-    int width_remember = m_window->width() > 1000 ? m_window->width() : 1000;
-    int height_remember = m_window->height() > 600 ? m_window->height() : 600;
+    int width_remember = m_window->width();
+    int height_remember = m_window->height();
 
     if (m_dconfig->isValid()) {
         m_dconfig->setValue(WidthConfig, width_remember);
@@ -61,14 +64,14 @@ DccManager::~DccManager()
 bool DccManager::installTranslator(const QString &name)
 {
     QTranslator *translator = new QTranslator();
-    bool loadOk = translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR);
-    if (loadOk) {
+    if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR)) {
         qApp->installTranslator(translator);
     } else {
         delete translator;
         qCWarning(dccLog()) << "install translator fail:" << name << ", dir:" << TRANSLATE_READ_DIR;
+        return false;
     }
-    return loadOk;
+    return true;
 }
 
 void DccManager::init()
@@ -102,26 +105,13 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
 int DccManager::width() const
 {
     auto w = m_dconfig->value(WidthConfig).toInt();
-    return w > 1000 ? w : 1000;
+    return w > 780 ? w : 780;
 }
 
 int DccManager::height() const
 {
     auto h = m_dconfig->value(HeightConfig).toInt();
-    return h > 600 ? h : 600;
-}
-
-QString DccManager::path() const
-{
-    QStringList path;
-    QString url;
-    for (auto obj : m_currentObjects) {
-        url += "/" + obj->name();
-        if (!obj->displayName().isEmpty()) {
-            path.append(QString("<a style=\"text-decoration: none;\" href=\"%1\">%2</a>").arg(url).arg(obj->displayName()));
-        }
-    }
-    return path.join(" / ");
+    return h > 530 ? h : 530;
 }
 
 DccObject *DccManager::object(const QString &name)
@@ -188,56 +178,19 @@ void DccManager::removeObject(const QString &name)
 
 void DccManager::showPage(const QString &url)
 {
-    qWarning() << __FUNCTION__ << __LINE__ << url;
+    qCInfo(dccLog()) << "show page:" << url;
     if (url.isEmpty()) {
         showPage(m_root, QString());
     } else {
         int i = url.indexOf('.');
         QString cmd = i != -1 ? url.mid(i + 1, -1) : QString();
-        qWarning() << __FUNCTION__ << __LINE__ << url.mid(0, i) << cmd;
         showPage(findObject(url.mid(0, i)), cmd);
     }
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
-    if (!obj || (m_activeObject == obj && cmd.isEmpty()))
-        return;
-    // m_backwardBtn->setVisible(obj != m_root);
-    QList<DccObject *> modules;
-    DccObject *tmpObj = obj;
-    while (tmpObj && (tmpObj->pageType() & DccObject::Control)) { // 页面中的控件，则激活项为父项
-        tmpObj = DccObject::Private(tmpObj).getParent();
-    }
-    if (!tmpObj) {
-        return;
-    }
-    modules.append(tmpObj);
-    DccObject *p = DccObject::Private::FromObject(tmpObj)->getParent();
-    while (p) {
-        p->setCurrentObject(tmpObj);
-        Q_EMIT p->active(QString());
-        modules.prepend(p);
-        tmpObj = p;
-        p = DccObject::Private::FromObject(p)->getParent();
-    }
-    while (!m_currentObjects.isEmpty()) {
-        DccObject *oldObj = m_currentObjects.takeLast();
-        if (!modules.contains(oldObj)) {
-            oldObj->setCurrentObject(nullptr);
-        }
-    }
-    if (!cmd.isEmpty()) {
-        Q_EMIT obj->active(cmd);
-    }
-    m_currentObjects = modules;
-    qCWarning(dccLog) << m_currentObjects;
-    if (m_currentObjects.last() != m_activeObject) {
-        m_activeObject = m_currentObjects.last();
-        Q_EMIT activeObjectChanged(m_activeObject);
-    }
-    m_navModel->setNavigationObject(m_currentObjects);
-    Q_EMIT pathChanged(path());
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
 }
 
 QWindow *DccManager::mainWindow()
@@ -246,6 +199,20 @@ QWindow *DccManager::mainWindow()
 }
 
 void DccManager::setShowPath(const QString &path) { }
+
+void DccManager::showHelp()
+{
+    QString helpTitle;
+    if (1 < m_currentObjects.count())
+        helpTitle = m_currentObjects.last()->name();
+    if (helpTitle.isEmpty())
+        helpTitle = "controlcenter";
+
+    const QString &dmanInterface = "com.deepin.Manual.Open";
+    QDBusMessage message = QDBusMessage::createMethodCall(dmanInterface, "/com/deepin/Manual/Open", dmanInterface, "OpenTitle");
+    message << "dde" << helpTitle;
+    QDBusConnection::sessionBus().asyncCall(message);
+}
 
 QString DccManager::search(const QString json)
 {
@@ -320,6 +287,49 @@ DccObject *DccManager::findObject(const QString &url)
         }
     }
     return nullptr;
+}
+
+void DccManager::doShowPage(DccObject *obj, const QString &cmd)
+{
+    if (!obj || (m_activeObject == obj && cmd.isEmpty()))
+        return;
+    // m_backwardBtn->setVisible(obj != m_root);
+    QList<DccObject *> modules;
+    DccObject *tmpObj = obj;
+    while (tmpObj && (tmpObj->pageType() & DccObject::Control)) { // 页面中的控件，则激活项为父项
+        tmpObj = DccObject::Private(tmpObj).getParent();
+    }
+    if (!tmpObj) {
+        return;
+    }
+    modules.append(tmpObj);
+    DccObject *p = DccObject::Private::FromObject(tmpObj)->getParent();
+    while (p) {
+        p->setCurrentObject(tmpObj);
+        Q_EMIT p->active(QString());
+        modules.prepend(p);
+        tmpObj = p;
+        p = DccObject::Private::FromObject(p)->getParent();
+    }
+    while (!m_currentObjects.isEmpty()) {
+        DccObject *oldObj = m_currentObjects.takeLast();
+        if (!modules.contains(oldObj)) {
+            oldObj->setCurrentObject(nullptr);
+        }
+        if (oldObj != m_root && oldObj != modules.last()) {
+            Q_EMIT oldObj->deactive();
+        }
+    }
+    if (!cmd.isEmpty()) {
+        Q_EMIT obj->active(cmd);
+    }
+    m_currentObjects = modules;
+    if (m_currentObjects.last() != m_activeObject) {
+        m_activeObject = m_currentObjects.last();
+        Q_EMIT activeObjectChanged(m_activeObject);
+    }
+    m_navModel->setNavigationObject(m_currentObjects);
+    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name();
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)

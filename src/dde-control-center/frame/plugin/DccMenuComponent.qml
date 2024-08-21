@@ -26,14 +26,15 @@ ItemDelegate {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
-            Label {
+            Layout.fillWidth: true
+            DccLabel {
+                Layout.fillWidth: true
                 text: model.display
-                elide: Text.ElideRight
             }
-            Label {
+            DccLabel {
+                Layout.fillWidth: true
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
-                elide: Text.ElideRight
                 text: model.item.description
             }
         }

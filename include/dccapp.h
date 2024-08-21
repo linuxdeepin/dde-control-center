@@ -23,11 +23,9 @@ public:
     Q_PROPERTY(int height READ height)
     Q_PROPERTY(DccObject * root READ root NOTIFY rootChanged)
     Q_PROPERTY(DccObject * activeObject READ activeObject NOTIFY activeObjectChanged)
-    Q_PROPERTY(QString path READ path NOTIFY pathChanged FINAL)
 
     virtual int width() const;
     virtual int height() const;
-    virtual QString path() const;
     virtual DccObject *root() const;
     virtual DccObject *activeObject() const;
 
@@ -45,7 +43,6 @@ public Q_SLOTS:
     virtual void removeSearch(const QString &key);
 
 Q_SIGNALS:
-    void pathChanged(const QString &path);
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
 

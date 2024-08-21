@@ -12,8 +12,12 @@ import org.deepin.dcc 1.0
 
 SplitView {
     id: root
-    property var activeObject: null
     orientation: Qt.Horizontal
+    handle: Rectangle {
+        implicitWidth: 2
+        color: palette.light // "#B9DEFB"
+    }
+
     StyledBehindWindowBlur {
         id: leftView
         control: null // DccApp.mainWindow()
@@ -74,65 +78,53 @@ SplitView {
     }
     Page {
         SplitView.minimumWidth: 500
-        ToolButton {
-            id: breakBut
-            icon.name: "arrow_ordinary_left"
-            anchors.left: parent.left
-            anchors.verticalCenter: crumb.verticalCenter
-            anchors.margins: 10
-            height: 16
-            width: 16
-            onClicked: dccObj.trigger()
-        }
-        Crumb {
-            id: crumb
-            anchors {
-                left: breakBut.right
-                leftMargin: 40
-                right: parent.right
-                rightMargin: 200
+        header: Item {
+            implicitHeight: 50
+            ToolButton {
+                id: breakBut
+                icon.name: "arrow_ordinary_left"
+                anchors {
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                    margins: 10
+                }
+                implicitHeight: 16
+                implicitWidth: 16
+                onClicked: dccObj.trigger()
             }
-            height: 50
-
-            model: DccApp.navModel()
-            onClicked: function (model) {
-                DccApp.showPage(model.url)
+            Crumb {
+                implicitHeight: parent.implicitHeight
+                anchors {
+                    left: breakBut.right
+                    leftMargin: 40
+                    right: parent.right
+                    rightMargin: 200
+                }
+                model: DccApp.navModel()
+                onClicked: function (model) {
+                    DccApp.showPage(model.url)
+                }
             }
         }
         StackView {
             id: rightView
             clip: true
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: crumb.bottom
-                bottom: parent.bottom
-            }
+            anchors.fill: parent
         }
     }
     Component {
         id: rightLayout
         DccRightView {}
     }
-    function updateActiveObj(obj: var) {
-        if (activeObject !== null) {
-            console.log("deactive", activeObject)
-            activeObject.deactive()
-        }
-        activeObject = obj
-    }
 
     function updateRightView() {
         var activeObj = DccApp.activeObject
         if (activeObj === dccObj) {
-            updateActiveObj(null)
             return
         }
-
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        updateActiveObj(activeObj)
         rightView.replace(activeObj.getSectionItem())
     }
     Connections {

@@ -35,7 +35,6 @@ public:
 
     int width() const override;
     int height() const override;
-    QString path() const override;
 
     inline DccObject *root() const override { return m_root; }
 
@@ -55,6 +54,7 @@ public Q_SLOTS:
     QWindow *mainWindow() override;
     QAbstractItemModel *navModel() override;
     void setShowPath(const QString &path) override;
+    void showHelp();
     // DBus Search
     QString search(const QString json);
     bool stop(const QString json);
@@ -72,6 +72,7 @@ private:
     DccObject *findObject(const QString &url);
 
 private Q_SLOTS:
+    void doShowPage(DccObject *obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
     void onTriggered();
     void onVisible(bool visible);

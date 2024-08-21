@@ -14,64 +14,72 @@ Page {
     id: root
     property bool contentVisible: true
 
-    Rectangle {
-        anchors {
-            top: parent.top
-            horizontalCenter: parent.horizontalCenter
-            margins: 10
-        }
+    property real cellWidth: 240
+    property real cellHeight: 64
+    property real cellSpacing: 10
 
-        visible: contentVisible
-        implicitHeight: 32
-        implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
-        color: "transparent"
-        radius: DS.Style.control.radius
-        border.color: "#E1E7EB"
-        border.width: 1
-
-        SearchEdit {
-            id: searchEdit
-            anchors.fill: parent
-            anchors.margins: 1
-            activeFocusOnTab: true
-
-            // focus: true
-            placeholderTextColor: palette.brightText
-            padding: 1
-
-            property Palette nomalPalette: Palette {
-                normal: ("#FCFCFC")
-                normalDark: ("#FCFCFC")
-                hovered: (palette.text)
-                hoveredDark: ("#FCFCFC")
+    header: Item {
+        implicitHeight:50
+        Rectangle {
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+                margins: 10
             }
 
-            backgroundColor: nomalPalette
-        }
-    }
-    Rectangle {
-        id: separator
-        y: 50
-        visible: contentVisible
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
+            visible: contentVisible
+            implicitHeight: 32
+            implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
+            color: "transparent"
+            radius: DS.Style.control.radius
+            border.color: palette.light // "#E1E7EB"
+            border.width: 1
 
-        color: "#F2F2F2"
-        // color: palette.placeholderText
-        height: 2
+            SearchEdit {
+                id: searchEdit
+                anchors.fill: parent
+                anchors.margins: 1
+                activeFocusOnTab: true
+
+                // focus: true
+                placeholderTextColor: palette.brightText
+                padding: 1
+
+                property Palette nomalPalette: Palette {
+                    normal: ("#FCFCFC")
+                    normalDark: ("#0C0C0C")
+                    hovered: (palette.text)
+                    hoveredDark: ("#FCFCFC")
+                }
+
+                backgroundColor: nomalPalette
+            }
+        }
+        Rectangle {
+            id: separator
+            visible: contentVisible
+            anchors {
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            color: palette.shadow // "#F2F2F2"
+            // color: palette.placeholderText
+            height: 2
+        }
     }
+
     function updateMargin() {
         if (width > grid.cellWidth) {
-            var count = parseInt((width - 10) / (grid.cellWidth))
+            var count = parseInt((width - root.cellSpacing) / (grid.cellWidth))
             var length = dccObj.children.length
             if (length < count) {
                 count = length
             }
-            grid.anchors.leftMargin = (width - count * (grid.cellWidth)) / 2 + 5
+            grid.anchors.leftMargin = (width - count * (grid.cellWidth)) / 2 + (root.cellSpacing / 2)
         } else {
-            grid.anchors.leftMargin = 10
+            grid.anchors.leftMargin = root.cellSpacing
         }
     }
     onWidthChanged: updateMargin()
@@ -85,17 +93,15 @@ Page {
         id: grid
 
         anchors {
-            top: separator.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-            topMargin: 10
-            leftMargin: 10
+            fill: parent
+            topMargin: root.cellSpacing
+            leftMargin: root.cellSpacing
         }
 
         clip: true
-        cellWidth: 225
-        cellHeight: 68
+        cellWidth: root.cellWidth + root.cellSpacing
+        cellHeight: root.cellHeight + root.cellSpacing
+
         visible: contentVisible
 
         activeFocusOnTab: true
@@ -134,8 +140,8 @@ Page {
             root: dccObj
         }
         delegate: ItemDelegate {
-            width: 215
-            height: 58
+            width: root.cellWidth
+            height: root.cellHeight
             padding: 12
             icon {
                 name: model.item.icon
@@ -153,17 +159,17 @@ Page {
                 Layout.fillHeight: true
                 ColumnLayout {
                     Layout.leftMargin: 5
-                    Layout.maximumWidth: 130
+                    Layout.maximumWidth: 160
                     Label {
                         id: display
-                        Layout.maximumWidth: 130
+                        Layout.maximumWidth: 160
                         text: model.display
                         color: palette.brightText
                         elide: Text.ElideRight
                     }
                     Label {
                         id: description
-                        Layout.maximumWidth: 130
+                        Layout.maximumWidth: 160
                         visible: text !== ""
                         font: DTK.fontManager.t10
                         text: updateDescription()
