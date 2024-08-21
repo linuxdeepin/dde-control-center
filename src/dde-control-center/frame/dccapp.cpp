@@ -30,11 +30,6 @@ int DccApp::height() const
     return 0;
 }
 
-QString DccApp::path() const
-{
-    return QString();
-}
-
 DccObject *DccApp::root() const
 {
     return nullptr;

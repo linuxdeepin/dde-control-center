@@ -383,6 +383,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
         QQmlContext *context = new QQmlContext(creationContext);
         context->setContextProperty("dccObj", this);
+#if 0
         QObject *nobj = p_ptr->m_page->beginCreate(context);
         if (nobj) {
             p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(nobj);
@@ -406,6 +407,8 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
             delete context;
         }
         p_ptr->m_page->completeCreate();
+#endif
+        p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
     }
     return p_ptr->m_sectionItem;
 }

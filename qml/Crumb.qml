@@ -4,6 +4,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.3
 import Qt.labs.qmlmodels 1.2
 
+import org.deepin.dcc 1.0
+
 Rectangle {
     id: root
     property alias model: repeater.model
@@ -53,7 +55,7 @@ Rectangle {
                 role: "type"
                 DelegateChoice {
                     roleValue: 0
-                    delegate: Label {
+                    delegate: DccLabel {
                         text: " / "
                         clip: true
                         elide: Text.ElideLeft
@@ -62,31 +64,22 @@ Rectangle {
                 }
                 DelegateChoice {
                     roleValue: 1
-                    delegate: Label {
-                        property bool hovered: false
+                    delegate: DccLabel {
                         text: model.display
                         color: hovered ? palette.link : palette.text
                         clip: true
                         elide: Text.ElideLeft
                         MouseArea {
                             anchors.fill: parent
-                            hoverEnabled: true
                             onClicked: {
-                                console.log(index, model.url)
                                 root.clicked(model)
-                            }
-                            onEntered: {
-                                hovered = true
-                            }
-                            onExited: {
-                                hovered = false
                             }
                         }
                     }
                 }
                 DelegateChoice {
                     roleValue: 2
-                    delegate: Label {
+                    delegate: DccLabel {
                         text: model.display
                         clip: true
                         elide: Text.ElideLeft

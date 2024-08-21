@@ -22,7 +22,4 @@ ItemDelegate {
         id: background
         separatorVisible: false
     }
-    Component.onDestruction: {
-        root.item.deactive()
-    }
 }
