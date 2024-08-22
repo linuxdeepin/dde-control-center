@@ -1,3 +1,9 @@
+dde-control-center (6.0.63) unstable; urgency=medium
+
+  * fix: set search popup distance from searchLineEdit to 8 (#1675)(Issue: 10398)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 22 Aug 2024 11:02:02 +0800
+
 dde-control-center (6.0.62) unstable; urgency=medium
 
   * bump version to 6.0.62
