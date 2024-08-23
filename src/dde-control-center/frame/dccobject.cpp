@@ -317,6 +317,18 @@ bool DccObject::isEnabledToApp() const
     return !p_ptr->getFlagState(DCC_ALL_DISABLED);
 }
 
+bool DccObject::canSearch() const
+{
+    return !p_ptr->getFlagState(DCC_CANSEARCH);
+}
+
+void DccObject::setCanSearch(bool canSearch)
+{
+    if (p_ptr->setFlagState(DCC_CANSEARCH, !canSearch)) {
+        Q_EMIT canSearchChanged(canSearch);
+    }
+}
+
 bool DccObject::hasBackground() const
 {
     return p_ptr->getFlagState(DCC_HASBACKGROUND);

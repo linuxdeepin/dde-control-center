@@ -55,12 +55,17 @@ void DccApp::showPage(const QString &url) { }
 
 void DccApp::showPage(DccObject *obj, const QString &cmd) { }
 
-QWindow *DccApp::mainWindow()
+QWindow *DccApp::mainWindow() const
 {
     return nullptr;
 }
 
-QAbstractItemModel *DccApp::navModel()
+QAbstractItemModel *DccApp::navModel() const
+{
+    return nullptr;
+}
+
+QSortFilterProxyModel *DccApp::searchModel() const
 {
     return nullptr;
 }

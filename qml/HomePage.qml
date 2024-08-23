@@ -19,40 +19,11 @@ Page {
     property real cellSpacing: 10
 
     header: Item {
-        implicitHeight:50
-        Rectangle {
-            anchors {
-                top: parent.top
-                horizontalCenter: parent.horizontalCenter
-                margins: 10
-            }
-
-            visible: contentVisible
-            implicitHeight: 32
-            implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
-            color: "transparent"
-            radius: DS.Style.control.radius
-            border.color: palette.light // "#E1E7EB"
-            border.width: 1
-
-            SearchEdit {
-                id: searchEdit
-                anchors.fill: parent
-                anchors.margins: 1
-                activeFocusOnTab: true
-
-                // focus: true
-                placeholderTextColor: palette.brightText
-                padding: 1
-
-                property Palette nomalPalette: Palette {
-                    normal: ("#FCFCFC")
-                    normalDark: ("#0C0C0C")
-                    hovered: (palette.text)
-                    hoveredDark: ("#FCFCFC")
-                }
-
-                backgroundColor: nomalPalette
+        implicitHeight: 50
+        SearchBar {
+            model: DccApp.searchModel()
+            onClicked: function (model) {
+                DccApp.showPage(model.url)
             }
         }
         Rectangle {

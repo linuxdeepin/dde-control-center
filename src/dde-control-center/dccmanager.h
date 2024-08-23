@@ -18,6 +18,7 @@ QT_END_NAMESPACE
 
 namespace dccV25 {
 class NavigationModel;
+class SearchModel;
 class PluginManager;
 
 class DccManager : public DccApp
@@ -51,14 +52,15 @@ public Q_SLOTS:
     void removeObject(const QString &name) override;
     void showPage(const QString &url) override;
     void showPage(DccObject *obj, const QString &cmd) override;
-    QWindow *mainWindow() override;
-    QAbstractItemModel *navModel() override;
+    QWindow *mainWindow() const override;
+    QAbstractItemModel *navModel() const override;
+    QSortFilterProxyModel *searchModel() const override;
     void setShowPath(const QString &path) override;
     void showHelp();
     // DBus Search
-    QString search(const QString json);
-    bool stop(const QString json);
-    bool action(const QString json);
+    QString search(const QString &json);
+    bool stop(const QString &json);
+    bool action(const QString &json);
 
     // Q_SIGNALS:
     //     void pathChanged(const QString &path);
@@ -76,6 +78,9 @@ private Q_SLOTS:
     void updateModuleConfig(const QString &key);
     void onTriggered();
     void onVisible(bool visible);
+    void onObjectAdded(DccObject *obj);
+    void onObjectRemoved(DccObject *obj);
+    void onObjectDisplayChanged();
     bool addObjectToParent(DccObject *obj);
     bool removeObjectFromParent(DccObject *obj);
 
@@ -95,6 +100,7 @@ private:
     QSet<QString> m_disableModule;
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
+    SearchModel *m_searchModel;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H

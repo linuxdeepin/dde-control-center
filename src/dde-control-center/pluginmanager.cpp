@@ -238,7 +238,7 @@ void PluginManager::mainLoading()
         createMain(component);
 }
 
-void loadPlugin(const QPair<PluginManager *, PluginData *> &pair)
+void loadPlugin(const QPair<PluginManager *, PluginData *> pair)
 {
     PluginManager *self = pair.first;
     PluginData *plugin = pair.second;

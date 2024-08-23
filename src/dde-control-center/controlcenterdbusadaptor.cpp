@@ -180,24 +180,30 @@ DccManager *DBusControlCenterGrandSearchService::parent() const
 }
 
 // 匹配搜索结果
-QString DBusControlCenterGrandSearchService::Search(const QString json)
+QString DBusControlCenterGrandSearchService::Search(const QString &json)
 {
+    if(json == m_jsonCache){
+        return QString();
+    }
+    m_jsonCache = json;
     QString val = parent()->search(json);
     m_autoExitTimer->start();
     return val;
 }
 
 // 停止搜索
-bool DBusControlCenterGrandSearchService::Stop(const QString json)
+bool DBusControlCenterGrandSearchService::Stop(const QString &json)
 {
+    m_jsonCache.clear();
     bool val = parent()->stop(json);
     m_autoExitTimer->start();
     return val;
 }
 
 // 执行搜索
-bool DBusControlCenterGrandSearchService::Action(const QString json)
+bool DBusControlCenterGrandSearchService::Action(const QString &json)
 {
+    m_jsonCache.clear();
     bool val = parent()->action(json);
     m_autoExitTimer->start();
     return val;

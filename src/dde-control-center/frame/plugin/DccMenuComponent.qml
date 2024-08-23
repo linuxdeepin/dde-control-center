@@ -9,8 +9,9 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 ItemDelegate {
-    property alias isGroup: background.isGroup
+    property bool isGroup: false
     property alias separatorVisible: background.separatorVisible
+    corners: isGroup ? getCornersForBackground(index, model.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
 
     Layout.fillWidth: true
     topInset: 5
