@@ -14,9 +14,7 @@ Item {
     implicitHeight: DS.Style.itemDelegate.height
     property bool separatorVisible: false
     property bool highlightEnable: true
-    property bool isGroup: false
     property alias control: root.parent
-    property int position: isGroup ? updatePosition() : 0
 
     Loader {
         anchors.fill: parent
@@ -25,38 +23,6 @@ Item {
             color: palette.base
             radius: DS.Style.control.radius
             corners: control.corners
-        }
-    }
-    Loader {
-        id: rectBg
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
-        active: position != 0 && position != 4
-        sourceComponent: Rectangle {
-            color: palette.base
-        }
-        function updateItemBg() {
-            switch (position) {
-            case 1:
-                // Beginning
-                anchors.top = parent.verticalCenter
-                anchors.bottom = parent.bottom
-                break
-            case 2:
-                // Middle
-                anchors.top = parent.top
-                anchors.bottom = parent.bottom
-                break
-            case 3:
-                // End
-                anchors.top = parent.top
-                anchors.bottom = parent.verticalCenter
-                break
-            default:
-                break
-            }
         }
     }
 
@@ -83,23 +49,4 @@ Item {
         active: highlightEnable && checked && !control.cascadeSelected
         sourceComponent: D.HighlightPanel {}
     }
-
-    function updatePosition() {
-        let count = 0
-        if (model.count) {
-            count = model.count
-        } else if (control.ListView.view) {
-            count = control.ListView.view.count
-        }
-
-        if (index == 0) {
-            position = count === 1 ? 4 : 1
-        } else if (index === count - 1) {
-            position = 3
-        } else {
-            position = 2
-        }
-        return position
-    }
-    onPositionChanged: rectBg.updateItemBg()
 }

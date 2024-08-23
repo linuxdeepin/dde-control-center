@@ -168,6 +168,6 @@ int main(int argc, char *argv[])
     }
 #endif
     int exitCode = app->exec();
-    delete dccManager;
+    // delete dccManager;
     return exitCode;
 }

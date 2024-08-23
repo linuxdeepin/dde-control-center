@@ -67,12 +67,13 @@ public:
     inline DccManager *parent() const;
 
 public Q_SLOTS: // METHODS
-    QString Search(const QString json);
-    bool Stop(const QString json);
-    bool Action(const QString json);
+    QString Search(const QString &json);
+    bool Stop(const QString &json);
+    bool Action(const QString &json);
 
 private:
     QTimer *m_autoExitTimer;
+    QString m_jsonCache; // 缓存下对重复请求不处理(规避全局搜索会调两次Search)
 };
 
 } // namespace dccV25

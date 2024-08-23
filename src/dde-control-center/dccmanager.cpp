@@ -7,11 +7,15 @@
 #include "dccobject_p.h"
 #include "navigationmodel.h"
 #include "pluginmanager.h"
+#include "searchmodel.h"
 
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -27,6 +31,8 @@ const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
+const QString ControlCenterIcon = QStringLiteral("preferences-system");
+const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
 DccManager::DccManager(QObject *parent)
     : DccApp(parent)
@@ -37,13 +43,15 @@ DccManager::DccManager(QObject *parent)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), this))
     , m_engine(nullptr)
     , m_navModel(new NavigationModel(this))
+    , m_searchModel(new SearchModel(this))
 {
     m_root->setName("root");
     m_root->setDefultObject(nullptr);
+    m_root->setCanSearch(false);
     m_currentObjects.append(m_root);
+    onObjectAdded(m_root);
 
     initConfig();
-    connect(m_root, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
 }
 
@@ -137,8 +145,6 @@ void DccManager::addObject(DccObject *obj)
         if (o->parentName().isEmpty()) {
             m_noParentObjects.insert(o);
         } else {
-            connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
-            connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::QueuedConnection);
             if (contains(m_hideModule, o)) {
                 DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
             }
@@ -193,7 +199,7 @@ void DccManager::showPage(DccObject *obj, const QString &cmd)
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
 }
 
-QWindow *DccManager::mainWindow()
+QWindow *DccManager::mainWindow() const
 {
     return m_window;
 }
@@ -214,24 +220,78 @@ void DccManager::showHelp()
     QDBusConnection::sessionBus().asyncCall(message);
 }
 
-QString DccManager::search(const QString json)
+QString DccManager::search(const QString &json)
 {
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if (!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+
+        // 处理搜索任务, 返回搜索结果
+        QJsonArray items;
+        m_searchModel->setFilterRegularExpression(jsonObject.value("cont").toString());
+        qCDebug(dccLog()) << "search key:" << jsonObject.value("cont").toString();
+        for (int i = 0; i < m_searchModel->rowCount(); ++i) {
+            QJsonObject jsonObj;
+            jsonObj.insert("item", m_searchModel->data(m_searchModel->index(i, 0), SearchModel::SearchUrlRole).toString());
+            jsonObj.insert("name", m_searchModel->data(m_searchModel->index(i, 0), SearchModel::SearchPlainTextRole).toString());
+            jsonObj.insert("icon", ControlCenterIcon);
+            jsonObj.insert("type", "application/x-dde-control-center-xx");
+            qCDebug(dccLog()) << "search results:" << jsonObj["name"].toString();
+            items.insert(i, jsonObj);
+        }
+
+        QJsonObject objCont;
+        objCont.insert("group", ControlCenterGroupName);
+        objCont.insert("items", items);
+
+        QJsonArray arrConts;
+        arrConts.insert(0, objCont);
+
+        QJsonObject jsonResults;
+        jsonResults.insert("ver", jsonObject.value("ver"));
+        jsonResults.insert("mID", jsonObject.value("mID"));
+        jsonResults.insert("cont", arrConts);
+
+        QJsonDocument document;
+        document.setObject(jsonResults);
+
+        return document.toJson(QJsonDocument::Compact);
+    }
+
     return QString();
 }
 
-bool DccManager::stop(const QString json)
+bool DccManager::stop(const QString &)
 {
     return true;
 }
 
-bool DccManager::action(const QString json)
+bool DccManager::action(const QString &json)
 {
+    QString searchName;
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if (!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+        if (jsonObject.value("action") == "openitem") {
+            // 打开item的操作
+            searchName = jsonObject.value("item").toString();
+        }
+    }
+
+    mainWindow()->show();
+    mainWindow()->requestActivate();
+    showPage(searchName);
     return true;
 }
 
-QAbstractItemModel *DccManager::navModel()
+QAbstractItemModel *DccManager::navModel() const
 {
     return m_navModel;
+}
+
+QSortFilterProxyModel *DccManager::searchModel() const
+{
+    return m_searchModel;
 }
 
 void DccManager::initConfig()
@@ -397,6 +457,58 @@ void DccManager::onVisible(bool visible)
     } else {
         removeObjectFromParent(obj);
         noRepeatAdd(m_hideObjects, obj);
+    }
+}
+
+void DccManager::onObjectAdded(DccObject *obj)
+{
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        auto o = objs.takeFirst();
+        connect(o, &DccObject::childAdded, this, &DccManager::onObjectAdded);
+        connect(o, &DccObject::childRemoved, this, &DccManager::onObjectRemoved);
+        connect(o, &DccObject::displayNameChanged, this, &DccManager::onObjectDisplayChanged);
+        connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
+        connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+        m_searchModel->addSearchData(obj, QString(), QString());
+        objs.append(o->getChildren());
+    }
+}
+
+void DccManager::onObjectRemoved(DccObject *obj)
+{
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        auto o = objs.takeFirst();
+        disconnect(o, &DccObject::childAdded, this, nullptr);
+        disconnect(o, &DccObject::childRemoved, this, nullptr);
+        disconnect(o, &DccObject::triggered, this, nullptr);
+        disconnect(o, &DccObject::displayNameChanged, this, nullptr);
+        m_searchModel->removeSearchData(o, QString());
+        objs.append(o->getChildren());
+    }
+
+    DccObject *current = m_root;
+    while (current) {
+        if (current == obj) {
+            showPage(QString());
+            break;
+        }
+        current = current->currentObject();
+        if (current && !current->currentObject()) {
+            break;
+        }
+    }
+}
+
+void DccManager::onObjectDisplayChanged()
+{
+    DccObject *obj = qobject_cast<DccObject *>(sender());
+    if (obj) {
+        m_searchModel->removeSearchData(obj, QString());
+        m_searchModel->addSearchData(obj, QString(), QString());
     }
 }
 
