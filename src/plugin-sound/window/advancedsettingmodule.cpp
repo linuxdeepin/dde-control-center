@@ -52,10 +52,6 @@ void AdvancedSettingModule::initUI()
                         &DListView::clicked,
                         this,
                         &AdvancedSettingModule::onAudioServerChecked);
-                // 被点击时设置为不可选中状态，直到切换结束
-                connect(audiorListView, &DListView::clicked, this, [this](const QModelIndex &) {
-                    m_audioListModule->setDisabled(true);
-                });
 
                 return audiorListView;
             },
@@ -99,9 +95,13 @@ void AdvancedSettingModule::onAudioServerChecked(const QModelIndex &index)
     for (int i = 0; i < row_count; i++) {
         QStandardItem *item = m_audioItemModel->item(i, 0);
         if (item && (index.row() == i)) {
-            qDebug() << "switch AudioFrame " << item->text();
-            item->setCheckState(Qt::Checked);
-            Q_EMIT setCurAudioServer(item->text().toLower());
+            if (item->checkState() != Qt::Checked) {
+                // 被点击时设置为不可选中状态，直到切换结束
+                m_audioListModule->setDisabled(true);
+                qDebug() << "switch AudioFrame " << item->text();
+                item->setCheckState(Qt::Checked);
+                Q_EMIT setCurAudioServer(item->text().toLower());
+            }
         } else if (item) { // 如果不加此判断，item会出现空指针
             item->setCheckState(Qt::Unchecked);
         }
