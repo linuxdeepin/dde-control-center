@@ -76,15 +76,17 @@ SplitView {
             }
         }
     }
-    Page {
+
+    Control {
         SplitView.minimumWidth: 500
-        header: Item {
+        Item {
+            id: header
             implicitHeight: 50
             ToolButton {
                 id: breakBut
                 icon.name: "arrow_ordinary_left"
                 anchors {
-                    left: parent.left
+                    left: parent.right
                     verticalCenter: parent.verticalCenter
                     margins: 10
                 }
@@ -92,12 +94,14 @@ SplitView {
                 implicitWidth: 16
                 onClicked: dccObj.trigger()
             }
+
             Crumb {
                 implicitHeight: parent.implicitHeight
+                implicitWidth: 160
                 anchors {
                     left: breakBut.right
                     leftMargin: 40
-                    right: parent.right
+                    // right: parent.right
                     rightMargin: 200
                 }
                 model: DccApp.navModel()
@@ -107,9 +111,18 @@ SplitView {
             }
         }
         StackView {
+            anchors.top: header.bottom
+            anchors.topMargin: header.height
             id: rightView
             clip: true
             anchors.fill: parent
+        }
+
+        Rectangle {
+            id: background
+            z: -1
+            anchors.fill: parent
+            color: palette.window
         }
     }
     Component {

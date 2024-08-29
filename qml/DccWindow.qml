@@ -59,21 +59,11 @@ D.ApplicationWindow {
         focus: true
         Keys.onSpacePressed: Window.window.visibility = Window.FullScreen
     }
-    Item {
-        anchors.fill: titleBar
-        DragHandler {
-            grabPermissions: TapHandler.CanTakeOverFromAnything
-            onActiveChanged: function () {
-                if (active) {
-                    root.startSystemMove()
-                }
-            }
-        }
-    }
 
     Control {
         id: centralView
         focusPolicy: Qt.TabFocus
+        hoverEnabled: false
         anchors.fill: parent
     }
     Component {

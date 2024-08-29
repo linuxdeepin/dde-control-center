@@ -9,8 +9,7 @@ import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
-
-Page {
+Control {
     id: root
     property bool contentVisible: true
 
@@ -18,8 +17,16 @@ Page {
     property real cellHeight: 64
     property real cellSpacing: 10
 
-    header: Item {
+    Item {
+        id: header
         implicitHeight: 50
+        anchors {
+            // bottom: parent.bottom
+            top: parent.top
+            left: parent.left
+            right: parent.right
+        }
+
         SearchBar {
             model: DccApp.searchModel()
             onClicked: function (model) {
@@ -60,12 +67,20 @@ Page {
             updateMargin()
         }
     }
+
+    Rectangle {
+        id: background
+        z: -1
+        anchors.fill: parent
+        color: palette.window
+    }
+
     GridView {
         id: grid
 
         anchors {
             fill: parent
-            topMargin: root.cellSpacing
+            topMargin: root.cellSpacing + header.height
             leftMargin: root.cellSpacing
         }
 
