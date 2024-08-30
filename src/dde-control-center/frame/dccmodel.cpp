@@ -163,7 +163,7 @@ QVariant DccModel::data(const QModelIndex &index, int role) const
     // qCWarning(dccLog) << __FUNCTION__ << index << role;
     if (!index.isValid())
         return QVariant();
-    const DccObject *item = static_cast<const DccObject *>(index.internalPointer());
+    DccObject *item = static_cast<DccObject *>(index.internalPointer());
     switch (role) {
     case DccItemRole:
         return QVariant::fromValue(item);

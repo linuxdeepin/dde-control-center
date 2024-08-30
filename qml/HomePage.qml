@@ -28,6 +28,7 @@ Control {
         }
 
         SearchBar {
+            visible: contentVisible
             model: DccApp.searchModel()
             onClicked: function (model) {
                 DccApp.showPage(model.url)

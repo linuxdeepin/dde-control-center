@@ -57,6 +57,7 @@ DccManager::DccManager(QObject *parent)
 
 DccManager::~DccManager()
 {
+    qCDebug(dccLog()) << "delete dccManager";
     int width_remember = m_window->width();
     int height_remember = m_window->height();
 
@@ -64,9 +65,15 @@ DccManager::~DccManager()
         m_dconfig->setValue(WidthConfig, width_remember);
         m_dconfig->setValue(HeightConfig, height_remember);
     }
-    // delete m_engine;
-    // m_engine = nullptr;
+#ifdef QT_DEBUG
+    // TODO: delete m_engine会有概率崩溃
+    qCDebug(dccLog()) << "delete m_engine";
+    delete m_engine;
+    qCDebug(dccLog()) << "clear m_engine";
+    m_engine = nullptr;
+#endif
     delete m_root;
+    qCDebug(dccLog()) << "delete m_root";
 }
 
 bool DccManager::installTranslator(const QString &name)
@@ -124,7 +131,7 @@ int DccManager::height() const
 
 DccObject *DccManager::object(const QString &name)
 {
-    return nullptr;
+    return findObject(name);
 }
 
 inline void noRepeatAdd(QVector<DccObject *> &list, DccObject *obj)
@@ -356,8 +363,8 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     // m_backwardBtn->setVisible(obj != m_root);
     QList<DccObject *> modules;
     DccObject *tmpObj = obj;
-    while (tmpObj && (tmpObj->pageType() & DccObject::Control)) { // 页面中的控件，则激活项为父项
-        tmpObj = DccObject::Private(tmpObj).getParent();
+    while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项
+        tmpObj = DccObject::Private::FromObject(tmpObj)->getParent();
     }
     if (!tmpObj) {
         return;
@@ -389,7 +396,10 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         Q_EMIT activeObjectChanged(m_activeObject);
     }
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name();
+    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << obj->anchorsItem();
+    if (obj->anchorsItem()) {
+        Q_EMIT activeItemChanged(obj->anchorsItem());
+    }
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)

@@ -19,13 +19,18 @@ Rectangle {
         margins: 10
     }
 
-    visible: contentVisible
     implicitHeight: 32
     implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
     color: "transparent"
     radius: DS.Style.control.radius
-    border.color: palette.light // "#E1E7EB"
+    border.color: palette.light // "#E1E7EB" #D2E4F2
     border.width: 1
+    opacity: 0.7
+
+    onVisibleChanged: {
+        searchEdit.text = ""
+        popup.close()
+    }
 
     SearchEdit {
         id: searchEdit
@@ -57,6 +62,43 @@ Rectangle {
                 }
             }
         }
+        Keys.enabled: true
+        Keys.onPressed: function (event) {
+            switch (event.key) {
+            case Qt.Key_Escape:
+                popup.close()
+                break
+            case Qt.Key_Down:
+            {
+                view.forceActiveFocus()
+                let cIndex = view.currentIndex + 1
+                if (cIndex < 0) {
+                    cIndex = 0
+                }
+                view.currentIndex = cIndex
+            }
+            break
+            case Qt.Key_Up:
+            {
+                view.forceActiveFocus()
+                let cIndex = view.currentIndex - 1
+                if (cIndex < 0) {
+                    cIndex = 0
+                }
+                view.currentIndex = cIndex
+            }
+            break
+            case Qt.Key_Return:
+            case Qt.Key_Enter:
+                if (view.currentItem) {
+                    view.currentItem.clicked()
+                }
+                break
+            default:
+                return
+            }
+            event.accepted = true
+        }
     }
     Popup {
         id: popup
@@ -74,12 +116,14 @@ Rectangle {
                 corners: getCornersForBackground(index, view.count)
                 icon.name: model.decoration
                 // text: model.display
+                checked: ListView.isCurrentItem
                 contentFlow: true
                 content: DccLabel {
-                    text: model.display
+                    text: model.display ? model.display : ""
                 }
                 onClicked: {
                     root.clicked(model)
+                    popup.close()
                 }
                 background: DccListViewBackground {
                     separatorVisible: model.isBegin

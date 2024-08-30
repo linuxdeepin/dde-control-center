@@ -25,4 +25,7 @@ ItemDelegate {
         id: background
         separatorVisible: false
     }
+    Component.onCompleted: {
+        model.item.anchorsItem = root
+    }
 }

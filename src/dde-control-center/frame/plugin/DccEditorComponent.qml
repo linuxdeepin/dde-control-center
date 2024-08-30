@@ -33,6 +33,7 @@ D.ItemDelegate {
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
                 text: model.item.description
+                opacity: 0.5
             }
         }
         Control {
@@ -44,5 +45,8 @@ D.ItemDelegate {
     background: DccListViewBackground {
         id: background
         separatorVisible: false
+    }
+    Component.onCompleted: {
+        model.item.anchorsItem = root
     }
 }

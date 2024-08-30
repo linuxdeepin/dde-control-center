@@ -47,6 +47,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
+    void activeItemChanged(QQuickItem *item);
 
 protected:
     explicit DccApp(QObject *parent = nullptr);
