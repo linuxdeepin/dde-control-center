@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DCC_BIN=@CMAKE_INSTALL_PREFIX@/@DCC_DEBUG_LIBDIR@/
+if [ "$DDE_CURRENT_COMPOSITOR" = "treeland" ]; then
+    DCC_BIN=${DCC_BIN}dde-control-center
+else
+    DCC_BIN=${DCC_BIN}dde-control-center-old
+fi
+
+${DCC_BIN} "$@"

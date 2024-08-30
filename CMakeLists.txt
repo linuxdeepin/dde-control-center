@@ -19,6 +19,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(ENABLE_ASAN "Enable asan" OFF)
 option(BUILD_TESTING "UNIT test" OFF)
 
+# dcc-v23
+set(BUILD_DCC_OLD ON)
+if (BUILD_DCC_OLD)
+    add_subdirectory(dcc-old)
+endif()
+
 set(QT_NS Qt6)
 set(DTK_NS Dtk6)
 set(ASQT_NS AppStreamQt)
@@ -167,6 +173,13 @@ set(Test_Libraries
     GTest::gtest
     Qt::Test
 )
+if (BUILD_DCC_OLD)
+    configure_file(
+        ${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center.in
+        ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center
+        @ONLY)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center DESTINATION ${CMAKE_INSTALL_BINDIR})
+endif()
 
 add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------
