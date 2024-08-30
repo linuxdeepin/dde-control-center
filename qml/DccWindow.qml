@@ -13,6 +13,8 @@ D.ApplicationWindow {
     property string appProductName: Qt.application.displayName
     property string appLicense: "LGPL-3.0-or-later"
 
+    minimumWidth: 500
+    minimumHeight: 200
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal

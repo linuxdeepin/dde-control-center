@@ -24,14 +24,21 @@ SplitView {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        SplitView.preferredWidth: 300
+        SplitView.preferredWidth: 180
 
-        SearchEdit {
+        SearchBar {
             id: searchEdit
-            y: 50
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: 10
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: 10
+                topMargin: 50
+            }
+
+            model: DccApp.searchModel()
+            onClicked: function (model) {
+                DccApp.showPage(model.url)
+            }
         }
         ListView {
             id: list
@@ -77,19 +84,21 @@ SplitView {
         }
     }
 
-    Control {
+    Rectangle {
         SplitView.minimumWidth: 500
-        Item {
+        color: palette.window
+        RowLayout {
             id: header
             implicitHeight: 50
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
             ToolButton {
                 id: breakBut
                 icon.name: "arrow_ordinary_left"
-                anchors {
-                    left: parent.right
-                    verticalCenter: parent.verticalCenter
-                    margins: 10
-                }
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                Layout.margins: 10
                 implicitHeight: 16
                 implicitWidth: 16
                 onClicked: dccObj.trigger()
@@ -98,12 +107,9 @@ SplitView {
             Crumb {
                 implicitHeight: parent.implicitHeight
                 implicitWidth: 160
-                anchors {
-                    left: breakBut.right
-                    leftMargin: 40
-                    // right: parent.right
-                    rightMargin: 200
-                }
+                Layout.fillWidth: true
+                Layout.leftMargin: 40
+                Layout.rightMargin: 200
                 model: DccApp.navModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
@@ -111,18 +117,14 @@ SplitView {
             }
         }
         StackView {
-            anchors.top: header.bottom
-            anchors.topMargin: header.height
             id: rightView
             clip: true
-            anchors.fill: parent
-        }
-
-        Rectangle {
-            id: background
-            z: -1
-            anchors.fill: parent
-            color: palette.window
+            anchors {
+                top: header.bottom
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+            }
         }
     }
     Component {

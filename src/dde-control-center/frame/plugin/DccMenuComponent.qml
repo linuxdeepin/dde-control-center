@@ -37,6 +37,7 @@ ItemDelegate {
                 visible: text !== ""
                 font: D.DTK.fontManager.t8
                 text: model.item.description
+                opacity: 0.5
             }
         }
         D.IconLabel {
@@ -53,5 +54,8 @@ ItemDelegate {
     onClicked: {
         model.item.trigger()
         console.log(model.item.name, model.display, model.item.icon)
+    }
+    Component.onCompleted: {
+        model.item.anchorsItem = root
     }
 }

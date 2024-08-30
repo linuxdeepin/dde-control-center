@@ -62,7 +62,8 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
 
-    // Q_SIGNALS:
+Q_SIGNALS:
+    void activeItemChanged(QQuickItem *item);
     //     void pathChanged(const QString &path);
     //     void rootChanged(DccObject *root);
     //     void activeObjectChanged(DccObject *activeObject);

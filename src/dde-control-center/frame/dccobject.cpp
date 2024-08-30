@@ -23,6 +23,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_defultObject(nullptr)
     , m_page(nullptr)
     , m_sectionItem(nullptr)
+    , m_anchorsItem(nullptr)
     , m_weight(-1)
     , m_badge(0)
     , m_pageType(0)
@@ -177,6 +178,7 @@ DccObject::DccObject(QObject *parent)
         if (p_ptr->m_sectionItem) {
             QQuickItem *item = p_ptr->m_sectionItem;
             p_ptr->m_sectionItem = nullptr;
+            setAnchorsItem(nullptr);
             for (auto &&child : p_ptr->m_children) {
                 if (child->p_ptr->m_sectionItem) {
                     Q_EMIT child->deactive();
@@ -423,6 +425,19 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
         p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
     }
     return p_ptr->m_sectionItem;
+}
+
+QQuickItem *DccObject::anchorsItem()
+{
+    return p_ptr->m_anchorsItem;
+}
+
+void DccObject::setAnchorsItem(QQuickItem *item)
+{
+    if (item != p_ptr->m_anchorsItem) {
+        p_ptr->m_anchorsItem = item;
+        Q_EMIT anchorsItemChanged(p_ptr->m_anchorsItem);
+    }
 }
 
 QQmlComponent *DccObject::page() const

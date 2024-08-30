@@ -7,7 +7,7 @@
 #include <QObject>
 #include <QQmlComponent>
 #include <QQmlListProperty>
-class QQuickItem;
+#include <QQuickItem>
 
 namespace dccV25 {
 class DccObject : public QObject
@@ -37,6 +37,7 @@ public:
 
     Q_PROPERTY(uint pageType READ pageType WRITE setPageType NOTIFY pageTypeChanged)
     Q_PROPERTY(QQmlComponent* page READ page WRITE setPage NOTIFY pageChanged)
+    Q_PROPERTY(QQuickItem* anchorsItem READ anchorsItem WRITE setAnchorsItem NOTIFY anchorsItemChanged)
 
     Q_PROPERTY(QQmlListProperty<QObject> data READ data DESIGNABLE false)
     Q_CLASSINFO("DefaultProperty", "data")
@@ -99,6 +100,8 @@ public:
     uint pageType() const;
     void setPageType(uint type);
     Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent = nullptr);
+    QQuickItem *anchorsItem();
+    void setAnchorsItem(QQuickItem *item);
     QQmlComponent *page() const;
     void setPage(QQmlComponent *page);
 
@@ -142,6 +145,7 @@ Q_SIGNALS:
 
     void pageTypeChanged(uint type);
     void pageChanged(QQmlComponent *page);
+    void anchorsItemChanged(QQuickItem *item);
 
 protected:
     DccObject::Private *p_ptr;
