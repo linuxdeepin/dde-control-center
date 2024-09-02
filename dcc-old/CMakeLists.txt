@@ -88,10 +88,9 @@ if(BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
-set(TRANSLATE_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations/old" CACHE STRING "Install dir for dde-control-center translate files")
+set(TRANSLATE_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations" CACHE STRING "Install dir for dde-control-center translate files")
 
-add_definitions(-DDCC_TRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${TRANSLATE_INSTALL_DIR}")
-add_definitions(-DTRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations")
+add_definitions(-DTRANSLATE_READ_DIR="${CMAKE_INSTALL_PREFIX}/${TRANSLATE_INSTALL_DIR}")
 set(MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
 
 set(DCC_MODULE_READ_DIR "${MODULE_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center modules")

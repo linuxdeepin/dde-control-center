@@ -94,13 +94,7 @@ int main(int argc, char *argv[])
 
         return -1;
     }
-    // QTranslator *translator = new QTranslator();
-    // if (translator->load(QLocale(), app->applicationName(), "_", DCC_TRANSLATE_READ_DIR)) {
-    //     app->c(translator);
-    // } else {
-    //     delete translator;
-    // }
-    Dtk::Gui::DGuiApplicationHelper::loadTranslator(app->applicationName(), { DCC_TRANSLATE_READ_DIR }, { QLocale() });
+    Dtk::Gui::DGuiApplicationHelper::loadTranslator(app->applicationName(), { TRANSLATE_READ_DIR }, { QLocale() });
     DLogManager::setLogFormat(
             "%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
 

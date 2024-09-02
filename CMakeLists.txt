@@ -110,7 +110,7 @@ if(BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
-set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations" CACHE STRING "Install dir for dde-control-center translate files")
+set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations/v1.0" CACHE STRING "Install dir for dde-control-center translate files")
 
 # 输出目录
 set(DCC_LIBDIR ${PROJECT_BINARY_DIR}/lib)
