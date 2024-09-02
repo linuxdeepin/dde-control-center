@@ -81,6 +81,10 @@ bool DccManager::installTranslator(const QString &name)
     QTranslator *translator = new QTranslator();
     if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR)) {
         qApp->installTranslator(translator);
+#if 1  // 兼容旧版位置
+    } else if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR "/..")) {
+        qApp->installTranslator(translator);
+#endif
     } else {
         delete translator;
         qCWarning(dccLog()) << "install translator fail:" << name << ", dir:" << TRANSLATE_READ_DIR;
@@ -396,7 +400,7 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         Q_EMIT activeObjectChanged(m_activeObject);
     }
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << obj->anchorsItem();
+    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << (void *)(obj->anchorsItem());
     if (obj->anchorsItem()) {
         Q_EMIT activeItemChanged(obj->anchorsItem());
     }
