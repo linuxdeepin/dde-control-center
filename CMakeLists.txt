@@ -64,7 +64,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     endif()
 else()
     # generate qm
-    execute_process(COMMAND bash "misc/translate_generation.sh" "${CMAKE_CURRENT_BINARY_DIR}"
+    execute_process(COMMAND bash "misc/translate_generation.sh" "${CMAKE_CURRENT_BINARY_DIR}/src/dde-control-center"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     # generate desktop translate
     execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
