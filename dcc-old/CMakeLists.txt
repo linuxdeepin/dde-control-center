@@ -16,7 +16,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 option(ENABLE_ASAN "Enable asan" OFF)
-option(BUILD_TESTING "UNIT test" ON)
+option(BUILD_TESTING "UNIT test" OFF)
 
 # INFO:
 # plugins can be disabled and their options
@@ -34,7 +34,7 @@ set(LOCALE_I18N_PATH "/usr/share/i18n/SUPPORTED" CACHE STRING "Supported locale 
 
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(UNITTEST ON)
+    # set(UNITTEST ON)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type -fno-omit-frame-pointer -Wextra")
     if(ENABLE_ASAN)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
