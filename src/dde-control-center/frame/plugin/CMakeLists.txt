@@ -11,6 +11,7 @@ file(GLOB DCCQmlPlugin_SRCS
 
 file(GLOB QML_PATHS
     "*.qml"
+    "*.js"
 )
 
 foreach(FILE_PATH ${QML_PATHS})
