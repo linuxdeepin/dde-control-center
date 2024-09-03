@@ -412,6 +412,7 @@ void DockModuleObject::initPluginView(DListView *view)
             auto icon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
             action->setIcon(icon);
             view->update(item->index());
+            item->setData(visible, Dtk::UserRole + 1);
             break;
         }
     };
