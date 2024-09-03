@@ -5,6 +5,7 @@
 #include "systeminfomodel.h"
 #include "systeminfodbusproxy.h"
 #include "window/utils.h"
+
 #include <DSysInfo>
 
 DCORE_USE_NAMESPACE

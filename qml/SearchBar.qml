@@ -13,12 +13,6 @@ Rectangle {
     property alias model: view.model
     signal clicked(var model)
 
-    anchors {
-        top: parent.top
-        horizontalCenter: parent.horizontalCenter
-        margins: 10
-    }
-
     implicitHeight: 32
     implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
     color: "transparent"

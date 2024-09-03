@@ -14,7 +14,7 @@ DccObject {
         displayName: qsTr("About This PC")
         description: qsTr("View information about this machine")
         icon: "system"
-        weight: 100
+        weight: 1010
         NativeInfoPage{}
     }
     DccObject {
@@ -23,7 +23,7 @@ DccObject {
         displayName: qsTr("Edition License")
         description: qsTr("View GCC related protocol statements")
         icon: "system"
-        weight: 110
+        weight: 1020
         VersionProtocolPage{}
     }
     DccObject {
@@ -32,7 +32,7 @@ DccObject {
         displayName: qsTr("User Experience Program")
         description: qsTr("Join the User Experience Program and help improve the product")
         icon: "system"
-        weight: 120
+        weight: 1030
         UserExperienceProgramPage{}
     }
     DccObject {
@@ -42,7 +42,7 @@ DccObject {
         description: qsTr("View End User License Agreement")
         icon: "system"
         visible: true
-        weight: 130
+        weight: 1040
         UserLicensePage{}
     }
     DccObject {
@@ -51,7 +51,7 @@ DccObject {
         displayName: qsTr("Privacy Policy")
         description: qsTr("View Privacy Policy")
         icon: "system"
-        weight: 160
+        weight: 1050
         PrivacyPolicyPage{}
     }
 }

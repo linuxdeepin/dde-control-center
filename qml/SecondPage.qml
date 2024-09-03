@@ -31,6 +31,7 @@ SplitView {
             anchors {
                 left: parent.left
                 right: parent.right
+                top: parent.top
                 margins: 10
                 topMargin: 50
             }

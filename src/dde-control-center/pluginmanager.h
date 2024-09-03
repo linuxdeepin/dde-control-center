@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include <QFuture>
 #include <QObject>
 #include <QQmlContext>
 #include <QStringList>
@@ -11,33 +10,40 @@
 
 class QPluginLoader;
 class QQmlComponent;
+class QThreadPool;
 
 namespace dccV25 {
 class DccObject;
 class DccManager;
-class PluginData;
+struct PluginData;
 
 class PluginManager : public QObject
 {
     Q_OBJECT
 public:
     explicit PluginManager(DccManager *parent);
+    ~PluginManager();
     void loadModules(DccObject *root, bool async, const QStringList &dirs);
     bool loadFinished() const;
 
 public Q_SLOTS:
     void cancelLoad();
+    void updatePluginStatus(PluginData *plugin, uint status, const QString &log = QString());
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
     void loadedModule(const PluginData &data);
     void loadAllFinished();
-    void loadOsFinished(PluginData *plugin);
+
+    void pluginEndStatusChanged(PluginData *plugin);
 
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
+    QThreadPool *threadPool();
 
 private Q_SLOTS:
+    void loadPlugin(PluginData *plugin);
+    void loadMetaData(PluginData *plugin);
     void loadModule(PluginData *plugin);
     void loadMain(PluginData *plugin);
     void createModule(QQmlComponent *component);
@@ -47,12 +53,14 @@ private Q_SLOTS:
     void moduleLoading();
     void mainLoading();
 
+    void onHideModuleChanged(const QSet<QString> &hideModule);
+    void onVisibleToAppChanged(bool visibleToApp);
+
 private:
     DccManager *m_manager;
     QList<PluginData *> m_plugins; // cache for other plugin
     DccObject *m_rootModule;       // root module from MainWindow
-    QFuture<void> m_future;
-    QVector<QString> m_pluginsStatus;
+    QThreadPool *m_threadPool;
 };
 
 } // namespace dccV25
