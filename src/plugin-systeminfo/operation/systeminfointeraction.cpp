@@ -1,3 +1,6 @@
+//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
 #include "systeminfointeraction.h"
 
 #include "dccfactory.h"
@@ -8,8 +11,8 @@ using namespace  dccV25;
 
 SystemInfoInteraction::SystemInfoInteraction(QObject *parent)
     : QObject{ parent }
-    , m_systemInfoMode(nullptr)
     , m_systemInfoWork(nullptr)
+    , m_systemInfoMode(nullptr)
 {
     qmlRegisterType<SystemInfoWork>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoWork");
     qmlRegisterType<SystemInfoModel>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoModel");

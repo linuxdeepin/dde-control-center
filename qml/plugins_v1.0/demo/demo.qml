@@ -53,13 +53,6 @@ DccObject {
         icon: "system"
         weight: 31
     }
-    DccObject {
-        name: "systemInfo1"
-        parentName: "system"
-        displayName: qsTr("系统信息")
-        icon: "system"
-        weight: 91
-    }
     // 电源管理
     DccObject {
         name: "power1"
