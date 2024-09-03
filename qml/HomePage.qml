@@ -9,6 +9,7 @@ import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
+
 Control {
     id: root
     property bool contentVisible: true
@@ -28,6 +29,11 @@ Control {
         }
 
         SearchBar {
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+                margins: 10
+            }
             visible: contentVisible
             model: DccApp.searchModel()
             onClicked: function (model) {
@@ -165,12 +171,14 @@ Control {
                         elide: Text.ElideRight
                         function updateDescription() {
                             if (model.item.description === "" && model.item.children.length > 0) {
-                                var len = model.item.children.length < 3 ? model.item.children.length : 3
-                                var desc = model.item.children[0].displayName
-                                for (var i = 1; i < len; ++i) {
-                                    desc += qsTr(",") + model.item.children[i].displayName
+                                var len = model.item.children.length
+                                var descs = []
+                                for (var i = 0; i < len && descs.length < 3; ++i) {
+                                    if (model.item.children[i].pageType === DccObject.Menu) {
+                                        descs.push(model.item.children[i].displayName)
+                                    }
                                 }
-                                return desc + (model.item.children.length <= 3 ? "" : qsTr(" ..."))
+                                return descs.join(qsTr(",")) + (len <= 3 ? "" : qsTr("..."))
                             }
                             return model.item.description
                         }

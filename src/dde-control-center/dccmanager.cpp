@@ -81,7 +81,7 @@ bool DccManager::installTranslator(const QString &name)
     QTranslator *translator = new QTranslator();
     if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR)) {
         qApp->installTranslator(translator);
-#if 1  // 兼容旧版位置
+#if 1 // 兼容旧版位置
     } else if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR "/..")) {
         qApp->installTranslator(translator);
 #endif
@@ -163,6 +163,7 @@ void DccManager::addObject(DccObject *obj)
                 DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_DISABLED, true);
             }
             if (!o->isVisibleToApp()) {
+                connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
                 noRepeatAdd(m_hideObjects, o);
             } else if (!addObjectToParent(o)) {
                 noRepeatAdd(m_noAddObjects, o);
@@ -448,6 +449,9 @@ void DccManager::updateModuleConfig(const QString &key)
         if (obj) {
             DccObject::Private::FromObject(obj)->setFlagState(type, false);
         }
+    }
+    if (newModuleConfig == &m_hideModule && (!addModuleConfig.isEmpty() || !removeModuleConfig.isEmpty())) {
+        Q_EMIT hideModuleChanged(m_hideModule);
     }
 }
 

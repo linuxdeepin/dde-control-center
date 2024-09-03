@@ -149,7 +149,7 @@ add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(${DTK_NS} REQUIRED COMPONENTS Core Gui  )
-find_package(${QT_NS} COMPONENTS Core Quick Gui Network DBus Concurrent Test LinguistTools Widgets REQUIRED)
+find_package(${QT_NS} COMPONENTS Core Quick Gui Network DBus Concurrent Test LinguistTools REQUIRED)
 find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
 

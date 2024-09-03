@@ -13,8 +13,6 @@ add_library(${SystemInfo_Name} MODULE
 
 set(SystemInfo_Libraries
         ${QT_NS}::DBus
-        ${QT_NS}::Widgets
-        ${Interface_Name}
         ${DTK_NS}::Gui
 )
 

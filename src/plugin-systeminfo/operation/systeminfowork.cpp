@@ -7,7 +7,7 @@
 #include "systeminfomodel.h"
 #include "utils.h"
 
-#include <qt5/QtWidgets/QApplication>
+#include <QCoreApplication>
 
 #include <DGuiApplicationHelper>
 #include <DSysInfo>
@@ -172,11 +172,11 @@ void SystemInfoWork::initSystemCopyright()
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::productType() != DSysInfo::ProductType::Uos)
             //oem_copyright = QString("Copyright© 2011-%1 Deepin Community").arg(QString(__DATE__).right(4));
-            oem_copyright = QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
+            oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
                     .arg(QString(__DATE__).right(4));
         else
            // oem_copyright = QString("Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QString(__DATE__).right(4));
-            oem_copyright =  QApplication::translate(
+            oem_copyright =  QCoreApplication::translate(
                            "LogoModule",
                            "Copyright© 2019-%1 UnionTech Software Technology Co., LTD")
                     .arg(QString(__DATE__).right(4));
