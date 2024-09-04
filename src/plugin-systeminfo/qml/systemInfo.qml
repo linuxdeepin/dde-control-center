@@ -3,9 +3,9 @@
 import org.deepin.dcc 1.0
 
 DccObject {
-    name: "sound"
+    name: "auxiliaryInfo"
     parentName: "system"
-    displayName: qsTr("sound")
-    icon: "sound"
-    weight: 20
+    displayName: qsTr("auxiliary information")
+    weight: 70
+    pageType: DccObject.Editor
 }

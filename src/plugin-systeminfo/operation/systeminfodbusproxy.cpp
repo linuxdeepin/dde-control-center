@@ -3,13 +3,14 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "systeminfodbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
-#include <QDBusMessage>
+#include <qdbusreply.h>
+
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include <QDBusMessage>
 #include <QDBusPendingReply>
+#include <QMetaObject>
 
 const QString HostnameService = QStringLiteral("org.freedesktop.hostname1");
 const QString HostnamePath = QStringLiteral("/org/freedesktop/hostname1");
@@ -26,11 +27,16 @@ const QString LicenseActivatorInterface = QStringLiteral("com.deepin.license.act
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
+const QString &UserexperienceService = QStringLiteral("com.deepin.userexperience.Daemon");
+const QString &UserexperiencePath = QStringLiteral("/com/deepin/userexperience/Daemon");
+const QString &UserexperienceInterface = QStringLiteral("com.deepin.userexperience.Daemon");
+
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
     , m_hostname1Inter(new DDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
     , m_licenseInfoInter(new DDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
     , m_licenseActivatorInter(new DDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
+    , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
 {
 }
 
@@ -61,6 +67,19 @@ int SystemInfoDBusProxy::authorizationState()
 void SystemInfoDBusProxy::setAuthorizationState(const int value)
 {
     m_licenseInfoInter->setProperty("AuthorizationState", QVariant::fromValue(value));
+}
+
+void SystemInfoDBusProxy::Enable(const bool value)
+{
+    m_userexperienceInter->asyncCallWithArgumentList("Enable", { value });
+}
+
+bool SystemInfoDBusProxy::IsEnabled()
+{
+    QDBusReply<bool> reply = m_userexperienceInter->call(QStringLiteral("IsEnabled"));
+    if (reply.isValid())
+        return reply.value();
+    return false;
 }
 
 void SystemInfoDBusProxy::Show()
