@@ -4,8 +4,6 @@
 #ifndef SYSTEMINFODBUSPROXY_H
 #define SYSTEMINFODBUSPROXY_H
 
-#include "interface/namespace.h"
-
 #include <DDBusInterface>
 
 using Dtk::Core::DDBusInterface;
@@ -27,6 +25,10 @@ public:
     int authorizationState();
     void setAuthorizationState(const int value);
 
+    // userexperience
+    void Enable(const bool value);
+    bool IsEnabled();
+
 signals:
     void StaticHostnameChanged(const QString &value) const;
     void AuthorizationStateChanged(const int value) const;
@@ -38,6 +40,7 @@ private:
     DDBusInterface *m_hostname1Inter;
     DDBusInterface *m_licenseInfoInter;
     DDBusInterface *m_licenseActivatorInter;
+    DDBusInterface *m_userexperienceInter;
 };
 
 #endif // SYSTEMINFODBUSPROXY_H

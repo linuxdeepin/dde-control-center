@@ -17,7 +17,7 @@ ItemDelegate {
     backgroundVisible: false
     enabled: model.item.enabledToApp
     checkable: false
-    implicitHeight: contentItem.height
+    implicitHeight: contentItem.implicitHeight
     padding: 0
 
     contentItem: model.item.getSectionItem()
