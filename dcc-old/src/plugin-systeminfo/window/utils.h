@@ -10,6 +10,13 @@
 #include <QLocale>
 #include <QSettings>
 
+#define IS_SERVER_SYSTEM (DSysInfo::UosServer == DSysInfo::uosType())                    // 是否是服务器版
+#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版
+#define IS_PROFESSIONAL_SYSTEM (DSysInfo::UosProfessional == DSysInfo::uosEditionType()) // 是否是专业版
+#define IS_HOME_SYSTEM (DSysInfo::UosHome == DSysInfo::uosEditionType())                 // 是否是个人版
+#define IS_EDUCATION_SYSTEM (DSysInfo::UosEducation == DSysInfo::uosEditionType())       // 是否是教育版
+#define IS_DEEPIN_DESKTOP (DSysInfo::DeepinDesktop == DSysInfo::deepinType())            // 是否是Deepin桌面
+
 inline const static QString serverEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.%2";
 inline const static QString serverEnduserAgreement_old =
