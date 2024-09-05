@@ -6,6 +6,6 @@ DccObject {
     name: "defaultapp"
     parentName: "system"
     displayName: qsTr("Default App")
-    icon: "defapp"
+    icon: "default_program"
     weight: 40
 }

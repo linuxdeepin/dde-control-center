@@ -4,7 +4,7 @@
 #include "commoninfowork.h"
 #include "commoninfomodel.h"
 #include "commoninfoproxy.h"
-#include "widgets/utils.h"
+#include "utils.h"
 
 #include <DNotifySender>
 
