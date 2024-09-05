@@ -15,19 +15,20 @@ ItemDelegate {
 
     Layout.fillWidth: true
     topInset: 5
+    leftPadding: 12
     bottomInset: 5
     enabled: model.item.enabledToApp
-    icon {
-        name: model.item.icon
-        width: 48
-        height: 48
-    }
+    implicitHeight: 58
+    icon.name: model.item.icon
     contentFlow: true
     content: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
+            Layout.leftMargin: 8
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
+            spacing: 0
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
@@ -41,7 +42,7 @@ ItemDelegate {
             }
         }
         D.IconLabel {
-            Layout.alignment: Qt.AlignRight
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.rightMargin: 10
             icon.name: "arrow_ordinary_right"
         }

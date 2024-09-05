@@ -8,6 +8,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
 
 DccObject {
+    id: root
     name: "auxiliaryInfo"
     parentName: "system"
     displayName: qsTr("Auxiliary Information")
@@ -19,14 +20,20 @@ DccObject {
             id: label
             anchors {
                 left: parent.left
-                top: parent.top
                 leftMargin: 10
-                topMargin: 10
             }
             font: DccUtils.copyFont(D.DTK.fontManager.t4, {
                                         "bold": true
                                     })
             text: dccObj.displayName
         }
+    }
+    DccObject {
+        name: "auxiliaryInfoSpacer"
+        parentName: "system"
+        visible: root.visibleToApp
+        weight: 999
+        badge: 10
+        pageType: DccObject.SpacerItem
     }
 }

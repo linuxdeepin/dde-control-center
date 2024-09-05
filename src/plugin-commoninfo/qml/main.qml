@@ -13,7 +13,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("Boot Menu")
         description: qsTr("Manage your boot menu")
-        icon: "meau"
+        icon: "icons/meau"
         weight: 80
     }
     DccObject {
@@ -21,7 +21,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("Developer Mode")
         description: qsTr("Developer root permission management")
-        icon: "developer"
+        icon: "icons/developer"
         weight: 90
     }
 }

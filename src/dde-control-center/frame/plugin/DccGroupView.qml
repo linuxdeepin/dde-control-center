@@ -55,6 +55,12 @@ Rectangle {
                         Layout.fillWidth: true
                     }
                 }
+                DelegateChoice {
+                    roleValue: DccObject.SpacerItem
+                    delegate: Item {
+                        implicitHeight: model.item.badge
+                    }
+                }
             }
         }
     }
