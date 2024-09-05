@@ -27,7 +27,6 @@ DccObject {
                     font.bold: true
                     font.pixelSize: 22
                     horizontalAlignment: Text.AlignLeft
-                   // font: DTK.fontManager.t4
                     text: qsTr("UOS")
                 }
 

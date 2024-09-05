@@ -49,5 +49,19 @@
         <file>icons/commoninfo.dci</file>
         <file>icons/accounts.dci</file>
         <file>icons/accessory.dci</file>
+        <file>icons/about.dci</file>
+        <file>icons/audio.dci</file>
+        <file>icons/user_license_agreement.dci</file>
+        <file>icons/user_experience_plan.dci</file>
+        <file>icons/time.dci</file>
+        <file>icons/software_declaration.dci</file>
+        <file>icons/privacy_policy.dci</file>
+        <file>icons/notification.dci</file>
+        <file>icons/meau.dci</file>
+        <file>icons/language.dci</file>
+        <file>icons/domain_tube.dci</file>
+        <file>icons/display.dci</file>
+        <file>icons/developer.dci</file>
+        <file>icons/default_program.dci</file>
     </qresource>
 </RCC>
