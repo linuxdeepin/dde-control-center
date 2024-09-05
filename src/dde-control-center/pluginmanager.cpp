@@ -286,6 +286,8 @@ void PluginManager::loadModule(PluginData *plugin)
             connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
         else
             createModule(component);
+    } else {
+        updatePluginStatus(plugin, ModuleErr | ModuleEnd, "module qml not exists");
     }
 }
 
@@ -303,7 +305,7 @@ void PluginManager::loadMain(PluginData *plugin)
             createMain(component);
         }
     } else {
-        updatePluginStatus(plugin, MainObjEnd);
+        updatePluginStatus(plugin, MainObjErr | MainObjEnd, "main.qml not exists");
     }
 }
 

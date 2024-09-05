@@ -30,13 +30,13 @@ set_target_properties(${DCCFrame_Name} PROPERTIES
 )
 
 install(TARGETS ${DCCFrame_Name}
-        EXPORT DdeControlCenterInterfaceTargets
+        EXPORT DdeControlCenterTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center
 )
 
-install(EXPORT DdeControlCenterInterfaceTargets
-        FILE DdeControlCenterInterfaceTargets.cmake
+install(EXPORT DdeControlCenterTargets
+        FILE DdeControlCenterTargets.cmake
         NAMESPACE Dde::
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
 )
@@ -121,12 +121,19 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
 file(GLOB HEADERS "${DCC_PROJECT_ROOT_DIR}/include/*")
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
 install(FILES ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
-
-configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-    PATH_VARS INCLUDE_INSTALL_DIR
-    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+if (BUILD_DCC_OLD)
+    configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfigOld.cmake.in
+        ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+        PATH_VARS INCLUDE_INSTALL_DIR
+        INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+else()
+    configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfig.cmake.in
+        ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+        PATH_VARS INCLUDE_INSTALL_DIR
+        INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+endif()
 
 write_basic_package_version_file(
     "${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake"

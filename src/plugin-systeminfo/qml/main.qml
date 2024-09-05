@@ -13,7 +13,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("About This PC")
         description: qsTr("View information about this machine")
-        icon: "about"
+        icon: "icons/about"
         weight: 1010
         NativeInfoPage{}
     }
@@ -22,7 +22,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("Edition License")
         description: qsTr("View GCC related protocol statements")
-        icon: "software_declaration"
+        icon: "icons/software_declaration"
         weight: 1020
         VersionProtocolPage{}
     }
@@ -31,7 +31,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("User Experience Program")
         description: qsTr("Join the User Experience Program and help improve the product")
-        icon: "user_experience_plan"
+        icon: "icons/user_experience_plan"
         weight: 1030
         UserExperienceProgramPage{}
     }
@@ -40,7 +40,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("End User License Agreement")
         description: qsTr("View End User License Agreement")
-        icon: "user_license_agreement"
+        icon: "icons/user_license_agreement"
         visible: true
         weight: 1040
         UserLicensePage{}
@@ -50,7 +50,7 @@ DccObject {
         parentName: "system"
         displayName: qsTr("Privacy Policy")
         description: qsTr("View Privacy Policy")
-        icon: "privacy_policy"
+        icon: "icons/privacy_policy"
         weight: 1050
         PrivacyPolicyPage{}
     }

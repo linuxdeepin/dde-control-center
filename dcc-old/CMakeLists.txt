@@ -165,11 +165,11 @@ install(TARGETS ${Interface_Name}
         EXPORT DdeControlCenterInterfaceTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
-# install(EXPORT DdeControlCenterInterfaceTargets
-#         FILE DdeControlCenterInterfaceTargets.cmake
-#         NAMESPACE Dde::
-#         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-# )
+install(EXPORT DdeControlCenterInterfaceTargets
+        FILE DdeControlCenterInterfaceTargets.cmake
+        NAMESPACE Dde::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+)
 
 
 #--------------------------dccwidgets library----------------------------
@@ -228,11 +228,11 @@ install(TARGETS ${Dcc_Widgets_Name}
         EXPORT DdeControlCenterWidgetTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
-# install(EXPORT DdeControlCenterWidgetTargets
-#         FILE DdeControlCenterWidgetTargets.cmake
-#         NAMESPACE Dde::
-#         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-# )
+install(EXPORT DdeControlCenterWidgetTargets
+        FILE DdeControlCenterWidgetTargets.cmake
+        NAMESPACE Dde::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+)
 
 
 #------------------------dccwidgets library test--------------------------

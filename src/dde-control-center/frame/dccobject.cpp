@@ -267,7 +267,8 @@ QString DccObject::icon() const
 void DccObject::setIcon(const QString &icon)
 {
     if (p_ptr->m_icon != icon) {
-        p_ptr->m_icon = icon;
+        QQmlContext *context = ((!icon.startsWith("/")) && (icon.contains("/") || icon.contains("."))) ? qmlContext(this) : nullptr;
+        p_ptr->m_icon = context ? context->resolvedUrl(icon).toLocalFile() : icon;
         Q_EMIT iconChanged(p_ptr->m_icon);
     }
 }
@@ -385,6 +386,9 @@ void DccObject::setPageType(uint type)
 {
     if (p_ptr->m_pageType != type) {
         p_ptr->m_pageType = type;
+        if (p_ptr->m_pageType == SpacerItem) {
+            setCanSearch(false);
+        }
         Q_EMIT pageTypeChanged(p_ptr->m_pageType);
     }
 }

@@ -6,6 +6,6 @@ DccObject {
     name: "sound"
     parentName: "system"
     displayName: qsTr("sound")
-    icon: "audio"
+    icon: "icons/audio"
     weight: 20
 }
