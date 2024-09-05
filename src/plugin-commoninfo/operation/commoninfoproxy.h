@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include <QDBusReply>
 #include <QObject>
 #include <DDBusInterface>
