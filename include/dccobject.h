@@ -91,6 +91,7 @@ public:
         Menu = 0,   // 菜单项，子页面是page
         EditorPage, // 编辑控件,page为右则的编辑控件，左则为displayName和description
         ItemPage,   // 控件，page为整个控件
+        SpacerItem, // 间隔，用于处理界面中的空白，通常需要关联其他项的isVisibleToApp,高度为badge值
 
         Editor = EditorPage | Control, // 编辑控件
         Item = ItemPage | Control,     // 控件
