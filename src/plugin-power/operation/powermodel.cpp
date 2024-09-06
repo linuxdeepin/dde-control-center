@@ -364,3 +364,21 @@ void PowerModel::setNoPasswdLogin(bool value)
         Q_EMIT noPasswdLoginChanged(value);
     }
 }
+
+void PowerModel::setBatteryCapacity(double value)
+{
+    if (m_batteryCapacity != value) {
+        m_batteryCapacity = value;
+
+        Q_EMIT batteryCapacityChanged(value);
+    }
+}
+
+void PowerModel::setShowBatteryTimeToFull(bool value)
+{
+    if (m_showBatteryTimeToFull != value) {
+        m_showBatteryTimeToFull = value;
+
+        Q_EMIT showBatteryTimeToFullChanged(value);
+    }
+}

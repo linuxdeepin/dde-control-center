@@ -3,7 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powerworker.h"
 #include "powermodel.h"
-#include "widgets/utils.h"
+#include "utils.h"
 
 #include <QProcessEnvironment>
 #include <QFutureWatcher>
@@ -21,6 +21,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     : QObject(parent)
     , m_powerModel(model)
     , m_powerDBusProxy(new PowerDBusProxy(this))
+    , cfgDock(DConfig::create("org.deepin.ds.dock", "org.deepin.ds.dock.power", QString(), this))
 {
     connect(m_powerDBusProxy, &PowerDBusProxy::noPasswdLoginChanged, m_powerModel, &PowerModel::setNoPasswdLogin);
     connect(m_powerDBusProxy, &PowerDBusProxy::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
@@ -55,9 +56,18 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
     connect(m_powerDBusProxy, &PowerDBusProxy::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryCapacityChanged, m_powerModel, &PowerModel::setBatteryCapacity);
+
+    connect(cfgDock, &DConfig::valueChanged, [this] (const QString &key) {
+        if ("showtimetofull" == key) {
+            m_powerModel->setShowBatteryTimeToFull(cfgDock->value("showtimetofull").toBool());
+        }
+    });
 
     // init base property
     m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
+
+    active();
 }
 
 void PowerWorker::active()
@@ -81,6 +91,9 @@ void PowerWorker::active()
     m_powerModel->setBatteryPressPowerBtnAction(m_powerDBusProxy->batteryPressPowerBtnAction());
     m_powerModel->setBatteryLidClosedAction(m_powerDBusProxy->batteryLidClosedAction());
     m_powerModel->setPowerPlan(m_powerDBusProxy->mode());
+    m_powerModel->setBatteryCapacity(m_powerDBusProxy->batteryCapacity());
+    m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
+    m_powerModel->setShowBatteryTimeToFull(cfgDock->value("showtimetofull").toBool());
 
     m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
 
@@ -307,11 +320,6 @@ void PowerWorker::setEnablePowerSave(const bool isEnable)
     m_powerDBusProxy->setPowerSavingModeEnabled(isEnable);
 }
 
-double PowerWorker::getBatteryCapacity()
-{
-    return m_powerDBusProxy->batteryCapacity();
-}
-
 int PowerWorker::getMaxBacklightBrightness()
 {
     return m_powerDBusProxy->maxBacklightBrightness();
@@ -358,4 +366,9 @@ int PowerWorker::converToDelayDBus(int value)
     default:
         return 900;
     }
+}
+
+void PowerWorker::setShowBatteryTimeToFull(bool value)
+{
+    cfgDock->setValue("showtimetofull", value);
 }

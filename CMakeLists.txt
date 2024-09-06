@@ -185,6 +185,7 @@ add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------
 add_subdirectory(src/plugin-sound)
 add_subdirectory(src/plugin-defaultapp)
+add_subdirectory(src/plugin-power)
 add_subdirectory(src/plugin-mouse)
 add_subdirectory(src/plugin-systeminfo)
 add_subdirectory(src/plugin-commoninfo)
