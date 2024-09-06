@@ -8,22 +8,27 @@ import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
     id: root
-    property bool isGroup: false
     property alias separatorVisible: background.separatorVisible
     property var item: model.item
+    property var rightItem: model.item.getSectionItem()
 
-    corners: isGroup ? getCornersForBackground(index, model.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
     Layout.fillWidth: true
     backgroundVisible: false
     checkable: false
     enabled: model.item.enabledToApp
-    icon.name: model.item.icon
+    icon {
+        name: model.item.icon
+        source: model.item.iconSource
+    }
     contentFlow: true
     content: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
+            Layout.leftMargin: 8
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
+            spacing: 0
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
@@ -37,9 +42,9 @@ D.ItemDelegate {
             }
         }
         Control {
-            Layout.alignment: Qt.AlignRight
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.rightMargin: 10
-            contentItem: model.item.getSectionItem()
+            contentItem: rightItem
         }
     }
     background: DccListViewBackground {
@@ -47,6 +52,6 @@ D.ItemDelegate {
         separatorVisible: false
     }
     Component.onCompleted: {
-        model.item.anchorsItem = root
+        model.item.parentItem = root
     }
 }

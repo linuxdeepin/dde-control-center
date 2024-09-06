@@ -65,6 +65,7 @@ SplitView {
                 backgroundVisible: false
                 icon {
                     name: model.item.icon
+                    source: model.item.iconSource
                     width: 48
                     height: 48
                 }

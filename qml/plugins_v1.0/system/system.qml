@@ -12,7 +12,7 @@ DccObject {
     name: "system"
     parentName: "root"
     displayName: qsTr("system")
-    icon: "icons/commoninfo"
+    icon: "commoninfo"
     weight: 20
 
     DccObject {
@@ -21,20 +21,16 @@ DccObject {
         displayName: qsTr("Common settings")
         weight: 5
         pageType: DccObject.Item
-        page: Item {
-            implicitHeight: label.implicitHeight + label.anchors.topMargin
-            Label {
-                id: label
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    leftMargin: 10
-                    topMargin: 10
-                }
-                font: DccUtils.copyFont(D.DTK.fontManager.t4, {
-                                            "bold": true
-                                        })
-                text: dccObj.displayName
+        page: Label {
+            font: DccUtils.copyFont(D.DTK.fontManager.t4, {
+                                        "bold": true
+                                    })
+            text: dccObj.displayName
+        }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.topPadding = 10
+                parentItem.leftPadding = 10
             }
         }
     }

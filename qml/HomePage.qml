@@ -138,6 +138,7 @@ Control {
             padding: 12
             icon {
                 name: model.item.icon
+                source: model.item.iconSource
                 width: 32
                 height: 32
             }

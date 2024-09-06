@@ -401,9 +401,9 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         Q_EMIT activeObjectChanged(m_activeObject);
     }
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << (void *)(obj->anchorsItem());
-    if (obj->anchorsItem()) {
-        Q_EMIT activeItemChanged(obj->anchorsItem());
+    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << (void *)(obj->parentItem());
+    if (obj->parentItem()) {
+        Q_EMIT activeItemChanged(obj->parentItem());
     }
 }
 

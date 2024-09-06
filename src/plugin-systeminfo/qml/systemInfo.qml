@@ -14,26 +14,16 @@ DccObject {
     displayName: qsTr("Auxiliary Information")
     weight: 1000
     pageType: DccObject.Item
-    page: Item {
-        implicitHeight: label.implicitHeight + label.anchors.topMargin
-        Label {
-            id: label
-            anchors {
-                left: parent.left
-                leftMargin: 10
-            }
-            font: DccUtils.copyFont(D.DTK.fontManager.t4, {
-                                        "bold": true
-                                    })
-            text: dccObj.displayName
-        }
+    page: Label {
+        font: DccUtils.copyFont(D.DTK.fontManager.t4, {
+                                    "bold": true
+                                })
+        text: dccObj.displayName
     }
-    DccObject {
-        name: "auxiliaryInfoSpacer"
-        parentName: "system"
-        visible: root.visibleToApp
-        weight: 999
-        badge: 10
-        pageType: DccObject.SpacerItem
+    onParentItemChanged: {
+        if (parentItem) {
+            parentItem.topPadding = 10
+            parentItem.leftPadding = 10
+        }
     }
 }
