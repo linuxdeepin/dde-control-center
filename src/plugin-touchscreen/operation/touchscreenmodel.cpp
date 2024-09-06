@@ -4,22 +4,25 @@
 #include "touchscreenmodel.h"
 #include "touchscreenmodel_p.h"
 #include "monitordbusproxy.h"
+#include "dccfactory.h"
+#include "touchscreenmatchmodel.h"
 
 #include <ddbussender.h>
+#include <qqml.h>
 
 #include <QDateTime>
 #include <QDebug>
-
 TouchScreenModel::TouchScreenModel(QObject *parent)
     : QObject(parent)
     , DCC_INIT_PRIVATE(TouchScreenModel)
+    , m_touchScreenMatchModel(new TouchScreenMatchModel(this))
 {
-
+    qmlRegisterType<TouchScreenMatchModel>("org.deepin.dcc.touchscreen", 1, 0, "TouchScreenMatchModel");
 }
 
 TouchScreenModel::~TouchScreenModel()
 {
-
+    m_touchScreenMatchModel->deleteLater();
 }
 
 const TouchscreenInfoList_V2 &TouchScreenModel::touchScreenList() const
@@ -88,3 +91,6 @@ void TouchScreenModelPrivate::assoiateTouchNotify()
         .arg(3000)
         .call();
 }
+
+DCC_FACTORY_CLASS(TouchScreenModel)
+#include "touchscreenmodel.moc"

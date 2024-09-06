@@ -6,10 +6,18 @@
 
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
-#include "namespace.h"
-
 
 #include <QObject>
+
+#define DCC_DECLARE_PRIVATE(Class) \
+private: \
+    QScopedPointer<Class##Private> d_ptr##Class; \
+    Q_DECLARE_PRIVATE_D(d_ptr##Class, Class)\
+    Q_DISABLE_COPY(Class)
+
+#define DCC_INIT_PRIVATE(Class) d_ptr##Class(new Class##Private(this))
+
+class TouchScreenMatchModel;
 class TouchScreenModelPrivate;
 
 class TouchScreenModel : public QObject
@@ -30,8 +38,12 @@ public:
 
     const TouchscreenMap &touchMap() const;
 
-    void assoiateTouch(const QString &monitor, const QString &touchscreenUUID);
+    Q_INVOKABLE void assoiateTouch(const QString &monitor, const QString &touchscreenUUID);
     void assoiateTouchNotify();
+
+public Q_SLOTS:
+
+    inline TouchScreenMatchModel *touchScreenMatchModel() const { return m_touchScreenMatchModel; }
 
 Q_SIGNALS:
     void touchScreenListChanged(const TouchscreenInfoList_V2 &newTouchScreenList);
@@ -40,5 +52,6 @@ Q_SIGNALS:
 
 private:
     TouchscreenMap m_touchMap;
+    TouchScreenMatchModel *m_touchScreenMatchModel;
 };
 #endif // TOUCHSCREENMODEL_H
