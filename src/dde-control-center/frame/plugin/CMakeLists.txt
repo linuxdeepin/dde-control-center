@@ -18,7 +18,6 @@ foreach(FILE_PATH ${QML_PATHS})
     string(REGEX REPLACE ".+/(.+)" "\\1" FILE_NAME ${FILE_PATH})
     list(APPEND DCCQmlPlugin_CONTROLS ${FILE_NAME})
 endforeach(FILE_PATH)
-message(${DCCQmlPlugin_CONTROLS})
 
 qt_add_qml_module(${DCCQmlPlugin_Name}
     PLUGIN_TARGET ${DCCQmlPlugin_Name}

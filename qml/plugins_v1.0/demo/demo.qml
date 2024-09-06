@@ -175,35 +175,6 @@ DccObject {
         icon: "personalization"
         weight: 51
     }
-    // 时间和语言
-    DccObject {
-        name: "time1"
-        parentName: "root"
-        displayName: qsTr("时间和语言")
-        icon: "defapp"
-        weight: 71
-    }
-    DccObject {
-        name: "time1"
-        parentName: "time1"
-        displayName: qsTr("时间")
-        icon: "defapp"
-        weight: 11
-    }
-    DccObject {
-        name: "language1"
-        parentName: "time1"
-        displayName: qsTr("系统语言")
-        icon: "defapp"
-        weight: 21
-    }
-    DccObject {
-        name: "format1"
-        parentName: "time1"
-        displayName: qsTr("格式")
-        icon: "defapp"
-        weight: 31
-    }
     // 辅助功能
     DccObject {
         name: "auxiliary1"

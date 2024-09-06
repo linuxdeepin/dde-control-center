@@ -13,6 +13,7 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDBusConnection>
+#include <QDir>
 #include <QGuiApplication>
 #include <QIcon>
 #include <QQmlApplicationEngine>
@@ -87,6 +88,7 @@ int main(int argc, char *argv[])
 
         return -1;
     }
+
     DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}> %{message}");
 
     DLogManager::registerJournalAppender();
