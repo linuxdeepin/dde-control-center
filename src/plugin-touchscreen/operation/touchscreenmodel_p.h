@@ -8,7 +8,7 @@
 #include "touchscreenproxy.h"
 
 #include <QDebug>
-
+using namespace DCC_NAMESPACE;
 class TouchScreenModelPrivate
 {
     Q_DECLARE_PUBLIC(TouchScreenModel)
