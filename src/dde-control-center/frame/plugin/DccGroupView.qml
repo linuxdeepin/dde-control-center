@@ -7,7 +7,6 @@ import Qt.labs.platform 1.1
 import Qt.labs.qmlmodels 1.2
 
 import org.deepin.dtk 1.0 as D
-import org.deepin.dtk.style 1.0 as DS
 
 Rectangle {
     id: root
@@ -22,6 +21,7 @@ Rectangle {
         width: parent.width
         spacing: 0
         Repeater {
+            id: repeater
             model: DccModel {
                 root: dccObj
             }
@@ -30,8 +30,7 @@ Rectangle {
                 role: "pageType"
                 DelegateChoice {
                     roleValue: DccObject.Menu
-                    delegate: DccMenuComponent {
-                        isGroup: root.isGroup
+                    delegate: DccMenuItem {
                         separatorVisible: root.isGroup
                         backgroundVisible: true
                         Layout.fillWidth: true
@@ -39,26 +38,20 @@ Rectangle {
                 }
                 DelegateChoice {
                     roleValue: DccObject.Editor
-                    delegate: DccEditorComponent {
-                        isGroup: root.isGroup
+                    delegate: DccEditorItem {
                         separatorVisible: root.isGroup
                         backgroundVisible: root.isGroup || model.item.hasBackground
                         Layout.fillWidth: true
+                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
                 DelegateChoice {
                     roleValue: DccObject.Item
-                    delegate: DccItemComponent {
-                        isGroup: root.isGroup
+                    delegate: DccItem {
                         separatorVisible: root.isGroup
                         backgroundVisible: root.isGroup || model.item.hasBackground
                         Layout.fillWidth: true
-                    }
-                }
-                DelegateChoice {
-                    roleValue: DccObject.SpacerItem
-                    delegate: Item {
-                        implicitHeight: model.item.badge
+                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
             }

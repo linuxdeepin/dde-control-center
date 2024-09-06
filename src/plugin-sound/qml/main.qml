@@ -18,7 +18,11 @@ DccObject {
         page: DccGroupView {
             spacing: 5
             isGroup: false
-            height: implicitHeight + 20
+        }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.bottomPadding = 20
+            }
         }
         SpeakerPage {}
     }
@@ -32,7 +36,11 @@ DccObject {
         page: DccGroupView {
             spacing: 5
             isGroup: false
-            height: implicitHeight + 20
+        }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.bottomPadding = 20
+            }
         }
         MicrophonePage {}
     }

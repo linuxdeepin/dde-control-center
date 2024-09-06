@@ -11,6 +11,8 @@
 #include <QTimer>
 
 namespace dccV25 {
+static QHash<QString, bool> s_notIcon;
+
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
 {
     return obj ? obj->p_ptr : nullptr;
@@ -23,7 +25,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_defultObject(nullptr)
     , m_page(nullptr)
     , m_sectionItem(nullptr)
-    , m_anchorsItem(nullptr)
+    , m_parentItem(nullptr)
     , m_weight(-1)
     , m_badge(0)
     , m_pageType(0)
@@ -178,7 +180,7 @@ DccObject::DccObject(QObject *parent)
         if (p_ptr->m_sectionItem) {
             QQuickItem *item = p_ptr->m_sectionItem;
             p_ptr->m_sectionItem = nullptr;
-            setAnchorsItem(nullptr);
+            setParentItem(nullptr);
             for (auto &&child : p_ptr->m_children) {
                 if (child->p_ptr->m_sectionItem) {
                     Q_EMIT child->deactive();
@@ -261,16 +263,36 @@ void DccObject::setDescription(const QString &description)
 
 QString DccObject::icon() const
 {
-    return p_ptr->m_icon;
+    // TODO: 原设计是name和source分别给icon.name、icon.source
+    // 但icon.name有值时，无论是否有效，icon.source都不起作用，固加此处理
+    bool notIcon = false;
+    if (s_notIcon.contains(p_ptr->m_icon)) {
+        notIcon = s_notIcon.value(p_ptr->m_icon);
+    } else {
+        notIcon = QIcon::fromTheme(p_ptr->m_icon).isNull();
+        s_notIcon.insert(p_ptr->m_icon, notIcon);
+    }
+    return notIcon ? p_ptr->m_iconSource.toLocalFile() : p_ptr->m_icon;
 }
 
 void DccObject::setIcon(const QString &icon)
 {
     if (p_ptr->m_icon != icon) {
-        QQmlContext *context = ((!icon.startsWith("/")) && (icon.contains("/") || icon.contains("."))) ? qmlContext(this) : nullptr;
-        p_ptr->m_icon = context ? context->resolvedUrl(icon).toLocalFile() : icon;
+        p_ptr->m_icon = icon;
+        if (!icon.isEmpty()) {
+            QQmlContext *context = qmlContext(this);
+            p_ptr->m_iconSource = context ? context->resolvedUrl(icon) : icon;
+        } else {
+            p_ptr->m_iconSource.clear();
+        }
         Q_EMIT iconChanged(p_ptr->m_icon);
+        Q_EMIT iconSourceChanged(p_ptr->m_iconSource);
     }
+}
+
+QUrl DccObject::iconSource() const
+{
+    return p_ptr->m_iconSource;
 }
 
 int DccObject::badge() const
@@ -386,9 +408,6 @@ void DccObject::setPageType(uint type)
 {
     if (p_ptr->m_pageType != type) {
         p_ptr->m_pageType = type;
-        if (p_ptr->m_pageType == SpacerItem) {
-            setCanSearch(false);
-        }
         Q_EMIT pageTypeChanged(p_ptr->m_pageType);
     }
 }
@@ -431,16 +450,16 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
     return p_ptr->m_sectionItem;
 }
 
-QQuickItem *DccObject::anchorsItem()
+QQuickItem *DccObject::parentItem()
 {
-    return p_ptr->m_anchorsItem;
+    return p_ptr->m_parentItem;
 }
 
-void DccObject::setAnchorsItem(QQuickItem *item)
+void DccObject::setParentItem(QQuickItem *item)
 {
-    if (item != p_ptr->m_anchorsItem) {
-        p_ptr->m_anchorsItem = item;
-        Q_EMIT anchorsItemChanged(p_ptr->m_anchorsItem);
+    if (item != p_ptr->m_parentItem) {
+        p_ptr->m_parentItem = item;
+        Q_EMIT parentItemChanged(p_ptr->m_parentItem);
     }
 }
 

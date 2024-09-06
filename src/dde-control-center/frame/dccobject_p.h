@@ -72,12 +72,13 @@ protected:
     QObjectList m_data;
     QQmlComponent *m_page;
     QQuickItem *m_sectionItem;
-    QQuickItem *m_anchorsItem;
+    QQuickItem *m_parentItem;
 
     QString m_parentName;
     QString m_displayName;
     QString m_description;
     QString m_icon;
+    QUrl m_iconSource;
     int m_weight;
     int m_badge;
     uint m_pageType;
