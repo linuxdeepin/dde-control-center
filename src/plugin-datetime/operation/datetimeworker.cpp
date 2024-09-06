@@ -23,6 +23,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_regionInter(new RegionProxy(this))
     , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
 {
+    QMetaObject::invokeMethod(this, "activate", Qt::QueuedConnection);
 #ifndef DCC_DISABLE_TIMEZONE
     connect(m_timedateInter, &DatetimeDBusProxy::UserTimezonesChanged, this, &DatetimeWorker::onTimezoneListChanged);
     connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
