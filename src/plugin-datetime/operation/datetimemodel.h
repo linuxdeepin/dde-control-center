@@ -5,13 +5,17 @@
 #define DATETIMEMODEL_H
 
 #include <QObject>
+#include <QPoint>
 
 #include "zoneinfo.h"
 #include "regionproxy.h"
+#include "zonesearchmodel.h"
 
+class DatetimeWorker;
 class DatetimeModel : public QObject
 {
     Q_OBJECT
+    friend class DatetimeWorker;
 public:
     using Regions = QMap<QString, QLocale>;
 
@@ -115,6 +119,11 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
+    QStringList zones(int x, int y, int map_width, int map_height);
+    QPoint zonePosition(const QString &timezone, int map_width, int map_height);
+    QStringList zonesComplitionList();
+    QSortFilterProxyModel *searchModel();
+    QStringList languagesAndRegions();
 
 private:
     bool m_ntp;
@@ -143,6 +152,9 @@ private:
     QString m_numberFormat;
     QString m_paperFormat;
     RegionFormat m_regionFormat;
+    QMap<QString, QString> m_timezoneCache;
+    dccV25::ZoneSearchModel *m_searchMode = nullptr;
+    DatetimeWorker *m_work = nullptr;
 };
 
 #endif // DATETIMEMODEL_H

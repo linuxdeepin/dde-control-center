@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.18)
+set(pluginName datetime)
+file(GLOB_RECURSE datetime_SRCS
+    "operation/*.cpp"
+    "operation/*.h"
+    "operation/timezoneMap/*.h"
+    "operation/timezoneMap/*.cpp"
+    "operation/qrc/datetime.qrc"
+)
+
+add_library(${pluginName} MODULE
+    ${datetime_SRCS}
+)
+
+find_package(ICU COMPONENTS i18n uc)
+
+set(dateTime_Libraries
+    ${QT_NS}::DBus
+    ${QT_NS}::Concurrent
+     ${DTK_NS}::Core
+     ICU::i18n
+     ICU::uc
+)
+
+target_link_libraries(${pluginName} PRIVATE
+    ${dateTime_Libraries}
+)
+
+dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName})

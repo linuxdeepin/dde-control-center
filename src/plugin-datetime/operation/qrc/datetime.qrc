@@ -11,7 +11,7 @@
         <file>images/indicator_active.png</file>
         <file>images/timezone_map_big2.png</file>
         <file>images/timezone_map_big.png</file>
-        <file>images/timezone_map_big@1x.svg</file>
+        <file alias="icons/dcc_timezone_map_978px.svg">images/timezone_map_big@1x.svg</file>
         <file>images/timezone_map_big@2x.png</file>
         <file>images/popup_menu.css</file>
     </qresource>
