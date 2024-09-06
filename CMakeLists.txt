@@ -20,7 +20,7 @@ option(ENABLE_ASAN "Enable asan" OFF)
 option(BUILD_TESTING "UNIT test" OFF)
 
 # dcc-v23
-set(BUILD_DCC_OLD ON)
+set(BUILD_DCC_OLD ON CACHE BOOL "build old dcc")
 if (BUILD_DCC_OLD)
     add_subdirectory(dcc-old)
 endif()
@@ -189,3 +189,4 @@ add_subdirectory(src/plugin-mouse)
 add_subdirectory(src/plugin-systeminfo)
 add_subdirectory(src/plugin-commoninfo)
 add_subdirectory(src/plugin-touchscreen)
+add_subdirectory(src/plugin-datetime)

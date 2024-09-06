@@ -28,7 +28,7 @@ public:
     explicit DatetimeWorker(DatetimeModel *model, QObject *parent = nullptr);
     ~DatetimeWorker();
 
-    void activate();
+    Q_INVOKABLE void activate();
     void deactivate();
     DatetimeModel *model() { return m_model; }
 
