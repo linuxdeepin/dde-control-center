@@ -2,13 +2,12 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "touchscreenproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-using namespace DCC_NAMESPACE;
-
+// using namespace DCC_NAMESPACE;
+namespace DCC_NAMESPACE {
 TouchScreenProxy::TouchScreenProxy(QObject *parent)
     : QObject(parent)
     , m_displayInter(new DDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::sessionBus(), this))
@@ -37,4 +36,4 @@ QDBusPendingReply<> TouchScreenProxy::AssociateTouchByUUID(const QString &in0, c
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
     return m_displayInter->asyncCallWithArgumentList(QStringLiteral("AssociateTouchByUUID"), argumentList);
 }
-
+}

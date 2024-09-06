@@ -4,16 +4,14 @@
 #ifndef TOUCHSCREENPROXY_H
 #define TOUCHSCREENPROXY_H
 
-#include "interface/namespace.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 
-#include <DDBusInterface>
-
+#include "ddbusinterface.h"
 #include <QDBusReply>
 #include <QObject>
 
-using Dtk::Core::DDBusInterface;
+namespace DCC_NAMESPACE {
 
 class QDBusMessage;
 
@@ -46,5 +44,5 @@ private:
     QList<QDBusObjectPath> m_Monitors;
     TouchscreenMap m_TouchMap;
 };
-
+}
 #endif // TOUCHSCREENPROXY_H

@@ -367,6 +367,7 @@ void PluginManager::addMainObject(PluginData *plugin)
                 connect(plugin->mainObj, &DccObject::descriptionChanged, plugin->module, &DccObject::setDescription);
                 connect(plugin->mainObj, &DccObject::iconChanged, plugin->module, &DccObject::setIcon);
                 connect(plugin->mainObj, &DccObject::badgeChanged, plugin->module, &DccObject::setBadge);
+                connect(plugin->mainObj, &DccObject::visibleChanged, plugin->module, &DccObject::setVisible);
             }
         } else {
         }
