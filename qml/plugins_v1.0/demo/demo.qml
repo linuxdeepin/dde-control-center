@@ -52,35 +52,6 @@ DccObject {
         icon: "system"
         weight: 31
     }
-    // 电源管理
-    DccObject {
-        name: "power1"
-        parentName: "root"
-        displayName: qsTr("power")
-        icon: "power"
-        weight: 30
-    }
-    DccObject {
-        name: "common1"
-        parentName: "power1"
-        displayName: qsTr("通用")
-        icon: "power"
-        weight: 11
-    }
-    DccObject {
-        name: "power1"
-        parentName: "power1"
-        displayName: qsTr("电源")
-        icon: "power"
-        weight: 21
-    }
-    DccObject {
-        name: "battery1"
-        parentName: "power1"
-        displayName: qsTr("电池")
-        icon: "power"
-        weight: 31
-    }
     // 网络
     DccObject {
         name: "network1"

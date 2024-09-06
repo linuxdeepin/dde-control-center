@@ -6,6 +6,7 @@
 
 #include "powerdbusproxy.h"
 #include <QObject>
+#include <DConfig>
 
 class PowerModel;
 class PowerWorker : public QObject
@@ -19,44 +20,44 @@ public:
     void deactive();
 
 public Q_SLOTS:
-    void setScreenBlackLock(const bool lock);
+    Q_INVOKABLE void setScreenBlackLock(const bool lock);
     void setSleepLock(const bool lock);
     void setSleepOnLidOnPowerClosed(const bool sleep);
-    void setSleepDelayOnPower(const int delay);
-    void setSleepDelayOnBattery(const int delay);
-    void setScreenBlackDelayOnPower(const int delay);
-    void setScreenBlackDelayOnBattery(const int delay);
+    Q_INVOKABLE void setSleepDelayOnPower(const int delay);
+    Q_INVOKABLE void setSleepDelayOnBattery(const int delay);
+    Q_INVOKABLE void setScreenBlackDelayOnPower(const int delay);
+    Q_INVOKABLE void setScreenBlackDelayOnBattery(const int delay);
     void setSleepDelayToModelOnPower(const int delay);
     void setScreenBlackDelayToModelOnPower(const int delay);
     void setSleepDelayToModelOnBattery(const int delay);
     void setScreenBlackDelayToModelOnBattery(const int delay);
-    void setLockScreenDelayOnBattery(const int delay);
-    void setLockScreenDelayOnPower(const int delay);
+    Q_INVOKABLE void setLockScreenDelayOnBattery(const int delay);
+    Q_INVOKABLE void setLockScreenDelayOnPower(const int delay);
     void setResponseBatteryLockScreenDelay(const int delay);
     void setResponsePowerLockScreenDelay(const int delay);
     void setHighPerformanceSupported(bool state);
     void setBalancePerformanceSupported(bool state);
     //------------sp2 add-----------------------
-    void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
+    Q_INVOKABLE void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
     void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
     void setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold);
     void setPowerSavingModeAutoBatteryPercentage(uint dPowerSavingModebatteryPentage);
-    void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
-    void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
-    void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);
-    void setBatteryLidClosedAction(int nBatteryLidClosedAction);
+    Q_INVOKABLE void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
+    Q_INVOKABLE void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
+    Q_INVOKABLE void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);
+    Q_INVOKABLE void setBatteryLidClosedAction(int nBatteryLidClosedAction);
     void setLowPowerNotifyEnable(bool bLowPowerNotifyEnable);
-    void setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold);
+    Q_INVOKABLE void setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold);
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
     //------------------------------------------
-    void setPowerPlan(const QString &powerPlan);
+    Q_INVOKABLE void setPowerPlan(const QString &powerPlan);
+    Q_INVOKABLE void setShowBatteryTimeToFull(bool value);
 
     bool getCurCanSuspend();
     bool getCurCanHibernate();
 
     void setEnablePowerSave(const bool isEnable);
 
-    double getBatteryCapacity();
     int getMaxBacklightBrightness();
 
 private:
@@ -66,6 +67,8 @@ private:
 private:
     PowerModel *m_powerModel;
     PowerDBusProxy *m_powerDBusProxy;
+
+    Dtk::Core::DConfig *cfgDock;
 };
 
 #endif // POWERWORKER_H
