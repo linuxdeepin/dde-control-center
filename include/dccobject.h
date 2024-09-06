@@ -21,6 +21,7 @@ public:
     Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QString icon READ icon WRITE setIcon NOTIFY iconChanged)
+    Q_PROPERTY(QUrl iconSource READ iconSource NOTIFY iconSourceChanged)
     Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY badgeChanged DESIGNABLE false)
 
     Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged DESIGNABLE false)
@@ -37,7 +38,7 @@ public:
 
     Q_PROPERTY(uint pageType READ pageType WRITE setPageType NOTIFY pageTypeChanged)
     Q_PROPERTY(QQmlComponent* page READ page WRITE setPage NOTIFY pageChanged)
-    Q_PROPERTY(QQuickItem* anchorsItem READ anchorsItem WRITE setAnchorsItem NOTIFY anchorsItemChanged)
+    Q_PROPERTY(QQuickItem* parentItem READ parentItem WRITE setParentItem NOTIFY parentItemChanged)
 
     Q_PROPERTY(QQmlListProperty<QObject> data READ data DESIGNABLE false)
     Q_CLASSINFO("DefaultProperty", "data")
@@ -62,6 +63,7 @@ public:
     void setDescription(const QString &description);
     QString icon() const;
     void setIcon(const QString &icon);
+    QUrl iconSource() const;
     int badge() const;
     void setBadge(int badge);
 
@@ -91,7 +93,6 @@ public:
         Menu = 0,   // 菜单项，子页面是page
         EditorPage, // 编辑控件,page为右则的编辑控件，左则为displayName和description
         ItemPage,   // 控件，page为整个控件
-        SpacerItem, // 间隔，用于处理界面中的空白，通常需要关联其他项的isVisibleToApp,高度为badge值
 
         Editor = EditorPage | Control, // 编辑控件
         Item = ItemPage | Control,     // 控件
@@ -101,8 +102,8 @@ public:
     uint pageType() const;
     void setPageType(uint type);
     Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent = nullptr);
-    QQuickItem *anchorsItem();
-    void setAnchorsItem(QQuickItem *item);
+    QQuickItem *parentItem();
+    void setParentItem(QQuickItem *item);
     QQmlComponent *page() const;
     void setPage(QQmlComponent *page);
 
@@ -131,6 +132,7 @@ Q_SIGNALS:
     void displayNameChanged(const QString &displayName);
     void descriptionChanged(const QString &description);
     void iconChanged(const QString &icon);
+    void iconSourceChanged(const QUrl &iconSource);
     void badgeChanged(int badge);
 
     void visibleChanged(bool visible);
@@ -146,7 +148,7 @@ Q_SIGNALS:
 
     void pageTypeChanged(uint type);
     void pageChanged(QQmlComponent *page);
-    void anchorsItemChanged(QQuickItem *item);
+    void parentItemChanged(QQuickItem *item);
 
 protected:
     DccObject::Private *p_ptr;
