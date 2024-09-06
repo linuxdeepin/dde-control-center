@@ -96,7 +96,7 @@ public:
     void setPowerSavingModeEnabled(bool value);
     Q_PROPERTY(double BatteryCapacity READ batteryCapacity NOTIFY BatteryCapacityChanged)
     double batteryCapacity();
-    Q_PROPERTY(int MaxBacklightBrightness READ batteryCapacity)
+    Q_PROPERTY(int MaxBacklightBrightness READ maxBacklightBrightness)
     int maxBacklightBrightness();
 
     // USER
