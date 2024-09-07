@@ -508,14 +508,9 @@ void DccManager::onObjectRemoved(DccObject *obj)
         objs.append(o->getChildren());
     }
 
-    DccObject *current = m_root;
-    while (current) {
-        if (current == obj) {
+    for (auto &&o : m_currentObjects) {
+        if (o == obj) {
             showPage(QString());
-            break;
-        }
-        current = current->currentObject();
-        if (current && !current->currentObject()) {
             break;
         }
     }
