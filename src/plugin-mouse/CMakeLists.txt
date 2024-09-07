@@ -7,7 +7,6 @@ if (BUILD_PLUGIN)
     file(GLOB_RECURSE mouse_qml_SRCS
         "qml/*.qml"
     )
-    find_package(${QT_NS} COMPONENTS Concurrent REQUIRED COMPONENTS Qml)
     # pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
     add_library(${Mouse_Name} MODULE
         ${mouse_SRCS}
@@ -15,15 +14,12 @@ if (BUILD_PLUGIN)
 
     set(mouse_Includes
         src/plugin-mouse/operation
-        ../../include/interface
     )
     set(mouse_Libraries
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Qml
         # PkgConfig::QGSettings
-        ${Interface_Name}
-        Qt::Concurrent
     )
     target_include_directories(${Mouse_Name} PUBLIC
         ${mouse_Includes}

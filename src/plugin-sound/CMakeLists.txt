@@ -22,7 +22,6 @@ if (DISABLE_SOUND_ADVANCED)
 endif()
 
 set(Sound_Libraries
-    ${Interface_Name}
     ${DTK_NS}::Gui
     ${QT_NS}::DBus
 )

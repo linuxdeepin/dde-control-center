@@ -7,7 +7,6 @@ if (BUILD_PLUGIN)
     file(GLOB_RECURSE touchscreen_qml_SRCS
         "qml/*.qml"
     )
-    find_package(${QT_NS} COMPONENTS Concurrent REQUIRED COMPONENTS Qml)
     # pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
     add_library(${touchscreen_Name} MODULE
         ${touchscreen_SRCS}
@@ -15,14 +14,11 @@ if (BUILD_PLUGIN)
 
     set(touchscreen_Includes
         src/plugin-touchscreen/operation
-        ../../include/interface
     )
     set(touchscreen_Libraries
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Qml
-        ${Interface_Name}
-        Qt::Concurrent
     )
     target_include_directories(${touchscreen_Name} PUBLIC
         ${touchscreen_Includes}
