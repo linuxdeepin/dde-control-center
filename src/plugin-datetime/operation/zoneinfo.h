@@ -12,6 +12,10 @@
 
 class ZoneInfo
 {
+    Q_GADGET
+    Q_PROPERTY(QString zoneName READ getZoneName)
+    Q_PROPERTY(QString city READ getZoneCity)
+    Q_PROPERTY(int utcOffset READ getUTCOffset)
 public:
     ZoneInfo();
 

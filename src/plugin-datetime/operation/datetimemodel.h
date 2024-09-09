@@ -9,13 +9,25 @@
 
 #include "zoneinfo.h"
 #include "regionproxy.h"
-#include "zonesearchmodel.h"
+#include "zoneinfomodel.h"
 
 class DatetimeWorker;
 class DatetimeModel : public QObject
 {
     Q_OBJECT
     friend class DatetimeWorker;
+    Q_PROPERTY(QString shortDateFormat READ shortDateFormat WRITE setShortDateFormat NOTIFY shortDateFormatChanged FINAL)
+    Q_PROPERTY(QString longDateFormat READ longDateFormat WRITE setLongDateFormat NOTIFY longDateFormatChanged FINAL)
+    Q_PROPERTY(QString longTimeFormat READ longTimeFormat WRITE setLongTimeFormat NOTIFY longTimeFormatChanged FINAL)
+    Q_PROPERTY(bool ntpEnabled READ nTP WRITE setNTP NOTIFY ntpChanged FINAL)
+    Q_PROPERTY(bool use24HourFormat READ use24HourFormat WRITE set24HourFormat NOTIFY hourTypeChanged FINAL)
+    Q_PROPERTY(QString ntpServerAddress READ ntpServerAddress WRITE setNtpServerAddress NOTIFY NTPServerChanged FINAL)
+    Q_PROPERTY(QStringList ntpServerList READ ntpServerList WRITE setNTPServerList NOTIFY NTPServerListChanged FINAL)
+    Q_PROPERTY(QString timeZoneDispalyName READ timeZoneDispalyName NOTIFY currentSystemTimeZoneChanged)
+    Q_PROPERTY(int currentTimeZoneIndex READ currentTimeZoneIndex NOTIFY currentSystemTimeZoneChanged)
+    Q_PROPERTY(QString systemTimeZone READ getTimeZone WRITE setTimeZoneInfo NOTIFY timeZoneChanged FINAL)
+    Q_PROPERTY(QString country READ country WRITE setCountry NOTIFY countryChanged FINAL)
+
 public:
     using Regions = QMap<QString, QLocale>;
 
@@ -23,7 +35,7 @@ public:
 
     inline bool nTP() const { return m_ntp; }
     void setNTP(bool ntp);
-    inline bool get24HourFormat() const { return m_bUse24HourType; }
+    inline bool use24HourFormat() const { return m_bUse24HourType; }
 
     QList<ZoneInfo> userTimeZones() const;
     void addUserTimeZone(const ZoneInfo &zone);
@@ -92,8 +104,11 @@ public:
     inline Regions regions() const { return m_regions; }
     void setRegions(const Regions &regions);
 
+    QString timeZoneDispalyName() const;
+    int currentTimeZoneIndex() const;
+
 Q_SIGNALS:
-    void NTPChanged(bool value);
+    void ntpChanged(bool value);
     void hourTypeChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);
@@ -119,11 +134,17 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
+    void setDateTime(const QDateTime &dateTime);
     QStringList zones(int x, int y, int map_width, int map_height);
     QPoint zonePosition(const QString &timezone, int map_width, int map_height);
-    QStringList zonesComplitionList();
+    QStringList zoneIdList();
+    QString zoneDisplayName(const QString &zoneName);
     QSortFilterProxyModel *searchModel();
     QStringList languagesAndRegions();
+    void addUserTimeZoneByName(const QString &name);
+    void removeUserTimeZoneByName(const QString &name);
+    QStringList userTimeZoneText(int index) const;
+    QString currentTimeZoneName() const;
 
 private:
     bool m_ntp;
@@ -153,8 +174,8 @@ private:
     QString m_paperFormat;
     RegionFormat m_regionFormat;
     QMap<QString, QString> m_timezoneCache;
-    dccV25::ZoneSearchModel *m_searchMode = nullptr;
     DatetimeWorker *m_work = nullptr;
+    QSortFilterProxyModel *m_searchModel = nullptr;
 };
 
 #endif // DATETIMEMODEL_H

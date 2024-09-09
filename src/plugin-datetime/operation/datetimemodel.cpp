@@ -5,6 +5,7 @@
 #include "dccfactory.h"
 #include "timezoneMap/timezone_map_util.h"
 #include "datetimeworker.h"
+#include "zoneinfomodel.h"
 
 #include <unicode/locid.h>
 #include <unicode/unistr.h>
@@ -13,32 +14,65 @@
 #include <QTimeZone>
 #include <QSettings>
 #include <QCoreApplication>
+#include <QStringListModel>
 static installer::ZoneInfoList g_totalZones;
 
-DatetimeModel::DatetimeModel(QObject *parent)
-    : QObject(parent)
-    , m_ntp(true)
-    , m_bUse24HourType(true)
-    , m_work(new DatetimeWorker(this, this))
+static QString getDescription(const ZoneInfo &zoneInfo)
 {
-    connect(this, &DatetimeModel::NTPChanged, m_work, &DatetimeWorker::setNTP);
-    connect(this, &DatetimeModel::hourTypeChanged, m_work, &DatetimeWorker::set24HourType);
+    const QDateTime localTime(QDateTime::currentDateTime());
+    const double timeDelta = (zoneInfo.getUTCOffset() - localTime.offsetFromUtc()) / 3600.0;
+    QString dateLiteral;
+    if (localTime.time().hour() + timeDelta >= 24) {
+        dateLiteral = DatetimeModel::tr("Tomorrow");
+    } else if (localTime.time().hour() + timeDelta <= 0) {
+        dateLiteral = DatetimeModel::tr("Yesterday");
+    } else {
+        dateLiteral = DatetimeModel::tr("Today");
+    }
+
+    int decimalNumber = 1;
+    //小时取余,再取分钟,将15分钟的双倍只显示一位小数,其他的都显示两位小数
+    switch ((zoneInfo.getUTCOffset() - localTime.offsetFromUtc()) % 3600 / 60 / 15) {
+    case -1:
+    case -3:
+    case 1:
+    case 3:
+        decimalNumber = 2;
+        break;
+    default:
+        decimalNumber = 1;
+        break;
+    }
+
+    QString description;
+    if (timeDelta > 0) {
+        description = DatetimeModel::tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', decimalNumber));
+    } else {
+        description = DatetimeModel::tr("%1 hours later than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
+    }
+
+    return description;
 }
 
-void DatetimeModel::setNTP(bool ntp)
+static QString getUtcOffsetText(int utcOffset)
 {
-    if (m_ntp != ntp) {
-        m_ntp = ntp;
-        Q_EMIT NTPChanged(ntp);
+    QString gmData;
+    int utcOff = utcOffset / 3600;
+    if (utcOff >= 0) {
+        gmData = QString("(UTC+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
+    } else {
+        gmData = QString("(UTC%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
     }
+
+    return gmData;
 }
 
-void DatetimeModel::set24HourFormat(bool state)
+static QString getDisplayText(const ZoneInfo &zoneInfo)
 {
-    if (m_bUse24HourType != state) {
-        m_bUse24HourType = state;
-        Q_EMIT hourTypeChanged(state);
-    }
+    QString gmData = getUtcOffsetText(zoneInfo.getUTCOffset());
+    QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
+
+    return QString("%1 %2").arg(cityName).arg(gmData);
 }
 
 static QStringList timeZoneList(const installer::ZoneInfoList &zoneInfoList, QMap<QString, QString> &cache)
@@ -61,6 +95,48 @@ static QStringList timeZoneList(const installer::ZoneInfoList &zoneInfoList, QMa
     }
 
     return timezoneList;
+}
+
+DatetimeModel::DatetimeModel(QObject *parent)
+    : QObject(parent)
+    , m_ntp(true)
+    , m_bUse24HourType(true)
+    , m_work(new DatetimeWorker(this, this))
+{
+    connect(this, &DatetimeModel::ntpChanged, m_work, &DatetimeWorker::setNTP);
+    connect(this, &DatetimeModel::hourTypeChanged, m_work, &DatetimeWorker::set24HourType);
+    connect(this, &DatetimeModel::NTPServerChanged, m_work, &DatetimeWorker::setNtpServer);
+    // 设置ntp地址失败回退到之前的地址
+    connect(this, &DatetimeModel::NTPServerNotChanged, this, &DatetimeModel::setNtpServerAddress);
+
+    connect(this, &DatetimeModel::userTimeZoneAdded, m_work, [this](const ZoneInfo &zone){
+        m_work->addUserTimeZone(zone.getZoneName());
+    });
+    connect(this, &DatetimeModel::userTimeZoneRemoved, m_work, &DatetimeWorker::removeUserTimeZone);
+    // set timezone
+    connect(this, &DatetimeModel::timeZoneChanged, m_work, &DatetimeWorker::setTimezone);
+}
+
+void DatetimeModel::setNTP(bool ntp)
+{
+    if (m_ntp != ntp) {
+        m_ntp = ntp;
+        Q_EMIT ntpChanged(ntp);
+    }
+}
+
+void DatetimeModel::set24HourFormat(bool state)
+{
+    if (m_bUse24HourType != state) {
+        m_bUse24HourType = state;
+        Q_EMIT hourTypeChanged(state);
+    }
+}
+
+void DatetimeModel::setDateTime(const QDateTime &dateTime)
+{
+    if (m_work)
+        m_work->setDatetime(dateTime);
 }
 
 QStringList DatetimeModel::zones(int x, int y, int map_width, int map_height)
@@ -94,22 +170,44 @@ QPoint DatetimeModel::zonePosition(const QString &timezone, int map_width, int m
     return QPoint(x, y);
 }
 
-QStringList DatetimeModel::zonesComplitionList()
+QStringList DatetimeModel::zoneIdList()
 {
     using namespace installer;
     if (g_totalZones.empty())
         g_totalZones =  GetZoneInfoList();
 
-    auto complitionList = timeZoneList(g_totalZones, m_timezoneCache);
-     // "上海": "Asia/Shanghai"
-    for (const auto &zone : m_timezoneCache.values()) {
-        // m_timezoneCache.keys == complitionList
-        if (!m_timezoneCache.contains(zone)) {
-            complitionList << zone;
-        }
+    QStringList list;
+    for (const auto& info : g_totalZones) {
+        list << info.timezone;
     }
 
-    return complitionList;
+    return list;
+}
+
+QString DatetimeModel::zoneDisplayName(const QString &zoneName)
+{
+    if (m_work) {
+        auto zoneInfo = m_work->GetZoneInfo(zoneName);
+        QString utcOffsetText = getUtcOffsetText(zoneInfo.getUTCOffset());
+        QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
+        return QString("%1 %2").arg(utcOffsetText).arg(cityName);
+    }
+    return QString();
+}
+
+QSortFilterProxyModel *DatetimeModel::searchModel()
+{
+    if (m_searchModel)
+        return m_searchModel;
+
+    m_searchModel = new QSortFilterProxyModel(this);
+
+    auto sourceModel = new dccV25::ZoneInfoModel(this);
+    m_searchModel->setSourceModel(sourceModel);
+    m_searchModel->setFilterRole(dccV25::ZoneInfoModel::SearchTextRole);
+    m_searchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    return m_searchModel;
 }
 
 QStringList DatetimeModel::languagesAndRegions()
@@ -146,6 +244,35 @@ QStringList DatetimeModel::languagesAndRegions()
     }
 
     return langAndRegions;
+}
+
+void DatetimeModel::addUserTimeZoneByName(const QString &zoneName)
+{
+    if (!m_timezoneCache.contains(zoneName)) {
+        qWarning() << "timezone cache not contain.." << zoneName;
+        return;
+    }
+    QString zoneId = m_timezoneCache.value(zoneName);
+
+    if (m_userZoneIds.contains(zoneId)) {
+        qWarning() << "user timezone already existed";
+        return;
+    }
+
+    if (m_work)
+        m_work->addUserTimeZone(zoneId);
+}
+void DatetimeModel::removeUserTimeZoneByName(const QString &name)
+{
+    // displayText list
+    auto zonelist = userTimeZoneText(0);
+    int index = zonelist.indexOf(name);
+    if (index < 0) {
+      qWarning() << name << "Not found in User TimeZones";
+        return;
+    }
+
+    removeUserTimeZone(m_userTimeZones.value(index));
 }
 
 #ifndef DCC_DISABLE_TIMEZONE
@@ -341,6 +468,63 @@ void DatetimeModel::setRegions(const Regions &regions)
     if (m_regions != regions) {
         m_regions = regions;
     }
+}
+
+QStringList DatetimeModel::userTimeZoneText(int index) const
+{
+    QStringList userTimeZoneList;
+    for (const ZoneInfo &zoneInfo : m_userTimeZones) {
+        QString text;
+        switch (index) {
+        case 1:
+            text = getDescription(zoneInfo);
+            break;
+        case 2:
+            text = QString::number(zoneInfo.getUTCOffset());
+            break;
+        case 3:
+            text = zoneInfo.getZoneName();
+            break;
+        case 4:
+            text = zoneInfo.getZoneCity();
+            break;
+        default:
+            text = getDisplayText(zoneInfo);
+            break;
+        }
+        userTimeZoneList << text;
+    }
+
+    return userTimeZoneList;
+}
+
+QString DatetimeModel::currentTimeZoneName() const
+{
+    return getDescription(m_currentTimeZone);
+}
+
+QString DatetimeModel::timeZoneDispalyName() const
+{
+    return getDisplayText(m_currentSystemTimeZone);
+}
+
+int DatetimeModel::currentTimeZoneIndex() const
+{
+    using namespace installer;
+    if (g_totalZones.empty())
+        g_totalZones =  GetZoneInfoList();
+
+    int index = -1;
+    const QString &zoneName = m_currentSystemTimeZone.getZoneName();
+    for (int i = 0; i < g_totalZones.size(); ++i) {
+        const auto &zoneInfo = g_totalZones.value(i);
+        if (zoneName == zoneInfo.timezone) {
+            index = i;
+            break;
+        }
+    }
+
+    return index;
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)

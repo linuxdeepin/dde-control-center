@@ -6,30 +6,45 @@ import QtQuick.Controls 2.15
 import QtQuick.Window
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
-        
+import org.deepin.dcc 1.0 as Dcc
+
 D.DialogWindow {
     id: timezoneDialog
-    // TODO: get current timezone from backend
-    property string currentTimeZone: "中国 (GMT+8)"
+    property string currentTimeZone: "武汉 (UTC+08:00)"
     property string currentLocation: "武汉-中国大陆"
+    property string selectedTimeZone
+    property bool saved: false
 
     visible: true
     width: 1080
-    height: 830
+    height: 730
     color: "#66000000"
     modality: Qt.WindowModal
 
     // remove titlebar background
     header: D.DialogTitleBar {
-        enableInWindowBlendBlur: true
-        background: null
+        enableInWindowBlendBlur: false
     }
 
     ColumnLayout {
+        id: layout
         y: -20
         spacing: 10
         height: parent.height
         width: parent.width
+
+        function showIndicator(zoneId, zoneDiplayName) {
+            let size = zoneMap.sourceSize
+            let zonePos = dccData.zonePosition(zoneId, size.width, size.height)
+
+            let displaytexts = zoneDiplayName.split(' '); // [上海, (UTC+08:00)]
+
+            indicator.x = zonePos.x - 6
+            indicator.y = zonePos.y - 6
+            zoneMap.timZonePos = Qt.point(indicator.x, indicator.y)
+            timezoneDialog.selectedTimeZone = displaytexts[0]
+            indicator.visible = true
+        }
 
         Label {
             text: qsTr("Add time zone")
@@ -38,33 +53,90 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignCenter
         }
 
-        D.SearchEdit {
+        Dcc.SearchBar {
+            id: searchBar
             Layout.preferredWidth: 300
-            placeholder: qsTr("Search")
             Layout.alignment: Qt.AlignCenter
+            model: dccData.searchModel()
+            onClicked: function(model) {
+                layout.showIndicator(model.zoneIdRole, model.cityNameRole)
+            }
         }
 
         CheckBox {
             text: qsTr("Determine the time zone based on the current location")
             Layout.alignment: Qt.AlignCenter
+            visible: false
         }
 
         D.DciIcon {
             id: zoneMap
+            property point timZonePos
+
             name: "dcc_timezone_map"
             sourceSize: Qt.size(978, 500)
             Layout.alignment: Qt.AlignCenter
 
             ToolTip {
                 id: toolTip
+                property alias model: arrowListView.model
+                contentItem: ColumnLayout {
+                    Repeater {
+                        id: arrowListView
+                        D.ItemDelegate {
+                            id: item
+                            implicitWidth: 120
+                            implicitHeight: 30
+                            text: modelData
+                            background: Item {
+                                implicitWidth: item.width
+                                implicitHeight: item.height
+                                Loader {
+                                    anchors.fill: parent
+                                    active: item.hovered
+                                    sourceComponent: D.HighlightPanel {}
+                                }
+                            }
+                            onClicked: {
+                                timezoneDialog.selectedTimeZone = modelData
+                                //toolTip.x = pos.x - 50 toolTip.y = pos.y - 10
+                                zoneMap.timZonePos = Qt.point(toolTip.x + 50 - 6, toolTip.y + 10 - 6)
+                                toolTip.hide()
+
+                            }
+                        }
+                    }
+                }
+
+                onVisibleChanged: {
+                    indicator.x = zoneMap.timZonePos.x
+                    indicator.y = zoneMap.timZonePos.y
+                    indicator.visible = !toolTip.visible && timezoneDialog.selectedTimeZone.length > 0
+                }
             }
 
-            function showTips(text, pos) {
-                toolTip.text = text
+            D.DciIcon {
+                id: indicator
+                visible: !toolTip.visible && timezoneDialog.selectedTimeZone.length > 0
+                name: "indicator_active"
+                sourceSize:  Qt.size(12, 12)
+            }
+
+            ToolTip {
+                id: holdToolTip
+                x: indicator.x - holdToolTip.width / 2 + 6
+                y: indicator.y - holdToolTip.height - 6
+                closePolicy: Popup.NoAutoClose
+                text: timezoneDialog.selectedTimeZone
+                visible: indicator.visible && text.length > 0
+            }
+
+            function showTips(pos, model) {
                 toolTip.visible = true
-                toolTip.delay = 500
-                toolTip.x = pos.x
-                toolTip.y = pos.y - 20
+                toolTip.delay = 200
+                toolTip.model = model
+                toolTip.x = pos.x - 50
+                toolTip.y = pos.y - 10
             }
 
             MouseArea {
@@ -76,20 +148,22 @@ D.DialogWindow {
                         return
                     }
 
-                    let text = zones[0]
-                    if (zones.length > 1)
-                        text = zones.join("\n")
+                    indicator.visible = false
 
                     let zonePos = Qt.point(mouse.x, mouse.y)
                     zonePos = dccData.zonePosition(zones[0], zoneMap.width, zoneMap.height)
-                    console.log("mouse pos:", mouse.x, mouse.y, "zone pos:", zonePos.x, zonePos.y);
-
-                    Qt.callLater(zoneMap.showTips, text, zonePos);
+                    Qt.callLater(zoneMap.showTips, zonePos, zones);
                 }
             }
+
+            // Component.onCompleted: {
+            //     // show with indicator
+            //     layout.showIndicator(dccData.systemTimeZone, dccData.timeZoneDispalyName)
+            // }
         }
 
         RowLayout {
+            visible: false
             spacing: 10
             Layout.alignment: Qt.AlignCenter
             Layout.bottomMargin: 10
@@ -102,6 +176,7 @@ D.DialogWindow {
         }
 
         RowLayout {
+            visible: false
             spacing: 10
             Layout.alignment: Qt.AlignCenter
             Layout.bottomMargin: 30
@@ -119,10 +194,19 @@ D.DialogWindow {
             Button {
                 Layout.bottomMargin: 10
                 text: qsTr("Cancel")
+                onClicked: {
+                    timezoneDialog.saved = false
+                    close()
+                }
             }
             D.RecommandButton {
+                enabled: timezoneDialog.selectedTimeZone.length > 0
                 Layout.bottomMargin: 10
                 text: qsTr("Save")
+                onClicked: {
+                    timezoneDialog.saved = true
+                    close()
+                }
             }
         }
     }

@@ -6,8 +6,8 @@ import org.deepin.dcc 1.0
 // 时间和语言
 DccObject {
     name: "timeAndLang"
-    parentName: "root"
+    parentName: "system"
     displayName: qsTr("Time and language")
     icon: "dcc_nav_datetime"
-    weight: 71
+    weight: 40
 }
