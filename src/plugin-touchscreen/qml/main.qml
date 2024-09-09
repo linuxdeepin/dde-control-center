@@ -8,8 +8,6 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
-    id: root
-    visible: dccData.touchScreenList.length !== 0
     DccObject {
         name: "touchscreen"
         parentName: "touchscreen"
