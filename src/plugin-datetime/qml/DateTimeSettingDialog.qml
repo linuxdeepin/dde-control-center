@@ -34,20 +34,29 @@ id: ddialog
                 unitText: qsTr("年")
                 from: 1900
                 to: 9999
-                value: 2024
+                value: currentDate.getFullYear()
+                onValueChanged: {
+                    currentDate.setFullYear(value);
+                }
             }
 
             SpinboxEx {
                 unitText: qsTr("月")
                 from: 1
                 to: 12
-                value: 9
+                value: currentDate.getMonth() + 1 //  // January gives 0
+                onValueChanged: {
+                    currentDate.setMonth(value - 1)
+                }
             }
             SpinboxEx {
                 unitText: qsTr("日")
                 from: 1
                 to: 31
-                value: 9
+                value: currentDate.getDate()
+                onValueChanged: {
+                    currentDate.setDate(value)
+                }
             }
         }
         RowLayout {
@@ -60,12 +69,18 @@ id: ddialog
             SpinboxEx {
                 from: 0
                 to: 23
-                value: 16
+                value: currentDate.getHours()
+                onValueChanged: {
+                    currentDate.setHours(value);
+                }
             }
             SpinboxEx {
                 from: 0
                 to: 59
-                value: 24
+                value: currentDate.getMinutes()
+                onValueChanged: {
+                    currentDate.setMinutes(value);
+                }
             }
         }
         RowLayout {
@@ -74,10 +89,17 @@ id: ddialog
             Button {
                 Layout.bottomMargin: 10
                 text: qsTr("Cancel")
+                onClicked: {
+                    ddialog.close()
+                }
             }
             Button {
                 Layout.bottomMargin: 10
                 text: qsTr("Confirm")
+                onClicked: {
+                    dccData.setDateTime(currentDate)
+                    ddialog.close()
+                }
             }
         }
     }

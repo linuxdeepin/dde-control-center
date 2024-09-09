@@ -8,7 +8,7 @@
         <file>texts/dcc_clock_black_16px.svg</file>
         <file>texts/dcc_noun_second_16px.svg</file>
         <file>resource/deepindigitaltimes-Regular.ttf</file>
-        <file>images/indicator_active.png</file>
+        <file alias="icons/indicator_active_12px.png">images/indicator_active.png</file>
         <file>images/timezone_map_big2.png</file>
         <file>images/timezone_map_big.png</file>
         <file alias="icons/dcc_timezone_map_978px.svg">images/timezone_map_big@1x.svg</file>

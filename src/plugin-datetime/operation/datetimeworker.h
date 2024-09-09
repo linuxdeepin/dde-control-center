@@ -61,6 +61,7 @@ public Q_SLOTS:
 
     void genLocale(const QString &localeName);
 
+    ZoneInfo GetZoneInfo(const QString &zoneId);
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);
@@ -76,7 +77,6 @@ private Q_SLOTS:
 
 private:
     void refreshNtpServerList();
-    ZoneInfo GetZoneInfo(const QString &zoneId);
     void initRegionFormatData();
     std::optional<QStringList> getSupportedLocale();
 

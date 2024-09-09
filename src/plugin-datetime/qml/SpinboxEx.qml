@@ -6,6 +6,7 @@ import QtQuick.Controls 2.0
 
 SpinBox {
     id: sp
+    editable: true
     property string unitText
     implicitWidth: textMetrics.advanceWidth + 30
 

@@ -87,7 +87,7 @@ void DatetimeWorker::setAutoHide()
 }
 void DatetimeWorker::setNTPError()
 {
-    Q_EMIT m_model->NTPChanged(m_model->nTP());
+    Q_EMIT m_model->ntpChanged(m_model->nTP());
     setAutoHide();
 }
 
@@ -137,7 +137,7 @@ void DatetimeWorker::setNtpServer(QString server)
 {
     qInfo() << "Try set server : " << server;
 
-    if (server.isEmpty() && server == m_timedateInter->nTPServer())
+    if (server.isEmpty() || server == m_timedateInter->nTPServer())
         return;
     m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
 }
