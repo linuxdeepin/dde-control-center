@@ -125,6 +125,9 @@ public:
 
     inline bool isBalancePerformanceSupported() const { return m_isBalancePerformanceSupported; }
     void setBalancePerformanceSupported(bool isBalancePerformanceSupported);
+
+    inline bool isPowerSaveSupported() const { return m_isPowerSaveSupported; }
+    void setPowerSaveSupported(bool isPowerSaveSupported);
     // ----
     inline bool isNoPasswdLogin() const { return m_noPasswdLogin; }
 
@@ -171,6 +174,7 @@ Q_SIGNALS:
     void suspendChanged(bool suspendState);
     void powerPlanChanged(const QString &value);
     void highPerformaceSupportChanged(bool value);
+    void powerSaveSupportChanged(bool value);
 
     void noPasswdLoginChanged(bool value);
 
@@ -214,6 +218,7 @@ private:
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
     bool m_isBalancePerformanceSupported;
+    bool m_isPowerSaveSupported;
 
     // Account
     bool m_noPasswdLogin;
