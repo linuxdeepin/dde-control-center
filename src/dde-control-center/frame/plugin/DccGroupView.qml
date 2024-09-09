@@ -39,6 +39,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Editor
                     delegate: DccEditorItem {
+                        topInset: root.isGroup ? 0 : 5
+                        bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
                         backgroundVisible: root.isGroup || model.item.hasBackground
                         Layout.fillWidth: true
@@ -48,6 +50,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Item
                     delegate: DccItem {
+                        topInset: root.isGroup ? 0 : 5
+                        bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
                         backgroundVisible: root.isGroup || model.item.hasBackground
                         Layout.fillWidth: true
