@@ -34,6 +34,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
     connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
     connect(m_powerDBusProxy, &PowerDBusProxy::IsHighPerformanceSupportedChanged, this, &PowerWorker::setHighPerformanceSupported);
+    connect(m_powerDBusProxy, &PowerDBusProxy::IsPowerSaveSupportedChanged, this, &PowerWorker::setPowerSaveSupported);
 
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
@@ -86,6 +87,7 @@ void PowerWorker::active()
 
     setHighPerformanceSupported(m_powerDBusProxy->isHighPerformanceSupported());
     setBalancePerformanceSupported(m_powerDBusProxy->isBalancePerformanceSupported());
+    setPowerSaveSupported(m_powerDBusProxy->isPowerSaveSupported());
 
     setScreenBlackDelayToModelOnPower(m_powerDBusProxy->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerDBusProxy->linePowerSleepDelay());
@@ -208,6 +210,11 @@ void PowerWorker::setHighPerformanceSupported(bool state)
 void PowerWorker::setBalancePerformanceSupported(bool state)
 {
     m_powerModel->setBalancePerformanceSupported(state);
+}
+
+void PowerWorker::setPowerSaveSupported(bool state)
+{
+    m_powerModel->setPowerSaveSupported(state);
 }
 
 void PowerWorker::setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode)
