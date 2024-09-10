@@ -2,7 +2,6 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "wacomdbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusConnection>
@@ -12,8 +11,6 @@
 const static QString WacomService = "org.deepin.dde.InputDevices1";
 const static QString WacomPath = "/org/deepin/dde/InputDevice1/Wacom";
 const static QString WacomInterface = "org.deepin.dde.InputDevice1.Wacom";
-
-using namespace DCC_NAMESPACE;
 
 WacomDBusProxy::WacomDBusProxy(QObject *parent)
     : QObject (parent)
@@ -49,7 +46,7 @@ void WacomDBusProxy::setCursorMode(bool value)
 
 uint WacomDBusProxy::eraserPressureSensitive()
 {
-    return qvariant_cast<bool>(m_inputWacomInter->property("EraserPressureSensitive"));
+    return qvariant_cast<uint>(m_inputWacomInter->property("EraserPressureSensitive"));
 }
 
 void WacomDBusProxy::setEraserPressureSensitive(uint value)
