@@ -210,9 +210,11 @@ void DccQuickDBusInterface::Private::onAllProperties(const QVariantMap &changedP
 {
     QVariantMap properties;
     for (QVariantMap::const_iterator it = changedProperties.cbegin(); it != changedProperties.cend(); ++it) {
-        QVariant v = DccQuickDBusCallback::toValue(it.value());
-        m_propertyMap.insert(it.key(), v);
-        properties.insert(it.key(), v);
+        if (m_monitorProperties.isEmpty() || m_monitorProperties.contains(it.key())) {
+            QVariant v = DccQuickDBusCallback::toValue(it.value());
+            m_propertyMap.insert(it.key(), v);
+            properties.insert(it.key(), v);
+        }
     }
     Q_EMIT q_ptr->propertyChanged(properties);
 }
@@ -295,6 +297,19 @@ void DccQuickDBusInterface::setConnection(const BusType &connection)
     }
 }
 
+QStringList DccQuickDBusInterface::monitorProperties() const
+{
+    return p_ptr->m_monitorProperties;
+}
+
+void DccQuickDBusInterface::setMonitorProperties(const QStringList &monitorProperties)
+{
+    if (p_ptr->m_monitorProperties != monitorProperties) {
+        p_ptr->m_monitorProperties = monitorProperties;
+        Q_EMIT monitorPropertiesChanged(p_ptr->m_monitorProperties);
+    }
+}
+
 bool DccQuickDBusInterface::callWithCallback(const QString &method, const QList<QVariant> &args, const QJSValue member, const QJSValue errorSlot)
 {
     DccQuickDBusCallback *callback = new DccQuickDBusCallback(member, errorSlot, true, this);
@@ -303,7 +318,7 @@ bool DccQuickDBusInterface::callWithCallback(const QString &method, const QList<
     return p_ptr->m_connection.callWithCallback(msg, callback, SLOT(returnMethod(QDBusMessage)), SLOT(errorMethod(QDBusError, QDBusMessage)));
 }
 
-bool DccQuickDBusInterface::connectDbus(const QString &signature, const QJSValue slot)
+bool DccQuickDBusInterface::connectSignal(const QString &signature, const QJSValue slot)
 {
     DccQuickDBusCallback *callback = new DccQuickDBusCallback(slot, QJSValue(), false, this);
     return p_ptr->m_connection.connect(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, signature, callback, SLOT(returnMethod(QDBusMessage)));

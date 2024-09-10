@@ -187,6 +187,7 @@ void DccManager::removeObject(DccObject *obj)
 {
     if (!obj)
         return;
+    removeObjectFromParent(obj);
 }
 
 void DccManager::removeObject(const QString &name)

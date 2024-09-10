@@ -48,6 +48,7 @@ public:
     QString m_service;
     QString m_path;
     QString m_interface;
+    QStringList m_monitorProperties;
     BusType m_connectionType;
     QDBusConnection m_connection;
     QVariantMap m_propertyMap;

@@ -17,6 +17,7 @@ class DccQuickDBusInterface : public QObject
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(QString inter READ interface WRITE setInterface NOTIFY interfaceChanged)
     Q_PROPERTY(BusType connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(QStringList monitorProperties READ monitorProperties WRITE setMonitorProperties NOTIFY monitorPropertiesChanged)
 public:
     explicit DccQuickDBusInterface(QObject *parent = nullptr);
     ~DccQuickDBusInterface() override;
@@ -35,10 +36,12 @@ public:
     void setInterface(const QString &interface);
     BusType connection() const;
     void setConnection(const BusType &connection);
+    QStringList monitorProperties() const;
+    void setMonitorProperties(const QStringList &monitorProperties);
 
 public Q_SLOTS:
     bool callWithCallback(const QString &method, const QList<QVariant> &args, const QJSValue member, const QJSValue errorSlot);
-    bool connectDbus(const QString &signature, const QJSValue slot);
+    bool connectSignal(const QString &signature, const QJSValue slot);
     QVariant getProperty(const QString &propname);
     void setProperty(const QString &propname, const QVariant &value);
 
@@ -47,6 +50,7 @@ Q_SIGNALS:
     void pathChanged(const QString &path);
     void interfaceChanged(const QString &interface);
     void connectionChanged(const BusType &connection);
+    void monitorPropertiesChanged(const QStringList &monitorProperties);
     // To prevent stuttering, the DBus interface uses asynchronous calls, and the correct properties can only be obtained after receiving the property Changed for the first time
     void propertyChanged(const QVariantMap &properties);
 
