@@ -41,6 +41,7 @@ PowerModel::PowerModel(QObject *parent)
     , m_powerPlan("")
     , m_isHighPerformanceSupported(false)
     , m_isBalancePerformanceSupported(false)
+    , m_isPowerSaveSupported(true)
 {
 }
 
@@ -328,6 +329,14 @@ void PowerModel::setBalancePerformanceSupported(bool isBalancePerformanceSupport
         return;
     m_isBalancePerformanceSupported = isBalancePerformanceSupported;
     Q_EMIT highPerformaceSupportChanged(isBalancePerformanceSupported);
+}
+
+void PowerModel::setPowerSaveSupported(bool isPowerSaveSupported)
+{
+    if (m_isPowerSaveSupported == isPowerSaveSupported)
+        return;
+    m_isPowerSaveSupported = isPowerSaveSupported;
+    Q_EMIT powerSaveSupportChanged(isPowerSaveSupported);
 }
 
 void PowerModel::setSuspend(bool suspend)

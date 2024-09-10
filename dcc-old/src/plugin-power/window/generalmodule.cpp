@@ -205,6 +205,44 @@ void GeneralModule::initUI()
                     }
                 };
                 onBalancePerformanceSupportedChanged(m_model->isBalancePerformanceSupported());
+                auto onPowerSaveSupportChanged = [this, powerplanListview](const bool isSupport) {
+                    int row_count = m_powerPlanModel->rowCount();
+                    if (!isSupport) {
+                        int cur_place = powerplanListview->currentIndex().row();
+                        for (int i = 0; i < row_count; i++) {
+                            QStandardItem *items = m_powerPlanModel->item(i, 0);
+                            if (items->data(PowerPlanRole).toString() == POWERSAVE) {
+                                m_powerPlanModel->removeRow(i);
+
+                                if (cur_place == i || cur_place < 0) {
+                                    powerplanListview->clicked(m_powerPlanModel->index(0, 0));
+                                }
+                                break;
+                            }
+                        }
+                    } else {
+                        bool findPowerSave = false;
+                        for (int i = 0; i < row_count; i++) {
+                            QStandardItem *items = m_powerPlanModel->item(i, 0);
+                            if (items->data(PowerPlanRole).toString() == POWERSAVE) {
+                                findPowerSave = true;
+                                break;
+                            }
+                        }
+                        if (!findPowerSave) {
+                            DStandardItem *powerPlanItem =
+                                    new DStandardItem(m_powerPlanMap.value(POWERSAVE));
+                            powerPlanItem->setData(POWERSAVE, PowerPlanRole);
+                            DViewItemAction *action = new DViewItemAction();
+                            action->setText(::get_translate(::get_translate(POWERSAVE)));
+                            action->setFontSize(DFontSizeManager::T9);
+                            action->setTextColorRole(DPalette::TextTips);
+                            powerPlanItem->setTextActionList({action});
+                            m_powerPlanModel->insertRow(1, powerPlanItem);
+                        }
+                    }
+                };
+                onPowerSaveSupportChanged(m_model->isPowerSaveSupported());
                 connect(powerplanListview,
                         &DListView::clicked,
                         this,
@@ -218,6 +256,10 @@ void GeneralModule::initUI()
                         &PowerModel::highPerformaceSupportChanged,
                         powerplanListview,
                         onHighPerformanceSupportChanged);
+                connect(m_model,
+                        &PowerModel::powerSaveSupportChanged,
+                        powerplanListview,
+                        onPowerSaveSupportChanged);
 
                 auto onCurPowerPlanChanged = [this](const QString &curPowerPlan) {
                     int row_count = m_powerPlanModel->rowCount();
