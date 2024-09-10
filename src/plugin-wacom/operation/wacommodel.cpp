@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "wacommodel.h"
 #include "wacommodelprivate_p.h"
+#include "dccfactory.h"
 
 WacomModel::WacomModel(QObject *parent)
     : QObject(parent)
@@ -52,3 +53,6 @@ void WacomModelPrivate::setCursorMode(bool value) {
 void WacomModelPrivate::setEraserPressureSensitive(uint value) {
     m_wacomInterfaceProxy->setEraserPressureSensitive(value);
 }
+
+DCC_FACTORY_CLASS(WacomModel)
+#include "wacommodel.moc"

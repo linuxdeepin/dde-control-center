@@ -4,8 +4,6 @@
 #ifndef WACOMDBUSPROXY_H
 #define WACOMDBUSPROXY_H
 
-#include "interface/namespace.h"
-
 #include <DDBusInterface>
 
 #include <QObject>
