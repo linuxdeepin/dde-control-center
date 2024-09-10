@@ -16,6 +16,7 @@ DccObject {
         path: "/org/deepin/dde/Display1"
         inter: "org.deepin.dde.Display1"
         connection: DccDBusInterface.SessionBus
+        monitorProperties: ["TouchscreensV2"]
         onPropertyChanged: function (properties) {
             if (properties.hasOwnProperty("TouchscreensV2")) {
                 root.visible = properties["TouchscreensV2"].length !== 0
