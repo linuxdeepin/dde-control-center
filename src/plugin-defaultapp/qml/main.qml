@@ -19,7 +19,7 @@ DccObject {
         name: "defappWebpage"
         parentName: "defaultapp"
         displayName: qsTr("Webpage")
-        icon: "dcc_browser"
+        icon: "dcc_network"
         weight: 10
         page: groupView
         DetailItem {
@@ -84,7 +84,7 @@ DccObject {
         name: "defappPicture"
         parentName: "defaultapp"
         displayName: qsTr("Picture")
-        icon: "dcc_photo"
+        icon: "dcc_picture"
         weight: 60
         page: groupView
         DetailItem {

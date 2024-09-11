@@ -88,15 +88,17 @@ public:
     void setDefultObject(DccObject *obj);
 
     enum PageType {
-        Control = 0x100, // 页面中的一个控件，与其他组合使用
+        EditorPage = 1, // 编辑控件,page为右则的编辑控件，左则为displayName和description
+        ItemPage,       // 控件，page为整个控件
 
-        Menu = 0,   // 菜单项，子页面是page
-        EditorPage, // 编辑控件,page为右则的编辑控件，左则为displayName和description
-        ItemPage,   // 控件，page为整个控件
+        Menu = 0x0800, // 菜单项，子页面是page
+        MenuEditor,    // 菜单加编辑控件
 
+        Control = 0x0100,              // 页面中的一个控件，与其他组合使用
         Editor = EditorPage | Control, // 编辑控件
         Item = ItemPage | Control,     // 控件
-        UserType = 0x1000,             // 0x1000及以上: 用户自定义使用
+
+        UserType = 0x1000, // 0x1000及以上: 用户自定义使用
     };
     Q_ENUM(PageType)
     uint pageType() const;

@@ -52,42 +52,6 @@ DccObject {
         icon: "system"
         weight: 31
     }
-    // 网络
-    DccObject {
-        name: "network1"
-        parentName: "root"
-        displayName: qsTr("network")
-        icon: "network"
-        weight: 41
-    }
-    DccObject {
-        name: "wireless1"
-        parentName: "network1"
-        displayName: qsTr("无线网络")
-        icon: "network"
-        weight: 11
-    }
-    DccObject {
-        name: "vpn1"
-        parentName: "network1"
-        displayName: qsTr("VPN")
-        icon: "network"
-        weight: 21
-    }
-    DccObject {
-        name: "systemAgent1"
-        parentName: "network1"
-        displayName: qsTr("系统代理")
-        icon: "network"
-        weight: 31
-    }
-    DccObject {
-        name: "details1"
-        parentName: "network1"
-        displayName: qsTr("网络详情")
-        icon: "network"
-        weight: 41
-    }
     // 设备
     DccObject {
         name: "bluetooth1"

@@ -28,7 +28,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_parentItem(nullptr)
     , m_weight(-1)
     , m_badge(0)
-    , m_pageType(0)
+    , m_pageType(Menu)
     , m_flags(0)
 {
 }
