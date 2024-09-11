@@ -157,8 +157,6 @@ public:
 
     int autoCheckUpdateCircle() const { return m_autoCheckUpdateCircle; }
 
-    bool linglongAutoUpdate() const { return m_linglongAutoUpdateActived; }
-
     void setAutoCheckUpdateCircle(const int interval);
     bool enterCheckUpdate();
 
@@ -219,7 +217,6 @@ public:
     // Testing Channel
     TestingChannelStatus getTestingChannelStatus() const;
     void setTestingChannelStatus(const TestingChannelStatus &status);
-    void setLinglongAutoUpdate(const bool longlongAutoUpdate);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
@@ -326,8 +323,6 @@ private:
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
 
     TestingChannelStatus m_testingChannelStatus;
-
-    bool m_linglongAutoUpdateActived;
 };
 
 #endif // UPDATEMODEL_H

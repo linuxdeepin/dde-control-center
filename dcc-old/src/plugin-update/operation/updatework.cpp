@@ -44,9 +44,6 @@ constexpr int ServerPlatform = 6;              // 服务器版
 
 constexpr int RecoveryBackupFailedDistFull = -2; // Not enough disk space
 
-static const QString LINGLONG_TIMER = QStringLiteral("linglong-upgrade.timer");
-static const QString LINGLONG_SERVICE = QStringLiteral("linglong-upgrade.service");
-
 #define CHECK_JOBS_ENV "DCC_PACKAGE_CHECK_JOBS"
 
 // NOTE: start with ii, any space, anychar, any space, anychar, at least one space, anykind of char
@@ -286,7 +283,6 @@ void UpdateWorker::activate()
     onJobListChanged(m_updateInter->jobList());
 
     testingChannelChangeSlot();
-    checkLinglongUpdateStatus();
 
     licenseStateChangeSlot();
 
@@ -296,67 +292,6 @@ void UpdateWorker::activate()
                                          "LicenseStateChange",
                                          this,
                                          SLOT(licenseStateChangeSlot()));
-}
-
-void UpdateWorker::setLinglongAutoUpdate(const bool status)
-{
-    QProcess process;
-    QStringList systemdcommand;
-
-    if (status) {
-        systemdcommand = QStringList{ "--user", "unmask", LINGLONG_SERVICE };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-        systemdcommand = QStringList{ "--user", "unmask", LINGLONG_TIMER };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-        systemdcommand = QStringList{ "--user", "start", LINGLONG_TIMER };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-    } else {
-        systemdcommand = QStringList{ "--user", "stop", LINGLONG_TIMER };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-        systemdcommand = QStringList{ "--user", "mask", LINGLONG_TIMER };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-        systemdcommand = QStringList{ "--user", "stop", LINGLONG_SERVICE };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-        systemdcommand = QStringList{ "--user", "mask", LINGLONG_SERVICE };
-        process.start("systemctl", systemdcommand);
-        process.waitForFinished(-1);
-    }
-
-    if (status) {
-        tryLinglongUpdate();
-    }
-    checkLinglongUpdateStatus();
-}
-
-void UpdateWorker::tryLinglongUpdate()
-{
-    QProcess *process = new QProcess;
-    process->start("systemctl", { "--user", "start", LINGLONG_SERVICE });
-    connect(process, &QProcess::errorOccurred, this, [process](QProcess::ProcessError error) {
-        qCWarning(DccUpdateWork) << "Linglong update Error:" << error;
-        process->deleteLater();
-    });
-    connect(process,
-            static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
-            this,
-            [process](int, QProcess::ExitStatus) {
-                process->deleteLater();
-            });
-}
-
-void UpdateWorker::checkLinglongUpdateStatus()
-{
-    QProcess process;
-    process.start("systemctl", { "--user", "is-active", LINGLONG_TIMER });
-    process.waitForFinished();
-    QString text = process.readAllStandardOutput().trimmed();
-    m_model->setLinglongAutoUpdate(text == "active");
 }
 
 void UpdateWorker::deactivate() { }
@@ -753,7 +688,6 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         m_backupStatus = BackupStatus::Backuped;
         downloadAndInstallUpdates(updateType);
     }
-    tryLinglongUpdate();
 }
 
 void UpdateWorker::setAutoCheckUpdates(const bool autoCheckUpdates)

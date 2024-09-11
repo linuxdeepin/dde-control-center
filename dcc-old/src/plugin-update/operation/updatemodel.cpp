@@ -59,7 +59,6 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
     , m_testingChannelStatus(TestingChannelStatus::DeActive)
-    , m_linglongAutoUpdateActived(false)
 {
 
     qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
@@ -672,13 +671,4 @@ void UpdateModel::setTestingChannelStatus(const TestingChannelStatus &status)
 {
     m_testingChannelStatus = status;
     Q_EMIT TestingChannelStatusChanged(m_testingChannelStatus);
-}
-
-void UpdateModel::setLinglongAutoUpdate(const bool linglongAutoUpdate)
-{
-    if (m_linglongAutoUpdateActived == linglongAutoUpdate) {
-        return;
-    }
-    m_linglongAutoUpdateActived = linglongAutoUpdate;
-    Q_EMIT longlongAutoUpdateChanged(m_linglongAutoUpdateActived);
 }
