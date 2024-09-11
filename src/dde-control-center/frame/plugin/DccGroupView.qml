@@ -58,6 +58,17 @@ Rectangle {
                         corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
+                DelegateChoice {
+                    roleValue: DccObject.MenuEditor
+                    delegate: DccMenuEditorItem {
+                        topInset: root.isGroup ? 0 : 5
+                        bottomInset: root.isGroup ? 0 : 5
+                        separatorVisible: root.isGroup
+                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        Layout.fillWidth: true
+                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                    }
+                }
             }
         }
     }

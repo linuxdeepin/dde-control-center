@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.18)
 set(DefaultApp_Name defaultapp)
 file(GLOB_RECURSE defaultapp_SRCS
     "operation/*.cpp"
-    "operation/qrc/defapp.qrc"
 )
 
 add_library(${DefaultApp_Name} MODULE
