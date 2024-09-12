@@ -90,3 +90,12 @@ void PersonalizationModel::setCompositingAllowSwitch(bool value)
 
     Q_EMIT onCompositingAllowSwitch(value);
 }
+
+void PersonalizationModel::setCompactDisplay(bool value)
+{
+    if (m_compactDisplay == value)
+        return;
+    m_compactDisplay = value;
+
+    Q_EMIT compactDisplayChanged(value);
+}

@@ -52,6 +52,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::DTKSizeModeChanged, this, &PersonalizationWorker::onCompactDisplayChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
         qCDebug(DdcPersonalWorker) << "ChangeProperty is " << propertyName << "; value is" << value;
         if (propertyName == "globaltheme") {
@@ -84,6 +85,7 @@ void PersonalizationWorker::active()
     m_model->getMonoFontModel()->setFontName(m_personalizationDBusProxy->monospaceFont());
     m_model->getStandFontModel()->setFontName(m_personalizationDBusProxy->standardFont());
     m_model->setWindowRadius(m_personalizationDBusProxy->windowRadius());
+    m_model->setCompactDisplay(m_personalizationDBusProxy->getDTKSizeMode());
 }
 
 void PersonalizationWorker::deactive()
@@ -200,6 +202,11 @@ void PersonalizationWorker::onWindowRadiusChanged(int value)
 void PersonalizationWorker::onCompositingAllowSwitch(bool value)
 {
     m_model->setCompositingAllowSwitch(value);
+}
+
+void PersonalizationWorker::onCompactDisplayChanged(int value)
+{
+    m_model->setCompactDisplay(value);
 }
 
 void PersonalizationWorker::setFontList(FontModel *model, const QString &type, const QString &list)
@@ -366,6 +373,11 @@ void PersonalizationWorker::setActiveColor(const QString &hexColor)
 void PersonalizationWorker::setWindowRadius(int radius)
 {
     m_personalizationDBusProxy->setWindowRadius(radius);
+}
+
+void PersonalizationWorker::setCompactDisplay(bool value)
+{
+    m_personalizationDBusProxy->setDTKSizeMode(int(value));
 }
 
 template<typename T>

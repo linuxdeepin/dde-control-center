@@ -189,6 +189,14 @@ bool PersonalizationDBusProxy::Thumbnail(const QString &ty, const QString &name,
     args << QVariant::fromValue(ty) << QVariant::fromValue(name);
     return m_AppearanceInter->callWithCallback(QStringLiteral("Thumbnail"), args, receiver, member, errorSlot);
 }
+int PersonalizationDBusProxy::getDTKSizeMode()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("DTKSizeMode"));
+}
+void PersonalizationDBusProxy::setDTKSizeMode(int value)
+{
+    m_AppearanceInter->setProperty("DTKSizeMode", QVariant::fromValue(value));
+}
 // WMSwitcher
 bool PersonalizationDBusProxy::AllowSwitch()
 {

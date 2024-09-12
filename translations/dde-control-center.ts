@@ -2730,6 +2730,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Compact Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
     </message>
