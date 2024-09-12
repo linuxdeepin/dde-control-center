@@ -3,7 +3,7 @@
 import org.deepin.dcc 1.0
 
 DccObject {
-    name: "powerManage"
+    name: "power"
     parentName: "root"
     displayName: qsTr("power")
     icon: "power"

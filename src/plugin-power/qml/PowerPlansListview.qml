@@ -64,7 +64,8 @@ Rectangle {
                         Layout.alignment: Qt.AlignRight
                         Layout.rightMargin: 10
                         contentItem: D.IconButton {
-                            icon.name: model.mode === dccData.model.powerPlan ? "qrc:/icons/deepin/builtin/actions/checked.png" : "qrc:/icons/deepin/builtin/actions/nocheck.png"
+                            visible: model.mode === dccData.model.powerPlan
+                            icon.name: "qrc:/icons/deepin/builtin/actions/checked.png"
                             icon.width: 24
                             icon.height: 24
                             implicitWidth: 36
@@ -97,30 +98,30 @@ Rectangle {
 
         ListElement {
             mode: "performance"
-            title: qsTr("高性能模式")
-            icon: "dcc_nav_systeminfo"
-            description: qsTr("性能优先, 会显著提升功耗和发热")
+            title: qsTr("High Performance")
+            icon: "high_performance"
+            description: qsTr("Performance priority will significantly improve power consumption and heat generation")
         }
 
         ListElement {
             mode: "balance_performance"
-            title: qsTr("性能模式")
-            icon: "dcc_nav_systeminfo"
-            description: qsTr("根据负载积极调整运行频率")
+            title: qsTr("Balance Performance")
+            icon: "balance_performance"
+            description: qsTr("Aggressively adjust CPU operating frequency based on CPU load condition")
         }
 
         ListElement {
             mode: "balance"
-            title: qsTr("平衡模式")
-            icon: "dcc_nav_systeminfo"
-            description: qsTr("兼顾性能和续航, 根据使用情况自动调节")
+            title: qsTr("Balanced")
+            icon: "balanced"
+            description: qsTr("Balancing performance and battery life, automatically adjusting according to usage conditions")
         }
 
         ListElement {
             mode: "powersave"
-            title: qsTr("节能模式")
-            icon: "dcc_nav_systeminfo"
-            description: qsTr("续航优先, 系统会牺牲一些性能表现来降低功耗")
+            title: qsTr("Power Saver")
+            icon: "power_performance"
+            description: qsTr("Prioritizing battery life, the system sacrifices some performance to reduce power consumption")
         }
     }
 }

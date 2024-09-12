@@ -14,14 +14,18 @@ class PowerInterface : public QObject
     Q_PROPERTY(PowerModel *model READ getModel NOTIFY powerModelChanged)
     Q_PROPERTY(PowerWorker *worker READ getWorker NOTIFY powerWorkerChanged)
 
-    Q_PROPERTY(PowerOperatorModel *powerLidModel MEMBER m_powerLidClosedOperatorModel)
-    Q_PROPERTY(PowerOperatorModel *powerPressModel MEMBER m_powerPressedOperatorModel)
-    Q_PROPERTY(PowerOperatorModel *batteryLidModel MEMBER m_batteryLidClosedOperatorModel)
-    Q_PROPERTY(PowerOperatorModel *batteryPressModel MEMBER m_batteryPressedOperatorModel)
+    Q_PROPERTY(PowerOperatorModel *powerLidModel MEMBER m_powerLidClosedOperatorModel CONSTANT)
+    Q_PROPERTY(PowerOperatorModel *powerPressModel MEMBER m_powerPressedOperatorModel CONSTANT)
+    Q_PROPERTY(PowerOperatorModel *batteryLidModel MEMBER m_batteryLidClosedOperatorModel CONSTANT)
+    Q_PROPERTY(PowerOperatorModel *batteryPressModel MEMBER m_batteryPressedOperatorModel CONSTANT)
 public:
     explicit PowerInterface(QObject *parent = nullptr);
     PowerModel *getModel() const { return m_model; };
     PowerWorker *getWorker() const { return m_worker; };
+
+    Q_INVOKABLE int indexByValueOnModel(QAbstractListModel *model, int targetValue);
+    Q_INVOKABLE int indexByValueOnMap(const QVariantList& dataMap, int targetValue);
+
 signals:
     void powerModelChanged(PowerModel *model);
     void powerWorkerChanged(PowerWorker *worker);

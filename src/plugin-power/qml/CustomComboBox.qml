@@ -6,7 +6,6 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
     id: control
-    model: powerOperatorModel
     flat: true
     property string visibleRole
     property string enableRole
@@ -21,7 +20,7 @@ D.ComboBox {
         hoverEnabled: control.hoverEnabled
         autoExclusive: true
         checked: control.currentIndex === index
-        enabled: (control.visibleRole && model[control.enableRole] !== undefined) ? model[control.enableRole] : true
+        enabled: (control.enableRole && model[control.enableRole] !== undefined) ? model[control.enableRole] : true
         visible: (control.visibleRole && model[control.visibleRole] !== undefined) ? model[control.visibleRole] : true
         implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
     }

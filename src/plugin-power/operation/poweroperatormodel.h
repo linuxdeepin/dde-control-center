@@ -7,14 +7,23 @@
 #include <QtQml/qqml.h>
 #include <QAbstractListModel>
 
+enum PowerOperatorType{
+    POT_ShutDown = 0,
+    POT_Suspend,
+    POT_Hibernate,
+    POT_TurnOffMonitor,
+    POT_ShowShutDownInter,
+    POT_DoNoting
+};
+
 struct PowerOperator
 {
-    quint8 value;
+    quint8 key;
     QString text;
     bool visible;
     bool enable;
-    PowerOperator(quint8 value, QString text, bool visible = true, bool enable = true)
-        : value(value), text(text), visible(visible), enable(enable) {}
+    PowerOperator(quint8 key, QString text, bool visible = true, bool enable = true)
+        : key(key), text(text), visible(visible), enable(enable) {}
 };
 
 class PowerOperatorModel : public QAbstractListModel
@@ -25,7 +34,7 @@ public:
 
     enum PowerOperatorRole 
     {
-        ValueRole = Qt::UserRole + 1,
+        KeyRole = Qt::UserRole + 1,
         TextRole,
         VisibleRole,
         EnableRole,
@@ -35,7 +44,6 @@ public:
     PowerOperatorModel(QObject *parent = nullptr);
     ~PowerOperatorModel();
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    void appendRow(PowerOperator *info);
     int rowCount(const QModelIndex &parent= QModelIndex()) const override;;
     void setEnable(int index, bool enable);
     void setVisible(int index, bool visible);
@@ -45,6 +53,9 @@ public:
 
 protected:
     QHash<int, QByteArray> roleNames() const override;
+
+private:
+    void appendRow(PowerOperator *info);
 
 private:
     QList<PowerOperator *> m_powerOperatorList;
