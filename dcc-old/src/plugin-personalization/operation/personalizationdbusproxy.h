@@ -70,6 +70,10 @@ public:
     bool zoneEnabled();
     void setZoneEnabled(bool value);
 
+    Q_PROPERTY(int DTKSizeMode READ getDTKSizeMode WRITE setDTKSizeMode NOTIFY DTKSizeModeChanged)
+    int getDTKSizeMode();
+    void setDTKSizeMode(int value);
+
 signals:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
@@ -97,6 +101,7 @@ signals:
     void cursorSizeChanged(int value) const;
     //    void CursorThemeChanged(const QString & value) const;
     void ZoneEnabledChanged(bool value) const;
+    void DTKSizeModeChanged(int value) const;
 
 public slots:
     // Appearance

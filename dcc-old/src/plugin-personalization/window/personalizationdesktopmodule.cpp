@@ -10,10 +10,13 @@
 #include "widgets/horizontalmodule.h"
 #include "widgets/itemmodule.h"
 #include "widgets/settingsgroupmodule.h"
+#include "widgets/widgetmodule.h"
+#include "widgets/switchwidget.h"
 
 #include <DSwitchButton>
 #include <DSysInfo>
 #include <DIconTheme>
+#include <DTipLabel>
 
 #include <QComboBox>
 
@@ -45,6 +48,41 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
                                this,
                                &PersonalizationDesktopModule::initMiniEffect);
         group->appendChild(itemMinimizeEffect);
+
+
+        appendChild(new WidgetModule<SwitchWidget>(
+                "compactDisplay",
+                tr("Compact Display"),
+                [this](SwitchWidget *switchButton) {
+                    connect(m_model,
+                            &PersonalizationModel::compactDisplayChanged,
+                            switchButton,
+                            [=](const bool status) {
+                                switchButton->setChecked(status);
+                            });
+                    connect(switchButton,
+                            &SwitchWidget::checkedChanged,
+                            this,
+                            [this](const bool status){
+                                m_work->setCompactDisplay(status);
+                            });
+
+                    switchButton->setTitle(tr("Compact Display"));
+                    switchButton->addBackground();
+                    switchButton->setChecked(m_model->getCompactDisplay());
+                }));
+    
+        auto compactDisplayTipModule = new WidgetModule<DTipLabel>(
+        "compactDisplayTip",
+        tr(""),
+        [](DTipLabel *label) {
+            label->setWordWrap(true);
+            label->setAlignment(Qt::AlignLeft);
+            label->setContentsMargins(10, 0, 10, 0);
+            label->setText(tr("If enabled, more content is displayed in the window."));
+        });
+        appendChild(compactDisplayTipModule);
+    
         HorizontalModule *hor = new HorizontalModule(QString(), QString());
         appendChild(hor);
         hor->appendChild(new ItemModule("transparencyEffect",

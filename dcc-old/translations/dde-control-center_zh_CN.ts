@@ -2672,6 +2672,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>最小化时效果</translation>
     </message>
     <message>
+        <source>Compact Display</source>
+        <translation>紧凑模式</translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation>开启后，窗口将显示更多内容</translation>
+    </message>
+    <message>
         <source>Opacity</source>
         <translation>不透明度调节</translation>
     </message>

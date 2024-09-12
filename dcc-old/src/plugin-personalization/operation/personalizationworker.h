@@ -35,6 +35,7 @@ public Q_SLOTS:
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
     void setWindowRadius(int radius);
+    void setCompactDisplay(bool value);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
@@ -49,6 +50,7 @@ private Q_SLOTS:
     void onWindowWM(bool value);
     void onMiniEffectChanged(bool value);
     void onWindowRadiusChanged(int value);
+    void onCompactDisplayChanged(int value);
 
 private:
     int sizeToSliderValue(const double value) const;
