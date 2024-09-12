@@ -10,9 +10,9 @@ import org.deepin.dtk 1.0 as D
 
 DccObject {
     DccObject {
-        name: "screenAndStandbyMode"
-        parentName: "powerManage/power"
-        displayName: qsTr("屏幕和待机")
+        name: "screenAndSuspendTitle"
+        parentName: "power/onPower"
+        displayName: qsTr("Screen and Suspend")
         weight: 10
         hasBackground: false
         pageType: DccObject.Item
@@ -26,16 +26,16 @@ DccObject {
     }
 
     DccObject {
-        name: "turnOffMonitorGroup"
-        parentName: "powerManage/power"
+        name: "turnOffTheMonitorAfterGroup"
+        parentName: "power/onPower"
         weight: 100
         pageType: DccObject.Item
         page: DccGroupView {}
 
         DccObject {
-            name: "turnOffMonitor"
-            parentName: "powerManage/power/turnOffMonitorGroup"
-            displayName: qsTr("关闭显示器")
+            name: "turnOffTheMonitorAfter"
+            parentName: "power/onPower/turnOffTheMonitorAfterGroup"
+            displayName: qsTr("Turn off the monitor after")
             weight: 1
             pageType: DccObject.Item
             page: ColumnLayout {
@@ -47,31 +47,16 @@ DccObject {
                     text: dccObj.displayName
                     Layout.leftMargin: 10
                 }
-                D.TipsSlider {
-                    readonly property var tips: [("1m"), ("5m"), ("10m"), ("15h"), ("30h"), ("1h"), ("从不")]
+
+                CustomTipsSlider {
+                    dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
                     Layout.margins: 10
                     Layout.fillWidth: true
-                    slider.handleType: Slider.HandleType.ArrowBottom
-                    slider.from: 1
-                    slider.to: ticks.length
-                    slider.live: true
-                    slider.stepSize: 1
-                    slider.snapMode: Slider.SnapAlways
-                    slider.value: dccData.model.screenBlackDelayOnPower
-                    ticks: [
-                        D.SliderTipItem { text: parent.parent.tips[0]; highlight: parent.parent.slider.value === 1 },
-                        D.SliderTipItem { text: parent.parent.tips[1]; highlight: parent.parent.slider.value === 2 },
-                        D.SliderTipItem { text: parent.parent.tips[2]; highlight: parent.parent.slider.value === 3 },
-                        D.SliderTipItem { text: parent.parent.tips[3]; highlight: parent.parent.slider.value === 4 },
-                        D.SliderTipItem { text: parent.parent.tips[4]; highlight: parent.parent.slider.value === 5 },
-                        D.SliderTipItem { text: parent.parent.tips[5]; highlight: parent.parent.slider.value === 6 },
-                        D.SliderTipItem { text: parent.parent.tips[6]; highlight: parent.parent.slider.value === 7 }
-                    ]
-
+                    slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.screenBlackDelayOnPower)
                     slider.onValueChanged: {
-                        dccData.worker.setScreenBlackDelayOnPower(slider.value)
+                        dccData.worker.setScreenBlackDelayOnPower(dataMap[slider.value].value)
                     }
                 }
             }
@@ -79,16 +64,16 @@ DccObject {
     }
 
     DccObject {
-        name: "enterStandbyGroup"
-        parentName: "powerManage/power"
+        name: "computerSuspendsAfterGroup"
+        parentName: "power/onPower"
         weight: 200
         pageType: DccObject.Item
         page: DccGroupView {}
 
         DccObject {
-            name: "saveModeReduceBrightness"
-            parentName: "powerManage/power/enterStandbyGroup"
-            displayName: qsTr("进入待机")
+            name: "computerSuspendsAfter"
+            parentName: "power/onPower/computerSuspendsAfterGroup"
+            displayName: qsTr("Computer suspends after")
             weight: 1
             pageType: DccObject.Item
             page: ColumnLayout {
@@ -100,31 +85,16 @@ DccObject {
                     text: dccObj.displayName
                     Layout.leftMargin: 10
                 }
-                D.TipsSlider {
-                    readonly property var tips: [("10m"), ("15m"), ("30m"), ("1h"), ("2h"), ("3h"), ("从不")]
+
+                CustomTipsSlider {
+                    dataMap: dccData.model.linePowerSleepDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
                     Layout.margins: 10
                     Layout.fillWidth: true
-                    slider.handleType: Slider.HandleType.ArrowBottom
-                    slider.from: 1
-                    slider.to: ticks.length
-                    slider.live: true
-                    slider.stepSize: 1
-                    slider.snapMode: Slider.SnapAlways
-                    slider.value: dccData.model.sleepDelayOnPower
-                    ticks: [
-                        D.SliderTipItem { text: parent.parent.tips[0]; highlight: parent.parent.slider.value === 1 },
-                        D.SliderTipItem { text: parent.parent.tips[1]; highlight: parent.parent.slider.value === 2 },
-                        D.SliderTipItem { text: parent.parent.tips[2]; highlight: parent.parent.slider.value === 3 },
-                        D.SliderTipItem { text: parent.parent.tips[3]; highlight: parent.parent.slider.value === 4 },
-                        D.SliderTipItem { text: parent.parent.tips[4]; highlight: parent.parent.slider.value === 5 },
-                        D.SliderTipItem { text: parent.parent.tips[5]; highlight: parent.parent.slider.value === 6 },
-                        D.SliderTipItem { text: parent.parent.tips[6]; highlight: parent.parent.slider.value === 7 }
-                    ]
-
+                    slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.sleepDelayOnPower)
                     slider.onValueChanged: {
-                        dccData.worker.setSleepDelayOnPower(slider.value)
+                        dccData.worker.setSleepDelayOnPower(dataMap[slider.value].value)
                     }
                 }
             }
@@ -132,16 +102,16 @@ DccObject {
     }
 
     DccObject {
-        name: "autoLockGroup"
-        parentName: "powerManage/power"
+        name: "lockScreenAfterGroup"
+        parentName: "power/onPower"
         weight: 300
         pageType: DccObject.Item
         page: DccGroupView {}
 
         DccObject {
-            name: "saveModeReduceBrightness"
-            parentName: "powerManage/power/autoLockGroup"
-            displayName: qsTr("自动锁屏")
+            name: "lockScreenAfter"
+            parentName: "power/onPower/lockScreenAfterGroup"
+            displayName: qsTr("Lock screen after")
             weight: 1
             pageType: DccObject.Item
             page: ColumnLayout {
@@ -153,31 +123,15 @@ DccObject {
                     text: dccObj.displayName
                     Layout.leftMargin: 10
                 }
-                D.TipsSlider {
-                    readonly property var tips: [("10m"), ("15m"), ("30m"), ("1h"), ("2h"), ("3h"), ("从不")]
+                CustomTipsSlider {
+                    dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
                     Layout.margins: 10
                     Layout.fillWidth: true
-                    slider.handleType: Slider.HandleType.ArrowBottom
-                    slider.from: 1
-                    slider.to: ticks.length
-                    slider.live: true
-                    slider.stepSize: 1
-                    slider.snapMode: Slider.SnapAlways
-                    slider.value: dccData.model.powerLockScreenDelay
-                    ticks: [
-                        D.SliderTipItem { text: parent.parent.tips[0]; highlight: parent.parent.slider.value === 1 },
-                        D.SliderTipItem { text: parent.parent.tips[1]; highlight: parent.parent.slider.value === 2 },
-                        D.SliderTipItem { text: parent.parent.tips[2]; highlight: parent.parent.slider.value === 3 },
-                        D.SliderTipItem { text: parent.parent.tips[3]; highlight: parent.parent.slider.value === 4 },
-                        D.SliderTipItem { text: parent.parent.tips[4]; highlight: parent.parent.slider.value === 5 },
-                        D.SliderTipItem { text: parent.parent.tips[5]; highlight: parent.parent.slider.value === 6 },
-                        D.SliderTipItem { text: parent.parent.tips[6]; highlight: parent.parent.slider.value === 7 }
-                    ]
-
+                    slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.powerLockScreenDelay)
                     slider.onValueChanged: {
-                        dccData.worker.setLockScreenDelayOnPower(slider.value)
+                        dccData.worker.setLockScreenDelayOnPower(dataMap[slider.value].value)
                     }
                 }
             }
@@ -186,22 +140,22 @@ DccObject {
 
     DccObject {
         name: "powerButtonGroup"
-        parentName: "powerManage/power"
+        parentName: "power/onPower"
         weight: 400
         pageType: DccObject.Item
         page: DccGroupView {}
 
         DccObject {
-            name: "closeTheLid"
-            parentName: "powerManage/power/powerButtonGroup"
-            displayName: qsTr("合盖时")
+            name: "whenTheLidIsClosed"
+            parentName: "power/onPower/powerButtonGroup"
+            displayName: qsTr("When the lid is closed")
+            visible: dccData.model.lidPresent
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
                 textRole: "text"
-                valueRole: "value"
-                visibleRole: "visible"
                 enableRole: "enable"
+                visibleRole: "visible"
                 width: 100
                 model: dccData.powerLidModel
                 currentIndex: model.indexOfKey(dccData.model.linePowerLidClosedAction)
@@ -212,14 +166,15 @@ DccObject {
             }
         }
         DccObject {
-            name: "pressPowerButton"
-            parentName: "powerManage/power/powerButtonGroup"
-            displayName: qsTr("按下电源键时")
+            name: "whenThePowerButtonIsPressed"
+            parentName: "power/onPower/powerButtonGroup"
+            displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
                 textRole: "text"
                 enableRole: "enable"
+                visibleRole: "visible"
                 width: 100
                 model: dccData.powerPressModel
                 currentIndex: model.indexOfKey(dccData.model.linePowerPressPowerBtnAction)

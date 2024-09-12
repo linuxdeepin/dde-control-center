@@ -50,6 +50,13 @@ class PowerModel : public QObject
     Q_PROPERTY(double batteryCapacity READ batteryCapacity WRITE setBatteryCapacity NOTIFY batteryCapacityChanged)
     Q_PROPERTY(bool showBatteryTimeToFull READ showBatteryTimeToFull WRITE setShowBatteryTimeToFull NOTIFY showBatteryTimeToFullChanged)
 
+    Q_PROPERTY(QVariantList batteryLockDelayModel READ batteryLockDelayModel WRITE setBatteryLockDelayModel NOTIFY batteryLockDelayModelChanged)
+    Q_PROPERTY(QVariantList batteryScreenBlackDelayModel READ batteryScreenBlackDelayModel WRITE setBatteryScreenBlackDelayModel NOTIFY batteryScreenBlackDelayModelChanged)
+    Q_PROPERTY(QVariantList batterySleepDelayModel READ batterySleepDelayModel WRITE setBatterySleepDelayModel NOTIFY batterySleepDelayModelChanged)
+    Q_PROPERTY(QVariantList linePowerLockDelayModel READ linePowerLockDelayModel WRITE setLinePowerLockDelayModel NOTIFY linePowerLockDelayModelChanged)
+    Q_PROPERTY(QVariantList linePowerScreenBlackDelayModel READ linePowerScreenBlackDelayModel WRITE setLinePowerScreenBlackDelayModel NOTIFY linePowerScreenBlackDelayModelChanged)
+    Q_PROPERTY(QVariantList linePowerSleepDelayModel READ linePowerSleepDelayModel WRITE setLinePowerSleepDelayModel NOTIFY linePowerSleepDelayModelChanged)
+
     QML_NAMED_ELEMENT(PowerModel)
     QML_SINGLETON
 
@@ -94,10 +101,7 @@ public:
     inline int getPowerLockScreenDelay() const { return m_powerLockScreenDelay; }
     void setPowerLockScreenDelay(const int value);
 
-    inline bool autoPowerSaveMode() const
-    {
-        return m_autoPowerSaveMode;
-    }
+    inline bool autoPowerSaveMode() const { return m_autoPowerSaveMode; }
     void setAutoPowerSaveMode(bool autoPowerSavingMode);
 
     inline bool powerSaveMode() const { return m_powerSaveMode; }
@@ -178,6 +182,24 @@ public:
     inline bool showBatteryTimeToFull() const { return m_showBatteryTimeToFull; }
     void setShowBatteryTimeToFull(bool showBatteryTimeToFull);
 
+    inline QVariantList batteryLockDelayModel() const { return m_batteryLockDelayModel; };
+    void setBatteryLockDelayModel(const QVariantList &value);
+
+    inline QVariantList batteryScreenBlackDelayModel() const { return m_batteryScreenBlackDelayModel; };
+    void setBatteryScreenBlackDelayModel(const QVariantList& value);
+
+    inline QVariantList batterySleepDelayModel() const { return m_batterySleepDelayModel; };
+    void setBatterySleepDelayModel(const QVariantList &value);
+
+    inline QVariantList linePowerLockDelayModel() const { return m_linePowerScreenBlackDelayModel; };
+    void setLinePowerLockDelayModel(const QVariantList &value);
+
+    inline QVariantList linePowerScreenBlackDelayModel() const { return m_linePowerScreenBlackDelayModel; };
+    void setLinePowerScreenBlackDelayModel(const QVariantList &value);
+
+    inline QVariantList linePowerSleepDelayModel() const { return m_linePowerSleepDelayModel; };
+    void setLinePowerSleepDelayModel(const QVariantList &value);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -223,6 +245,13 @@ Q_SIGNALS:
 
     void batteryCapacityChanged(double value);
     void showBatteryTimeToFullChanged(bool value);
+
+    void batteryLockDelayModelChanged(const QVariantList &value);
+    void batteryScreenBlackDelayModelChanged(const QVariantList &value);
+    void batterySleepDelayModelChanged(const QVariantList &value);
+    void linePowerLockDelayModelChanged(const QVariantList &value);
+    void linePowerScreenBlackDelayModelChanged(const QVariantList &value);
+    void linePowerSleepDelayModelChanged(const QVariantList &value);
 
 private:
     bool m_lidPresent; //以此判断是否为笔记本
@@ -270,6 +299,13 @@ private:
 
     double m_batteryCapacity;
     bool m_showBatteryTimeToFull;
+
+    QVariantList m_batteryLockDelayModel;
+    QVariantList m_batteryScreenBlackDelayModel;
+    QVariantList m_batterySleepDelayModel;
+    QVariantList m_linePowerLockDelayModel;
+    QVariantList m_linePowerScreenBlackDelayModel;
+    QVariantList m_linePowerSleepDelayModel;
 };
 
 #endif // POWERMODEL_H

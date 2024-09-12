@@ -382,3 +382,57 @@ void PowerModel::setShowBatteryTimeToFull(bool value)
         Q_EMIT showBatteryTimeToFullChanged(value);
     }
 }
+
+void PowerModel::setBatteryLockDelayModel(const QVariantList &value)
+{
+    if (m_batteryLockDelayModel != value) {
+        m_batteryLockDelayModel = value;
+
+        Q_EMIT batteryLockDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setBatteryScreenBlackDelayModel(const QVariantList &value)
+{
+    if (m_batteryScreenBlackDelayModel != value) {
+        m_batteryScreenBlackDelayModel = value;
+
+        Q_EMIT batteryScreenBlackDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setBatterySleepDelayModel(const QVariantList &value)
+{
+    if (m_batterySleepDelayModel != value) {
+        m_batterySleepDelayModel = value;
+
+        Q_EMIT batterySleepDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setLinePowerLockDelayModel(const QVariantList &value)
+{
+    if (m_linePowerLockDelayModel != value) {
+        m_linePowerLockDelayModel = value;
+
+        Q_EMIT linePowerLockDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setLinePowerScreenBlackDelayModel(const QVariantList &value)
+{
+    if (m_linePowerScreenBlackDelayModel != value) {
+        m_linePowerScreenBlackDelayModel = value;
+
+        Q_EMIT linePowerScreenBlackDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setLinePowerSleepDelayModel(const QVariantList &value)
+{
+    if (m_linePowerSleepDelayModel != value) {
+        m_linePowerSleepDelayModel = value;
+
+        Q_EMIT linePowerSleepDelayModelChanged(value);
+    }
+}
