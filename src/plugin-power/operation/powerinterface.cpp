@@ -16,10 +16,6 @@ PowerInterface::PowerInterface(QObject *parent)
 , m_batteryLidClosedOperatorModel(new PowerOperatorModel(this))
 , m_batteryPressedOperatorModel(new PowerOperatorModel(this))
 {
-    m_model->setSuspend(!IsServerSystem && true);
-    m_model->setHibernate(!IsServerSystem && true);
-    m_model->setShutdown(true);
-
     m_powerLidClosedOperatorModel->setVisible(POT_ShutDown, false);
     m_batteryLidClosedOperatorModel->setVisible(POT_ShutDown, false);
 

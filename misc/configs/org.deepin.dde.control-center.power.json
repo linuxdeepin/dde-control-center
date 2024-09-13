@@ -67,7 +67,40 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
-	 }
+        },
+        "showHibernate": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show hibernate",
+            "name[zh_CN]": "下拉框显示休眠选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示休眠",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "showShutdown": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show shutdown",
+            "name[zh_CN]": "下拉框显示关机选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示关机",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "showSuspend": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show suspend",
+            "name[zh_CN]": "下拉框显示待机选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示待机",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
     }
 }
 

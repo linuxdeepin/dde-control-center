@@ -8,16 +8,21 @@
 #include <QProcessEnvironment>
 #include <QFutureWatcher>
 #include <QtConcurrent>
+#include <QRegularExpression>
 
 #define POWER_CAN_SLEEP "POWER_CAN_SLEEP"
 #define POWER_CAN_HIBERNATE "POWER_CAN_HIBERNATE"
 
-#define BATTERYLOCKDELAYNAME "batteryLockDelay"
-#define BATTERYSLEEPDELAYNAME "batterySleepDelay"
-#define BATTERYSBDELAYNAME "batteryScreenBlackDelay"
-#define LINEPOWERLOCKDELAYNAME "linePowerLockDelay"
-#define LINEPOWERSLEEPDELAYNAME "linePowerSleepDelay"
-#define LINEPOWERSBDELAYNAME "linePowerScreenBlackDelay"
+#define BATTERY_LOCKDELAY_NAME "batteryLockDelay"
+#define BATTERY_SLEEPDELAY_NAME "batterySleepDelay"
+#define BATTERY_SBDELAY_NAME "batteryScreenBlackDelay"
+#define LINEPOWER_LOCKDELAY_NAME "linePowerLockDelay"
+#define LINEPOWER_SLEEPDELAY_NAME "linePowerSleepDelay"
+#define LINEPOWER_SBDELAY_NAME "linePowerScreenBlackDelay"
+
+#define SHOW_HIBERNATE_NAME "showHibernate"
+#define SHOW_SHUTDOWN_NAME "showShutdown"
+#define SHOW_SUSPEND_NAME "showSuspend"
 
 static const QStringList DCC_CONFIG_FILES {
     "/etc/deepin/dde-control-center.conf",
@@ -73,30 +78,34 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     });
 
     connect(m_cfgPower, &DConfig::valueChanged, [this](const QString &key) {
-        if (key == BATTERYLOCKDELAYNAME) {
-            readDelayConfig(BATTERYLOCKDELAYNAME,
+        if (key == BATTERY_LOCKDELAY_NAME) {
+            readConfig(BATTERY_LOCKDELAY_NAME,
                 std::bind(&PowerModel::setBatteryLockDelayModel, m_powerModel, std::placeholders::_1));
-        } else if (key == BATTERYSLEEPDELAYNAME) {
-            readDelayConfig(BATTERYSLEEPDELAYNAME,
+        } else if (key == BATTERY_SLEEPDELAY_NAME) {
+            readConfig(BATTERY_SLEEPDELAY_NAME,
                 std::bind(&PowerModel::setBatterySleepDelayModel, m_powerModel, std::placeholders::_1));
-
-        } else if (key == BATTERYSBDELAYNAME) {
-            readDelayConfig(BATTERYSBDELAYNAME,
+        } else if (key == BATTERY_SBDELAY_NAME) {
+            readConfig(BATTERY_SBDELAY_NAME,
                 std::bind(&PowerModel::setBatteryScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
-
-        } else if (key == LINEPOWERLOCKDELAYNAME) {
-            readDelayConfig(LINEPOWERLOCKDELAYNAME,
+        } else if (key == LINEPOWER_LOCKDELAY_NAME) {
+            readConfig(LINEPOWER_LOCKDELAY_NAME,
                 std::bind(&PowerModel::setLinePowerLockDelayModel, m_powerModel, std::placeholders::_1));
-
-        } else if (key == LINEPOWERSLEEPDELAYNAME) {
-            readDelayConfig(LINEPOWERSLEEPDELAYNAME,
+        } else if (key == LINEPOWER_SLEEPDELAY_NAME) {
+            readConfig(LINEPOWER_SLEEPDELAY_NAME,
                 std::bind(&PowerModel::setLinePowerSleepDelayModel, m_powerModel, std::placeholders::_1));
-
-        } else if (key == LINEPOWERSBDELAYNAME) {
-            readDelayConfig(LINEPOWERSBDELAYNAME,
+        } else if (key == LINEPOWER_SBDELAY_NAME) {
+            readConfig(LINEPOWER_SBDELAY_NAME,
                 std::bind(&PowerModel::setLinePowerScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
-
-        } 
+        } else if (key == SHOW_HIBERNATE_NAME) {
+            readConfig(SHOW_HIBERNATE_NAME,
+                std::bind(&PowerModel::setHibernate, m_powerModel, std::placeholders::_1));
+        } else if (key == SHOW_SHUTDOWN_NAME) {
+            readConfig(SHOW_SHUTDOWN_NAME,
+                std::bind(&PowerModel::setShutdown, m_powerModel, std::placeholders::_1));
+        } else if (key == SHOW_SUSPEND_NAME) {
+            readConfig(SHOW_SUSPEND_NAME,
+                std::bind(&PowerModel::setSuspend, m_powerModel, std::placeholders::_1));
+        }
     });
 
     // init base property
@@ -210,20 +219,45 @@ void PowerWorker::active()
         return m_powerDBusProxy->login1ManagerCanHibernate();
     }));
 
-    readDelayConfig(BATTERYLOCKDELAYNAME, std::bind(&PowerModel::setBatteryLockDelayModel, m_powerModel, std::placeholders::_1));
-    readDelayConfig(BATTERYSLEEPDELAYNAME, std::bind(&PowerModel::setBatterySleepDelayModel, m_powerModel, std::placeholders::_1));
-    readDelayConfig(BATTERYSBDELAYNAME, std::bind(&PowerModel::setBatteryScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
-    readDelayConfig(LINEPOWERLOCKDELAYNAME, std::bind(&PowerModel::setLinePowerLockDelayModel, m_powerModel, std::placeholders::_1));
-    readDelayConfig(LINEPOWERSLEEPDELAYNAME, std::bind(&PowerModel::setLinePowerSleepDelayModel, m_powerModel, std::placeholders::_1));
-    readDelayConfig(LINEPOWERSBDELAYNAME, std::bind(&PowerModel::setLinePowerScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(BATTERY_LOCKDELAY_NAME, std::bind(&PowerModel::setBatteryLockDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(BATTERY_SLEEPDELAY_NAME, std::bind(&PowerModel::setBatterySleepDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(BATTERY_SBDELAY_NAME, std::bind(&PowerModel::setBatteryScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(LINEPOWER_LOCKDELAY_NAME, std::bind(&PowerModel::setLinePowerLockDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(LINEPOWER_SLEEPDELAY_NAME, std::bind(&PowerModel::setLinePowerSleepDelayModel, m_powerModel, std::placeholders::_1));
+    readConfig(LINEPOWER_SBDELAY_NAME, std::bind(&PowerModel::setLinePowerScreenBlackDelayModel, m_powerModel, std::placeholders::_1));
+
+    readConfig(SHOW_HIBERNATE_NAME, std::bind(&PowerModel::setHibernate, m_powerModel, std::placeholders::_1));
+    readConfig(SHOW_SHUTDOWN_NAME, std::bind(&PowerModel::setShutdown, m_powerModel, std::placeholders::_1));
+    readConfig(SHOW_SUSPEND_NAME, std::bind(&PowerModel::setSuspend, m_powerModel, std::placeholders::_1));
 }
 
-void PowerWorker::readDelayConfig(const QString &key, std::function<void(const QVariantList &value)> callback)
+void PowerWorker::readConfig(const QString &key, std::function<void(const QVariantList &value)> callback)
 {
     auto configList = m_cfgPower->value(key).toStringList();
+    bool isLegal = true;
+    if (configList.size() != 6) {
+        isLegal = false;
+    } else {
+        QRegularExpression re("^[1-9][0-9]*[mh]");
+        for (const QString &v : configList) {
+            if (!re.match(v).hasMatch()) {
+                isLegal = false;
+                break;
+            }
+        }
+    }
+    if (!isLegal) {
+        m_cfgPower->reset(key);
+        qWarning() << "config is illegal, reset config";
+    }
     auto configDataMap = converToDataMap(configList);
-    // TODO 校验值是否合法
     callback(configDataMap);
+}
+
+void PowerWorker::readConfig(const QString &key, std::function<void(const bool value)> callback)
+{
+    bool enable = m_cfgPower->value(key, true).toBool();
+    callback(enable);
 }
 
 void PowerWorker::deactive()

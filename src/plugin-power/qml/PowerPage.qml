@@ -124,7 +124,7 @@ DccObject {
                     Layout.leftMargin: 10
                 }
                 CustomTipsSlider {
-                    dataMap: dccData.model.linePowerScreenBlackDelayModel
+                    dataMap: dccData.model.linePowerLockDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
                     Layout.margins: 10
