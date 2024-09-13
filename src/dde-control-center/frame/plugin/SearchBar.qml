@@ -6,8 +6,6 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dtk.style 1.0 as DS
 
-import org.deepin.dcc 1.0
-
 Rectangle {
     id: root
     property alias model: view.model
@@ -39,8 +37,6 @@ Rectangle {
         property Palette nomalPalette: Palette {
             normal: ("#FCFCFC")
             normalDark: ("#0C0C0C")
-            hovered: (palette.text)
-            hoveredDark: ("#FCFCFC")
         }
 
         backgroundColor: nomalPalette
@@ -64,7 +60,6 @@ Rectangle {
                 break
             case Qt.Key_Down:
             {
-                view.forceActiveFocus()
                 let cIndex = view.currentIndex + 1
                 if (cIndex < 0) {
                     cIndex = 0
@@ -74,7 +69,6 @@ Rectangle {
             break
             case Qt.Key_Up:
             {
-                view.forceActiveFocus()
                 let cIndex = view.currentIndex - 1
                 if (cIndex < 0) {
                     cIndex = 0
@@ -120,7 +114,7 @@ Rectangle {
                     popup.close()
                 }
                 background: DccListViewBackground {
-                    separatorVisible: model.isBegin
+                    separatorVisible: model.isBegin !== undefined ? model.isBegin : false
                 }
             }
         }
