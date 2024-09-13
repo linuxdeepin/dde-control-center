@@ -15,4 +15,8 @@
         <file>images/timezone_map_big@2x.png</file>
         <file>images/popup_menu.css</file>
     </qresource>
+    <qresource prefix="/dsg/icons">
+        <file alias="dcc_time_date.dci">dsg/icons/time.dci</file>
+        <file alias="dcc_lang_format.dci">dsg/icons/language.dci</file>
+    </qresource>
 </RCC>
