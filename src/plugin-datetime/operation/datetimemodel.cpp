@@ -248,6 +248,13 @@ QStringList DatetimeModel::languagesAndRegions()
 
 void DatetimeModel::addUserTimeZoneByName(const QString &zoneName)
 {
+    using namespace installer;
+    if (g_totalZones.empty())
+        g_totalZones =  GetZoneInfoList();
+
+    if (!m_timezoneCache.contains(zoneName))
+        timeZoneList(g_totalZones, m_timezoneCache);
+
     if (!m_timezoneCache.contains(zoneName)) {
         qWarning() << "timezone cache not contain.." << zoneName;
         return;

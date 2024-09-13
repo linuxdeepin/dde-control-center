@@ -3,11 +3,24 @@
 
 import org.deepin.dcc 1.0
 
-// 时间和语言
 DccObject {
-    name: "timeAndLang"
-    parentName: "system"
-    displayName: qsTr("Time and language")
-    icon: "dcc_nav_datetime"
-    weight: 40
+    // 时间和日期
+    DccObject {
+        name: "timeAndLang"
+        parentName: "system"
+        displayName: qsTr("Time and language")
+        description: qsTr("Set your time and date")
+        icon: "dcc_time_date"
+        weight: 40
+    }
+
+    // 语言和格式
+    DccObject {
+        name: "langAndFormat"
+        parentName: "system"
+        displayName: qsTr("Language and format")
+        description: qsTr("Set your system language, keyboard layout, and input method")
+        icon: "dcc_lang_format"
+        weight: 45
+    }
 }
