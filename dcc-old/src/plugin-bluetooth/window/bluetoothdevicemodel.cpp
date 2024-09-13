@@ -172,6 +172,9 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
+    auto themeType = DGuiApplicationHelper::instance()->themeType();
+    bool isDarkTheme = themeType == DGuiApplicationHelper::DarkType;
+
     int row = index.row();
     const BluetoothDevice *device = m_data.at(row)->device;
 
@@ -181,7 +184,7 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
         if (!device->deviceType().isEmpty())
-            return DIconTheme::findQIcon(device->deviceType());
+            return DIconTheme::findQIcon(isDarkTheme ? device->deviceType(): device->deviceType() + "-dark");
         else
             return DIconTheme::findQIcon(QString("bluetooth_other"));
     case Dtk::RightActionListRole:
@@ -376,7 +379,8 @@ QIcon BluetoothDeviceModel::getBatteryIcon(int percentage)
     QIcon qrcIcon = DIconTheme::findQIcon(iconName, DIconTheme::DontFallbackToQIconFromTheme);
     auto themeType = DGuiApplicationHelper::instance()->themeType();
     bool isDarkTheme = themeType == DGuiApplicationHelper::DarkType;
-    QString iconNameSystem = isDarkTheme ? iconName + "-dark" : iconName;
+    // "-dark" means dark icon, not icon for dark theme.
+    QString iconNameSystem = isDarkTheme ? iconName : iconName + "-dark";
     return DIconTheme::findQIcon(iconNameSystem, qrcIcon, DIconTheme::IgnoreBuiltinIcons);
 }
 
