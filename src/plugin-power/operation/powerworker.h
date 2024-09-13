@@ -61,7 +61,8 @@ public Q_SLOTS:
     int getMaxBacklightBrightness();
 
 private:
-    void readDelayConfig(const QString &key, std::function<void(const QVariantList &value)> callback);
+    void readConfig(const QString &key, std::function<void(const QVariantList &value)> callback);
+    void readConfig(const QString &key, std::function<void(const bool value)> callback);
     QVariantList converToDataMap(const QStringList& conf);
 
 private:

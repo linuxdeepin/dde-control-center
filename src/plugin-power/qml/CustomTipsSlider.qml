@@ -15,13 +15,15 @@ D.TipsSlider {
     slider.live: true
     slider.stepSize: 1
     slider.snapMode: D.Slider.SnapAlways
-    Repeater {
-        model: slider.dataMap.length
-        D.SliderTipItem {
-            // TODO need to modify
-            parent: slider.children[1]
-            text: slider.dataMap[index].text
-            highlight: slider.slider.value === index
+    Loader {
+        Repeater {
+            model: slider.dataMap.length
+            D.SliderTipItem {
+                // TODO need to modify
+                parent: slider.children[1]
+                text: slider.dataMap[index].text
+                highlight: slider.slider.value === index
+            }
         }
     }
 }

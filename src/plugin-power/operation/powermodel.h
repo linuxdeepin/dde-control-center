@@ -191,7 +191,7 @@ public:
     inline QVariantList batterySleepDelayModel() const { return m_batterySleepDelayModel; };
     void setBatterySleepDelayModel(const QVariantList &value);
 
-    inline QVariantList linePowerLockDelayModel() const { return m_linePowerScreenBlackDelayModel; };
+    inline QVariantList linePowerLockDelayModel() const { return m_linePowerLockDelayModel; };
     void setLinePowerLockDelayModel(const QVariantList &value);
 
     inline QVariantList linePowerScreenBlackDelayModel() const { return m_linePowerScreenBlackDelayModel; };

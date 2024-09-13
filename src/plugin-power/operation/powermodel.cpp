@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powermodel.h"
+#include "utils.h"
 
 #include <QDebug>
 
@@ -332,18 +333,21 @@ void PowerModel::setBalancePerformanceSupported(bool isBalancePerformanceSupport
 
 void PowerModel::setSuspend(bool suspend)
 {
-    if (suspend == m_isSuspend)
-        return;
-    m_isSuspend = suspend;
-    Q_EMIT suspendChanged(suspend);
+    bool enable = !IsServerSystem && suspend;
+    if (m_isSuspend != enable) {
+        m_isSuspend = enable;
+
+        Q_EMIT suspendChanged(enable);
+    }
 }
 
 void PowerModel::setHibernate(bool hibernate)
 {
-    if (m_isHibernate != hibernate) {
-        m_isHibernate = hibernate;
+    bool enable = !IsServerSystem && hibernate;
+    if (m_isHibernate != enable) {
+        m_isHibernate = enable;
 
-        Q_EMIT hibernateChanged(hibernate);
+        Q_EMIT hibernateChanged(enable);
     }
 }
 
