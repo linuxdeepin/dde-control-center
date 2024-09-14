@@ -12,9 +12,8 @@ class DccObject;
 class DccModel : public QAbstractItemModel
 {
     Q_OBJECT
-
-public:
     Q_PROPERTY(DccObject * root READ root WRITE setRoot NOTIFY rootChanged)
+public:
     explicit DccModel(QObject *parent = nullptr);
     ~DccModel() override;
 
