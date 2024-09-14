@@ -94,11 +94,36 @@ public:
     Q_PROPERTY(QStringList UserTimezones READ userTimezones NOTIFY UserTimezonesChanged)
     QStringList userTimezones();
 
+    Q_PROPERTY(QString decimalSymbol READ decimalSymbol WRITE setDecimalSymbol NOTIFY DecimalSymbolChanged)
+    Q_PROPERTY(QString digitGrouping READ digitGrouping WRITE setDigitGrouping NOTIFY DigitGroupingChanged)
+    Q_PROPERTY(QString digitGroupingSymbol READ digitGroupingSymbol WRITE setDigitGroupingSymbol NOTIFY DigitGroupingSymbolChanged)
+    Q_PROPERTY(QString currencySymbol READ currencySymbol WRITE setCurrencySymbol NOTIFY CurrencySymbolChanged)
+    Q_PROPERTY(QString negativeCurrencyFormat READ negativeCurrencyFormat WRITE setNegativeCurrencyFormat NOTIFY NegativeCurrencyFormatChanged)
+    Q_PROPERTY(QString positiveCurrencyFormat READ positiveCurrencyFormat WRITE setPositiveCurrencyFormat NOTIFY PositiveCurrencyFormatChanged)
+
     // Locale
     std::optional<LocaleList> getLocaleListMap();
     std::optional<QString> getLocaleRegion();
 
     void setLocaleRegion(const QString &locale);
+
+    QString decimalSymbol() const;
+    void setDecimalSymbol(const QString &newDecimalSymbol);
+
+    QString digitGrouping() const;
+    void setDigitGrouping(const QString &newDigitGrouping);
+
+    QString digitGroupingSymbol() const;
+    void setDigitGroupingSymbol(const QString &newDigitGroupingSymbol);
+
+    QString currencySymbol() const;
+    void setCurrencySymbol(const QString &newCurrencySymbol);
+
+    QString negativeCurrencyFormat() const;
+    void setNegativeCurrencyFormat(const QString &newNegativeCurrencyFormat);
+
+    QString positiveCurrencyFormat() const;
+    void setPositiveCurrencyFormat(const QString &newPositiveCurrencyFormat);
 
 Q_SIGNALS: // SIGNALS
     // Timedate
@@ -117,6 +142,13 @@ Q_SIGNALS: // SIGNALS
     void UserTimezonesChanged(const QStringList &value) const;
     void WeekBeginsChanged(int value) const;
     void WeekdayFormatChanged(int value) const;
+
+    void DecimalSymbolChanged(const QString &value) const;
+    void DigitGroupingChanged(const QString &value) const;
+    void DigitGroupingSymbolChanged(const QString &value) const;
+    void CurrencySymbolChanged(const QString &value) const;
+    void NegativeCurrencyFormatChanged(const QString &value) const;
+    void PositiveCurrencyFormatChanged(const QString &value) const;
 
 public Q_SLOTS:
     // Timedate
@@ -146,6 +178,7 @@ private:
     QDBusInterface *m_localeInter;
     QDBusInterface *m_timedateInter;
     QDBusInterface *m_systemtimedatedInter;
+    QDBusInterface *m_formatInter;
 };
 
 #endif // DATETIMEDBUSPROXY_H

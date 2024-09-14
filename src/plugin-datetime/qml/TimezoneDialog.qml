@@ -57,7 +57,7 @@ D.DialogWindow {
             id: searchBar
             Layout.preferredWidth: 300
             Layout.alignment: Qt.AlignCenter
-            model: dccData.searchModel()
+            model: dccData.zoneSearchModel()
             onClicked: function(model) {
                 layout.showIndicator(model.zoneIdRole, model.cityNameRole)
             }
@@ -156,10 +156,10 @@ D.DialogWindow {
                 }
             }
 
-            // Component.onCompleted: {
-            //     // show with indicator
-            //     layout.showIndicator(dccData.systemTimeZone, dccData.timeZoneDispalyName)
-            // }
+            Component.onCompleted: {
+                // show with indicator
+                layout.showIndicator(dccData.systemTimeZone, dccData.timeZoneDispalyName)
+            }
         }
 
         RowLayout {

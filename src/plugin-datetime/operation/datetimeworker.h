@@ -30,7 +30,7 @@ public:
 
     Q_INVOKABLE void activate();
     void deactivate();
-    DatetimeModel *model() { return m_model; }
+    DatetimeModel *model();
 
     std::optional<LocaleList> getAllLocale();
     std::optional<QString> getLocaleRegion();
@@ -52,6 +52,7 @@ public Q_SLOTS:
 #endif
     void setNtpServer(QString server);
 
+    int weekdayFormat();
     void setWeekdayFormat(int type);
     void setShortDateFormat(int type);
     void setLongDateFormat(int type);
@@ -62,6 +63,26 @@ public Q_SLOTS:
     void genLocale(const QString &localeName);
 
     ZoneInfo GetZoneInfo(const QString &zoneId);
+
+
+    QString decimalSymbol();
+    void setDecimalSymbol(const QString &value);
+
+    QString digitGrouping();
+    void setDigitGrouping(const QString &value);
+
+    QString digitGroupingSymbol();
+    void setDigitGroupingSymbol(const QString &value);
+
+    QString currencySymbol();
+    void setCurrencySymbol(const QString &value);
+
+    QString negativeCurrencyFormat();
+    void setNegativeCurrencyFormat(const QString &value);
+
+    QString positiveCurrencyFormat();
+    void setPositiveCurrencyFormat(const QString &value);
+
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);

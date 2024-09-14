@@ -6,6 +6,9 @@
 #include "timezoneMap/timezone_map_util.h"
 #include "datetimeworker.h"
 #include "zoneinfomodel.h"
+#include "keyboard/keyboardmodel.h"
+#include "languagelistmodel.h"
+#include "langregionmodel.h"
 
 #include <unicode/locid.h>
 #include <unicode/unistr.h>
@@ -15,6 +18,7 @@
 #include <QSettings>
 #include <QCoreApplication>
 #include <QStringListModel>
+
 static installer::ZoneInfoList g_totalZones;
 
 static QString getDescription(const ZoneInfo &zoneInfo)
@@ -97,6 +101,74 @@ static QStringList timeZoneList(const installer::ZoneInfoList &zoneInfoList, QMa
     return timezoneList;
 }
 
+static inline QStringList getCurrencySymbol(bool positive, const QString &symbol)
+{
+    const QString money("1.1");
+    if (positive)
+        return {
+            QString("%1%2").arg(symbol).arg(money),  // ￥1.1
+            QString("%1%2").arg(money).arg(symbol),  // ￥1.1
+            QString("%1 %2").arg(symbol).arg(money), // ￥ 1.1
+            QString("%1 %2").arg(money).arg(symbol)  // 1.1 ￥
+        };
+
+    return {
+        QString("-%1%2").arg(symbol).arg(money), // -￥1.1
+        QString("%1-%2").arg(symbol).arg(money), // ￥-1.1
+        QString("%1%2-").arg(symbol).arg(money), // ￥1.1-
+        QString("-%1%2").arg(money).arg(symbol), // 1.1-￥
+        QString("%1-%2").arg(money).arg(symbol), // 1.1-￥
+        QString("%1%2-").arg(money).arg(symbol)  // 1.1￥-
+    };
+}
+
+static inline QStringList separatorSymbol()
+{
+    return { QString("."), QString(","), QString("'"), DatetimeModel::tr("Space") };
+}
+
+static QStringList translateLangAndCountry(const QString &localeName)
+{
+    auto localeSystem = QLocale::system();
+    auto systemLocale = icu::Locale(localeSystem.name().toStdString().data());
+    auto IcuLocale = icu::Locale(localeName.toStdString().data());
+    auto localeHex = icu::UnicodeString(localeName.toStdString().data());
+    std::string displayLanguageIcu;
+    IcuLocale.getDisplayLanguage(systemLocale, localeHex).toUTF8String(displayLanguageIcu);
+    std::string displayCountryIcu;
+    IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
+
+    return QStringList{ QString::fromStdString(displayLanguageIcu),
+                        QString::fromStdString(displayCountryIcu) };
+}
+
+static QString translate(const QString &localeName, const QString &langRegion)
+{
+    QStringList langRegions = langRegion.split(":");
+    if (langRegions.size() < 2) {
+        return langRegion;
+    }
+
+    if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese"
+        || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
+        || langRegions[1] == QLocale::countryToString(QLocale::Macau)
+        || langRegions[1] == QLocale::countryToString(QLocale::Taiwan)) {
+
+        QString langCountry =
+                QString("%1(%2)")
+                        .arg(QCoreApplication::translate("dcc::datetime::Language",
+                                                         langRegions.at(0).toUtf8().data()))
+                        .arg(QCoreApplication::translate("dcc::datetime::Country",
+                                                         langRegions.at(1).toUtf8().data()));
+        return langCountry;
+    }
+
+    auto res = translateLangAndCountry(localeName);
+    QString langCountry = QString("%1(%2)").arg(res.value(0)).arg(res.value(1));
+
+    return langCountry;
+}
+
 DatetimeModel::DatetimeModel(QObject *parent)
     : QObject(parent)
     , m_ntp(true)
@@ -115,6 +187,32 @@ DatetimeModel::DatetimeModel(QObject *parent)
     connect(this, &DatetimeModel::userTimeZoneRemoved, m_work, &DatetimeWorker::removeUserTimeZone);
     // set timezone
     connect(this, &DatetimeModel::timeZoneChanged, m_work, &DatetimeWorker::setTimezone);
+
+    connect(this, &DatetimeModel::currencyFormatChanged, this, [this]() {
+        int pIndex = property("__PositiveCurrency").toInt();
+        int nIndex = property("__NegativeCurrency").toInt();
+
+        if (pIndex < 0 || nIndex < 0)
+            return;
+
+        setCurrentFormat(PositiveCurrency, pIndex);
+        setCurrentFormat(NegativeCurrency, nIndex);
+
+        setProperty("__PositiveCurrency", -1);
+        setProperty("__NegativeCurrency", -1);
+    });
+    connect(this, &DatetimeModel::symbolChanged, this, [this](int format, const QString &symbol) {
+        if (format != DigitGroupingSymbol)
+            return;
+        int dIndex = property("__DigitGrouping").toInt();
+
+        if (dIndex < 0)
+            return;
+
+        setCurrentFormat(DigitGrouping, dIndex);
+
+        setProperty("__DigitGrouping", -1);
+    });
 }
 
 void DatetimeModel::setNTP(bool ntp)
@@ -195,55 +293,424 @@ QString DatetimeModel::zoneDisplayName(const QString &zoneName)
     return QString();
 }
 
-QSortFilterProxyModel *DatetimeModel::searchModel()
+QSortFilterProxyModel *DatetimeModel::zoneSearchModel()
 {
-    if (m_searchModel)
-        return m_searchModel;
+    if (m_zoneSearchModel)
+        return m_zoneSearchModel;
 
-    m_searchModel = new QSortFilterProxyModel(this);
+    m_zoneSearchModel = new QSortFilterProxyModel(this);
 
     auto sourceModel = new dccV25::ZoneInfoModel(this);
-    m_searchModel->setSourceModel(sourceModel);
-    m_searchModel->setFilterRole(dccV25::ZoneInfoModel::SearchTextRole);
-    m_searchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    m_zoneSearchModel->setSourceModel(sourceModel);
+    m_zoneSearchModel->setFilterRole(dccV25::ZoneInfoModel::SearchTextRole);
+    m_zoneSearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
-    return m_searchModel;
+    return m_zoneSearchModel;
+}
+
+QSortFilterProxyModel *DatetimeModel::langSearchModel()
+{
+    if (m_langSearchModel)
+        return m_langSearchModel;
+
+    m_langSearchModel = new QSortFilterProxyModel(this);
+
+    ensureLangModel();
+
+    auto sourceModel = new dccV25::LanguageListModel(this);
+    sourceModel->setMetaData(m_langModel->langLists());
+    sourceModel->setLocalLang(m_langModel->localLang());
+    connect(m_langModel, &dccV25::KeyboardModel::langChanged, sourceModel, &dccV25::LanguageListModel::setMetaData);
+    connect(m_langModel, &dccV25::KeyboardModel::curLocalLangChanged, sourceModel, &dccV25::LanguageListModel::setLocalLang);
+
+    m_langSearchModel->setSourceModel(sourceModel);
+    m_langSearchModel->setFilterRole(dccV25::LanguageListModel::SearchTextRole);
+    m_langSearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    return m_langSearchModel;
+}
+
+QSortFilterProxyModel *DatetimeModel::langRegionSearchModel()
+{
+    if (m_regionSearchModel)
+        return m_regionSearchModel;
+
+    m_regionSearchModel = new QSortFilterProxyModel(this);
+
+    auto sourceModel = new dccV25::LangRegionModel(this);
+    m_regionSearchModel->setSourceModel(sourceModel);
+    m_regionSearchModel->setFilterRole(dccV25::ZoneInfoModel::SearchTextRole);
+    m_regionSearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    return m_regionSearchModel;
+}
+
+QSortFilterProxyModel *DatetimeModel::regionSearchModel()
+{
+    if (m_countrySearchModel)
+        return m_countrySearchModel;
+
+    for (const auto &locale : m_regions) {
+        auto langCountry = translateLangAndCountry(locale.name());
+        // { 中国: CN }
+        m_langRegionsCache[langCountry.value(1)] = locale.territoryToCode(locale.territory());
+    }
+
+    m_countrySearchModel = new QSortFilterProxyModel(this);
+    QStringListModel *sourceModel = new QStringListModel(m_langRegionsCache.keys());
+    m_countrySearchModel->setSourceModel(sourceModel);
+    m_countrySearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    return m_countrySearchModel;
+}
+
+QString DatetimeModel::region()
+{
+    if (m_regionName.isEmpty()) {
+        QString localeName;
+        for (const auto &locale : m_regions) {
+            if (locale.territoryToString(locale.territory()) == m_country) {
+                localeName = locale.name();
+                break;
+            }
+            if (locale.territoryToCode(locale.territory()) == m_country) {
+                localeName = locale.name();
+                break;
+            }
+        }
+        auto langCountry = translateLangAndCountry(localeName);
+        m_regionName = langCountry.value(1);
+    }
+
+    return m_regionName;
+}
+
+int DatetimeModel::currentRegionIndex()
+{
+    return m_langRegionsCache.keys().indexOf(region());
+}
+
+void DatetimeModel::setRegion(const QString &region)
+{
+    if (m_regionName == region)
+        return;
+
+    m_regionName = region;
+    auto reg = m_langRegionsCache.value(region, region);
+    m_work->setConfigValue(country_key, reg);
+    Q_EMIT regionChanged(region);
+    Q_EMIT currentRegionIndexChanged(currentRegionIndex());
 }
 
 QStringList DatetimeModel::languagesAndRegions()
 {
     QStringList langAndRegions;
-    auto localeSystem = QLocale::system();
-    auto systemLocale = icu::Locale(localeSystem.name().toStdString().data());
     for (auto locale : m_regions) {
-        auto IcuLocale = icu::Locale(locale.name().toStdString().data());
-        auto localeHex = icu::UnicodeString(locale.name().toStdString().data());
-        std::string displayLanguageIcu;
-        IcuLocale.getDisplayLanguage(systemLocale, localeHex).toUTF8String(displayLanguageIcu);
-        std::string displayCountryIcu;
-        IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
-        QString displaylanguage = QString::fromStdString(displayLanguageIcu);
-        QString displayCountry = QString::fromStdString(displayCountryIcu);
-        QString langRegion = m_regions.key(locale);
-        QString langCountry = QString("%1(%2)").arg(displaylanguage).arg(displayCountry);
-        QStringList langRegions = langRegion.split(":");
-        if (langRegions.size() >= 2
-            && (langRegions[0] == "Traditional Chinese"
-                || langRegions[0] == "Simplified Chinese"
-                || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
-                || langRegions[1] == QLocale::countryToString(QLocale::Macau)
-                || langRegions[1] == QLocale::countryToString(QLocale::Taiwan))) {
-            langCountry =
-                    QString("%1(%2)")
-                            .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                             langRegions.at(0).toUtf8().data()))
-                            .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                             langRegions.at(1).toUtf8().data()));
-        }
+        const QString &langCountry = translate(locale.name(), m_regions.key(locale));
         langAndRegions << langCountry;
     }
 
     return langAndRegions;
+}
+
+QString DatetimeModel::currentLanguageAndRegion()
+{
+    return translate(localeName(), langRegion());
+}
+
+void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, const QString& langAndRegion)
+{
+    QStringList langRegions = langAndRegion.split(":");
+    if (langRegions.size() < 2) {
+        qWarning() << "invalid langAndRegion" << langAndRegion;
+        return;
+    }
+
+    if (!m_work)
+        return;
+
+    QLocale locale(localeName);
+    m_work->setConfigValue(languageRegion_key, langAndRegion);
+    m_work->setConfigValue(localeName_key, localeName);
+
+    RegionFormat regionFormat = RegionProxy::regionFormat(locale);
+    // case FirstDayOfWeek:
+    m_work->setConfigValue(firstDayOfWeek_key, regionFormat.firstDayOfWeekFormat);
+    // case ShortDate:
+    m_work->setConfigValue(shortDateFormat_key, regionFormat.shortDateFormat);
+    // case LongDate:
+    m_work->setConfigValue(longDateFormat_key, regionFormat.longDateFormat);
+    // case ShortTime:
+    m_work->setConfigValue(shortTimeFormat_key, regionFormat.shortTimeFormat);
+    // case LongTime:
+    m_work->setConfigValue(longTimeFormat_key, regionFormat.longTimeFormat);
+    // case Currency:
+    m_work->setConfigValue(currencyFormat_key, regionFormat.currencyFormat.toUtf8());
+    // case Digit:
+    m_work->setConfigValue(numberFormat_key, regionFormat.numberFormat.toUtf8());
+    m_work->setDigitGrouping(regionFormat.numberFormat.toUtf8());
+    // case PaperSize:
+    m_work->setConfigValue(paperFormat_key, regionFormat.paperFormat.toUtf8());
+
+}
+
+QStringList DatetimeModel::availableFormats(int format)
+{
+    QLocale locale(m_localeName);
+    RegionAvailableData regionFormatsAvailable = RegionProxy::allTextData(locale);
+    switch (format) {
+    // date time formats
+    case DayAbbreviations:
+        return QStringList{ locale.standaloneDayName(1, QLocale::LongFormat), locale.standaloneDayName(1, QLocale::ShortFormat) };
+    case DayOfWeek: {
+        QStringList days;
+        for (int i = 1; i < 8; ++i)
+            days << locale.standaloneDayName(i, QLocale::LongFormat);
+        return days;
+    }
+    case LongDate:
+        return regionFormatsAvailable.longDatesAvailable;
+    case ShortDate:
+        return regionFormatsAvailable.shortDatesAvailable;
+    case LongTime:
+        return regionFormatsAvailable.longTimesAvailable;
+    case ShortTime:
+        return regionFormatsAvailable.shortTimesAvailable;
+    // currency formats
+    case CurrencySymbol: {
+        QStringList defaultSymbols { QString::fromLocal8Bit("¥"),
+                                QString::fromLocal8Bit("$"),
+                                QString::fromLocal8Bit("€") };
+        const QString &current = RegionProxy::regionFormat(locale).currencyFormat;
+        if (!defaultSymbols.contains(current))
+            defaultSymbols.prepend(current);
+
+        return defaultSymbols;
+    }
+    case PositiveCurrency: {
+        return getCurrencySymbol(true, currencyFormat());
+    }
+    case NegativeCurrency: {
+        return getCurrencySymbol(false, currencyFormat());
+    }
+    // number formats
+    case DecimalSymbol:{
+        return separatorSymbol();
+    }
+    case DigitGroupingSymbol: {
+        return separatorSymbol();
+    }
+    case DigitGrouping: {
+        QString dgSymbol = m_work->digitGroupingSymbol();
+        if (dgSymbol == DatetimeModel::tr("Space"))
+            dgSymbol = " ";
+        return {
+            QString("123456789"),
+            QString("%2%1%3%1%4").arg(dgSymbol).arg("123").arg("456").arg("789"),    // 123,456,789
+            QString("%2%1%3").arg(dgSymbol).arg("123456").arg("789"),                // 123456,789
+            QString("%2%1%3%1%4%1%5").arg(dgSymbol).arg("12").arg("34").arg("56").arg("789"), // 12,34,56,789
+        };
+    }
+    case PageSize:
+        return {"A4"};
+    default:
+        break;
+    }
+
+    return QStringList();
+}
+
+int DatetimeModel::currentFormatIndex(int format)
+{
+#define INDEX_OF(format, MEMBER, isDate) { \
+        const QDate CurrentDate(2024, 1, 1); \
+        const QTime CurrentTime(1, 1, 1); \
+        QLocale locale(m_localeName); \
+        RegionAvailableData regionFormatsAvailable = RegionProxy::allTextData(locale); \
+        const auto &fmt = isDate ? locale.toString(CurrentDate, format) : locale.toString(CurrentTime, format); \
+        return regionFormatsAvailable.MEMBER.indexOf(fmt); \
+    }
+
+    switch (format) {
+    // date time formats
+    case DayAbbreviations:
+        return weekdayFormat();
+    case DayOfWeek: {
+        return firstDayOfWeekFormat() - 1; // combo index start from 0
+    }
+    case LongDate: {
+        INDEX_OF(longDateFormat(), longDatesAvailable, true);
+    }
+    case ShortDate: {
+        INDEX_OF(shortDateFormat(), shortDatesAvailable, true);
+    }
+    case LongTime:{
+        INDEX_OF(longTimeFormat(), longTimesAvailable, false);
+    }
+    case ShortTime: {
+        INDEX_OF(shortTimeFormat(), shortTimesAvailable, false);
+    }
+    // currency formats
+    case CurrencySymbol: {
+        const QString &currencySymbol = currencyFormat();
+        QStringList defaultSymbols = availableFormats(format);
+        return defaultSymbols.indexOf(currencySymbol);
+    }
+    case PositiveCurrency: {
+        auto fmt = m_work->positiveCurrencyFormat();
+        auto fmts = getCurrencySymbol(true, currencyFormat());
+        return fmts.indexOf(fmt);
+    }
+    case NegativeCurrency: {
+        auto fmt = m_work->negativeCurrencyFormat();
+        auto fmts = getCurrencySymbol(false, currencyFormat());
+        return fmts.indexOf(fmt);
+    }
+    // number formats
+    case DecimalSymbol: {
+        const QString &current = m_work->decimalSymbol();
+        QStringList defaultSymbols = separatorSymbol();
+        return defaultSymbols.indexOf(current);
+    }
+    case DigitGroupingSymbol: {
+        const QString &current = m_work->digitGroupingSymbol();
+        QStringList defaultSymbols = separatorSymbol();
+        return defaultSymbols.indexOf(current);
+    }
+    case DigitGrouping: {
+        const QString &current = m_work->digitGrouping();
+        QStringList defaultSymbols = availableFormats(format);
+        return defaultSymbols.indexOf(current);
+    }
+    default:
+        break;
+    }
+
+    return 0;
+}
+
+void DatetimeModel::setCurrentFormat(int format, int index)
+{
+    if (index < 0) {
+        qWarning() << "Invalide index!";
+        return;
+    }
+
+    RegionAvailableData regionFormat = RegionProxy::allFormat();
+    QLocale locale(m_localeName);
+    // const QString &symbol = RegionProxy::regionFormat(locale).currencyFormat;
+
+    auto setConfig = [this](int index, const QString &key, const QStringList &availableList) {
+        if (index < availableList.count()) {
+            m_work->setConfigValue(key, availableList.at(index));
+        } else {
+            qWarning() << "Set [" << key << "] faild, invalid index" << index << availableList.count();
+        }
+    };
+
+    switch (format) {
+    // date time formats
+    case DayAbbreviations: {
+        setWeekdayFormat(index);
+        break;
+    }
+    case DayOfWeek: {
+        // dconfig
+        m_work->setConfigValue(firstDayOfWeek_key, index + 1);
+        // dbus
+        m_work->setWeekStartDayFormat(index + 1);
+        break;
+    }
+    case LongDate: {
+        setConfig(index, longDateFormat_key, regionFormat.longDatesAvailable);
+        break;
+    }
+    case ShortDate: {
+        setConfig(index, shortDateFormat_key, regionFormat.shortDatesAvailable);
+        break;
+    }
+    case LongTime:{
+        setConfig(index, longTimeFormat_key, regionFormat.longTimesAvailable);
+        break;
+    }
+    case ShortTime: {
+        setConfig(index, shortTimeFormat_key, regionFormat.shortTimesAvailable);
+        break;
+    }
+    // currency formats
+    case CurrencySymbol: {
+        QStringList defaultSymbols = availableFormats(format);
+        if (index >= defaultSymbols.count())
+            return;
+        // get PositiveCurrency/NegativeCurrency index first
+        int pIndex = currentFormatIndex(PositiveCurrency);
+        int nIndex = currentFormatIndex(NegativeCurrency);
+        setProperty("__PositiveCurrency", pIndex);
+        setProperty("__NegativeCurrency", nIndex);
+
+        // dconfig
+        setConfig(index, currencyFormat_key, defaultSymbols);
+        // dbus
+        m_work->setCurrencySymbol(defaultSymbols.value(index));
+    }
+    break;
+    case PositiveCurrency: {
+        auto fmts = getCurrencySymbol(true, currencyFormat());
+        if (index < fmts.count())
+            m_work->setPositiveCurrencyFormat(fmts.value(index));
+    }
+    break;
+    case NegativeCurrency: {
+        auto fmts = getCurrencySymbol(false, currencyFormat());
+        if (index < fmts.count())
+            m_work->setNegativeCurrencyFormat(fmts.value(index));
+    }
+    break;
+    // number formats
+    case DecimalSymbol: {
+        auto fmts = separatorSymbol();
+        if (index < fmts.count())
+            m_work->setDecimalSymbol(fmts.value(index));
+    }
+    break;
+    case DigitGroupingSymbol: {
+        int dIndex = currentFormatIndex(DigitGrouping);
+        setProperty("__DigitGrouping", dIndex);
+
+        auto fmts = separatorSymbol();
+        if (index < fmts.count())
+            m_work->setDigitGroupingSymbol(fmts.value(index));
+    }
+    break;
+    case DigitGrouping: {
+        QStringList fmts = availableFormats(format);
+        if (index >= fmts.count())
+            return
+
+        // dconfig
+        setConfig(index, numberFormat_key, fmts);
+        // dbus
+        m_work->setDigitGrouping(fmts.value(index));
+    }
+    break;
+    default:
+        break;
+    }
+}
+
+QString DatetimeModel::currentDate()
+{
+    QLocale locale(m_localeName);
+    QString dateFormat = longDateFormat();
+    if (weekdayFormat() == 1)
+        dateFormat.replace("dddd", "ddd");
+
+    return locale.toString(QDate::currentDate(), dateFormat);
+}
+
+int DatetimeModel::currentLanguageAndRegionIndex()
+{
+    return m_regions.keys().indexOf(m_langCountry);
 }
 
 void DatetimeModel::addUserTimeZoneByName(const QString &zoneName)
@@ -266,6 +733,11 @@ void DatetimeModel::addUserTimeZoneByName(const QString &zoneName)
         return;
     }
 
+    addUserTimeZoneById(zoneId);
+}
+
+void DatetimeModel::addUserTimeZoneById(const QString &zoneId)
+{
     if (m_work)
         m_work->addUserTimeZone(zoneId);
 }
@@ -381,6 +853,7 @@ void DatetimeModel::setLocaleName(const QString &localeName)
     if (m_localeName != localeName) {
         m_localeName = localeName;
         Q_EMIT localeNameChanged(localeName);
+        Q_EMIT currentLanguageAndRegionChanged(currentLanguageAndRegion());
     }
 }
 
@@ -389,6 +862,7 @@ void DatetimeModel::setLangRegion(const QString &langCountry)
     if (m_langCountry != langCountry) {
         m_langCountry = langCountry;
         Q_EMIT langCountryChanged(langCountry);
+        Q_EMIT currentLanguageAndRegionChanged(currentLanguageAndRegion());
     }
 }
 
@@ -467,6 +941,7 @@ void DatetimeModel::setCountries(const QStringList &countries)
 {
     if (m_countries != countries) {
         m_countries = countries;
+        Q_EMIT countriesChanged(countries);
     }
 }
 
@@ -532,6 +1007,67 @@ int DatetimeModel::currentTimeZoneIndex() const
     }
 
     return index;
+}
+
+void DatetimeModel::ensureLangModel()
+{
+    if (m_langModel)
+        return;
+
+    m_langModel = new dccV25::KeyboardModel(this);
+    connect(m_langModel, &dccV25::KeyboardModel::curLocalLangChanged, this, &DatetimeModel::langListChanged);
+    connect(m_langModel, &dccV25::KeyboardModel::curLangChanged, this, &DatetimeModel::currentLangChanged);
+}
+
+void DatetimeModel::addLang(const QString &lang)
+{
+    ensureLangModel();
+    m_langModel->addLang(lang);
+}
+
+void DatetimeModel::deleteLang(const QString &lang)
+{
+    ensureLangModel();
+    m_langModel->deleteLang(lang);
+}
+
+void DatetimeModel::setCurrentLang(const QString &lang)
+{
+    ensureLangModel();
+    m_langModel->doSetLang(lang);
+}
+
+QStringList DatetimeModel::langList()
+{
+    ensureLangModel();
+
+    if (m_langModel)
+        return m_langModel->localLang();
+
+    return {};
+}
+
+QString DatetimeModel::currentLang()
+{
+    ensureLangModel();
+
+    if (m_langModel)
+        return m_langModel->curLang();
+
+    return {};
+}
+
+int DatetimeModel::weekdayFormat() const
+{
+    return m_work ? m_work->weekdayFormat() : 0;
+}
+
+void DatetimeModel::setWeekdayFormat(int newWeekdayFormat)
+{
+    if (!m_work)
+        return;
+
+    m_work->setWeekdayFormat(newWeekdayFormat);
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)

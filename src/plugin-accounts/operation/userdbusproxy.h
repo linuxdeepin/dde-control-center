@@ -122,8 +122,6 @@ public:
     inline QString path() { return m_accountsUserPath; }
     inline const QDBusInterface* interface() { return m_dBusAccountsUserInter; }
 
-
-
 signals:
     // begin property changed signals
     void AccountTypeChanged(int  value) const;

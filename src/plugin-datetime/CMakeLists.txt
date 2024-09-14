@@ -18,7 +18,7 @@ set(dateTime_Libraries
     dde-control-center
     ${QT_NS}::DBus
     ${QT_NS}::Concurrent
-     ${DTK_NS}::Core
+     ${DTK_NS}::Gui
      ICU::i18n
      ICU::uc
 )

@@ -32,7 +32,7 @@ DccObject {
                 height: contentHeight
                 Layout.leftMargin: 10
                 font: DTK.fontManager.t5
-                text: Qt.formatDate(Date(), dccData.longDateFormat)
+                text: dccData.currentDate()
             }
 
             Timer {
@@ -41,9 +41,6 @@ DccObject {
                 repeat: true
                 onTriggered: {
                     timeLabel.text = Qt.formatTime(Date(), timeLabel.longTimeFormat)
-
-                    // TODO: 更新日期来说是否太频繁了？
-                    dateLabel.text = Qt.formatDate(Date(), dccData.longDateFormat)
                 }
             }
         }
@@ -57,14 +54,14 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => item ? item.topPadding = 10 : console.log("null parent..")
+        onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
         DccObject {
             id: ntpSettings
             property bool ntpOn: dccData.ntpEnabled
             name: "ntpSettings"
             parentName: "dateTimeGroup"
-            displayName: qsTr("auto sync time")
+            displayName: qsTr("Auto sync time")
             weight: 10
             hasBackground: true
             pageType: DccObject.Editor
@@ -77,25 +74,54 @@ DccObject {
         }
 
         DccObject {
+            id: dateAndTimeSettings
             name: "dateAndTimeSettings"
             parentName: "dateTimeGroup"
-            displayName: qsTr("system date and time")
+            displayName: qsTr("System date and time")
             weight: 12
             hasBackground: true
             pageType: DccObject.Editor
+            property bool showCustom
+            property string customAddr
             page: Item {
                 implicitHeight: 36
                 implicitWidth: dccData.ntpEnabled ? 280 : 80
 
                 ComboBox {
                     id: comboBox
+                    property var serverList: dccData.ntpServerList
                     flat: true
                     visible: dccData.ntpEnabled
                     anchors.fill: parent
-                    model: dccData.ntpServerList
-                    currentIndex: dccData.ntpServerList.indexOf(dccData.ntpServerAddress)
+                    model: serverList
+                    currentIndex:  {
+                        let index = serverList.indexOf(dccData.ntpServerAddress)
+                        dateAndTimeSettings.showCustom = (index < 0)
+                        if (index < 0)
+                            dateAndTimeSettings.customAddr = dccData.ntpServerAddress
+                        return index < 0 ? serverList.length - 1 : index
+                    }
                     onActivated: function (index) {
-                        dccData.ntpServerAddress = dccData.ntpServerList[index]
+                        dateAndTimeSettings.showCustom = (serverList[index] === qsTr("Customize"))
+                        if (dateAndTimeSettings.showCustom) {
+                            if (dateAndTimeSettings.customAddr.trim().length > 0)
+                                dccData.ntpServerAddress = dateAndTimeSettings.customAddr.trim()
+                            return
+                        }
+
+                        dccData.ntpServerAddress = serverList[index]
+                    }
+
+                    Component.onCompleted: {
+                        let text = qsTr("Customize")
+                        if (!comboBox.serverList.includes(text))
+                            comboBox.serverList.push(text)
+
+                        if (comboBox.currentIndex < 0) {
+                            comboBox.currentIndex = comboBox.serverList.length - 1
+                            dateAndTimeSettings.showCustom = true
+                            dateAndTimeSettings.customAddr = dccData.ntpServerAddress
+                        }
                     }
                 }
 
@@ -124,11 +150,83 @@ DccObject {
                     }
                 }
             }
+            onDeactive: {
+                if (dateAndTimeSettings.showCustom &&
+                        dateAndTimeSettings.customAddr.length === 0) {
+                    dateAndTimeSettings.showCustom = false
+                }
+            }
+        }
+        DccObject {
+            id: customNTPServer
+            name: "customNTPServer"
+            parentName: "dateTimeGroup"
+            displayName: qsTr("Server address")
+            visible: dateAndTimeSettings.showCustom
+            weight: 13
+            hasBackground: true
+            pageType: DccObject.Editor
+            page: Item {
+                id: item
+                implicitHeight: 50
+                implicitWidth: 300
+                LineEdit {
+                    id: addr
+                    implicitWidth: 200
+                    text: dateAndTimeSettings.customAddr
+                    placeholderText: qsTr("Required")
+                    alertText: qsTr("The ntp server address cannot be empty")
+                    anchors{
+                        rightMargin: 10
+                        right: editBtn.left
+                        verticalCenter: parent.verticalCenter
+                    }
+                    onReadOnlyChanged: {
+                        addr.background.visible = !addr.readOnly
+                        addr.clearButton.visible = !addr.readOnly && text.length > 0
+                        addr.focus = !addr.readOnly
+                    }
+                    onTextChanged: {
+                        if (addr.showAlert && addr.text.trim().length > 0) {
+                            addr.showAlert = false
+                        }
+                    }
+                    Component.onCompleted: {
+                        addr.readOnly = text.length > 0
+                    }
+                }
+                IconButton {
+                    id: editBtn
+                    flat: true
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    icon {
+                        name: addr.readOnly ? "edit" : "ok"
+                        width: 16
+                        height: 16
+                    }
+                    onClicked: {
+                        if (addr.text.trim().length === 0) {
+                            addr.showAlert = true
+                            return
+                        }
+
+                        addr.showAlert = false
+
+                        if (!addr.readOnly) {
+                            dccData.ntpServerAddress = addr.text.trim()
+                        }
+
+                        addr.readOnly = !addr.readOnly
+
+                    }
+                }
+            }
         }
         DccObject {
             name: "12/24h"
             parentName: "dateTimeGroup"
-            displayName: qsTr("use 24-hour format")
+            displayName: qsTr("Use 24-hour format")
             weight: 14
             hasBackground: true
             pageType: DccObject.Editor
@@ -175,6 +273,7 @@ DccObject {
         Component.onCompleted: {
             timezoneGroup.addUserTimeZone(null)
         }
+
         Connections {
             target: dccData
             function onUserTimeZoneAdded(zoneInfo) {
@@ -182,10 +281,12 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => item ? item.topPadding = 10 : console.log("null parent..")
+        onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
 
     DccObject {
+        id: systemTimezone
+        property bool showPopForCustom: false
         name: "systemTimezone"
         parentName: "timezoneGroup"
         displayName: qsTr("system time zone")
@@ -196,13 +297,14 @@ DccObject {
             id: combo
             flat: true
             implicitWidth: 280
-            model: dccData.searchModel()
+            model: dccData.zoneSearchModel()
             textRole: "display"
             displayText: dccData.timeZoneDispalyName
             currentIndex: dccData.currentTimeZoneIndex
 
             popup: SearchableListViewPopup {
                 id: searchView
+                visible: systemTimezone.showPopForCustom
                 implicitWidth: combo.width
                 delegateModel: combo.delegateModel
                 maxVisibleItems: combo.maxVisibleItems
@@ -211,13 +313,21 @@ DccObject {
                 }
 
                 onSearchTextChanged: {
-                    let delegateModel = dccData.searchModel()
+                    let delegateModel = dccData.zoneSearchModel()
                     delegateModel.setFilterWildcard(searchView.searchText);
+                }
+                onClosed: {
+                    systemTimezone.showPopForCustom = false
                 }
             }
 
             onActivated: function (index) {
                 let zoneId = currentValue["zoneIdRole"]
+                if (systemTimezone.showPopForCustom) {
+                    dccData.addUserTimeZoneById(zoneId)
+                    return
+                }
+
                 dccData.systemTimeZone = zoneId
             }
         }
@@ -247,10 +357,9 @@ DccObject {
                         currentTimeZone: dccData.timeZoneDispalyName
                         currentLocation: dccData.country
                         onClosing: {
-                            dccData.searchModel().setFilterRegularExpression("")
+                            dccData.zoneSearchModel().setFilterRegularExpression("")
                             addButton.needShowDialog = false
                             if (timezoneDialog.saved) {
-                                console.log("selectTimeZone", timezoneDialog.selectedTimeZone)
                                 dccData.addUserTimeZoneByName(timezoneDialog.selectedTimeZone)
                             }
                         }
@@ -259,9 +368,11 @@ DccObject {
                         item.show()
                     }
                 }
-
                 onClicked: {
-                    addButton.needShowDialog = true
+                    // disable Timezone map Dialog
+                    // addButton.needShowDialog = true
+                    // 共用 combobox。。
+                    systemTimezone.showPopForCustom = true
                 }
             }
         }
