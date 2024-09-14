@@ -16,6 +16,8 @@ D.ItemDelegate {
     backgroundVisible: false
     checkable: false
     enabled: model.item.enabledToApp
+    topPadding: topInset
+    bottomPadding: bottomInset
     icon {
         name: model.item.icon
         source: model.item.iconSource

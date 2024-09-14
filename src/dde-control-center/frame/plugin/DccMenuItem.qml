@@ -10,6 +10,8 @@ DccEditorItem {
     leftPadding: 12
     bottomInset: 5
     implicitHeight: 58
+    topPadding: topInset
+    bottomPadding: bottomInset
 
     rightItem: D.IconLabel {
         icon.name: "arrow_ordinary_right"

@@ -161,7 +161,7 @@ DccObject {
                 if (zoneId && zoneId !== zoneIds[i])
                     continue
 
-                var obj = itemZoneComp.createObject()
+                var obj = itemZoneComp.createObject(timezoneGroup)
                 obj.name = "timezoneItem" + i
                 obj.parentName = "timezoneGroup"
                 obj.displayName = displays[i]

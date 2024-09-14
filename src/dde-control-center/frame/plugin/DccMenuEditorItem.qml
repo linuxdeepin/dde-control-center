@@ -9,7 +9,8 @@ import org.deepin.dtk 1.0 as D
 DccEditorItem {
     property var editor: model.item.getSectionItem()
     leftPadding: 12
-
+    topPadding: topInset
+    bottomPadding: bottomInset
     implicitHeight: 58
     rightItem: RowLayout {
         Control {

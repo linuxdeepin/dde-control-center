@@ -15,8 +15,8 @@ ItemDelegate {
     backgroundVisible: false
     enabled: model.item.enabledToApp
     checkable: false
-    topInset: topPadding
-    bottomInset: bottomPadding
+    topPadding: topInset
+    bottomPadding: bottomInset
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
     padding: 0
 

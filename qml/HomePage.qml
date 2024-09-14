@@ -175,7 +175,7 @@ Control {
                                 var len = model.item.children.length
                                 var descs = []
                                 for (var i = 0; i < len && descs.length < 3; ++i) {
-                                    if (model.item.children[i].pageType === DccObject.Menu) {
+                                    if (model.item.children[i].pageType & DccObject.Menu) {
                                         descs.push(model.item.children[i].displayName)
                                     }
                                 }
