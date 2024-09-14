@@ -3,9 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "zoneinfomodel.h"
 #include "datetimemodel.h"
-// #include "dccobject.h"
-// #include <DPinyin>
-// #include <QIcon>
 
 namespace dccV25 {
 

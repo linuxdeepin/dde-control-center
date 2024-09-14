@@ -27,11 +27,17 @@ const QString LangSelectorService = QStringLiteral("org.deepin.dde.LangSelector1
 const QString LangSelectorPath = QStringLiteral("/org/deepin/dde/LangSelector1");
 const QString LangSelectorInterface = QStringLiteral("org.deepin.dde.LangSelector1");
 
+// currency and digit format, should be `org.deepin.dde.Format1`
+const QString FormatService = QStringLiteral("com.deepin.daemon.Format");
+const QString FormatPath = QStringLiteral("/com/deepin/daemon/Format");
+const QString FormatInterface = QStringLiteral("com.deepin.daemon.Format");
+
 DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     : QObject(parent)
     , m_localeInter(new QDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this))
     , m_timedateInter(new QDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
     , m_systemtimedatedInter(new QDBusInterface(SystemTimedatedService, SystemTimedatedPath, SystemTimedatedInterface, QDBusConnection::systemBus(), this))
+    ,m_formatInter(new QDBusInterface(FormatService, FormatPath, FormatInterface, QDBusConnection::sessionBus(), this))
 {
     registerZoneInfoMetaType();
 
@@ -41,6 +47,7 @@ DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     qRegisterMetaType<LocaleList>("LocaleList");
     qDBusRegisterMetaType<LocaleList>();
     QDBusConnection::sessionBus().connect(TimedateService, TimedatePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(FormatService, FormatPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 bool DatetimeDBusProxy::use24HourFormat()
@@ -244,4 +251,64 @@ std::optional<QString> DatetimeDBusProxy::getLocaleRegion()
 void DatetimeDBusProxy::setLocaleRegion(const QString &locale)
 {
     m_localeInter->asyncCall(QStringLiteral("SetLocaleRegion"), locale);
+}
+
+QString DatetimeDBusProxy::decimalSymbol() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("DecimalSymbol"));
+}
+
+void DatetimeDBusProxy::setDecimalSymbol(const QString &newDecimalSymbol)
+{
+    m_formatInter->setProperty("DecimalSymbol", QVariant::fromValue(newDecimalSymbol));
+}
+
+QString DatetimeDBusProxy::digitGrouping() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("DigitGrouping"));
+}
+
+void DatetimeDBusProxy::setDigitGrouping(const QString &newDigitGrouping)
+{
+    m_formatInter->setProperty("DigitGrouping", QVariant::fromValue(newDigitGrouping));
+}
+
+QString DatetimeDBusProxy::digitGroupingSymbol() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("DigitGroupingSymbol"));
+}
+
+void DatetimeDBusProxy::setDigitGroupingSymbol(const QString &newDigitGroupingSymbol)
+{
+    m_formatInter->setProperty("DigitGroupingSymbol", QVariant::fromValue(newDigitGroupingSymbol));
+}
+
+QString DatetimeDBusProxy::currencySymbol() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("CurrencySymbol"));
+}
+
+void DatetimeDBusProxy::setCurrencySymbol(const QString &newCurrencySymbol)
+{
+    m_formatInter->setProperty("CurrencySymbol", QVariant::fromValue(newCurrencySymbol));
+}
+
+QString DatetimeDBusProxy::negativeCurrencyFormat() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("NegativeCurrencyFormat"));
+}
+
+void DatetimeDBusProxy::setNegativeCurrencyFormat(const QString &newNegativeCurrencyFormat)
+{
+    m_formatInter->setProperty("NegativeCurrencyFormat", QVariant::fromValue(newNegativeCurrencyFormat));
+}
+
+QString DatetimeDBusProxy::positiveCurrencyFormat() const
+{
+    return qvariant_cast<QString>(m_formatInter->property("PositiveCurrencyFormat"));
+}
+
+void DatetimeDBusProxy::setPositiveCurrencyFormat(const QString &newPositiveCurrencyFormat)
+{
+    m_formatInter->setProperty("PositiveCurrencyFormat", QVariant::fromValue(newPositiveCurrencyFormat));
 }

@@ -12,8 +12,8 @@ Popup {
     property int maxVisibleItems: 10
     property int highlightedIndex: 0
     property string searchText: searchEdit.text
+    property alias view: arrowListView
     required property DelegateModel delegateModel
-    property bool searchEditVisible: false
 
     contentItem: ColumnLayout {
         spacing: 10

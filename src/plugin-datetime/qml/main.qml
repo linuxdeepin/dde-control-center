@@ -7,5 +7,5 @@ import org.deepin.dcc 1.0
 DccObject {
     TimeAndDate { }
 
-    LangAndRegion { }
+    LangAndFormat { }
 }

@@ -7,7 +7,7 @@
 #include <QCoreApplication>
 #include <QTranslator>
 
-static const QDate CurrentDate(2023, 1, 1);
+static const QDate CurrentDate(2024, 1, 1);
 static const QTime CurrentTime(1, 1, 1);
 
 class Format
@@ -215,6 +215,7 @@ void RegionProxy::active()
     locales.removeOne(QLocale::C);
     // NOTE: sorry for Sichuang friends
     locales.removeOne(QLocale::SichuanYi);
+
     QStringList countries;
     for (const auto &locale : locales) {
         QString script = locale.scriptToString(locale.script());
@@ -222,6 +223,10 @@ void RegionProxy::active()
         QString country = locale.countryToString(locale.country());
         // NOTE: sorry for guangdong friends
         if (locale.language() == QLocale::Cantonese && locale.language() == QLocale::Chinese) {
+            continue;
+        }
+        // NOTE: the region `World` is weird
+        if (locale.territory() == QLocale::Territory::World) {
             continue;
         }
         if ((locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
@@ -234,7 +239,8 @@ void RegionProxy::active()
             countries << country;
             m_countries << country;
         }
-        m_regions.insert(langCountry, locale);
+        if (!m_regions.contains(langCountry))
+            m_regions.insert(langCountry, locale);
     }
 }
 
@@ -309,8 +315,6 @@ RegionAvailableData RegionProxy::allFormat()
 
 RegionAvailableData RegionProxy::customTextData(const QLocale &locale)
 {
-    qDebug() << locale.country() << locale.language() << locale.name();
-
     Format *format = nullptr;
     if (locale.country() == QLocale::China && locale.script() == QLocale::SimplifiedHanScript) {
         format = new ChineseSimpliedFormat();

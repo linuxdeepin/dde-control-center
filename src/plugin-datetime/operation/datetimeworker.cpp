@@ -41,6 +41,17 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
 
     connect(m_timedateInter, &DatetimeDBusProxy::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
     connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setTimeZoneInfo);
+    connect(m_timedateInter, &DatetimeDBusProxy::WeekdayFormatChanged, m_model, &DatetimeModel::weekdayFormatChanged);
+
+    connect(m_timedateInter, &DatetimeDBusProxy::CurrencySymbolChanged, m_model, [this](const QString &symbol){
+        Q_EMIT m_model->symbolChanged(DatetimeModel::CurrencySymbol, symbol);
+    });
+    connect(m_timedateInter, &DatetimeDBusProxy::DecimalSymbolChanged, m_model, [this](const QString &symbol){
+        Q_EMIT m_model->symbolChanged(DatetimeModel::DecimalSymbol, symbol);
+    });
+    connect(m_timedateInter, &DatetimeDBusProxy::DigitGroupingSymbolChanged, m_model, [this](const QString &symbol){
+        Q_EMIT m_model->symbolChanged(DatetimeModel::DigitGroupingSymbol, symbol);
+    });
 
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->setCurrentUseTimeZone(GetZoneInfo(m_timedateInter->timezone()));
@@ -75,6 +86,8 @@ void DatetimeWorker::activate()
 void DatetimeWorker::deactivate()
 {
 }
+
+DatetimeModel *DatetimeWorker::model() { return m_model; }
 
 void DatetimeWorker::setNTP(bool ntp)
 {
@@ -142,6 +155,11 @@ void DatetimeWorker::setNtpServer(QString server)
     m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
 }
 
+int DatetimeWorker::weekdayFormat()
+{
+    return m_timedateInter->weekdayFormat();
+}
+
 void DatetimeWorker::SetNTPServerFinished()
 {
     qInfo() << "set server success.";
@@ -204,6 +222,66 @@ void DatetimeWorker::onTimezoneListChanged(const QStringList &timezones)
 void DatetimeWorker::getZoneInfoFinished(ZoneInfo zoneInfo)
 {
     m_model->addUserTimeZone(zoneInfo);
+}
+
+QString DatetimeWorker::decimalSymbol()
+{
+    return m_timedateInter->decimalSymbol();
+}
+
+void DatetimeWorker::setDecimalSymbol(const QString &value)
+{
+    return m_timedateInter->setDecimalSymbol(value);
+}
+
+QString DatetimeWorker::digitGrouping()
+{
+    return m_timedateInter->digitGrouping();
+}
+
+void DatetimeWorker::setDigitGrouping(const QString &value)
+{
+    return m_timedateInter->setDigitGrouping(value);
+}
+
+QString DatetimeWorker::digitGroupingSymbol()
+{
+    return m_timedateInter->digitGroupingSymbol();
+}
+
+void DatetimeWorker::setDigitGroupingSymbol(const QString &value)
+{
+    return m_timedateInter->setDigitGroupingSymbol(value);
+}
+
+QString DatetimeWorker::currencySymbol()
+{
+    return m_timedateInter->currencySymbol();
+}
+
+void DatetimeWorker::setCurrencySymbol(const QString &value)
+{
+    return m_timedateInter->setCurrencySymbol(value);
+}
+
+QString DatetimeWorker::negativeCurrencyFormat()
+{
+    return m_timedateInter->negativeCurrencyFormat();
+}
+
+void DatetimeWorker::setNegativeCurrencyFormat(const QString &value)
+{
+    return m_timedateInter->setNegativeCurrencyFormat(value);
+}
+
+QString DatetimeWorker::positiveCurrencyFormat()
+{
+    return m_timedateInter->positiveCurrencyFormat();
+}
+
+void DatetimeWorker::setPositiveCurrencyFormat(const QString &value)
+{
+    return m_timedateInter->setPositiveCurrencyFormat(value);
 }
 #endif
 

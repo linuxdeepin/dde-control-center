@@ -15,13 +15,14 @@ Item {
     property bool separatorVisible: false
     property bool highlightEnable: true
     property alias control: root.parent
+    property real radius: DS.Style.control.radius
 
     Loader {
         anchors.fill: parent
         active: (!highlightEnable || !checked) && control.backgroundVisible
         sourceComponent: D.RoundRectangle {
             color: palette.base
-            radius: DS.Style.control.radius
+            radius: root.radius
             corners: control.corners
         }
     }
