@@ -5,12 +5,15 @@
 
 #include "dccobject_p.h"
 
+#include <QLoggingCategory>
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QTimer>
 
 namespace dccV25 {
+static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.object");
+
 static QHash<QString, bool> s_notIcon;
 
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
@@ -33,7 +36,26 @@ DccObject::Private::Private(DccObject *obj)
 {
 }
 
-DccObject::Private::~Private() { }
+DccObject::Private::~Private()
+{
+    if (m_sectionItem) {
+        m_parentItem = nullptr;
+        delete m_sectionItem;
+        m_sectionItem = nullptr;
+    }
+    if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
+        delete m_page;
+        m_page = nullptr;
+    }
+    if (m_parent) {
+        m_parent->p_ptr->removeChild(q_ptr);
+    }
+    while (!m_children.isEmpty()) {
+        DccObject *child = m_children.first();
+        removeChild(0);
+        delete child;
+    }
+}
 
 bool DccObject::Private::getFlagState(uint32_t flag) const
 {
@@ -145,6 +167,7 @@ void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o
         return;
     DccObject::Private *that = reinterpret_cast<DccObject::Private *>(data->data);
     that->m_data.append(o);
+    o->setParent(that->q_ptr);
 
     if (DccObject *obj = qobject_cast<DccObject *>(o)) {
         DccObject::Private *parent = reinterpret_cast<DccObject::Private *>(data->data);
@@ -178,7 +201,7 @@ DccObject::DccObject(QObject *parent)
 {
     connect(this, &DccObject::deactive, this, [this]() {
         if (p_ptr->m_sectionItem) {
-            QQuickItem *item = p_ptr->m_sectionItem;
+            QQuickItem *item = p_ptr->m_sectionItem.get();
             p_ptr->m_sectionItem = nullptr;
             setParentItem(nullptr);
             for (auto &&child : p_ptr->m_children) {
@@ -414,13 +437,14 @@ void DccObject::setPageType(uint type)
 
 QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    if (p_ptr->m_sectionItem)
-        return p_ptr->m_sectionItem;
+    if (p_ptr->m_sectionItem) {
+        return p_ptr->m_sectionItem.get();
+    }
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
         QQmlContext *context = new QQmlContext(creationContext);
         context->setContextProperty("dccObj", this);
-#if 0
+#if 1
         QObject *nobj = p_ptr->m_page->beginCreate(context);
         if (nobj) {
             p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(nobj);
@@ -441,25 +465,33 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
             }
             // sections are not controlled by FxListItemSG, so apply attached properties here
         } else {
+            qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
             delete context;
         }
         p_ptr->m_page->completeCreate();
-#endif
+#else
         p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
+        if (p_ptr->m_sectionItem) {
+            p_ptr->m_sectionItem->setParent(this);
+        } else {
+            qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
+            delete context;
+        }
+#endif
     }
-    return p_ptr->m_sectionItem;
+    return p_ptr->m_sectionItem.get();
 }
 
 QQuickItem *DccObject::parentItem()
 {
-    return p_ptr->m_parentItem;
+    return p_ptr->m_parentItem.get();
 }
 
 void DccObject::setParentItem(QQuickItem *item)
 {
-    if (item != p_ptr->m_parentItem) {
+    if (item != p_ptr->m_parentItem.get()) {
         p_ptr->m_parentItem = item;
-        Q_EMIT parentItemChanged(p_ptr->m_parentItem);
+        Q_EMIT parentItemChanged(p_ptr->m_parentItem.get());
     }
 }
 
@@ -470,9 +502,9 @@ QQmlComponent *DccObject::page() const
 
 void DccObject::setPage(QQmlComponent *page)
 {
-    if (p_ptr->m_page != page) {
+    if (p_ptr->m_page.get() != page) {
         p_ptr->m_page = page;
-        Q_EMIT pageChanged(p_ptr->m_page);
+        Q_EMIT pageChanged(p_ptr->m_page.get());
     }
 }
 

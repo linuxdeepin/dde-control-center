@@ -85,13 +85,14 @@ private Q_SLOTS:
     void onObjectDisplayChanged();
     bool addObjectToParent(DccObject *obj);
     bool removeObjectFromParent(DccObject *obj);
+    void onQuit();
 
 private:
     DccObject *m_root;
-    DccObject *m_activeObject;
-    QVector<DccObject *> m_hideObjects;  // 隐藏的项
-    QVector<DccObject *> m_noAddObjects; // 未找到父对象的
-    QSet<DccObject *> m_noParentObjects; // 没有父对象的
+    DccObject *m_activeObject;    // 当前定位的项
+    DccObject *m_hideObjects;     // 隐藏的项
+    DccObject *m_noAddObjects;    // 未找到父对象的
+    DccObject *m_noParentObjects; // 没有父对象的
 
     QVector<DccObject *> m_currentObjects;
 
