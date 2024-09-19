@@ -38,6 +38,9 @@ DccManager::DccManager(QObject *parent)
     : DccApp(parent)
     , m_root(new DccObject(this))
     , m_activeObject(m_root)
+    , m_hideObjects(new DccObject(this))
+    , m_noAddObjects(new DccObject(this))
+    , m_noParentObjects(new DccObject(this))
     , m_plugins(new PluginManager(this))
     , m_window(nullptr)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), this))
@@ -45,6 +48,10 @@ DccManager::DccManager(QObject *parent)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
 {
+    m_hideObjects->setName("_hide");
+    m_noAddObjects->setName("_noAdd");
+    m_noParentObjects->setName("_noParent");
+
     m_root->setName("root");
     m_root->setDefultObject(nullptr);
     m_root->setCanSearch(false);
@@ -53,27 +60,15 @@ DccManager::DccManager(QObject *parent)
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
+    connect(qApp, &QCoreApplication::aboutToQuit, this, &DccManager::onQuit);
 }
 
 DccManager::~DccManager()
 {
-    qCDebug(dccLog()) << "delete dccManager";
-    int width_remember = m_window->width();
-    int height_remember = m_window->height();
-
-    if (m_dconfig->isValid()) {
-        m_dconfig->setValue(WidthConfig, width_remember);
-        m_dconfig->setValue(HeightConfig, height_remember);
-    }
-#ifdef QT_DEBUG
-    // TODO: delete m_engine会有概率崩溃
-    qCDebug(dccLog()) << "delete m_engine";
-    delete m_engine;
-    qCDebug(dccLog()) << "clear m_engine";
-    m_engine = nullptr;
-#endif
-    delete m_root;
-    qCDebug(dccLog()) << "delete m_root";
+    qCDebug(dccLog()) << "delete dccManger";
+    onQuit();
+    delete m_plugins;
+    qCDebug(dccLog()) << "delete dccManger end";
 }
 
 bool DccManager::installTranslator(const QString &name)
@@ -154,7 +149,7 @@ void DccManager::addObject(DccObject *obj)
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
         if (o->parentName().isEmpty()) {
-            m_noParentObjects.insert(o);
+            DccObject::Private::FromObject(m_noParentObjects)->addChild(o);
         } else {
             if (contains(m_hideModule, o)) {
                 DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
@@ -164,21 +159,22 @@ void DccManager::addObject(DccObject *obj)
             }
             if (!o->isVisibleToApp()) {
                 connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
-                noRepeatAdd(m_hideObjects, o);
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o);
             } else if (!addObjectToParent(o)) {
-                noRepeatAdd(m_noAddObjects, o);
+                DccObject::Private::FromObject(m_noAddObjects)->addChild(o);
             }
         }
 
         objs.append(DccObject::Private::FromObject(o)->getObjects());
     }
     // 处理m_noAddObject
-    objs.append(m_noAddObjects);
+    objs.append(m_noAddObjects->getChildren());
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
-        if (addObjectToParent(o)) {
-            m_noAddObjects.removeOne(o);
-            objs = m_noAddObjects;
+        if (DccObject *parentObj = findObject(o->parentName())) {
+            DccObject::Private::FromObject(m_noAddObjects)->removeChild(o);
+            DccObject::Private::FromObject(parentObj)->addChild(o);
+            objs = m_noAddObjects->getChildren();
         }
     }
 }
@@ -348,7 +344,7 @@ DccObject *DccManager::findObject(const QString &url)
     }
     QVector<QVector<DccObject *>> objs;
     objs.append({ m_root });
-    objs.append(m_hideObjects);
+    objs.append(m_hideObjects->getChildren());
     while (!objs.isEmpty()) {
         QVector<DccObject *> subObjs = objs.takeFirst();
         while (!subObjs.isEmpty()) {
@@ -364,7 +360,7 @@ DccObject *DccManager::findObject(const QString &url)
 
 void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 {
-    if (!obj || (m_activeObject == obj && cmd.isEmpty()))
+    if (m_plugins->isDeleting() || !obj || (m_activeObject == obj && cmd.isEmpty()))
         return;
     // m_backwardBtn->setVisible(obj != m_root);
     QList<DccObject *> modules;
@@ -471,11 +467,11 @@ void DccManager::onVisible(bool visible)
         return;
     }
     if (visible) {
-        m_hideObjects.removeOne(obj);
+        DccObject::Private::FromObject(m_hideObjects)->removeChild(obj);
         addObjectToParent(obj);
     } else {
         removeObjectFromParent(obj);
-        noRepeatAdd(m_hideObjects, obj);
+        DccObject::Private::FromObject(m_hideObjects)->addChild(obj);
     }
 }
 
@@ -543,6 +539,44 @@ bool DccManager::removeObjectFromParent(DccObject *obj)
         return true;
     }
     return false;
+}
+
+void DccManager::onQuit()
+{
+    if (m_plugins->isDeleting()) {
+        return;
+    }
+    m_plugins->beginDelete();
+    int width_remember = m_window->width();
+    int height_remember = m_window->height();
+
+    if (m_dconfig->isValid()) {
+        m_dconfig->setValue(WidthConfig, width_remember);
+        m_dconfig->setValue(HeightConfig, height_remember);
+    }
+    m_window->hide();
+    m_window->close();
+    // doShowPage(m_root, QString());
+
+    // #ifdef QT_DEBUG
+    // TODO: delete m_engine会有概率崩溃
+    qCDebug(dccLog()) << "delete m_root begin";
+    DccObject *root = m_root;
+    m_root = nullptr;
+    Q_EMIT rootChanged(m_root);
+    delete root;
+    qCDebug(dccLog()) << "delete m_root";
+
+    qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
+    delete m_noAddObjects;
+    delete m_noParentObjects;
+    delete m_hideObjects;
+    qCDebug(dccLog()) << "delete dccobject";
+    qCDebug(dccLog()) << "delete m_engine";
+    delete m_engine;
+    qCDebug(dccLog()) << "clear m_engine";
+    m_engine = nullptr;
+    // #endif
 }
 
 } // namespace dccV25

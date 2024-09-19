@@ -7,7 +7,6 @@
 #define SOUNDDEVICEMODEL_H
 
 #include <QAbstractListModel>
-#include <QtQml/qqml.h>
 
 #include "soundDeviceData.h"
 //#include "soundmodel.h"
@@ -17,10 +16,6 @@
 class SoundDeviceModel: public QAbstractListModel {
 
     Q_OBJECT
-
-    QML_NAMED_ELEMENT(SoundDeviceModel)
-    QML_SINGLETON
-
 public:
     enum soundEffectsRoles{
         NameRole = Qt::UserRole + 1,
@@ -40,7 +35,7 @@ public:
 protected:
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     QHash<int, QByteArray> roleNames() const override {
         QHash<int, QByteArray> roles;

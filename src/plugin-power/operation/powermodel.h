@@ -5,7 +5,6 @@
 #define POWERMODEL_H
 
 #include <QObject>
-#include <QtQml/qqml.h>
 
 class PowerWorker;
 class PowerModel : public QObject
@@ -56,9 +55,6 @@ class PowerModel : public QObject
     Q_PROPERTY(QVariantList linePowerLockDelayModel READ linePowerLockDelayModel WRITE setLinePowerLockDelayModel NOTIFY linePowerLockDelayModelChanged)
     Q_PROPERTY(QVariantList linePowerScreenBlackDelayModel READ linePowerScreenBlackDelayModel WRITE setLinePowerScreenBlackDelayModel NOTIFY linePowerScreenBlackDelayModelChanged)
     Q_PROPERTY(QVariantList linePowerSleepDelayModel READ linePowerSleepDelayModel WRITE setLinePowerSleepDelayModel NOTIFY linePowerSleepDelayModelChanged)
-
-    QML_NAMED_ELEMENT(PowerModel)
-    QML_SINGLETON
 
     friend class PowerWorker;
 

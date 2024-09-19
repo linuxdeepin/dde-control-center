@@ -25,6 +25,9 @@ public:
     ~PluginManager();
     void loadModules(DccObject *root, bool async, const QStringList &dirs);
     bool loadFinished() const;
+    void beginDelete();
+
+    inline bool isDeleting() const { return m_isDeleting; }
 
 public Q_SLOTS:
     void cancelLoad();
@@ -61,6 +64,7 @@ private:
     QList<PluginData *> m_plugins; // cache for other plugin
     DccObject *m_rootModule;       // root module from MainWindow
     QThreadPool *m_threadPool;
+    bool m_isDeleting;
 };
 
 } // namespace dccV25

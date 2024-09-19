@@ -36,8 +36,8 @@ public:
     uint32_t getFlag() const;
 
     bool addChild(DccObject::Private *child);
-    virtual bool addChild(DccObject *child);
-    virtual void removeChild(int index);
+    bool addChild(DccObject *child);
+    void removeChild(int index);
     void removeChild(DccObject *child);
     const QVector<DccObject *> &getChildren() const;
     int getIndex() const;
@@ -70,9 +70,9 @@ protected:
     QVector<DccObject *> m_children;
     QVector<DccObject *> m_objects;
     QObjectList m_data;
-    QQmlComponent *m_page;
-    QQuickItem *m_sectionItem;
-    QQuickItem *m_parentItem;
+    QPointer<QQmlComponent> m_page;
+    QPointer<QQuickItem> m_sectionItem;
+    QPointer<QQuickItem> m_parentItem;
 
     QString m_parentName;
     QString m_displayName;
