@@ -13,6 +13,7 @@ Rectangle {
     property bool isGroup: true
     property alias spacing: layoutView.spacing
 
+    objectName: "noPadding"
     color: "transparent"
     implicitHeight: layoutView.height
     Layout.fillWidth: true

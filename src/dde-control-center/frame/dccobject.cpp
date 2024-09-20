@@ -98,7 +98,7 @@ bool DccObject::Private::addChild(DccObject *child)
         return false;
     }
     int index = 0;
-    for (auto &&it = m_children.begin(); it != m_children.end(); it++) {
+    for (auto &&it = m_children.cbegin(); it != m_children.cend(); it++) {
         if (*it == child)
             return false;
         if (child->weight() >= (*it)->weight()) {
@@ -107,7 +107,7 @@ bool DccObject::Private::addChild(DccObject *child)
     }
 
     Q_EMIT q_ptr->childAboutToBeAdded(q_ptr, index);
-    m_children.insert(m_children.begin() + index, child);
+    m_children.insert(m_children.cbegin() + index, child);
     DccObject::Private::FromObject(child)->SetParent(q_ptr);
     child->setParent(q_ptr);
     Q_EMIT q_ptr->childAdded(child);
@@ -124,10 +124,7 @@ void DccObject::Private::removeChild(int index)
 
     DccObject *child = m_children.at(index);
     Q_EMIT q_ptr->childAboutToBeRemoved(q_ptr, index);
-    // we can't swap as we want to keep the order!
-    //(DGM: do this BEFORE deleting the object (otherwise
-    // the dependency mechanism can 'backfire' ;)
-    m_children.erase(m_children.begin() + index);
+    m_children.erase(m_children.cbegin() + index);
     DccObject::Private::FromObject(child)->SetParent(nullptr);
     child->setParent(nullptr);
     Q_EMIT q_ptr->childRemoved(child);
@@ -139,6 +136,29 @@ void DccObject::Private::removeChild(DccObject *child)
     int pos = getChildIndex(child);
     if (pos >= 0)
         removeChild(pos);
+}
+
+void DccObject::Private::updatePos(DccObject *child)
+{
+    int oldPos = -1;
+    int modelPos = 0;
+    int index = 0;
+    for (auto &&it = m_children.cbegin(); it != m_children.cend(); it++, index++) {
+        if (*it == child) {
+            oldPos = index;
+        } else if (child->weight() >= (*it)->weight()) {
+            modelPos = index + 1;
+        }
+    }
+
+    int newPos = oldPos < modelPos ? modelPos - 1 : modelPos;
+    if (oldPos < 0 || oldPos == newPos) {
+        return;
+    }
+    Q_EMIT q_ptr->childAboutToBeMoved(q_ptr, modelPos, oldPos);
+    m_children.move(oldPos, newPos);
+    Q_EMIT q_ptr->childMoved(child);
+    Q_EMIT q_ptr->childrenChanged(m_children);
 }
 
 const QVector<DccObject *> &DccObject::Private::getChildren() const
@@ -255,6 +275,10 @@ void DccObject::setWeight(int weight)
 {
     if (p_ptr->m_weight != weight) {
         p_ptr->m_weight = weight;
+        if (p_ptr->m_parent) {
+            p_ptr->m_parent->p_ptr->updatePos(this);
+        }
+        Q_EMIT weightChanged(p_ptr->m_weight);
     }
 }
 
@@ -504,6 +528,9 @@ void DccObject::setPage(QQmlComponent *page)
 {
     if (p_ptr->m_page.get() != page) {
         p_ptr->m_page = page;
+        if (p_ptr->m_page && !p_ptr->m_page->parent()) {
+            p_ptr->m_page->setParent(this);
+        }
         Q_EMIT pageChanged(p_ptr->m_page.get());
     }
 }

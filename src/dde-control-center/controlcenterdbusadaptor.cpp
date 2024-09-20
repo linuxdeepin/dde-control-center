@@ -12,12 +12,13 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLoggingCategory>
 #include <QTimer>
 #include <QWindow>
 
-#include <unistd.h>
-
 using namespace dccV25;
+static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.DBusAdaptor");
+
 const QString DBusProperties = "org.freedesktop.DBus.Properties";
 const QString DBusPropertiesChanged = "PropertiesChanged";
 
@@ -67,9 +68,8 @@ const QString ControlCenterDBusAdaptor::path() const
 
 void ControlCenterDBusAdaptor::Exit()
 {
-    pid_t pid = getpid();
-    qDebug() << "exit pid:" << pid << QCoreApplication::applicationPid();
-    QCoreApplication::quit();
+    qCDebug(dccLog()) << "exit pid:" << QCoreApplication::applicationPid();
+    QCoreApplication::exit();
 }
 
 void ControlCenterDBusAdaptor::Hide()
@@ -182,7 +182,7 @@ DccManager *DBusControlCenterGrandSearchService::parent() const
 // 匹配搜索结果
 QString DBusControlCenterGrandSearchService::Search(const QString &json)
 {
-    if(json == m_jsonCache){
+    if (json == m_jsonCache) {
         return QString();
     }
     m_jsonCache = json;

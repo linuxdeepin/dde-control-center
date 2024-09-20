@@ -38,6 +38,8 @@ private Q_SLOTS:
     void addObject(const DccObject *child);
     void AboutToRemoveObject(const DccObject *parent, int pos);
     void removeObject(const DccObject *child);
+    void AboutToMoveObject(const DccObject *parent, int pos, int oldPos);
+    void moveObject(const DccObject *child);
 
 Q_SIGNALS:
     void rootChanged(DccObject *root);

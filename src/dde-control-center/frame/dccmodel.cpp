@@ -51,6 +51,8 @@ void DccModel::setRoot(DccObject *root)
     connect(m_root, &DccObject::childAdded, this, &DccModel::addObject);
     connect(m_root, &DccObject::childAboutToBeRemoved, this, &DccModel::AboutToRemoveObject);
     connect(m_root, &DccObject::childRemoved, this, &DccModel::removeObject);
+    connect(m_root, &DccObject::childAboutToBeMoved, this, &DccModel::AboutToMoveObject);
+    connect(m_root, &DccObject::childMoved, this, &DccModel::moveObject);
     for (auto &&obj : DccObject::Private::FromObject(m_root)->getChildren()) {
         connectObject(obj);
     }
@@ -131,7 +133,7 @@ QModelIndex DccModel::parent(const QModelIndex &index) const
     return createIndex(DccObject::Private::FromObject(parentItem)->getIndex(), 0, parentItem);
 }
 
-int DccModel::rowCount(const QModelIndex &parent) const
+int DccModel::rowCount(const QModelIndex &) const
 {
     if (!m_root)
         return 0;
@@ -209,6 +211,16 @@ void DccModel::removeObject(const DccObject *child)
 {
     endRemoveRows();
     disconnectObject(child);
+}
+
+void DccModel::AboutToMoveObject(const DccObject *, int pos, int oldPos)
+{
+    beginMoveRows(QModelIndex(), oldPos, oldPos, QModelIndex(), pos);
+}
+
+void DccModel::moveObject(const DccObject *)
+{
+    endMoveRows();
 }
 
 void DccModel::connectObject(const DccObject *obj)

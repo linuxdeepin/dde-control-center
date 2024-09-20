@@ -19,6 +19,8 @@ ItemDelegate {
     bottomPadding: bottomInset
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
     padding: 0
+    leftPadding: 10
+    rightPadding: 10
 
     contentItem: model.item.getSectionItem()
     background: DccListViewBackground {
@@ -26,6 +28,10 @@ ItemDelegate {
         separatorVisible: false
     }
     Component.onCompleted: {
+        if (contentItem.objectName === "noPadding") {
+            leftPadding = 0
+            rightPadding = 0
+        }
         model.item.parentItem = root
     }
 }

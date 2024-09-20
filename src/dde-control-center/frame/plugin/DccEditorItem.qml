@@ -18,6 +18,8 @@ D.ItemDelegate {
     enabled: model.item.enabledToApp
     topPadding: topInset
     bottomPadding: bottomInset
+    leftPadding: 10
+    rightPadding: 10
     icon {
         name: model.item.icon
         source: model.item.iconSource
