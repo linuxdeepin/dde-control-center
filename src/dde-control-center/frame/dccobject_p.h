@@ -39,6 +39,7 @@ public:
     bool addChild(DccObject *child);
     void removeChild(int index);
     void removeChild(DccObject *child);
+    void updatePos(DccObject *child);
     const QVector<DccObject *> &getChildren() const;
     int getIndex() const;
 

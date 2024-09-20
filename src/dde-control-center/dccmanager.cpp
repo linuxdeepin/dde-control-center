@@ -560,21 +560,21 @@ void DccManager::onQuit()
 
     // #ifdef QT_DEBUG
     // TODO: delete m_engine会有概率崩溃
-    qCDebug(dccLog()) << "delete m_root begin";
+    qCDebug(dccLog()) << "delete root begin";
     DccObject *root = m_root;
     m_root = nullptr;
     Q_EMIT rootChanged(m_root);
     delete root;
-    qCDebug(dccLog()) << "delete m_root";
+    qCDebug(dccLog()) << "delete root end";
 
     qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
     delete m_noAddObjects;
     delete m_noParentObjects;
     delete m_hideObjects;
     qCDebug(dccLog()) << "delete dccobject";
-    qCDebug(dccLog()) << "delete m_engine";
+    qCDebug(dccLog()) << "delete QmlEngine";
     delete m_engine;
-    qCDebug(dccLog()) << "clear m_engine";
+    qCDebug(dccLog()) << "clear QmlEngine";
     m_engine = nullptr;
     // #endif
 }

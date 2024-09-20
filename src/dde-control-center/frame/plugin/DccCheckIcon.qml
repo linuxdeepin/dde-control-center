@@ -12,9 +12,9 @@ Rectangle {
     implicitHeight: size
     implicitWidth: size
     radius: size / 2
-    color: checked ? palette.highlight : "transparent"
+    color: checked ? root.palette.highlight : "transparent"
     border {
-        color: palette.text
+        color: root.palette.text
         width: checked ? 0 : 1
     }
     Image {

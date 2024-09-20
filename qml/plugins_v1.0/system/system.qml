@@ -15,22 +15,15 @@ DccObject {
     icon: "commoninfo"
     weight: 20
 
-    DccObject {
+    DccTitleObject {
         name: "common"
         parentName: "system"
         displayName: qsTr("Common settings")
         weight: 5
-        pageType: DccObject.Item
-        page: Label {
-            font: DccUtils.copyFont(D.DTK.fontManager.t4, {
-                                        "bold": true
-                                    })
-            text: dccObj.displayName
-        }
         onParentItemChanged: {
             if (parentItem) {
                 parentItem.topPadding = 10
-                parentItem.leftPadding = 10
+                // parentItem.leftPadding = 10
             }
         }
     }

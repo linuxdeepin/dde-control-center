@@ -8,6 +8,7 @@ import org.deepin.dtk 1.0 as D
 DccEditorItem {
     topInset: 5
     leftPadding: 12
+    rightPadding: 10
     bottomInset: 5
     implicitHeight: 58
     topPadding: topInset

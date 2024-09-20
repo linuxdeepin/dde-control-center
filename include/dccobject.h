@@ -16,7 +16,7 @@ class DccObject : public QObject
 public:
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString parentName READ parentName WRITE setParentName NOTIFY parentNameChanged)
-    Q_PROPERTY(int weight READ weight WRITE setWeight)
+    Q_PROPERTY(int weight READ weight WRITE setWeight NOTIFY weightChanged)
 
     Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
@@ -126,10 +126,13 @@ Q_SIGNALS:
     void childAdded(DccObject *child);
     void childAboutToBeRemoved(const DccObject *parent, int pos);
     void childRemoved(DccObject *child);
+    void childAboutToBeMoved(const DccObject *parent, int pos, int oldPos);
+    void childMoved(DccObject *child);
     void childrenChanged(const QVector<DccObject *> &children);
 
     void nameChanged(const QString &name);
     void parentNameChanged(const QString &parentName);
+    void weightChanged(int weight);
 
     void displayNameChanged(const QString &displayName);
     void descriptionChanged(const QString &description);
