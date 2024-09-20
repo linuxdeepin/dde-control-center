@@ -22,6 +22,7 @@ if (DISABLE_SOUND_ADVANCED)
 endif()
 
 set(Sound_Libraries
+    dde-control-center
     ${DTK_NS}::Gui
     ${QT_NS}::DBus
 )

@@ -9,6 +9,7 @@ add_library(${DefaultApp_Name} MODULE
 )
 
 set(DefaultApp_Libraries
+    dde-control-center
     ${QT_NS}::DBus
 )
 

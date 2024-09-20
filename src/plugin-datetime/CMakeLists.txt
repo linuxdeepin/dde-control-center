@@ -15,6 +15,7 @@ add_library(${pluginName} MODULE
 find_package(ICU COMPONENTS i18n uc)
 
 set(dateTime_Libraries
+    dde-control-center
     ${QT_NS}::DBus
     ${QT_NS}::Concurrent
      ${DTK_NS}::Core

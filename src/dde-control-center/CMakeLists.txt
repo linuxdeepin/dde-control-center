@@ -48,11 +48,20 @@ file(GLOB Control_Center_SRCS
     "*.h"
     "*.cpp"
 )
-
-add_executable(${Control_Center_Name}
-    ${Control_Center_SRCS}
-    qrc/dcc.qrc
-)
+if (BUILD_DCC_OLD)
+    add_library(${Control_Center_Name} SHARED
+        ${Control_Center_SRCS}
+        qrc/dcc.qrc
+    )
+    set_target_properties(${Control_Center_Name} PROPERTIES
+        OUTPUT_NAME dde-control-center-lib
+    )
+else()
+    add_executable(${Control_Center_Name}
+        ${Control_Center_SRCS}
+        qrc/dcc.qrc
+    )
+endif()
 
 target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CMAKE_PROJECT_VERSION}")
 

@@ -257,6 +257,43 @@ if (UNITTEST)
     gtest_discover_tests(${UT_Dcc_Widgets_Name} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
+#--------------------------dde-control-center-Agent--------------------------
+set(DCC_AGENT_PREFIX "")
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(OLD_DCC_SO_PATH ${PROJECT_BINARY_DIR}/../dcc-old/libdcc-widgets.so)
+    set(NEW_DCC_SO_PATH ${PROJECT_BINARY_DIR}/../lib/libdde-control-center.so)
+    set(OLD_DCC_PATH ${PROJECT_BINARY_DIR}/../dcc-old/libdde-control-center-old.so)
+    set(NEW_DCC_PATH ${PROJECT_BINARY_DIR}/../lib/libdde-control-center-lib.so)
+else()
+    set(DCC_AGENT_PREFIX "/usr/")
+    set(OLD_DCC_SO_PATH ${CMAKE_INSTALL_LIBDIR}/libdcc-widgets.so)
+    set(NEW_DCC_SO_PATH ${CMAKE_INSTALL_LIBDIR}/libdde-control-center.so)
+    set(OLD_DCC_PATH ${CMAKE_INSTALL_LIBDIR}/dde-control-center/libdde-control-center-old.so)
+    set(NEW_DCC_PATH ${CMAKE_INSTALL_LIBDIR}/dde-control-center/libdde-control-center-lib.so)
+    set(DCC_TRANSLATE_READ_DIR ${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR})
+endif()
+add_definitions(-DOLD_DCC_SO_PATH="${DCC_AGENT_PREFIX}${OLD_DCC_SO_PATH}")
+add_definitions(-DNEW_DCC_SO_PATH="${DCC_AGENT_PREFIX}${NEW_DCC_SO_PATH}")
+add_definitions(-DOLD_DCC_PATH="${DCC_AGENT_PREFIX}${OLD_DCC_PATH}")
+add_definitions(-DNEW_DCC_PATH="${DCC_AGENT_PREFIX}${NEW_DCC_PATH}")
+
+
+set(DCC_Agent dde-control-center-agent)
+set(DCCAgent_Name ${DCC_Agent})
+file(GLOB DCCAgent_SRCS
+    "src/dcc-agent/*.c"
+)
+
+add_executable(${DCCAgent_Name}
+    ${DCCAgent_SRCS}
+)
+
+set_target_properties(${DCCAgent_Name} PROPERTIES
+    OUTPUT_NAME dde-control-center
+)
+
+install(TARGETS ${DCCAgent_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+
 #--------------------------dde-control-center--------------------------
 set(Control_Center_Name dde-control-center-old)
 file(GLOB_RECURSE Control_Center_SRCS
@@ -265,7 +302,7 @@ file(GLOB_RECURSE Control_Center_SRCS
 )
 list(REMOVE_ITEM Control_Center_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/src/frame/main.cpp")
 
-add_executable(${Control_Center_Name}
+add_library(${Control_Center_Name} SHARED
     ${Control_Center_SRCS}
     src/frame/main.cpp
 )

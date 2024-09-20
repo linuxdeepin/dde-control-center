@@ -16,6 +16,7 @@ if (BUILD_PLUGIN)
         src/plugin-wacom/operation
     )
     set(wacom_Libraries
+        dde-control-center
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
     )
