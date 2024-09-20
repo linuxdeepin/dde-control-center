@@ -173,13 +173,6 @@ set(Test_Libraries
     GTest::gtest
     Qt::Test
 )
-if (BUILD_DCC_OLD)
-    configure_file(
-        ${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center.in
-        ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center
-        @ONLY)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dde-control-center DESTINATION ${CMAKE_INSTALL_BINDIR})
-endif()
 
 add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------
