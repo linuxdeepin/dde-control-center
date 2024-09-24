@@ -18,7 +18,7 @@ Item {
 
     Loader {
         anchors.fill: parent
-        active: !checked && control.backgroundVisible
+        active: (!highlightEnable || !checked) && control.backgroundVisible
         sourceComponent: D.RoundRectangle {
             color: palette.base
             radius: DS.Style.control.radius

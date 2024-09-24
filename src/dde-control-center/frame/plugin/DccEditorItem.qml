@@ -10,7 +10,7 @@ D.ItemDelegate {
     id: root
     property alias separatorVisible: background.separatorVisible
     property var item: model.item
-    property var rightItem: model.item.getSectionItem()
+    property var rightItem: null
 
     Layout.fillWidth: true
     backgroundVisible: false
@@ -48,7 +48,7 @@ D.ItemDelegate {
         Control {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.rightMargin: 10
-            contentItem: rightItem
+            contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
         }
     }
     background: DccListViewBackground {

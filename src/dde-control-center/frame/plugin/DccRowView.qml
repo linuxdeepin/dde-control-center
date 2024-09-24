@@ -12,6 +12,7 @@ RowLayout {
     id: root
     objectName: "noPadding"
     Layout.fillWidth: true
+    spacing: 10
     Repeater {
         id: repeater
         model: DccModel {
@@ -20,7 +21,7 @@ RowLayout {
         delegate: Control {
             Layout.fillWidth: contentItem.Layout.fillWidth
             Layout.alignment: contentItem.Layout.alignment
-            contentItem: model.item.getSectionItem()
+            contentItem: model.item.getSectionItem(this)
         }
     }
 }

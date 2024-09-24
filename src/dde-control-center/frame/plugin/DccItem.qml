@@ -22,7 +22,7 @@ ItemDelegate {
     leftPadding: 10
     rightPadding: 10
 
-    contentItem: model.item.getSectionItem()
+    contentItem: model.item.getSectionItem(this)
     background: DccListViewBackground {
         id: background
         separatorVisible: false

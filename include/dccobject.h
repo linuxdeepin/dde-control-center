@@ -103,7 +103,7 @@ public:
     Q_ENUM(PageType)
     uint pageType() const;
     void setPageType(uint type);
-    Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent = nullptr);
+    Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent);
     QQuickItem *parentItem();
     void setParentItem(QQuickItem *item);
     QQmlComponent *page() const;

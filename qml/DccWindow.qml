@@ -115,6 +115,6 @@ D.ApplicationWindow {
         root.x = (Screen.width - root.width) / 2
         root.y = (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout
-        centralView.contentItem = DccApp.root.getSectionItem()
+        centralView.contentItem = DccApp.root.getSectionItem(centralView)
     }
 }

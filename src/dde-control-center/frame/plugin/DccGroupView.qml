@@ -12,6 +12,9 @@ Rectangle {
     id: root
     property bool isGroup: true
     property alias spacing: layoutView.spacing
+    property var model: DccModel {
+        root: dccObj
+    }
 
     objectName: "noPadding"
     color: "transparent"
@@ -23,9 +26,7 @@ Rectangle {
         spacing: 0
         Repeater {
             id: repeater
-            model: DccModel {
-                root: dccObj
-            }
+            model: root.model
 
             delegate: DelegateChooser {
                 role: "pageType"

@@ -17,8 +17,8 @@ Flickable {
     Component {
         id: groupView
         DccGroupView {
-            isGroup: isGroup
-            spacing: spacing
+            isGroup: root.isGroup
+            spacing: root.spacing
         }
     }
     Component {
@@ -38,7 +38,7 @@ Flickable {
         }
     }
     Rectangle {
-        color: root.palette.window
+        color: this.palette.window
         implicitHeight: bottomItem.implicitHeight + 10
         anchors {
             left: parent.left
@@ -72,11 +72,11 @@ Flickable {
             if (!dccObj.children[0].page) {
                 dccObj.children[0].page = groupView
             }
-            centralItem.contentItem = dccObj.children[0].getSectionItem()
+            centralItem.contentItem = dccObj.children[0].getSectionItem(centralItem)
             if (!dccObj.children[1].page) {
                 dccObj.children[1].page = footer
             }
-            bottomItem.contentItem = dccObj.children[1].getSectionItem()
+            bottomItem.contentItem = dccObj.children[1].getSectionItem(bottomItem)
         } else {
             console.warn(dccObj.name, " SettingsView must contain two sub items", dccObj.children.length)
         }
