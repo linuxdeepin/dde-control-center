@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 DccEditorItem {
-    property var editor: model.item.getSectionItem()
+    property var editor: null
     leftPadding: 12
     rightPadding: 10
     topPadding: topInset
@@ -15,7 +15,7 @@ DccEditorItem {
     implicitHeight: 58
     rightItem: RowLayout {
         Control {
-            contentItem: editor
+            contentItem: editor ? editor : model.item.getSectionItem(this)
         }
 
         D.IconLabel {
@@ -26,7 +26,7 @@ DccEditorItem {
         if (model.item.children.length > 0) {
             model.item.children[0].trigger()
         } else {
-            console.warn(model.item.name, " MenuEditor nust include children",model.item.children.length)
+            console.warn(model.item.name, " MenuEditor nust include children", model.item.children.length)
         }
     }
 }

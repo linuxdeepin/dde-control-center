@@ -480,9 +480,9 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
                 // QQml_setParent_noEvent(sectionItem, contentItem);
                 if (QQuickItem *p = qobject_cast<QQuickItem *>(parent)) {
                     p_ptr->m_sectionItem->setParentItem(p);
-                    p_ptr->m_sectionItem->setParent(p);
+                    p_ptr->m_sectionItem->setParent(this);
                 } else if (QQuickWindow *p = qobject_cast<QQuickWindow *>(parent)) {
-                    p_ptr->m_sectionItem->setParent(p);
+                    p_ptr->m_sectionItem->setParent(this);
                 } else {
                     p_ptr->m_sectionItem->setParent(this);
                 }

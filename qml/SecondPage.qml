@@ -142,7 +142,7 @@ SplitView {
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        rightView.replace(activeObj.getSectionItem())
+        rightView.replace(activeObj.getSectionItem(rightView))
     }
     Connections {
         target: DccApp
