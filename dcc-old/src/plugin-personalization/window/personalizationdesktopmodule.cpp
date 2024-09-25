@@ -49,29 +49,28 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
                                &PersonalizationDesktopModule::initMiniEffect);
         group->appendChild(itemMinimizeEffect);
 
-        auto compactDisplayModule = new WidgetModule<SwitchWidget>(
-	        "compactDisplay",
-	        tr("Compact Display"),
-	        [this](SwitchWidget *switchButton) {
-	            connect(m_model,
-	                    &PersonalizationModel::compactDisplayChanged,
-	                    switchButton,
-	                    [=](const bool status) {
-	                        switchButton->setChecked(status);
-	                    });
-	            connect(switchButton,
-	                    &SwitchWidget::checkedChanged,
-	                    this,
-	                    [this](const bool status){
-	                        m_work->setCompactDisplay(status);
-	                    });
-	
-            switchButton->setTitle(tr("Compact Display"));
-            switchButton->addBackground();
-            switchButton->setChecked(m_model->getCompactDisplay());
-        });
-        appendChild(compactDisplayModule);
-        compactDisplayModule->setVisible(false);
+
+        appendChild(new WidgetModule<SwitchWidget>(
+                "compactDisplay",
+                tr("Compact Display"),
+                [this](SwitchWidget *switchButton) {
+                    connect(m_model,
+                            &PersonalizationModel::compactDisplayChanged,
+                            switchButton,
+                            [=](const bool status) {
+                                switchButton->setChecked(status);
+                            });
+                    connect(switchButton,
+                            &SwitchWidget::checkedChanged,
+                            this,
+                            [this](const bool status){
+                                m_work->setCompactDisplay(status);
+                            });
+
+                    switchButton->setTitle(tr("Compact Display"));
+                    switchButton->addBackground();
+                    switchButton->setChecked(m_model->getCompactDisplay());
+                }));
     
         auto compactDisplayTipModule = new WidgetModule<DTipLabel>(
         "compactDisplayTip",
@@ -83,7 +82,6 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
             label->setText(tr("If enabled, more content is displayed in the window."));
         });
         appendChild(compactDisplayTipModule);
-        compactDisplayTipModule->setVisible(false);
     
         HorizontalModule *hor = new HorizontalModule(QString(), QString());
         appendChild(hor);
