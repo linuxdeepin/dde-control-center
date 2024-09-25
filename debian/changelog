@@ -1,3 +1,9 @@
+dde-control-center (6.0.67) unstable; urgency=medium
+
+  * fix: incorrect bluetooth device icon theme type
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Wed, 25 Sep 2024 17:58:11 +0800
+
 dde-control-center (6.0.66) unstable; urgency=medium
 
   * release 6.0.66
