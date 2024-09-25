@@ -11,11 +11,14 @@
 
 #include <DGuiApplicationHelper>
 #include <DSysInfo>
+#include <QDBusInterface>
 
 #include <QDateTime>
 #include <QFutureWatcher>
 #include <QtConcurrent/qtconcurrentrun.h>
 
+#include <qregularexpression.h>
+#include <qtimezone.h>
 #include <signal.h>
 
 DCORE_USE_NAMESPACE
@@ -41,6 +44,19 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
             [this](const int state) {
                 m_model->setLicenseState(static_cast<ActiveState>(state));
             });
+
+    connect(m_systemInfDBusProxy,
+            &SystemInfoDBusProxy::TimezoneChanged,
+            this,
+            &SystemInfoWork::onTimezoneChanged);
+    connect(m_systemInfDBusProxy,
+            &SystemInfoDBusProxy::ShortDateFormatChanged,
+            this,
+            &SystemInfoWork::onShortDateFormatChanged);
+
+
+    updateFrequency(false);
+
 }
 
 SystemInfoWork::~SystemInfoWork()
@@ -58,6 +74,7 @@ void SystemInfoWork::activate()
     //获取主机名
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 
+    m_model->setLogoPath(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
     if (DSysInfo::isDeepin()) {
         m_model->setLicenseState(static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
         QString productName = QString("%1").arg(DSysInfo::uosSystemName());
@@ -76,12 +93,17 @@ void SystemInfoWork::activate()
 
 
     m_model->setVersion(version);
-
     m_model->setType(QSysInfo::WordSize);
-
     m_model->setKernel(QSysInfo::kernelVersion());
     m_model->setProcessor(DSysInfo::cpuModelName());
-    m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
+
+    if (m_systemInfDBusProxy->memorySize() > 0) {
+        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfDBusProxy->memorySize());
+    } else {
+        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
+    }
+
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
 
     // 隐私政策文本内容
     QString http = DSysInfo::productType() != DSysInfo::ProductType::Uos ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
@@ -107,6 +129,14 @@ void SystemInfoWork::activate()
     m_model->setUserExperienceProgramText(text);
 
     m_model->setShowDetail(true);
+
+    QString platformname = QGuiApplication::platformName();
+    if (platformname.contains("xcb")) {
+        platformname = "X11";
+    } else if (platformname.contains("wayland")) {
+        platformname = "Wayland";
+    }
+    m_model->setGraphicsPlatform(platformname);
 
     // 初始化开源协议
     initGnuLicenseData();
@@ -171,11 +201,9 @@ void SystemInfoWork::initSystemCopyright()
     QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::productType() != DSysInfo::ProductType::Uos)
-            //oem_copyright = QString("Copyright© 2011-%1 Deepin Community").arg(QString(__DATE__).right(4));
             oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
                     .arg(QString(__DATE__).right(4));
         else
-           // oem_copyright = QString("Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QString(__DATE__).right(4));
             oem_copyright =  QCoreApplication::translate(
                            "LogoModule",
                            "Copyright© 2019-%1 UnionTech Software Technology Co., LTD")
@@ -183,6 +211,86 @@ void SystemInfoWork::initSystemCopyright()
     }
 
     m_model->setSystemCopyright(oem_copyright);
+}
+
+void SystemInfoWork::updateFrequency(bool state)
+{
+    QString validFrequency = "CurrentSpeed";
+    QDBusInterface interface("com.deepin.daemon.SystemInfo",
+                             "/com/deepin/daemon/SystemInfo",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::sessionBus());
+    double cpuMaxMhz = 0.0;
+    if (state) {
+        validFrequency = "CPUMaxMHz";
+    } else {
+        QDBusMessage replyCPU = interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUHardware");
+        QList<QVariant> outArgsCPU = replyCPU.arguments();
+        if (outArgsCPU.count()) {
+            QString cpuHardware = outArgsCPU.at(0).value<QDBusVariant>().variant().toString();
+            qInfo() << "Current cpu hardware:" << cpuHardware;
+            if (cpuHardware.contains("PANGU")) {
+                validFrequency = "CPUMaxMHz";
+            }
+        }
+    }
+    QDBusMessage reply = interface.call("Get", "com.deepin.daemon.SystemInfo", validFrequency);
+    QList<QVariant> outArgs = reply.arguments();
+    if (outArgs.count()) {
+        cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    }
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        QString processor;
+        QDBusMessage replyCpuInfo = interface.call("Get", "com.deepin.daemon.SystemInfo", "Processor");
+        QList<QVariant> outArgsCpuInfo = replyCpuInfo.arguments();
+        if (outArgsCpuInfo.count()) {
+            processor = outArgsCpuInfo.at(0).value<QDBusVariant>().variant().toString();
+        }
+        if (processor.contains("Hz")) {
+            m_model->setProcessor(processor);
+        } else {
+            if (DSysInfo::cpuModelName().isEmpty())
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(processor)
+                                              .arg(cpuMaxMhz / 1000));
+            else
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                                              .arg(cpuMaxMhz / 1000));
+        }
+    }
+}
+
+QString SystemInfoWork::getSystemInstallDate(int shortDateFormat, QString timezone)
+{
+    qDebug() << "ShortDateFormat:" << shortDateFormat << "Timezone:" << timezone;
+    QSettings settings("/etc/deepin-installer/deepin-installer.conf", QSettings::NativeFormat);
+    const QString &inputTime = settings.value("DI_INSTALL_FINISH_TIME").toString();
+    static const QString fotmatShortDate[] = {"yyyy/M/d", "yyyy-M-d", "yyyy.M.d", "yyyy/MM/dd", "yyyy-MM-dd", "yyyy.MM.dd", "MM.dd.yyyy",
+                                               "dd.MM.yyyy", "yy/M/d", "yy-M-d", "yy.M.d"};
+    int offset = 0;
+    QRegularExpression regexUtc("(UTC[+-]\\d{2})");
+    QRegularExpressionMatch matchUtc = regexUtc.match(inputTime);
+    if (matchUtc.hasMatch()) {
+        QRegularExpression regexUtc("([+-]\\d{2})");
+        QRegularExpressionMatch matchOffset = regexUtc.match(matchUtc.captured(1));
+        if (matchOffset.hasMatch()) {
+            offset = matchOffset.captured(1).toInt();
+        }
+    }
+    qDebug() << "Utc offset:" << offset;
+   // QString aa = "2024-09-05 22:40:25 UTC+08";
+    QDateTime dateTime = QDateTime::fromString(inputTime, "yyyy-MM-dd hh:mm:ss 'UTC'zzz");
+
+    dateTime.setOffsetFromUtc(offset * 3600);
+    if (dateTime.isValid() && shortDateFormat >= 0 && shortDateFormat <= 10) {
+        // 将时间转换到目标时区
+        QTimeZone targetTimeZone(timezone.toLocal8Bit());
+        QDateTime convertedDateTime = dateTime.toTimeZone(targetTimeZone);
+        qDebug() << "Converted DateTime:" << convertedDateTime;
+        return convertedDateTime.toString(fotmatShortDate[shortDateFormat]);
+    }
+    return "";
 }
 
 static const QString getLicensePath(const QString &filePath, const QString &type)
@@ -272,6 +380,16 @@ void SystemInfoWork::onSetHostname(const QString &hostname)
 void SystemInfoWork::onSetHostnameFinish()
 {
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
+}
+
+void SystemInfoWork::onTimezoneChanged(const QString Timezone)
+{
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+}
+
+void SystemInfoWork::onShortDateFormatChanged(const int shortDateFormate)
+{
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
 }
 
 }

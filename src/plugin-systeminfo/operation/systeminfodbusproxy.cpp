@@ -31,12 +31,22 @@ const QString &UserexperienceService = QStringLiteral("com.deepin.userexperience
 const QString &UserexperiencePath = QStringLiteral("/com/deepin/userexperience/Daemon");
 const QString &UserexperienceInterface = QStringLiteral("com.deepin.userexperience.Daemon");
 
+const QString &SystemInfoService = QStringLiteral("com.deepin.system.SystemInfo");
+const QString &SystemInfoPath = QStringLiteral("/com/deepin/system/SystemInfo");
+const QString &SystemInfoInterface = QStringLiteral("com.deepin.system.SystemInfo");
+
+const QString &TimedateService = QStringLiteral("com.deepin.daemon.Timedate");
+const QString &TimedatePath = QStringLiteral("/com/deepin/daemon/Timedate");
+const QString &TimedateInterface = QStringLiteral("com.deepin.daemon.Timedate");
+
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
     , m_hostname1Inter(new DDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
     , m_licenseInfoInter(new DDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
     , m_licenseActivatorInter(new DDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
     , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
+    , m_systemInfo(new DDBusInterface(SystemInfoService, SystemInfoPath, SystemInfoInterface, QDBusConnection::systemBus(), this))
+    , m_timedateInter(new DDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
 {
 }
 
@@ -69,6 +79,23 @@ void SystemInfoDBusProxy::setAuthorizationState(const int value)
     m_licenseInfoInter->setProperty("AuthorizationState", QVariant::fromValue(value));
 }
 
+QString SystemInfoDBusProxy::timezone()
+{
+    return qvariant_cast<QString>(m_timedateInter->property("Timezone"));
+}
+
+void SystemInfoDBusProxy::setTimezone(const QString &value)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(value) << QVariant::fromValue(true);
+    m_hostname1Inter->asyncCallWithArgumentList("SetTimezone", argumentList);
+}
+
+int SystemInfoDBusProxy::shortDateFormat()
+{
+    return qvariant_cast<int>(m_timedateInter->property("ShortDateFormat"));
+}
+
 void SystemInfoDBusProxy::Enable(const bool value)
 {
     m_userexperienceInter->asyncCallWithArgumentList("Enable", { value });
@@ -80,6 +107,11 @@ bool SystemInfoDBusProxy::IsEnabled()
     if (reply.isValid())
         return reply.value();
     return false;
+}
+
+qulonglong SystemInfoDBusProxy::memorySize()
+{
+    return m_systemInfo->property("MemorySize").toULongLong();
 }
 
 void SystemInfoDBusProxy::Show()

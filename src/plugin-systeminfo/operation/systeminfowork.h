@@ -31,7 +31,8 @@ public:
     void initGnuLicenseData();
     void initUserLicenseData();
     void initSystemCopyright();
-
+    void updateFrequency(bool state);
+    QString getSystemInstallDate(int shortDateFormat, QString timezone);
 
     Q_INVOKABLE void setUeProgram(bool enabled);
     Q_INVOKABLE void showActivatorDialog();
@@ -41,9 +42,10 @@ Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
 
 public Q_SLOTS:
-
     void onSetHostname(const QString &hostname);
     void onSetHostnameFinish();
+    void onTimezoneChanged(const QString timezone);
+    void onShortDateFormatChanged(const int shortDateFormate);
 
 private:
     void getLicenseState();

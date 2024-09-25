@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
@@ -19,7 +20,8 @@ DccObject {
         visible: !dccData.systemInfoMode().showDetail
         page: RowLayout {
             Image {
-                source: "qrc:/icons/deepin/builtin/icons/dcc_nav_systeminfo_84px.svg"
+                // source: "qrc:/icons/deepin/builtin/icons/dcc_nav_systeminfo_84px.svg"
+                source: "file://" + DTK.deepinDistributionOrgLogo
             }
 
             ColumnLayout {
@@ -46,15 +48,19 @@ DccObject {
         pageType: DccObject.Item
         hasBackground: true
         visible: dccData.systemInfoMode().showDetail
-        page: ColumnLayout {
+        page: ColumnLayout{
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             Image {
+                Layout.topMargin: 10
                 Layout.alignment: Qt.AlignHCenter
-                source: "qrc:/icons/deepin/builtin/icons/dcc_nav_systeminfo_84px.svg"
+                source: "file://" + dccData.systemInfoMode().logoPath
             }
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                font: DTK.fontManager.t4
+                font: DTK.fontManager.t6
                 text: dccData.systemInfoMode().systemCopyright
+                Layout.bottomMargin: 10
             }
         }
     }
@@ -73,7 +79,7 @@ DccObject {
             name: "productName"
             weight: 10
             parentName: "nativeInfoGrp"
-            displayName: qsTr("computer name") + ":"
+            displayName: qsTr("Computer name") + ":"
             hasBackground: true
             visible: dccData.systemInfoMode().showDetail
             pageType: DccObject.Editor
@@ -104,7 +110,6 @@ DccObject {
                         hostNameEdit.visible = true
                         hostNameEdit.text = dccData.systemInfoMode().hostName
                         hostNameEdit.selectAll()
-
                     }
                 }
 
@@ -113,10 +118,38 @@ DccObject {
                     horizontalAlignment: Text.AlignHCenter
                     text: dccData.systemInfoMode().hostName
                     visible: false
+                    showAlert: false
+                    validator: RegularExpressionValidator {
+                        regularExpression: /^[A-Za-z0-9-]{0,64}$/ // 允许的输入模式
+                    }
                     onEditingFinished: {
+
+                        if (hostNameEdit.text.length === 0) {
                             editBtn.visible = true
                             hostNameLabel.visible = true
                             hostNameEdit.visible = false
+                            hostNameLabel.showAlert = false
+                            return
+                        }
+
+                        if ((hostNameEdit.text.indexOf('-') === 0 || hostNameEdit.text.lastIndexOf('-') === hostNameEdit.text.length - 1) && hostNameEdit.text.length <= 63) {
+
+                            hostNameEdit.showAlert = true
+                            hostNameEdit.alertText = qsTr("It cannot start or end with dashes")
+                            return
+                        }
+
+                        editBtn.visible = true
+                        hostNameLabel.visible = true
+                        hostNameEdit.visible = false
+                        hostNameEdit.showAlert = false
+                        dccData.systemInfoWork().onSetHostname(hostNameEdit.text)
+
+                    }
+                    Keys.onPressed: {
+                        if (event.key === Qt.Key_Return) {
+                            hostNameEdit.forceActiveFocus(false); // 结束编辑
+                        }
                     }
                     onFocusChanged: {
                         console.log(" =============== hostNameEdit Focus " )
@@ -132,9 +165,9 @@ DccObject {
             hasBackground: true
             pageType: DccObject.Editor
             page: Label {
-                    Layout.alignment: Qt.AlignRight | Qt.AlignTop
-                    text: dccData.systemInfoMode().productName
-                    font: DTK.fontManager.t6
+                Layout.alignment: Qt.AlignRight | Qt.AlignTop
+                text: dccData.systemInfoMode().productName
+                font: DTK.fontManager.t6
             }
         }
         DccObject {
@@ -170,7 +203,7 @@ DccObject {
             page: Label {
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
-                text: dccData.systemInfoMode().type
+                text: dccData.systemInfoMode().type+ "-" + qsTr("bit")
             }
         }
 
@@ -180,6 +213,7 @@ DccObject {
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
             displayName: qsTr("Authorization") + ":"
+            visible: dccData.systemInfoMode().showAuthorization()
             page: RowLayout {
                 Label {
                     color: dccData.systemInfoMode().licenseStatusColor
@@ -205,33 +239,47 @@ DccObject {
         DccObject {
             name: "systemInstallationTime"
             weight: 70
-            visible: dccData.systemInfoMode().showDetail
+            visible: dccData.systemInfoMode().showAuthorization()
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
             displayName: qsTr("System installation time") + ":"
             page: Label {
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
-                text: dccData.systemInfoMode().type
+                text: dccData.systemInfoMode().systemInstallationDate
             }
         }
 
         DccObject {
-            name: "kernel"
+            name: "systemInstallationTime"
             weight: 80
+            visible: dccData.systemInfoMode().showAuthorization()
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
-            displayName: qsTr("Kernel") + ":"
+            displayName: qsTr("System installation time") + ":"
             page: Label {
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
-                text: dccData.systemInfoMode().kernel
+                text: dccData.systemInfoMode().systemInstallationDate
+            }
+        }
+
+        DccObject {
+            name: "graphicsPlatform"
+            weight: 90
+            parentName: "nativeInfoGrp"
+            pageType: DccObject.Editor
+            displayName: qsTr("Graphics Platform") + ":"
+            page: Label {
+                font: DTK.fontManager.t6
+                horizontalAlignment: Text.AlignLeft
+                text: dccData.systemInfoMode().graphicsPlatform
             }
         }
 
         DccObject {
             name: "processor"
-            weight: 90
+            weight: 100
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
             displayName: qsTr("Processor") + ":"
