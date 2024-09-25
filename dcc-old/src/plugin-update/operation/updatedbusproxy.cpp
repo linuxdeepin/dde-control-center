@@ -54,6 +54,11 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
                                               AtomicUpdaterJobInterface,
                                               QDBusConnection::systemBus(),
                                               this))
+    , m_smartMirrorInter(new DDBusInterface("org.deepin.dde.Lastore1.Smartmirror",
+                                            "/org/deepin/dde/Lastore1/Smartmirror",
+                                              "org.deepin.dde.Lastore1.Smartmirror",
+                                              QDBusConnection::systemBus(),
+                                              this))
 
 {
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");
@@ -143,6 +148,11 @@ void UpdateDBusProxy::SetAutoCheckUpdates(bool in0)
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     m_updateInter->asyncCallWithArgumentList(QStringLiteral("SetAutoCheckUpdates"), argumentList);
+}
+
+QString UpdateDBusProxy::mirrorSource() const
+{
+    return qvariant_cast<QString>(m_updateInter->property("MirrorSource"));
 }
 
 void UpdateDBusProxy::SetAutoDownloadUpdates(bool in0)
@@ -295,4 +305,16 @@ void UpdateDBusProxy::commit(const QString &commitDate)
 bool UpdateDBusProxy::atomBackupIsRunning()
 {
     return qvariant_cast<bool>(m_atomicUpgradeInter->property("Running"));
+}
+
+bool UpdateDBusProxy::enable() const
+{
+    return qvariant_cast<bool>(m_smartMirrorInter->property("Enable"));
+}
+
+void UpdateDBusProxy::SetEnable(bool enable)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enable);
+    m_smartMirrorInter->asyncCallWithArgumentList(QStringLiteral("SetEnable"), argumentList);
 }

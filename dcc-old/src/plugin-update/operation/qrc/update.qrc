@@ -12,4 +12,7 @@
         <file>icons/dcc_system_update.svg</file>
         <file>icons/dcc_unknown_update.svg</file>
     </qresource>
+    <qresource prefix="/">
+        <file>config/mirrors.json</file>
+    </qresource>
 </RCC>

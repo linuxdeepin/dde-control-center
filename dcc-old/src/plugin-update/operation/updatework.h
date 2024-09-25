@@ -122,6 +122,11 @@ public Q_SLOTS:
     void setTestingChannelEnable(const bool &enable);
     void checkTestingChannelStatus();
 
+    void refreshMirrors();
+    void setSmartMirror(bool enable);
+    void setMirrorSource(const MirrorInfo& mirror);
+    void testMirrorSpeed();
+
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);

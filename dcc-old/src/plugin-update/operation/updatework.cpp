@@ -4,6 +4,7 @@
 #include "updatework.h"
 
 #include "common.h"
+#include "mirrorinfolist.h"
 
 #include <DConfig>
 #include <DDialog>
@@ -85,6 +86,47 @@ static int getPlatform()
     }
 
     return DesktopProfessionalPlatform;
+}
+
+
+static int TestMirrorSpeedInternal(const QString& url, QPointer<QObject> baseObject)
+{
+    if (!baseObject || QCoreApplication::closingDown()) {
+        return -1;
+    }
+
+    QStringList args;
+    args << url << "-s"
+         << "1";
+
+    QProcess process;
+    process.start("netselect", args);
+
+    if (!process.waitForStarted()) {
+        return 10000;
+    }
+
+    do {
+        if (!baseObject || QCoreApplication::closingDown()) {
+            process.kill();
+            process.terminate();
+            process.waitForFinished(1000);
+
+            return -1;
+        }
+
+        if (process.waitForFinished(500))
+            break;
+    } while (process.state() == QProcess::Running);
+
+    const QString output = process.readAllStandardOutput().trimmed();
+    const QStringList result = output.split(' ');
+
+    if (!result.first().isEmpty()) {
+        return result.first().toInt();
+    }
+
+    return 10000;
 }
 
 UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
@@ -194,6 +236,12 @@ void UpdateWorker::init()
     connect(m_updateInter, &UpdateDBusProxy::StateChanged,
             this, &UpdateWorker::handleAtomicStateChanged);
     // clang-format on
+    if (IsCommunitySystem) {
+        refreshMirrors();
+        m_model->setSmartMirrorSwitch(m_updateInter->enable());
+        connect(m_updateInter, &UpdateDBusProxy::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
+        connect(m_updateInter, &UpdateDBusProxy::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
+    }
 }
 
 void UpdateWorker::licenseStateChangeSlot()
@@ -2125,4 +2173,69 @@ void UpdateWorker::checkTestingChannelStatus()
         QTimer::singleShot(5000, this, &UpdateWorker::checkTestingChannelStatus);
     });
     http->get(request);
+}
+
+void UpdateWorker::refreshMirrors()
+{
+    qDebug() << QDir::currentPath();
+    QFile file(":/config/mirrors.json");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << file.errorString();
+        return;
+    }
+    QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
+    QList<MirrorInfo> list;
+    for (auto item : array) {
+        QJsonObject obj = item.toObject();
+        MirrorInfo info;
+        info.m_id = obj.value("id").toString();
+        QString locale = QLocale::system().name();
+        if (!(QLocale::system().name() == "zh_CN" || QLocale::system().name() == "zh_TW")) {
+            locale = "zh_CN";
+        }
+        info.m_name = obj.value(QString("name_locale.%1").arg(locale)).toString();
+        info.m_url = obj.value("url").toString();
+        list << info;
+    }
+    m_model->setMirrorInfos(list);
+    m_model->setDefaultMirror(list[0].m_id);
+    m_model->setDefaultMirror(m_updateInter->mirrorSource());
+}
+
+void UpdateWorker::setSmartMirror(bool enable)
+{
+    m_updateInter->SetEnable(enable);
+}
+
+void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
+{
+    m_updateInter->SetMirrorSource(mirror.m_id);
+}
+
+void UpdateWorker::testMirrorSpeed()
+{
+    QList<MirrorInfo> mirrors = m_model->mirrorInfos();
+
+    QStringList urlList;
+    for (MirrorInfo& info : mirrors) {
+        urlList << info.m_url;
+    }
+
+    // reset the data;
+    m_model->setMirrorSpeedInfo(QMap<QString, int>());
+
+    QFutureWatcher<int>* watcher = new QFutureWatcher<int>();
+    connect(watcher, &QFutureWatcher<int>::resultReadyAt, [this, urlList, watcher, mirrors](int index) {
+        QMap<QString, int> speedInfo = m_model->mirrorSpeedInfo();
+
+        int result = watcher->resultAt(index);
+        QString mirrorId = mirrors.at(index).m_id;
+        speedInfo[mirrorId] = result;
+
+        m_model->setMirrorSpeedInfo(speedInfo);
+    });
+
+    QPointer<QObject> guest(this);
+    QFuture<int> future = QtConcurrent::mapped(urlList, std::bind(TestMirrorSpeedInternal, std::placeholders::_1, guest));
+    watcher->setFuture(future);
 }

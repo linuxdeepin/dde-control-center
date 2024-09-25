@@ -52,6 +52,8 @@ public:
     Q_PROPERTY(bool AutoCheckUpdates READ autoCheckUpdates NOTIFY AutoCheckUpdatesChanged)
     bool autoCheckUpdates();
     void SetAutoCheckUpdates(bool in0);
+    Q_PROPERTY(QString MirrorSource READ mirrorSource NOTIFY MirrorSourceChanged)
+    QString mirrorSource() const;
     void SetMirrorSource(const QString &in0);
 
     // ManagerInter
@@ -88,7 +90,10 @@ public:
     void commit(const QString &commitDate);
 
     bool atomBackupIsRunning();
-
+    // Smart Mirror
+    Q_PROPERTY(bool Enable READ enable NOTIFY EnableChanged)
+    bool enable() const;
+    void SetEnable(bool enable);
 signals:
     // updater
     void UpdateNotifyChanged(bool value) const;
@@ -111,6 +116,8 @@ signals:
     // Atomic Upgrade
     void StateChanged(int operate, int state, QString version, QString message);
     void RunningChanged(bool value) const;
+    // Smart Mirror
+    void EnableChanged(bool enable);
 
 private:
     DDBusInterface *m_hostname1Inter;
@@ -118,6 +125,7 @@ private:
     DDBusInterface *m_managerInter;
     DDBusInterface *m_powerInter;
     DDBusInterface *m_atomicUpgradeInter;
+    DDBusInterface *m_smartMirrorInter;
 };
 
 #endif // UPDATEDBUSPROXY_H

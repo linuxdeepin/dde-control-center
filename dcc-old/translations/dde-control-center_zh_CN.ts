@@ -3677,6 +3677,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>清除软件包缓存</translation>
     </message>
     <message>
+        <source>Smart Mirror Switch</source>
+        <translation>智能镜像源</translation>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation>镜像源列表</translation>
+    </message>
+    <message>
         <source>Updates from Internal Testing Sources</source>
         <translation>从内测通道升级</translation>
     </message>
@@ -3710,6 +3722,48 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Current Edition</source>
         <translation>当前版本</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation>未检测</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation>超时</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation>中</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation>镜像源列表</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation>测速</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation>未检测</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation>重新测速</translation>
     </message>
 </context>
 <context>
