@@ -25,15 +25,25 @@ public:
     int authorizationState();
     void setAuthorizationState(const int value);
 
+    Q_PROPERTY(QString Timezone READ timezone WRITE setTimezone NOTIFY TimezoneChanged)
+    QString timezone();
+    void setTimezone(const QString &value);
+
+    Q_PROPERTY(int ShortDateFormat READ shortDateFormat NOTIFY ShortDateFormatChanged)
+    int shortDateFormat();
+
     // userexperience
     void Enable(const bool value);
     bool IsEnabled();
+    qulonglong memorySize();
 
-signals:
+Q_SIGNALS:
     void StaticHostnameChanged(const QString &value) const;
     void AuthorizationStateChanged(const int value) const;
+    void TimezoneChanged(const QString &value) const;
+    void ShortDateFormatChanged(const int value) const;
 
-public slots:
+public Q_SLOTS:
     void Show();
 
 private:
@@ -41,6 +51,8 @@ private:
     DDBusInterface *m_licenseInfoInter;
     DDBusInterface *m_licenseActivatorInter;
     DDBusInterface *m_userexperienceInter;
+    DDBusInterface *m_systemInfo;
+    DDBusInterface *m_timedateInter;
 };
 
 #endif // SYSTEMINFODBUSPROXY_H

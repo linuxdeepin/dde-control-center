@@ -43,6 +43,12 @@ DccObject {
             wrapMode: Text.WordWrap
             opacity: 0.7
             text: dccData.systemInfoMode().userExperienceProgramText
+
+            // 超链接点击事件
+            onLinkActivated: function(url) {
+                console.log("点击的链接是: " + url)
+                Qt.openUrlExternally(url) // 使用默认浏览器打开链接
+            }
         }
     }
 }

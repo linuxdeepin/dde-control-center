@@ -33,6 +33,7 @@ DccObject {
         description: qsTr("Join the User Experience Program and help improve the product")
         icon: "user_experience_plan"
         weight: 1030
+        visible: dccData.systemInfoMode().showUserExperienceProgram()
         UserExperienceProgramPage{}
     }
     DccObject {

@@ -6,9 +6,13 @@
 
 #include "qcolor.h"
 
+#include <dsysinfo.h>
+
 #include <QObject>
 
 #include <optional>
+
+using namespace Dtk::Core;
 
 namespace DCC_NAMESPACE{
 
@@ -48,13 +52,14 @@ class SystemInfoModel : public QObject
     Q_PROPERTY(QString licenseActionText READ licenseActionText NOTIFY licenseActionTextChanged FINAL)
     Q_PROPERTY(QColor licenseStatusColor READ licenseStatusColor NOTIFY licenseStatusColorChanged FINAL)
     Q_PROPERTY(bool showDetail READ showDetail NOTIFY showDetailChanged FINAL)
-
-
+    Q_PROPERTY(QString logoPath READ logoPath NOTIFY logoPathChanged FINAL)
+    Q_PROPERTY(QString systemInstallationDate READ systemInstallationDate NOTIFY systemInstallationDateChanged FINAL)
+    Q_PROPERTY(QString graphicsPlatform READ graphicsPlatform NOTIFY graphicsPlatformChanged FINAL)
 
 public:
     explicit SystemInfoModel(QObject *parent = nullptr);
 
-    QString productName() const { return "Community";}
+    QString productName() const { return m_productName;}
     QString versionNumber() const { return m_versionNumber;}
     QString version() const { return m_version;}
     QString type() const { return m_type;}
@@ -101,6 +106,18 @@ public:
     bool showDetail() const;
     void setShowDetail(bool newShowDetail);
 
+    QString logoPath() const;
+    void setLogoPath(const QString &newLogoPath);
+
+    QString systemInstallationDate() const;
+    void setSystemInstallationDate(const QString &newSystemInstallationDate);
+
+    Q_INVOKABLE bool showAuthorization() const;
+    Q_INVOKABLE bool showUserExperienceProgram() const;
+
+    QString graphicsPlatform() const;
+    void setGraphicsPlatform(const QString &newGraphicsPlatform);
+
 Q_SIGNALS:
     void productNameChanged(const QString& version);
     void versionNumberChanged(const QString& version);
@@ -136,6 +153,12 @@ Q_SIGNALS:
 
 
     void showDetailChanged();
+
+    void logoPathChanged();
+
+    void systemInstallationDateChanged();
+
+    void graphicsPlatformChanged();
 
 public Q_SLOTS:
     void setProductName(const QString& name);
@@ -177,7 +200,11 @@ private:
     QColor m_licenseStatusColor;
     QString m_licenseActionText;
 
+    QString m_logoPath;
+
     bool m_showDetail;
+    QString m_systemInstallationDate;
+    QString m_graphicsPlatform;
 };
 
 }

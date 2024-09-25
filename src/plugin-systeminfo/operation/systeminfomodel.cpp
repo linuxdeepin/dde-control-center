@@ -5,19 +5,20 @@
 #include "QtQml/qqml.h"
 #include "dccfactory.h"
 #include "math.h"
+#include "utils.h"
 
 #include <qdebug.h>
 
-namespace DCC_NAMESPACE{
+namespace DCC_NAMESPACE {
 
 static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 1)
 {
-    static QStringList type = {" B", " KB", " MB", " GB", " TB"};
+    static QStringList type = { " B", " KB", " MB", " GB", " TB" };
     qulonglong lc = cap;
     double dc = cap;
     double ds = size;
 
-    for(int p = 0; p < type.count(); ++p) {
+    for (int p = 0; p < type.count(); ++p) {
         if (cap < pow(size, p + 1) || p == type.count() - 1) {
             if (!precision) {
 #ifdef __sw_64__
@@ -47,17 +48,18 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
 
 }
 
-void SystemInfoModel::setProductName(const QString& name)
+void SystemInfoModel::setProductName(const QString &name)
 {
-    if(m_productName == name)
+    if (m_productName == name)
         return;
 
     m_productName = name;
     Q_EMIT productNameChanged(m_productName);
 }
-void SystemInfoModel::setVersionNumber(const QString& number)
+
+void SystemInfoModel::setVersionNumber(const QString &number)
 {
-    if(m_versionNumber == number)
+    if (m_versionNumber == number)
         return;
 
     m_versionNumber = number;
@@ -66,7 +68,7 @@ void SystemInfoModel::setVersionNumber(const QString& number)
 
 void SystemInfoModel::setVersion(const QString &version)
 {
-    if(m_version == version)
+    if (m_version == version)
         return;
 
     m_version = version;
@@ -75,8 +77,8 @@ void SystemInfoModel::setVersion(const QString &version)
 
 void SystemInfoModel::setType(qlonglong type)
 {
-    if(m_type == QString("%1").arg(type))
-        return ;
+    if (m_type == QString("%1").arg(type))
+        return;
 
     m_type = QString("%1").arg(type);
     typeChanged(m_type);
@@ -84,7 +86,7 @@ void SystemInfoModel::setType(qlonglong type)
 
 void SystemInfoModel::setProcessor(const QString &processor)
 {
-    if(m_processor == processor)
+    if (m_processor == processor)
         return;
 
     m_processor = processor;
@@ -102,6 +104,55 @@ void SystemInfoModel::setEndUserAgreementPath(const QString &path)
     m_endUserAgreementTextPath = path;
 }
 
+QString SystemInfoModel::graphicsPlatform() const
+{
+    return m_graphicsPlatform;
+}
+
+void SystemInfoModel::setGraphicsPlatform(const QString &newGraphicsPlatform)
+{
+    if (m_graphicsPlatform == newGraphicsPlatform)
+        return;
+    m_graphicsPlatform = newGraphicsPlatform;
+    Q_EMIT graphicsPlatformChanged();
+}
+
+bool SystemInfoModel::showAuthorization() const
+{
+    return !(IS_COMMUNITY_SYSTEM || DSysInfo::UosEditionUnknown == DSysInfo::uosEditionType()) && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC;
+}
+
+bool SystemInfoModel::showUserExperienceProgram() const
+{
+    return !IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM && DSysInfo::isDeepin();
+}
+
+QString SystemInfoModel::systemInstallationDate() const
+{
+    return m_systemInstallationDate;
+}
+
+void SystemInfoModel::setSystemInstallationDate(const QString &newSystemInstallationDate)
+{
+    if (m_systemInstallationDate == newSystemInstallationDate)
+        return;
+    m_systemInstallationDate = newSystemInstallationDate;
+    Q_EMIT systemInstallationDateChanged();
+}
+
+QString SystemInfoModel::logoPath() const
+{
+    return m_logoPath;
+}
+
+void SystemInfoModel::setLogoPath(const QString &newLogoPath)
+{
+    if (m_logoPath == newLogoPath)
+        return;
+    m_logoPath = newLogoPath;
+    Q_EMIT logoPathChanged();
+}
+
 bool SystemInfoModel::showDetail() const
 {
     return m_showDetail;
@@ -112,7 +163,7 @@ void SystemInfoModel::setShowDetail(bool newShowDetail)
     if (m_showDetail == newShowDetail)
         return;
     m_showDetail = newShowDetail;
-    emit showDetailChanged();
+    Q_EMIT showDetailChanged();
 }
 
 void SystemInfoModel::onLicenseStateChanged(const ActiveState &state)
@@ -150,7 +201,7 @@ void SystemInfoModel::setLicenseStatusColor(const QColor &newLicenseStatusColor)
     if (m_licenseStatusColor == newLicenseStatusColor)
         return;
     m_licenseStatusColor = newLicenseStatusColor;
-    emit licenseStatusColorChanged();
+    Q_EMIT licenseStatusColorChanged();
 }
 
 QString SystemInfoModel::licenseActionText() const
@@ -163,7 +214,7 @@ void SystemInfoModel::setLicenseActionText(const QString &newLicenseActionText)
     if (m_licenseActionText == newLicenseActionText)
         return;
     m_licenseActionText = newLicenseActionText;
-    emit licenseActionTextChanged();
+    Q_EMIT licenseActionTextChanged();
 }
 
 QString SystemInfoModel::licenseStatusText() const
@@ -176,7 +227,7 @@ void SystemInfoModel::setLicenseStatusText(const QString &newLicenseStatusText)
     if (m_licenseStatusText == newLicenseStatusText)
         return;
     m_licenseStatusText = newLicenseStatusText;
-    emit licenseStatusTextChanged();
+    Q_EMIT licenseStatusTextChanged();
 }
 
 QString SystemInfoModel::systemCopyright() const
@@ -189,7 +240,7 @@ void SystemInfoModel::setSystemCopyright(const QString &newSystemCopyright)
     if (m_systemCopyright == newSystemCopyright)
         return;
     m_systemCopyright = newSystemCopyright;
-    emit systemCopyrightChanged();
+    Q_EMIT systemCopyrightChanged();
 }
 
 bool SystemInfoModel::joinUeProgram() const
@@ -202,7 +253,7 @@ void SystemInfoModel::setJoinUeProgram(bool newJoinUeProgram)
     if (m_joinUeProgram == newJoinUeProgram)
         return;
     m_joinUeProgram = newJoinUeProgram;
-    emit joinUeProgramChanged();
+    Q_EMIT joinUeProgramChanged();
 }
 
 QString SystemInfoModel::userExperienceProgramText() const
@@ -215,7 +266,7 @@ void SystemInfoModel::setUserExperienceProgramText(const QString &newUserExperie
     if (m_userExperienceProgramText == newUserExperienceProgramText)
         return;
     m_userExperienceProgramText = newUserExperienceProgramText;
-    emit userExperienceProgramTextChanged();
+    Q_EMIT userExperienceProgramTextChanged();
 }
 
 QString SystemInfoModel::userLicense() const
@@ -228,7 +279,7 @@ void SystemInfoModel::setUserLicense(const QString &newUserLicense)
     if (m_userLicense == newUserLicense)
         return;
     m_userLicense = newUserLicense;
-    emit userLicenseChanged();
+    Q_EMIT userLicenseChanged();
 }
 
 QString SystemInfoModel::gnuLinceseContent() const
@@ -241,7 +292,7 @@ void SystemInfoModel::setGnuLinceseContent(const QString &newGnuLinceseContent)
     if (m_gnuLinceseContent == newGnuLinceseContent)
         return;
     m_gnuLinceseContent = newGnuLinceseContent;
-    emit gnuLinceseContentChanged();
+    Q_EMIT gnuLinceseContentChanged();
 }
 
 QString SystemInfoModel::gnuLinceseTitle() const
@@ -254,7 +305,7 @@ void SystemInfoModel::setGnuLinceseTitle(const QString &newGnuLinceseTitle)
     if (m_gnuLinceseTitle == newGnuLinceseTitle)
         return;
     m_gnuLinceseTitle = newGnuLinceseTitle;
-    emit gnuLinceseTitleChanged();
+    Q_EMIT gnuLinceseTitleChanged();
 }
 
 QString SystemInfoModel::privacyPolicy() const
@@ -267,18 +318,18 @@ void SystemInfoModel::setPrivacyPolicy(const QString &newPrivacyPolicy)
     if (m_privacyPolicy == newPrivacyPolicy)
         return;
     m_privacyPolicy = newPrivacyPolicy;
-    emit privacyPolicyChanged();
+    Q_EMIT privacyPolicyChanged();
 }
 
 void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemory)
 {
     QString mem_device_size = formatCap(installedMemory, 1024, 0);
     QString mem = formatCap(totalMemory);
-    if(m_memory == mem)
-        return ;
+    if (m_memory == mem)
+        return;
 
     m_memory = mem;
-    m_memory = QString("%1 (%2)").arg(mem, tr("available"));
+    m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
 }
 

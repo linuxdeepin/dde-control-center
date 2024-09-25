@@ -18,23 +18,31 @@ DccObject {
         pageType: DccObject.Item
         weight: 20
         page: Label {
-                Layout.alignment: Qt.AlignHCenter
-                horizontalAlignment: Text.AlignHCenter
-                font: DTK.fontManager.t4
-                text: qsTr("Privacy Policy")
-            }
+            Layout.alignment: Qt.AlignHCenter
+            horizontalAlignment: Text.AlignHCenter
+            font: DTK.fontManager.t4
+            text: qsTr("Privacy Policy")
+        }
     }
     DccObject {
         name: "content"
         parentName: "system/privacyPolicy"
         pageType: DccObject.Item
         weight: 30
-        page: Label {
+        page:
+            Label {
+                textFormat: Text.RichText
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().privacyPolicy
                 wrapMode: Text.WordWrap
                 opacity: 0.7
-        }
+
+                // 超链接点击事件
+                onLinkActivated: function(url) {
+                    console.log("点击的链接是: " + url)
+                    Qt.openUrlExternally(url) // 使用默认浏览器打开链接
+                }
+            }
     }
 }
