@@ -91,6 +91,7 @@ private:
 
     DCC_NAMESPACE::SwitchWidget *m_updateNotify;   // 更新提醒
     DCC_NAMESPACE::SwitchWidget *m_autoCleanCache; // 清除软件包
+    DCC_NAMESPACE::SwitchWidget *m_smartMirrorBtn; // 智能镜像源
 
     DCC_NAMESPACE::ModuleObject *m_autoCheckUpdateModule;
     DCC_NAMESPACE::ModuleObject *m_autoDownloadUpdateModule;

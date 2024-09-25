@@ -6,6 +6,8 @@
 #include "common.h"
 #include "dsysinfo.h"
 #include "interface/moduleobject.h"
+#include "itemmodule.h"
+#include "mirrorswidget.h"
 #include "updatemodel.h"
 #include "updateplugin.h"
 #include "updatework.h"
@@ -23,6 +25,7 @@
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
+using namespace DCC_NAMESPACE::update;
 
 UpdateSettingsModule::UpdateSettingsModule(UpdateModel *model, UpdateWorker *work, QObject *parent)
     : PageModule(parent)
@@ -298,6 +301,69 @@ void UpdateSettingsModule::initModuleList()
             }));
 
     if (IsCommunitySystem) {
+        // 智能镜像源
+        appendChild(new WidgetModule<SwitchWidget>("smartMirrorSwitch", tr("Smart Mirror Switch"), [this](SwitchWidget *smartMirrorBtn) {
+            m_smartMirrorBtn = smartMirrorBtn;
+            connect(m_model, &UpdateModel::smartMirrorSwitchChanged, smartMirrorBtn, [smartMirrorBtn](const bool smartMirrorSwitch) {
+                smartMirrorBtn->setChecked(smartMirrorSwitch);
+            });
+            connect(smartMirrorBtn, &SwitchWidget::checkedChanged, this, [this](const bool checked) {
+                m_work->setSmartMirror(checked);
+            });
+
+            smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
+            smartMirrorBtn->addBackground();
+            smartMirrorBtn->setChecked(m_model->smartMirrorSwitch());
+        }));
+        appendChild(new ItemModule(
+                "smartTips",
+                tr("Switch it on to connect to the quickest mirror site automatically"),
+                [](ModuleObject *object) {
+                    DTipLabel *label = new DTipLabel();
+                    label->setWordWrap(true);
+                    label->setAlignment(Qt::AlignLeft);
+                    label->setContentsMargins(10, 0, 10, 0);
+                    label->setText(object->displayName());
+                    return label;
+                },
+                false));
+        auto updateMirrors = new ItemModule("mirrorList", tr("Mirror List"), [this](ModuleObject *) {
+            QWidget *widget = new QWidget();
+            QHBoxLayout *layout = new QHBoxLayout(widget);
+            layout->setMargin(0);
+            layout->addStretch();
+
+            QLabel *mirrors = new QLabel(widget);
+            layout->addWidget(mirrors);
+            mirrors->setText(m_model->defaultMirror().m_name);
+            connect(m_model, &UpdateModel::defaultMirrorChanged, mirrors, [mirrors](const MirrorInfo& mirror){
+                mirrors->setText(mirror.m_name);
+            });
+            QLabel *enterIcon = new QLabel(widget);
+            enterIcon->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
+            layout->addWidget(enterIcon);
+            return widget;
+        });
+        updateMirrors->setBackground(true);
+        updateMirrors->setClickable(true);
+        appendChild(updateMirrors);
+        connect(m_model, &UpdateModel::smartMirrorSwitchChanged, updateMirrors, [updateMirrors](const bool smartMirrorSwitch) {
+            updateMirrors->setVisible(!smartMirrorSwitch);
+        });
+        updateMirrors->setVisible(!m_model->smartMirrorSwitch());
+        connect(updateMirrors, &ItemModule::clicked, this, [this]() {
+            auto mirrorsWidget = new MirrorsWidget(m_model);
+            mirrorsWidget->setAttribute(Qt::WA_DeleteOnClose);
+            mirrorsWidget->setWindowModality(Qt::ApplicationModal);
+            mirrorsWidget->setVisible(false);
+            m_work->checkNetselect();
+            mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+            connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+            connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+            mirrorsWidget->show();
+        });
+
         appendChild(new UpdateTitleModule("InternalUpdateSetting",
                                           tr("Updates from Internal Testing Sources")));
         appendChild(new WidgetModule<InternalButtonItem>(

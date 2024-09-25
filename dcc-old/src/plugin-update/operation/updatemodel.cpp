@@ -672,3 +672,53 @@ void UpdateModel::setTestingChannelStatus(const TestingChannelStatus &status)
     m_testingChannelStatus = status;
     Q_EMIT TestingChannelStatusChanged(m_testingChannelStatus);
 }
+
+void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
+{
+    m_mirrorList = list;
+}
+
+MirrorInfo UpdateModel::defaultMirror() const
+{
+    QList<MirrorInfo>::const_iterator it = m_mirrorList.begin();
+    for (; it != m_mirrorList.end(); ++it) {
+        if ((*it).m_id == m_mirrorId) {
+            return *it;
+        }
+    }
+
+    return m_mirrorList.at(0);
+}
+
+void UpdateModel::setDefaultMirror(const QString &mirrorId)
+{
+    if (mirrorId == "")
+        return;
+
+    m_mirrorId = mirrorId;
+
+    QList<MirrorInfo>::iterator it = m_mirrorList.begin();
+    for (; it != m_mirrorList.end(); ++it) {
+        if ((*it).m_id == mirrorId) {
+            Q_EMIT defaultMirrorChanged(*it);
+        }
+    }
+}
+
+void UpdateModel::setSmartMirrorSwitch(bool smartMirrorSwitch)
+{
+    if (m_smartMirrorSwitch == smartMirrorSwitch)
+        return;
+
+    m_smartMirrorSwitch = smartMirrorSwitch;
+
+    Q_EMIT smartMirrorSwitchChanged(smartMirrorSwitch);
+}
+
+void UpdateModel::setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo)
+{
+    m_mirrorSpeedInfo = mirrorSpeedInfo;
+
+    if (mirrorSpeedInfo.keys().length())
+        Q_EMIT mirrorSpeedInfoAvailable(mirrorSpeedInfo);
+}

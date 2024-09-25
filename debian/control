@@ -45,6 +45,7 @@ Depends:
  qml6-module-qtquick-window,
  qml6-module-qt-labs-qmlmodels,
  libdtk6declarative,
+ netselect,
 Description: New control center for Deepin Desktop Environment,
  Integrated control center with rich functions,Besides providing rich
  system setting items, the function level is simple, the logic is clear,

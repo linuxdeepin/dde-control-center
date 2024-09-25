@@ -6,6 +6,7 @@
 
 #include "appupdateinfolist.h"
 #include "common.h"
+#include "mirrorinfolist.h"
 #include "widgets/updateiteminfo.h"
 #include "widgets/utils.h"
 
@@ -217,6 +218,18 @@ public:
     // Testing Channel
     TestingChannelStatus getTestingChannelStatus() const;
     void setTestingChannelStatus(const TestingChannelStatus &status);
+    // 智能镜像源
+    void setMirrorInfos(const MirrorInfoList& list);
+    MirrorInfoList mirrorInfos() const { return m_mirrorList; }
+
+    MirrorInfo defaultMirror() const;
+    void setDefaultMirror(const QString& mirrorId);
+
+    bool smartMirrorSwitch() const { return m_smartMirrorSwitch; }
+    void setSmartMirrorSwitch(bool smartMirrorSwitch);
+
+    QMap<QString, int> mirrorSpeedInfo() const { return m_mirrorSpeedInfo; }
+    void setMirrorSpeedInfo(const QMap<QString, int>& mirrorSpeedInfo);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
@@ -273,6 +286,10 @@ Q_SIGNALS:
 
     void longlongAutoUpdateChanged(const bool longlongAutoUpdate);
 
+    void defaultMirrorChanged(const MirrorInfo& mirror);
+    void smartMirrorSwitchChanged(bool smartMirrorSwitch);
+    void mirrorSpeedInfoAvailable(const QMap<QString, int>& mirrorSpeedInfo);
+
 private:
     UpdatesStatus m_status;
 
@@ -323,6 +340,8 @@ private:
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
 
     TestingChannelStatus m_testingChannelStatus;
+    MirrorInfoList m_mirrorList;
+    bool m_smartMirrorSwitch;
 };
 
 #endif // UPDATEMODEL_H
