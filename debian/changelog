@@ -1,3 +1,9 @@
+dde-control-center (6.0.68) unstable; urgency=medium
+
+  * release 6.0.68
+
+ -- Mike Chen <chenke@deepin.org>  Fri, 27 Sep 2024 14:11:00 +0800
+
 dde-control-center (6.0.67) unstable; urgency=medium
 
   * fix: incorrect bluetooth device icon theme type
