@@ -53,6 +53,7 @@ private:
     void updateItem(BluetoothDeviceItemAction *item);
 
 private:
+    const static QMap<QString, QString> deviceType2Icon;
     bool m_paired;
     QList<BluetoothDeviceItemAction *> m_allData;
     QList<BluetoothDeviceItemAction *> m_data;
