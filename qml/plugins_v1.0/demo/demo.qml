@@ -67,13 +67,6 @@ DccObject {
         icon: "hardware"
         weight: 21
     }
-    DccObject {
-        name: "keyboard1"
-        parentName: "device"
-        displayName: qsTr("键盘")
-        icon: "hardware"
-        weight: 41
-    }
     // 辅助功能
     DccObject {
         name: "auxiliary1"

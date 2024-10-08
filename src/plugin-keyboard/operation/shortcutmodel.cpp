@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -12,7 +12,8 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QThreadPool>
-#include <QApplication>
+#include <QGuiApplication>
+#include <DPinyin>
 
 QStringList systemFilter = {"terminal",
                             "terminal-quake",
@@ -59,7 +60,35 @@ const QStringList &assistiveToolsFilter = {"ai-assistant",
                                            "speech-to-text",
                                            "translation"};
 
-using namespace DCC_NAMESPACE;
+// from dquickrectangle_p.h
+#define NoneCorner 0x0
+#define TopLeftCorner 0x1
+#define TopRightCorner 0x2
+#define BottomLeftCorner 0x4
+#define BottomRightCorner 0x8
+#define TopCorner TopLeftCorner | TopRightCorner
+#define BottomCorner BottomLeftCorner| BottomRightCorner
+#define LeftCorner TopLeftCorner| BottomLeftCorner
+#define RightCorner TopRightCorner| BottomRightCorner
+#define AllCorner TopCorner | BottomCorner
+
+static const QMap<QString, QString> &DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
+    {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
+    {"parenright", ")"}, {"underscore", "_"}, {"plus", "+"}, {"braceleft", "{"}, {"braceright", "}"},
+    {"bar", "|"}, {"colon", ":"}, {"quotedbl", "\""}, {"less", "<"}, {"greater", ">"}, {"question", "?"},
+    {"minus", "-"}, {"equal", "="}, {"brackertleft", "["}, {"breckertright", "]"}, {"backslash", "\\"},
+    {"semicolon", ";"}, {"apostrophe", "'"}, {"comma", ","}, {"period", "."}, {"slash", "/"}, {"Up", "↑"},
+    {"Left", "←"}, {"Down", "↓"}, {"Right", "→"}, {"asciitilde", "~"}, {"grave", "`"}, {"Control", "Ctrl"},
+    {"Super_L", "Super"}, {"Super_R", "Super"}
+};
+
+static QString toPinyin(const QString &name)
+{
+    DCORE_USE_NAMESPACE
+    return pinyin(name, TS_NoneTone).join("_") + "_" + firstLetters(name).join("_");
+}
+
+using namespace dccV25;
 DCORE_USE_NAMESPACE
 ShortcutModel::ShortcutModel(QObject *parent)
     : QObject(parent)
@@ -113,6 +142,38 @@ QList<ShortcutInfo *> ShortcutModel::infos() const
     return m_infos;
 }
 
+ShortcutInfo *ShortcutModel::shortcutAt(int index, int *corners)
+{
+    if (index < 0)
+        return nullptr;
+
+    auto getCorners = [](QList<ShortcutInfo *>&list, int index) {
+        if (index == 0)
+            return TopCorner;
+        else if (index == list.count() - 1)
+            return BottomCorner;
+        else
+            return NoneCorner;
+    };
+
+#define CHECK_INDEX_DCC(List) \
+    if (index < List.count()) { \
+        if (corners) \
+            *corners = getCorners(List, index); \
+        return List.value(index); \
+    } else { \
+        index -= List.count(); \
+    }
+
+    CHECK_INDEX_DCC(m_systemInfos)
+    CHECK_INDEX_DCC(m_windowInfos)
+    CHECK_INDEX_DCC(m_workspaceInfos)
+    CHECK_INDEX_DCC(m_assistiveToolsInfos)
+    CHECK_INDEX_DCC(m_customInfos)
+
+    return nullptr;
+}
+
 void ShortcutModel::delInfo(ShortcutInfo *info)
 {
     if (m_infos.contains(info)) {
@@ -121,6 +182,8 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
     if (m_customInfos.contains(info)) {
         m_customInfos.removeOne(info);
     }
+
+    Q_EMIT delCustomInfo(info);
 
     delete info;
     info = nullptr;
@@ -165,6 +228,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         info->type         = type;
         info->accels       = obj["Accels"].toArray().first().toString();
         info->name    = obj["Name"].toString();
+        info->pinyin =  toPinyin(info->name);
         info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
@@ -172,22 +236,27 @@ void ShortcutModel::onParseInfo(const QString &info)
 
         if (type != MEDIAKEY) {
             if (systemShortKeys.contains(info->id)) {
+                info->sectionName = tr("System");
                 m_systemInfos << info;
                 continue;
             }
             if (windowFilter.contains(info->id)) {
+                info->sectionName = tr("Window");
                 m_windowInfos << info;
                 continue;
             }
             if (workspaceFilter.contains(info->id)) {
+                info->sectionName = tr("Workspace");
                 m_workspaceInfos << info;
                 continue;
             }
             if (assistiveToolsFilter.contains(info->id)) {
+                info->sectionName = tr("AssistiveTools");
                 m_assistiveToolsInfos << info;
                 continue;
             }
             if (type == 1) {
+                info->sectionName = tr("Custom");
                 m_customInfos << info;
             }
         }
@@ -226,8 +295,11 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->accels = accels;
 
     info->name    = obj["Name"].toString();
+    info->pinyin = toPinyin(info->name);
     info->id      = obj["Id"].toString();
     info->command = obj["Exec"].toString();
+    info->sectionName = tr("Custom");
+
     m_infos.append(info);
     m_customInfos.append(info);
     Q_EMIT addCustomInfo(info);
@@ -263,6 +335,29 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
      return m_windowSwitchState;
  }
 
+ QStringList ShortcutModel::formatKeys(const QString &shortcut)
+ {
+     if (shortcut.isEmpty())
+         return QStringList{ShortcutModel::tr("None")};
+
+     QString accels = shortcut;
+     accels = accels.replace("<", "");
+     accels = accels.replace(">", "-");
+     accels = accels.replace("_L", "");
+     accels = accels.replace("_R", "");
+     accels = accels.replace("Control", "Ctrl");
+
+     QStringList keylist = accels.split("-");
+
+     QStringList newList;
+     for (int i = 0; i < keylist.size(); ++i) {
+         const QString &value = DisplaykeyMap.value(keylist.value(i));
+         newList << (value.isEmpty() ? keylist.value(i) : value);
+     }
+
+     return newList;
+ }
+
 ShortcutInfo *ShortcutModel::currentInfo() const
 {
     return m_currentInfo;
@@ -273,17 +368,24 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
     m_currentInfo = currentInfo;
 }
 
-ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
+ShortcutInfo *ShortcutModel::findInfoIf(std::function<bool (ShortcutInfo *)> cb)
 {
-    auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
-    });
-
+    auto res = std::find_if(m_infos.begin(), m_infos.end(), cb);
     if (res != m_infos.end()) {
         return *res;
     }
 
     return nullptr;
+}
+
+ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
+{
+    if (shortcut.isEmpty())
+        return nullptr;
+
+    return findInfoIf([ = ] (const ShortcutInfo *info)->bool{
+        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
+    });
 }
 
 void ShortcutModel::setSearchResult(const QString &searchResult)
@@ -360,4 +462,98 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
     }
 
     Q_EMIT searchFinished(m_searchList);
+}
+
+bool ShortcutModel::searchResultContains(const QString &id)
+{
+    auto res = std::find_if(m_searchList.begin(), m_searchList.end(), [ = ] (const ShortcutInfo *info)->bool{
+        return info->id == id;
+    });
+
+    return res != m_infos.end();
+}
+
+ShortcutListModel::ShortcutListModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+
+}
+
+void ShortcutListModel::setSouceModel(ShortcutModel *model)
+{
+    if (m_model == model)
+        return;
+    m_model = model;
+}
+
+ShortcutModel *ShortcutListModel::souceModel()
+{
+    return m_model;
+}
+
+void ShortcutListModel::reset()
+{
+    beginResetModel();
+    endResetModel();
+}
+
+int ShortcutListModel::rowCount(const QModelIndex &) const
+{
+    if (!m_model)
+        return 0;
+
+    return m_model->count();
+}
+
+QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid() || index.row() >= m_model->count())
+        return QVariant();
+
+    int corners = NoneCorner;
+    ShortcutInfo *info = m_model->shortcutAt(index.row(), &corners);
+    if (!info)
+        return QVariant();
+
+    auto displayKeys = ShortcutModel::formatKeys(info->accels);
+
+    switch (role) {
+    case Qt::DisplayRole:
+        return info->name;
+    case SearchedTextRole:
+        return info->name + info->pinyin + "_" + displayKeys.join("_");
+    case IdRole:
+        return info->id;
+    case KeySequenceRole:
+        return displayKeys;
+    case CommandRole:
+        return info->command;
+    case AccelsRole:
+        return info->accels;
+    case SectionNameRole:
+        return info->sectionName;
+    case CornersRole:
+        return corners;
+    case IsCustomRole:
+        return info->type == ShortcutModel::Custom;
+    default:
+        break;
+    }
+
+    return QVariant();
+}
+
+QHash<int, QByteArray> ShortcutListModel::roleNames() const
+{
+    QHash<int, QByteArray> names = QAbstractListModel::roleNames();
+    names[SearchedTextRole] = "searchedText";
+    names[IdRole] = "id";
+    names[KeySequenceRole] = "keySequence";
+    names[CommandRole] = "command";
+    names[SectionNameRole] = "section";
+    names[AccelsRole] = "accels";
+    names[CornersRole] = "corners";
+    names[IsCustomRole] = "isCustom";
+
+    return names;
 }

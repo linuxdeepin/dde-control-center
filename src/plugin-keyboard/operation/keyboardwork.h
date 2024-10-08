@@ -2,11 +2,9 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-
 #ifndef KEYBOARDWORK_H
 #define KEYBOARDWORK_H
 
-#include "interface/namespace.h"
 #include "operation/metadata.h"
 #include "shortcutmodel.h"
 #include "keyboardmodel.h"
@@ -17,7 +15,7 @@
 class QDBusPendingCallWatcher;
 class QTranslator;
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 class KeyboardWorker : public QObject
 {
     Q_OBJECT
@@ -56,7 +54,7 @@ public:
 
     void setNumLock(bool value);
     void setCapsLock(bool value);
-    void active();
+    Q_INVOKABLE void active();
     void deactive();
     bool keyOccupy(const QStringList &list);
     void onRefreshKBLayout();
