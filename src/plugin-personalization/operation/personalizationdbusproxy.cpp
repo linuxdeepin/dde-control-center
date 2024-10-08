@@ -58,6 +58,7 @@ QString PersonalizationDBusProxy::cursorTheme()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("CursorTheme"));
 }
+
 void PersonalizationDBusProxy::setCursorTheme(const QString &value)
 {
     m_AppearanceInter->setProperty("CursorTheme", QVariant::fromValue(value));
@@ -77,6 +78,7 @@ double PersonalizationDBusProxy::fontSize()
 {
     return qvariant_cast<double>(m_AppearanceInter->property("FontSize"));
 }
+
 void PersonalizationDBusProxy::setFontSize(double value)
 {
     m_AppearanceInter->setProperty("FontSize", QVariant::fromValue(value));
@@ -95,6 +97,7 @@ QString PersonalizationDBusProxy::iconTheme()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("IconTheme"));
 }
+
 void PersonalizationDBusProxy::setIconTheme(const QString &value)
 {
     m_AppearanceInter->setProperty("IconTheme", QVariant::fromValue(value));
@@ -104,6 +107,7 @@ QString PersonalizationDBusProxy::monospaceFont()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("MonospaceFont"));
 }
+
 void PersonalizationDBusProxy::setMonospaceFont(const QString &value)
 {
     m_AppearanceInter->setProperty("MonospaceFont", QVariant::fromValue(value));
@@ -113,6 +117,7 @@ double PersonalizationDBusProxy::opacity()
 {
     return qvariant_cast<double>(m_AppearanceInter->property("Opacity"));
 }
+
 void PersonalizationDBusProxy::setOpacity(double value)
 {
     m_AppearanceInter->setProperty("Opacity", QVariant::fromValue(value));
@@ -122,6 +127,7 @@ QString PersonalizationDBusProxy::qtActiveColor()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("QtActiveColor"));
 }
+
 void PersonalizationDBusProxy::setQtActiveColor(const QString &value)
 {
     m_AppearanceInter->setProperty("QtActiveColor", QVariant::fromValue(value));
@@ -131,6 +137,7 @@ QString PersonalizationDBusProxy::standardFont()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("StandardFont"));
 }
+
 void PersonalizationDBusProxy::setStandardFont(const QString &value)
 {
     m_AppearanceInter->setProperty("StandardFont", QVariant::fromValue(value));
@@ -140,6 +147,7 @@ QString PersonalizationDBusProxy::wallpaperSlideShow()
 {
     return qvariant_cast<QString>(m_AppearanceInter->property("WallpaperSlideShow"));
 }
+
 void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &value)
 {
     m_AppearanceInter->setProperty("WallpaperSlideShow", QVariant::fromValue(value));
@@ -149,10 +157,12 @@ int PersonalizationDBusProxy::windowRadius()
 {
     return qvariant_cast<int>(m_AppearanceInter->property("WindowRadius"));
 }
+
 void PersonalizationDBusProxy::setWindowRadius(int value)
 {
     m_AppearanceInter->setProperty("WindowRadius", QVariant::fromValue(value));
 }
+
 // Appearance slot
 QString PersonalizationDBusProxy::List(const QString &ty)
 {
@@ -165,30 +175,56 @@ bool PersonalizationDBusProxy::List(const QString &ty, QObject *receiver, const 
     args << QVariant::fromValue(ty);
     return m_AppearanceInter->callWithCallback(QStringLiteral("List"), args, receiver, member, errorSlot);
 }
+
 void PersonalizationDBusProxy::Set(const QString &ty, const QString &value)
 {
     m_AppearanceInter->asyncCall(QStringLiteral("Set"), QVariant::fromValue(ty), QVariant::fromValue(value));
 }
+
 QString PersonalizationDBusProxy::Show(const QString &ty, const QStringList &names)
 {
     return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("Show"), QVariant::fromValue(ty), QVariant::fromValue(names)));
 }
+
 bool PersonalizationDBusProxy::Show(const QString &ty, const QStringList &names, QObject *receiver, const char *member)
 {
     QList<QVariant> args;
     args << QVariant::fromValue(ty) << QVariant::fromValue(names);
     return m_AppearanceInter->callWithCallback(QStringLiteral("Show"), args, receiver, member);
 }
+
 QString PersonalizationDBusProxy::Thumbnail(const QString &ty, const QString &name)
 {
     return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("Thumbnail"), QVariant::fromValue(ty), QVariant::fromValue(name)));
 }
+
 bool PersonalizationDBusProxy::Thumbnail(const QString &ty, const QString &name, QObject *receiver, const char *member, const char *errorSlot)
 {
     QList<QVariant> args;
     args << QVariant::fromValue(ty) << QVariant::fromValue(name);
     return m_AppearanceInter->callWithCallback(QStringLiteral("Thumbnail"), args, receiver, member, errorSlot);
 }
+
+int PersonalizationDBusProxy::getDTKSizeMode()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("DTKSizeMode"));
+}
+
+void PersonalizationDBusProxy::setDTKSizeMode(int value)
+{
+    m_AppearanceInter->setProperty("DTKSizeMode", QVariant::fromValue(value));
+}
+
+int PersonalizationDBusProxy::getScrollBarPolicy()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("QtScrollBarPolicy"));
+}
+
+void PersonalizationDBusProxy::setScrollBarPolicy(int value)
+{
+    m_AppearanceInter->setProperty("QtScrollBarPolicy", QVariant::fromValue(value));
+}
+
 // WMSwitcher
 bool PersonalizationDBusProxy::AllowSwitch()
 {
@@ -199,6 +235,7 @@ QString PersonalizationDBusProxy::CurrentWM()
 {
     return QDBusPendingReply<QString>(m_WMSwitcherInter->asyncCall(QStringLiteral("CurrentWM")));
 }
+
 bool PersonalizationDBusProxy::CurrentWM(QObject *receiver, const char *member)
 {
     QList<QVariant> args;
@@ -209,6 +246,7 @@ void PersonalizationDBusProxy::RequestSwitchWM()
 {
     m_WMSwitcherInter->asyncCall(QStringLiteral("RequestSwitchWM"));
 }
+
 // WM
 bool PersonalizationDBusProxy::compositingAllowSwitch()
 {
@@ -219,6 +257,7 @@ bool PersonalizationDBusProxy::compositingEnabled()
 {
     return qvariant_cast<bool>(m_WMInter->property("compositingEnabled"));
 }
+
 void PersonalizationDBusProxy::setCompositingEnabled(bool value)
 {
     m_WMInter->setProperty("compositingEnabled", QVariant::fromValue(value));
@@ -233,6 +272,7 @@ int PersonalizationDBusProxy::cursorSize()
 {
     return qvariant_cast<int>(m_WMInter->property("cursorSize"));
 }
+
 void PersonalizationDBusProxy::setCursorSize(int value)
 {
     m_WMInter->setProperty("cursorSize", QVariant::fromValue(value));
@@ -242,30 +282,35 @@ bool PersonalizationDBusProxy::zoneEnabled()
 {
     return qvariant_cast<bool>(m_WMInter->property("zoneEnabled"));
 }
+
 void PersonalizationDBusProxy::setZoneEnabled(bool value)
 {
     m_WMInter->setProperty("zoneEnabled", QVariant::fromValue(value));
 }
+
 // Effects
 bool PersonalizationDBusProxy::loadEffect(const QString &name)
 {
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("loadEffect"), QVariant::fromValue(name)));
 }
+
 void PersonalizationDBusProxy::unloadEffect(const QString &name)
 {
     m_EffectsInter->asyncCall(QStringLiteral("unloadEffect"), QVariant::fromValue(name));
 }
+
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name)
 {
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectLoaded"), QVariant::fromValue(name)));
 }
+
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *receiver, const char *member)
 {
     QList<QVariant> args;
     args << QVariant::fromValue(name);
     return m_EffectsInter->callWithCallback(QStringLiteral("isEffectLoaded"), args, receiver, member);
 }
-//
+
 void PersonalizationDBusProxy::onPropertiesChanged(const QDBusMessage &message)
 {
     QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());

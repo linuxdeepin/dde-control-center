@@ -74,42 +74,6 @@ DccObject {
         icon: "hardware"
         weight: 41
     }
-    // 个性化
-    DccObject {
-        name: "personalization1"
-        parentName: "root"
-        displayName: qsTr("personalization")
-        icon: "personalization"
-        weight: 61
-    }
-    DccObject {
-        name: "theme1"
-        parentName: "personalization1"
-        displayName: qsTr("主题")
-        icon: "personalization"
-        weight: 11
-    }
-    DccObject {
-        name: "wallpaper1"
-        parentName: "personalization1"
-        displayName: qsTr("壁纸")
-        icon: "personalization"
-        weight: 21
-    }
-    DccObject {
-        name: "screensaver1"
-        parentName: "personalization1"
-        displayName: qsTr("屏保")
-        icon: "personalization"
-        weight: 31
-    }
-    DccObject {
-        name: "font1"
-        parentName: "personalization1"
-        displayName: qsTr("字体和字号")
-        icon: "personalization"
-        weight: 51
-    }
     // 辅助功能
     DccObject {
         name: "auxiliary1"

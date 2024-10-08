@@ -5,12 +5,15 @@
 #define PERSONALIZATIONWORKER_H
 
 #include "personalizationmodel.h"
+
 #include <QObject>
 #include <QDebug>
 #include <QStringList>
 #include <QMap>
 #include <QString>
 #include <QJsonObject>
+
+#include <DConfig>
 
 class PersonalizationDBusProxy;
 class ThemeModel;
@@ -31,10 +34,20 @@ public Q_SLOTS:
     void setFontSize(const int value);
     void switchWM();
     void windowSwitchWM(bool value);
+    void movedWindowSwitchWM(bool value);
     void setOpacity(int opcaity);
+    void setWindowEffect(int value);
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
     void setWindowRadius(int radius);
+    void setCompactDisplay(bool value);
+    void setScrollBarPolicy(int policy);
+    void setTitleBarHeight(int value);
+    void setDiabledCompactToTitleHeight();
+    void setGlobalTheme(const QString &themeId);
+    void setAppearanceTheme(const QString &id);
+    void setIconTheme(const QString &id);
+    void setCursorTheme(const QString &id);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
@@ -49,10 +62,10 @@ private Q_SLOTS:
     void onWindowWM(bool value);
     void onMiniEffectChanged(bool value);
     void onWindowRadiusChanged(int value);
+    void onCompactDisplayChanged(int value);
+    void onWindowEffectChanged(int value);
 
 private:
-    int sizeToSliderValue(const double value) const;
-    double sliderValueToSize(const int value) const;
     double sliderValutToOpacity(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
@@ -62,6 +75,9 @@ private:
     void refreshOpacity(double opacity);
     void refreshActiveColor(const QString &color);
     bool allowSwitchWM();
+    void onKWinTitleBarConfigChanged(const QString &key);
+    void onKWinCompositingConfigChanged(const QString &key);
+    void onPersonalizationConfigChanged(const QString &key);
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);
@@ -69,6 +85,9 @@ private:
 private:
     PersonalizationModel *m_model;
     PersonalizationDBusProxy *m_personalizationDBusProxy;
+    Dtk::Core::DConfig *m_kwinTitleBarConfig;
+    Dtk::Core::DConfig *m_kwinCompositingConfig;
+    Dtk::Core::DConfig *m_personalizationConfig;
 
     QMap<QString, ThemeModel *> m_themeModels;
     QMap<QString, FontModel *> m_fontModels;

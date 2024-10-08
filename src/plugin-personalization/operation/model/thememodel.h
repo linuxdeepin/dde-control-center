@@ -12,6 +12,7 @@
 class ThemeModel : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString currentTheme READ getDefault WRITE setDefault NOTIFY defaultChanged)
 public:
     explicit ThemeModel(QObject *parent = 0);
 

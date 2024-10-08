@@ -9,7 +9,6 @@
 
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
-    , m_opacity(std::pair<int, double>(2, 0.4f))
     , m_allowSwitch(false)
 {
     m_windowModel    = new ThemeModel(this);
@@ -46,7 +45,7 @@ void PersonalizationModel::setWindowRadius(int radius)
     if (m_windowRadius != radius)
         m_windowRadius = radius;
 
-    Q_EMIT  onWindowRadiusChanged(radius);
+    Q_EMIT  windowRadiusChanged(radius);
 }
 
 int PersonalizationModel::windowRadius()
@@ -54,13 +53,13 @@ int PersonalizationModel::windowRadius()
     return m_windowRadius;
 }
 
-void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
+void PersonalizationModel::setOpacity(double opacity)
 {
     if (m_opacity == opacity) return;
 
     m_opacity = opacity;
 
-    Q_EMIT onOpacityChanged(opacity);
+    Q_EMIT opacityChanged(opacity);
 }
 
 void PersonalizationModel::setMiniEffect(const int &effect)
@@ -69,7 +68,7 @@ void PersonalizationModel::setMiniEffect(const int &effect)
 
     m_miniEffect=effect;
 
-    Q_EMIT onMiniEffectChanged(effect);
+    Q_EMIT miniEffectChanged(effect);
 }
 
 void PersonalizationModel::setActiveColor(const QString &color)
@@ -89,4 +88,67 @@ void PersonalizationModel::setCompositingAllowSwitch(bool value)
     m_allowSwitch = value;
 
     Q_EMIT onCompositingAllowSwitch(value);
+}
+
+void PersonalizationModel::setCompactDisplay(bool value)
+{
+    if (m_compactDisplay == value)
+        return;
+    m_compactDisplay = value;
+
+    Q_EMIT compactDisplayChanged(value);
+}
+
+
+void PersonalizationModel::setScrollBarPolicy(int policy)
+{
+    if (m_scrollBarPolicy != policy) {
+        m_scrollBarPolicy = policy;
+        Q_EMIT scrollBarPolicyChanged(m_scrollBarPolicy);
+    }
+}
+
+void PersonalizationModel::setTitleBarHeight(int titleBarHeight)
+{
+    if (m_titleBarHeight == titleBarHeight)
+        return;
+    m_titleBarHeight = titleBarHeight;
+    Q_EMIT titleBarHeightChanged(titleBarHeight);
+}
+
+void PersonalizationModel::setTitleBarDefaultHeight(int titleBarDefaultHeight)
+{
+    m_titleBarDefaultHeight = titleBarDefaultHeight;
+}
+
+void PersonalizationModel::setIsMoveWindow(bool value)
+{
+    if (m_isMoveWindow != value) {
+        m_isMoveWindow = value;
+        Q_EMIT moveWindowChanged(value);
+    }
+}
+
+void PersonalizationModel::setWindowEffectType(int windowEffectType)
+{
+    if (m_windowEffectType == windowEffectType)
+        return;
+    m_windowEffectType = windowEffectType;
+    Q_EMIT  windowEffectTypeChanged(windowEffectType);
+}
+
+void PersonalizationModel::setScrollBarPolicyConfig(const QString &value)
+{
+    if (m_scrollBarPolicyConfig == value)
+        return;
+    m_scrollBarPolicyConfig = value;
+    Q_EMIT scrollBarPolicyConfigChanged(value);
+}
+
+void PersonalizationModel::setCompactDisplayConfig(const QString &value)
+{
+    if (m_compactDisplayConfig == value)
+        return;
+    m_compactDisplayConfig = value;
+    Q_EMIT compactDisplayConfigChanged(value);
 }
