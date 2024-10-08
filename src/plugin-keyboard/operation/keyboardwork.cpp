@@ -18,7 +18,7 @@
 #include <QDBusPendingCallWatcher>
 #include <QTranslator>
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
 const QMap<QString, QString> &ModelKeycode = {{"minus", "-"}, {"equal", "="}, {"backslash", "\\"}, {"question", "?/"}, {"exclam", "1"}, {"numbersign", "3"},
@@ -64,6 +64,8 @@ void KeyboardWorker::resetAll() {
         }
 
         Q_EMIT onResetFinished();
+        // reset 之后主动更新快捷键。。。
+        refreshShortcut();
     });
 }
 
@@ -136,6 +138,7 @@ void KeyboardWorker::active()
     onRefreshKBLayout();
     refreshLang();
     windowSwitch();
+    refreshShortcut();
 }
 
 void KeyboardWorker::deactive()
@@ -498,11 +501,12 @@ void KeyboardWorker::onPinyin()
     QDBusInterface dbus_pinyin("org.deepin.dde.Pinyin1", "/org/deepin/dde/Pinyin1",
                                "org.deepin.dde.Pinyin1");
 
-    Q_FOREACH(const QString &str, m_model->kbLayout().keys()) {
+    const auto &layouts = m_model->kbLayout();
+    Q_FOREACH(const QString &key, layouts.keys()) {
         MetaData md;
-        QString title = m_model->kbLayout()[str];
+        QString title = layouts[key];
         md.setText(title);
-        md.setKey(str);
+        md.setKey(key);
         QChar letterFirst = title[0];
         QStringList letterFirstList;
         if (letterFirst.isLower() || letterFirst.isUpper()) {
@@ -513,24 +517,24 @@ void KeyboardWorker::onPinyin()
             letterFirstList = message.arguments()[0].toStringList();
             md.setPinyin(letterFirstList.at(0));
         }
-
         append(md);
     }
 
     QLocale locale;
 
     if (locale.language() == QLocale::Chinese) {
-        QChar ch = '\0';
-        for (int i(0); i != m_metaDatas.size(); ++i)
-        {
-            const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
-            if (flag == ch)
-                continue;
-            ch = flag;
+        // ListView.section does not need this....
+        // QChar ch = '\0';
+        // for (int i(0); i != m_metaDatas.size(); ++i)
+        // {
+        //     const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
+        //     if (flag == ch)
+        //         continue;
+        //     ch = flag;
 
-            m_letters.append(ch);
-            m_metaDatas.insert(i, MetaData(ch, true));
-        }
+        //     m_letters.append(ch);
+        //     m_metaDatas.insert(i, MetaData(ch, true));
+        // }
     } else {
         std::sort(m_metaDatas.begin(), m_metaDatas.end(), caseInsensitiveLessThan);
     }

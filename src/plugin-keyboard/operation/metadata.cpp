@@ -5,7 +5,7 @@
 #include "metadata.h"
 #include <QDebug>
 
-using namespace DCC_NAMESPACE;
+namespace dccV25 {
 
 MetaData::MetaData(const QString &text, bool section)
     : m_text(text)
@@ -77,8 +77,14 @@ bool MetaData::operator >(const MetaData &md) const
     return x > 0;
 }
 
-QDebug &operator<<(QDebug dbg, const MetaData &md)
+QDebug &operator<<(QDebug &dbg, const MetaData &md)
 {
-    dbg.nospace() << QString("key: %1, text: %2").arg(md.key(), md.text());
-    return dbg.maybeSpace();
+    dbg.nospace() << QString("key: %1, text: %2, m_section: %3, pinyin: %4")
+                             .arg(md.key())
+                             .arg(md.text())
+                             .arg(md.section())
+                             .arg(md.pinyin());
+    return dbg;
+}
+
 }

@@ -4,10 +4,9 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include <QObject>
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class MetaData
 {
@@ -37,10 +36,10 @@ private:
     QString m_pinyin;
     bool m_section;
     bool m_selected;
-    friend QDebug &operator<<(QDebug dbg, const MetaData &md);
+    friend QDebug &operator<<(QDebug &dbg, const MetaData &md);
 };
 
-QDebug &operator<<(QDebug dbg, const MetaData &md);
+QDebug &operator<<(QDebug &dbg, const MetaData &md);
 
 }
-Q_DECLARE_METATYPE(DCC_NAMESPACE::MetaData)
+Q_DECLARE_METATYPE(dccV25::MetaData)
