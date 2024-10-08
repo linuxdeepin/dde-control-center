@@ -12,11 +12,13 @@
 class FontModel : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString fontName READ getFontName WRITE setFontName NOTIFY defaultFontChanged)
+    Q_PROPERTY(QList<QJsonObject> fontList READ getFontList WRITE setFontList NOTIFY listChanged)
 public:
     explicit FontModel(QObject *parent = 0);
     void setFontList(const QList<QJsonObject> &list);
     void setFontName(const QString &name);
-    inline const QList<QJsonObject> getFontList() const {return m_list;}
+    inline const QList<QJsonObject> getFontList() const { return m_list; }
     inline const QString getFontName() const {return m_fontName;}
 
 Q_SIGNALS:

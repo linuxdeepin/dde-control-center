@@ -9,5 +9,29 @@
         <file>texts/round_high_16px.svg</file>
         <file>texts/round_low_16px.svg</file>
         <file>texts/help_16px.svg</file>
+
+        <file>dark/icons/corner_none_84px.svg</file>
+        <file>dark/icons/corner_small_84px.svg</file>
+        <file>dark/icons/corner_middle_84px.svg</file>
+        <file>dark/icons/corner_big_84px.svg</file>
+        <file>light/icons/corner_none_84px.svg</file>
+        <file>light/icons/corner_small_84px.svg</file>
+        <file>light/icons/corner_middle_84px.svg</file>
+        <file>light/icons/corner_big_84px.svg</file>
+    </qresource>
+
+    <qresource prefix="/dsg">
+        <file>icons/balance.dci</file>
+        <file>icons/best_vision.dci</file>
+        <file>icons/optimum_performance.dci</file>
+        <file>icons/appearance.dci</file>
+        <file>icons/font_size.dci</file>
+        <file>icons/icon_cursor.dci</file>
+        <file>icons/taskbar.dci</file>
+        <file>icons/wallpaper.dci</file>
+        <file>icons/window_effect.dci</file>
+        <file>icons/theme_icon.dci</file>
+        <file>icons/topic_cursor.dci</file>
+        <file>icons/color_extractor.dci</file>
     </qresource>
 </RCC>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="75px" viewBox="0 0 108 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>light_small</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="108" height="75" rx="4"></rect>
+        <path d="M0,0 L110.436115,1.03584031e-16 C111.327634,-6.01853049e-17 111.65092,0.0928256112 111.976846,0.267132704 C112.302772,0.441439796 112.55856,0.697228371 112.732867,1.0231543 C112.907174,1.34908022 113,1.67236646 113,2.5638852 L113,85 L113,85 L0,85 L0,0 Z" id="path-3"></path>
+        <polygon id="path-5" points="-1 0 28.8 0 28.8 79 -1 79"></polygon>
+        <filter x="-1.7%" y="-0.6%" width="103.4%" height="101.3%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="-1" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <rect id="path-7" x="0" y="0" width="108" height="75" rx="4"></rect>
+    </defs>
+    <g id="个性化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-204, -812)">
+            <g id="编组-3" transform="translate(204, 812)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形" fill-opacity="0.1" fill="#000000" xlink:href="#path-1"></use>
+                <g id="矩形" mask="url(#mask-2)">
+                    <g transform="translate(-15, 10)">
+                        <g id="编组" stroke-width="1" fill="none">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <path stroke-opacity="0.05" stroke="#000000" stroke-width="0.99" d="M110.436115,-0.495 C111.467816,-0.495 111.834979,-0.370081789 112.210287,-0.169364829 C112.623752,0.0517585427 112.948241,0.376248104 113.169365,0.789712861 C113.370082,1.16502094 113.495,1.53218383 113.495,2.5638852 L113.495,85.495 L-0.495,85.495 L-0.495,-0.495 L110.436115,-0.495 Z"></path>
+                            <path d="M29,0 L111.436115,1.03584031e-16 C112.327634,-6.01853049e-17 112.65092,0.0928256112 112.976846,0.267132704 C113.302772,0.441439796 113.55856,0.697228371 113.732867,1.0231543 C113.907174,1.34908022 114,1.67236646 114,2.5638852 L114,79 L114,79 L29,79 L29,0 Z" id="蒙版" fill-opacity="0.95" fill="#F8F8F8" mask="url(#mask-4)"></path>
+                            <rect id="矩形" fill-opacity="0.05" fill="#000000" mask="url(#mask-4)" x="98" y="7" width="7" height="7" rx="1"></rect>
+                            <rect id="矩形" fill-opacity="0.05" fill="#000000" mask="url(#mask-4)" x="86" y="7" width="7" height="7" rx="1"></rect>
+                            <rect id="矩形" fill-opacity="0.05" fill="#000000" mask="url(#mask-4)" x="74" y="7" width="7" height="7" rx="1"></rect>
+                            <g id="矩形" mask="url(#mask-4)">
+                                <use fill-opacity="0.8" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                            </g>
+                        </g>
+                        <rect id="矩形" fill-opacity="0.05" fill="#000000" x="42" y="20" width="63" height="20" rx="1.98000002"></rect>
+                        <rect id="矩形" fill-opacity="0.05" fill="#000000" x="42" y="45" width="63" height="6" rx="0.99000001"></rect>
+                        <rect id="矩形" fill-opacity="0.05" fill="#000000" x="3.95454545" y="19.8125" width="19.8181818" height="3.95" rx="0.99"></rect>
+                        <rect id="矩形" fill-opacity="0.05" fill="#000000" x="3.95454545" y="29.6875" width="19.8181818" height="3.95" rx="0.99"></rect>
+                        <rect id="矩形" fill-opacity="0.05" fill="#000000" x="3.95454545" y="39.5625" width="19.8181818" height="3.95" rx="0.99"></rect>
+                    </g>
+                </g>
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <rect stroke-opacity="0.1" stroke="#000000" x="0.5" y="0.5" width="107" height="74" rx="4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

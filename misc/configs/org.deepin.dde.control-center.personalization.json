@@ -12,6 +12,50 @@
             "description": "Configure icon themes that need to be hidden",
             "permissions": "readonly",
             "visibility": "public"
-      }
+        },
+        "titleBarHeightStatus": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "titleBarHeightStatus",
+            "name[zh_CN]": "标题栏高度的状态",
+            "description[zh_CN]": "标题栏高度的状态",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "titleBarHeightSupportCompactDisplay": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "titleBarHeightSupportCompactDisplay",
+            "name[zh_CN]": "标题栏高度是否支持紧凑模式",
+            "description[zh_CN]": "标题栏高度是否支持紧凑模式，默认为是。开启配置时，开/关紧凑模式标题栏高度减/增一档。关闭配置时，标题栏高度不联动。当用户手动设置过一次标题栏高度后，会关闭配置。",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "scrollbarPolicyStatus": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "scrollbarPolicyStatus",
+            "name[zh_CN]": "滚动条显示策略的状态",
+            "description[zh_CN]": "滚动条显示策略的状态",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "compactDisplayStatus": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "compactDisplayStatus",
+            "name[zh_CN]": "紧凑模式的状态",
+            "description[zh_CN]": "紧凑模式的状态",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
     }    
-  }
+}

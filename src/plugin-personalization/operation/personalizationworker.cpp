@@ -6,6 +6,8 @@
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
+#include "operation/personalizationmodel.h"
+#include "utils.hpp"
 
 #include <QGuiApplication>
 #include <QScreen>
@@ -15,6 +17,7 @@
 #include <QJsonDocument>
 #include <QDBusError>
 #include <QLoggingCategory>
+#include <QTimer>
 
 #include <DConfig>
 
@@ -25,10 +28,43 @@ static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
 const QList<int> FontSizeList{ 11, 12, 13, 14, 15, 16, 18, 20 };
 
+const QString ORG_KDE_KWIN_DECORATION = QStringLiteral("org.kde.kwin.decoration");
+const QString ORG_KDE_KWIN_DECORATION_TITLEBAR = QStringLiteral("org.kde.kwin.decoration.titlebar");
+const QString ORG_KDE_KWIN_COMPOSITING = QStringLiteral("org.kde.kwin.compositing");
+const QString ORG_DEEPIN_CONTROL_CENTER = QStringLiteral("org.deepin.dde.control-center");
+const QString CONTROL_CENTER_PERSONALIZATION = QStringLiteral("org.deepin.dde.control-center.personalization");
+const QString ORG_KDE_KWIN = QStringLiteral("org.kde.kwin");
+
+const QString SCROLLBAR_POLICY_KEY = QStringLiteral("scrollbarPolicyStatus");
+const QString COMPACT_MODE_DISPLAY_KEY = QStringLiteral("compactDisplayStatus");
+const QString WINDOW_EFFECT_TYPE_KEY = QStringLiteral("user_type");
+const QString TITLE_BAR_DEFAULT_HEIGHT_KEY = QStringLiteral("defaultTitlebarHeight");
+const QString TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY = QStringLiteral("titleBarHeightSupportCompactDisplay");
+const QString TITLE_BAR_HEIGHT_KEY = QStringLiteral("titlebarHeight");
+const QString EffectMoveWindowArg = "kwin4_effect_translucency";
+
+const int RENDER_DPI = 72;
+const double DPI = 96;
+
+double ptToPx(double pt)
+{
+    double px = pt / RENDER_DPI * DPI + 0.5;
+    return px;
+}
+
+double pxToPt(double px)
+{
+    double pt = px * RENDER_DPI / DPI;
+    return pt;
+}
+
 PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_personalizationDBusProxy(new PersonalizationDBusProxy(this))
+    , m_kwinTitleBarConfig(DConfig::create(ORG_KDE_KWIN_DECORATION, ORG_KDE_KWIN_DECORATION_TITLEBAR, "", this))
+    , m_kwinCompositingConfig(DConfig::create(ORG_KDE_KWIN, ORG_KDE_KWIN_COMPOSITING, "", this))
+    , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
 {
     ThemeModel *cursorTheme = m_model->getMouseModel();
     ThemeModel *windowTheme = m_model->getWindowModel();
@@ -52,12 +88,19 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::DTKSizeModeChanged, this, &PersonalizationWorker::onCompactDisplayChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::scrollBarPolicyChanged, this, &PersonalizationWorker::setScrollBarPolicy);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
         qCDebug(DdcPersonalWorker) << "ChangeProperty is " << propertyName << "; value is" << value;
         if (propertyName == "globaltheme") {
             refreshTheme();
         }
     });
+
+    connect(m_kwinTitleBarConfig, &DConfig::valueChanged, this, &PersonalizationWorker::onKWinTitleBarConfigChanged);
+    connect(m_kwinCompositingConfig, &DConfig::valueChanged, this, &PersonalizationWorker::onKWinCompositingConfigChanged);
+    connect(m_personalizationConfig, &DConfig::valueChanged, this, &PersonalizationWorker::onPersonalizationConfigChanged);
+
     m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
 
     m_themeModels["gtk"] = windowTheme;
@@ -84,6 +127,20 @@ void PersonalizationWorker::active()
     m_model->getMonoFontModel()->setFontName(m_personalizationDBusProxy->monospaceFont());
     m_model->getStandFontModel()->setFontName(m_personalizationDBusProxy->standardFont());
     m_model->setWindowRadius(m_personalizationDBusProxy->windowRadius());
+    m_model->getFontSizeModel()->setFontSize(ptToPx(m_personalizationDBusProxy->fontSize()));
+    m_model->setCompactDisplay(m_personalizationDBusProxy->getDTKSizeMode());
+    m_model->setScrollBarPolicy(m_personalizationDBusProxy->getScrollBarPolicy());
+
+    int titleBarHight = m_kwinTitleBarConfig->value(TITLE_BAR_HEIGHT_KEY).toInt();
+    m_model->setTitleBarHeight(titleBarHight);
+    int titleBarDefHight = m_kwinTitleBarConfig->value(TITLE_BAR_DEFAULT_HEIGHT_KEY).toInt();
+    m_model->setTitleBarDefaultHeight(titleBarDefHight);
+    int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
+    m_model->setWindowEffectType(windowEffectType);
+    QString scrollbarConfig = m_personalizationConfig->value(SCROLLBAR_POLICY_KEY).toString();
+    m_model->setScrollBarPolicyConfig(scrollbarConfig);
+    QString compactDisplayConfig = m_personalizationConfig->value(COMPACT_MODE_DISPLAY_KEY).toString();
+    m_model->setCompactDisplayConfig(compactDisplayConfig);
 }
 
 void PersonalizationWorker::deactive()
@@ -140,12 +197,14 @@ void PersonalizationWorker::addList(ThemeModel *model, const QString &type, cons
 void PersonalizationWorker::refreshWMState()
 {
     m_personalizationDBusProxy->CurrentWM(this, SLOT(onToggleWM(const QString &)));
+    m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
 }
 
 void PersonalizationWorker::FontSizeChanged(const double value) const
 {
     FontSizeModel *fontSizeModel = m_model->getFontSizeModel();
-    fontSizeModel->setFontSize(sizeToSliderValue(value));
+    int px = static_cast<int>(ptToPx(value));
+    fontSizeModel->setFontSize(px);
 }
 
 void PersonalizationWorker::onGetFontFinished(const QString &category, const QString &json)
@@ -202,6 +261,16 @@ void PersonalizationWorker::onCompositingAllowSwitch(bool value)
     m_model->setCompositingAllowSwitch(value);
 }
 
+void PersonalizationWorker::onCompactDisplayChanged(int value)
+{
+    m_model->setCompactDisplay(value);
+}
+
+void PersonalizationWorker::onWindowEffectChanged(int value)
+{
+    m_model->setWindowEffectType(value);
+}
+
 void PersonalizationWorker::setFontList(FontModel *model, const QString &type, const QString &list)
 {
     QJsonArray array = QJsonDocument::fromJson(list.toLocal8Bit().data()).array();
@@ -215,6 +284,18 @@ void PersonalizationWorker::setFontList(FontModel *model, const QString &type, c
     watcher->setProperty("type", type);
     watcher->setProperty("FontModel", QVariant::fromValue(static_cast<void *>(model)));
     m_personalizationDBusProxy->Show(type, l, watcher, SLOT(onShow(const QString &)));
+}
+
+void PersonalizationWorker::setTitleBarHeight(int value)
+{
+    m_kwinTitleBarConfig->setValue(TITLE_BAR_HEIGHT_KEY, value);
+}
+
+void PersonalizationWorker::setDiabledCompactToTitleHeight()
+{
+    if (m_personalizationConfig->value(TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY).toBool()) {
+        m_personalizationConfig->setValue(TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY, false);
+    }
 }
 
 void PersonalizationWorker::refreshTheme()
@@ -259,45 +340,10 @@ bool PersonalizationWorker::allowSwitchWM()
 
 void PersonalizationWorker::refreshOpacity(double opacity)
 {
-    int slider{ static_cast<int>(opacity * 100) };
-    qCDebug(DdcPersonalWorker) << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
-    m_model->setOpacity(std::pair<int, double>(slider, opacity));
+    qCDebug(DdcPersonalWorker) << QString("opacity: %1").arg(opacity);
+    m_model->setOpacity(opacity);
 }
 
-const int RENDER_DPI = 72;
-const double DPI = 96;
-
-double ptToPx(double pt)
-{
-    double px = pt / RENDER_DPI * DPI + 0.5;
-    return px;
-}
-
-double pxToPt(double px)
-{
-    double pt = px * RENDER_DPI / DPI;
-    return pt;
-}
-
-//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、14px、15px、16px、18px、20px;
-//社区版默认值为12px；专业版默认值为12px；
-int PersonalizationWorker::sizeToSliderValue(const double value) const
-{
-    int px = static_cast<int>(ptToPx(value));
-
-    if (px < FontSizeList.first()) {
-        return 0;
-    } else if (px > FontSizeList.last()) {
-        return (FontSizeList.size() - 1);
-    }
-
-    return FontSizeList.indexOf(px);
-}
-
-double PersonalizationWorker::sliderValueToSize(const int value) const
-{
-    return pxToPt(FontSizeList.at(value));
-}
 
 double PersonalizationWorker::sliderValutToOpacity(const int value) const
 {
@@ -317,7 +363,7 @@ void PersonalizationWorker::setDefault(const QJsonObject &value)
 
 void PersonalizationWorker::setFontSize(const int value)
 {
-    m_personalizationDBusProxy->setFontSize(sliderValueToSize(value));
+    m_personalizationDBusProxy->setFontSize(pxToPt(value));
 }
 
 void PersonalizationWorker::switchWM()
@@ -333,6 +379,29 @@ void PersonalizationWorker::switchWM()
 void PersonalizationWorker::windowSwitchWM(bool value)
 {
     m_personalizationDBusProxy->setCompositingEnabled(value);
+}
+
+void PersonalizationWorker::setWindowEffect(int value)
+{
+    qCWarning(DdcPersonalWorker) << "windowSwitchWM switch to: " << value;
+    m_kwinCompositingConfig->setValue(WINDOW_EFFECT_TYPE_KEY, value);
+}
+
+void PersonalizationWorker::movedWindowSwitchWM(bool value)
+{
+    if (value) {
+        m_personalizationDBusProxy->loadEffect(EffectMoveWindowArg);
+    } else {
+        m_personalizationDBusProxy->unloadEffect(EffectMoveWindowArg);
+    }
+
+    //设置kwin接口后, 等待50ms给kwin反应，根据isEffectLoaded返回值确定真实状态
+    QTimer::singleShot(50, [this] {
+        bool isLoaded =  m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg);
+        qCDebug(DdcPersonalWorker) << "Moved window switch WM, load effect translucency: " << isLoaded;
+        m_model->setIsMoveWindow(isLoaded);
+        // m_model->setIsMoveWindowDconfig(value);
+    });
 }
 
 void PersonalizationWorker::setOpacity(int opacity)
@@ -368,6 +437,29 @@ void PersonalizationWorker::setWindowRadius(int radius)
     m_personalizationDBusProxy->setWindowRadius(radius);
 }
 
+void PersonalizationWorker::setCompactDisplay(bool value)
+{
+    // 如果标题栏高度支持紧凑模式，则开/关紧凑模式需要与标题栏高度联动, 应与前端数值保持一致
+    static const QVector<uint8_t> TitleHeightList = {24, 32, 40, 50};
+    bool isTitleBarHeightSupported = m_personalizationConfig->value(TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY).toBool();
+
+    if (isTitleBarHeightSupported) {
+        int index = TitleHeightList.indexOf(m_model->getTitleBarHeight());
+        int tarHeight = value ? TitleHeightList.value(index - 1) : TitleHeightList.value(index + 1);
+        if (TitleHeightList.contains(tarHeight)) {
+            setTitleBarHeight(tarHeight);
+        } 
+    }
+
+    m_personalizationDBusProxy->setDTKSizeMode(int(value));
+}
+
+
+void PersonalizationWorker::setScrollBarPolicy(int policy)
+{
+    m_personalizationDBusProxy->setScrollBarPolicy( policy);
+}
+
 template<typename T>
 T PersonalizationWorker::toSliderValue(std::vector<T> list, T value)
 {
@@ -379,6 +471,80 @@ T PersonalizationWorker::toSliderValue(std::vector<T> list, T value)
 
     return list.end() - list.begin();
 }
+
+void PersonalizationWorker::onKWinTitleBarConfigChanged(const QString &key)
+{
+    if (key == TITLE_BAR_HEIGHT_KEY) {
+        int value = m_kwinTitleBarConfig->value(key).toInt();
+        m_model->setTitleBarHeight(value);
+    } else if (key == WINDOW_EFFECT_TYPE_KEY) {
+        int value = m_kwinTitleBarConfig->value(key).toInt();
+        m_model->setWindowEffectType(value);
+    }
+}
+
+void PersonalizationWorker::onKWinCompositingConfigChanged(const QString &key)
+{
+    if (key == WINDOW_EFFECT_TYPE_KEY) {
+        int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
+        m_model->setWindowEffectType(windowEffectType);
+    }
+}
+
+void PersonalizationWorker::onPersonalizationConfigChanged(const QString &key)
+{
+    if (key == SCROLLBAR_POLICY_KEY) {
+        QString value = m_personalizationConfig->value(key).toString();
+        m_model->setScrollBarPolicyConfig(value);
+    } else if (key == COMPACT_MODE_DISPLAY_KEY) {
+        QString value = m_personalizationConfig->value(key).toString();
+        m_model->setCompactDisplayConfig(value);
+    }
+}
+
+void PersonalizationWorker::setGlobalTheme(const QString &themeId)
+{
+    qDebug() << "applied global theme" << themeId;
+    ThemeModel *globalTheme = m_model->getGlobalThemeModel();
+    QString mode;
+    (void)getGlobalThemeId(globalTheme->getDefault(), mode);
+
+    const QMap<QString, QJsonObject> &itemList = globalTheme->getList();
+    if (itemList.contains(themeId))
+        setDefaultByType(itemList.value(themeId)["type"].toString(), themeId + mode);
+}
+
+void PersonalizationWorker::setAppearanceTheme(const QString &id)
+{
+    ThemeModel *globalTheme = m_model->getGlobalThemeModel();
+    QString mode;
+    QString themeId = getGlobalThemeId(globalTheme->getDefault(), mode);
+    const QMap<QString, QJsonObject> &itemList = globalTheme->getList();
+    if (itemList.contains(themeId)) {
+        setDefaultByType(itemList.value(themeId)["type"].toString(),
+                                    themeId + id);
+    }
+}
+
+void PersonalizationWorker::setIconTheme(const QString &id)
+{
+    for (auto &object : m_model->getIconModel()->getList()) {
+        if (object.value("Id").toString() == id) {
+            setDefault(object);
+            return;
+        }
+    }
+}
+void PersonalizationWorker::setCursorTheme(const QString &id)
+{
+    for (auto &object : m_model->getMouseModel()->getList()) {
+        if (object.value("Id").toString() == id) {
+            setDefault(object);
+            return;
+        }
+    }
+}
+
 
 PersonalizationWatcher::PersonalizationWatcher(PersonalizationWorker *work)
     : QObject(work)
