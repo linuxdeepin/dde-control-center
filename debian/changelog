@@ -1,3 +1,9 @@
+dde-control-center (6.0.69) unstable; urgency=medium
+
+  * feat: add display compact mode
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Tue, 08 Oct 2024 15:16:02 +0800
+
 dde-control-center (6.0.68) unstable; urgency=medium
 
   * release 6.0.68
