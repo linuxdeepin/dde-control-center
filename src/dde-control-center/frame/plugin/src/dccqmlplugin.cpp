@@ -6,6 +6,7 @@
 #include "dccapp.h"
 #include "dccmodel.h"
 #include "dccobject.h"
+#include "dccrepeater.h"
 #include "dccquickdbusinterface.h"
 
 #include <qqml.h>
@@ -17,6 +18,7 @@ void DccQmlPlugin::registerTypes(const char *uri)
     // @uri org.deepin.dcc
     qmlRegisterModule(uri, 1, 0);
     qmlRegisterType<dccV25::DccObject>(uri, 1, 0, "DccObject");
+    qmlRegisterType<dccV25::DccRepeater>(uri, 1, 0, "DccRepeater");
     qmlRegisterType<dccV25::DccModel>(uri, 1, 0, "DccModel");
     qmlRegisterType<dccV25::DccQuickDBusInterface>(uri, 1, 0, "DccDBusInterface");
 

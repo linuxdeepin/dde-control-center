@@ -12,10 +12,12 @@ add_library(${DCCFrame_Name} SHARED
     ${DCCFrame_SRCS}
 )
 
+find_package(${QT_NS} COMPONENTS QmlModels REQUIRED)
 set(DCCFrame_Libraries
     ${DTK_NS}::Gui
-    Qt::Gui
-    Qt::Quick
+    ${QT_NS}::Gui
+    ${QT_NS}::Quick
+    ${QT_NS}::QmlModelsPrivate
 )
 
 target_link_libraries(${DCCFrame_Name} PRIVATE
