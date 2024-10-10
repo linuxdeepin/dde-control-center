@@ -95,6 +95,25 @@ struct BluetoothDeviceItemAction
     Q_DISABLE_COPY(BluetoothDeviceItemAction)
 };
 
+const QMap<QString, QString> BluetoothDeviceModel::deviceType2Icon = {
+    {"unknow", "other"},
+    {"computer", "pc"},
+    {"phone", "phone"},
+    {"video-display", "vidicon"},
+    {"multimedia-player", "tv"},
+    {"scanner", "scaner"},
+    {"input-keyboard", "keyboard"},
+    {"input-mouse", "mouse"},
+    {"input-gaming", "other"},
+    {"input-tablet", "touchpad"},
+    {"audio-card", "pheadset"},
+    {"network-wireless", "lan"},
+    {"camera-video", "vidicon"},
+    {"printer", "print"},
+    {"camera-photo", "camera"},
+    {"modem", "other"}
+};
+
 BluetoothDeviceModel::BluetoothDeviceModel(const BluetoothAdapter *adapter,
                                            bool paired,
                                            QWidget *parent)
@@ -183,10 +202,12 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
-        if (!device->deviceType().isEmpty())
-            return DIconTheme::findQIcon(isDarkTheme ? device->deviceType(): device->deviceType() + "-dark");
+        if (!device->deviceType().isEmpty()) {
+            QString deviceIconName = QString("bluetooth_%1").arg(deviceType2Icon[device->deviceType()]);
+            return QIcon::fromTheme(deviceIconName);
+        }
         else
-            return DIconTheme::findQIcon(QString("bluetooth_other"));
+            return QIcon::fromTheme(QString("bluetooth_other"));
     case Dtk::RightActionListRole:
         return m_data.at(row)->item->data(role);
     default:
