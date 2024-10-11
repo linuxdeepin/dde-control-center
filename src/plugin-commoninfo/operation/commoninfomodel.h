@@ -3,13 +3,28 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include "grubanimationmodel.h"
+#include "grubmenulistmodel.h"
+
+#include <QtQml/qqml.h>
 #include <QObject>
 #include <QPixmap>
 
-namespace DCC_NAMESPACE {
 class CommonInfoModel : public QObject
 {
     Q_OBJECT
+
+    QML_NAMED_ELEMENT(CommonInfoModel)
+    QML_SINGLETON
+
+    Q_PROPERTY(bool bootDelay READ bootDelay NOTIFY bootDelayChanged FINAL)
+    Q_PROPERTY(bool themeEnabled READ themeEnabled NOTIFY themeEnabledChanged FINAL)
+    Q_PROPERTY(bool grubEditAuthEnabled READ grubEditAuthEnabled NOTIFY grubEditAuthEnabledChanged FINAL)
+    Q_PROPERTY(int debugLogCurrentIndex READ debugLogCurrentIndex NOTIFY debugLogCurrentIndexChanged FINAL)
+    Q_PROPERTY(bool developerModeState READ developerModeState NOTIFY developerModeStateChanged FINAL)
+    Q_PROPERTY(bool isLogin READ isLogin NOTIFY isLoginChenged FINAL)
+    Q_PROPERTY(bool isActivate READ isActivate NOTIFY LicenseStateChanged FINAL)
+
 public:
     explicit CommonInfoModel(QObject *parent = nullptr);
 
@@ -17,9 +32,9 @@ public:
     inline QStringList entryLists() const { return m_entryLists;}
     inline QString defaultEntry() const { return m_defaultEntry;}
     bool bootDelay() const;
-    inline bool themeEnabled() const { return m_themeEnabled; }
+    bool themeEnabled() const { return m_themeEnabled; }
     inline bool isShowGrubEditAuth() { return m_isShowGrubEditAuth; }
-    inline bool grubEditAuthEnabled() { return m_grubEditAuthEnabled; }
+    bool grubEditAuthEnabled() { return m_grubEditAuthEnabled; }
     inline bool updating() const { return m_updating; }
     QPixmap background() const;
     void setBackground(const QPixmap &background);
@@ -30,6 +45,13 @@ public:
     void setActivation(bool value);
     inline int plymouthScale() const { return m_plymouthscale; }
     inline QString plymouthTheme() const { return m_plymouththeme; }
+
+    Q_INVOKABLE GrubAnimationModel *grubAnimationModel();
+    Q_INVOKABLE GrubMenuListModel *grubMenuListModel();
+    Q_INVOKABLE bool isCommunitySystem() const;
+
+    int debugLogCurrentIndex() const;
+    void setDebugLogCurrentIndex(int newDebugLogCurrentIndex);
 
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
@@ -45,6 +67,10 @@ Q_SIGNALS:
     void LicenseStateChanged(bool state);
     void plymouthScaleChanged(int scale);
     void plymouthThemeChanged(const QString &themeName);
+
+    void GrubAnimationModelChanged();
+
+    void debugLogCurrentIndexChanged();
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -74,5 +100,9 @@ private:
     bool m_activation;
     int m_plymouthscale;
     QString m_plymouththeme;
+
+    GrubAnimationModel* m_GrubAnimationModel;
+    GrubMenuListModel* m_GrubMenuListModel;
+
+    int m_debugLogCurrentIndex;
 };
-} // namespace DCC_NAMESPACE
