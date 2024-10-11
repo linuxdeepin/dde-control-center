@@ -4,8 +4,7 @@
 #include "commoninfomodel.h"
 
 #include <QDebug>
-
-using namespace DCC_NAMESPACE;
+#include <dtk5/DCore/DSysInfo>
 
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)
@@ -16,6 +15,9 @@ CommonInfoModel::CommonInfoModel(QObject *parent)
     , m_activation(false)
     , m_plymouthscale(0)
     , m_plymouththeme(QString())
+    , m_GrubAnimationModel(new GrubAnimationModel(this))
+    , m_GrubMenuListModel(new GrubMenuListModel(this))
+    , m_debugLogCurrentIndex(0)
 {
 }
 
@@ -54,6 +56,8 @@ void CommonInfoModel::setDefaultEntry(const QString &entry)
         m_defaultEntry = entry;
         Q_EMIT defaultEntryChanged(entry);
     }
+
+    m_GrubMenuListModel->updateCheckIndex(m_defaultEntry);
 }
 
 void CommonInfoModel::setUpdating(bool updating)
@@ -136,6 +140,7 @@ void CommonInfoModel::setPlymouthScale(int scale)
 {
     m_plymouthscale = scale;
 
+    m_GrubAnimationModel->updateCheckIndex(scale, false);
     Q_EMIT plymouthScaleChanged(scale);
 }
 
@@ -144,4 +149,32 @@ void CommonInfoModel::setPlymouthTheme(const QString &themeName)
     m_plymouththeme = themeName;
 
     Q_EMIT plymouthThemeChanged(themeName);
+}
+
+int CommonInfoModel::debugLogCurrentIndex() const
+{
+    return m_debugLogCurrentIndex;
+}
+
+void CommonInfoModel::setDebugLogCurrentIndex(int newDebugLogCurrentIndex)
+{
+    if (m_debugLogCurrentIndex == newDebugLogCurrentIndex)
+        return;
+    m_debugLogCurrentIndex = newDebugLogCurrentIndex;
+    emit debugLogCurrentIndexChanged();
+}
+
+GrubAnimationModel *CommonInfoModel::grubAnimationModel()
+{
+    return m_GrubAnimationModel;
+}
+
+GrubMenuListModel * CommonInfoModel::grubMenuListModel()
+{
+    return m_GrubMenuListModel;
+}
+
+bool CommonInfoModel::isCommunitySystem() const
+{
+    return Dtk::Core::DSysInfo::UosCommunity == Dtk::Core::DSysInfo::DSysInfo::uosEditionType();
 }

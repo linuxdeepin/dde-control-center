@@ -16,16 +16,20 @@
 #include <QSettings>
 #include <QLoggingCategory>
 #include <QDir>
+#include <DDBusSender>
 
 #include <mutex>
+#include <qdbusmetatype.h>
+#include <QJsonDocument>
 
 Q_LOGGING_CATEGORY(DccCommonInfoWork, "dcc-commoninfo-work");
+
+#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版
 
 std::mutex SCALE_SETTING_GUARD;
 
 static const QString PlyMouthConf = QStringLiteral("/etc/plymouth/plymouthd.conf");
 
-using namespace DCC_NAMESPACE;
 
 const QString &GRUB_EDIT_AUTH_ACCOUNT("root");
 
@@ -116,6 +120,25 @@ static void notifyInfoWithBody(const QString &summary, const QString &body)
             .call();
 }
 
+QDBusArgument &operator<<(QDBusArgument &argument, const DebugArg &debugArg)
+{
+    argument.beginStructure();
+    argument << debugArg.module;
+    argument << debugArg.state;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument,  DebugArg&debugArg)
+{
+    argument.beginStructure();
+    argument >> debugArg.module;
+    argument >> debugArg.state;
+    argument.endStructure();
+    return argument;
+}
+
+
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_commomModel(model)
@@ -123,7 +146,27 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     , m_title("")
     , m_content("")
     , m_scaleIsSetting(false)
+    , m_debugConfigInter(new QDBusInterface("org.deepin.DebugConfig",
+                            "/org/deepin/DebugConfig",
+                            "org.deepin.DebugConfig",
+                            QDBusConnection::systemBus(), this))
+    , m_inter(new QDBusInterface("com.deepin.sync.Helper",
+                                 "/com/deepin/sync/Helper",
+                                 "com.deepin.sync.Helper",
+                                 QDBusConnection::systemBus(), this))
 {
+    //注册类型
+    qRegisterMetaType<DebugArg>("DebugArg");
+    qDBusRegisterMetaType<DebugArg>();
+    qRegisterMetaType<DebugArgList>("DebugArgList");
+    qDBusRegisterMetaType<DebugArgList>();
+
+    qRegisterMetaType<DMIInfo>("DMIInfo");
+    qDBusRegisterMetaType<DMIInfo>();
+    qRegisterMetaType<HardwareInfo>("HardwareInfo");
+    qDBusRegisterMetaType<HardwareInfo>();
+
+
     //监听开发者在线认证失败的错误接口信息
     connect(m_commonInfoProxy, &CommonInfoProxy::DeepinIdError, this, &CommonInfoWork::deepinIdErrorSlot);
     connect(m_commonInfoProxy, &CommonInfoProxy::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
@@ -173,17 +216,241 @@ void CommonInfoWork::active()
     m_commomModel->setBootDelay(m_commonInfoProxy->Timeout() > 1);
     m_commomModel->setGrubEditAuthEnabled(m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
     m_commomModel->setUpdating(m_commonInfoProxy->Updating());
-    auto [factor, themeName] = getPlyMouthInformation();
-    m_commomModel->setPlymouthScale(factor);
-    m_commomModel->setPlymouthTheme(themeName);
+
+
+
     auto AuthorizationState = m_commonInfoProxy->AuthorizationState();
     m_commomModel->setActivation(AuthorizationState == 1 || AuthorizationState == 3);
     m_commomModel->setUeProgram(m_commonInfoProxy->IsEnabled());
     m_commomModel->setEntryLists(m_commonInfoProxy->GetSimpleEntryTitles());
     m_commomModel->setDefaultEntry(m_commonInfoProxy->DefaultEntry());
 
+    initGrubAnimationModel();
+    initGrubMenuListModel();
+    initDebugLogLevel();
+
     QPixmap pix = QPixmap(m_commonInfoProxy->Background());
     m_commomModel->setBackground(pix);
+}
+
+void CommonInfoWork::initGrubAnimationModel()
+{
+    QList<QPair<int, QString>> scaleThemeList;
+    if (IS_COMMUNITY_SYSTEM) {
+        scaleThemeList.append(QPair<int, QString>(2, "deepin-hidpi-ssd-logo"));
+        scaleThemeList.append(QPair<int, QString>(1, "deepin-ssd-logo"));
+    } else {
+        scaleThemeList.append(QPair<int, QString>(2, "uos-hidpi-ssd-logo"));
+        scaleThemeList.append(QPair<int, QString>(1, "uos-ssd-logo"));
+    }
+
+    auto [factor, themeName] = getPlyMouthInformation();
+    m_commomModel->setPlymouthScale(factor);
+    m_commomModel->setPlymouthTheme(themeName);
+
+    static QString ThemePath = "/usr/share/plymouth/themes";
+    QList<GrubAnimationData> list;
+    for (auto item : scaleThemeList) {
+        GrubAnimationData tempData;
+        tempData.startAnimation = false;
+        tempData.imagePath = ThemePath + QDir::separator() + item.second + QDir::separator() + "logo.png";
+        tempData.text = item.first == 2 ? tr("Large size") : tr("Small size");
+        tempData.plymouthScale = item.first;
+        tempData.checkStatus = factor == item.first;
+        if (item.first == 2) {
+            tempData.scale = 0.5;
+        } else if (item.first == 1) {
+            tempData.scale = 0.3;
+        } else {
+            tempData.scale = 1;
+        }
+        list.append(tempData);
+    }
+
+    m_commomModel->grubAnimationModel()->initData(list);
+}
+
+void CommonInfoWork::initGrubMenuListModel()
+{
+    QList<GrubMenuData> list;
+    for (QString item : m_commomModel->entryLists()) {
+        GrubMenuData data;
+        data.text = item;
+        data.checkStatus = QString::compare(m_commomModel->defaultEntry(), item, Qt::CaseSensitive) == 0;
+        list.append(data);
+    }
+
+    m_commomModel->grubMenuListModel()->initData(list);
+}
+
+void CommonInfoWork::initDebugLogLevel()
+{
+    QStringList arg = {"all"};
+    QDBusPendingCall state = m_debugConfigInter->asyncCall("GetState", arg);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(state, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher, state] {
+        if (!state.isError()) {
+            QDBusReply<QStringList> res = state.reply();
+            qInfo() << "GetState:" << res.value();
+
+            bool debugState = res.value().first() == "debug";         
+            int index = debugState ? 1 : 0;
+            m_commomModel->setDebugLogCurrentIndex(index);
+        } else {
+            qWarning() << "GetState failed:" << state.error();
+        }
+        watcher->deleteLater();
+    });
+}
+
+QString CommonInfoWork::verifyPassword(QString text)
+{
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword("", text, PwqualityManager::CheckType::Grub2);
+    return error != PwqualityManager::ERROR_TYPE::PW_NO_ERR ? PwqualityManager::instance()->getErrorTips(error, PwqualityManager::CheckType::Grub2) : "";
+}
+
+void CommonInfoWork::jumpToSecurityCenter()
+{
+    DDBusSender()
+    .service("com.deepin.defender.hmiscreen")
+    .interface("com.deepin.defender.hmiscreen")
+    .path("/com/deepin/defender/hmiscreen")
+    .method(QString("ShowPage"))
+    .arg(QString("securitytools"))
+    .arg(QString("application-safety"))
+    .call();
+}
+
+void CommonInfoWork::setLogDebug(int index)
+{
+    const bool isOn = index == 1;
+    const QString &state = isOn ? "debug" : "warning";
+
+    qInfo() << "SetDebug arg:" << state;
+    DebugArg arg;
+    arg.state = state;
+    arg.module = "all";
+    DebugArgList argList;
+    argList << arg;
+    QDBusPendingCall reply = m_debugConfigInter->asyncCall("SetDebug", QVariant::fromValue(argList));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [watcher, reply] {
+        if (reply.isError()) {
+                qWarning() << "SetDebug failed:" << reply.error();
+        }
+        watcher->deleteLater();
+    });
+}
+
+void CommonInfoWork::importCertificate(QString filePath)
+{
+    filePath = filePath.remove("file://");
+    //读取机器信息证书
+    QFile fFile(filePath);
+    if (!fFile.open(QIODevice::ReadOnly)) {
+        qDebug() << "Can't open file for writing";
+    }
+
+    QByteArray data = fFile.readAll();
+    QDBusMessage msg =  m_inter->call("EnableDeveloperMode", data);
+
+           //当返回信息为错误接口信息才处理
+    if (msg.type() == QDBusMessage::MessageType::ErrorMessage) {
+        //系统通知弹窗qdbus 接口
+        QDBusInterface  tInterNotify("org.deepin.dde.Notification1",
+                                    "/org/deepin/dde/Notification1",
+                                    "org.deepin.dde.Notification1",
+                                    QDBusConnection::sessionBus());
+
+               //初始化Notify 七个参数
+        QString in0(QObject::tr("dde-control-center"));
+        uint in1 = 101;
+        QString in2("preferences-system");
+        QString in3("");
+        QString in4("");
+        QStringList in5;
+        QVariantMap in6;
+        int in7 = 5000;
+
+               //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
+        QString msgcode = msg.errorMessage();
+        msgcode = msgcode.split(":").at(0);
+        if (msgcode == "1001") {
+            in3 = tr("Failed to get root access");
+        } else if (msgcode == "1002") {
+            in3 = tr("Please sign in to your Union ID first");
+        } else if (msgcode == "1003") {
+            in3 = tr("Cannot read your PC information");
+        } else if (msgcode == "1004") {
+            in3 = tr("No network connection");
+        } else if (msgcode == "1005") {
+            in3 = tr("Certificate loading failed, unable to get root access");
+        } else if (msgcode == "1006") {
+            in3 = tr("Signature verification failed, unable to get root access");
+        } else if (msgcode == "1007") {
+            in3 = tr("Failed to get root access");
+        }
+
+               //系统通知认证失败 无法进入开发模式
+        tInterNotify.call("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
+    }
+
+}
+
+void CommonInfoWork::exportMessage(QString filePath)
+{
+    filePath = filePath.remove("file://");
+    qDebug() << " importCertificate file path :  " << filePath;
+    QDBusInterface licenseInfo("com.deepin.sync.Helper",
+                               "/com/deepin/sync/Helper",
+                               "com.deepin.sync.Helper",
+                               QDBusConnection::systemBus());
+
+    QDBusReply<HardwareInfo> hardwareInfo = licenseInfo.call(QDBus::AutoDetect, "GetHardware");
+    QString fileName = filePath;
+    if (fileName.isEmpty())
+        return;
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadWrite))
+        qWarning() << "File open error, file name: " << fileName;
+    else
+        qInfo() << "Open file: " << fileName;
+
+           // 使用QJsonObject对象插入键值对。
+    QJsonObject jsonObject;
+    auto hardwareInfoValue = hardwareInfo.value();
+    auto hardwareDMIValue = hardwareInfo.value().dmi;
+    jsonObject.insert("id", hardwareInfoValue.id);
+    jsonObject.insert("hostname", hardwareInfoValue.hostName);
+    jsonObject.insert("username", hardwareInfoValue.username);
+    jsonObject.insert("cpu", hardwareInfoValue.cpu);
+    jsonObject.insert("laptop", hardwareInfoValue.laptop);
+    jsonObject.insert("memory", hardwareInfoValue.memory);
+    jsonObject.insert("network_cards", hardwareInfoValue.networkCards);
+
+    QJsonObject objectDMI;
+    objectDMI.insert("bios_vendor", hardwareDMIValue.biosVendor);
+    objectDMI.insert("bios_version", hardwareDMIValue.biosVersion);
+    objectDMI.insert("bios_date", hardwareDMIValue.biosDate);
+    objectDMI.insert("board_name", hardwareDMIValue.boardName);
+    objectDMI.insert("board_serial", hardwareDMIValue.boardSerial);
+    objectDMI.insert("board_vendor", hardwareDMIValue.boardVendor);
+    objectDMI.insert("board_version", hardwareDMIValue.boardVersion);
+    objectDMI.insert("product_name", hardwareDMIValue.productName);
+    objectDMI.insert("product_family", hardwareDMIValue.productFamily);
+    objectDMI.insert("product_serial", hardwareDMIValue.producctSerial);
+    objectDMI.insert("product_uuid", hardwareDMIValue.productUUID);
+    objectDMI.insert("product_version", hardwareDMIValue.productVersion);
+
+    jsonObject.insert("dmi", objectDMI);
+    //使用QJsonDocument设置该json对象
+    QJsonDocument jsonDoc;
+    jsonDoc.setObject(jsonObject);
+
+           //将json以文本形式写入文件并关闭文件
+    file.write(jsonDoc.toJson());
+    file.close();
 }
 
 void CommonInfoWork::setBootDelay(bool value)
@@ -390,6 +657,8 @@ void CommonInfoWork::setPlymouthFactor(int factor)
     }
     std::lock_guard<std::mutex> guard(SCALE_SETTING_GUARD);
     m_scaleIsSetting = true;
+
+    m_commomModel->grubAnimationModel()->updateCheckIndex(factor, true);
     QDBusPendingCall call = m_commonInfoProxy->SetScalePlymouth(factor);
     notifyInfo(tr("Start setting the new boot animation, please wait for a minute"));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
