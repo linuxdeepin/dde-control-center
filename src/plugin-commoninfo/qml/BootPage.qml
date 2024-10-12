@@ -57,7 +57,7 @@ DccObject {
 
             Image {
                 id: image
-                source: "qrc:/icons/deepin/builtin/icons/dde-grub-background.jpg"
+                source: "file://" + dccData.mode().grubThemePath
                 asynchronous: true
                 anchors.fill: parent
                 width: parent.width

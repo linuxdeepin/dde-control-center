@@ -229,8 +229,7 @@ void CommonInfoWork::active()
     initGrubMenuListModel();
     initDebugLogLevel();
 
-    QPixmap pix = QPixmap(m_commonInfoProxy->Background());
-    m_commomModel->setBackground(pix);
+    m_commomModel->setGrubThemePath(m_commonInfoProxy->Background());
 }
 
 void CommonInfoWork::initGrubAnimationModel()
@@ -678,13 +677,3 @@ void CommonInfoWork::setPlymouthFactor(int factor)
     Q_EMIT settingScaling(true);
 }
 
-QPixmap CommonInfoWork::getPlymouthFilePixmap()
-{
-    QString theme = m_commomModel->plymouthTheme();
-
-    static QString ThemePath = "/usr/share/plymouth/themes";
-
-    QString logoPath = ThemePath + QDir::separator() + theme + QDir::separator() + "logo.png";
-
-    return QPixmap(logoPath);
-}

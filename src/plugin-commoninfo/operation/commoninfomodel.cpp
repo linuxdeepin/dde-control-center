@@ -151,6 +151,19 @@ void CommonInfoModel::setPlymouthTheme(const QString &themeName)
     Q_EMIT plymouthThemeChanged(themeName);
 }
 
+QString CommonInfoModel::grubThemePath() const
+{
+    return m_grubThemePath;
+}
+
+void CommonInfoModel::setGrubThemePath(const QString &newGrubThemePath)
+{
+    if (m_grubThemePath == newGrubThemePath)
+        return;
+    m_grubThemePath = newGrubThemePath;
+    emit grubThemePathChanged();
+}
+
 int CommonInfoModel::debugLogCurrentIndex() const
 {
     return m_debugLogCurrentIndex;
