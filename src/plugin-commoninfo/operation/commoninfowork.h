@@ -33,7 +33,6 @@ public:
     virtual ~CommonInfoWork();
 
     void active();
-    QPixmap getPlymouthFilePixmap();
     bool isSettingPlymouth() { return m_scaleIsSetting; }
 
     void initGrubAnimationModel();

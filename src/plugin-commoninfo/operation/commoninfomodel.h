@@ -24,6 +24,8 @@ class CommonInfoModel : public QObject
     Q_PROPERTY(bool developerModeState READ developerModeState NOTIFY developerModeStateChanged FINAL)
     Q_PROPERTY(bool isLogin READ isLogin NOTIFY isLoginChenged FINAL)
     Q_PROPERTY(bool isActivate READ isActivate NOTIFY LicenseStateChanged FINAL)
+    Q_PROPERTY(QString grubThemePath READ grubThemePath NOTIFY grubThemePathChanged FINAL)
+
 
 public:
     explicit CommonInfoModel(QObject *parent = nullptr);
@@ -53,6 +55,9 @@ public:
     int debugLogCurrentIndex() const;
     void setDebugLogCurrentIndex(int newDebugLogCurrentIndex);
 
+    QString grubThemePath() const;
+    void setGrubThemePath(const QString &newGrubThemePath);
+
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
     void themeEnabledChanged(const bool enabled) const;
@@ -71,6 +76,8 @@ Q_SIGNALS:
     void GrubAnimationModelChanged();
 
     void debugLogCurrentIndexChanged();
+
+    void grubThemePathChanged();
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -100,6 +107,7 @@ private:
     bool m_activation;
     int m_plymouthscale;
     QString m_plymouththeme;
+    QString m_grubThemePath;
 
     GrubAnimationModel* m_GrubAnimationModel;
     GrubMenuListModel* m_GrubMenuListModel;
