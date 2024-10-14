@@ -34,15 +34,13 @@ RegionModule::RegionModule(DatetimeModel *model, DatetimeWorker *work, QObject *
     setNoScroll(false);
 
     // NOTE: not provide this feature
-    if (false) {
-        appendChild(new ItemModule("RegionTitle", tr("Region")));
-        appendChild(new WidgetModule<DTipLabel>("RegionTip",
-                                                tr(""),
-                                                this,
-                                                &RegionModule::initCountryTip));
-        initCountryModule();
-        appendChild(m_countryModule);
-    }
+    appendChild(new ItemModule("RegionTitle", tr("Region")));
+    appendChild(new WidgetModule<DTipLabel>("RegionTip",
+                                            tr(""),
+                                            this,
+                                            &RegionModule::initCountryTip));
+    initCountryModule();
+    appendChild(m_countryModule);
     appendChild(new ItemModule("regionFormat", tr("Format")));
     appendChild(new WidgetModule<DTipLabel>("regionFormatTip",
                                             tr(""),
@@ -51,6 +49,7 @@ RegionModule::RegionModule(DatetimeModel *model, DatetimeWorker *work, QObject *
     initLangRegionModule();
     appendChild(m_langRegionModule);
     appendChild(new WidgetModule<DCCListView>("", tr(""), [this](DListView *formatList) {
+        m_listView = formatList;
         initFormatList(formatList);
     }));
     initFormatModificationModule();
@@ -69,7 +68,7 @@ void RegionModule::initCountryTip(DTipLabel *countryTipLabel)
     countryTipLabel->setWordWrap(true);
     countryTipLabel->setAlignment(Qt::AlignLeft);
     countryTipLabel->setContentsMargins(10, 0, 10, 0);
-    countryTipLabel->setText(tr("Provide localized services based on your region."));
+    countryTipLabel->setText(tr("The operating system and apps may provide you with local content based on your country and region."));
 }
 
 void RegionModule::initCountryModule()
@@ -88,7 +87,25 @@ void RegionModule::initCountryModule()
                 qOverload<int>(&QComboBox::currentIndexChanged),
                 this,
                 [this](int index) {
-                    m_work->setConfigValue(country_key, m_model->countries().at(index));
+                    QString country = m_model->countries().at(index);
+                    m_work->setConfigValue(country_key, country);
+                    m_model->setCountry(country);
+                    QString language;
+                    QList<QLocale> locales =
+                    QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyCountry);
+                    for (auto locale : locales) {
+                        if (QLocale::countryToString(locale.country()) == country) {
+                            language = QLocale::languageToString(locale.language());
+                            m_model->setLocaleName(locale.name());
+                            m_work->setConfigValue(localeName_key, locale.name());
+                            m_work->genLocale(locale.name());
+                            break;
+                        }
+                    }
+                    QString langCountry = QString("%1:%2").arg(country).arg(language);
+                    m_work->setConfigValue(languageRegion_key, langCountry);
+                    m_model->setLangRegion(langCountry);
+                    updateRegionFormat(RegionProxy::regionFormat(m_model->localeName()));
                 });
         connect(m_model, &DatetimeModel::countryChanged, this, [this](const QString &text) {
             m_countryCombo->setCurrentText(QString("%1").arg(
@@ -105,7 +122,7 @@ void RegionModule::initRegionFormatTip(DTipLabel *regionFormatTipLabel)
     regionFormatTipLabel->setAlignment(Qt::AlignLeft);
     regionFormatTipLabel->setContentsMargins(10, 0, 10, 0);
     regionFormatTipLabel->setText(
-            tr("Select matching date and time formats based on language and region"));
+            tr("The operating system and some applications format dates and times according to the regional format."));
 }
 
 void RegionModule::initLangRegionModule()
@@ -283,6 +300,7 @@ void RegionModule::updateRegionFormat(const RegionFormat &regionFormat)
     m_currencyAction->setText(regionFormat.currencyFormat);
     m_numberAction->setText(regionFormat.numberFormat);
     m_paperAction->setText(regionFormat.paperFormat);
+    m_listView->update();
 
     m_work->setConfigValue(firstDayOfWeek_key, regionFormat.firstDayOfWeekFormat);
     m_work->setConfigValue(shortDateFormat_key, regionFormat.shortDateFormat);
