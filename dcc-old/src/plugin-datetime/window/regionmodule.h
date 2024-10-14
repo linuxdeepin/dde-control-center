@@ -75,6 +75,8 @@ private:
     ItemModule *m_countryModule = nullptr;
     ItemModule *m_langRegionModule = nullptr;
     ItemModule *m_formatModificationModule = nullptr;
+
+    DListView *m_listView = nullptr;
 };
 
 #endif // FORMATSETTINGMODULE_H
