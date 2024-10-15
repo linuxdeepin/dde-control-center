@@ -3034,6 +3034,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Custom Format</source>
         <translation>自定义格式</translation>
     </message>
+    <message>
+        <source>The operating system and apps may provide you with local content based on your country and region.</source>
+        <translation>操作系统和应用可能会根据你所在的国家和地区向你提供本地内容</translation>
+    </message>
+    <message>
+        <source>The operating system and some applications format dates and times according to the regional format.</source>
+        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
+    </message>
 </context>
 <context>
     <name>ResultItem</name>
