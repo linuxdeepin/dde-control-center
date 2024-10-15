@@ -3023,6 +3023,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Custom Format</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>The operating system and apps may provide you with local content based on your country and region.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The operating system and some applications format dates and times according to the regional format.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ResultItem</name>
