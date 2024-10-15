@@ -326,7 +326,9 @@ void TimeSettingModule::initDigitalClock(QWidget *w)
     layout->setSpacing(10);
     layout->setContentsMargins(0, 0, 0, 0);
     w->setLayout(layout);
-    w->setVisible(m_model->nTP());
+    QTimer::singleShot(10, w, [this, w]() {
+        w->setVisible(m_model->nTP());
+    });
     connect(m_model, &DatetimeModel::NTPChanged, w, &QWidget::setVisible);
     QTimer *timer = new QTimer(w);
     auto updateTime = [minLabel, hourLabel, yearLabel, monthLabel, dayLabel]() {

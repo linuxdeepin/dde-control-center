@@ -352,16 +352,17 @@ void UpdateSettingsModule::initModuleList()
         });
         updateMirrors->setVisible(!m_model->smartMirrorSwitch());
         connect(updateMirrors, &ItemModule::clicked, this, [this]() {
-            auto mirrorsWidget = new MirrorsWidget(m_model);
-            mirrorsWidget->setAttribute(Qt::WA_DeleteOnClose);
-            mirrorsWidget->setWindowModality(Qt::ApplicationModal);
-            mirrorsWidget->setVisible(false);
-            m_work->checkNetselect();
-            mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            if (m_mirrorsWidget.isNull()) {
+                m_mirrorsWidget.reset(new MirrorsWidget(m_model));
+                m_mirrorsWidget->setWindowModality(Qt::ApplicationModal);
+                m_mirrorsWidget->setVisible(false);
+                m_mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-            connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
-            connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
-            mirrorsWidget->show();
+                connect(m_mirrorsWidget.get(), &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+                connect(m_mirrorsWidget.get(), &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+            }
+            m_work->checkNetselect();
+            m_mirrorsWidget->show();
         });
 
         appendChild(new UpdateTitleModule("InternalUpdateSetting",
