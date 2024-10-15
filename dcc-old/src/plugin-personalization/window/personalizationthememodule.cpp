@@ -77,6 +77,9 @@ const QList<QColor> Dark_ACTIVE_COLORST = {
     QColor()
 };
 
+const QStringList FONT_SIZE_ANNOTIONS_LIST {"11","12","13","14","15","16","18","20"};
+const QStringList FONT_SIZE_ANNOTIONS_LIST_COMPACT {"10","11","12","13","14","15","16"};
+
 // clang-format on
 
 PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *model,
@@ -448,14 +451,11 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
     fontSizeSlider->addBackground();
     fontSizeSlider->setObjectName("fontsizeslider");
     QStringList annotions;
-    annotions << "11"
-              << "12"
-              << "13"
-              << "14"
-              << "15"
-              << "16"
-              << "18"
-              << "20";
+    if (m_model->getCompactDisplay()) {
+        annotions = FONT_SIZE_ANNOTIONS_LIST_COMPACT;
+    } else {
+        annotions << FONT_SIZE_ANNOTIONS_LIST;
+    }
     fontSizeSlider->setAnnotations(annotions);
 
     fontSizeSlider->setIconSize(QSize(16, 16));
@@ -476,6 +476,28 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
         fontSizeSlider->slider()->blockSignals(false);
         fontSizeSlider->setValueLiteral(annotions[fontSize]);
     };
+
+    auto updateSlider = [this, fontSizeSlider, fontSizeChanged]() {
+        fontSizeSlider->blockSignals(true);
+        fontSizeSlider->slider()->blockSignals(true);
+
+        QStringList annotions;
+        if (m_model->getCompactDisplay()) {
+            annotions = FONT_SIZE_ANNOTIONS_LIST_COMPACT;
+        } else {
+            annotions << FONT_SIZE_ANNOTIONS_LIST;
+        }
+        fontSizeSlider->setAnnotations(annotions);
+
+        DCCSlider *slider = fontSizeSlider->slider();
+        slider->setRange(0, annotions.size() - 1);
+
+        fontSizeSlider->slider()->blockSignals(false);
+        fontSizeSlider->blockSignals(false);
+
+        fontSizeChanged(m_model->getFontSizeModel()->getFontSize());
+    };
+
     fontSizeChanged(m_model->getFontSizeModel()->getFontSize());
     connect(m_model->getFontSizeModel(),
             &FontSizeModel::sizeChanged,
@@ -483,6 +505,7 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
             fontSizeChanged);
     connect(slider, &DCCSlider::valueChanged, m_work, &PersonalizationWorker::setFontSize);
     connect(slider, &DCCSlider::sliderMoved, m_work, &PersonalizationWorker::setFontSize);
+    connect(m_model, &PersonalizationModel::compactDisplayChanged, fontSizeSlider, updateSlider);
     return fontSizeSlider;
 }
 
