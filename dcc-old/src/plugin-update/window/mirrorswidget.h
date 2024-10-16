@@ -42,6 +42,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 Q_SIGNALS:
     void requestSetDefaultMirror(const MirrorInfo &mirror);
@@ -70,6 +71,7 @@ private:
     QPushButton *m_testButton;
     Dtk::Widget::DListView *m_view;
     QStandardItemModel *m_model;
+    UpdateModel *m_updateModel;
     int m_mirrorSourceNo;
     QWidget *m_listWidget;
 };

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "interface/pagemodule.h"
+#include "mirrorswidget.h"
 
 #include <DTipLabel>
 
@@ -101,4 +102,5 @@ private:
     DCC_NAMESPACE::ModuleObject *m_backupUpdatesModule;
     DCC_NAMESPACE::ModuleObject *m_backupUpdatesTipModule;
     DCC_NAMESPACE::ModuleObject *m_updateNotifyModule;
+    QScopedPointer<DCC_NAMESPACE::update::MirrorsWidget> m_mirrorsWidget;
 };

@@ -32,7 +32,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->addSpacing(10);
     auto titleBar = new DTitlebar(this);
     titleBar->setFrameStyle(QFrame::NoFrame);
     titleBar->setBackgroundTransparent(true);
@@ -59,7 +58,7 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::RoundedBackground);
     m_view->setSelectionMode(DListView::NoSelection);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->setEditTriggers(QListView::NoEditTriggers);
     m_view->setModel(m_model);
@@ -91,6 +90,7 @@ MirrorsWidget::~MirrorsWidget()
 
 void MirrorsWidget::setModel(UpdateModel *model)
 {
+    m_updateModel = model;
     if (!model->mirrorInfos().isEmpty()) {
         setDefaultMirror(model->defaultMirror());
     }
@@ -98,7 +98,6 @@ void MirrorsWidget::setModel(UpdateModel *model)
     setMirrorInfoList(model->mirrorInfos());
     qRegisterMetaType<QMap<QString, int>>("QMap<QString, int>");
     connect(model, &UpdateModel::defaultMirrorChanged, this, &MirrorsWidget::setDefaultMirror);
-    connect(model, &UpdateModel::mirrorSpeedInfoAvailable, this, &MirrorsWidget::onSpeedInfoAvailable);
     connect(model, &UpdateModel::netselectExistChanged, m_testButton, &QPushButton::setVisible);
     m_testButton->setVisible(model->netselectExist());
 }
@@ -107,7 +106,14 @@ void MirrorsWidget::setModel(UpdateModel *model)
 void MirrorsWidget::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event)
+    disconnect(m_updateModel, &UpdateModel::mirrorSpeedInfoAvailable, this, &MirrorsWidget::onSpeedInfoAvailable);
+}
 
+void MirrorsWidget::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event)
+    connect(m_updateModel, &UpdateModel::mirrorSpeedInfoAvailable, this, &MirrorsWidget::onSpeedInfoAvailable, Qt::QueuedConnection);
+    onSpeedInfoAvailable(m_updateModel->mirrorSpeedInfo());
 }
 
 void MirrorsWidget::setDefaultMirror(const MirrorInfo &mirror)
@@ -157,6 +163,9 @@ void MirrorsWidget::setMirrorInfoList(const MirrorInfoList &list)
 
 void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
 {
+    if (info.isEmpty()) {
+        return;
+    }
     m_testProgress = Done;
     m_testButton->setText(tr("Retest"));
     int count = m_model->rowCount();
