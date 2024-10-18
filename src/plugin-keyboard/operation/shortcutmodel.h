@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -7,10 +7,11 @@
 
 #define MEDIAKEY 2
 
-#include "interface/namespace.h"
+#include <QAbstractListModel>
 #include <QObject>
+#include <QSortFilterProxyModel>
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class ShortcutItem;
 struct ShortcutInfo
@@ -22,6 +23,8 @@ struct ShortcutInfo
     int type;
     ShortcutInfo *replace = nullptr;
     ShortcutItem *item = nullptr;
+    QString sectionName;
+    QString pinyin;
 
     ShortcutInfo()
         : type(0)
@@ -36,7 +39,7 @@ struct ShortcutInfo
 
     QString toString()
     {
-        return name + accels + command + id + QString::number(type);
+        return name + accels + command + "_" + id + "_" +QString::number(type);
     }
 };
 
@@ -63,18 +66,33 @@ public:
     QList<ShortcutInfo *> assistiveToolsInfo() const;
     QList<ShortcutInfo *> customInfo() const;
     QList<ShortcutInfo *> infos() const;
+    inline int count() {
+        int c = m_systemInfos.count() +
+                m_windowInfos.count() +
+                m_workspaceInfos.count() +
+                m_assistiveToolsInfos.count() +
+                m_customInfos.count();
+        return c;
+    }
+    ShortcutInfo *shortcutAt(int index, int *corners = nullptr);
 
     void delInfo(ShortcutInfo *info);
 
     ShortcutInfo *currentInfo() const;
     void setCurrentInfo(ShortcutInfo *currentInfo);
 
+    ShortcutInfo *findInfoIf(std::function<bool (ShortcutInfo *)> cb);
     ShortcutInfo *getInfo(const QString &shortcut);
+
     void setSearchResult(const QString &searchResult);
+    bool searchResultContains(const QString &id);
     bool getWindowSwitch();
+
+    static QStringList formatKeys(const QString &shortcut);
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo *info);
+    void delCustomInfo(ShortcutInfo *info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
     void searchFinished(const QList<ShortcutInfo *> searchResult);
@@ -100,5 +118,35 @@ private:
     //dcc::display::DisplayModel m_dis;
 };
 
+class ShortcutListModel : public QAbstractListModel {
+public:
+    explicit ShortcutListModel(QObject *parent = nullptr);
+
+    enum ShortcutRole {
+        SearchedTextRole = Qt::UserRole + 1,
+        IdRole,
+        CommandRole,
+        KeySequenceRole,
+        AccelsRole,
+        SectionNameRole,
+        CornersRole,
+        IsCustomRole
+
+    };
+
+    void setSouceModel(ShortcutModel *model);
+    ShortcutModel *souceModel();
+
+    void reset();
+
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+
+private:
+    ShortcutModel *m_model = nullptr;
+};
+
 }
+
 #endif // SHORTCUTMODEL_H

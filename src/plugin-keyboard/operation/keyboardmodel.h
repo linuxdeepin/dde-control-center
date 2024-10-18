@@ -6,14 +6,13 @@
 #ifndef KEYBOARDMODEL_H
 #define KEYBOARDMODEL_H
 
-#include "interface/namespace.h"
 #include "metadata.h"
 
 #include <QObject>
 #include <QStringList>
 #include <QMap>
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class KeyboardModel : public QObject
 {
@@ -66,7 +65,7 @@ Q_SIGNALS:
     void userLayoutChanged(const QString &id, const QString &value);
     void langChanged(const QList<MetaData> &data);
 
-    void curLocalLangChanged(const QStringList &localLangList);    
+    void curLocalLangChanged(const QStringList &localLangList);
     void onSetCurLangFinish(const int value);
 
 public Q_SLOTS:

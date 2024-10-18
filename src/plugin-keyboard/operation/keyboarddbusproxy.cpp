@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "keyboarddbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusConnection>

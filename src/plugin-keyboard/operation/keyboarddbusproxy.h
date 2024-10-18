@@ -5,8 +5,6 @@
 #ifndef KEYBOARDDBUSPROXY_H
 #define KEYBOARDDBUSPROXY_H
 
-#include "interface/namespace.h"
-
 #include <DDBusInterface>
 
 #include <QObject>
@@ -63,7 +61,7 @@ public:
 };
 
 typedef QList<LocaleInfo> LocaleList;
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 class DCCDBusInterface;
 }
 
