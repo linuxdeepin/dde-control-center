@@ -196,14 +196,15 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
 
     int row = index.row();
     const BluetoothDevice *device = m_data.at(row)->device;
+    const QString iconSuffix = deviceType2Icon[device->deviceType()];
 
     switch (role) {
     case Qt::EditRole:
     case Qt::DisplayRole:
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
-        if (!device->deviceType().isEmpty()) {
-            QString deviceIconName = QString("bluetooth_%1").arg(deviceType2Icon[device->deviceType()]);
+        if (!iconSuffix.isEmpty()) {
+            QString deviceIconName = QString("bluetooth_%1").arg(iconSuffix);
             return QIcon::fromTheme(deviceIconName);
         }
         else
