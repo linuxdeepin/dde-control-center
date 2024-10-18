@@ -1,3 +1,17 @@
+dde-control-center (6.0.70) unstable; urgency=medium
+
+  * chore: add translations about time format
+  * chore: add the country feature
+  * fix: Modify the style of the image source list widget
+  * chore: Add 'qt6-declarative-private-dev' dependency in control
+  * fix: Fixed the problem of obtaining the path of the boot menu theme image
+  * feat: 蓝牙图标改成和dde-tray-loader一样的内建图标
+  * feat: Control Center-General Module Design and Transformation
+  * feat: add dccrepeater
+  * feat: implement personalized module
+
+ -- Yutao Meng <mengyutao@deepin.org>  Wed, 16 Oct 2024 17:29:08 +0800
+
 dde-control-center (6.0.69) unstable; urgency=medium
 
   * Display compact mode
