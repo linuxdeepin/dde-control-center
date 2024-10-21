@@ -24,7 +24,6 @@ Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
 const QList<int> FontSizeList{ 11, 12, 13, 14, 15, 16, 18, 20 };
-const QList<int> FontSizeList_Compact{ 10, 11, 12, 13, 14, 15, 16 };
 
 PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObject *parent)
     : QObject(parent)
@@ -287,37 +286,24 @@ double pxToPt(double px)
     return pt;
 }
 
+//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、14px、15px、16px、18px、20px;
+//社区版默认值为12px；专业版默认值为12px；
 int PersonalizationWorker::sizeToSliderValue(const double value) const
 {
     int px = static_cast<int>(ptToPx(value));
 
-    QList<int> sizeList;
-    if (m_model->getCompactDisplay()) {
-        sizeList = FontSizeList_Compact;
-    } else {
-        sizeList = FontSizeList;
-    }
-    if (px < sizeList.first()) {
+    if (px < FontSizeList.first()) {
         return 0;
-    } else if (px > sizeList.last()) {
-        return (sizeList.size() - 1);
+    } else if (px > FontSizeList.last()) {
+        return (FontSizeList.size() - 1);
     }
 
-    return sizeList.indexOf(px);
+    return FontSizeList.indexOf(px);
 }
 
 double PersonalizationWorker::sliderValueToSize(const int value) const
 {
-    QList<int> sizeList;
-    if (m_model->getCompactDisplay()) {
-        sizeList = FontSizeList_Compact;
-    } else {
-        sizeList = FontSizeList;
-    }
-    if (value < 0 || value > sizeList.size() - 1) {
-        return sizeList.value(0);
-    }
-    return pxToPt(sizeList.at(value));
+    return pxToPt(FontSizeList.at(value));
 }
 
 double PersonalizationWorker::sliderValutToOpacity(const int value) const
