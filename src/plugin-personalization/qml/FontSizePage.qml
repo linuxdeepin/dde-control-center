@@ -27,7 +27,7 @@ DccObject {
             }
             D.TipsSlider {
                 id: fontSizeSlider
-                readonly property var fontSizeModel: dccData.model.compactDisplay ? [10, 11, 12, 13, 14, 15, 16] : [11, 12, 13, 14, 15, 16, 18, 20]
+                readonly property var fontSizeModel: [11, 12, 13, 14, 15, 16, 18, 20]
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
                 Layout.margins: 10
