@@ -15,7 +15,13 @@ namespace dccV25 {
 class DccRepeaterPrivate
 {
 public:
-    DccRepeaterPrivate(DccRepeater *qq) : q_ptr(qq) {
+    DccRepeaterPrivate(DccRepeater *qq)
+        : q_ptr(qq)
+        , model(nullptr)
+        , ownModel(false)
+        , dataSourceIsObject(false)
+        , delegateValidated(false)
+        , itemCount(0) {
 
     }
 
@@ -161,6 +167,11 @@ int DccRepeater::count() const
     if (d->model)
         return d->model->count();
     return 0;
+}
+
+void DccRepeater::resetModel()
+{
+    modelUpdated(QQmlChangeSet(), true);
 }
 
 void DccRepeater::createdItem(int index, QObject *obj)
