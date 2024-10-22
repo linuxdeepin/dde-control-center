@@ -31,6 +31,8 @@ public:
 
     int count() const;
 
+    Q_INVOKABLE void resetModel();
+
 Q_SIGNALS:
     void modelChanged();
     void delegateChanged();
