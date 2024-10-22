@@ -111,11 +111,8 @@ void DccRepeater::setModel(const QVariant &m)
             // if (isComponentComplete())
             static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
         }
-        if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel*>(d->model)) {
-            if (dataModel->count() <= 0)
-                static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
+        if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel*>(d->model))
             dataModel->setModel(model);
-        }
     }
     if (d->model) {
         qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)),
@@ -149,8 +146,10 @@ void DccRepeater::setDelegate(QQmlComponent *delegate)
             return;
 
     if (!d->ownModel) {
-        d->model = new QQmlDelegateModel(qmlContext(this));
+        QQmlDelegateModel *dataModel = new QQmlDelegateModel(qmlContext(this));
+        d->model = dataModel;
         d->ownModel = true;
+        dataModel->componentComplete();
     }
 
     if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel*>(d->model)) {
@@ -290,7 +289,6 @@ void DccRepeater::clear()
                 d->model->release(obj);
             }
         }
-
     }
     d->deletables.clear();
     d->itemCount = 0;
