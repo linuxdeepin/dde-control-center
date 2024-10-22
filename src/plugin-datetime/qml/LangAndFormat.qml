@@ -26,6 +26,7 @@ DccObject {
                 font: DTK.fontManager.t3
                 text: dccObj.displayName
             }
+
             Button {
                 id: button
                 checkable: true
@@ -46,103 +47,6 @@ DccObject {
             }
         }
 
-        Connections {
-            target: dccData
-            function onLangListChanged(langlist) {
-                languageListTiltle.addLanguages(langlist)
-            }
-        }
-
-        function langExisted(displayName) {
-            for (let i = 0; i < languageList.children.length; ++i) {
-                if (languageList.children[i].displayName === displayName)
-                    return true;
-            }
-            return false;
-        }
-
-        function addLanguages(langs) {
-            for (let i = 0; i < langs.length; ++i) {
-                if (langExisted(langs[i]))
-                    continue
-
-                var obj = languageItem.createObject(languageList)
-                obj.name = "languageItem" + i
-                obj.parentName = "languageList"
-                obj.displayName = langs[i]
-                obj.weight = 20 + 10 * (i + 1)
-                DccApp.addObject(obj)
-            }
-        }
-
-        Component {
-            id: languageItem
-            DccObject {
-                hasBackground: true
-                pageType: DccObject.Item
-                page: ItemDelegate {
-                    id: itemDelegate
-                    property bool isCurrentLang: dccData.currentLang === dccObj.displayName
-                    visible: dccObj
-                    hoverEnabled: true
-                    implicitHeight: 50
-                    icon.name: dccObj.icon
-                    checkable: false
-
-                    Label {
-                        id: langName
-                        text: dccObj.displayName
-                        elide: Text.ElideRight
-                        anchors {
-                            left: itemDelegate.left
-                            leftMargin: 20
-                            top: itemDelegate.top
-                            topMargin: (itemDelegate.height - langName.height) / 2
-                        }
-                    }
-
-                    IconButton {
-                        id: removeButton
-                        visible: itemDelegate.isCurrentLang || languageListTiltle.isEditing
-                        icon.name: itemDelegate.isCurrentLang ? "sp_ok" : "list_delete"
-                        icon.width: 24
-                        icon.height: 24
-                        implicitWidth: 36
-                        implicitHeight: 36
-                        anchors {
-                            right: itemDelegate.right
-                            rightMargin: 10
-                            top: itemDelegate.top
-                            topMargin: (itemDelegate.height - removeButton.height) / 2
-
-                        }
-                        background: null
-                        onClicked: {
-                            if (!languageListTiltle.isEditing || itemDelegate.isCurrentLang)
-                                return
-
-                            console.log("need remove language", dccObj.displayName)
-                            dccData.deleteLang(dccObj.displayName)
-                            DccApp.removeObject(dccObj)
-                            dccObj.destroy(1000)
-                        }
-                    }
-
-                    background: DccListViewBackground {
-                        separatorVisible: true
-                        highlightEnable: false
-                    }
-
-                    onClicked: {
-                        if (languageListTiltle.isEditing)
-                            return
-
-                        dccData.setCurrentLang(dccObj.displayName)
-                    }
-                }
-            }
-        }
-
         // 语言列表项
         DccObject {
             id: languageList
@@ -152,11 +56,81 @@ DccObject {
             pageType: DccObject.Item
             page: DccGroupView {
                 Component.onCompleted: {
-                    dccData.ensureLangModel();
+                    dccData.ensureLangModel()
                 }
             }
 
             onParentItemChanged: item => { if (item) item.topPadding = 10 }
+
+            DccRepeater {
+                model: dccData.langList
+                delegate: DccObject {
+                    name: "languageItem" + index
+                    parentName: "languageList"
+                    displayName: modelData
+                    weight: 20 + 10 * (index + 1)
+                    hasBackground: true
+                    pageType: DccObject.Item
+                    page: ItemDelegate {
+                        id: itemDelegate
+                        property bool isCurrentLang: dccData.currentLang === dccObj.displayName
+                        visible: dccObj
+                        hoverEnabled: true
+                        implicitHeight: 50
+                        icon.name: dccObj.icon
+                        checkable: false
+
+                        Label {
+                            id: langName
+                            text: dccObj.displayName
+                            elide: Text.ElideRight
+                            anchors {
+                                left: itemDelegate.left
+                                leftMargin: 20
+                                top: itemDelegate.top
+                                topMargin: (itemDelegate.height - langName.height) / 2
+                            }
+                        }
+
+                        IconButton {
+                            id: removeButton
+                            visible: itemDelegate.isCurrentLang
+                                     || languageListTiltle.isEditing
+                            icon.name: itemDelegate.isCurrentLang ? "sp_ok" : "list_delete"
+                            icon.width: 24
+                            icon.height: 24
+                            implicitWidth: 36
+                            implicitHeight: 36
+                            anchors {
+                                right: itemDelegate.right
+                                rightMargin: 10
+                                top: itemDelegate.top
+                                topMargin: (itemDelegate.height - removeButton.height) / 2
+                            }
+                            background: null
+                            onClicked: {
+                                if (!languageListTiltle.isEditing
+                                        || itemDelegate.isCurrentLang)
+                                    return
+
+                                dccData.deleteLang(dccObj.displayName)
+                            }
+                        }
+
+                        background: DccListViewBackground {
+                            separatorVisible: true
+                            highlightEnable: false
+                        }
+
+                        onClicked: {
+                            if (languageListTiltle.isEditing)
+                                return
+
+                            dccData.setCurrentLang(dccObj.displayName)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -183,7 +157,7 @@ DccObject {
                 LangsChooserDialog {
                     id: dialogLoader
                     viewModel: dccData.langSearchModel()
-                    onSelectedLang: function(lang) {
+                    onSelectedLang: function (lang) {
                         dccData.addLang(lang)
                     }
                 }
@@ -249,19 +223,13 @@ DccObject {
                     viewModel: dccData.regionSearchModel()
                     currentIndex: dccData.currentRegionIndex
                     currentText: dccData.region
-                    onSelectedRegion: function(region) {
+                    onSelectedRegion: function (region) {
                         regionLabel.text = region
                         dccData.setRegion(region)
                     }
-                    onActiveChanged: {
-                        if (active) {
-                            // regionWndow.currentIndex = dccData.currentRegionIndex()
-                            // regionWndow.currentText = dccData.region()
-                        }
-                    }
                 }
 
-                onClicked: function(mouse) {
+                onClicked: function (mouse) {
                     if (!regionWndow.isVisible()) {
                         regionWndow.show()
                     }
@@ -284,10 +252,10 @@ DccObject {
         hasBackground: true
         pageType: DccObject.Editor
         page: Item {
-            implicitWidth: rowlayout.implicitWidth
-            implicitHeight: rowlayout.implicitHeight
+            implicitWidth: layout.implicitWidth
+            implicitHeight: layout.implicitHeight
             RowLayout {
-                id: rowlayout
+                id: layout
                 Label {
                     text: dccData.currentLanguageAndRegion
                 }
@@ -303,7 +271,7 @@ DccObject {
                     id: regionDialog
                     currentIndex: dccData.currentLanguageAndRegionIndex()
                     viewModel: dccData.langRegionSearchModel()
-                    onSelectedRegion: function(locale, lang) {
+                    onSelectedRegion: function (locale, lang) {
                         dccData.setCurrentLocaleAndLangRegion(locale, lang)
                     }
 
@@ -325,85 +293,16 @@ DccObject {
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
 
-    // time/currency/number formats component
-    Component {
-        id: formatObject
-        DccObject {
-            id: obj
-            property string textRole
-            property var comboModel: dccData.availableFormats(modelIndex)
-            property int modelIndex: 0
-            property var callback
-            hasBackground: true
-            pageType: DccObject.Editor
-            page: Item {
-                id: item
-                implicitHeight: 36
-                implicitWidth: obj.comboModel.length > 1 ? 280 : 80
-
-                ComboBox {
-                    id: comboBox
-                    visible: obj.comboModel.length > 1
-                    flat: true
-                    implicitWidth: 280
-                    model: obj.comboModel
-                    textRole: obj.textRole
-                    currentIndex: dccData.currentFormatIndex(modelIndex)
-                    onActivated: function (index) {
-                        obj.callback(obj, index)
-                    }
-                }
-
-                Label {
-                    id: label
-                    visible: obj.comboModel.length === 1
-                    text: obj.comboModel[0]
-                    anchors {
-                        // anchors.verticalCenter: parent // TODO: not work(use topMargin)
-                        top: parent.top
-                        topMargin: 10
-                        right: parent.right
-                        rightMargin: 10
-                    }
-                }
-
-                Connections {
-                    target: dccData
-
-                    function resetModel() {
-                        obj.comboModel = [""]
-                        obj.comboModel = dccData.availableFormats(obj.modelIndex)
-                        label.text = obj.comboModel[0]
-                    }
-
-                    function onCurrentLanguageAndRegionChanged() {
-                        resetModel();
-                    }
-                    function onSymbolChanged(symbol) {
-                        let oldIndex = comboBox.currentIndex
-                        resetModel();
-                        comboBox.currentIndex = oldIndex
-                    }
-                }
+    Timer {
+        id: timer
+        interval: 100
+        property DccRepeater repeater
+        onTriggered: {
+            if (repeater) {
+                repeater.resetModel()
+                repeater = null
             }
         }
-    }
-
-    function addFormatsObject(names, startIndex, parentName, parent) {
-        for (let i = 0; i < names.length; ++i) {
-            let obj = formatObject.createObject(parent)
-            obj.name = names[i]
-            obj.parentName = parentName
-            obj.weight = 10 * (i + 1)
-            obj.displayName = names[i]
-            obj.modelIndex = startIndex + i
-            obj.callback = comboActivatedCallback
-            DccApp.addObject(obj)
-        }
-    }
-
-    function comboActivatedCallback(obj, index) {
-        dccData.setCurrentFormat(obj.modelIndex, index);
     }
 
     // 时间日期格式
@@ -417,13 +316,27 @@ DccObject {
 
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
-        Component.onCompleted: {
-            var names = [qsTr("Week"), qsTr("First day of week"), qsTr("Long date"), qsTr("Short date"), qsTr("Long time"), qsTr("Short time")]
-            let startIndex = 0 // Week
-            addFormatsObject(names, startIndex, name, timeFormats)
+        DccRepeater {
+            model: [ qsTr("Week"), qsTr("First day of week"), qsTr("Long date"),
+                qsTr("Short date"), qsTr("Long time"), qsTr("Short time") ]
+            delegate: DccObject {
+                name: modelData
+                parentName: "timeFormats"
+                displayName: modelData
+                weight: 10 * (index + 1)
+                hasBackground: true
+                pageType: DccObject.Editor
+                page: ComboLabel {
+                    comboModel: dccData.availableFormats(index)
+                    comboCurrentIndex: dccData.currentFormatIndex(index)
+                    onComboBoxActivated: function (idx) {
+                        let startIndex = 0 // Week
+                        dccData.setCurrentFormat(startIndex + index, idx)
+                    }
+                }
+            }
         }
     }
-
 
     // 货币符号格式
     DccObject {
@@ -436,10 +349,27 @@ DccObject {
 
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
-        Component.onCompleted: {
-            var names = [qsTr("Currency symbol"), qsTr("Positive currency"), qsTr("Negative currency")]
-            let startIndex = 6 // Currency
-            addFormatsObject(names, startIndex, name, currencyFormats)
+        DccRepeater {
+            id: currencyRepeater
+            property int startIndex: 6 // Currency
+            model: [ qsTr("Currency symbol"), qsTr("Positive currency"), qsTr("Negative currency") ]
+            delegate: DccObject {
+                name: modelData
+                parentName: "currencyFormats"
+                displayName: modelData
+                weight: 10 * (index + 1)
+                hasBackground: true
+                pageType: DccObject.Editor
+                page: ComboLabel {
+                    comboModel: dccData.availableFormats(index + currencyRepeater.startIndex)
+                    comboCurrentIndex: dccData.currentFormatIndex(index + currencyRepeater.startIndex)
+                    onComboBoxActivated: function (idx) {
+                        dccData.setCurrentFormat(currencyRepeater.startIndex + index, idx)
+                        timer.repeater = currencyRepeater
+                        timer.start()
+                    }
+                }
+            }
         }
     }
 
@@ -454,10 +384,28 @@ DccObject {
 
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
-        Component.onCompleted: {
-            var names = [qsTr("Decimal symbol"), qsTr("Digit grouping symbol"), qsTr("Digit grouping"), qsTr("Page size")]
-            let startIndex = 9 // Week
-            addFormatsObject(names, startIndex, name, timeFormats)
+        DccRepeater {
+            id: numRepeater
+            property int startIndex: 9 // number
+            model: [ qsTr("Decimal symbol"), qsTr("Digit grouping symbol"),
+                qsTr("Digit grouping"), qsTr("Page size") ]
+            delegate: DccObject {
+                name: modelData
+                parentName: "numberFormats"
+                displayName: modelData
+                weight: 10 * (index + 1)
+                hasBackground: true
+                pageType: DccObject.Editor
+                page: ComboLabel {
+                    comboModel: dccData.availableFormats(index + numRepeater.startIndex)
+                    comboCurrentIndex: dccData.currentFormatIndex(index + numRepeater.startIndex)
+                    onComboBoxActivated: function (idx) {
+                        dccData.setCurrentFormat(numRepeater.startIndex + index, idx)
+                        timer.repeater = numRepeater
+                        timer.start()
+                    }
+                }
+            }
         }
     }
 }
