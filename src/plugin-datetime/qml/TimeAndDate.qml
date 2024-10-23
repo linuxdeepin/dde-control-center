@@ -32,7 +32,7 @@ DccObject {
                 height: contentHeight
                 Layout.leftMargin: 10
                 font: DTK.fontManager.t5
-                text: dccData.currentDate()
+                text: dccData.currentDate
             }
 
             Timer {
@@ -41,6 +41,8 @@ DccObject {
                 repeat: true
                 onTriggered: {
                     timeLabel.text = Qt.formatTime(Date(), timeLabel.longTimeFormat)
+
+                    dateLabel.text = dccData.currentDate
                 }
             }
         }
@@ -104,8 +106,8 @@ DccObject {
                     onActivated: function (index) {
                         dateAndTimeSettings.showCustom = (serverList[index] === qsTr("Customize"))
                         if (dateAndTimeSettings.showCustom) {
-                            if (dateAndTimeSettings.customAddr.trim().length > 0)
-                                dccData.ntpServerAddress = dateAndTimeSettings.customAddr.trim()
+                            if (dateAndTimeSettings.customAddr.length > 0)
+                                dccData.ntpServerAddress = dateAndTimeSettings.customAddr
                             return
                         }
 
@@ -214,7 +216,7 @@ DccObject {
                         addr.showAlert = false
 
                         if (!addr.readOnly) {
-                            dccData.ntpServerAddress = addr.text.trim()
+                            dccData.ntpServerAddress = addr.text
                         }
 
                         addr.readOnly = !addr.readOnly

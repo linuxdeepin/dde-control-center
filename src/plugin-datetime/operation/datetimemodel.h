@@ -45,6 +45,7 @@ class DatetimeModel : public QObject
     Q_PROPERTY(QString longTimeFormat READ longTimeFormat WRITE setLongTimeFormat NOTIFY longTimeFormatChanged FINAL)
 
     Q_PROPERTY(QString currentLanguageAndRegion READ currentLanguageAndRegion NOTIFY currentLanguageAndRegionChanged FINAL)
+    Q_PROPERTY(QString currentDate READ currentDate NOTIFY currentDateChanged FINAL)
 
 public:
     using Regions = QMap<QString, QLocale>;
@@ -185,6 +186,7 @@ Q_SIGNALS:
     void countriesChanged(const QStringList &countries);
     void regionChanged(const QString &region);
     void currentRegionIndexChanged(int index);
+    void currentDateChanged();
 
 public Q_SLOTS:
     void set24HourFormat(bool state);

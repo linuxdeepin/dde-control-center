@@ -15,6 +15,14 @@ id: ddialog
     modality: Qt.WindowModal
     property date currentDate: new Date()
 
+    function getDaysInMonth(year, month) {
+        return new Date(year, month, 0).getDate()
+    }
+
+    function updateDateMax() {
+        spDay.to = getDaysInMonth(spYear.value, spMonth.value)
+    }
+
     ColumnLayout {
         spacing: 10
         width: parent.width
@@ -31,32 +39,32 @@ id: ddialog
                 text: qsTr("Date")
             }
             SpinboxEx {
+                id: spYear
                 unitText: qsTr("年")
-                from: 1900
-                to: 9999
+                from: 1990
+                to: 2090
                 value: currentDate.getFullYear()
-                onValueChanged: {
-                    currentDate.setFullYear(value);
+                onValueChanged: ddialog.updateDateMax()
+                Component.onCompleted: {
+                    let year = currentDate.getFullYear()
+                    spYear.from = year - 50
+                    spYear.to = year + 50
                 }
             }
-
             SpinboxEx {
+                id: spMonth
                 unitText: qsTr("月")
                 from: 1
                 to: 12
                 value: currentDate.getMonth() + 1 //  // January gives 0
-                onValueChanged: {
-                    currentDate.setMonth(value - 1)
-                }
+                onValueChanged: ddialog.updateDateMax()
             }
             SpinboxEx {
+                id: spDay
                 unitText: qsTr("日")
                 from: 1
                 to: 31
                 value: currentDate.getDate()
-                onValueChanged: {
-                    currentDate.setDate(value)
-                }
             }
         }
         RowLayout {
@@ -67,20 +75,16 @@ id: ddialog
                 text: qsTr("Time")
             }
             SpinboxEx {
+                id: spHour
                 from: 0
                 to: 23
                 value: currentDate.getHours()
-                onValueChanged: {
-                    currentDate.setHours(value);
-                }
             }
             SpinboxEx {
+                id: spMin
                 from: 0
                 to: 59
                 value: currentDate.getMinutes()
-                onValueChanged: {
-                    currentDate.setMinutes(value);
-                }
             }
         }
         RowLayout {
@@ -97,6 +101,12 @@ id: ddialog
                 Layout.bottomMargin: 10
                 text: qsTr("Confirm")
                 onClicked: {
+                    currentDate.setFullYear(spYear.value)
+                    currentDate.setMonth(spMonth.value - 1)
+                    currentDate.setDate(spDay.value)
+                    currentDate.setHours(spHour.value)
+                    currentDate.setMinutes(spMin.value)
+                    currentDate.setSeconds(0)
                     dccData.setDateTime(currentDate)
                     ddialog.close()
                 }
