@@ -113,9 +113,36 @@ Rectangle {
                     root.clicked(model)
                     popup.close()
                 }
-                background: DccListViewBackground {
+                background: DccItemBackground {
                     separatorVisible: model.isBegin !== undefined ? model.isBegin : false
                 }
+            }
+        }
+        enter: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 0.0
+                to: 1.0
+                duration: 150
+            }
+            NumberAnimation {
+                property: "scale"
+                from: 0.0
+                to: 1.0
+                duration: 150
+            }
+        }
+
+        exit: Transition {
+            NumberAnimation {
+                property: "opacity"
+                to: 0.0
+                duration: 150
+            }
+            NumberAnimation {
+                property: "scale"
+                to: 0.0
+                duration: 150
             }
         }
     }

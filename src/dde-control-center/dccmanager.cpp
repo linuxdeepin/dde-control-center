@@ -364,7 +364,11 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         return;
     // m_backwardBtn->setVisible(obj != m_root);
     QList<DccObject *> modules;
-    DccObject *tmpObj = obj;
+    DccObject *triggeredObj = obj;
+    if (triggeredObj->pageType() == DccObject::MenuEditor && !triggeredObj->getChildren().isEmpty()) {
+        triggeredObj = triggeredObj->getChildren().first();
+    }
+    DccObject *tmpObj = triggeredObj;
     while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项
         tmpObj = DccObject::Private::FromObject(tmpObj)->getParent();
     }
@@ -390,7 +394,7 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         }
     }
     if (!cmd.isEmpty()) {
-        Q_EMIT obj->active(cmd);
+        Q_EMIT triggeredObj->active(cmd);
     }
     m_currentObjects = modules;
     if (m_currentObjects.last() != m_activeObject) {
@@ -398,9 +402,9 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         Q_EMIT activeObjectChanged(m_activeObject);
     }
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << obj->name() << " active object:" << m_activeObject->name() << (void *)(obj->parentItem());
-    if (obj->parentItem()) {
-        Q_EMIT activeItemChanged(obj->parentItem());
+    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << (void *)(triggeredObj->parentItem());
+    if (!(triggeredObj->pageType() & DccObject::Menu) && triggeredObj->parentItem()) {
+        Q_EMIT activeItemChanged(triggeredObj->parentItem());
     }
 }
 

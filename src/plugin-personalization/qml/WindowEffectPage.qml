@@ -247,7 +247,7 @@ DccObject {
         parentName: "personalization/windowEffect"
         displayName: qsTr("Compact Display")
         description: qsTr("If enabled, more content is displayed in the window.")
-        visible: dccData.model.compactDisplayConfig !== "Hidden" && hasDBusProperty
+        visible: dccData.model.compactDisplayConfig !== "Hidden" && scrollBarObject.hasDBusProperty
         weight: 700
         hasBackground: true
         pageType: DccObject.Editor

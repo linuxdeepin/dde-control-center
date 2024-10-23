@@ -167,7 +167,7 @@ Loader {
                                     }
                                 }
                             }
-                            background: DccListViewBackground {
+                            background: DccItemBackground {
                                 id: background
                                 separatorVisible: true
                                 radius: 8

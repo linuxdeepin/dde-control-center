@@ -78,7 +78,7 @@ Rectangle {
                         }
                     }
                 }
-                background: DccListViewBackground {
+                background: DccItemBackground {
                     separatorVisible: true
                     highlightEnable: false
                 }

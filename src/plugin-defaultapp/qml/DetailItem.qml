@@ -92,7 +92,7 @@ DccObject {
                             categoryModel.setDefaultApp(model.id)
                         }
                     }
-                    background: DccListViewBackground {
+                    background: DccItemBackground {
                         separatorVisible: true
                         highlightEnable: false
                     }

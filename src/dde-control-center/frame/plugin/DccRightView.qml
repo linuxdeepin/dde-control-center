@@ -25,10 +25,54 @@ Flickable {
             rightMargin: 60
         }
     }
+    Rectangle {
+        id: panel
+        property var item: undefined
+        property int cnt: 0
+        z: 10
+        radius: 8
+        color: "transparent"
+        visible: false
+        border.color: this.palette.highlight
+        border.width: 2
+        anchors {
+            left: parent.left
+            right: parent.right
+            leftMargin: 60
+            rightMargin: 60
+        }
+    }
+    Timer {
+        interval: 100
+        repeat: true
+        running: panel.item !== undefined
+        onTriggered: {
+            if (!panel.item || !panel.item.visible || !root.visible || panel.cnt > 6) {
+                panel.visible = false
+                panel.cnt = 0
+                panel.item = undefined
+                stop()
+            } else {
+                let itemY = panel.item.mapToItem(root, 0, 0).y
+                if ((itemY + panel.item.height) > root.height) {
+                    root.contentY = itemY + panel.item.height - root.height + root.contentY
+                }
+                itemY = panel.item.mapToItem(root, 0, 0).y
+                if (itemY < 0) {
+                    root.contentY = -itemY
+                }
+
+                panel.y = panel.item.mapToItem(root, 0, 0).y + root.contentY
+                panel.height = panel.item.height
+                panel.visible = panel.cnt & 1
+                panel.cnt++
+            }
+        }
+    }
     Connections {
         target: DccApp
         function onActiveItemChanged(item) {
-            root.contentY = root.contentY + item.mapToItem(root, 0, 0).y
+            panel.item = item
         }
     }
 }

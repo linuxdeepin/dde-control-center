@@ -19,7 +19,7 @@ D.ItemDelegate {
     topPadding: topInset
     bottomPadding: bottomInset
     leftPadding: 10
-    rightPadding: 10
+    rightPadding: 8
     icon {
         name: model.item.icon
         source: model.item.iconSource
@@ -29,7 +29,7 @@ D.ItemDelegate {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ColumnLayout {
-            Layout.leftMargin: 8
+            Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             spacing: 0
@@ -47,11 +47,10 @@ D.ItemDelegate {
         }
         Control {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            Layout.rightMargin: 10
             contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
         }
     }
-    background: DccListViewBackground {
+    background: DccItemBackground {
         id: background
         separatorVisible: false
     }

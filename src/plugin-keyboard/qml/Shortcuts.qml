@@ -127,7 +127,7 @@ DccObject {
                     Layout.fillWidth: true
                     corners: model.corners
 
-                    background: DccListViewBackground {
+                    background: DccItemBackground {
                         id: background
                         separatorVisible: true
                     }
