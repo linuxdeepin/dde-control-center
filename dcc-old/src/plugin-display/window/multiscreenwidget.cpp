@@ -23,6 +23,7 @@
 #include <QDesktopWidget>
 #include <QKeyEvent>
 #include <DMainWindow>
+#include <DSizeMode>
 
 #include <WayQtUtils.hpp>
 
@@ -40,7 +41,6 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_modeCombox(new QComboBox(this))
     , m_primarySettingsItem(new SettingsItem(this))
     , m_primaryCombox(new QComboBox(this))
-    , m_brightnessSpacerItem(new QSpacerItem(0, 20))
     , m_brightnessWidget(new BrightnessWidget(this))
     , m_scalingWidget(new ScalingWidget(this))
     , m_resolutionWidget(new ResolutionWidget(300, this))
@@ -60,7 +60,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_monitorControlWidget->setAccessibleName("MultiScreenWidget_monitorControl");
     m_fullIndication->setAccessibleName("fullIndication");
 
-    m_contentLayout->setSpacing(0);
+    m_contentLayout->setSpacing(Dtk::Widget::DSizeModeHelper::element(6, 10));
     m_contentLayout->setContentsMargins(0, 20, 0, 0);
     m_contentLayout->addWidget(m_monitorControlWidget);
     m_contentLayout->addSpacing(20);
@@ -75,7 +75,6 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_modeSettingsItem->addBackground();
     m_modeSettingsItem->setMinimumHeight(48);
     m_modeSettingsItem->setLayout(modeLayout);
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_modeSettingsItem);
 
     QHBoxLayout *primaryLayout = new QHBoxLayout(m_primarySettingsItem);
@@ -88,18 +87,12 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_primarySettingsItem->addBackground();
     m_primarySettingsItem->setMinimumHeight(48);
     m_primarySettingsItem->setLayout(primaryLayout);
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_primarySettingsItem);
 
-    m_contentLayout->addSpacerItem(m_brightnessSpacerItem);
     m_contentLayout->addWidget(m_brightnessWidget);
-    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_scalingWidget);
-    m_contentLayout->addSpacing(30);
     m_contentLayout->addWidget(m_resolutionWidget);
-    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_refreshRateWidget);
-    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_rotateWidget);
     m_contentLayout->addStretch();
 
@@ -217,7 +210,6 @@ void MultiScreenWidget::setModel(DisplayModel *model)
                 m_fullIndication->move(screen->geometry().topLeft());
                 m_fullIndication->setVisible(true);
                 QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
-                m_brightnessSpacerItem->changeSize(0, monitor->canBrightness() ? 20 : 0);
                 m_brightnessWidget->setVisible(monitor->canBrightness());
                 break;
             }
@@ -228,7 +220,6 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     });
     connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
         const bool visible = enable && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
-        m_brightnessSpacerItem->changeSize(0, visible ? 20 : 0);
         m_brightnessWidget->setVisible(visible);
     });
 
@@ -272,7 +263,6 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     const bool brightnessIsEnabled = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
     m_brightnessWidget->setVisible(brightnessIsEnabled);
-    m_brightnessSpacerItem->changeSize(0, brightnessIsEnabled ? 20 : 0);
     m_scalingWidget->setModel(m_model);
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());

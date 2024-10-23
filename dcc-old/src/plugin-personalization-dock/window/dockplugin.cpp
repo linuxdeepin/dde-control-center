@@ -109,6 +109,7 @@ DockModuleObject::DockModuleObject()
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
 
+    m_screenTitle->setTitleItem(true);
     m_screen->setBackground(true);
     appendChild(m_screenTitle);
     appendChild(m_screen);
@@ -172,6 +173,10 @@ bool DockModuleObject::eventFilter(QObject *watched, QEvent *event)
     if (watched == m_view) {
         if (event->type() == QEvent::Show || event->type() == QEvent::WindowDeactivate || event->type() == QEvent::WindowActivate) {
             updateIcons();
+        } else if (event->type() == QEvent::Move) {
+            // 固定大小,防止滚动
+            int lineHeight = m_view->visualRect(m_view->indexAt(QPoint(0, 0))).height();
+            m_view->setMinimumHeight(lineHeight * m_view->model()->rowCount());
         }
     }
     return DCC_NAMESPACE::PageModule::eventFilter(watched, event);
