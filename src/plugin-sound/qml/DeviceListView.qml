@@ -38,7 +38,7 @@ Rectangle {
                         root.clicked(index, !model.isChecked)
                     }
                 }
-                background: DccListViewBackground {
+                background: DccItemBackground {
                     separatorVisible: true
                     highlightEnable: false
                 }

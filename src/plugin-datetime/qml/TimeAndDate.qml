@@ -456,7 +456,7 @@ DccObject {
                         dccObj.destroy(1000)
                     }
                 }
-                background: DccListViewBackground {
+                background: DccItemBackground {
                     separatorVisible: true
                     highlightEnable: false
                 }

@@ -13,14 +13,28 @@ Item {
     implicitWidth: DS.Style.itemDelegate.width
     implicitHeight: DS.Style.itemDelegate.height
     property bool separatorVisible: false
+    property bool shadowVisible: true
     property bool highlightEnable: true
     property alias control: root.parent
     property real radius: DS.Style.control.radius
     property var backgroundColor
 
     Loader {
+        y: 2
+        z: 0
+        width: parent.width
+        height: parent.height
+        active: shadowVisible && (!highlightEnable || !control.checked) && control.backgroundVisible && (control.corners & D.RoundRectangle.BottomCorner)
+        sourceComponent: D.RoundRectangle {
+            color: palette.midlight
+            radius: DS.Style.control.radius
+            corners: control.corners
+        }
+    }
+    Loader {
+        z: 1
         anchors.fill: parent
-        active: (!highlightEnable || !checked) && control.backgroundVisible
+        active: (!highlightEnable || !control.checked) && control.backgroundVisible
         sourceComponent: D.RoundRectangle {
             color: root.backgroundColor === undefined ? palette.base : root.backgroundColor
             radius: root.radius
@@ -48,7 +62,7 @@ Item {
         anchors.fill: parent
         anchors.topMargin: 1
         anchors.bottomMargin: 1
-        active: highlightEnable && checked && !control.cascadeSelected
+        active: highlightEnable && control.checked && !control.cascadeSelected
         sourceComponent: D.HighlightPanel {}
     }
 }

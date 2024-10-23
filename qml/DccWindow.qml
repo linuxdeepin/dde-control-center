@@ -55,6 +55,7 @@ D.ApplicationWindow {
             websiteLink: DTK.deepinWebsiteLink
             description: qsTr("Control Center provides the options for system settings.")
             license: appLicense === "" ? "" : qsTr("%1 is released under %2").arg(appProductName).arg(appLicense)
+            onClosing: destroy(10)
         }
         embedMode: false
         autoHideOnFullscreen: true

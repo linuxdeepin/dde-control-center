@@ -143,10 +143,9 @@ Control {
                 height: 32
             }
             contentFlow: true
-            background: DccListViewBackground {
+            background: DccItemBackground {
                 separatorVisible: false
             }
-            clip: true
 
             content: RowLayout {
                 Layout.fillWidth: true

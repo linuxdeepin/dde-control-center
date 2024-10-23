@@ -117,7 +117,7 @@ DccObject {
                             }
                         }
 
-                        background: DccListViewBackground {
+                        background: DccItemBackground {
                             separatorVisible: true
                             highlightEnable: false
                         }

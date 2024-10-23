@@ -66,8 +66,8 @@ SplitView {
                 icon {
                     name: model.item.icon
                     source: model.item.iconSource
-                    width: 48
-                    height: 48
+                    width: 24
+                    height: 24
                 }
                 content: Rectangle {
                     anchors.right: parent.right
