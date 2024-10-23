@@ -9,7 +9,9 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <QDebug>
+
+#include <DGuiApplicationHelper>
+#include <DSizeMode>
 using namespace DCC_NAMESPACE;
 
 #define DCC_NO_Scroll 0x00080000  // 无滚动条(父项)
@@ -22,7 +24,7 @@ public:
     explicit PageModulePrivate(PageModule *parent)
         : QObject(parent)
         , q_ptr(parent)
-        , m_spacing(10)
+        , m_spacing(Dtk::Widget::DSizeModeHelper::element(6, 10))
         , m_minimumWidth(0)
         , m_maximumWidth(QWIDGETSIZE_MAX)
     {
@@ -115,6 +117,10 @@ public:
         }
         if (!q->noStretch())
             m_vlayout->addStretch(1);
+        
+        if (m_hlayout->count() == 0) {
+            controlRestrictorWidget->hide();
+        }
 
         // 监听子项的添加、删除、状态变更，动态的更新界面
         QObject::connect(q, &ModuleObject::insertedChild, areaWidget, [this](ModuleObject *const childModule) { onAddChild(childModule); });
@@ -126,6 +132,10 @@ public:
                 else
                     onAddChild(tmpChild);
             }
+        });
+        QObject::connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::sizeModeChanged, m_vlayout, [this](){
+            m_spacing = Dtk::Widget::DSizeModeHelper::element(6, 10);
+            m_vlayout->setSpacing(m_spacing);
         });
         Q_EMIT q->currentModuleChanged(q->currentModule());
         return parentWidget;

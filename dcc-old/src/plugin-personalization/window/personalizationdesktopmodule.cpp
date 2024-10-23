@@ -49,29 +49,15 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
                                &PersonalizationDesktopModule::initMiniEffect);
         group->appendChild(itemMinimizeEffect);
 
+        auto compactModule = new ItemModule(
+            "compactDisplay",
+            tr("Compact Display"),
+            this,
+            &PersonalizationDesktopModule::initCompactMode);
 
-        appendChild(new WidgetModule<SwitchWidget>(
-                "compactDisplay",
-                tr("Compact Display"),
-                [this](SwitchWidget *switchButton) {
-                    connect(m_model,
-                            &PersonalizationModel::compactDisplayChanged,
-                            switchButton,
-                            [=](const bool status) {
-                                switchButton->setChecked(status);
-                            });
-                    connect(switchButton,
-                            &SwitchWidget::checkedChanged,
-                            this,
-                            [this](const bool status){
-                                m_work->setCompactDisplay(status);
-                            });
+        compactModule->setBackground(true);
+        appendChild(compactModule);
 
-                    switchButton->setTitle(tr("Compact Display"));
-                    switchButton->addBackground();
-                    switchButton->setChecked(m_model->getCompactDisplay());
-                }));
-    
         auto compactDisplayTipModule = new WidgetModule<DTipLabel>(
         "compactDisplayTip",
         tr(""),
@@ -227,4 +213,16 @@ QWidget *PersonalizationDesktopModule::initRoundEffect(ModuleObject *module)
         m_work->setWindowRadius(val);
     });
     return winRoundSlider;
+}
+
+QWidget *PersonalizationDesktopModule::initCompactMode(ModuleObject *module)
+{
+    Q_UNUSED(module)
+    DSwitchButton *switchBtn = new DSwitchButton();
+    switchBtn->setChecked(m_model->getCompactDisplay());
+    connect(m_model, &PersonalizationModel::compactDisplayChanged, switchBtn, &DSwitchButton::setChecked);
+    connect(switchBtn, &DSwitchButton::checkedChanged, this, [this](bool checked) {
+        m_work->setCompactDisplay(checked);
+    });
+    return switchBtn;
 }
