@@ -93,7 +93,6 @@ private:
     SettingsItem *m_primarySettingsItem;
     QLabel *m_primaryLabel;
     QComboBox *m_primaryCombox;
-    QSpacerItem *m_brightnessSpacerItem;
 
     //协同链接
     CollaborativeLinkWidget *m_linkWidget;
