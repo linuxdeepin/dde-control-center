@@ -4,6 +4,7 @@
 #ifndef PERSONALIZATIONWORKER_H
 #define PERSONALIZATIONWORKER_H
 
+#include "operation/wallpaperworker.h"
 #include "personalizationmodel.h"
 
 #include <QObject>
@@ -49,6 +50,13 @@ public Q_SLOTS:
     void setIconTheme(const QString &id);
     void setCursorTheme(const QString &id);
 
+    // wallpaper
+    void setBackgroundForMonitor(const QString &screenName, const QString &url);
+    QString getBackgroundForMonitor(const QString &screenName);
+
+signals:
+    void personalizationChanged(const QString &propertyName, const QString &value);
+
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
     void onGetFontFinished(const QString &category, const QString &json);
@@ -64,6 +72,7 @@ private Q_SLOTS:
     void onWindowRadiusChanged(int value);
     void onCompactDisplayChanged(int value);
     void onWindowEffectChanged(int value);
+    void onWallpaperUrlsChanged(const QString &value);
 
 private:
     double sliderValutToOpacity(const int value) const;
@@ -85,6 +94,7 @@ private:
 private:
     PersonalizationModel *m_model;
     PersonalizationDBusProxy *m_personalizationDBusProxy;
+    WallpaperWorker *m_wallpaperWorker;
     Dtk::Core::DConfig *m_kwinTitleBarConfig;
     Dtk::Core::DConfig *m_kwinCompositingConfig;
     Dtk::Core::DConfig *m_personalizationConfig;

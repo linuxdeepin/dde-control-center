@@ -10,6 +10,7 @@
 class ThemeModel;
 class FontModel;
 class FontSizeModel;
+class WallpaperModel;
 class PersonalizationModel : public QObject
 {
     Q_OBJECT
@@ -26,12 +27,15 @@ class PersonalizationModel : public QObject
     Q_PROPERTY(QString activeColor READ getActiveColor WRITE setActiveColor NOTIFY onActiveColorChanged)
     Q_PROPERTY(QString scrollBarPolicyConfig READ getScrollBarPolicyConfig WRITE setScrollBarPolicyConfig NOTIFY scrollBarPolicyConfigChanged)
     Q_PROPERTY(QString compactDisplayConfig READ getCompactDisplayConfig WRITE setCompactDisplayConfig NOTIFY compactDisplayConfigChanged)
+    Q_PROPERTY(QVariantMap wallpaperMap READ getWallpaperMap WRITE setWallpaperMap NOTIFY wallpaperMapChanged)
+    Q_PROPERTY(QString currentSelectScreen READ getCurrentSelectScreen WRITE setCurrentSelectScreen NOTIFY currentSelectScreenChanged)
 
     Q_PROPERTY(FontSizeModel *fontSizeModel MEMBER m_fontSizeModel CONSTANT)
     Q_PROPERTY(FontModel *standardFontModel MEMBER m_standFontModel CONSTANT)
     Q_PROPERTY(FontModel *monoFontModel MEMBER m_monoFontModel CONSTANT)
     Q_PROPERTY(ThemeModel *iconModel MEMBER m_iconModel CONSTANT)
     Q_PROPERTY(ThemeModel *cursorModel MEMBER m_mouseModel CONSTANT)
+    Q_PROPERTY(WallpaperModel *wallpaperModel MEMBER m_wallpaperModel CONSTANT)
 
 public:
     explicit PersonalizationModel(QObject *parent = nullptr);
@@ -43,6 +47,7 @@ public:
     inline FontModel *getStandFontModel() const { return m_standFontModel; }
     inline FontModel *getMonoFontModel() const { return m_monoFontModel; }
     inline FontSizeModel *getFontSizeModel() const { return m_fontSizeModel; }
+    inline WallpaperModel *getWallpaperModel() const { return m_wallpaperModel; }
     void setIs3DWm(const bool is3d);
     bool is3DWm() const;
 
@@ -79,11 +84,17 @@ public:
     void setIsMoveWindow(const bool isMoveWindow);
     bool getIsMoveWindow() const { return m_isMoveWindow; };
 
-    inline QString getScrollBarPolicyConfig() { return m_scrollBarPolicyConfig; }
+    inline QString getScrollBarPolicyConfig() const { return m_scrollBarPolicyConfig; }
     void setScrollBarPolicyConfig(const QString &config);
 
-    inline QString getCompactDisplayConfig() { return m_compactDisplayConfig; }
+    inline QString getCompactDisplayConfig() const { return m_compactDisplayConfig; }
     void setCompactDisplayConfig(const QString &config);
+
+    inline QVariantMap getWallpaperMap() const { return m_wallpaperMap; }
+    void setWallpaperMap(const QVariantMap &map);
+
+    inline QString getCurrentSelectScreen() const { return m_currentSelectScreen; }
+    void setCurrentSelectScreen(const QString &screen);
 
 Q_SIGNALS:
     void wmChanged(const bool is3d);
@@ -100,6 +111,8 @@ Q_SIGNALS:
     void windowEffectTypeChanged(int windowEffectType);
     void scrollBarPolicyConfigChanged(const QString &config);
     void compactDisplayConfigChanged(const QString &config);
+    void wallpaperMapChanged(const QVariantMap &map);
+    void currentSelectScreenChanged(const QString &screen);
 
 private:
     ThemeModel *m_windowModel;
@@ -109,6 +122,8 @@ private:
     FontModel *m_standFontModel;
     FontModel *m_monoFontModel;
     FontSizeModel *m_fontSizeModel;
+    WallpaperModel *m_wallpaperModel;
+
     bool m_is3DWm;
     bool m_isMoveWindow;
     double m_opacity;
@@ -124,5 +139,8 @@ private:
 
     QString m_scrollBarPolicyConfig;
     QString m_compactDisplayConfig;
+
+    QVariantMap m_wallpaperMap;
+    QString m_currentSelectScreen;
 };
 #endif // PERSONALIZATIONMODEL_H

@@ -33,5 +33,6 @@
         <file>icons/theme_icon.dci</file>
         <file>icons/topic_cursor.dci</file>
         <file>icons/color_extractor.dci</file>
+	    <file>icons/close.dci</file>
     </qresource>
 </RCC>
