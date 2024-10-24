@@ -5,8 +5,7 @@
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
-
-
+#include "model/wallpapermodel.h"
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
     , m_allowSwitch(false)
@@ -18,6 +17,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_standFontModel = new FontModel(this);
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
+    m_wallpaperModel = new WallpaperModel(this);
     m_is3DWm = true;
     m_miniEffect = 0;
 }
@@ -151,4 +151,20 @@ void PersonalizationModel::setCompactDisplayConfig(const QString &value)
         return;
     m_compactDisplayConfig = value;
     Q_EMIT compactDisplayConfigChanged(value);
+}
+
+void PersonalizationModel::setWallpaperMap(const QVariantMap &map)
+{
+    if (m_wallpaperMap == map)
+        return;
+    m_wallpaperMap = map;
+    Q_EMIT wallpaperMapChanged(map);
+}
+
+void PersonalizationModel::setCurrentSelectScreen(const QString &screenName)
+{
+    if (m_currentSelectScreen == screenName)
+        return;
+    m_currentSelectScreen = screenName;
+    Q_EMIT currentSelectScreenChanged(screenName);
 }

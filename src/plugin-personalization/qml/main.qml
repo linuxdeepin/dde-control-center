@@ -94,7 +94,7 @@ DccObject {
     }
 
     DccObject {
-        name: "wallpaper"
+        name: "taskBar"
         parentName: "personalization"
         displayName: qsTr("Desktop and taskbar")
         description: qsTr("Set the display and size of icons on the desktop")
@@ -111,12 +111,13 @@ DccObject {
         WindowEffectPage {}
     }
     DccObject {
-        name: "screensaver"
+        name: "wallpaper"
         parentName: "personalization"
         displayName: qsTr("Wallpaper and screensaver")
         description: qsTr("Personalize your wallpaper and screensaver")
         icon: "wallpaper"
         weight: 300
+        WallpaperPage {}
     }
     DccObject {
         name: "colorAndIcons"
