@@ -225,6 +225,16 @@ void PersonalizationDBusProxy::setScrollBarPolicy(int value)
     m_AppearanceInter->setProperty("QtScrollBarPolicy", QVariant::fromValue(value));
 }
 
+void PersonalizationDBusProxy::SetCurrentWorkspaceBackgroundForMonitor(const QString &url, const QString &screenName)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("SetCurrentWorkspaceBackgroundForMonitor"), url, screenName);
+}
+
+QString PersonalizationDBusProxy::getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName)
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), screenName));
+}
+
 // WMSwitcher
 bool PersonalizationDBusProxy::AllowSwitch()
 {

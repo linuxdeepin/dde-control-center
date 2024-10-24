@@ -78,6 +78,9 @@ public:
     int getScrollBarPolicy();
     void setScrollBarPolicy(int value);
 
+    void SetCurrentWorkspaceBackgroundForMonitor(const QString &url, const QString &screenName);
+    QString getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName);
+
 signals:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
@@ -107,6 +110,7 @@ signals:
     void ZoneEnabledChanged(bool value) const;
     void DTKSizeModeChanged(int value) const;
     void scrollBarPolicyChanged(int value) const;
+    void WallpaperURlsChanged(QString) const;
 
 public slots:
     // Appearance
