@@ -62,6 +62,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     : QObject(parent)
     , m_model(model)
     , m_personalizationDBusProxy(new PersonalizationDBusProxy(this))
+    , m_wallpaperWorker(new WallpaperWorker(m_personalizationDBusProxy, m_model->getWallpaperModel(), this))
     , m_kwinTitleBarConfig(DConfig::create(ORG_KDE_KWIN_DECORATION, ORG_KDE_KWIN_DECORATION_TITLEBAR, "", this))
     , m_kwinCompositingConfig(DConfig::create(ORG_KDE_KWIN, ORG_KDE_KWIN_COMPOSITING, "", this))
     , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
@@ -90,6 +91,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::DTKSizeModeChanged, this, &PersonalizationWorker::onCompactDisplayChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::scrollBarPolicyChanged, this, &PersonalizationWorker::setScrollBarPolicy);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperURlsChanged, this, &PersonalizationWorker::onWallpaperUrlsChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
         qCDebug(DdcPersonalWorker) << "ChangeProperty is " << propertyName << "; value is" << value;
         if (propertyName == "globaltheme") {
@@ -109,6 +111,8 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     m_themeModels["globaltheme"] = globalTheme;
     m_fontModels["standardfont"] = fontStand;
     m_fontModels["monospacefont"] = fontMono;
+
+    m_wallpaperWorker->fecthData();
 }
 
 void PersonalizationWorker::active()
@@ -119,7 +123,9 @@ void PersonalizationWorker::active()
     refreshOpacity(m_personalizationDBusProxy->opacity());
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());
     onCompositingAllowSwitch(m_personalizationDBusProxy->compositingAllowSwitch());
+    onWallpaperUrlsChanged({});
 
+    m_model->setCurrentSelectScreen(qApp->primaryScreen()->name());
     m_model->getWindowModel()->setDefault(m_personalizationDBusProxy->gtkTheme());
     m_model->getIconModel()->setDefault(m_personalizationDBusProxy->iconTheme());
     m_model->getMouseModel()->setDefault(m_personalizationDBusProxy->cursorTheme());
@@ -269,6 +275,22 @@ void PersonalizationWorker::onCompactDisplayChanged(int value)
 void PersonalizationWorker::onWindowEffectChanged(int value)
 {
     m_model->setWindowEffectType(value);
+}
+
+void PersonalizationWorker::onWallpaperUrlsChanged(const QString &value)
+{
+    // wallpaperUrls 存储着每个工作区和每个屏幕的壁纸, 若其改变, 需要刷新当前屏幕壁纸
+    Q_UNUSED(value)
+    QVariantMap wallpaperMap;
+    for (auto &screen : qApp->screens()) {
+        QString url = m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screen->name());
+        if (!url.isEmpty()) {
+            wallpaperMap.insert(screen->name(), url);
+        }
+    }
+    if (!wallpaperMap.isEmpty()) {
+        m_model->setWallpaperMap(wallpaperMap);
+    }
 }
 
 void PersonalizationWorker::setFontList(FontModel *model, const QString &type, const QString &list)
@@ -545,6 +567,19 @@ void PersonalizationWorker::setCursorTheme(const QString &id)
     }
 }
 
+void PersonalizationWorker::setBackgroundForMonitor(const QString &screenName, const QString &url)
+{
+    qInfo() << "Appearance SetMonitorBackground " << screenName << url;
+    if (screenName.isEmpty() || url.isEmpty())
+        return;
+
+    m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
+}
+
+QString PersonalizationWorker::getBackgroundForMonitor(const QString &screenName)
+{
+    return m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screenName);
+}
 
 PersonalizationWatcher::PersonalizationWatcher(PersonalizationWorker *work)
     : QObject(work)
