@@ -158,7 +158,9 @@ DccObject {
             checked: dccData.mode().bootDelay
 
             onCheckedChanged: {
-                dccData.work().setBootDelay(checked)
+                if (dccData.mode().bootDelay != checked) {
+                    dccData.work().setBootDelay(checked)
+                }
             }
         }
     }
@@ -176,7 +178,9 @@ DccObject {
             checked: dccData.mode().themeEnabled
 
             onCheckedChanged: {
-                dccData.work().setEnableTheme(checked)
+                if (checked != dccData.mode().themeEnabled) {
+                    dccData.work().setEnableTheme(checked)
+                }
             }
         }
     }
