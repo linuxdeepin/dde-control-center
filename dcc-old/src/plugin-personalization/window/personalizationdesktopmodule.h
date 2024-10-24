@@ -21,6 +21,8 @@ private:
     QWidget *initMiniEffect(ModuleObject *module);
     QWidget *initRoundEffect(ModuleObject *module);
 
+    QWidget *initCompactMode(ModuleObject *module);
+
 private:
     PersonalizationModel *m_model;
     PersonalizationWorker *m_work;

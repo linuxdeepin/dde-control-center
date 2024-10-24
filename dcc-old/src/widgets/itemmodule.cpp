@@ -129,6 +129,7 @@ QWidget *ItemModule::page()
                 leftWidget->setForegroundRole(DPalette::TextTitle);
                 DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
                 layout->addWidget(leftWidget, 0, Qt::AlignVCenter);
+                layout->setContentsMargins(8, 6, 8, 6);
                 if (ret)
                     layout->addWidget(ret, 0, Qt::AlignVCenter | Qt::AlignRight);
             } else {

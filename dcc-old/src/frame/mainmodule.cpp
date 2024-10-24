@@ -11,6 +11,7 @@
 #include <dguiapplicationhelper.h>
 
 #include <DPlatformTheme>
+#include <DSizeMode>
 
 #include <QFontMetrics>
 #include <QHBoxLayout>
@@ -41,8 +42,13 @@ public:
     explicit MainModulePrivate(MainModule *parent = nullptr)
         : q_ptr(parent)
         , m_view(nullptr)
+        , m_sidebarWidget(nullptr)
         , m_layout(nullptr)
     {
+        QObject::connect(Dtk::Gui::DGuiApplicationHelper::instance(), 
+            &Dtk::Gui::DGuiApplicationHelper::sizeModeChanged, [this](){
+                updateSpacing();
+            });
     }
 
     ListView *createListView(QWidget *parentWidget, bool isSizebar = false)
@@ -101,7 +107,6 @@ public:
         if (child && ModuleObject::IsVisible(child)) {
             m_sidebarWidget->setViewMode(ListView::ListMode);
             m_sidebarWidget->setContentsMargins(10, 0, 10, 0);
-            m_sidebarWidget->setSpacing(10);
             m_sidebarWidget->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
             ModuleDataModel *model = static_cast<ModuleDataModel *>(m_sidebarWidget->model());
@@ -132,7 +137,6 @@ public:
         } else {
             m_view->setViewMode(ListView::IconMode);
             m_view->setContentsMargins(0, 0, 0, 0);
-            m_view->setSpacing(20);
             m_view->setAlignment(Qt::AlignHCenter);
 
             while (!m_layout->isEmpty()) {
@@ -158,6 +162,15 @@ public:
         }
     }
 
+public slots:
+    void updateSpacing()
+    {
+        if (m_view && m_sidebarWidget) {
+            m_view->setSpacing(Dtk::Widget::DSizeModeHelper::element(10, 20));
+            m_sidebarWidget->setSpacing(Dtk::Widget::DSizeModeHelper::element(0, 10));
+        }
+    }
+
     QWidget *page()
     {
         Q_Q(MainModule);
@@ -174,6 +187,7 @@ public:
                          });
         m_view = createListView(parentWidget);
         m_sidebarWidget = createListView(parentWidget, true);
+        updateSpacing();
         QObject::connect(q, &MainModule::moduleDataChanged, q, [this, q](){
             if (auto model = dynamic_cast<ModuleDataModel*>(m_sidebarWidget->model())) {
                 auto index = model->index(q->currentModule());
