@@ -1,3 +1,10 @@
+dde-control-center (6.0.71) unstable; urgency=medium
+
+  * Release 6.0.71
+  * fix: adapt to compact mode
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Thu, 24 Oct 2024 19:09:05 +0800
+
 dde-control-center (6.0.70) unstable; urgency=medium
 
   * chore: add translations about time format
