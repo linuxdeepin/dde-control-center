@@ -4,14 +4,12 @@
 #ifndef USERMODEL_H
 #define USERMODEL_H
 
-#include "interface/namespace.h"
-
 #include <QObject>
 #include <QMap>
 
 #include "user.h"
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class UserModel : public QObject
 {
@@ -82,6 +80,6 @@ private:
     bool m_isSecurityHighLever;
     QStringList m_onlineUsers;
 };
-} // namespace DCC_NAMESPACE
+} // namespace dccV25
 
 #endif // USERMODEL_H

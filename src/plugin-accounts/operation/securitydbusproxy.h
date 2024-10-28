@@ -6,7 +6,6 @@
 
 #include <QObject>
 #include <tuple>
-#include "interface/namespace.h"
 #include <DDBusInterface>
 
 using Dtk::Core::DDBusInterface;

@@ -4,11 +4,9 @@
 #ifndef DCC_ACCOUNTSS_CREATIONRESULT_H
 #define DCC_ACCOUNTSS_CREATIONRESULT_H
 
-#include "interface/namespace.h"
-
 #include <QObject>
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class CreationResult : public QObject
 {
@@ -36,6 +34,6 @@ private:
     ResultType m_type;
     QString m_message;
 };
-} // namespace DCC_NAMESPACE
+} // namespace dccV25
 
 #endif // DCC_ACCOUNTSS_CREATIONRESULT_H

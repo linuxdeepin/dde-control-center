@@ -4,7 +4,7 @@
 #include "creationresult.h"
 
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 
 CreationResult::CreationResult(QObject *parent)
     : CreationResult(NoError, QString(""), parent)
