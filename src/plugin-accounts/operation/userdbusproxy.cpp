@@ -165,6 +165,20 @@ QDBusPendingReply<> UserDBusProxy::SetSecretQuestions(const QMap<int, QByteArray
     return m_dBusAccountsUserInter->asyncCallWithArgumentList(QStringLiteral("SetSecretQuestions"), argumentList);
 }
 
+QDBusPendingReply<> UserDBusProxy::SetQuickLogin(bool enabled)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enabled);
+    return m_dBusAccountsUserInter->asyncCallWithArgumentList(QStringLiteral("SetQuickLogin"), argumentList);
+}
+
+QDBusPendingReply<> UserDBusProxy::EnableWechatAuth(bool enabled)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enabled);
+    return m_dBusAccountsUserInter->asyncCallWithArgumentList(QStringLiteral("EnableWechatAuth"), argumentList);
+}
+
 //获取属性值
 int UserDBusProxy::accountType()
 {
@@ -311,4 +325,14 @@ void UserDBusProxy::onPropertiesChanged(const QDBusMessage &message)
     for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
         QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
     }
+}
+
+bool UserDBusProxy::quickLogin() const
+{
+    return qvariant_cast<bool>(m_dBusAccountsUserInter->property("QuickLogin"));
+}
+
+bool UserDBusProxy::wechatAuth() const
+{
+    return qvariant_cast<bool>(m_dBusAccountsUserInter->property("WechatAuthEnabled"));
 }

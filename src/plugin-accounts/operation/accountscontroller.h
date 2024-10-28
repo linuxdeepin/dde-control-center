@@ -1,0 +1,107 @@
+// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+#ifndef ACCOUNTSCONTROLLER_H
+#define ACCOUNTSCONTROLLER_H
+
+#include "usermodel.h"
+#include "accountsworker.h"
+
+#include <QObject>
+#include <QSortFilterProxyModel>
+
+namespace dccV25 {
+
+class AccountsController : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString currentUserName READ currentUserName NOTIFY currentUserNameChanged FINAL)
+    Q_PROPERTY(QStringList userIdList READ userIdList NOTIFY userIdListChanged FINAL)
+    Q_PROPERTY(QStringList onlineUserList READ onlineUserList NOTIFY onlineUserListChanged FINAL)
+
+public:
+    explicit AccountsController(QObject *parent = nullptr);
+    virtual ~AccountsController();
+
+    QString currentUserName() const;
+    QStringList userIdList() const;
+    QStringList onlineUserList() const;
+
+public slots:
+    QString currentUserId() const;
+
+    QString avatar(const QString &id) const;
+    void setAvatar(const QString &id, const QString &url);
+    QStringList avatars(const QString &id, const QString &filter, const QString &section);
+    QString userName(const QString &id) const;
+    QString fullName(const QString &id) const;
+    void setFullname(const QString &id, const QString &name);
+    int userType(const QString &id) const;
+    QString userTypeName(const QString &id) const;
+    QStringList userTypes(bool createUser = false) const;
+    bool isDeleteAble(const QString &id) const;
+
+    bool isAutoLoginVisable() const;
+    bool autoLogin(const QString &id) const;
+    void setAutoLogin(const QString &id, const bool enable);
+    bool isNoPassWordLoginVisable() const;
+    bool nopasswdLogin(const QString &id);
+    void setNopasswdLogin(const QString &id, const bool enable);
+    bool isOnline(const QString &id);
+
+    QStringList allGroups() const;
+    QStringList groups(const QString &id) const;
+    void setGroup(const QString &id, const QString &group, bool on);
+    bool groupContains(const QString &id, const QString &name) const;
+    bool groupEnabled(const QString &id, const QString &name) const;
+    bool groupEditAble(const QString &id, const QString &name) const;
+    void createGroup(const QString &name);
+    void deleteGroup(const QString &name);
+    void modifyGroup(const QString &oldName, const QString &newName);
+
+    void addUser(const QVariantMap &userInfo);
+    void removeUser(const QString &id, const bool deleteHome);
+    void setPassword(const QString &id, const QVariantMap &info);
+    void setPasswordHint(const QString &id, const QString &pwdHint);
+    int passwordAge(const QString &id) const;
+    void setPasswordAge(const QString &id, const int age);
+
+    QSortFilterProxyModel *avatarFilterModel();
+    QAbstractListModel *avatarTypesModel();
+    QAbstractListModel *accountsModel();
+
+    int passwordLevel(const QString &pwd);
+    QString checkUsername(const QString &name);
+    QString checkFullname(const QString &name);
+    QString checkPassword(const QString &name, const QString &pwd);
+    QVariantMap checkPasswordResult(int code, const QString &msg, const QString &name, const QString &pwd);
+    void showDefender();
+
+signals:
+    void currentUserNameChanged();
+    void userIdListChanged();
+    void onlineUserListChanged();
+    void avatarChanged(const QString &userId, const QString &avatar);
+    void autoLoginChanged(const QString &userId, bool enable);
+    void nopasswdLoginChanged(const QString &userId, bool enable);
+    void groupsChanged(const QString &userId, const QStringList &groups);
+    void passwordModifyFinished(const QString &userId, const int exitCode, const QString &msg);
+    void groupsUpdate(); // create/delete/modify
+    void groupsUpdateFailed(const QString &groupName);
+    void showSafetyPage(const QString &errorTips);
+protected:
+    bool isSystemAdmin(const User *user) const;
+    int adminCount() const;
+    void checkPwdLimitLevel(int lvl);
+private:
+    AccountsWorker *m_worker = nullptr;
+    UserModel      *m_model = nullptr;
+    QSortFilterProxyModel *m_avatarFilterModel = nullptr;
+    QAbstractListModel    *m_avatarTypesModel = nullptr;
+    QAbstractListModel    *m_accountsModel = nullptr;
+};
+
+}
+
+#endif // ACCOUNTSCONTROLLER_H

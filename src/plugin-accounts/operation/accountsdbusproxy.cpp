@@ -35,6 +35,11 @@ QStringList AccountsDBusProxy::userList()
     return qvariant_cast<QStringList>(m_dBusAccountsInter->property("UserList"));
 }
 
+QStringList AccountsDBusProxy::groupList()
+{
+    return qvariant_cast<QStringList>(m_dBusAccountsInter->property("GroupList"));
+}
+
 QList<QDBusObjectPath> AccountsDBusProxy::sessions()
 {
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusDisplayManagerInter->property("Sessions"));
@@ -99,4 +104,32 @@ QDBusPendingReply<QString> AccountsDBusProxy::RandUserIcon()
 {
     QList<QVariant> argumentList;
     return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("RandUserIcon"), argumentList);
+}
+
+QDBusPendingReply<QString> AccountsDBusProxy::GetGroupInfoByName(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("GetGroupInfoByName"), argumentList);
+}
+
+QDBusPendingReply<> AccountsDBusProxy::deleteGroup(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(true); // force = true
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("DeleteGroup"), argumentList);
+}
+
+QDBusPendingReply<> AccountsDBusProxy::createGroup(const QString &in0, uint32_t in1, bool in2)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("CreateGroup"), argumentList);
+}
+
+QDBusPendingReply<> AccountsDBusProxy::modifyGroup(const QString &in0, const QString &in1, uint32_t in2)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("ModifyGroup"), argumentList);
 }

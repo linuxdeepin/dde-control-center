@@ -119,6 +119,12 @@ public:
     Q_PROPERTY(QString XSession READ xSession NOTIFY XSessionChanged)
     QString xSession();
 
+    Q_PROPERTY(bool QuickLogin READ quickLogin NOTIFY QuickLoginChanged)
+    bool quickLogin() const;
+
+    Q_PROPERTY(bool WechatAuthEnabled READ wechatAuth NOTIFY WechatAuthChanged)
+    bool wechatAuth() const;
+
     inline QString path() { return m_accountsUserPath; }
     inline const QDBusInterface* interface() { return m_dBusAccountsUserInter; }
 
@@ -159,6 +165,9 @@ signals:
     void WeekdayFormatChanged(int  value) const;
     void XSessionChanged(const QString & value) const;
 
+    void QuickLoginChanged();
+    void WechatAuthChanged();
+
 public slots:
     QDBusPendingReply<> AddGroup(const QString &group);
     QDBusPendingReply<> DeleteGroup(const QString &group);
@@ -182,6 +191,8 @@ public slots:
     QDBusPendingReply<> SetShell(const QString &shell);
     QDBusPendingReply<QList<int>> GetSecretQuestions();
     QDBusPendingReply<> SetSecretQuestions(const QMap<int, QByteArray> &securityQuestions);
+    QDBusPendingReply<> SetQuickLogin(bool enabled);
+    QDBusPendingReply<> EnableWechatAuth(bool enabled);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);

@@ -45,6 +45,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_userModel->setIsSecurityHighLever(hasOpenSecurity());
 
     connect(m_accountsInter, &AccountsDBusProxy::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
+    connect(m_accountsInter, &AccountsDBusProxy::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::SessionsChanged, this, &AccountsWorker::updateUserOnlineStatus);
@@ -75,11 +76,49 @@ void AccountsWorker::getAllGroups()
     connect(groupResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getAllGroupsResult);
 }
 
+void AccountsWorker::getGroupInfoByName(const QString &groupName, QString &resInfoJson)
+{
+    QString info;
+
+    QDBusPendingReply<QString> reply = m_accountsInter->GetGroupInfoByName(groupName);
+    QDBusPendingCallWatcher *groupResult = new QDBusPendingCallWatcher(reply, this);
+    connect(groupResult, &QDBusPendingCallWatcher::finished, this, [&resInfoJson](QDBusPendingCallWatcher *watch) {
+        QDBusPendingReply<QString> reply = *watch;
+        if (!watch->isError()) {
+            resInfoJson = reply.value();
+        } else {
+            qDebug() << "getGroupInfoByName error." << watch->error();
+        }
+        watch->deleteLater();
+    });
+
+    groupResult->waitForFinished();
+}
+
 void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QStringList> reply = *watch;
     if (!watch->isError()) {
         m_userModel->setAllGroups(reply.value());
+
+        QStringList disabledGroups;
+        QJsonDocument jsonDocument;
+        QJsonObject jsonObject;
+        QString info;
+
+        foreach (auto name, reply.value()) {
+            getGroupInfoByName(name, info);
+            jsonDocument = QJsonDocument::fromJson(info.toLocal8Bit());
+            jsonObject = jsonDocument.object();
+
+            bool res = false;
+            int gid = jsonObject.value("Gid").toString().toInt(&res);
+            if (res && 1000 > gid) {
+                if (!disabledGroups.contains(name))
+                    disabledGroups.append(name);
+            }
+        }
+        m_userModel->setDisabledGroups(disabledGroups);
     } else {
         qDebug() << "getAllGroupsResult error." << watch->error();
     }
@@ -189,6 +228,50 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
     }
 }
 
+void AccountsWorker::deleteGroup(const QString &group)
+{
+    QDBusPendingCall call = m_accountsInter->deleteGroup(group);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, group] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qWarning() << "Delete group " << group << " failed, error:" << call->error().message();
+            Q_EMIT updateGroupFailed(group);
+            return;
+        }
+        Q_EMIT updateGroupFinished(AccountsWorker::OperateType::Delete, call->isValid(), group);
+    });
+}
+
+void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSystem)
+{
+    QDBusPendingCall call = m_accountsInter->createGroup(group, gid, isSystem);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, group, gid] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qWarning() << "Create group, gid: " << gid << ", created group `" << group << "` failed, error:" << call->error().message();
+            Q_EMIT updateGroupFailed(group);
+            return;
+        }
+
+        Q_EMIT updateGroupFinished(AccountsWorker::OperateType::Create, call->isValid());
+    });
+}
+
+void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid)
+{
+    QDBusPendingCall call = m_accountsInter->modifyGroup(oldGroup, newGroup, gid);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, oldGroup, newGroup] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qWarning() << "Modify group from " << oldGroup << " to " << newGroup << " failed, error:" << call->error().message();
+            Q_EMIT updateGroupFailed(newGroup);
+            return;
+        }
+
+        Q_EMIT updateGroupFinished(AccountsWorker::OperateType::Modify, call->isValid());
+    });
+}
+
 bool AccountsWorker::hasOpenSecurity()
 {
     const auto &value = m_securityInter->Status();
@@ -226,7 +309,7 @@ SecurityLever AccountsWorker::getSecUserLeverbyname(QString userName)
     return SecurityLever::Standard;
 }
 
-void AccountsWorker::checkPwdLimitLevel()
+void AccountsWorker::checkPwdLimitLevel(int level)
 {
     // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
     QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
@@ -235,11 +318,27 @@ void AccountsWorker::checkPwdLimitLevel()
     if (!interface.isValid()) {
         return;
     }
-    QDBusReply<int> level = interface.call("GetPwdLimitLevel");
-    if (level.error().type() == QDBusError::NoError && level != 1) {
+    QDBusReply<int> pwdLimitLevel = interface.call("GetPwdLimitLevel");
+    if (pwdLimitLevel.error().type() == QDBusError::NoError && pwdLimitLevel > level) {
         QDBusReply<QString> errorTips = interface.call("GetPwdError");
-        Q_EMIT showSafeyPage(errorTips);
+        Q_EMIT showSafetyPage(errorTips);
     }
+}
+
+void AccountsWorker::showDefender()
+{
+    qDebug() << "showDefender call.....";
+    QDBusPendingCall call = DDBusSender()
+            .service("com.deepin.defender.hmiscreen")
+            .interface("com.deepin.defender.hmiscreen")
+            .path("/com/deepin/defender/hmiscreen")
+            .method(QString("ShowPage"))
+            .arg(QString("securitytools"))
+            .arg(QString("login-safety"))
+            .call();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    watcher->waitForFinished();
+    watcher->deleteLater();
 }
 
 void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
@@ -264,6 +363,7 @@ void AccountsWorker::active()
         it.key()->setGid(it.value()->gid());
         it.key()->setFullname(it.value()->fullName());
         it.key()->setIsCurrentUser(it.value()->property("UserName").toString() == m_currentUserName);
+        it.key()->setId(it.value()->path());
     }
 }
 
@@ -419,6 +519,12 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
     }
 }
 
+void AccountsWorker::onGroupListChanged(const QStringList &groupList)
+{
+    if (m_userModel)
+        m_userModel->setAllGroups(groupList);
+}
+
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult)
 {
     QProcess process;
@@ -506,6 +612,7 @@ void AccountsWorker::addUser(const QString &userPath)
     userInter->IsPasswordExpired();
     userInter->gid();
 
+    user->setId(userPath);
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
     user->setAutoLogin(userInter->automaticLogin());

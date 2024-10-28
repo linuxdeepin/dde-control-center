@@ -43,12 +43,14 @@ public:
     QStringList getPresetGroups();
     QString getCurrentUserName() const;
     void setCurrentUserName(const QString &currentUserName);
-
+    User *currentUser();
     bool getIsSecurityHighLever() const;
     void setIsSecurityHighLever(bool isSecurityHighLever);
 
     inline QStringList getOnlineUsers() { return m_onlineUsers; }
     void SetOnlineUsers(QStringList onlineUsers);
+    bool isDisabledGroup(const QString &groupName);
+    void setDisabledGroups(const QStringList &groups);
 
     enum ActionOption {
         ClickCancel = 0,
@@ -59,6 +61,12 @@ public:
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
+    void avatarChanged(const QString &userId, const QString &avatar);
+    void autoLoginChanged(const QString &userId, bool enable);
+    void nopasswdLoginChanged(const QString &userId, bool enable);
+    void groupsChanged(const QString &userId, const QStringList &groups);
+    void passwordModifyFinished(const QString &userId, const int exitCode, const QString &errorTxt);
+    void onlineChanged(const QString &userId, const bool &online) const;
     void isJoinADDomainChanged(bool isjoin);
     void isADUserLoginChanged(bool isLogind);
     void allGroupsChange(const QStringList &groups);
@@ -67,6 +75,7 @@ Q_SIGNALS:
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
     void adminCntChange(const int adminCnt);
+
 private:
     bool m_autoLoginVisable;
     bool m_noPassWordLoginVisable;
@@ -78,6 +87,7 @@ private:
     bool m_isJoinADDomain;
     bool m_isADUserLogind;
     bool m_isSecurityHighLever;
+    QStringList m_DisabledGroups;
     QStringList m_onlineUsers;
 };
 } // namespace dccV25

@@ -6,7 +6,9 @@ import org.deepin.dcc 1.0
 DccObject {
     name: "accounts"
     parentName: "root"
-    displayName: qsTr("account")
+    displayName: qsTr("Account")
+    description: qsTr("Account manager")
     icon: "dcc_nav_accounts"
     weight: 10
 }
+

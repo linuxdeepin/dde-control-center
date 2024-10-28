@@ -10,6 +10,8 @@ add_library(${pluginName} MODULE
     ${accounts_SRCS}
 )
 
+pkg_check_modules(DEEPIN_PW_CHECK REQUIRED libdeepin_pw_check)
+
 find_package(PolkitQt6-1)
 set(accounts_Libraries
     dde-control-center
