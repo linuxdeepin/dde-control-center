@@ -33,9 +33,12 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Menu
                     delegate: DccMenuItem {
+                        topInset: root.isGroup ? 0 : 5
+                        bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
                         backgroundVisible: true
                         Layout.fillWidth: true
+                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
                 DelegateChoice {
