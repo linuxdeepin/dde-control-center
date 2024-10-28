@@ -7,7 +7,6 @@
 #include <QObject>
 #include <QDBusPendingReply>
 #include <DDBusInterface>
-#include "interface/namespace.h"
 
 using Dtk::Core::DDBusInterface;
 

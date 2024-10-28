@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsworker.h"
 #include "user.h"
-#include "widgets/utils.h"
 #include "syncdbusproxy.h"
 #include "accountsdbusproxy.h"
 #include "userdbusproxy.h"
@@ -11,13 +10,13 @@
 
 #include <ddbussender.h>
 
-#include <QFileDialog>
 #include <QtConcurrent>
 #include <QFutureWatcher>
 #include <QStandardPaths>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDBusReply>
+#include <DSysInfo>
 
 #include <pwd.h>
 #include <tuple>
@@ -25,10 +24,11 @@
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
-#include <polkit-qt5-1/PolkitQt1/Authority>
+#include <PolkitQt1/Authority>
 using namespace PolkitQt1;
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
+DCORE_USE_NAMESPACE
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -131,7 +131,7 @@ void AccountsWorker::localBindCheck(User *user, const QString &uosid, const QStr
             Q_EMIT localBindError(result.error);
         watcher->deleteLater();
     });
-    QFuture<BindCheckResult> future = QtConcurrent::run(this, &AccountsWorker::checkLocalBind, uosid, uuid);
+    QFuture<BindCheckResult> future = QtConcurrent::run(&AccountsWorker::checkLocalBind, this, uosid, uuid);
     watcher->setFuture(future);
 }
 
@@ -154,7 +154,7 @@ void AccountsWorker::asyncSecurityQuestionsCheck(User *user)
 
         watcher->deleteLater();
     });
-    QFuture<QList<int>> future = QtConcurrent::run(this, &AccountsWorker::securityQuestionsCheck);
+    QFuture<QList<int>> future = QtConcurrent::run(&AccountsWorker::securityQuestionsCheck, this);
     watcher->setFuture(future);
 }
 
@@ -305,7 +305,7 @@ void AccountsWorker::createAccount(const User *user)
         watcher->deleteLater();
     });
 
-    QFuture<CreationResult *> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
+    QFuture<CreationResult *> future = QtConcurrent::run(&AccountsWorker::createAccountInternal, this, user);
     Q_EMIT requestMainWindowEnabled(false);
     watcher->setFuture(future);
 }

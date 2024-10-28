@@ -4,7 +4,6 @@
 #ifndef ACCOUNTSWORKER_H
 #define ACCOUNTSWORKER_H
 
-#include "interface/namespace.h"
 #include "usermodel.h"
 #include "creationresult.h"
 
@@ -18,7 +17,7 @@ class UserDBusProxy;
 class SyncDBusProxy;
 class SecurityDBusProxy;
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class User;
 
@@ -106,6 +105,6 @@ private:
     UserModel *m_userModel;
 };
 
-}   // namespace DCC_NAMESPACE
+}   // namespace dccV25
 
 #endif // ACCOUNTSWORKER_H

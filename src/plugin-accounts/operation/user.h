@@ -4,15 +4,13 @@
 #ifndef USER_H
 #define USER_H
 
-#include "interface/namespace.h"
-
 #include <QObject>
 #include <QSet>
 #include <QString>
 
 static const QString NO_PASSWORD { "NP" };
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 enum SecurityLever {
     Standard,
@@ -144,6 +142,6 @@ private:
 
     Q_ENUM(SecurityLever);
 };
-} // namespace DCC_NAMESPACE
+} // namespace dccV25
 
 #endif // USER_H

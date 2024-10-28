@@ -5,7 +5,7 @@
 
 #include "user.h"
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 User::User(QObject *parent)
     : QObject(parent)
     , m_isCurrentUser(false)

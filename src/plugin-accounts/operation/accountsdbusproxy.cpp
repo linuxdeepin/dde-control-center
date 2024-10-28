@@ -2,7 +2,6 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsdbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusConnection>

@@ -6,7 +6,7 @@
 
 #include <QDebug>
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 
 UserModel::UserModel(QObject *parent)
     : QObject(parent)
