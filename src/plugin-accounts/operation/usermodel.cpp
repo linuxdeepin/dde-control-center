@@ -46,6 +46,27 @@ void UserModel::addUser(const QString &id, User *user)
     Q_ASSERT(!m_userList.contains(id));
 
     m_userList[id] = user;
+    connect(user, &User::currentAvatarChanged, this, [this, user](const QString &avatar){
+        Q_EMIT avatarChanged(user->id(), avatar);
+    });
+    connect(user, &User::autoLoginChanged, this, [this, user](const bool enable){
+        Q_EMIT autoLoginChanged(user->id(), enable);
+    });
+    connect(user, &User::nopasswdLoginChanged, this, [this, user](const bool enable){
+        Q_EMIT nopasswdLoginChanged(user->id(), enable);
+    });
+    connect(user, &User::groupsChanged, this, [this, user](const QStringList &groups){
+        Q_EMIT groupsChanged(user->id(), groups);
+    });
+    connect(user, &User::passwordModifyFinished, this, [this, user](const int exitCode, const QString &errorTxt){
+        Q_EMIT passwordModifyFinished(user->id(), exitCode, errorTxt);
+    });
+    connect(user, &User::passwordResetFinished, this, [this, user](const QString &errorTxt){
+        Q_EMIT passwordModifyFinished(user->id(), errorTxt.isEmpty() ? 0 : -1, errorTxt);
+    });
+    connect(user, &User::onlineChanged, this, [this, user](const bool &online){
+        Q_EMIT onlineChanged(user->id(), online);
+    });
 
     Q_EMIT userAdded(user);
 }
@@ -125,6 +146,17 @@ void UserModel::setCurrentUserName(const QString &currentUserName)
     m_currentUserName = currentUserName;
 }
 
+User *UserModel::currentUser()
+{
+    for (auto user : userList()) {
+        if (user->name() == m_currentUserName) {
+            return user;
+        }
+    }
+
+    return nullptr;
+}
+
 bool UserModel::getIsSecurityHighLever() const
 {
     return m_isSecurityHighLever;
@@ -133,6 +165,16 @@ bool UserModel::getIsSecurityHighLever() const
 void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
 {
     m_isSecurityHighLever = isSecurityHighLever;
+}
+
+bool UserModel::isDisabledGroup(const QString &groupName)
+{
+    return m_DisabledGroups.contains(groupName);
+}
+
+void UserModel::setDisabledGroups(const QStringList &groups)
+{
+    m_DisabledGroups = groups;
 }
 
 void UserModel::SetOnlineUsers(QStringList onlineUsers)

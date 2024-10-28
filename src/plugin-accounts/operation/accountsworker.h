@@ -31,9 +31,15 @@ class AccountsWorker : public QObject
     Q_OBJECT
 
 public:
+    enum class OperateType {
+        Delete,
+        Create,
+        Modify
+    };
+
     explicit AccountsWorker(UserModel * userList, QObject *parent = nullptr);
 
-    void active();
+    Q_INVOKABLE void active();
     QString getCurrentUserName();
     void updateGroupinfo();
     QDBusPendingReply<bool, QString, int> isUsernameValid(const QString &name);
@@ -44,8 +50,9 @@ Q_SIGNALS:
     void requestMainWindowEnabled(const bool isEnabled) const;
     void localBindUbid(const QString &ubid);
     void localBindError(const QString &error);
-    void showSafeyPage(const QString &errorTips);
-
+    void showSafetyPage(const QString &errorTips);
+    void updateGroupFinished(OperateType operation, bool successfully, const QString& groupName = QString());
+    void updateGroupFailed(const QString& groupName = QString());
 public Q_SLOTS:
     void randomUserIcon(User *user);
     void createAccount(const User *user);
@@ -56,6 +63,7 @@ public Q_SLOTS:
     void setAutoLogin(User *user, const bool autoLogin);
     void setAdministrator(User *user, const bool asAdministrator);
     void onUserListChanged(const QStringList &userList);
+    void onGroupListChanged(const QStringList &groupList);
     void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd,  const bool needResule = true);
     void resetPassword(User *user, const QString &password);
     void deleteUserIcon(User *user, const QString &iconPath);
@@ -74,10 +82,15 @@ public Q_SLOTS:
     void setGroups(User *user, const QStringList &usrGroups);
     void setPasswordHint(User *user, const QString &passwordHint);
     void setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions);
+    void deleteGroup(const QString &group);
+    void createGroup(const QString &group, uint32_t gid, bool isSystem);
+    void modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid);
+    void getGroupInfoByName(const QString &groupName, QString &resInfoJson);
 
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
-    void checkPwdLimitLevel();
+    void checkPwdLimitLevel(int level);
+    void showDefender();
 
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);

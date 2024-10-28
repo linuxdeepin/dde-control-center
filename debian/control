@@ -11,6 +11,7 @@ Build-Depends:
  qt6-tools-dev,
  qt6-declarative-private-dev,
  qt6-multimedia-dev,
+ libpolkit-qt6-1-dev,
  libdtkcommon-dev,
  libdtk6gui-dev(>=6.0.21),
  libdtk6core-dev,

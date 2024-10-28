@@ -36,6 +36,9 @@ public:
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString fullname READ fullname WRITE setFullname NOTIFY fullnameChanged)
 
+    const inline QString id() const { return m_id; }
+    void setId(const QString &id);
+
     const QString name() const;
     void setName(const QString &name);
 
@@ -137,6 +140,7 @@ private:
     quint64 m_createdTime;
     QString m_gid;
     QString m_passwordHint;
+    QString m_id;
     SecurityLever m_securityLever;
 
 

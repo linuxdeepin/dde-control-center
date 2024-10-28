@@ -18,6 +18,12 @@ User::User(QObject *parent)
 {
 }
 
+void User::setId(const QString &id)
+{
+    if (id != m_id)
+        m_id = id;
+}
+
 const QString User::name() const
 {
     return m_name;

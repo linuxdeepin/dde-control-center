@@ -22,6 +22,10 @@ public:
     Q_PROPERTY(QStringList UserList READ userList NOTIFY UserListChanged)
     QStringList userList();
 
+    // groups
+    Q_PROPERTY(QStringList GroupList READ groupList NOTIFY GroupListChanged)
+    QStringList groupList();
+
     // displaymanager
     Q_PROPERTY(QList<QDBusObjectPath> Sessions READ sessions NOTIFY SessionsChanged)
     QList<QDBusObjectPath> sessions();
@@ -31,9 +35,11 @@ signals:
     void UserDeleted(const QString &in0);
     // begin property changed signals
     void UserListChanged(const QStringList &value) const;
+    void GroupListChanged(const QStringList &value);
 
     // displaymanager
     void SessionsChanged(const QList<QDBusObjectPath> &value) const;
+
 
 public slots:
     QDBusPendingReply<QDBusObjectPath> CreateUser(const QString &in0, const QString &in1, int in2);
@@ -45,6 +51,10 @@ public slots:
     QDBusPendingReply<bool, QString, int> IsPasswordValid(const QString &in0);
     QDBusPendingReply<bool, QString, int> IsUsernameValid(const QString &in0);
     QDBusPendingReply<QString> RandUserIcon();
+    QDBusPendingReply<QString> GetGroupInfoByName(const QString &in0);
+    QDBusPendingReply<> deleteGroup(const QString &in0);
+    QDBusPendingReply<> createGroup(const QString &in0, uint32_t in1, bool in2);
+    QDBusPendingReply<> modifyGroup(const QString &in0, const QString &in1, uint32_t in2);
 
 private:
     void init();
