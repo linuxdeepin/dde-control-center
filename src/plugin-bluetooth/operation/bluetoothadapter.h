@@ -7,6 +7,7 @@
 #include <QObject>
 
 #include "bluetoothdevice.h"
+#include "bluetoothdevicemodel.h"
 
 class QJsonObject;
 class BluetoothDBusProxy;
@@ -39,6 +40,19 @@ public:
     void inflate(const QJsonObject &obj);
     void inflateDevice(BluetoothDevice *device, const QJsonObject &deviceObj);
 
+    BluetoothDeviceModel *myDevices() const;
+
+    BluetoothDeviceModel *otherDevices() const;
+
+    void updateDeviceData(BluetoothDevice *device);
+    void setdisplaySwitch(bool displaySwitch);
+
+    bool myDeviceVisible() const;
+    void setMyDeviceVisible(bool newMyDeviceVisible);
+
+    bool otherDeviceVisible() const;
+    void setOtherDeviceVisible(bool newOtherDeviceVisible);
+
 public Q_SLOTS:
     void addDevice(const BluetoothDevice *device);
     void removeDevice(const QString &deviceId);
@@ -53,6 +67,7 @@ Q_SIGNALS:
     void loadStatus() const;
     void discoverableChanged(const bool &discoverable) const;
     void closeDetailPage() const;
+    void myDeviceVisibleChanged(const QString &id);
 
 private Q_SLOTS:
     void onClearUnpairedDevice();
@@ -66,6 +81,13 @@ private:
     bool m_discovering;
     bool m_discoverable;
     QMap<QString, const BluetoothDevice *> m_devices;
+
+    BluetoothDeviceModel* m_myDevices;
+    BluetoothDeviceModel* m_otherDevices;
+
+    bool m_myDeviceVisible = false;
+    bool m_otherDeviceVisible = false;
+
     //按序存放设备id,确定设备显示顺序
     QList<QString> m_devicesId;
     BluetoothDBusProxy *m_bluetoothDBusProxy;

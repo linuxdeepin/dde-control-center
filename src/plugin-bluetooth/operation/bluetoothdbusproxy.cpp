@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "bluetoothdbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusConnection>
@@ -18,7 +17,6 @@ const static QString AirPlaneModeService = "org.deepin.dde.AirplaneMode1";
 const static QString AirPlaneModePath = "/org/deepin/dde/AirplaneMode1";
 const static QString AirPlaneModeInterface = "org.deepin.dde.AirplaneMode1";
 
-using namespace DCC_NAMESPACE;
 
 BluetoothDBusProxy::BluetoothDBusProxy(QObject *parent)
     : QObject(parent)

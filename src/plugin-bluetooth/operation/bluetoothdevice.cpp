@@ -74,7 +74,8 @@ void BluetoothDevice::setConnecting(bool connecting)
     }
 }
 
-void BluetoothDevice::setBattery(int battery) {
+void BluetoothDevice::setBattery(int battery)
+{
     if (m_battery != battery) {
         m_battery = battery;
         Q_EMIT batteryChanged(battery);
@@ -83,13 +84,13 @@ void BluetoothDevice::setBattery(int battery) {
 
 void BluetoothDevice::setDeviceType(const QString &deviceType)
 {
-    m_deviceType = deviceType;
+    m_deviceType = deviceType2Icon.contains(deviceType) ? deviceType2Icon[deviceType] : "bluetooth_other";
 }
 
 bool BluetoothDevice::canSendFile() const
 {
     // 目前pc和手机可以发送蓝牙文件
-    if ((m_deviceType == "pc") || (m_deviceType == "phone")) {
+    if ((m_deviceType == "bluetooth_pc") || (m_deviceType == "bluetooth_phone")) {
         return true;
     }
     return false;

@@ -9,17 +9,27 @@ BluetoothModel::BluetoothModel(QObject *parent)
     , m_canSendFile(false)
     , m_airplaneEnable(false)
     , m_displaySwitch(false)
+    , m_showBluetooth(false)
+    , m_blueToothAdaptersModel(new BlueToothAdaptersModel(this))
 {
     m_adapters.clear();
+
+    connect(this, &BluetoothModel::displaySwitchChanged, m_blueToothAdaptersModel, &BlueToothAdaptersModel::setDisplaySwitch);
+    connect(this, &BluetoothModel::adpaterListChanged, this, [ this ] {
+        setShowBluetooth(m_adapters.count());
+    });
 }
 
 void BluetoothModel::addAdapter(BluetoothAdapter *adapter)
 {
     if (!adapterById(adapter->id())) {
+        adapter->setdisplaySwitch(displaySwitch());
         m_adapters[adapter->id()] = adapter;
         m_adapterIds << adapter->id();
         Q_EMIT adapterAdded(adapter);
         Q_EMIT adpaterListChanged();
+
+        m_blueToothAdaptersModel->addAdapter(adapter);
         return;
     }
 
@@ -34,6 +44,7 @@ const BluetoothAdapter *BluetoothModel::removeAdapater(const QString &adapterId)
     if (adapter) {
         m_adapters.remove(adapterId);
         m_adapterIds.removeOne(adapterId);
+        m_blueToothAdaptersModel->removeAdapter(adapterId);
         Q_EMIT adapterRemoved(adapter);
         Q_EMIT adpaterListChanged();
     }
@@ -64,24 +75,6 @@ const BluetoothAdapter *BluetoothModel::adapterById(const QString &id)
 bool BluetoothModel::canTransportable() const
 {
     return m_transPortable;
-}
-
-void BluetoothModel::setMyDeviceVisible(const bool visible)
-{
-    if (m_myDeviceVisible == visible)
-        return;
-
-    m_myDeviceVisible = visible;
-    Q_EMIT notifyMyDeviceVisibleChanged(m_myDeviceVisible);
-}
-
-void BluetoothModel::setOtherDeviceVisible(const bool visible)
-{
-    if (m_otherDeviceVisible == visible)
-        return;
-
-    m_otherDeviceVisible = visible;
-    Q_EMIT notifyOtherDeviceVisibleChanged(m_otherDeviceVisible);
 }
 
 /**
@@ -123,4 +116,32 @@ void BluetoothModel::setDisplaySwitch(bool on)
     m_displaySwitch = on;
 
     Q_EMIT displaySwitchChanged(m_displaySwitch);
+}
+
+bool BluetoothModel::showBluetooth() const
+{
+    return m_showBluetooth;
+}
+
+void BluetoothModel::setShowBluetooth(bool newShowBluetooth)
+{
+    if (m_showBluetooth == newShowBluetooth)
+        return;
+    m_showBluetooth = newShowBluetooth;
+    emit showBluetoothChanged();
+}
+
+bool BluetoothModel::airplaneEnable() const
+{
+    return m_airplaneEnable;
+}
+
+BlueToothAdaptersModel *BluetoothModel::blueToothAdaptersModel() const
+{
+    return m_blueToothAdaptersModel;
+}
+
+void BluetoothModel::updateAdaptersModel(BluetoothAdapter *data)
+{
+    m_blueToothAdaptersModel->updateAdapter(data);
 }
