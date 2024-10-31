@@ -43,21 +43,6 @@ const QString TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY = QStringLiteral("titleBa
 const QString TITLE_BAR_HEIGHT_KEY = QStringLiteral("titlebarHeight");
 const QString EffectMoveWindowArg = "kwin4_effect_translucency";
 
-const int RENDER_DPI = 72;
-const double DPI = 96;
-
-double ptToPx(double pt)
-{
-    double px = pt / RENDER_DPI * DPI + 0.5;
-    return px;
-}
-
-double pxToPt(double px)
-{
-    double pt = px * RENDER_DPI / DPI;
-    return pt;
-}
-
 PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -112,7 +97,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     m_fontModels["standardfont"] = fontStand;
     m_fontModels["monospacefont"] = fontMono;
 
-    m_wallpaperWorker->fecthData();
+    m_wallpaperWorker->fetchData();
 }
 
 void PersonalizationWorker::active()
@@ -123,7 +108,7 @@ void PersonalizationWorker::active()
     refreshOpacity(m_personalizationDBusProxy->opacity());
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());
     onCompositingAllowSwitch(m_personalizationDBusProxy->compositingAllowSwitch());
-    onWallpaperUrlsChanged({});
+    onWallpaperUrlsChanged();
 
     m_model->setCurrentSelectScreen(qApp->primaryScreen()->name());
     m_model->getWindowModel()->setDefault(m_personalizationDBusProxy->gtkTheme());
@@ -277,10 +262,9 @@ void PersonalizationWorker::onWindowEffectChanged(int value)
     m_model->setWindowEffectType(value);
 }
 
-void PersonalizationWorker::onWallpaperUrlsChanged(const QString &value)
+void PersonalizationWorker::onWallpaperUrlsChanged()
 {
     // wallpaperUrls 存储着每个工作区和每个屏幕的壁纸, 若其改变, 需要刷新当前屏幕壁纸
-    Q_UNUSED(value)
     QVariantMap wallpaperMap;
     for (auto &screen : qApp->screens()) {
         QString url = m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screen->name());
@@ -567,8 +551,9 @@ void PersonalizationWorker::setCursorTheme(const QString &id)
     }
 }
 
-void PersonalizationWorker::setBackgroundForMonitor(const QString &screenName, const QString &url)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark)
 {
+    Q_UNUSED(isDark)
     qInfo() << "Appearance SetMonitorBackground " << screenName << url;
     if (screenName.isEmpty() || url.isEmpty())
         return;
@@ -576,9 +561,11 @@ void PersonalizationWorker::setBackgroundForMonitor(const QString &screenName, c
     m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
 }
 
-QString PersonalizationWorker::getBackgroundForMonitor(const QString &screenName)
+void PersonalizationWorker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark)
 {
-    return m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screenName);
+    Q_UNUSED(screenName)
+    Q_UNUSED(url)
+    Q_UNUSED(isDark)
 }
 
 PersonalizationWatcher::PersonalizationWatcher(PersonalizationWorker *work)

@@ -40,7 +40,7 @@ class WallpaperWorker : public QObject
 public:
     explicit WallpaperWorker(PersonalizationDBusProxy *personalizationProxy, WallpaperModel *model, QObject *parent = nullptr);
     ~WallpaperWorker();
-    void fecthData();
+    void fetchData();
     bool waitWallpaper(int ms = 0) const;
     QList<ItemNodePtr> pictures() const;
     QList<ItemNodePtr> colors() const;
@@ -55,6 +55,7 @@ signals:
 private slots:
     void setWallpaper(const QList<ItemNodePtr> &items);
     void updateWallpaper(const QMap<QString, bool> &stat);
+
 private:
     QThread *m_workThread = nullptr;
     InterfaceWorker *m_worker = nullptr;

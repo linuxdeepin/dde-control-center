@@ -1,10 +1,6 @@
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "wallpaperworker.h"
-#include "operation/personalizationdbusproxy.h"
-#include "operation/personalizationworker.h"
-
 #include <QThread>
 #include <QScreen>
 #include <QImageReader>
@@ -12,8 +8,11 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QImage>
-
 #include <QLoggingCategory>
+#include <QUrl>
+
+#include "wallpaperworker.h"
+#include "operation/personalizationdbusproxy.h"
 
 Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallpaper-worker")
 
@@ -47,7 +46,7 @@ WallpaperWorker::~WallpaperWorker()
     m_worker = nullptr;
 }
 
-void WallpaperWorker::fecthData()
+void WallpaperWorker::fetchData()
 {
     // get picture
     if (m_wallpaperMtx.tryLock(1)) {
