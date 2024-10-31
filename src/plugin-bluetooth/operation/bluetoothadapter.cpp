@@ -20,6 +20,8 @@ BluetoothAdapter::BluetoothAdapter(BluetoothDBusProxy *proxy, QObject *parent)
     , m_discovering(false)
     , m_discoverable(false)
     , m_bluetoothDBusProxy(proxy)
+    , m_myDevices(new BluetoothDeviceModel(this))
+    , m_otherDevices(new BluetoothDeviceModel(this))
 {
 }
 
@@ -37,8 +39,21 @@ void BluetoothAdapter::addDevice(const BluetoothDevice *device)
         m_devicesId << device->id();
         m_devices[device->id()] = device;
         //打印配对设备信息,方便查看设备显示顺序
-        if (!device->name().isEmpty() && device->paired())
+        if (device->paired()) {
             qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add device " << device->name();
+            if (device->state() != BluetoothDevice::StateConnected) {
+                m_myDevices->addDevice(const_cast<BluetoothDevice*>(device));
+            } else {
+                m_myDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
+            }
+
+            setMyDeviceVisible(m_powered);
+
+        } else {
+            qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add other device " << device->name();
+            m_otherDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
+        }
+
         Q_EMIT deviceAdded(device);
     }
 }
@@ -51,6 +66,10 @@ void BluetoothAdapter::removeDevice(const QString &deviceId)
     if (device) {
         m_devicesId.removeOne(deviceId);
         m_devices.remove(deviceId);
+
+        m_myDevices->removeDevice(deviceId);
+        m_otherDevices->removeDevice(deviceId);
+        setMyDeviceVisible(m_myDevices->rowCount() && m_powered);
         Q_EMIT deviceRemoved(deviceId);
     }
 }
@@ -92,6 +111,70 @@ void BluetoothAdapter::onSetAdapterPoweredError()
     Q_EMIT poweredChanged(powered(), discovering());
 }
 
+bool BluetoothAdapter::otherDeviceVisible() const
+{
+    return m_otherDeviceVisible;
+}
+
+void BluetoothAdapter::setOtherDeviceVisible(bool newOtherDeviceVisible)
+{
+    m_otherDeviceVisible = newOtherDeviceVisible;
+}
+
+bool BluetoothAdapter::myDeviceVisible() const
+{
+    return m_myDeviceVisible;
+}
+
+void BluetoothAdapter::setMyDeviceVisible(bool newMyDeviceVisible)
+{
+    if (newMyDeviceVisible != m_myDeviceVisible) {
+        m_myDeviceVisible = newMyDeviceVisible;
+        Q_EMIT myDeviceVisibleChanged(m_id);
+    }
+}
+
+BluetoothDeviceModel *BluetoothAdapter::otherDevices() const
+{
+    return m_otherDevices;
+}
+
+void BluetoothAdapter::updateDeviceData(BluetoothDevice *device)
+{
+    if (device->paired()) {
+        qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add device " << device->name();
+        m_otherDevices->removeDevice(device->id());
+        if (m_myDevices->containDevice(device)) {
+            m_myDevices->updateData(device);
+        } else {
+            if (device->state() != BluetoothDevice::StateConnected) {
+                m_myDevices->addDevice(const_cast<BluetoothDevice*>(device));
+            } else {
+                m_myDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
+            }
+        }
+    } else {
+        qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add other device " << device->name();
+        m_myDevices->removeDevice(device->id());
+        if (m_otherDevices->containDevice(device)) {
+            m_otherDevices->updateData(device);
+        } else {
+            m_otherDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
+        }
+    }
+}
+
+void BluetoothAdapter::setdisplaySwitch(bool displaySwitch)
+{
+    m_otherDevices->setDisplaySwitch(displaySwitch);
+    m_otherDevices->updateAllData();
+}
+
+BluetoothDeviceModel *BluetoothAdapter::myDevices() const
+{
+    return m_myDevices;
+}
+
 void BluetoothAdapter::setDiscoverabled(const bool discoverable)
 {
     if (m_discoverable == discoverable) {
@@ -119,6 +202,9 @@ const BluetoothDevice *BluetoothAdapter::deviceById(const QString &id) const
 void BluetoothAdapter::setId(const QString &id)
 {
     m_id = id;
+
+    m_myDevices->setAdapterId(id);
+    m_otherDevices->setAdapterId(id);
 }
 
 void BluetoothAdapter::inflate(const QJsonObject &obj)

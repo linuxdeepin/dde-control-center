@@ -5,12 +5,21 @@
 #define DCC_BLUETOOTH_BLUETOOTHMODEL_H
 
 #include <QObject>
+#include <QtQmlIntegration/qqmlintegration.h>
 
 #include "bluetoothadapter.h"
+#include "bluetoothadaptersmodel.h"
 
 class BluetoothModel : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(bool displaySwitch READ displaySwitch NOTIFY displaySwitchChanged FINAL)
+    Q_PROPERTY(bool airplaneEnable READ airplaneEnable NOTIFY airplaneEnableChanged FINAL)
+    Q_PROPERTY(bool showBluetooth READ showBluetooth NOTIFY showBluetoothChanged FINAL)
+
+    QML_NAMED_ELEMENT(BluetoothModel)
+    QML_SINGLETON
 public:
     explicit BluetoothModel(QObject *parent = nullptr);
 
@@ -20,14 +29,16 @@ public:
     bool canTransportable() const;
     inline bool canSendFile() const { return m_canSendFile; }
 
-    inline bool airplaneMode() const { return m_airplaneEnable; }
     inline bool displaySwitch() const { return m_displaySwitch; }
 
-    bool myDeviceVisible() { return m_myDeviceVisible; }
-    void setMyDeviceVisible(const bool visible);
+    Q_INVOKABLE BlueToothAdaptersModel *blueToothAdaptersModel() const;
 
-    bool otherDeviceVisible() { return m_otherDeviceVisible; }
-    void setOtherDeviceVisible(const bool visible);
+    void updateAdaptersModel(BluetoothAdapter* data);
+
+    bool airplaneEnable() const;
+
+    bool showBluetooth() const;
+    void setShowBluetooth(bool newShowBluetooth);
 
 public Q_SLOTS:
     void addAdapter(BluetoothAdapter *adapter);
@@ -45,8 +56,7 @@ Q_SIGNALS:
     void canSendFileChanged(const bool canSendFile) const;
     void airplaneEnableChanged(bool enable) const;
     void displaySwitchChanged(bool on) const;
-    void notifyMyDeviceVisibleChanged(bool);
-    void notifyOtherDeviceVisibleChanged(bool);
+    void showBluetoothChanged();
 
 private:
     QMap<QString, const BluetoothAdapter *> m_adapters;
@@ -56,8 +66,11 @@ private:
     bool m_airplaneEnable;
     bool m_displaySwitch;
     friend class BluetoothWorker;
-    bool m_myDeviceVisible = false;
-    bool m_otherDeviceVisible = false;
+
+    bool m_showBluetooth;
+
+    BlueToothAdaptersModel* m_blueToothAdaptersModel;
+
 };
 
 #endif // DCC_BLUETOOTH_BLUETOOTHMODEL_H

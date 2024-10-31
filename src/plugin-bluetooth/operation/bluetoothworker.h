@@ -7,7 +7,6 @@
 #include <QObject>
 
 #include "bluetoothmodel.h"
-#include "pincodedialog.h"
 
 class QDBusObjectPath;
 class BluetoothDBusProxy;
@@ -27,21 +26,21 @@ public:
 
     bool displaySwitch();
 
-Q_SIGNALS:
-    void requestConfirmation(const QDBusObjectPath &path, const QString &code);
-    void pinCodeCancel(const QDBusObjectPath &device);
+    Q_INVOKABLE void setAdapterPowered(const QString adapterId, bool powered);
+    Q_INVOKABLE void setAdapterDiscoverable(const QString adapterId, bool discoverable);
+    Q_INVOKABLE void setAdapterAlias(const QString adapterId, const QString &alias);
+    Q_INVOKABLE void connectDevice(const QString & deviceId, const QString adapterId);
+    Q_INVOKABLE void jumpToAirPlaneMode();
+    Q_INVOKABLE void setDeviceAlias(const QString &deviceId, const QString &alias);
+    Q_INVOKABLE void disconnectDevice(const QString & deviceId);
+    Q_INVOKABLE void ignoreDevice(const QString & deviceId, const QString adapterId);
+    Q_INVOKABLE void setAdapterDiscovering(const QString &path, bool enable);
 
 public Q_SLOTS:
-    void setAdapterPowered(const BluetoothAdapter *adapter, const bool &powered);
-    void connectDevice(const BluetoothDevice *device, const BluetoothAdapter *adapter);
-    void disconnectDevice(const BluetoothDevice *device);
+
     void ignoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device);
-    void setAlias(const BluetoothAdapter *adapter, const QString &alias);
-    void setDeviceAlias(const BluetoothDevice *device, const QString &alias);
     void setAdapterDiscoverable(const QString &path);
-    void pinCodeConfirm(const QDBusObjectPath &path, bool value);
-    void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);
-    void onRequestSetDiscoverable(const BluetoothAdapter *adapter, const bool &discoverable);
+
     void setDisplaySwitch(const bool &on);
     void showBluetoothTransDialog(const QString &address, const QStringList &files);
 
@@ -65,7 +64,6 @@ private:
 
     BluetoothDBusProxy *m_bluetoothDBusProxy;
     BluetoothModel *m_model;
-    QMap<QDBusObjectPath, PinCodeDialog *> m_dialogs;
     bool m_connectingAudioDevice;
     uint m_state;
 };

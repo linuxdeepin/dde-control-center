@@ -10,6 +10,25 @@
 // INFO: when meet problem, view the link underline
 // https://github.com/bluez/bluez/blob/master/src/dbus-common.c#L53-L115
 
+static const QMap<QString,QString> deviceType2Icon {
+        {"unknow","bluetooth_other"},
+        {"computer","bluetooth_pc"},
+        {"phone","bluetooth_phone"},
+        {"video-display","bluetooth_vidicon"},
+        {"multimedia-player","bluetooth_tv"},
+        {"scanner","bluetooth_scaner"},
+        {"input-keyboard","bluetooth_keyboard"},
+        {"input-mouse","bluetooth_mouse"},
+        {"input-gaming","bluetooth_other"},
+        {"input-tablet","bluetooth_touchpad"},
+        {"audio-card","bluetooth_pheadset"},
+        {"network-wireless","bluetooth_lan"},
+        {"camera-video","bluetooth_vidicon"},
+        {"printer","bluetooth_print"},
+        {"camera-photo","bluetooth_camera"},
+        {"modem","bluetooth_other"}
+};
+
 class BluetoothDevice : public QObject
 {
     Q_OBJECT

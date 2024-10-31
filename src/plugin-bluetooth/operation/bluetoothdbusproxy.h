@@ -5,8 +5,6 @@
 #ifndef BLUETOOTHDBUSPROXY_H
 #define BLUETOOTHDBUSPROXY_H
 
-#include "interface/namespace.h"
-
 #include <DDBusInterface>
 #include <QObject>
 class QDBusInterface;
