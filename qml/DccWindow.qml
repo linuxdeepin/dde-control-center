@@ -19,7 +19,7 @@ D.ApplicationWindow {
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
     color: "transparent"
-    DWindow.enabled: true
+    D.DWindow.enabled: true
 
     Shortcut {
         context: Qt.ApplicationShortcut
@@ -46,7 +46,7 @@ D.ApplicationWindow {
         }
         aboutDialog: D.AboutDialog {
             id: aboutDialog
-            DWindow.enabled: true
+            D.DWindow.enabled: true
             productIcon: "preferences-system"
             modality: Qt.NonModal
             productName: appProductName
