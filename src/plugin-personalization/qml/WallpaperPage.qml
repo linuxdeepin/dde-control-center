@@ -164,9 +164,13 @@ DccObject {
         page: WallpaperSelectView {
             model: dccData.model.wallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-            onWallpaperSelected: (url) => {
-                dccData.worker.setBackgroundForMonitor(dccData.model.currentSelectScreen, url)
-            }
+            onWallpaperSelected: (url, isDark, isLock) => {
+                                     if (isLock) {
+                                         dccData.worker.setLockBackForMonitor(dccData.model.currentSelectScreen, url, isDark)
+                                     } else {
+                                         dccData.worker.setBackgroundForMonitor(dccData.model.currentSelectScreen, url, isDark)
+                                     }
+                                 }
         }
     }
 
@@ -357,7 +361,7 @@ DccObject {
         name: "screenAndSuspendTitle"
         parentName: "personalization/wallpaper"
         displayName: qsTr("炫彩")
-    visible: false
+        visible: false
         weight: 800
         hasBackground: true
         pageType: DccObject.Item

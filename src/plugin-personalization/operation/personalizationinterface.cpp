@@ -3,7 +3,11 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QIcon>
+#include <DGuiApplicationHelper>
 
+#include "operation/imagehelper.h"
+#include "operation/treelandworker.h"
+#include "operation/x11worker.h"
 #include "personalizationinterface.h"
 #include "dccfactory.h"
 #include "model/thememodel.h"
@@ -110,11 +114,17 @@ QHash<int, QByteArray> ThemeVieweModel::roleNames() const
 PersonalizationInterface::PersonalizationInterface(QObject *parent) 
 : QObject(parent)
 , m_model(new PersonalizationModel(this))
-, m_work(new PersonalizationWorker(m_model, this))
+, m_imageHelper(new ImageHelper(this))
 , m_globalThemeViewModel(new ThemeVieweModel(this))
 , m_iconThemeViewModel(new ThemeVieweModel(this))
 , m_cursorThemeViewModel(new ThemeVieweModel(this))
 {
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsTreelandPlatform)) {
+        m_work = new TreeLandWorker(m_model, this);
+    } else {
+        m_work = new X11Worker(m_model, this);
+    }
+
     m_globalThemeViewModel->setThemeModel(m_model->getGlobalThemeModel());
     m_iconThemeViewModel->setThemeModel(m_model->getIconModel());
     m_cursorThemeViewModel->setThemeModel(m_model->getMouseModel());

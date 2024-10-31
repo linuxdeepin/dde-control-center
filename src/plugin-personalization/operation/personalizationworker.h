@@ -23,36 +23,35 @@ class PersonalizationWorker : public QObject
     Q_OBJECT
 public:
     PersonalizationWorker(PersonalizationModel *model, QObject *parent = nullptr);
-    void active();
+    virtual void active();
     void deactive();
     void onGetList();
     void refreshTheme();
     void refreshFont();
 
 public Q_SLOTS:
-    void setDefaultByType(const QString &type, const QString &value);
-    void setDefault(const QJsonObject &value);
-    void setFontSize(const int value);
     void switchWM();
     void windowSwitchWM(bool value);
     void movedWindowSwitchWM(bool value);
-    void setOpacity(int opcaity);
-    void setWindowEffect(int value);
-    void setMiniEffect(int effect);
-    void setActiveColor(const QString &hexColor);
-    void setWindowRadius(int radius);
-    void setCompactDisplay(bool value);
-    void setScrollBarPolicy(int policy);
-    void setTitleBarHeight(int value);
     void setDiabledCompactToTitleHeight();
-    void setGlobalTheme(const QString &themeId);
-    void setAppearanceTheme(const QString &id);
-    void setIconTheme(const QString &id);
-    void setCursorTheme(const QString &id);
+    void setScrollBarPolicy(int policy);
 
-    // wallpaper
-    void setBackgroundForMonitor(const QString &screenName, const QString &url);
-    QString getBackgroundForMonitor(const QString &screenName);
+    virtual void setDefaultByType(const QString &type, const QString &value);
+    virtual void setDefault(const QJsonObject &value);
+    virtual void setFontSize(const int value);
+    virtual void setOpacity(int opcaity);
+    virtual void setWindowEffect(int value);
+    virtual void setMiniEffect(int effect);
+    virtual void setActiveColor(const QString &hexColor);
+    virtual void setWindowRadius(int radius);
+    virtual void setCompactDisplay(bool value);
+    virtual void setTitleBarHeight(int value);
+    virtual void setGlobalTheme(const QString &themeId); // need implementation
+    virtual void setAppearanceTheme(const QString &id);
+    virtual void setIconTheme(const QString &id);
+    virtual void setCursorTheme(const QString &id);
+    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark);
+    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark);
 
 signals:
     void personalizationChanged(const QString &propertyName, const QString &value);
@@ -72,7 +71,9 @@ private Q_SLOTS:
     void onWindowRadiusChanged(int value);
     void onCompactDisplayChanged(int value);
     void onWindowEffectChanged(int value);
-    void onWallpaperUrlsChanged(const QString &value);
+
+protected:
+    virtual void onWallpaperUrlsChanged();
 
 private:
     double sliderValutToOpacity(const int value) const;
@@ -91,8 +92,10 @@ private:
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);
 
-private:
+protected:
     PersonalizationModel *m_model;
+
+private:
     PersonalizationDBusProxy *m_personalizationDBusProxy;
     WallpaperWorker *m_wallpaperWorker;
     Dtk::Core::DConfig *m_kwinTitleBarConfig;

@@ -6,8 +6,9 @@
 
 #include <QAbstractItemModel>
 
-#include "personalizationmodel.h"
 #include "personalizationworker.h"
+#include "personalizationmodel.h"
+#include "imagehelper.h"
 
 class ThemeVieweModel : public QAbstractItemModel
 {
@@ -48,6 +49,7 @@ class PersonalizationInterface : public QObject
     Q_PROPERTY(ThemeVieweModel *cursorThemeViewModel MEMBER m_cursorThemeViewModel CONSTANT)
     Q_PROPERTY(PersonalizationModel *model MEMBER m_model CONSTANT)
     Q_PROPERTY(PersonalizationWorker *worker MEMBER m_work CONSTANT)
+    Q_PROPERTY(ImageHelper *imageHelper MEMBER m_imageHelper CONSTANT)
     Q_PROPERTY(QVariantList appearanceSwitchModel MEMBER m_appearanceSwitchModel NOTIFY appearanceSwitchModelChanged)
     Q_PROPERTY(QString currentAppearance MEMBER m_currentAppearance NOTIFY currentAppearanceChanged)
 
@@ -67,6 +69,7 @@ signals:
 private:
     PersonalizationModel *m_model;
     PersonalizationWorker *m_work;
+    ImageHelper *m_imageHelper;
     ThemeVieweModel *m_globalThemeViewModel;
     ThemeVieweModel *m_iconThemeViewModel;
     ThemeVieweModel *m_cursorThemeViewModel;

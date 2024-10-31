@@ -20,7 +20,7 @@ ColumnLayout {
     property bool isExpand: false
     property var currentItem
 
-    signal wallpaperSelected(var url)
+    signal wallpaperSelected(var url, bool isDark, bool isLock)
 
     onIsExpandChanged: {
         sortedModel.update()
@@ -88,6 +88,22 @@ ColumnLayout {
 
                 contentItem: Item {
                     readonly property int imageMargin: 3
+
+                    Image {
+                        property bool isDarktype: true
+                        anchors.centerIn : parent
+                        id: img2x2
+                        width: 2
+                        height: 2
+                        source: imageSource
+                        fillMode: Image.Stretch
+                        Component.onCompleted: {
+                            img2x2.grabToImage(function(result) {
+                                isDarktype = dccData.imageHelper.isDarkType(result.image);
+                            });
+                        }
+                    }
+
                     Image {
                         anchors.fill: parent
                         anchors.margins: parent.imageMargin
@@ -151,8 +167,32 @@ ColumnLayout {
                     MouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton
                         onClicked: {
-                            root.wallpaperSelected(model.url)
+                            if (mouse.button === Qt.LeftButton) {
+                                root.wallpaperSelected(model.url, model.isDark, false)
+                            } else if (mouse.button === Qt.RightButton) {
+                                contextMenu.x = mouse.x
+                                contextMenu.y = mouse.y
+                                contextMenu.open()
+                            }
+                        }
+                    }
+
+                    D.Menu {
+                        id: contextMenu
+                        MenuItem {
+                            text: "设置锁屏"
+                            onTriggered: {
+                                root.wallpaperSelected(model.url, img2x2.isDarktype, true)
+                            }
+                        }
+                        MenuItem {
+                            text: "全部设置"
+                            onTriggered: {
+                                root.wallpaperSelected(model.url, img2x2.isDarktype, true)
+                                root.wallpaperSelected(model.url, img2x2.isDarktype, false)
+                            }
                         }
                     }
                 }
