@@ -471,6 +471,18 @@ void DccManager::onVisible(bool visible)
         return;
     }
     if (visible) {
+        QVector<DccObject *> objs;
+        objs.append(obj->getChildren());
+        while (!objs.isEmpty()) {
+            auto o = objs.takeFirst();
+            if (o->isVisibleToApp()) {
+                objs.append(o->getChildren());
+            } else {
+                connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+                removeObjectFromParent(o);
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o);
+            }
+        }
         DccObject::Private::FromObject(m_hideObjects)->removeChild(obj);
         addObjectToParent(obj);
     } else {

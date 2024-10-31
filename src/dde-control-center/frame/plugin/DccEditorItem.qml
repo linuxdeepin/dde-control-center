@@ -51,6 +51,8 @@ D.ItemDelegate {
         }
         Control {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            Layout.topMargin: 5
+            Layout.bottomMargin: 5
             contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
         }
     }

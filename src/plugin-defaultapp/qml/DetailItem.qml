@@ -44,10 +44,6 @@ DccObject {
                 onClicked: {
                     console.log(parentObj.name, "-")
                 }
-                Component.onCompleted: {
-                    enabled = false
-                    update()
-                }
             }
             Button {
                 Layout.alignment: Qt.AlignRight
