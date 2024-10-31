@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0 as D
 
-ItemDelegate {
+D.ItemDelegate {
     id: root
     property alias separatorVisible: background.separatorVisible
     property var item: model.item
