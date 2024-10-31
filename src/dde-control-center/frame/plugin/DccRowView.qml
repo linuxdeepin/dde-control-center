@@ -22,6 +22,9 @@ RowLayout {
             Layout.fillWidth: contentItem.Layout.fillWidth
             Layout.alignment: contentItem.Layout.alignment
             contentItem: model.item.getSectionItem(this)
+            Component.onCompleted: {
+                model.item.parentItem = this
+            }
         }
     }
 }

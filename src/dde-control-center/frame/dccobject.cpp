@@ -74,7 +74,11 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
         if (hidden != getFlagState(DCC_ALL_HIDDEN)) {
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
-        if (disabled != getFlagState(DCC_ALL_DISABLED)) {
+        bool allDisabled = getFlagState(DCC_ALL_DISABLED);
+        if (disabled != allDisabled) {
+            if (m_parentItem) {
+                m_parentItem->setEnabled(!allDisabled);
+            }
             Q_EMIT q_ptr->enabledToAppChanged(disabled);
         }
         return true;
@@ -515,6 +519,9 @@ void DccObject::setParentItem(QQuickItem *item)
 {
     if (item != p_ptr->m_parentItem.get()) {
         p_ptr->m_parentItem = item;
+        if (p_ptr->m_parentItem) {
+            p_ptr->m_parentItem->setEnabled(isEnabledToApp());
+        }
         Q_EMIT parentItemChanged(p_ptr->m_parentItem.get());
     }
 }
