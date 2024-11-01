@@ -47,8 +47,8 @@ id: ddialog
                 onValueChanged: ddialog.updateDateMax()
                 Component.onCompleted: {
                     let year = currentDate.getFullYear()
-                    spYear.from = year - 50
-                    spYear.to = year + 50
+                    spYear.from = year - 30
+                    spYear.to = year + 30
                 }
             }
             SpinboxEx {
@@ -101,13 +101,15 @@ id: ddialog
                 Layout.bottomMargin: 10
                 text: qsTr("Confirm")
                 onClicked: {
-                    currentDate.setFullYear(spYear.value)
-                    currentDate.setMonth(spMonth.value - 1)
-                    currentDate.setDate(spDay.value)
-                    currentDate.setHours(spHour.value)
-                    currentDate.setMinutes(spMin.value)
-                    currentDate.setSeconds(0)
-                    dccData.setDateTime(currentDate)
+                    let dateTime = currentDate
+                    dateTime.setFullYear(spYear.value)
+                    dateTime.setMonth(spMonth.value - 1)
+                    dateTime.setDate(spDay.value)
+                    dateTime.setHours(spHour.value)
+                    dateTime.setMinutes(spMin.value)
+                    dateTime.setSeconds(0)
+
+                    dccData.setDateTime(dateTime)
                     ddialog.close()
                 }
             }
