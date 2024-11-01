@@ -3,7 +3,7 @@ set(LIB_NAME personalization)
 
 find_package(Qt6 REQUIRED COMPONENTS WaylandClient)
 
-set(Enable_TreelandSupport CACHE ON STRING "Enable Treeland Support")
+set(Enable_TreelandSupport ON CACHE BOOL "Enable Treeland Support")
 
 if (Enable_TreelandSupport)
 find_package(TreelandProtocols REQUIRED)
