@@ -107,6 +107,7 @@ const QMap<QString, QString> BluetoothDeviceModel::deviceType2Icon = {
     {"input-gaming", "other"},
     {"input-tablet", "touchpad"},
     {"audio-card", "pheadset"},
+    {"audio-headset", "pheadset"},
     {"network-wireless", "lan"},
     {"camera-video", "vidicon"},
     {"printer", "print"},
