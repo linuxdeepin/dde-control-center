@@ -18,8 +18,6 @@
 
 #include "treelandworker.h"
 #include "operation/personalizationworker.h"
-#include "qwayland-treeland-personalization-manager-v1.h"
-#include "wayland-treeland-personalization-manager-v1-client-protocol.h"
 
 
 Q_LOGGING_CATEGORY(DdcPersonnalizationTreelandWorker, "dcc-personalization-treeland-woker")

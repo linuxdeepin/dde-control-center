@@ -11,8 +11,11 @@
 #include <private/qwaylanddisplay_p.h>
 
 #include "personalizationworker.h"
+
+#ifdef Enable_Treeland
 #include "wayland-treeland-personalization-manager-v1-client-protocol.h"
 #include "qwayland-treeland-personalization-manager-v1.h"
+#endif
 
 class PersonalizationManager;
 class PersonalizationAppearanceContext;
