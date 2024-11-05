@@ -30,6 +30,18 @@ inline constexpr int ComboxTitleWidth = 110;
 inline constexpr qint32 ActionIconSize=30;//大图标角标大小
 inline constexpr qint32 ActionListSize=26;//list图标角标大小
 
+
+const DSysInfo::UosType UosType = DSysInfo::uosType();
+const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
+const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
+const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
+const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
+const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const bool IsNotDeepinUos = !DSysInfo::isDeepin(); // 是否是 Deepin/Uos 以外的发行版
+
+
 template <typename T>
 T valueByQSettings(const QStringList& configFiles,
                    const QString&     group,

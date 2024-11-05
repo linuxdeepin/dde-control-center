@@ -23,6 +23,9 @@
 
 DCORE_USE_NAMESPACE
 
+const QString USER_EXPERIENCE_SERVICE = "com.deepin.userexperience.Daemon";
+
+
 namespace DCC_NAMESPACE{
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
@@ -32,8 +35,15 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     , m_process(nullptr)
     , m_content("")
     , m_title("")
+    , m_dBusUeProgram(nullptr)
 {
     qRegisterMetaType<ActiveState>("ActiveState");
+    m_dBusUeProgram = new QDBusInterface(
+        "org.deepin.dde.EventLog1",
+        "/org/deepin/dde/EventLog1",
+        "org.deepin.dde.EventLog1",
+        QDBusConnection::sessionBus(), this);
+
     connect(m_systemInfDBusProxy,
             &SystemInfoDBusProxy::StaticHostnameChanged,
             m_model,
@@ -113,7 +123,8 @@ void SystemInfoWork::activate()
     m_model->setPrivacyPolicy(text);
 
     // 用户体验计划内容
-    m_model->setJoinUeProgram(m_systemInfDBusProxy->IsEnabled());
+    m_model->setJoinUeProgram(isUeProgramEnabled());
+
     http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
     if (IS_COMMUNITY_SYSTEM) {
         text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
@@ -327,38 +338,55 @@ static QString getUserExpContent()
 
 void SystemInfoWork::setUeProgram(bool enabled)
 {
-    QString current_date = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm::ss.zzz");
-    if (enabled) {
-        qInfo("suser opened experience project switch.");
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
+    if (enabled && (isUeProgramEnabled() != enabled)) {
+        qInfo() << "Suser opened experience project switch";
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
         QString allowContent(tr("Agree and Join User Experience Program"));
 
-        // license路径
+               // license路径
         m_content = getUserExpContent();
 
         m_process = new QProcess(this);
 
         auto pathType = "-c";
-        if (!SYSTEM_LOCAL_LIST.contains(QLocale::system().name()))
+        const QStringList &sl {
+            "zh_CN",
+            "zh_HK",
+            "zh_TW",
+            "ug_CN", // 维语
+            "bo_CN" // 藏语
+        };
+        if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
+                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
         qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
                                                      << "-t" << m_title << pathType << m_content << "-a" << allowContent;
         connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
             if (96 == result) {
-                m_systemInfDBusProxy->Enable(enabled);
-                m_model->setJoinUeProgram(enabled);
+                if (!m_model->joinUeProgram()) {
+                    m_model->setJoinUeProgram(enabled);
+                    qInfo() << QString("On %1, users open the switch to join the user experience program!").arg(current_date);
+                }
+                setUeProgramEnabled(enabled);
             } else {
-                m_model->setJoinUeProgram(!enabled);
+                m_model->setJoinUeProgram(isUeProgramEnabled());
                 qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
             m_process->deleteLater();
             m_process = nullptr;
         });
     } else {
-        m_systemInfDBusProxy->Enable(enabled);
-        m_model->setJoinUeProgram(enabled);
+        if (isUeProgramEnabled() != enabled) {
+            setUeProgramEnabled(enabled);
+            qDebug() << QString("On %1, users close the switch to join the user experience program!").arg(current_date);
+        }
+        if (m_model->joinUeProgram() != enabled) {
+            m_model->setJoinUeProgram(enabled);
+            qDebug() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
+        }
     }
 }
 
@@ -390,6 +418,36 @@ void SystemInfoWork::onTimezoneChanged(const QString Timezone)
 void SystemInfoWork::onShortDateFormatChanged(const int shortDateFormate)
 {
     m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+}
+
+bool SystemInfoWork::isUeProgramEnabled()
+{
+    if (!m_dBusUeProgram || !m_dBusUeProgram->isValid())
+        return false;
+
+    if (m_dBusUeProgram->service() == USER_EXPERIENCE_SERVICE) {
+        QDBusMessage reply = m_dBusUeProgram->call("IsEnabled");
+        QList<QVariant> outArgs = reply.arguments();
+        if (QDBusMessage::ReplyMessage == reply.type() && !outArgs.isEmpty()) {
+            return outArgs.first().toBool();
+        }
+    }
+
+    return m_dBusUeProgram->property("Enabled").toBool();
+}
+
+void SystemInfoWork::setUeProgramEnabled(bool enabled)
+{
+
+    if (!m_dBusUeProgram || !m_dBusUeProgram->isValid())
+        return;
+
+    if (m_dBusUeProgram->service() == USER_EXPERIENCE_SERVICE) {
+        m_dBusUeProgram->asyncCall("Enable", enabled);
+        return;
+    }
+
+    m_dBusUeProgram->asyncCall("Enable", enabled);
 }
 
 }

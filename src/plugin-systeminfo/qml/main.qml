@@ -20,8 +20,8 @@ DccObject {
     DccObject {
         name: "versionProtocol"
         parentName: "system"
-        displayName: qsTr("Edition License")
-        description: qsTr("View GCC related protocol statements")
+        displayName: qsTr("Open Source Software Description")
+        description: qsTr("View the notice of open source software")
         icon: "software_declaration"
         weight: 1020
         VersionProtocolPage{}
@@ -40,7 +40,7 @@ DccObject {
         name: "userLicense"
         parentName: "system"
         displayName: qsTr("End User License Agreement")
-        description: qsTr("View End User License Agreement")
+        description: qsTr("View the end  user license agreement")
         icon: "user_license_agreement"
         visible: true
         weight: 1040
@@ -50,7 +50,7 @@ DccObject {
         name: "privacyPolicy"
         parentName: "system"
         displayName: qsTr("Privacy Policy")
-        description: qsTr("View Privacy Policy")
+        description: qsTr("View information about privacy policy")
         icon: "privacy_policy"
         weight: 1050
         PrivacyPolicyPage{}

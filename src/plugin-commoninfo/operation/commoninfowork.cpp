@@ -192,9 +192,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
     });
 
-    connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, [=](){
-        m_commomModel->grubEditAuthEnabledChanged(m_commomModel->grubEditAuthEnabled());
-    });
+    connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, &CommonInfoWork::resetEditAuthEnabled);
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -450,6 +448,11 @@ void CommonInfoWork::exportMessage(QString filePath)
            //将json以文本形式写入文件并关闭文件
     file.write(jsonDoc.toJson());
     file.close();
+}
+
+void CommonInfoWork::resetEditAuthEnabled()
+{
+    Q_EMIT m_commomModel->grubEditAuthEnabledChanged(m_commomModel->grubEditAuthEnabled());
 }
 
 void CommonInfoWork::setBootDelay(bool value)

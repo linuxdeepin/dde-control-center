@@ -6,6 +6,7 @@
 
 #include <qprocess.h>
 
+#include <QDBusInterface>
 #include <QDBusMessage>
 #include <QObject>
 
@@ -38,6 +39,9 @@ public:
     Q_INVOKABLE void showActivatorDialog();
     Q_INVOKABLE void showDetail();
 
+    bool isUeProgramEnabled();
+    void setUeProgramEnabled(bool enabled);
+
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
 
@@ -56,6 +60,8 @@ private:
     QProcess *m_process = nullptr;
     QString m_content;
     QString m_title;
+    QDBusInterface *m_dBusUeProgram; // for user experience program
+
 };
 
 }

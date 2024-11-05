@@ -11,7 +11,7 @@ import Qt5Compat.GraphicalEffects
 import org.deepin.dcc 1.0
 
 DccObject {
-    property bool isReset: true
+
     DccObject {
         name: "grubSettingText"
         parentName: "bootMenu"
@@ -193,94 +193,136 @@ DccObject {
         description: qsTr("After opening, entering the menu editing requires a password.")
         weight: 50
         hasBackground: true
-        pageType: DccObject.Editor
-        page: Row {
-            Switch {
-                id: verificationSwitch
-                Layout.alignment: Qt.AlignRight
-                checked: dccData.mode().grubEditAuthEnabled
+        pageType: DccObject.Item
 
-                onCheckedChanged: {
-                    if (checked) {
-                        passwordDlg.show()
-                    } else {
-                        if (!isReset) {
-                            dccData.work().disableGrubEditAuth(checked)
+        page: RowLayout {
+            property var passwordDlgStatus: {"Init" : 0, "Cancel" : 1, "Sure" : 2}
+            property int dlgStatus: passwordDlgStatus.Init
+            Column {
+                spacing: 0
+                Label {
+                    height: 20
+                    text: dccObj.displayName
+                    font: DTK.fontManager.t6
+                    horizontalAlignment: Qt.AlignLeft
+                    verticalAlignment: Qt.AlignVCenter
+                    leftPadding: 0
+                }
+
+                Row {
+                    spacing: 0
+                    Label {
+                        height: 20
+                        text: dccObj.description
+                        font: DTK.fontManager.t8
+                        horizontalAlignment: Qt.AlignLeft
+                        verticalAlignment: Qt.AlignVCenter
+                        leftPadding: 0
+                        opacity: 0.5
+                    }
+
+                    Label {
+                        height: 20
+                        text: "<a href=\"Change Password\">" + qsTr("Change Password") +"</a>"
+                        visible: dccData.mode().grubEditAuthEnabled
+                        horizontalAlignment: Qt.AlignLeft
+                        verticalAlignment: Qt.AlignVCenter
+                        font.pointSize: 8
+                        color:"#5A000000"
+                        // 超链接点击事件
+                        onLinkActivated: function(url) {
+                            console.log("点击的链接是: " + url)
+                            dlgStatus = passwordDlgStatus.Init
+                            passwordDlg.show()
                         }
                     }
                 }
             }
 
-            DialogWindow {
-                id: passwordDlg
-                width: 420
-                height: 276
+            Row {
+                Layout.alignment: Qt.AlignRight
+                Switch {
+                    id: verificationSwitch
 
-                icon: "preferences-system"
-                flags: Qt.Dialog | Qt.WindowCloseButtonHint
-                modality: Qt.ApplicationModal
-
-                // 弹窗关闭时触发的事件
-                onClosing: {
-                    if (isReset) {
-                        verificationSwitch.checked = !verificationSwitch.checked
+                    checked: dccData.mode().grubEditAuthEnabled
+                    onCheckedChanged: {
+                        if (checked && !dccData.mode().grubEditAuthEnabled) {
+                            passwordDlg.show()
+                            return
+                        }
+                        if (!checked && dccData.mode().grubEditAuthEnabled) {
+                            dccData.work().disableGrubEditAuth()
+                            return
+                        }
                     }
-
-                    close.accepted = true
                 }
-                ColumnLayout {
-                    width: parent.width
-                    spacing: 5
 
-                    Label {
-                        Layout.topMargin: 10
-                        Layout.bottomMargin: 10
-                        height: 20
-                        Layout.alignment: Qt.AlignHCenter
-                        font: DTK.fontManager.t5
-                        text: qsTr("Change boot menu verification password")
+                DialogWindow {
+                    id: passwordDlg
+                    width: 360
+                    height: 350
+
+                    icon: "preferences-system"
+                    flags: Qt.Dialog | Qt.WindowCloseButtonHint
+                    modality: Qt.ApplicationModal
+
+                    // 弹窗关闭时触发的事件
+                    onClosing: function(close) {
+
+                        close.accepted = true
+                        if (dlgStatus !== passwordDlgStatus.Sure) {
+                            dlgStatus = passwordDlgStatus.Init
+                            dccData.work().resetEditAuthEnabled()
+                        }
                     }
-                    RowLayout {
+                    ColumnLayout {
+                        width: parent.width
                         spacing: 0
-                        Layout.preferredWidth: parent.width
-                        Layout.fillWidth: true
+
+                        Label {
+                            id: passwdTitle
+                            Layout.topMargin: 10
+                            Layout.bottomMargin: 10
+                            height: 20
+                            Layout.alignment: Qt.AlignHCenter
+                            font: DTK.fontManager.t5
+                            text: dccData.mode().grubEditAuthEnabled ? qsTr("Change boot menu verification password") : qsTr("Set the boot menu authentication password")
+                        }
+
                         Label {
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
+                            Layout.leftMargin: 5
                             font: DTK.fontManager.t6
-                            text: qsTr("User Name")
+                            text: qsTr("User Name :")
                             Layout.preferredWidth: 50
                         }
 
                         LineEdit {
                             id: userEdit
-                            placeholderText: qsTr("roots")
-                            Layout.preferredWidth: 280
-                            Layout.alignment: Qt.AlignRight
+                            text: qsTr("roots")
+                            readOnly: true
+                            clearButton.visible: false
+                            Layout.preferredWidth: parent.width
                         }
-                    }
-
-                    RowLayout {
-                        spacing: 0
-                        Layout.preferredWidth: parent.width
-                        Layout.fillWidth: true
 
                         Label {
-                            height: 30
+                            height: 20
+                            topPadding: 10
                             Layout.preferredWidth: 60
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
+                            Layout.leftMargin: 5
                             font: DTK.fontManager.t6
-                            text: qsTr("New Password")
+                            text: qsTr("New Password :")
                         }
 
                         PasswordEdit {
                             id: newPasswordEdit
                             placeholderText: qsTr("Required")
-                            Layout.alignment: Qt.AlignRight
-                            Layout.preferredWidth: 280
+                            Layout.preferredWidth: parent.width
                             height: 30
                             showAlert: false
 
@@ -314,27 +356,22 @@ DccObject {
                                 }
                             }
                         }
-                    }
-
-                    RowLayout {
-                        spacing: 0
-                        Layout.preferredWidth: parent.width
-                        Layout.fillWidth: true
 
                         Label {
-                            height: 30
+                            height: 20
+                            topPadding: 10
                             Layout.preferredWidth: 60
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
+                            Layout.leftMargin: 5
                             font: DTK.fontManager.t6
-                            text: qsTr("Repeat password")
+                            text: qsTr("Repeat password:")
                         }
 
                         PasswordEdit {
                             id: repeatPasswordEdit
-                            Layout.alignment: Qt.AlignRight
-                            Layout.preferredWidth: 280
+                            Layout.preferredWidth: parent.width
                             placeholderText: qsTr("Required")
                             height: 30
 
@@ -370,33 +407,33 @@ DccObject {
                                 }
                             }
                         }
-                    }
 
-                    RowLayout {
-                        Layout.topMargin: 10
-                        Layout.preferredWidth: parent.width
-                        Layout.fillWidth: true
+                        RowLayout {
+                            Layout.topMargin: 15
+                            Layout.preferredWidth: parent.width
+                            Layout.fillWidth: true
 
-                        Button {
-                            Layout.alignment: Qt.AlignLeft
-                            text: qsTr("Cancel")
-                            Layout.preferredWidth: 176
-                            onClicked: {
-                                isReset = true
-                                passwordDlg.close()
+                            Button {
+                                Layout.alignment: Qt.AlignLeft
+                                text: qsTr("Cancel")
+                                Layout.preferredWidth: 170
+                                onClicked: {
+                                    dlgStatus = passwordDlgStatus.Cancel
+                                    passwordDlg.close()
+                                }
                             }
-                        }
 
-                        RecommandButton {
-                            id: submitbtn
-                            text: qsTr("Sure")
-                            enabled: false
-                            Layout.preferredWidth: 176
-                            Layout.alignment: Qt.AlignRight
-                            onClicked: {
-                                isReset = false
-                                dccData.work().onSetGrubEditPasswd(newPasswordEdit.text, true)
-                                passwordDlg.close()
+                            RecommandButton {
+                                id: submitbtn
+                                text: qsTr("Sure")
+                                enabled: false
+                                Layout.preferredWidth: 170
+                                Layout.alignment: Qt.AlignRight
+                                onClicked: {
+                                    dlgStatus = passwordDlgStatus.Sure
+                                    dccData.work().onSetGrubEditPasswd(newPasswordEdit.text, true)
+                                    passwordDlg.close()
+                                }
                             }
                         }
                     }
