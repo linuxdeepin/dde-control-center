@@ -88,4 +88,54 @@ QHash<int, QByteArray> LangRegionModel::roleNames() const
     names[PaperSize] = "paperSize";
     return names;
 }
+
+FormatsModel::FormatsModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+
+}
+
+void FormatsModel::setDatas(const QList<FormatsInfo> &datas) {
+    if (datas == m_datas)
+        return;
+
+    beginResetModel();
+    m_datas = datas;
+    endResetModel();
+}
+
+int FormatsModel::rowCount(const QModelIndex &) const
+{
+    return m_datas.count();
+}
+
+QVariant FormatsModel::data(const QModelIndex &index, int role) const
+{
+    const auto &info = m_datas.value(index.row());
+    switch (role) {
+    case NameRole:
+        return info.name;
+    case ValuesRole:
+        return info.values;
+    case CurrentRole:
+        return info.index;
+    case IndexBegin:
+        return info.indexBegin;
+    default:
+        break;
+    }
+
+    return QVariant();
+}
+
+QHash<int, QByteArray> FormatsModel::roleNames() const
+{
+    QHash<int, QByteArray> names = QAbstractListModel::roleNames();
+    names[NameRole] = "name";
+    names[ValuesRole] = "values";
+    names[CurrentRole] = "current";
+    names[IndexBegin] = "indexBegin";
+    return names;
+}
+
 }

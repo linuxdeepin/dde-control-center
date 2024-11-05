@@ -122,9 +122,33 @@ static inline QStringList getCurrencySymbol(bool positive, const QString &symbol
     };
 }
 
-static inline QStringList separatorSymbol()
+static inline QString escapSpace(const QString &space)
 {
-    return { QString("."), QString(","), QString("'"), DatetimeModel::tr("Space") };
+    if (space.isEmpty())
+        return QLatin1String(" ");
+    // 不同语言下空格可能不同。。详情看 QChar::isSpace 实现
+    bool isSpace = space.at(0).isSpace() || space == DatetimeModel::tr("Space");
+    return isSpace ? QLatin1String(" ") : space;
+}
+
+static inline QString unEscapSpace(const QString &space)
+{
+    if (space.isEmpty())
+        return QLatin1String(" ");
+
+    return space.at(0).isSpace() ? DatetimeModel::tr("Space") : space;
+}
+
+static inline QStringList separatorSymbol(const QLocale &locale, bool grouping)
+{
+    QStringList symbols{ QString("."), QString(","), QString("'"), DatetimeModel::tr("Space") };
+    QString separator = grouping ? locale.groupSeparator() : locale.decimalPoint();
+    separator = unEscapSpace(separator);
+
+    if (!symbols.contains(separator))
+        symbols.prepend(separator);
+
+    return symbols;
 }
 
 static QStringList translateLangAndCountry(const QString &localeName)
@@ -188,30 +212,42 @@ DatetimeModel::DatetimeModel(QObject *parent)
     // set timezone
     connect(this, &DatetimeModel::timeZoneChanged, m_work, &DatetimeWorker::setTimezone);
 
-    connect(this, &DatetimeModel::currencyFormatChanged, this, [this]() {
-        int pIndex = property("__PositiveCurrency").toInt();
-        int nIndex = property("__NegativeCurrency").toInt();
+    connect(this, &DatetimeModel::currencyFormatChanged, this, [this](const QString &oldFormat, const QString &newFormat){
+        // get PositiveCurrency/NegativeCurrency
+        auto posFmt = m_work->positiveCurrencyFormat();
+        auto negFmt = m_work->negativeCurrencyFormat();
 
-        if (pIndex < 0 || nIndex < 0)
-            return;
-
-        setCurrentFormat(PositiveCurrency, pIndex);
-        setCurrentFormat(NegativeCurrency, nIndex);
-
-        setProperty("__PositiveCurrency", -1);
-        setProperty("__NegativeCurrency", -1);
+        m_work->setPositiveCurrencyFormat(posFmt.replace(oldFormat, newFormat));
+        m_work->setNegativeCurrencyFormat(negFmt.replace(oldFormat, newFormat));
     });
+    connect(this, &DatetimeModel::digitGroupingSymbolChanged, this, [this](const QString &oldFormat, const QString &newFormat){
+        QString fmt1 = escapSpace(oldFormat);
+        QString fmt2 = escapSpace(newFormat);
+        auto digitGrouping = m_work->digitGrouping();
+        m_work->setDigitGrouping(digitGrouping.replace(fmt1, fmt2));
+    });
+
     connect(this, &DatetimeModel::symbolChanged, this, [this](int format, const QString &symbol) {
-        if (format != DigitGroupingSymbol)
-            return;
-        int dIndex = property("__DigitGrouping").toInt();
-
-        if (dIndex < 0)
+        if (format != CurrencySymbol && format != DigitGroupingSymbol)
             return;
 
-        setCurrentFormat(DigitGrouping, dIndex);
+        Q_EMIT currentFormatChanged(format);
+    });
 
-        setProperty("__DigitGrouping", -1);
+    connect(this, &DatetimeModel::currentLanguageAndRegionChanged, this, [this]() {
+        Q_EMIT currentFormatChanged(-1);
+    });
+    connect(this, &DatetimeModel::shortDateFormatChanged, this, [this]() {
+        Q_EMIT currentFormatChanged(ShortDate);
+    });
+    connect(this, &DatetimeModel::longDateFormatChanged, this, [this]() {
+        Q_EMIT currentFormatChanged(LongDate);
+    });
+    connect(this, &DatetimeModel::shortTimeFormatChanged, this, [this]() {
+        Q_EMIT currentFormatChanged(ShortTime);
+    });
+    connect(this, &DatetimeModel::longTimeFormatChanged, this, [this]() {
+        Q_EMIT currentFormatChanged(LongTime);
     });
 }
 
@@ -364,6 +400,79 @@ QSortFilterProxyModel *DatetimeModel::regionSearchModel()
     return m_countrySearchModel;
 }
 
+void DatetimeModel::initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model)
+{
+    auto m = dynamic_cast<dccV25::FormatsModel *>(model);
+    if (!m)
+        return;
+
+    QList<dccV25::FormatsInfo> datas;
+    for (int i = indexBegin; i <= indexEnd && (i - indexBegin) < names.count(); ++i) {
+        dccV25::FormatsInfo info;
+        info.name = names[i - indexBegin];
+        info.values = availableFormats(i);
+        info.index = currentFormatIndex(i);
+        info.indexBegin = indexBegin;
+        datas << info;
+    }
+
+    m->setDatas(datas);
+}
+
+QAbstractListModel *DatetimeModel::timeDateModel()
+{
+    if (m_timeDateModel)
+        return m_timeDateModel;
+
+    auto model = new dccV25::FormatsModel(this);
+    QStringList names = { tr("Week"), tr("First day of week"), tr("Short date"),
+                          tr("Long date"), tr("Short time"), tr("Long time") };
+
+    initModes(names, DayAbbreviations, LongTime, model);
+    connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
+        if (format >= DayAbbreviations && format <= LongTime || format < 0)
+            initModes(names, DayAbbreviations, LongTime, model);
+    });
+
+    m_timeDateModel = model;
+    return m_timeDateModel;
+}
+
+QAbstractListModel *DatetimeModel::currencyModel()
+{
+    if (m_currencyModel)
+        return m_currencyModel;
+
+    auto model = new dccV25::FormatsModel(this);
+    QStringList names = { tr("Currency symbol"), tr("Positive currency"), tr("Negative currency") };
+
+    initModes(names, CurrencySymbol, NegativeCurrency, model);
+    connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
+        if (format >= CurrencySymbol && format <= NegativeCurrency || format < 0)
+            initModes(names, CurrencySymbol, NegativeCurrency, model);
+    });
+    m_currencyModel = model;
+    return m_currencyModel;
+}
+
+QAbstractListModel *DatetimeModel::decimalModel()
+{
+    if (m_decimalModel)
+        return m_decimalModel;
+
+    auto model = new dccV25::FormatsModel(this);
+    QStringList names = { tr("Decimal symbol"), tr("Digit grouping symbol"),
+                          tr("Digit grouping"), tr("Page size") };
+
+    initModes(names, DecimalSymbol, PageSize, model);
+    connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
+        if (format >= DecimalSymbol && format <= PageSize || format < 0)
+            initModes(names, DecimalSymbol, PageSize, model);
+    });
+    m_decimalModel = model;
+    return m_decimalModel;
+}
+
 QString DatetimeModel::region()
 {
     if (m_regionName.isEmpty()) {
@@ -446,12 +555,13 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     m_work->setConfigValue(longTimeFormat_key, regionFormat.longTimeFormat);
     // case Currency:
     m_work->setConfigValue(currencyFormat_key, regionFormat.currencyFormat.toUtf8());
+    m_work->setCurrencySymbol(locale.currencySymbol());
     // case Digit:
     m_work->setConfigValue(numberFormat_key, regionFormat.numberFormat.toUtf8());
     m_work->setDigitGrouping(regionFormat.numberFormat.toUtf8());
+    m_work->setDigitGroupingSymbol(unEscapSpace(regionFormat.digitgroupFormat));
     // case PaperSize:
     m_work->setConfigValue(paperFormat_key, regionFormat.paperFormat.toUtf8());
-
 }
 
 QStringList DatetimeModel::availableFormats(int format)
@@ -495,20 +605,24 @@ QStringList DatetimeModel::availableFormats(int format)
     }
     // number formats
     case DecimalSymbol:{
-        return separatorSymbol();
+        return separatorSymbol(locale, false);
     }
     case DigitGroupingSymbol: {
-        return separatorSymbol();
+        return separatorSymbol(locale, true);
     }
     case DigitGrouping: {
-        QString dgSymbol = m_work->digitGroupingSymbol();
-        if (dgSymbol == DatetimeModel::tr("Space"))
-            dgSymbol = " ";
+        QString dgSymbol = escapSpace(m_work->digitGroupingSymbol());
+        // 不带数字分隔符，方便自定义追加
+        locale.setNumberOptions(QLocale::OmitGroupSeparator);
+        // 有的国家使用的是阿拉伯*文*数字（东阿拉伯数字）
+        // 如伊朗、阿富汗、巴基斯坦及印度部分地区  ١٢٣٤٥٦٧٨٩
+        // https://zh.wikipedia.org/wiki/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87%E6%95%B0%E5%AD%97
+        const QString numString = locale.toString(123456789);
         return {
-            QString("123456789"),
-            QString("%2%1%3%1%4").arg(dgSymbol).arg("123").arg("456").arg("789"),    // 123,456,789
-            QString("%2%1%3").arg(dgSymbol).arg("123456").arg("789"),                // 123456,789
-            QString("%2%1%3%1%4%1%5").arg(dgSymbol).arg("12").arg("34").arg("56").arg("789"), // 12,34,56,789
+            numString,                                                                      // 123456789
+            QString(numString).insert(3, dgSymbol).insert(7, dgSymbol),                     // 123,456,789
+            QString(numString).insert(6, dgSymbol),                                         // 123456,789
+            QString(numString).insert(2, dgSymbol).insert(5, dgSymbol).insert(8, dgSymbol), // 12,34,56,789
         };
     }
     case PageSize:
@@ -569,18 +683,19 @@ int DatetimeModel::currentFormatIndex(int format)
     // number formats
     case DecimalSymbol: {
         const QString &current = m_work->decimalSymbol();
-        QStringList defaultSymbols = separatorSymbol();
+        QStringList defaultSymbols = separatorSymbol(QLocale(m_localeName), false);
         return defaultSymbols.indexOf(current);
     }
     case DigitGroupingSymbol: {
         const QString &current = m_work->digitGroupingSymbol();
-        QStringList defaultSymbols = separatorSymbol();
-        return defaultSymbols.indexOf(current);
+        QStringList defaultSymbols = separatorSymbol(QLocale(m_localeName), true);
+        return defaultSymbols.indexOf(unEscapSpace(current));
     }
     case DigitGrouping: {
         const QString &current = m_work->digitGrouping();
         QStringList defaultSymbols = availableFormats(format);
-        return defaultSymbols.indexOf(current);
+        auto index = defaultSymbols.indexOf(current);
+        return index;
     }
     default:
         break;
@@ -642,11 +757,6 @@ void DatetimeModel::setCurrentFormat(int format, int index)
         QStringList defaultSymbols = availableFormats(format);
         if (index >= defaultSymbols.count())
             return;
-        // get PositiveCurrency/NegativeCurrency index first
-        int pIndex = currentFormatIndex(PositiveCurrency);
-        int nIndex = currentFormatIndex(NegativeCurrency);
-        setProperty("__PositiveCurrency", pIndex);
-        setProperty("__NegativeCurrency", nIndex);
 
         // dconfig
         setConfig(index, currencyFormat_key, defaultSymbols);
@@ -668,16 +778,13 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     break;
     // number formats
     case DecimalSymbol: {
-        auto fmts = separatorSymbol();
+        auto fmts = separatorSymbol(locale, false);
         if (index < fmts.count())
             m_work->setDecimalSymbol(fmts.value(index));
     }
     break;
     case DigitGroupingSymbol: {
-        int dIndex = currentFormatIndex(DigitGrouping);
-        setProperty("__DigitGrouping", dIndex);
-
-        auto fmts = separatorSymbol();
+        auto fmts = separatorSymbol(locale, true);
         if (index < fmts.count())
             m_work->setDigitGroupingSymbol(fmts.value(index));
     }
@@ -696,6 +803,8 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     default:
         break;
     }
+
+    Q_EMIT currentFormatChanged(format);
 }
 
 QString DatetimeModel::currentDate()
@@ -909,9 +1018,21 @@ void DatetimeModel::setLongTimeFormat(const QString &longTimeFormat)
 void DatetimeModel::setCurrencyFormat(const QString &currencyFormat)
 {
     if (m_currencyFormat != currencyFormat) {
+        QString oldFormat = m_currencyFormat;
         m_currencyFormat = currencyFormat;
-        Q_EMIT currencyFormatChanged(currencyFormat);
+        Q_EMIT currencyFormatChanged(oldFormat, currencyFormat);
     }
+}
+
+void DatetimeModel::setDigitGroupingSymbol(const QString &digitGroupingSymbol)
+{
+    if (m_digitGroupingSymbol == digitGroupingSymbol)
+        return;
+
+    QString oldFormat = m_digitGroupingSymbol;
+    m_digitGroupingSymbol = digitGroupingSymbol;
+
+    Q_EMIT digitGroupingSymbolChanged(oldFormat, digitGroupingSymbol);
 }
 
 void DatetimeModel::setNumberFormat(const QString &numberFormat)
@@ -1069,6 +1190,7 @@ void DatetimeModel::setWeekdayFormat(int newWeekdayFormat)
 
     m_work->setWeekdayFormat(newWeekdayFormat);
 }
+
 
 DCC_FACTORY_CLASS(DatetimeModel)
 

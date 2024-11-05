@@ -226,6 +226,7 @@ DccObject {
             }
         }
         DccObject {
+            visible: false // 暂时隐藏，会导致逻辑很复杂
             name: "12/24h"
             parentName: "dateTimeGroup"
             displayName: qsTr("Use 24-hour format")

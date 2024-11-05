@@ -18,6 +18,7 @@ const QString shortTimeFormat_key = "shortTimeFormat";
 const QString longTimeFormat_key = "longTimeFormat";
 const QString currencyFormat_key = "currencyFormat";
 const QString numberFormat_key = "numberFormat";
+const QString digitgroupFormat_key = "digitgroupFormat";
 const QString paperFormat_key = "paperFormat";
 
 struct RegionFormat {
@@ -28,6 +29,7 @@ struct RegionFormat {
     QString longTimeFormat;
     QString currencyFormat;
     QString numberFormat;
+    QString digitgroupFormat; //groupSeparator;
     QString paperFormat;
     bool operator!=(const RegionFormat &other)
     {
@@ -36,13 +38,14 @@ struct RegionFormat {
     bool operator==(const RegionFormat &other)
     {
         return (this->firstDayOfWeekFormat == other.firstDayOfWeekFormat) &&
-               (this->shortDateFormat == other.shortDateFormat) &&
-               (this->longDateFormat == other.longDateFormat) &&
-               (this->shortTimeFormat == other.shortTimeFormat) &&
-               (this->longTimeFormat == other.longTimeFormat) &&
-               (this->currencyFormat == other.currencyFormat) &&
-               (this->numberFormat == other.numberFormat) &&
-               (this->paperFormat == other.paperFormat);
+                (this->shortDateFormat == other.shortDateFormat) &&
+                (this->longDateFormat == other.longDateFormat) &&
+                (this->shortTimeFormat == other.shortTimeFormat) &&
+                (this->longTimeFormat == other.longTimeFormat) &&
+                (this->currencyFormat == other.currencyFormat) &&
+                (this->numberFormat == other.numberFormat) &&
+                (this->digitgroupFormat == other.digitgroupFormat) &&
+                (this->paperFormat == other.paperFormat);
     }
 };
 
