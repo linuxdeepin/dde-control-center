@@ -58,6 +58,7 @@ public Q_SLOTS:
     void login();
     void deepinIdErrorSlot(int code, const QString &msg);
     void setPlymouthFactor(int factor);
+    void resetEditAuthEnabled();
 
 Q_SIGNALS:
     void settingScaling(bool);

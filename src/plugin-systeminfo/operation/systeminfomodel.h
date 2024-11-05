@@ -139,7 +139,7 @@ Q_SIGNALS:
 
     void userExperienceProgramTextChanged();
 
-    void joinUeProgramChanged();
+    void joinUeProgramChanged(const bool enable) const;
 
     void systemCopyrightChanged();
 

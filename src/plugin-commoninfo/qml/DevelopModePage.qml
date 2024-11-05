@@ -80,7 +80,7 @@ DccObject {
 
                 Button {
                     Layout.alignment: Qt.AlignRight
-                    implicitWidth: 40
+                    implicitWidth: 50
                     visible: !(dccData.mode().developerModeState || dccData.mode().isActivate)
                     text: qsTr("Enter")
 
@@ -100,9 +100,7 @@ DccObject {
 
                     property real currentStackIndex: 0
 
-                    // 弹窗关闭时触发的事件
-                    onClosing: {
-                        console.log("DialogWindow 正在关闭")
+                    onClosing: function(close) {
                         close.accepted = true
                     }
 
@@ -166,7 +164,7 @@ DccObject {
                             id: confirmBtn
                             text: dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID")
                             width: parent.width
-                            font: DTK.fontManager.t5
+                            font: DTK.fontManager.t7
                             height: 20
 
                             onClicked: {
@@ -215,8 +213,7 @@ DccObject {
                                     height: 128
                                     Image {
                                         id: tikc
-                                        visible: !dccData.mode().isLogin
-                                        source: "common_tick"
+                                        source: dccData.mode().isLogin ? "common_tick" : "qrc:/icons/deepin/builtin/icons/develop_bind.dci"
                                         width: 128
                                         height: 128
                                         z: 2
@@ -225,7 +222,7 @@ DccObject {
 
                                     Image {
                                         id: ok
-                                        visible: !dccData.mode().isLogin
+                                        visible: dccData.mode().isLogin
                                         source: "common_ok"
                                         z: 1
                                         anchors.centerIn: parent
@@ -234,6 +231,7 @@ DccObject {
                                     }
                                     Image {
                                         id: shadow
+                                        visible: dccData.mode().isLogin
                                         source: "common_inner_shadow"
                                         z: 0
                                         anchors.centerIn: parent
@@ -244,7 +242,7 @@ DccObject {
 
                                 Label {
                                     height: 20
-                                    font: DTK.fontManager.t5
+                                    font: DTK.fontManager.t8
                                     Layout.alignment: Qt.AlignHCenter
                                     text: dccData.mode().isLogin ? qsTr("Your UOS ID has been logged in, click to enter developer mode") : qsTr("Please sign in to your UOS ID first and continue")
                                 }

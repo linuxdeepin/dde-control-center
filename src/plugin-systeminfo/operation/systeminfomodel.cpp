@@ -250,10 +250,8 @@ bool SystemInfoModel::joinUeProgram() const
 
 void SystemInfoModel::setJoinUeProgram(bool newJoinUeProgram)
 {
-    if (m_joinUeProgram == newJoinUeProgram)
-        return;
     m_joinUeProgram = newJoinUeProgram;
-    Q_EMIT joinUeProgramChanged();
+    Q_EMIT joinUeProgramChanged(m_joinUeProgram);
 }
 
 QString SystemInfoModel::userExperienceProgramText() const
