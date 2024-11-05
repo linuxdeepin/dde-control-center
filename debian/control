@@ -49,6 +49,7 @@ Depends:
  qml6-module-qtquick-layouts,
  qml6-module-qtquick-window,
  qml6-module-qt-labs-qmlmodels,
+ qml6-module-qtquick-dialogs,
  libdtk6declarative,
  netselect,
 Description: New control center for Deepin Desktop Environment,
