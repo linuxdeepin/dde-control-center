@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include <QPoint>
+#include <QAbstractListModel>
 
 #include "zoneinfo.h"
 #include "regionproxy.h"
@@ -47,16 +48,18 @@ class DatetimeModel : public QObject
     Q_PROPERTY(QString currentLanguageAndRegion READ currentLanguageAndRegion NOTIFY currentLanguageAndRegionChanged FINAL)
     Q_PROPERTY(QString currentDate READ currentDate NOTIFY currentDateChanged FINAL)
 
+    Q_PROPERTY(QString digitGroupingSymbol READ digitGroupingSymbol WRITE setDigitGroupingSymbol NOTIFY digitGroupingSymbolChanged FINAL)
+
 public:
     using Regions = QMap<QString, QLocale>;
     enum Format {
         // date time formats
         DayAbbreviations,     // Monday/Mon ; 星期一 / 周一
         DayOfWeek,            // 一周首日
-        LongDate,             // 长日期
         ShortDate,            // 短日期
-        LongTime,             // 长时间
+        LongDate,             // 长日期
         ShortTime,            // 短时间
+        LongTime,             // 长时间
 
         // currency formats
         CurrencySymbol,       // 货币符号 ￥
@@ -129,6 +132,9 @@ public:
     inline QString currencyFormat() const { return m_currencyFormat; }
     void setCurrencyFormat(const QString &currencyFormat);
 
+    QString digitGroupingSymbol() const { return m_digitGroupingSymbol; }
+    void setDigitGroupingSymbol(const QString &digitGroupingSymbol);
+
     inline QString numberFormat() const { return m_numberFormat; }
     void setNumberFormat(const QString &numberFormat);
 
@@ -174,7 +180,8 @@ Q_SIGNALS:
     void longDateFormatChanged(const QString &longDate);
     void shortTimeFormatChanged(const QString &shortTimeFormat);
     void longTimeFormatChanged(const QString &longTimeFormat);
-    void currencyFormatChanged(const QString &currencyFormat);
+    void currencyFormatChanged(const QString &oldFormat, const QString &newFormat);
+    void digitGroupingSymbolChanged(const QString &oldFormat, const QString &newFormat);
     void numberFormatChanged(const QString &numberFormat);
     void paperFormatChanged(const QString &numberFormat);
     // Language List changed
@@ -187,6 +194,7 @@ Q_SIGNALS:
     void regionChanged(const QString &region);
     void currentRegionIndexChanged(int index);
     void currentDateChanged();
+    void currentFormatChanged(int format);
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
@@ -199,6 +207,9 @@ public Q_SLOTS:
     QSortFilterProxyModel *langSearchModel();
     QSortFilterProxyModel *langRegionSearchModel();
     QSortFilterProxyModel *regionSearchModel();
+    QAbstractListModel *timeDateModel();
+    QAbstractListModel *currencyModel();
+    QAbstractListModel *decimalModel();
     QString region(); // country
     int currentRegionIndex();
     void setRegion(const QString &region); // setCountry
@@ -221,9 +232,9 @@ public Q_SLOTS:
     QStringList availableFormats(int format);
     int currentFormatIndex(int format);
     void setCurrentFormat(int format, int index);
-
     QString currentDate();
-
+protected:
+    void initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model);
 private:
     bool m_ntp;
     bool m_bUse24HourType;
@@ -248,6 +259,7 @@ private:
     QString m_shortTimeFormat;
     QString m_longTimeFormat;
     QString m_currencyFormat;
+    QString m_digitGroupingSymbol;
     QString m_numberFormat;
     QString m_paperFormat;
     RegionFormat m_regionFormat;
@@ -257,6 +269,9 @@ private:
     QSortFilterProxyModel *m_langSearchModel = nullptr;
     QSortFilterProxyModel *m_regionSearchModel = nullptr;
     QSortFilterProxyModel *m_countrySearchModel = nullptr;
+    QAbstractListModel *m_timeDateModel = nullptr;
+    QAbstractListModel *m_currencyModel = nullptr;
+    QAbstractListModel *m_decimalModel = nullptr;
     dccV25::KeyboardModel *m_langModel = nullptr;
     QMap<QString, QString> m_langRegionsCache;
     QString m_regionName;

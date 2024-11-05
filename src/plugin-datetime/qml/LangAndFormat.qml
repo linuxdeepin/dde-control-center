@@ -272,6 +272,7 @@ DccObject {
                     currentIndex: dccData.currentLanguageAndRegionIndex()
                     viewModel: dccData.langRegionSearchModel()
                     onSelectedRegion: function (locale, lang) {
+                        console.log("locale:", locale, "lang:", lang)
                         dccData.setCurrentLocaleAndLangRegion(locale, lang)
                     }
 
@@ -293,18 +294,6 @@ DccObject {
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
 
-    Timer {
-        id: timer
-        interval: 100
-        property DccRepeater repeater
-        onTriggered: {
-            if (repeater) {
-                repeater.resetModel()
-                repeater = null
-            }
-        }
-    }
-
     // 时间日期格式
     DccObject {
         id: timeFormats
@@ -317,21 +306,20 @@ DccObject {
         onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
         DccRepeater {
-            model: [ qsTr("Week"), qsTr("First day of week"), qsTr("Long date"),
-                qsTr("Short date"), qsTr("Long time"), qsTr("Short time") ]
+            id: timeFormatsRepeater
+            model: dccData.timeDateModel()
             delegate: DccObject {
-                name: modelData
+                name: model.name
                 parentName: "timeFormats"
-                displayName: modelData
+                displayName: model.name
                 weight: 10 * (index + 1)
                 hasBackground: true
                 pageType: DccObject.Editor
                 page: ComboLabel {
-                    comboModel: dccData.availableFormats(index)
-                    comboCurrentIndex: dccData.currentFormatIndex(index)
+                    comboModel: model.values
+                    comboCurrentIndex: model.current
                     onComboBoxActivated: function (idx) {
-                        let startIndex = 0 // Week
-                        dccData.setCurrentFormat(startIndex + index, idx)
+                        dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
             }
@@ -351,22 +339,19 @@ DccObject {
 
         DccRepeater {
             id: currencyRepeater
-            property int startIndex: 6 // Currency
-            model: [ qsTr("Currency symbol"), qsTr("Positive currency"), qsTr("Negative currency") ]
+            model: dccData.currencyModel()
             delegate: DccObject {
-                name: modelData
+                name: model.name
                 parentName: "currencyFormats"
-                displayName: modelData
+                displayName: model.name
                 weight: 10 * (index + 1)
                 hasBackground: true
                 pageType: DccObject.Editor
                 page: ComboLabel {
-                    comboModel: dccData.availableFormats(index + currencyRepeater.startIndex)
-                    comboCurrentIndex: dccData.currentFormatIndex(index + currencyRepeater.startIndex)
+                    comboModel: model.values
+                    comboCurrentIndex: model.current
                     onComboBoxActivated: function (idx) {
-                        dccData.setCurrentFormat(currencyRepeater.startIndex + index, idx)
-                        timer.repeater = currencyRepeater
-                        timer.start()
+                        dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
             }
@@ -386,23 +371,19 @@ DccObject {
 
         DccRepeater {
             id: numRepeater
-            property int startIndex: 9 // number
-            model: [ qsTr("Decimal symbol"), qsTr("Digit grouping symbol"),
-                qsTr("Digit grouping"), qsTr("Page size") ]
+            model: dccData.decimalModel()
             delegate: DccObject {
-                name: modelData
+                name: model.name
                 parentName: "numberFormats"
-                displayName: modelData
+                displayName: model.name
                 weight: 10 * (index + 1)
                 hasBackground: true
                 pageType: DccObject.Editor
                 page: ComboLabel {
-                    comboModel: dccData.availableFormats(index + numRepeater.startIndex)
-                    comboCurrentIndex: dccData.currentFormatIndex(index + numRepeater.startIndex)
+                    comboModel: model.values
+                    comboCurrentIndex: model.current
                     onComboBoxActivated: function (idx) {
-                        dccData.setCurrentFormat(numRepeater.startIndex + index, idx)
-                        timer.repeater = numRepeater
-                        timer.start()
+                        dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
             }

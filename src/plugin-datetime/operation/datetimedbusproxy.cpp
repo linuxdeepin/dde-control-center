@@ -37,7 +37,7 @@ DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     , m_localeInter(new QDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this))
     , m_timedateInter(new QDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
     , m_systemtimedatedInter(new QDBusInterface(SystemTimedatedService, SystemTimedatedPath, SystemTimedatedInterface, QDBusConnection::systemBus(), this))
-    ,m_formatInter(new QDBusInterface(FormatService, FormatPath, FormatInterface, QDBusConnection::sessionBus(), this))
+    , m_formatInter(new QDBusInterface(FormatService, FormatPath, FormatInterface, QDBusConnection::sessionBus(), this))
 {
     registerZoneInfoMetaType();
 

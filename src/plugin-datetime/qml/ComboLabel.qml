@@ -30,6 +30,10 @@ Item {
         id: label
         visible: item.comboModel.length === 1
         text: item.comboModel[0]
-        anchors.verticalCenter: parent.verticalCenter
+        anchors {
+            verticalCenter: parent.verticalCenter
+            right: parent.right
+            rightMargin: 10
+        }
     }
 }

@@ -281,6 +281,14 @@ QString RegionProxy::langCountry() const
     return langCountry;
 }
 
+static inline QString replaceSpace(const QString &space) {
+    QString sp;
+    for (const QChar &c : space) {
+        sp.append(c.isSpace() ? QChar(' ') : c);
+    }
+    return sp;
+}
+
 RegionFormat RegionProxy::regionFormat(const QLocale &locale)
 {
     RegionFormat regionFormat;
@@ -290,7 +298,12 @@ RegionFormat RegionProxy::regionFormat(const QLocale &locale)
     regionFormat.shortTimeFormat = locale.timeFormat(QLocale::ShortFormat);
     regionFormat.longTimeFormat = locale.timeFormat(QLocale::LongFormat);
     regionFormat.currencyFormat = locale.currencySymbol(QLocale::CurrencySymbol);
-    regionFormat.numberFormat = locale.toString(123456789);
+    // 如果是货币符号空就用 ¥
+    if (regionFormat.currencyFormat.isEmpty())
+        regionFormat.currencyFormat = QString::fromLocal8Bit("¥");
+
+    regionFormat.numberFormat = replaceSpace(locale.toString(123456789));
+    regionFormat.digitgroupFormat = locale.groupSeparator();
     regionFormat.paperFormat = "A4";
 
     return regionFormat;
@@ -374,7 +387,7 @@ QDebug operator<<(QDebug debug, const RegionFormat &regionFormat)
     debug << regionFormat.firstDayOfWeekFormat << regionFormat.shortDateFormat
           << regionFormat.longDateFormat << regionFormat.shortTimeFormat
           << regionFormat.longTimeFormat << regionFormat.currencyFormat << regionFormat.numberFormat
-          << regionFormat.paperFormat;
+          << regionFormat.digitgroupFormat << regionFormat.paperFormat;
 
     return debug;
 }

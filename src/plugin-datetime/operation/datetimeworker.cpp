@@ -43,13 +43,20 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setTimeZoneInfo);
     connect(m_timedateInter, &DatetimeDBusProxy::WeekdayFormatChanged, m_model, &DatetimeModel::weekdayFormatChanged);
 
-    connect(m_timedateInter, &DatetimeDBusProxy::CurrencySymbolChanged, m_model, [this](const QString &symbol){
+    connect(m_timedateInter, &DatetimeDBusProxy::CurrencySymbolChanged, m_model, [this](const QString &symbol) {
+        Q_EMIT m_model->symbolChanged(DatetimeModel::CurrencySymbol, symbol);
+    });
+    connect(m_timedateInter, &DatetimeDBusProxy::NegativeCurrencyFormatChanged, m_model, [this](const QString &symbol) {
+        Q_EMIT m_model->symbolChanged(DatetimeModel::CurrencySymbol, symbol);
+    });
+    connect(m_timedateInter, &DatetimeDBusProxy::PositiveCurrencyFormatChanged, m_model, [this](const QString &symbol) {
         Q_EMIT m_model->symbolChanged(DatetimeModel::CurrencySymbol, symbol);
     });
     connect(m_timedateInter, &DatetimeDBusProxy::DecimalSymbolChanged, m_model, [this](const QString &symbol){
         Q_EMIT m_model->symbolChanged(DatetimeModel::DecimalSymbol, symbol);
     });
     connect(m_timedateInter, &DatetimeDBusProxy::DigitGroupingSymbolChanged, m_model, [this](const QString &symbol){
+        m_model->setDigitGroupingSymbol(symbol);
         Q_EMIT m_model->symbolChanged(DatetimeModel::DigitGroupingSymbol, symbol);
     });
 
@@ -61,6 +68,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
     m_model->setNTP(m_timedateInter->nTP());
+    m_model->setDigitGroupingSymbol(m_timedateInter->digitGroupingSymbol());
 
     initRegionFormatData();
 }
