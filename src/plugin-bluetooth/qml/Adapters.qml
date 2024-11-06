@@ -24,7 +24,6 @@ DccObject{
         parentName: "blueToothAdapters" + model.name
         weight: 30
         pageType: DccObject.Item
-        visible: model.myDeviceVisiable
         page: DccGroupView {
             spacing: 0
             isGroup: false
@@ -37,7 +36,6 @@ DccObject{
         name: "otherDevice" + model.name
         parentName: "blueToothAdapters" + model.name
         weight: 40
-        visible: model.powered
         pageType: DccObject.Item
         page: DccGroupView {
             spacing: 0

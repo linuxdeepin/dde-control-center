@@ -42,25 +42,41 @@ DccObject{
                     verticalAlignment: Qt.AlignBottom
                     leftPadding: 0
                 }
-                Label {
-                    id: nameDetail
-                    height: 25
+
+                Row {
                     width: root.width - deviceSwitch.width - 36 - 52
-                    text: model.nameDetail
-                    horizontalAlignment: Qt.AlignLeft
-                    verticalAlignment: Qt.AlignTop
-                    font.pointSize: 8
-                    //opacity: 0.5
-                    color:"#5A000000"
-                    // 超链接点击事件
-                    onLinkActivated: function(url) {
-                        console.log("点击的链接是: " + url)
-                        nameEdit.visible = true
-                        nameDetail.visible = false
-                        myDeviceName.visible = false
-                        nameEditBackgrd.visible = true
-                        nameEdit.forceActiveFocus(true)
-                        nameEdit.selectAll()
+                    spacing: 5
+                    Label {
+                        id: nameDetail
+                        height: 25
+                        width: Math.min(implicitWidth, root.width - deviceSwitch.width - 36 - 52)
+                        text: model.nameDetail
+                        horizontalAlignment: Qt.AlignLeft
+                        verticalAlignment: Qt.AlignTop
+                        font.pointSize: 8
+                        color:"#5A000000"
+                        elide: Text.ElideRight
+                    }
+
+                    ToolButton {
+                        id: editBtn
+                        flat: false
+                        height: 25
+                        font.pointSize: 8
+                        text: qsTr("Edit")
+                        checked: true
+                        spacing: 0
+                        visible: model.powered
+                        topPadding: -5
+                        onClicked: {
+                            nameEdit.visible = true
+                            nameDetail.visible = false
+                            myDeviceName.visible = false
+                            nameEditBackgrd.visible = true
+                            nameEdit.forceActiveFocus(true)
+                            nameEdit.selectAll()
+                            editBtn.visible = false
+                        }
                     }
                 }
 
@@ -79,8 +95,6 @@ DccObject{
                         text: myDeviceName.text
                         topPadding: 5
                         bottomPadding: 5
-
-                        //maximumLength: 32
 
                         onTextChanged: {
                             if (text.length > 32) {
@@ -104,6 +118,7 @@ DccObject{
                             nameDetail.visible = true
                             myDeviceName.visible = true
                             nameEditBackgrd.visible = false
+                            editBtn.visible = true
 
                             dccData.work().setAdapterAlias(model.id, nameEdit.text)
                         }

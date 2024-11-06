@@ -14,6 +14,7 @@ DccObject{
         displayName: qsTr("Other Devices")
         weight: 10
         hasBackground: false
+        visible: model.powered
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -31,6 +32,7 @@ DccObject{
         pageType: DccObject.Item
         weight: 20
         hasBackground: false
+        visible: model.powered
 
         page: RowLayout {
             CheckBox {
@@ -76,7 +78,7 @@ DccObject{
         name: "otherDeviceList"
         parentName: "otherDevice" + model.name
         weight: 40
-        visible: true
+        visible: model.powered
         hasBackground: true
         pageType: DccObject.Item
         page: BlueToothDeviceListView {

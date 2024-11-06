@@ -54,7 +54,6 @@ Rectangle {
                         spacing: 0
                         height: 50
                         Label {
-                            width: 100
                             id: myDeviceName
                             height: 25
                             text: model.name
@@ -62,6 +61,8 @@ Rectangle {
                             horizontalAlignment: Qt.AlignLeft
                             verticalAlignment: Qt.AlignBottom
                             leftPadding: 0
+                            elide: Text.ElideRight
+                            width: Math.min(implicitWidth, root.width - 200)
                         }
 
                         Row {
