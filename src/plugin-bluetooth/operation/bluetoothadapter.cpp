@@ -47,7 +47,7 @@ void BluetoothAdapter::addDevice(const BluetoothDevice *device)
                 m_myDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
             }
 
-            setMyDeviceVisible(m_powered);
+            setMyDeviceVisible(true);
 
         } else {
             qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add other device " << device->name();
@@ -69,7 +69,7 @@ void BluetoothAdapter::removeDevice(const QString &deviceId)
 
         m_myDevices->removeDevice(deviceId);
         m_otherDevices->removeDevice(deviceId);
-        setMyDeviceVisible(m_myDevices->rowCount() && m_powered);
+        setMyDeviceVisible(m_myDevices->rowCount());
         Q_EMIT deviceRemoved(deviceId);
     }
 }

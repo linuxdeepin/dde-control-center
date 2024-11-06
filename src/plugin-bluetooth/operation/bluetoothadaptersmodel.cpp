@@ -55,7 +55,7 @@ QVariant BlueToothAdaptersModel::data(const QModelIndex &index, int role) const
     case Discoverabled:
         return bluetoothAdapterData->discoverabled();
     case NameDetail:
-        return bluetoothAdapterData->powered() ? tr("Bluetooth is turned on, and the namcde is displayed as %1").arg(bluetoothAdapterData->name()) + "<a href=\"Edit\">" + tr("Edit")+ "</a>" : tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
+        return bluetoothAdapterData->powered() ? tr("Bluetooth is turned on, and the namcde is displayed as %1").arg(bluetoothAdapterData->name()) : tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
     case MyDevice:
         return QVariant::fromValue(bluetoothAdapterData->myDevices());
     case OtherDevice:

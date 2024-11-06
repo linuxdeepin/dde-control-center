@@ -15,21 +15,22 @@ DccObject{
         weight: 10
         hasBackground: false
         pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font.bold: true
-                font.pixelSize: 16
-                text: dccObj.displayName
-            }                     
+        visible: model.myDeviceVisiable
+        page: Label {
+            leftPadding: 10
+            font.bold: true
+            font.pixelSize: 16
+            text: dccObj.displayName
         }
+
     }
 
     DccObject {
         name: "myDeviceList"
         parentName: "myDevice" + model.name
-        weight: 40
+        weight: 11
         hasBackground: true
+        visible: model.myDeviceVisiable
         pageType: DccObject.Item
         page: BlueToothDeviceListView {
             deviceModel: model.myDevice
