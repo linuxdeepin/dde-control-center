@@ -24,7 +24,7 @@ DccObject {
                 height: contentHeight
                 Layout.leftMargin: 10
                 font: DTK.fontManager.t1
-                text: Qt.formatTime(Date(), longTimeFormat)
+                text: dccData.currentTime
             }
             Label {
                 id: dateLabel
@@ -35,16 +35,16 @@ DccObject {
                 text: dccData.currentDate
             }
 
-            Timer {
-                interval: 500
-                running: true
-                repeat: true
-                onTriggered: {
-                    timeLabel.text = Qt.formatTime(Date(), timeLabel.longTimeFormat)
+            // Timer {
+            //     interval: 500
+            //     running: true
+            //     repeat: true
+            //     onTriggered: {
+            //         timeLabel.text = Qt.formatTime(Date(), timeLabel.longTimeFormat)
 
-                    dateLabel.text = dccData.currentDate
-                }
-            }
+            //         dateLabel.text = dccData.currentDate
+            //     }
+            // }
         }
     }
 

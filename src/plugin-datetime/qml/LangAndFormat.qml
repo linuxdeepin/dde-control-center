@@ -272,7 +272,6 @@ DccObject {
                     currentIndex: dccData.currentLanguageAndRegionIndex()
                     viewModel: dccData.langRegionSearchModel()
                     onSelectedRegion: function (locale, lang) {
-                        console.log("locale:", locale, "lang:", lang)
                         dccData.setCurrentLocaleAndLangRegion(locale, lang)
                     }
 

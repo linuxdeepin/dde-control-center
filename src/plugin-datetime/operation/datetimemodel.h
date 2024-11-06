@@ -47,6 +47,7 @@ class DatetimeModel : public QObject
 
     Q_PROPERTY(QString currentLanguageAndRegion READ currentLanguageAndRegion NOTIFY currentLanguageAndRegionChanged FINAL)
     Q_PROPERTY(QString currentDate READ currentDate NOTIFY currentDateChanged FINAL)
+    Q_PROPERTY(QString currentTime READ currentTime NOTIFY currentTimeChanged FINAL)
 
     Q_PROPERTY(QString digitGroupingSymbol READ digitGroupingSymbol WRITE setDigitGroupingSymbol NOTIFY digitGroupingSymbolChanged FINAL)
 
@@ -194,6 +195,7 @@ Q_SIGNALS:
     void regionChanged(const QString &region);
     void currentRegionIndexChanged(int index);
     void currentDateChanged();
+    void currentTimeChanged();
     void currentFormatChanged(int format);
 
 public Q_SLOTS:
@@ -233,6 +235,7 @@ public Q_SLOTS:
     int currentFormatIndex(int format);
     void setCurrentFormat(int format, int index);
     QString currentDate();
+    QString currentTime() const;
 protected:
     void initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model);
 private:

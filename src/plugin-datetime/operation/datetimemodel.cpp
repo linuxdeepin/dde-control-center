@@ -18,6 +18,7 @@
 #include <QSettings>
 #include <QCoreApplication>
 #include <QStringListModel>
+#include <QTimer>
 
 static installer::ZoneInfoList g_totalZones;
 
@@ -249,6 +250,16 @@ DatetimeModel::DatetimeModel(QObject *parent)
     connect(this, &DatetimeModel::longTimeFormatChanged, this, [this]() {
         Q_EMIT currentFormatChanged(LongTime);
     });
+
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(500);
+    connect(timer, &QTimer::timeout, this, [this](){
+        Q_EMIT currentTimeChanged();
+
+        // maybe too frequently
+        Q_EMIT currentDateChanged();
+    });
+    timer->start();
 }
 
 void DatetimeModel::setNTP(bool ntp)
@@ -815,6 +826,14 @@ QString DatetimeModel::currentDate()
         dateFormat.replace("dddd", "ddd");
 
     return locale.toString(QDate::currentDate(), dateFormat);
+}
+
+QString DatetimeModel::currentTime() const
+{
+    QLocale locale(m_localeName);
+    QString timeFormat = longTimeFormat();
+
+    return locale.toString(QTime::currentTime(), timeFormat);
 }
 
 int DatetimeModel::currentLanguageAndRegionIndex()
