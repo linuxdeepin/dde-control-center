@@ -38,7 +38,11 @@ QStringList systemFilter = {"terminal",
                             "wm-switcher",
                             "system-monitor",
                             "color-picker",
-                            "clipboard"};
+                            "clipboard",
+                            "view-zoom-in",
+                            "view-zoom-out",
+                            "view-actual-size",
+};
 
 const QStringList &windowFilter = {"maximize",
                                    "unmaximize",
