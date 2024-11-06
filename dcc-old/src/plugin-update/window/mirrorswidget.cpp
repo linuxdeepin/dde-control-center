@@ -62,6 +62,7 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->setEditTriggers(QListView::NoEditTriggers);
     m_view->setModel(m_model);
+    m_view->setViewportMargins(10, 0, 10, 0);
 
 #ifdef QT_SCROLL_WHEEL_ANI
     QScrollBar *bar = m_view->verticalScrollBar();
@@ -70,6 +71,7 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 #endif
 
     QVBoxLayout *listLayout= new QVBoxLayout;
+    listLayout->setContentsMargins(2, 0, 2, 0);
     listLayout->addWidget(m_view);
     m_listWidget->setLayout(listLayout);
     layout->addWidget(m_listWidget);

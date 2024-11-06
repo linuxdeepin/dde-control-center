@@ -12,17 +12,22 @@ int main(int argc, char *argv[])
 {
     int (*main_func)(int, char **);
     char *error;
-    // 根据参数或环境变量判断启哪个版本
-    char *Compositor = getenv("DDE_CURRENT_COMPOSITOR");
-    bool isOldDcc = true;
+    bool isOldDcc = false;
     if (argc >= 1 && strcmp(argv[argc - 1], "n") == 0) {
         isOldDcc = false;
         argc = argc - 1;
     } else if (argc >= 1 && strcmp(argv[argc - 1], "o") == 0) {
         isOldDcc = true;
         argc = argc - 1;
-    } else if (Compositor && strcasecmp(Compositor, "treeland") == 0) {
-        isOldDcc = false;
+    } else {
+        // 根据参数或环境变量判断启哪个版本
+        char *Compositor = getenv("DDE_CURRENT_COMPOSITOR");
+        char *XDGSession = getenv("XDG_SESSION_TYPE");
+        if (Compositor && strcasecmp(Compositor, "treeland") == 0) {
+            isOldDcc = false;
+        } else if (XDGSession && strcasecmp(XDGSession, "x11") == 0) {
+            isOldDcc = true;
+        }
     }
 
     // 加载共享库
