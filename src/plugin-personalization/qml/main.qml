@@ -94,14 +94,6 @@ DccObject {
     }
 
     DccObject {
-        name: "taskBar"
-        parentName: "personalization"
-        displayName: qsTr("Desktop and taskbar")
-        description: qsTr("Set the display and size of icons on the desktop")
-        icon: "taskbar"
-        weight: 100
-    }
-    DccObject {
         name: "windowEffect"
         parentName: "personalization"
         displayName: qsTr("Window effect")
