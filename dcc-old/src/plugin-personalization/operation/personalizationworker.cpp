@@ -370,6 +370,11 @@ void PersonalizationWorker::setActiveColor(const QString &hexColor)
     m_personalizationDBusProxy->setQtActiveColor(hexColor);
 }
 
+void PersonalizationWorker::setActiveColors(const QString &activeColors)
+{
+    m_personalizationDBusProxy->setActiveColors(activeColors);
+}
+
 void PersonalizationWorker::setWindowRadius(int radius)
 {
     m_personalizationDBusProxy->setWindowRadius(radius);

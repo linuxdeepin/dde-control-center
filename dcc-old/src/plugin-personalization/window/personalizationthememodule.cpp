@@ -15,6 +15,7 @@
 #include "widgets/itemmodule.h"
 #include "widgets/personalizationthemelist.h"
 #include "widgets/ringcolorwidget.h"
+#include <qpair.h>
 
 #include <DGuiApplicationHelper>
 #include <DLabel>
@@ -71,7 +72,7 @@ const QList<QColor> Dark_ACTIVE_COLORST = {
     { 69, 159, 41 },
     { 24, 136, 118 },
     { 2, 76, 202 },
-    { 56, 48, 167 },
+    { 68, 59, 186 },
     { 106, 36, 135 },
     { 134, 134, 134 },
     QColor()
@@ -178,7 +179,11 @@ void PersonalizationThemeModule::onActiveColorClicked()
             m_work->setActiveColor(colorDialog->selectedColor().name());
         }
     } else {
-        m_work->setActiveColor(strColor);
+        QString result = DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType ?
+            pItem->activeColors().first : pItem->activeColors().second;
+        m_work->setActiveColors(pItem->activeColors().first + "," + pItem->activeColors().second);
+        pItem->setColor(result);
+        m_work->setActiveColor(result);
     }
 }
 
@@ -348,6 +353,7 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
     for (int i = 0; i < activeColors.size(); ++i) {
         QColor color = activeColors.at(i);
         RoundColorWidget *colorItem = new RoundColorWidget(color, bgWidget);
+        colorItem->setActiveColors(QPair<QString, QString>(ACTIVE_COLORST[i].name(), Dark_ACTIVE_COLORST[i].name()));
         QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
         effect->setBlurRadius(17); // 阴影圆角的大小
 
@@ -373,13 +379,16 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
         QLayout *lyt = bgWidget->layout();
         int endIndex = lyt->count() - 2;
         for (int i = 1; i <= endIndex; ++i) {
-            if (lyt->itemAt(i)->widget()->accessibleName() == newColor) {
-                bgWidget->setSelectedItem(
-                        qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
+            RoundColorWidget *w = qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget());
+            if (!w) {
+                break;
+            }
+
+            if (w->color() == newColor) {
+                bgWidget->setSelectedItem(w);
                 break;
             } else if (i == endIndex) {
-                bgWidget->setSelectedItem(
-                        qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
+                bgWidget->setSelectedItem(w);
             }
         }
     };
