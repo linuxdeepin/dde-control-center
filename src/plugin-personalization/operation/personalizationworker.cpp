@@ -20,6 +20,7 @@
 #include <QTimer>
 
 #include <DConfig>
+#include <DDBusSender>
 
 DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
@@ -464,6 +465,15 @@ void PersonalizationWorker::setCompactDisplay(bool value)
 void PersonalizationWorker::setScrollBarPolicy(int policy)
 {
     m_personalizationDBusProxy->setScrollBarPolicy( policy);
+}
+
+void PersonalizationWorker::goDownloadTheme()
+{
+    DDBusSender().interface("com.home.appstore.client")
+    .path("/com/home/appstore/client")
+    .service("com.home.appstore.client")
+    .method("openBusinessUri")
+    .arg(QString("searchApp?keyword=theme")).call();
 }
 
 template<typename T>

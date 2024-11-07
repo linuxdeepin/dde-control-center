@@ -202,7 +202,7 @@ DccObject {
         property bool hasDBusProperty: false
         parentName: "personalization/windowEffect"
         displayName: qsTr("Scroll Bars")
-        visible: dccData.model.scrollBarPolicyConfig !== "Hidden"
+        visible: dccData.model.scrollBarPolicyConfig !== "Hidden" && scrollBarObject.hasDBusProperty
         weight: 700
         hasBackground: true
         pageType: DccObject.Editor
@@ -247,7 +247,7 @@ DccObject {
         parentName: "personalization/windowEffect"
         displayName: qsTr("Compact Display")
         description: qsTr("If enabled, more content is displayed in the window.")
-        visible: dccData.model.compactDisplayConfig !== "Hidden" && scrollBarObject.hasDBusProperty
+        visible: dccData.model.compactDisplayConfig !== "Hidden"
         weight: 700
         hasBackground: true
         pageType: DccObject.Editor

@@ -33,6 +33,7 @@ GridLayout {
                 width: 245
                 height: 110
                 radius: 8
+                color: this.palette.base
                 ColumnLayout {
                     anchors.fill: parent
                     anchors.margins: 10
