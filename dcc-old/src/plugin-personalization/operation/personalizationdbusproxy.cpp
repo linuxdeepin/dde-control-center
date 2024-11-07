@@ -273,6 +273,16 @@ bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *rece
     args << QVariant::fromValue(name);
     return m_EffectsInter->callWithCallback(QStringLiteral("isEffectLoaded"), args, receiver, member);
 }
+
+QString PersonalizationDBusProxy::activeColors()
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetActiveColors")));
+}
+
+void PersonalizationDBusProxy::setActiveColors(const QString &activeColors)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("SetActiveColors"), QVariant::fromValue(activeColors));
+}
 //
 void PersonalizationDBusProxy::onPropertiesChanged(const QDBusMessage &message)
 {

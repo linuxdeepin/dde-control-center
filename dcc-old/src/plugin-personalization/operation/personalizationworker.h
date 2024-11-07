@@ -34,6 +34,7 @@ public Q_SLOTS:
     void setOpacity(int opcaity);
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
+    void setActiveColors(const QString &activeColors);
     void setWindowRadius(int radius);
     void setCompactDisplay(bool value);
 

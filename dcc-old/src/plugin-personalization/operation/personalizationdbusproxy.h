@@ -122,6 +122,8 @@ public slots:
     void unloadEffect(const QString &name);
     bool isEffectLoaded(const QString &name);
     bool isEffectLoaded(const QString &name, QObject *receiver, const char *member);
+    QString activeColors();
+    void setActiveColors(const QString &activeColors);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);
