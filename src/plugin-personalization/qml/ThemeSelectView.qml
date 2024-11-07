@@ -20,7 +20,7 @@ ListView {
 
     readonly property int gridMaxColumns: Math.floor(listview.width / (itemWidth + itemSpacing))
     readonly property int gridMaxRows: 2
-    model: Math.ceil(dccData.globalThemeModel.rowCount() / (2 * gridMaxColumns))
+    model: Math.ceil((dccData.globalThemeModel.rowCount()  + 1) / (2 * gridMaxColumns))
     spacing: 0
     clip: true
     orientation: ListView.Horizontal
@@ -112,7 +112,7 @@ ListView {
         }
         GridLayout {
             anchors.left: parent.left
-            property int contentCount: repeater.count
+            property int contentCount: repeater.count + 1
             width: contentCount < columns ? contentCount * (itemWidth + itemSpacing) : parent.width
             height: contentCount <= columns ? parent.height / 2 : parent.height
             rowSpacing: 0
@@ -122,6 +122,56 @@ ListView {
             Repeater {
                 id: repeater
                 model: sortedModel
+            }
+
+            Rectangle {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                visible: index === listview.model - 1
+                color: "transparent"
+                ColumnLayout {
+                    width: listview.itemWidth
+                    height: listview.itemHeight
+                    anchors.centerIn: parent
+
+                    Item {
+                        Layout.preferredHeight: listview.imageRectH
+                        Layout.preferredWidth: listview.imageRectW
+
+                        Rectangle {
+                            anchors.fill: parent
+                            anchors.margins: listview.itemBorderWidth + 1
+                            color: "transparent"
+                            radius: 7
+
+                            D.DciIcon {
+                                anchors.fill: parent
+                                sourceSize: Qt.size(parent.width, parent.height)
+                                name: "download-more"
+                            }
+                        }
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        text: "More Wallpapers"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        color: this.palette.windowText
+                    }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        dccData.worker.goDownloadTheme()
+                    }
+                }
             }
         }
     }

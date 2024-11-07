@@ -35,6 +35,7 @@ public Q_SLOTS:
     void movedWindowSwitchWM(bool value);
     void setDiabledCompactToTitleHeight();
     void setScrollBarPolicy(int policy);
+    void goDownloadTheme();
 
     virtual void setDefaultByType(const QString &type, const QString &value);
     virtual void setDefault(const QJsonObject &value);
