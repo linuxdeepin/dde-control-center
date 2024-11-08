@@ -78,10 +78,11 @@ ListView {
                             color: "transparent"
                             radius: 7
 
-                            D.DciIcon {
+                            Image {
                                 anchors.fill: parent
                                 sourceSize: Qt.size(parent.width, parent.height)
-                                name: model.pic
+                                source: model.pic
+                                asynchronous: true
                             }
                         }
                     }
