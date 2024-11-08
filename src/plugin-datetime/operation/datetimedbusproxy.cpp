@@ -27,10 +27,9 @@ const QString LangSelectorService = QStringLiteral("org.deepin.dde.LangSelector1
 const QString LangSelectorPath = QStringLiteral("/org/deepin/dde/LangSelector1");
 const QString LangSelectorInterface = QStringLiteral("org.deepin.dde.LangSelector1");
 
-// currency and digit format, should be `org.deepin.dde.Format1`
-const QString FormatService = QStringLiteral("com.deepin.daemon.Format");
-const QString FormatPath = QStringLiteral("/com/deepin/daemon/Format");
-const QString FormatInterface = QStringLiteral("com.deepin.daemon.Format");
+const QString FormatService = QStringLiteral("org.deepin.dde.Format1");
+const QString FormatPath = QStringLiteral("/org/deepin/dde/Format1");
+const QString FormatInterface = QStringLiteral("org.deepin.dde.Format1");
 
 DatetimeDBusProxy::DatetimeDBusProxy(QObject *parent)
     : QObject(parent)
