@@ -1,3 +1,9 @@
+dde-control-center (6.0.74) UNRELEASED; urgency=medium
+
+  * release 6.0.74
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 08 Nov 2024 14:26:12 +0800
+
 dde-control-center (6.0.73) unstable; urgency=medium
 
   * release 6.0.73 

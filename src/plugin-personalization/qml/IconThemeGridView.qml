@@ -63,10 +63,12 @@ GridLayout {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         color: "transparent"
-                        D.DciIcon {
+                        Image {
                             anchors.fill: parent
+                            fillMode: Image.PreserveAspectFit
                             sourceSize: Qt.size(parent.width, parent.height)
-                            name: model.pic
+                            source: model.pic
+                            asynchronous: true
                         }
                     }
                 }
