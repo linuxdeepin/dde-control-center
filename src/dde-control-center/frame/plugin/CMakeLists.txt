@@ -40,9 +40,9 @@ target_include_directories(${DCCQmlPlugin_Name} PRIVATE
 )
 
 set(DCCQmlPlugin_Libraries
-    Qt::Gui
-    Qt::Quick
-    ${DCC_Library}
+    ${QT_NS}::Gui
+    ${QT_NS}::Quick
+    ${DCC_FRAME_Library}
 )
 
 target_link_libraries(${DCCQmlPlugin_Name} PRIVATE

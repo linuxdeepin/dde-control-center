@@ -171,8 +171,10 @@ set(Test_Libraries
     -lgcov
     Threads::Threads
     GTest::gtest
-    Qt::Test
+    ${QT_NS}::Test
 )
+
+set(DCC_FRAME_Library dde-control-center_frame)
 
 add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------

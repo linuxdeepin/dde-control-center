@@ -34,6 +34,7 @@ endif()
 
 
 set(Personalization_Libraries
+    ${DCC_FRAME_Library}
     ${DTK_NS}::Gui
     ${QT_NS}::DBus
     ${QT_NS}::Qml

@@ -9,7 +9,7 @@ add_library(${DefaultApp_Name} MODULE
 )
 
 set(DefaultApp_Libraries
-    dde-control-center
+    ${DCC_FRAME_Library}
     ${QT_NS}::DBus
 )
 
