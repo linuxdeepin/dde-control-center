@@ -16,7 +16,7 @@ if (BUILD_PLUGIN)
         src/plugin-mouse/operation
     )
     set(mouse_Libraries
-        dde-control-center
+        ${DCC_FRAME_Library}
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Qml

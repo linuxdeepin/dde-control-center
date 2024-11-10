@@ -15,8 +15,8 @@ target_include_directories(${DCCFrame_Name} PRIVATE
 
 set(DCCFrame_Libraries
     ${DTK_NS}::Gui
-    Qt::Gui
-    Qt::Quick
+    ${QT_NS}::Gui
+    ${QT_NS}::Quick
 )
 
 target_link_libraries(${DCCFrame_Name} PRIVATE

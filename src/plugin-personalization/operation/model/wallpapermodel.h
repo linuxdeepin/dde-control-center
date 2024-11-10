@@ -4,9 +4,7 @@
 #ifndef WALLPAPERMODEL_H
 #define WALLPAPERMODEL_H
 
-#include <qabstractitemmodel.h>
-#include <qt5/QtCore/qnamespace.h>
-#include <QObject>
+#include <QAbstractItemModel>
 #include <QPixmap>
 
 struct ItemNode {

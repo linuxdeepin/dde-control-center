@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.18)
 
 #--------------------------frame--------------------------
-set(DCC_Library dde-control-center_frame)
-set(DCCFrame_Name ${DCC_Library})
+set(DCCFrame_Name ${DCC_FRAME_Library})
 file(GLOB DCCFrame_SRCS
     "${DCC_PROJECT_ROOT_DIR}/include/*.h"
     "frame/*.cpp"
@@ -73,12 +72,12 @@ target_include_directories(${Control_Center_Name} PRIVATE
 )
 
 set(Control_Center_Libraries
-    ${DCC_Library}
+    ${DCC_FRAME_Library}
     ${DTK_NS}::Gui
-    Qt::Gui
-    Qt::DBus
-    Qt::Concurrent
-    Qt::Quick
+    ${QT_NS}::Gui
+    ${QT_NS}::DBus
+    ${QT_NS}::Concurrent
+    ${QT_NS}::Quick
 )
 
 target_link_libraries(${Control_Center_Name} PRIVATE

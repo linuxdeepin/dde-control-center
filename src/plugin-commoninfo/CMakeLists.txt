@@ -17,8 +17,7 @@ add_library(${CommonInfo_Name} MODULE
 )
 
 set(CommonInfo_Libraries
-    dde-control-center
-    ${DEEPIN_PW_CHECK_INCLUDE_DIRS}
+    ${DCC_FRAME_Library}
     ${QT_NS}::DBus
     ${DTK_NS}::Gui
 )

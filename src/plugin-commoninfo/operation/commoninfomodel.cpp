@@ -4,7 +4,7 @@
 #include "commoninfomodel.h"
 
 #include <QDebug>
-#include <dtk5/DCore/DSysInfo>
+#include <DSysInfo>
 
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)

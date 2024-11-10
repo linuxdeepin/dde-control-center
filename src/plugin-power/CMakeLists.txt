@@ -11,7 +11,7 @@ add_library(${Power_Name} MODULE
 )
 
 set(Power_Libraries
-    dde-control-center
+    ${DCC_FRAME_Library}
     ${DTK_NS}::Gui
     ${QT_NS}::DBus
     ${QT_NS}::Concurrent
