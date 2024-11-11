@@ -4,6 +4,7 @@
 import org.deepin.dcc 1.0
 
 DccObject {
+    id: datetime
     // 时间和日期
     DccObject {
         name: "timeAndLang"
@@ -22,5 +23,17 @@ DccObject {
         description: qsTr("Set your system language and region formats")
         icon: "dcc_lang_format"
         weight: 45
+    }
+
+    visible: false
+    DccDBusInterface {
+        service: "org.deepin.dde.LangSelector1"
+        path: "/org/deepin/dde/LangSelector1"
+        inter: "org.deepin.dde.LangSelector1"
+        connection: DccDBusInterface.SessionBus
+        monitorProperties: ["Locales"]
+        onPropertyChanged: function (properties) {
+            datetime.visible = true
+        }
     }
 }

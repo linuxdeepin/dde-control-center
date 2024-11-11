@@ -35,20 +35,9 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     , m_keyboardDBusProxy(new KeyboardDBusProxy(this))
     , m_translatorLanguage(nullptr)
 {
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Deleted, this, &KeyboardWorker::removed);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::UserLayoutListChanged, this, &KeyboardWorker::onUserLayout);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CurrentLayoutChanged, this, &KeyboardWorker::onCurrentLayout);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CapslockToggleChanged, m_model, &KeyboardModel::setCapsLock);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::langSelectorServiceStartFinished, this, [=] {
         QTimer::singleShot(100, this, &KeyboardWorker::onLangSelectorServiceFinished);
     });
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
-
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Changed, this, &KeyboardWorker::onShortcutChanged);
 
     m_model->setLangChangedState(m_keyboardDBusProxy->localeState());
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::LocaleStateChanged, m_model, &KeyboardModel::setLangChangedState);
@@ -56,17 +45,9 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     QMetaObject::invokeMethod(this, "active", Qt::QueuedConnection);
 }
 
-void KeyboardWorker::resetAll() {
-    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_keyboardDBusProxy->KeybindingReset(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *reply) {
-        watcher->deleteLater();
+void KeyboardWorker::resetAll()
+{
 
-        if (reply->isError()) {
-            qDebug() << Q_FUNC_INFO << reply->error();
-        }
-
-        Q_EMIT onResetFinished();
-    });
 }
 
 void KeyboardWorker::onGetWindowWM(bool value)
@@ -78,15 +59,10 @@ void KeyboardWorker::onGetWindowWM(bool value)
 void KeyboardWorker::setShortcutModel(ShortcutModel *model)
 {
     m_shortcutModel = model;
-
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::KeyEvent, model, &ShortcutModel::keyEvent);
 }
 
 void KeyboardWorker::refreshShortcut()
 {
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keyboardDBusProxy->ListAllShortcuts(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 }
 
 void KeyboardWorker::refreshLang()
@@ -100,17 +76,6 @@ void KeyboardWorker::refreshLang()
 
 void KeyboardWorker::windowSwitch()
 {
-    QDBusInterface licenseInfo("com.deepin.wm",
-                               "/com/deepin/wm",
-                               "com.deepin.wm",
-                               QDBusConnection::sessionBus());
-    if (!licenseInfo.isValid()) {
-        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
-        return;
-    }
-
-    if (m_shortcutModel)
-        m_shortcutModel->onWindowSwitchChanged(licenseInfo.property("compositingEnabled").toBool());
 }
 
 void KeyboardWorker::active()
@@ -123,17 +88,11 @@ void KeyboardWorker::active()
 
     m_keyboardDBusProxy->blockSignals(false);
 
-    setModelRepeatDelay(m_keyboardDBusProxy->repeatDelay());
-    setModelRepeatInterval(m_keyboardDBusProxy->repeatInterval());
-
     m_metaDatas.clear();
     m_letters.clear();
 
     Q_EMIT onDatasChanged(m_metaDatas);
     Q_EMIT onLettersChanged(m_letters);
-
-    m_model->setCapsLock(m_keyboardDBusProxy->capslockToggle());
-    m_model->setNumLock(m_keyboardDBusProxy->numLockState());
 
     onRefreshKBLayout();
     refreshLang();
@@ -175,11 +134,6 @@ bool KeyboardWorker::keyOccupy(const QStringList &list)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWorker::onRefreshKBLayout()
 {
-    QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardDBusProxy->LayoutList(), this);
-    connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLayoutListsFinished);
-
-    onCurrentLayout(m_keyboardDBusProxy->currentLayout());
-    onUserLayout(m_keyboardDBusProxy->userLayoutList());
 }
 #endif
 
@@ -196,27 +150,6 @@ void KeyboardWorker::modifyShortcutEditAux(ShortcutInfo *info, bool isKPDelete)
     if (!isKPDelete) {
         shortcut = shortcut.replace("KP_Delete", "Delete");
     }
-
-    const QString &result = m_keyboardDBusProxy->LookupConflictingShortcut(shortcut);
-
-    if (!result.isEmpty()) {
-        const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
-        QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-
-        watcher->setProperty("id", info->id);
-        watcher->setProperty("type", info->type);
-        watcher->setProperty("shortcut", shortcut);
-        watcher->setProperty("clean", !isKPDelete);
-
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onConflictShortcutCleanFinished);
-    } else {
-        if (isKPDelete) {
-            m_keyboardDBusProxy->AddShortcutKeystroke(info->id, static_cast<int>(info->type), shortcut);
-        } else {
-            cleanShortcutSlef(info->id, static_cast<int>(info->type), shortcut);
-        }
-    }
 }
 
 void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
@@ -225,7 +158,7 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
 
 void KeyboardWorker::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
 {
-    m_keyboardDBusProxy->AddCustomShortcut(name, command, accels);
+
 }
 
 void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
@@ -233,55 +166,27 @@ void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
     if (info->replace) {
         onDisableShortcut(info->replace);
     }
-
-    // reset replace shortcut
-    info->replace = nullptr;
-
-    const QString &result = m_keyboardDBusProxy->LookupConflictingShortcut(info->accels);
-
-    if (!result.isEmpty()) {
-        const QJsonObject obj = QJsonDocument::fromJson(result.toUtf8()).object();
-        QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-
-        watcher->setProperty("id", info->id);
-        watcher->setProperty("name", info->name);
-        watcher->setProperty("command", info->command);
-        watcher->setProperty("shortcut", info->accels);
-
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCustomConflictCleanFinished);
-    } else {
-        m_keyboardDBusProxy->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
-    }
 }
 
 void KeyboardWorker::grabScreen()
 {
-    m_keyboardDBusProxy->GrabScreen();
 }
 
 bool KeyboardWorker::checkAvaliable(const QString &key)
 {
-   const QString &value = m_keyboardDBusProxy->LookupConflictingShortcut(key);
-
-   return value.isEmpty();
+   return false;
 }
 
 void KeyboardWorker::delShortcut(ShortcutInfo* info)
 {
-    m_keyboardDBusProxy->DeleteCustomShortcut(info->id);
-    if (m_shortcutModel)
-        m_shortcutModel->delInfo(info);
 }
 
 void KeyboardWorker::setRepeatDelay(uint value)
 {
-    m_keyboardDBusProxy->setRepeatDelay(converToDBusDelay(value));
 }
 
 void KeyboardWorker::setRepeatInterval(uint value)
 {
-    m_keyboardDBusProxy->setRepeatInterval(static_cast<uint>(converToDBusInterval(value)));
 }
 
 void KeyboardWorker::setModelRepeatDelay(uint value)
@@ -296,22 +201,18 @@ void KeyboardWorker::setModelRepeatInterval(uint value)
 
 void KeyboardWorker::setNumLock(bool value)
 {
-    m_keyboardDBusProxy->SetNumLockState(value);
 }
 
 void KeyboardWorker::setCapsLock(bool value)
 {
-    m_keyboardDBusProxy->setCapslockToggle(value);
 }
 
 void KeyboardWorker::addUserLayout(const QString &value)
 {
-    m_keyboardDBusProxy->AddUserLayout(m_model->kbLayout().key(value));
 }
 
 void KeyboardWorker::delUserLayout(const QString &value)
 {
-    m_keyboardDBusProxy->DeleteUserLayout(m_model->userLayout().key(value));
 }
 
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
@@ -379,16 +280,10 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::onAdded(const QString &in0, int in1)
 {
-    QDBusPendingReply<QString> reply = m_keyboardDBusProxy->GetShortcut(in0, in1);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onAddedFinished);
 }
 
 void KeyboardWorker::onDisableShortcut(ShortcutInfo *info)
 {
-    // disable shortcut need wait!
-    m_keyboardDBusProxy->ClearShortcutKeystrokes(info->id, static_cast<int>(info->type)).waitForFinished();
-    info->accels.clear();
 }
 
 void KeyboardWorker::onAddedFinished(QDBusPendingCallWatcher *watch)
@@ -442,12 +337,6 @@ void KeyboardWorker::onUserLayout(const QStringList &list)
 {
     m_model->cleanUserLayout();
     m_model->getUserLayoutList() = list;
-
-    for (const QString &data : list) {
-        QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardDBusProxy->GetLayoutDesc(data), this);
-        layoutResult->setProperty("id", data);
-        connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onUserLayoutFinished);
-    }
 }
 
 void KeyboardWorker::onUserLayoutFinished(QDBusPendingCallWatcher *watch)
@@ -461,16 +350,10 @@ void KeyboardWorker::onUserLayoutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::onCurrentLayout(const QString &value)
 {
-    QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardDBusProxy->GetLayoutDesc(value), this);
-    connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCurrentLayoutFinished);
 }
 
 void KeyboardWorker::onSearchShortcuts(const QString &searchKey)
 {
-    qDebug() << "onSearchShortcuts: " << searchKey;
-    QDBusPendingReply<QString> reply = m_keyboardDBusProxy->SearchShortcuts(searchKey);
-    QDBusPendingCallWatcher *searchResult = new QDBusPendingCallWatcher(reply, this);
-    connect(searchResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onSearchFinished);
 }
 
 void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
@@ -571,8 +454,6 @@ void KeyboardWorker::onLangSelectorServiceFinished()
 
 void KeyboardWorker::onShortcutChanged(const QString &id, int type)
 {
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keyboardDBusProxy->Query(id, type));
-    connect(result, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onGetShortcutFinished);
 }
 
 void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
@@ -587,70 +468,23 @@ void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::updateKey(ShortcutInfo *info)
 {
-    if (m_shortcutModel)
-        m_shortcutModel->setCurrentInfo(info);
-
-    m_keyboardDBusProxy->SelectKeystroke();
 }
 
 void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const QString &shortcut)
 {
-    QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(id, type);
-
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-
-    watcher->setProperty("id", id);
-    watcher->setProperty("type", type);
-    watcher->setProperty("shortcut", shortcut);
-
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onShortcutCleanFinished);
 }
 
 void KeyboardWorker::setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
 {
-    m_keyboardDBusProxy->ModifyCustomShortcut(id, name, command, accles);
 }
 
 void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch)
 {
-    if (!watch->isError()) {
-        const QString &id = watch->property("id").toString();
-        const int type = watch->property("type").toInt();
-        const QString &shortcut = watch->property("shortcut").toString();
-        const bool clean = watch->property("clean").toBool();
-
-        if (clean) {
-            cleanShortcutSlef(id, type, shortcut);
-        } else {
-            m_keyboardDBusProxy->AddShortcutKeystroke(id, type, shortcut);
-        }
-    }
-
     watch->deleteLater();
 }
 
 void KeyboardWorker::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
 {
-    if (!watch->isError()) {
-        const QString &id = watch->property("id").toString();
-        const int type = watch->property("type").toInt();
-        const QString &shortcut = watch->property("shortcut").toString();
-
-        m_keyboardDBusProxy->AddShortcutKeystroke(id, type, shortcut);
-
-        if (shortcut.contains("Delete") && !shortcut.contains("KP_Delete")) {
-            ShortcutInfo si;
-            si.id = id;
-            si.type = static_cast<uint>(type);
-            si.accels = shortcut;
-            si.accels = si.accels.replace("Delete", "KP_Delete");
-            modifyShortcutEditAux(&si, true);
-        }
-    } else {
-        qDebug() << watch->error();
-    }
-
-    watch->deleteLater();
 }
 
 void KeyboardWorker::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
@@ -749,7 +583,6 @@ uint KeyboardWorker::converToModelInterval(uint value)
 
 void KeyboardWorker::setLayout(const QString &value)
 {
-    m_keyboardDBusProxy->setCurrentLayout(value);
 }
 
 void KeyboardWorker::setLang(const QString &value)
