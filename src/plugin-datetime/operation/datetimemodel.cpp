@@ -821,9 +821,8 @@ void DatetimeModel::setCurrentFormat(int format, int index)
 QString DatetimeModel::currentDate()
 {
     QLocale locale(m_localeName);
-    QString dateFormat = longDateFormat();
-    if (weekdayFormat() == 1)
-        dateFormat.replace("dddd", "ddd");
+    QString week = weekdayFormat() == 1 ? "ddd" : "dddd";
+    QString dateFormat = shortDateFormat() + " " + week;
 
     return locale.toString(QDate::currentDate(), dateFormat);
 }
