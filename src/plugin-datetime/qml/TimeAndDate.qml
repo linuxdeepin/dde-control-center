@@ -19,7 +19,6 @@ DccObject {
         page: ColumnLayout {
             Label {
                 id: timeLabel
-                property string longTimeFormat: dccData.longTimeFormat
 
                 height: contentHeight
                 Layout.leftMargin: 10
@@ -34,17 +33,6 @@ DccObject {
                 font: DTK.fontManager.t5
                 text: dccData.currentDate
             }
-
-            // Timer {
-            //     interval: 500
-            //     running: true
-            //     repeat: true
-            //     onTriggered: {
-            //         timeLabel.text = Qt.formatTime(Date(), timeLabel.longTimeFormat)
-
-            //         dateLabel.text = dccData.currentDate
-            //     }
-            // }
         }
     }
 
@@ -164,7 +152,7 @@ DccObject {
             name: "customNTPServer"
             parentName: "dateTimeGroup"
             displayName: qsTr("Server address")
-            visible: dateAndTimeSettings.showCustom
+            visible: dateAndTimeSettings && dateAndTimeSettings.showCustom
             weight: 13
             hasBackground: true
             pageType: DccObject.Editor
