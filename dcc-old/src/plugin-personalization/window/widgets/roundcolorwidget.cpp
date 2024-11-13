@@ -43,6 +43,14 @@ void RoundColorWidget::setColor(const QColor &color)
     update();
 }
 
+void RoundColorWidget::setActiveColors(const QPair<QString, QString>& activeColors)
+{
+    if (m_activeColors == activeColors)
+        return;
+
+    m_activeColors = activeColors;
+}
+
 void RoundColorWidget::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton) {
