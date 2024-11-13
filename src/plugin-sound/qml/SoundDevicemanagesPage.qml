@@ -12,8 +12,8 @@ DccObject {
     DccObject {
         name: "outputDevice"
         parentName: "sound/deviceManger"
-        displayName: qsTr("输出设备")
-        description: qsTr("选择是否启用设备")
+        displayName: qsTr("Output Devices")
+        description: qsTr("Choose whether to enable the device")
         hasBackground: false
         weight: 10
         pageType: DccObject.Editor
@@ -35,8 +35,8 @@ DccObject {
     DccObject {
         name: "inputDevice"
         parentName: "sound/deviceManger"
-        displayName: qsTr("输入设备")
-        description: qsTr("选择是否启用设备")
+        displayName: qsTr("Input Devices")
+        description: qsTr("Choose whether to enable the device")
         hasBackground: false
         weight: 30
         pageType: DccObject.Editor

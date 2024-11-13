@@ -22,10 +22,12 @@ public:
     enum soundEffectsRoles{
         NameRole = Qt::UserRole + 1,
         DisplayTextRole,
-        IsChecked
+        IsChecked,
+        AniIconPath
     };
 
     explicit SoundEffectsModel(QObject *parent = nullptr);
+    ~SoundEffectsModel();
 
     void addData(SoundEffectsData* data);
     void removeData(SoundEffectsData* data);
@@ -34,6 +36,7 @@ public:
     int getRowCount();
 
     void updateSoundEffectsData(int index, bool enable);
+    void updateSoundEffectsAniIcon(int index, QString path);
 
 protected:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -44,11 +47,11 @@ protected:
         roles[NameRole] = "name";
         roles[DisplayTextRole] = "dispalyText";
         roles[IsChecked] = "isChecked";
+        roles[AniIconPath] = "aniIconPath";
         return roles;
     }
 
-
-    private:
+private:
     QList<SoundEffectsData*> m_soundEffectsData;
 };
 

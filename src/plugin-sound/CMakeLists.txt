@@ -25,6 +25,7 @@ set(Sound_Libraries
     ${DCC_FRAME_Library}
     ${DTK_NS}::Gui
     ${QT_NS}::DBus
+    ${QT_NS}::Multimedia
 )
 
 target_link_libraries(${Sound_Name} PRIVATE

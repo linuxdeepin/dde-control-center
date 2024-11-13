@@ -33,6 +33,7 @@ Build-Depends:
  libdtkcore-dev(>>5.6.18),
  libdtkcore5-bin,
  qtmultimedia5-dev,
+ qt6-multimedia-dev,
  libdareader-dev,
  libdeepin-pw-check-dev,
  libpolkit-qt5-1-dev,

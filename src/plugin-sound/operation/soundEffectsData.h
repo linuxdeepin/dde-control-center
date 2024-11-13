@@ -29,6 +29,9 @@ public:
     DDesktopServices::SystemSoundEffect systemSoundEffect() const;
     void setSystemSoundEffect(DDesktopServices::SystemSoundEffect newSystemSoundEffect);
 
+    QString aniIconPath() const;
+    void setAniIconPath(const QString &newAniIconPath);
+
 signals:
 
 
@@ -38,6 +41,7 @@ private:
     QString m_path;
     DDesktopServices::SystemSoundEffect m_systemSoundEffect;
     bool m_checked;
+    QString m_aniIconPath;
 };
 
 #endif // SOUNDEFFECTSDATA_H

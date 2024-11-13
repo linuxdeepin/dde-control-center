@@ -22,7 +22,7 @@ DccObject {
     DccObject {
         name: "inPut"
         parentName: "sound/inPut"
-        displayName: qsTr("输入")
+        displayName: qsTr("Input")
         weight: 10
         hasBackground: false
         pageType: DccObject.Item
@@ -44,7 +44,7 @@ DccObject {
         DccObject{
             name: "inputVolume"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("输入音量")
+            displayName: qsTr("Input Volume")
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.model().inPutPortCombo.length !== 0
@@ -78,7 +78,6 @@ DccObject {
                     stepSize: 0.00001
                     to: 1
                     value: dccData.model().microphoneVolume
-                   // Layout.topMargin: 12
                     onValueChanged: {
                         dccData.worker().setSourceVolume(voiceTipsSlider1.value)
                     }
@@ -101,7 +100,7 @@ DccObject {
         DccObject{
             name: "microphoneFeedback"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("反馈音量")
+            displayName: qsTr("Input Level")
             weight: 20
             pageType: DccObject.Editor
             visible: dccData.model().inPutPortCombo.length !== 0
@@ -131,7 +130,7 @@ DccObject {
         DccObject {
             name: "reduceNoise"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("噪音抑制")
+            displayName: qsTr("Automatic Noise Suppression")
             weight: 30
             pageType: DccObject.Editor
             page: Switch {
@@ -147,7 +146,7 @@ DccObject {
         DccObject {
             name: "inputDevice"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("输入设备")
+            displayName: qsTr("Input Devices")
             weight: 40
             pageType: DccObject.Editor
             page: ComboBox {
@@ -157,8 +156,17 @@ DccObject {
                 currentIndex: dccData.model().inPutPortComboIndex
                 flat: true
                 model: dccData.model().inPutPortCombo
+                property bool isInitialized: false
+                // 等待组件加载完成后，设置 isInitialized 为 true
+                Component.onCompleted: {
+                    console.log("outputDevice onCompleted:", isInitialized)
+                    isInitialized = true
+                }
                 onCurrentIndexChanged: {
-                    console.log("inputDevice  Selected index:", currentIndex)
+                    console.log("Selected index:", currentIndex, isInitialized)
+                    if (isInitialized) {
+                        dccData.worker().setActivePort(currentIndex, 2)
+                    }
                 }
             }
         }

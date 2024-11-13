@@ -6,6 +6,7 @@
 SoundEffectsData::SoundEffectsData()
     : m_name("")
     , m_dispalyText("")
+    , m_aniIconPath("")
 {
 
 }
@@ -58,4 +59,14 @@ DDesktopServices::SystemSoundEffect SoundEffectsData::systemSoundEffect() const
 void SoundEffectsData::setSystemSoundEffect(DDesktopServices::SystemSoundEffect newSystemSoundEffect)
 {
     m_systemSoundEffect = newSystemSoundEffect;
+}
+
+QString SoundEffectsData::aniIconPath() const
+{
+    return m_aniIconPath;
+}
+
+void SoundEffectsData::setAniIconPath(const QString &newAniIconPath)
+{
+    m_aniIconPath = newAniIconPath;
 }

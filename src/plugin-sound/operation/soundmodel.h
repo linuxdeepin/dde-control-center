@@ -168,6 +168,9 @@ public:
     Port *activeinPutPort() const;
     void setActiveinPutPort(Port *newActiveinPutPort);
 
+    void updatePortCombo();
+    Port* getPortForComboIndex(int index, int portType);
+
     Q_INVOKABLE SoundEffectsModel* soundEffectsModel() const;
     Q_INVOKABLE QString getListName(int index) const;
     Q_INVOKABLE int getSoundEffectsRowCount() const;
@@ -180,6 +183,9 @@ public:
     int outPutCount() const;
     void setInPutPortCount(int newInPutPortCount);
     void setOutPutCount(int newOutPutCount);
+
+    void updatePlayAniIconPath(int index, const QString &newPlayAniIconPath);
+
 private:
 
 
@@ -232,6 +238,8 @@ Q_SIGNALS:
     void soundEffectsModelChanged();
     void inPutPortCountChanged();
     void outPutCountChanged();
+
+    void playAniIconPathChanged();
 
 private:
     QString m_audioServer;     // 当前使用音频框架

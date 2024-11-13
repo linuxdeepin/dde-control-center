@@ -14,6 +14,8 @@
 #include "qdbusconnectioninterface.h"
 #include <QtQml/qqml.h>
 #include <QTimer>
+#include <QSoundEffect>
+#include <QMediaDevices>
 
 class SoundWorker : public QObject
 {
@@ -32,11 +34,12 @@ public:
     Q_INVOKABLE void setPausePlayer(bool value);
     Q_INVOKABLE void setIncreaseVolume(bool value);
     Q_INVOKABLE void setSinkBalance(double balance);
-    Q_INVOKABLE void setActiveOutPutPort(int index);
+    Q_INVOKABLE void setActivePort(int index, int portType);
     Q_INVOKABLE void setSoundEffectEnable(int index, bool enable);
     Q_INVOKABLE void setSourceVolume(double volume);
     Q_INVOKABLE void enableAllSoundEffect(bool enable);
     Q_INVOKABLE void setPortEnableIndex(int index, bool checked, int portType);
+    Q_INVOKABLE void playSoundEffect(int index);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
@@ -67,6 +70,9 @@ private Q_SLOTS:
     void getSoundEnabledMapFinished(QMap<QString, bool> map);
     void getSoundPathFinished(QDBusPendingCallWatcher *watcher);
 
+    void onAniTimerTimeOut();
+    void onSoundPlayingChanged();
+
 private:
     void initConnect();
     void updatePortActivity();
@@ -82,7 +88,14 @@ private:
 
     QTimer *m_pingTimer;
     QDBusConnectionInterface *m_inter;
+
+    QSoundEffect* m_sound;
     int m_waitSoundPortReceipt;
+    QMediaDevices* m_mediaDevices;
+
+    QTimer* m_playAnimationTime;
+    int m_playAniIconIndex;
+    int m_upateSoundEffectsIndex;
 };
 
 #endif // SOUNDWORKER_H
