@@ -12,7 +12,7 @@ DccObject {
     DccObject {
         name: "soundEffects"
         parentName: "sound/soundEffectsPage"
-        displayName: qsTr("系统音效")
+        displayName: qsTr("Sound Effects")
         weight: 10
         pageType: DccObject.Editor
         page: Switch {
@@ -30,9 +30,16 @@ DccObject {
         pageType: DccObject.Item
         page: DeviceListView {
             backgroundVisible: false
+            showPlayBtn: true
             model: dccData.model().soundEffectsModel()
             onClicked: function (index, checked) {
                 dccData.worker().setSoundEffectEnable(index, checked)
+            }
+
+            onPlaybtnClicked: function (index) {
+                console.log(" effectsList click play ", index)
+
+                dccData.worker().playSoundEffect(index)
             }
         }
     }

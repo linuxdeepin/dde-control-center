@@ -111,6 +111,61 @@ void SoundModel::setActiveinPutPort(Port *newActiveinPutPort)
     setInPutPortComboIndex(m_inPutPortCombo.indexOf(m_activeinPutPort->name() + "(" + m_activeinPutPort->cardName() + ")"));
 }
 
+void SoundModel::updatePortCombo()
+{
+    QStringList outPutPortCombo;
+    QStringList inPutPortCombo;
+
+    Port* inputActivePort = nullptr;
+    Port* outputActivePort = nullptr;
+    for (Port* port : m_ports) {
+        if (port->isEnabled()) {
+            switch (port->direction()) {
+            case Port::In:
+                inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+                break;
+            case Port::Out:
+                outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+                break;
+            }
+        }
+
+        if (port->isActive()) {
+            switch (port->direction()) {
+            case Port::In:
+                inputActivePort= port;
+                break;
+            case Port::Out:
+                outputActivePort = port;
+                break;
+            }
+        }
+    }
+
+    setInPutPortCombo(inPutPortCombo);
+    setOutPutPortCombo(outPutPortCombo);
+
+    if (inputActivePort)
+        setActiveinPutPort(inputActivePort);
+    if (outputActivePort)
+        setActiveOutPutPort(outputActivePort);
+}
+
+Port * SoundModel::getPortForComboIndex(int index, int portType)
+{
+    QList<Port*> ports = portType == Port::In ? m_inputPorts : m_outputPorts;
+    QStringList portCombo = portType == Port::In ? m_inPutPortCombo : m_outPutPortCombo;
+    if (portCombo.count()) {
+        for (Port* port : ports) {
+            if (port->name() + "(" + port->cardName() + ")" == portCombo.at(index)) {
+                return port;
+            }
+        }
+    }
+
+    return nullptr;
+}
+
 int SoundModel::inPutPortComboIndex() const
 {
     return m_inPutPortComboIndex;
@@ -249,12 +304,16 @@ void SoundModel::addPort(Port *port)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.append(port);
+            if (port->isEnabled()) {
+                m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            }
 
-            m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
             m_soundOutputDeviceModel->addData(port);
         } else {
             m_inputPorts.append(port);
-            m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            if (port->isEnabled()) {
+                m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            }
             m_soundInputDeviceModel->addData(port);
             emit inPutPortComboChanged();
         }
@@ -496,6 +555,7 @@ void SoundModel::updateSoundEffectsModel()
             data->setSystemSoundEffect(item.second);
             data->setChecked(m_soundEffectData[item.second]);
             data->setPath(m_soundEffectPaths[item.second]);
+            data->setAniIconPath("");
             m_soundEffectsModel->addData(data);
         }
     }
@@ -552,6 +612,11 @@ void SoundModel::setOutPutCount(int newOutPutCount)
     emit outPutCountChanged();
 }
 
+void SoundModel::updatePlayAniIconPath(int index, const QString &newPlayAniIconPath)
+{
+    m_soundEffectsModel->updateSoundEffectsAniIcon(index, newPlayAniIconPath);
+}
+
 void SoundModel::setInPutPortCount(int newInPutPortCount)
 {
     if (m_inPutPortCount == newInPutPortCount)
@@ -602,16 +667,6 @@ SoundEffectsModel* SoundModel::soundEffectsModel() const
     return m_soundEffectsModel;
 }
 
-QString SoundModel::getListName(int index) const
-{
-    if (index == 0) {
-        return "zzzzzzzzzzzzz";
-    } else if (index == 1) {
-        return "hhhhhhhhhhhhhhh";
-    } else {
-        return "ffffffffffffffffff";
-    }
-}
 
 int SoundModel::getSoundEffectsRowCount() const
 {

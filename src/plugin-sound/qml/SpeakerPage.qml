@@ -16,7 +16,7 @@ DccObject {
     DccObject {
         name: "output"
         parentName: "sound/outPut"
-        displayName: qsTr("输出")
+        displayName: qsTr("Output")
         weight: 10
         hasBackground: false
         pageType: DccObject.Item
@@ -37,10 +37,10 @@ DccObject {
         DccObject {
             name: "outputVolume"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("输出音量")
+            displayName: qsTr("Output Volume")
             weight: 10
             pageType: DccObject.Editor
-            // visible: outPutCombo.count > 0
+            visible: dccData.model().outPutPortCombo.length !== 0
             page: RowLayout {
                 Label {
                     font: DTK.fontManager.t7
@@ -87,9 +87,10 @@ DccObject {
         DccObject {
             name: "volumeEnhancement"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("音量增强")
-            description: qsTr("音量大于100%时可能会导致音效失真,同时损害您的音频输出设备")
+            displayName: qsTr("Volume Boost")
+            description: qsTr("If the volume is louder than 100%, it may distort audio and be harmful to output devices")
             weight: 20
+            visible: dccData.model().outPutPortCombo.length !== 0
             pageType: DccObject.Editor
             page: Switch {
                 Layout.alignment: Qt.AlignRight
@@ -103,16 +104,16 @@ DccObject {
         DccObject {
             name: "volumeBalance"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("音量平衡")
+            displayName: qsTr("Left Right Balance")
             weight: 30
+            visible: dccData.model().outPutPortCombo.length !== 0
             pageType: DccObject.Editor
             page: RowLayout {
-                // spacing: 10
                 Label {
                     Layout.alignment: Qt.AlignVCenter
                     font: DTK.fontManager.t7
                     Layout.topMargin: 2
-                    text: "左"
+                    text: qsTr("Left")
                 }
                 Slider {
                     id: balanceSlider
@@ -133,15 +134,15 @@ DccObject {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.topMargin: 2
                     font: DTK.fontManager.t7
-                    text: "右"
+                    text: qsTr("Right")
                 }
             }
         }
         DccObject {
             name: "plugAndUnplugManagement"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("插拔管理")
-            description: qsTr("外设插拔时音频输出是否自动暂停")
+            displayName: qsTr("Auto pause")
+            description: qsTr("Whether the audio will be automatically paused when the current audio device is unplugged")
             weight: 40
             pageType: DccObject.Editor
             page: Switch {
@@ -154,7 +155,7 @@ DccObject {
         DccObject {
             name: "outputDevice"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("输出设备")
+            displayName: qsTr("Output Devices")
             weight: 50
             pageType: DccObject.Editor
             page: ComboBox {
@@ -164,11 +165,18 @@ DccObject {
                 flat: true
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().outPutPortCombo
-                // background: {
-                //     color: "white"
-                // }
+
+                property bool isInitialized: false
+                // 等待组件加载完成后，设置 isInitialized 为 true
+                Component.onCompleted: {
+                    console.log("outputDevice onCompleted:", isInitialized)
+                    isInitialized = true
+                }
                 onCurrentIndexChanged: {
-                    console.log("Selected index:", currentIndex)
+                    console.log("Selected index:", currentIndex, isInitialized)
+                    if (isInitialized) {
+                        dccData.worker().setActivePort(currentIndex, 1)
+                    }
                 }
             }
         }

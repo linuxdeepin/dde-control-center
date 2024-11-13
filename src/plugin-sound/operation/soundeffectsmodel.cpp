@@ -9,6 +9,11 @@ SoundEffectsModel::SoundEffectsModel(QObject *parent)
 
 }
 
+SoundEffectsModel::~SoundEffectsModel()
+{
+    clearData();
+}
+
 void SoundEffectsModel::addData(SoundEffectsData* data)
 {
     m_soundEffectsData.append(data);
@@ -53,6 +58,16 @@ void SoundEffectsModel::updateSoundEffectsData(int index, bool enable)
     emit dataChanged(modelIndex, modelIndex, { IsChecked });
 }
 
+void SoundEffectsModel::updateSoundEffectsAniIcon(int index, QString path)
+{
+    if (index < 0 || index >= m_soundEffectsData.size())
+        return;
+
+    m_soundEffectsData[index]->setAniIconPath(path);
+    QModelIndex modelIndex = createIndex(index, 0);
+    emit dataChanged(modelIndex, modelIndex, { AniIconPath });
+}
+
 int SoundEffectsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -71,5 +86,8 @@ QVariant SoundEffectsModel::data(const QModelIndex &index, int role) const
         return soundEffectsData->dispalyText();
     else if (role == IsChecked)
         return soundEffectsData->checked();
+    else if (role == AniIconPath) {
+        return soundEffectsData->aniIconPath();
+    }
     return QVariant();
 }

@@ -7,5 +7,9 @@
         <file>actions/dcc_volume3_32px.svg</file>
         <file>actions/checked.png</file>
         <file>actions/nocheck.png</file>
+        <file>icons/play_back.dci</file>
+        <file>icons/dcc_volume1.svg</file>
+        <file>icons/dcc_volume2.svg</file>
+        <file>icons/dcc_volume3.svg</file>
     </qresource>
 </RCC>

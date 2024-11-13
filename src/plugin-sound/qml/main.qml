@@ -11,7 +11,7 @@ DccObject {
     DccObject {
         name: "outPut"
         parentName: "sound"
-        displayName: qsTr("输出")
+        displayName: qsTr("Output")
         icon: "system"
         weight: 10
         pageType: DccObject.Item
@@ -29,7 +29,7 @@ DccObject {
     DccObject {
         name: "inPut"
         parentName: "sound"
-        displayName: qsTr("输入")
+        displayName: qsTr("Input")
         icon: "system"
         weight: 20
         pageType: DccObject.Item
@@ -47,9 +47,9 @@ DccObject {
     DccObject {
         name: "soundEffectsPage"
         parentName: "sound"
-        displayName: qsTr("系统音效")
-        description: qsTr("控制系统声音效果")
-        icon: "system"
+        displayName: qsTr("Sound Effects")
+        description: qsTr("Control system sound effect")
+        icon: "system_sound"
         weight: 30
         page: DccRightView {
             isGroup: true
@@ -59,9 +59,9 @@ DccObject {
     DccObject {
         name: "deviceManger"
         parentName: "sound"
-        displayName: qsTr("设备管理")
-        description: qsTr("选择是否启用设备")
-        icon: "system"
+        displayName: qsTr("Devices")
+        description: qsTr("Choose whether to enable the device\n")
+        icon: "equipment_management"
         weight: 40
         SoundDevicemanagesPage {}
     }

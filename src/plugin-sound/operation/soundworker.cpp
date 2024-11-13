@@ -10,6 +10,10 @@
 #include <QDebug>
 #include <QLoggingCategory>
 
+#include <QMediaPlayer>
+#include <QAudioDevice>
+
+
 Q_LOGGING_CATEGORY(DdcSoundWorker, "dcc-sound-worker")
 
 #define GSETTINGS_WAIT_SOUND_RECEIPT "wait-sound-receipt"
@@ -22,15 +26,40 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_soundDBusInter(new SoundDBusProxy(this))
     , m_pingTimer(new QTimer(this))
     , m_inter(QDBusConnection::sessionBus().interface())
+    , m_sound(new QSoundEffect(this))
+    , m_mediaDevices(new QMediaDevices(this))
+    , m_playAnimationTime(new QTimer(this))
+    , m_playAniIconIndex(1)
 {
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
     m_waitSoundPortReceipt = 1000;
+
+    m_playAnimationTime->setInterval(300);
+    m_playAnimationTime->setSingleShot(false);
+
+    m_sound->setAudioDevice(QMediaDevices::defaultAudioOutput());
+    qDebug() << " sound is playging " << m_sound->isPlaying();
     initConnect();
 }
 
 void SoundWorker::initConnect()
 {
+
+    connect(m_mediaDevices, &QMediaDevices::audioOutputsChanged,this, [this] {
+        QAudioDevice defaultDevice = QMediaDevices::defaultAudioOutput();
+        qDebug() << "audioDeviceChanged Device:" << defaultDevice.description();
+        // 默认播放设备发生变化，需要重新构建新的对象
+        if (defaultDevice.description() != m_sound->audioDevice().description()) {
+            delete m_sound;
+            m_sound = new QSoundEffect(this);
+            m_sound->setAudioDevice(defaultDevice);
+        }
+    });
+
+    connect(m_playAnimationTime, &QTimer::timeout, this, &SoundWorker::onAniTimerTimeOut);
+    connect(m_sound, &QSoundEffect::playingChanged, this, &SoundWorker::onSoundPlayingChanged);
+
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
@@ -81,7 +110,6 @@ void SoundWorker::activate()
 
     m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
-
     defaultSinkChanged(m_model->defaultSink());
     defaultSourceChanged(m_model->defaultSource());
     cardsChanged(m_model->audioCards());
@@ -129,9 +157,12 @@ void SoundWorker::setSinkBalance(double balance)
 
 }
 
-void SoundWorker::setActiveOutPutPort(int index)
+void SoundWorker::setActivePort(int index, int portType)
 {
-
+    Port* port = m_model->getPortForComboIndex(index, portType);
+    if (port) {
+        setPort(port);
+    }
 }
 
 void SoundWorker::setSoundEffectEnable(int index, bool enable)
@@ -217,6 +248,21 @@ void SoundWorker::setPortEnableIndex(int index, bool checked, int portType)
     if (data) {
         setPortEnabled(data->getCardId(), data->getPortId(), checked);
     }
+}
+
+void SoundWorker::playSoundEffect(int index)
+{
+    auto eff = m_model->soundEffectMap()[index].second;
+
+    if (m_sound->isPlaying()) {
+        m_sound->stop();
+        m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, "");
+    }
+    m_upateSoundEffectsIndex = index;
+
+    m_sound->setSource(QUrl::fromLocalFile(m_model->soundEffectPathByType(eff)));
+    m_sound->setVolume(1);
+    m_sound->play();
 }
 
 void SoundWorker::setBluetoothMode(const QString &mode)
@@ -332,6 +378,8 @@ void SoundWorker::cardsChanged(const QString &cards)
         }
     }
 
+    m_model->updatePortCombo();
+
     m_model->setInPutPortCount(m_model->inPutPortCombo().count());
     m_model->setOutPutCount(m_model->outPutPortCombo().count());
 }
@@ -400,6 +448,32 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
     }
 
     watcher->deleteLater();
+}
+
+void SoundWorker::onAniTimerTimeOut()
+{
+    QString path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1.svg").arg(m_playAniIconIndex);
+
+    m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, path);
+    m_playAniIconIndex++;
+    if (m_playAniIconIndex > 3) {
+        m_playAniIconIndex = 1;
+    }
+}
+
+void SoundWorker::onSoundPlayingChanged()
+{
+    m_playAniIconIndex = 1;
+    QString path("");
+    if (m_sound->isPlaying()) {
+        path = QString("qrc:/icons/deepin/builtin/icons/sound_preview_%1.svg").arg(m_playAniIconIndex);
+        m_playAniIconIndex++;
+        m_playAnimationTime->start();
+    } else {
+        m_playAnimationTime->stop();
+    }
+
+    m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, path);
 }
 
 void SoundWorker::updatePortActivity()

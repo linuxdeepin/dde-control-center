@@ -11,7 +11,9 @@ Rectangle {
     id: root
     property alias model: repeater.model
     property bool backgroundVisible: true
+    property bool showPlayBtn: false
     signal clicked(int index, bool checked)
+    signal playbtnClicked(int index)
 
     color: "transparent"
     implicitHeight: layoutView.height
@@ -24,23 +26,54 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: ItemDelegate {
+                id: itemCtl
                 Layout.fillWidth: true
                 leftPadding: 10
                 rightPadding: 10
                 implicitHeight: 40
                 cascadeSelected: true
                 backgroundVisible: root.backgroundVisible
+                contentFlow: true
                 text: model.name
-                content: DccCheckIcon {
-                    checked: model.isChecked
-                    size: 16
-                    onClicked: {
-                        root.clicked(index, !model.isChecked)
-                    }
+                hoverEnabled: true
+                content: RowLayout {
+                        DciIcon {
+                            Layout.alignment: Qt.AlignLeft
+                            visible: showPlayBtn && model.aniIconPath.length !== 0
+                            name: model.aniIconPath
+                        }
+
+                        RowLayout {
+                            Layout.alignment: Qt.AlignRight
+
+                            ToolButton {
+                                Layout.alignment: Qt.AlignLeft
+                                icon.name: "qrc:/icons/deepin/builtin/icons/play_back.dci"
+                                flat: true
+                                visible: showPlayBtn && itemCtl.hovered
+
+                                onClicked: {
+                                    console.log("play_back has clicked ")
+                                    root.playbtnClicked(index)
+                                }
+                            }
+
+                            DccCheckIcon {
+                                checked: model.isChecked
+                                size: 16
+                                onClicked: {
+                                    root.clicked(index, !model.isChecked)
+                                }
+                            }
+                        }
                 }
                 background: DccItemBackground {
                     separatorVisible: true
                     highlightEnable: false
+                }              
+
+                onClicked: {
+                    root.clicked(index, !model.isChecked)
                 }
             }
         }
