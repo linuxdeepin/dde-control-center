@@ -38,8 +38,6 @@ Q_SIGNALS:
     void loadedModule(const PluginData &data);
     void loadAllFinished();
 
-    void pluginEndStatusChanged(PluginData *plugin);
-
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     QThreadPool *threadPool();

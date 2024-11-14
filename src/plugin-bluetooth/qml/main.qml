@@ -22,9 +22,9 @@ DccObject{
         model: dccData.model().blueToothAdaptersModel()
 
         delegate: DccObject {
-            name: "blueToothAdapters" + model.name
+            name: "blueToothAdapters" + model.name + index
             parentName: "bluetoothSetting"
-            weight: 10 + index * 10
+            weight: 10
             hasBackground: false
             pageType: DccObject.Item
 
