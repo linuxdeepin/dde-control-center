@@ -172,7 +172,6 @@ DccObject {
                 Layout.fillWidth: true
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
-                slider.value: dccData.model.opacity * 100
                 slider.from: 20
                 slider.to: 100
                 slider.live: true
@@ -191,6 +190,10 @@ DccObject {
                 ]
                 slider.onValueChanged: {
                     dccData.worker.setOpacity(slider.value)
+                }
+
+                Component.onCompleted: {
+                    slider.value = dccData.model.opacity * 100
                 }
             }
         }
