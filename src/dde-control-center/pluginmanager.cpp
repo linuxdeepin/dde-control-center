@@ -173,7 +173,6 @@ PluginManager::PluginManager(DccManager *parent)
     , m_isDeleting(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
-    connect(this, &PluginManager::pluginEndStatusChanged, this, &PluginManager::loadPlugin, Qt::QueuedConnection);
     connect(m_manager, &DccManager::hideModuleChanged, this, &PluginManager::onHideModuleChanged);
 }
 
@@ -272,7 +271,7 @@ void PluginManager::updatePluginStatus(PluginData *plugin, uint status, const QS
         qCDebug(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << log;
     }
     if ((oldStatus != plugin->status) && (status & PluginEndMask)) {
-        Q_EMIT pluginEndStatusChanged(plugin);
+        loadPlugin(plugin);
     }
 }
 
