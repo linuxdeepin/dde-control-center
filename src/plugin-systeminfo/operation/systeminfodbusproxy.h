@@ -53,6 +53,7 @@ private:
     DDBusInterface *m_userexperienceInter;
     DDBusInterface *m_systemInfo;
     DDBusInterface *m_timedateInter;
+    DDBusInterface *m_timeZoneInter;
 };
 
 #endif // SYSTEMINFODBUSPROXY_H

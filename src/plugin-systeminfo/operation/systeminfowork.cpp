@@ -290,13 +290,13 @@ QString SystemInfoWork::getSystemInstallDate(int shortDateFormat, QString timezo
         }
     }
     qDebug() << "Utc offset:" << offset;
-   // QString aa = "2024-09-05 22:40:25 UTC+08";
-    QDateTime dateTime = QDateTime::fromString(inputTime, "yyyy-MM-dd hh:mm:ss 'UTC'zzz");
+    QDateTime dateTime = QDateTime::fromString(inputTime, "yyyy-MM-dd hh:mm:ss 'UTC'tt");
 
     dateTime.setOffsetFromUtc(offset * 3600);
     if (dateTime.isValid() && shortDateFormat >= 0 && shortDateFormat <= 10) {
         // 将时间转换到目标时区
         QTimeZone targetTimeZone(timezone.toLocal8Bit());
+        qDebug() << "targetTimeZone :" << targetTimeZone.isValid() << timezone;
         QDateTime convertedDateTime = dateTime.toTimeZone(targetTimeZone);
         qDebug() << "Converted DateTime:" << convertedDateTime;
         return convertedDateTime.toString(fotmatShortDate[shortDateFormat]);

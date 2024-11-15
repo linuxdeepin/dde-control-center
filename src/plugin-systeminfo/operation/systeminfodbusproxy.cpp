@@ -39,6 +39,10 @@ const QString &TimedateService = QStringLiteral("com.deepin.daemon.Timedate");
 const QString &TimedatePath = QStringLiteral("/com/deepin/daemon/Timedate");
 const QString &TimedateInterface = QStringLiteral("com.deepin.daemon.Timedate");
 
+const QString &TimeZoneService = QStringLiteral("org.freedesktop.timedate1");
+const QString &TimeZonePath = QStringLiteral("/org/freedesktop/timedate1");
+const QString &TimeZoneInterface = QStringLiteral("org.freedesktop.timedate1");
+
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
     , m_hostname1Inter(new DDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
@@ -47,6 +51,7 @@ SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
     , m_systemInfo(new DDBusInterface(SystemInfoService, SystemInfoPath, SystemInfoInterface, QDBusConnection::systemBus(), this))
     , m_timedateInter(new DDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
+    , m_timeZoneInter(new DDBusInterface(TimeZoneService, TimeZonePath, TimeZoneInterface, QDBusConnection::systemBus(), this))
 {
 }
 
@@ -81,7 +86,7 @@ void SystemInfoDBusProxy::setAuthorizationState(const int value)
 
 QString SystemInfoDBusProxy::timezone()
 {
-    return qvariant_cast<QString>(m_timedateInter->property("Timezone"));
+    return qvariant_cast<QString>(m_timeZoneInter->property("Timezone"));
 }
 
 void SystemInfoDBusProxy::setTimezone(const QString &value)
