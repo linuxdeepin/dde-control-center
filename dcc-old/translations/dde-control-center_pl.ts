@@ -2996,8 +2996,8 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Region i format</translation>
     </message>
     <message>
-        <source>Region</source>
-        <translation>Region</translation>
+        <source>Country or Region</source>
+        <translation>Country or Region</translation>
     </message>
     <message>
         <source>Format</source>
@@ -3012,7 +3012,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Wybierz pasujący format daty i godziny zależnie od języka i regionu</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Język i region</translation>
     </message>
     <message>

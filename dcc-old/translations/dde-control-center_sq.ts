@@ -3010,7 +3010,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Rajon dhe format</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Rajon</translation>
     </message>
     <message>
@@ -3026,7 +3026,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Përzgjidhni formate datash dhe kohe bazuar në gjuhë dhe rajon</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Gjuhë dhe rajon</translation>
     </message>
     <message>

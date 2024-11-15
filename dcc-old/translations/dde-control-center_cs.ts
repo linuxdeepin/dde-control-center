@@ -3011,7 +3011,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Oblast a formáty</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Oblast</translation>
     </message>
     <message>
@@ -3027,7 +3027,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Vyberte odpovídající formáty data a času dle jazyka a oblasti</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Jazyk a oblast</translation>
     </message>
     <message>

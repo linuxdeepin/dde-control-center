@@ -3010,7 +3010,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Regió i format</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Regió</translation>
     </message>
     <message>
@@ -3026,7 +3026,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Seleccioneu els formats de data i hora coincidents amb la llengua i la regió.</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Llengua i regió</translation>
     </message>
     <message>

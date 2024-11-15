@@ -34,7 +34,7 @@ RegionModule::RegionModule(DatetimeModel *model, DatetimeWorker *work, QObject *
     setNoScroll(false);
 
     // NOTE: not provide this feature
-    appendChild(new ItemModule("RegionTitle", tr("Region")));
+    appendChild(new ItemModule("RegionTitle", tr("Country or Region")));
     appendChild(new WidgetModule<DTipLabel>("RegionTip",
                                             tr(""),
                                             this,
@@ -68,12 +68,12 @@ void RegionModule::initCountryTip(DTipLabel *countryTipLabel)
     countryTipLabel->setWordWrap(true);
     countryTipLabel->setAlignment(Qt::AlignLeft);
     countryTipLabel->setContentsMargins(10, 0, 10, 0);
-    countryTipLabel->setText(tr("The operating system and apps may provide you with local content based on your country and region."));
+    countryTipLabel->setText(tr("Operating system and applications may provide you with local content based on your country and region."));
 }
 
 void RegionModule::initCountryModule()
 {
-    m_countryModule = new ItemModule("Region", tr("Region"), [this](ModuleObject *) {
+    m_countryModule = new ItemModule("Region", tr("Area"), [this](ModuleObject *) {
         m_countryCombo = new DComboBox;
         for (const QString &country : m_model->countries()) {
             m_countryCombo->addItem(
@@ -122,13 +122,13 @@ void RegionModule::initRegionFormatTip(DTipLabel *regionFormatTipLabel)
     regionFormatTipLabel->setAlignment(Qt::AlignLeft);
     regionFormatTipLabel->setContentsMargins(10, 0, 10, 0);
     regionFormatTipLabel->setText(
-            tr("The operating system and some applications format dates and times according to the regional format."));
+            tr("Operating system and applications may set date and time formats based on regional formats."));
 }
 
 void RegionModule::initLangRegionModule()
 {
     m_langRegionModule =
-            new ItemModule("languageRegion", tr("Languange and region"), [this](ModuleObject *) {
+            new ItemModule("languageRegion", tr("Region format"), [this](ModuleObject *) {
                 QWidget *widget = new QWidget;
                 m_langRegionLabel = new QLabel;
                 m_langRegionLabel->setText(

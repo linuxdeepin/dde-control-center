@@ -2982,8 +2982,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Region und Format</translation>
     </message>
     <message>
-        <source>Region</source>
-        <translation>Region</translation>
+        <source>Country or Region</source>
+        <translation>Country or Region</translation>
     </message>
     <message>
         <source>Format</source>
@@ -2998,8 +2998,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Languange and region</source>
-        <translation>Sprache und Region</translation>
+        <source>Region format</source>
+        <translation>Sprache und Country or Region</translation>
     </message>
     <message>
         <source>First day of week</source>

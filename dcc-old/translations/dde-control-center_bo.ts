@@ -3012,7 +3012,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ཁུལ་ཁོངས་དང་རྣམ་གཞག</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>ཁུལ་ཁོངས།</translation>
     </message>
     <message>
@@ -3028,7 +3028,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>སྐད་བརྡ་དང་ཁུལ་ཁོངས་ལ་གཞིགས་ནས་དེ་མཚུངས་ཀྱི་ཚེས་གྲངས་དང་དུས་ཚོད་ཀྱི་རྣམ་གཞག་འདེམས། </translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>སྐད་བརྡ་དང་ཁུལ་ཁོངས།</translation>
     </message>
     <message>
