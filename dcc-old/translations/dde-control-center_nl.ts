@@ -3001,7 +3001,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Regio en opmaak</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Regio</translation>
     </message>
     <message>
@@ -3017,7 +3017,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Kies de datum- en tijdopmaak op basis van de ingestelde taal en regio</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Taal en regio</translation>
     </message>
     <message>

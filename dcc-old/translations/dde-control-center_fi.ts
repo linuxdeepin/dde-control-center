@@ -2996,7 +2996,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Alue ja aikamuoto</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Maa</translation>
     </message>
     <message>
@@ -3012,7 +3012,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Valitse päivämäärä- ja aikamuodot kielen, sekä alueen mukaan</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Kieli ja asuinalue</translation>
     </message>
     <message>

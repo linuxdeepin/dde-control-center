@@ -2979,8 +2979,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>区域与格式</translation>
     </message>
     <message>
-        <source>Region</source>
-        <translation>区域</translation>
+        <source>Country or Region</source>
+        <translation>国家或地区</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>地区</translation>
     </message>
     <message>
         <source>Format</source>
@@ -2995,8 +2999,8 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>根据语言和区域选择匹配日期和时间格式</translation>
     </message>
     <message>
-        <source>Languange and region</source>
-        <translation>语言和区域</translation>
+        <source>Region format</source>
+        <translation>区域格式</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -3035,11 +3039,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>自定义格式</translation>
     </message>
     <message>
-        <source>The operating system and apps may provide you with local content based on your country and region.</source>
-        <translation>操作系统和应用可能会根据你所在的国家和地区向你提供本地内容</translation>
+        <source>Operating system and applications may provide you with local content based on your country and region.</source>
+        <translation>操作系统和应用可能会根据你所在的国家或地区向你提供本地内容</translation>
     </message>
     <message>
-        <source>The operating system and some applications format dates and times according to the regional format.</source>
+        <source>Operating system and applications may set date and time formats based on regional formats.</source>
         <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
     </message>
 </context>

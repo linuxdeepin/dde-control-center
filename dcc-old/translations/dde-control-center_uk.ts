@@ -3011,7 +3011,7 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Регіон і формат</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Область</translation>
     </message>
     <message>
@@ -3027,7 +3027,7 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Вибирати відповідні формати дати і часу на основі мови і регіону</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Мова і регіон</translation>
     </message>
     <message>

@@ -2996,7 +2996,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3012,7 +3012,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation type="unfinished"/>
     </message>
     <message>

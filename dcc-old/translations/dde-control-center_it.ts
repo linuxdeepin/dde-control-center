@@ -3011,7 +3011,7 @@ UnionTech Software si impegna a ricercare e migliorare la sicurezza, l&apos;accu
         <translation>Regione e formato</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Regione</translation>
     </message>
     <message>
@@ -3027,7 +3027,7 @@ UnionTech Software si impegna a ricercare e migliorare la sicurezza, l&apos;accu
         <translation>Seleziona i formati di data e ora corrispondenti in base alla lingua e alla regione</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Lingua e regione</translation>
     </message>
     <message>

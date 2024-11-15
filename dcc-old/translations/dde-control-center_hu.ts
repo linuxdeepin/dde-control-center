@@ -3019,7 +3019,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Régió és Formátum</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Régió</translation>
     </message>
     <message>
@@ -3035,7 +3035,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Válassza ki a megfelelő dátum- és időformátumot a nyelv és a régió alapján</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Nyelv és Régió</translation>
     </message>
     <message>

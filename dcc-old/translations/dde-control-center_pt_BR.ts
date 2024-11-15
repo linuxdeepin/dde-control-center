@@ -2982,7 +2982,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Região e Formato</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Região</translation>
     </message>
     <message>
@@ -2998,7 +2998,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Idioma e região</translation>
     </message>
     <message>

@@ -2996,7 +2996,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3012,7 +3012,7 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -3010,7 +3010,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Bölgə və format</translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation>Bölgə</translation>
     </message>
     <message>
@@ -3026,7 +3026,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Dil və bölgənizə uyğun tarix və vaxt formatlarını seçin</translation>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation>Dil və bölgə</translation>
     </message>
     <message>

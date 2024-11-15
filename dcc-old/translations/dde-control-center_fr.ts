@@ -2994,7 +2994,7 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Region</source>
+        <source>Country or Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3010,7 +3010,7 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Languange and region</source>
+        <source>Region format</source>
         <translation type="unfinished"/>
     </message>
     <message>
