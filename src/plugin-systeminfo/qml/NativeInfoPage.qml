@@ -251,16 +251,15 @@ DccObject {
         }
 
         DccObject {
-            name: "systemInstallationTime"
+            name: "kernel"
             weight: 80
-            visible: dccData.systemInfoMode().showAuthorization()
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
-            displayName: qsTr("System installation time") + ":"
+            displayName: qsTr("Kernel") + ":"
             page: Label {
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
-                text: dccData.systemInfoMode().systemInstallationDate
+                text: dccData.systemInfoMode().kernel
             }
         }
 
