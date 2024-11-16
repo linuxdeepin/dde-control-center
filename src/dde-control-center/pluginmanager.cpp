@@ -173,6 +173,7 @@ PluginManager::PluginManager(DccManager *parent)
     , m_isDeleting(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
+    connect(this, &PluginManager::pluginEndStatusChanged, this, &PluginManager::loadPlugin, Qt::QueuedConnection);
     connect(m_manager, &DccManager::hideModuleChanged, this, &PluginManager::onHideModuleChanged);
 }
 
@@ -236,9 +237,9 @@ void PluginManager::loadPlugin(PluginData *plugin)
     } else if (plugin->status & MainObjEnd) {
         addMainObject(plugin);
         updatePluginStatus(plugin, PluginEnd);
-    } else if (plugin->status & DataEnd) {
+    } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
         loadMain(plugin);
-    } else if (plugin->status & ModuleEnd) {
+    } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
         if (plugin->module) {
             disconnect(plugin->module, nullptr, this, nullptr);
             if (plugin->module->isVisibleToApp()) {
@@ -250,7 +251,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
         } else {
             threadPool()->start(new LoadPluginTask(plugin, this));
         }
-    } else if (plugin->status & MetaDataEnd) {
+    } else if ((plugin->status & (MetaDataEnd | ModuleLoad)) == MetaDataEnd) {
         DccManager::installTranslator(plugin->name);
         loadModule(plugin);
     } else {
@@ -271,7 +272,7 @@ void PluginManager::updatePluginStatus(PluginData *plugin, uint status, const QS
         qCDebug(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << log;
     }
     if ((oldStatus != plugin->status) && (status & PluginEndMask)) {
-        loadPlugin(plugin);
+        Q_EMIT pluginEndStatusChanged(plugin);
     }
 }
 
@@ -448,7 +449,7 @@ void PluginManager::mainLoading()
 void PluginManager::onHideModuleChanged(const QSet<QString> &hideModule)
 {
     for (auto &&plugin : m_plugins) {
-        if ((plugin->status & PluginEnd) && ((!(plugin->status & (MetaDataEnd | MetaDataErr))) && (!hideModule.contains(plugin->name)))) {
+        if ((plugin->status & PluginEnd) && (((plugin->status & (MetaDataEnd | MetaDataErr | ModuleLoad)) == MetaDataEnd) && (!hideModule.contains(plugin->name)))) {
             // 加载完成，没检查MetaData也没错误，不在hideModule中，则需要重新加载
             plugin->status &= ~PluginEnd;
             loadPlugin(plugin);
