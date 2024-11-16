@@ -24,7 +24,6 @@ PowerModel::PowerModel(QObject *parent)
     , m_haveBettary(false)
     , m_batteryLockScreenDelay(0)
     , m_powerLockScreenDelay(0)
-    , m_batteryPercentage(0.0)
     , m_bPowerSavingModeAutoWhenQuantifyLow(0)
     , m_bPowerSavingModeAuto(false)
     , m_dPowerSavingModeLowerBrightnessThreshold(0)
@@ -165,16 +164,6 @@ void PowerModel::setHaveBettary(bool haveBettary)
     Q_EMIT haveBettaryChanged(haveBettary);
 }
 
-void PowerModel::setBatteryPercentage(double batteryPercentage)
-{
-    if (!getDoubleCompare(batteryPercentage, m_batteryPercentage))
-        return;
-
-    m_batteryPercentage = batteryPercentage;
-
-    Q_EMIT batteryPercentageChanged(batteryPercentage);
-}
-
 bool PowerModel::getDoubleCompare(const double value1, const double value2)
 {
     return ((value1 - value2 >= -EPSINON) && (value1 - value2 <= EPSINON));
@@ -279,6 +268,15 @@ void PowerModel::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
     }
 }
 
+void PowerModel::setLowPowerAction(int action)
+{
+    if (m_lowPowerAction != action) {
+        m_lowPowerAction = action;
+
+        Q_EMIT lowPowerActionChanged(action);
+    }
+}
+
 void PowerModel::setSleepLock(bool sleepLock)
 {
     if (sleepLock != m_sleepLock) {
@@ -369,7 +367,7 @@ void PowerModel::setNoPasswdLogin(bool value)
     }
 }
 
-void PowerModel::setBatteryCapacity(double value)
+void PowerModel::setBatteryCapacity(int value)
 {
     if (m_batteryCapacity != value) {
         m_batteryCapacity = value;
@@ -384,6 +382,52 @@ void PowerModel::setShowBatteryTimeToFull(bool value)
         m_showBatteryTimeToFull = value;
 
         Q_EMIT showBatteryTimeToFullChanged(value);
+    }
+}
+
+void PowerModel::setScheduledShutdownState(bool value)
+{
+    qWarning() << "------setScheduledShutdownState------" << value;
+    if (m_scheduledShutdownState != value) {
+        m_scheduledShutdownState = value;
+
+        Q_EMIT scheduledShutdownStateChanged(value);
+    }
+}
+
+void PowerModel::setShutdownTime(const QString &time)
+{
+    if (m_shutdownTime != time) {
+        m_shutdownTime = time;
+
+        Q_EMIT shutdownTimeChanged(time);
+    }
+}
+
+void PowerModel::setShutdownRepetition(int repetition)
+{
+    if (m_shutdownRepetition != repetition) {
+        m_shutdownRepetition = repetition;
+
+        Q_EMIT shutdownRepetitionChanged(repetition);
+    }
+}
+
+void PowerModel::setWeekBegins(int value)
+{
+    if (m_weekBegins != value) {
+        m_weekBegins = value;
+
+        Q_EMIT weekBeginsChanged(value);
+    }
+}
+
+void PowerModel::setCustomShutdownWeekDays(const QVariantList &value)
+{
+    if (m_customShutdownWeekDays != value) {
+        m_customShutdownWeekDays = value;
+
+        Q_EMIT customShutdownWeekDaysChanged(value);
     }
 }
 
@@ -438,5 +482,14 @@ void PowerModel::setLinePowerSleepDelayModel(const QVariantList &value)
         m_linePowerSleepDelayModel = value;
 
         Q_EMIT linePowerSleepDelayModelChanged(value);
+    }
+}
+
+void PowerModel::setEnableScheduledShutdown(const QString &value)
+{
+    if (m_enableScheduledShutdown != value) {
+        m_enableScheduledShutdown = value;
+
+        Q_EMIT enableScheduledShutdownChanged(value);
     }
 }

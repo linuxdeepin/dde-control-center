@@ -103,6 +103,26 @@ public:
     Q_PROPERTY(bool NoPasswdLogin READ noPasswdLogin NOTIFY noPasswdLoginChanged)
     bool noPasswdLogin();
 
+    Q_PROPERTY(bool ScheduledShutdownState READ scheduledShutdownState WRITE setScheduledShutdownState NOTIFY ScheduledShutdownStateChanged)
+    void setScheduledShutdownState(bool value);
+    bool scheduledShutdownState();
+
+    Q_PROPERTY(QString ShutdownTime READ shutdownTime WRITE setShutdownTime NOTIFY ShutdownTimeChanged)
+    void setShutdownTime(const QString &time);
+    QString shutdownTime();
+
+    Q_PROPERTY(int ShutdownRepetition READ shutdownRepetition WRITE setShutdownRepetition NOTIFY ShutdownRepetitionChanged)
+    void setShutdownRepetition(int repetition);
+    int shutdownRepetition();
+
+    Q_PROPERTY(QByteArray CustomShutdownWeekDays READ customShutdownWeekDays WRITE setCustomShutdownWeekDays NOTIFY CustomShutdownWeekDaysChanged)
+    void setCustomShutdownWeekDays(const QByteArray &weekdays);
+    QByteArray customShutdownWeekDays();
+
+    Q_PROPERTY(int LowPowerAction READ lowPowerAction WRITE setLowPowerAction NOTIFY LowPowerActionChanged)
+    void setLowPowerAction(int action);
+    int lowPowerAction();
+
     std::optional<QString> findUserById();
 
 signals:
@@ -137,6 +157,11 @@ signals:
     void ModeChanged(const QString &value) const;
     void BatteryCapacityChanged(double value) const;
     void noPasswdLoginChanged(bool value);
+    void ScheduledShutdownStateChanged(bool value);
+    void ShutdownTimeChanged(const QString &time);
+    void ShutdownRepetitionChanged(int repetition);
+    void CustomShutdownWeekDaysChanged(const QByteArray &value);
+    void LowPowerActionChanged(int action);
 
 public slots:
     // SystemPower

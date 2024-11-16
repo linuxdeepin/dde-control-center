@@ -63,18 +63,8 @@ Rectangle {
                     Control {
                         Layout.alignment: Qt.AlignRight
                         Layout.rightMargin: 10
-                        contentItem: D.IconButton {
+                        contentItem: DccCheckIcon {
                             visible: model.mode === dccData.model.powerPlan
-                            icon.name: "qrc:/icons/deepin/builtin/actions/checked.png"
-                            icon.width: 24
-                            icon.height: 24
-                            implicitWidth: 36
-                            implicitHeight: 36
-                            background: Rectangle {
-                                color: "transparent"
-                                border.color: "transparent"
-                                border.width: 0
-                            }
                         }
                     }
                 }

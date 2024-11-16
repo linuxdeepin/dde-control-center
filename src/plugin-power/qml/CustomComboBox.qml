@@ -24,4 +24,14 @@ D.ComboBox {
         visible: (control.visibleRole && model[control.visibleRole] !== undefined) ? model[control.visibleRole] : true
         implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
     }
+
+    // To replace function: indexOfValue
+    function indexByValue(value) {
+        for (var i = 0; i < model.count; i++) {
+            if (model.get(i).value === value) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
