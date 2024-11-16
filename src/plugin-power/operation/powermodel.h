@@ -27,7 +27,6 @@ class PowerModel : public QObject
     Q_PROPERTY(bool haveBettary READ haveBettary WRITE setHaveBettary NOTIFY haveBettaryChanged)
     Q_PROPERTY(int batteryLockScreenDelay READ getBatteryLockScreenDelay WRITE setBatteryLockScreenDelay NOTIFY batteryLockScreenDelayChanged)
     Q_PROPERTY(int powerLockScreenDelay READ getPowerLockScreenDelay WRITE setPowerLockScreenDelay NOTIFY powerLockScreenDelayChanged)
-    Q_PROPERTY(double batteryPercentage WRITE setBatteryPercentage NOTIFY batteryPercentageChanged) // 没有getter
     Q_PROPERTY(bool powerSavingModeAutoWhenQuantifyLow READ powerSavingModeAutoWhenQuantifyLow WRITE setPowerSavingModeAutoWhenQuantifyLow NOTIFY powerSavingModeAutoWhenQuantifyLowChanged)
     Q_PROPERTY(bool powerSavingModeAuto READ powerSavingModeAuto WRITE setPowerSavingModeAuto NOTIFY powerSavingModeAutoChanged)
     Q_PROPERTY(uint powerSavingModeLowerBrightnessThreshold READ powerSavingModeLowerBrightnessThreshold WRITE setPowerSavingModeLowerBrightnessThreshold NOTIFY powerSavingModeLowerBrightnessThresholdChanged)
@@ -46,8 +45,14 @@ class PowerModel : public QObject
     Q_PROPERTY(bool isHighPerformanceSupported READ isHighPerformanceSupported WRITE setHighPerformanceSupported NOTIFY highPerformaceSupportChanged)
     Q_PROPERTY(bool isBalancePerformanceSupported READ isBalancePerformanceSupported WRITE setBalancePerformanceSupported NOTIFY highPerformaceSupportChanged)
     Q_PROPERTY(bool isNoPasswdLogin READ isNoPasswdLogin WRITE setNoPasswdLogin NOTIFY noPasswdLoginChanged)
-    Q_PROPERTY(double batteryCapacity READ batteryCapacity WRITE setBatteryCapacity NOTIFY batteryCapacityChanged)
+    Q_PROPERTY(int batteryCapacity READ batteryCapacity WRITE setBatteryCapacity NOTIFY batteryCapacityChanged)
     Q_PROPERTY(bool showBatteryTimeToFull READ showBatteryTimeToFull WRITE setShowBatteryTimeToFull NOTIFY showBatteryTimeToFullChanged)
+    Q_PROPERTY(bool scheduledShutdownState READ scheduledShutdownState WRITE setScheduledShutdownState NOTIFY scheduledShutdownStateChanged)
+    Q_PROPERTY(QString shutdownTime READ shutdownTime WRITE setShutdownTime NOTIFY shutdownTimeChanged)
+    Q_PROPERTY(int shutdownRepetition READ shutdownRepetition WRITE setShutdownRepetition NOTIFY shutdownRepetitionChanged)
+    Q_PROPERTY(int weekBegins READ weekBegins WRITE setWeekBegins NOTIFY weekBeginsChanged)
+    Q_PROPERTY(int lowPowerAction READ lowPowerAction WRITE setLowPowerAction NOTIFY lowPowerActionChanged)
+    Q_PROPERTY(QVariantList customShutdownWeekDays READ customShutdownWeekDays WRITE setCustomShutdownWeekDays NOTIFY customShutdownWeekDaysChanged)
 
     Q_PROPERTY(QVariantList batteryLockDelayModel READ batteryLockDelayModel WRITE setBatteryLockDelayModel NOTIFY batteryLockDelayModelChanged)
     Q_PROPERTY(QVariantList batteryScreenBlackDelayModel READ batteryScreenBlackDelayModel WRITE setBatteryScreenBlackDelayModel NOTIFY batteryScreenBlackDelayModelChanged)
@@ -55,6 +60,7 @@ class PowerModel : public QObject
     Q_PROPERTY(QVariantList linePowerLockDelayModel READ linePowerLockDelayModel WRITE setLinePowerLockDelayModel NOTIFY linePowerLockDelayModelChanged)
     Q_PROPERTY(QVariantList linePowerScreenBlackDelayModel READ linePowerScreenBlackDelayModel WRITE setLinePowerScreenBlackDelayModel NOTIFY linePowerScreenBlackDelayModelChanged)
     Q_PROPERTY(QVariantList linePowerSleepDelayModel READ linePowerSleepDelayModel WRITE setLinePowerSleepDelayModel NOTIFY linePowerSleepDelayModelChanged)
+    Q_PROPERTY(QString enableScheduledShutdown READ enableScheduledShutdown WRITE setEnableScheduledShutdown NOTIFY enableScheduledShutdownChanged)
 
     friend class PowerWorker;
 
@@ -108,7 +114,6 @@ public:
         return m_haveBettary;
     }
     void setHaveBettary(bool haveBettary);
-    void setBatteryPercentage(double batteryPercentage);
 
     bool getDoubleCompare(const double value1, const double value2);
 
@@ -146,6 +151,9 @@ public:
     inline int lowPowerAutoSleepThreshold() const { return m_dLowPowerAutoSleepThreshold; }
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
 
+    void setLowPowerAction(int action);
+    int lowPowerAction() const { return m_lowPowerAction; }
+
     //-----------------------------------------------
     inline bool getSuspend() const { return m_isSuspend; }
     void setSuspend(bool suspend);
@@ -172,11 +180,26 @@ public:
 
     void setNoPasswdLogin(bool value);
 
-    inline double batteryCapacity() const { return m_batteryCapacity; }
-    void setBatteryCapacity(double batterCapacity);
+    inline int batteryCapacity() const { return m_batteryCapacity; }
+    void setBatteryCapacity(int batterCapacity);
 
     inline bool showBatteryTimeToFull() const { return m_showBatteryTimeToFull; }
     void setShowBatteryTimeToFull(bool showBatteryTimeToFull);
+
+    inline bool scheduledShutdownState() const { return m_scheduledShutdownState; }
+    void setScheduledShutdownState(bool value);
+
+    inline QString shutdownTime() const { return m_shutdownTime; }
+    void setShutdownTime(const QString &time);
+
+    inline int shutdownRepetition() const { return m_shutdownRepetition; }
+    void setShutdownRepetition(int repetition);
+
+    inline int weekBegins() const { return m_weekBegins; }
+    void setWeekBegins(int value);
+
+    inline QVariantList customShutdownWeekDays() const { return m_customShutdownWeekDays; }
+    void setCustomShutdownWeekDays(const QVariantList &value);
 
     inline QVariantList batteryLockDelayModel() const { return m_batteryLockDelayModel; };
     void setBatteryLockDelayModel(const QVariantList &value);
@@ -195,6 +218,9 @@ public:
 
     inline QVariantList linePowerSleepDelayModel() const { return m_linePowerSleepDelayModel; };
     void setLinePowerSleepDelayModel(const QVariantList &value);
+
+    inline QString enableScheduledShutdown() const { return m_enableScheduledShutdown; };
+    void setEnableScheduledShutdown(const QString &value);
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
@@ -217,7 +243,6 @@ Q_SIGNALS:
     void haveBettaryChanged(bool haveBettary);
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
-    void batteryPercentageChanged(double batteryPercentage);
     //------------------------sp2 add-------------------------------
     void powerSavingModeAutoWhenQuantifyLowChanged(const bool state);
     void powerSavingModeAutoChanged(const bool state);
@@ -242,12 +267,20 @@ Q_SIGNALS:
     void batteryCapacityChanged(double value);
     void showBatteryTimeToFullChanged(bool value);
 
+    void scheduledShutdownStateChanged(bool value);
+    void shutdownTimeChanged(const QString &time);
+    void shutdownRepetitionChanged(int repetition);
+    void weekBeginsChanged(int value);
+    void customShutdownWeekDaysChanged(const QVariantList &value);
+
     void batteryLockDelayModelChanged(const QVariantList &value);
     void batteryScreenBlackDelayModelChanged(const QVariantList &value);
     void batterySleepDelayModelChanged(const QVariantList &value);
     void linePowerLockDelayModelChanged(const QVariantList &value);
     void linePowerScreenBlackDelayModelChanged(const QVariantList &value);
     void linePowerSleepDelayModelChanged(const QVariantList &value);
+    void lowPowerActionChanged(int action);
+    void enableScheduledShutdownChanged(const QString &value);
 
 private:
     bool m_lidPresent; //以此判断是否为笔记本
@@ -268,7 +301,6 @@ private:
     bool m_haveBettary;
     int m_batteryLockScreenDelay;
     int m_powerLockScreenDelay;
-    double m_batteryPercentage;
     //---------------sp2 add------------------
     bool m_bPowerSavingModeAutoWhenQuantifyLow;
     bool m_bPowerSavingModeAuto;
@@ -295,6 +327,15 @@ private:
 
     double m_batteryCapacity;
     bool m_showBatteryTimeToFull;
+
+    // scheduledShutdown
+    bool m_scheduledShutdownState;
+    QString m_shutdownTime;
+    QVariantList m_customShutdownWeekDays;
+    uint32_t m_shutdownRepetition;
+    int m_weekBegins;
+    int m_lowPowerAction;
+    QString m_enableScheduledShutdown;
 
     QVariantList m_batteryLockDelayModel;
     QVariantList m_batteryScreenBlackDelayModel;

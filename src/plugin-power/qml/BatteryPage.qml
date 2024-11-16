@@ -220,7 +220,7 @@ DccObject {
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
                 model: ListModel {
-                    ListElement { text: qsTr("Disbale"); value: 10 }
+                    ListElement { text: qsTr("Disbale"); value: 0 }
                     ListElement { text: "10%"; value: 10 }
                     ListElement { text: "15%"; value: 15 }
                     ListElement { text: "20%"; value: 20 }
@@ -229,7 +229,13 @@ DccObject {
 
                 onCurrentIndexChanged: {
                     var selectedValue = model.get(currentIndex).value;
-                    dccData.worker.setLowPowerNotifyThreshold(selectedValue)
+                    if (selectedValue === 0) {
+                        dccData.worker.setLowPowerNotifyEnable(false)
+                        dccData.worker.setLowPowerNotifyThreshold(selectedValue)
+                    } else {
+                        dccData.worker.setLowPowerNotifyEnable(true)
+                        dccData.worker.setLowPowerNotifyThreshold(selectedValue)
+                    }
                 }
             }
         }
@@ -248,10 +254,19 @@ DccObject {
             displayName: qsTr("Low battery operation")
             weight: 1
             pageType: DccObject.Editor
-            page: D.ComboBox {
-                width: 100
-                model: [ "Auto sleep", qsTr("Auto suspend")]
+            page: CustomComboBox {
+                textRole: "text"
+                valueRole: "value"
                 flat: true
+                currentIndex: indexByValue(dccData.model.lowPowerAction)
+                model: ListModel {
+                    ListElement { text: "Auto Hibernate"; value: 1 }
+                    ListElement { text: "Auto suspend"; value: 0 }
+                }
+                onCurrentIndexChanged: {
+                    var selectedValue = model.get(currentIndex).value;
+                    dccData.worker.setLowPowerAction(selectedValue)
+                }
             }
         }
         DccObject {
@@ -260,9 +275,10 @@ DccObject {
             displayName: qsTr("Low battery threshold")
             weight: 2
             pageType: DccObject.Editor
-            page: D.ComboBox {
+            page: CustomComboBox {
                 textRole: "text"
-                width: 100
+                valueRole: "value"
+                currentIndex: indexByValue(dccData.model.lowPowerAutoSleepThreshold)
                 model: ListModel {
                     ListElement { text: "1%"; value: 1 }
                     ListElement { text: "2%"; value: 2 }
@@ -275,6 +291,11 @@ DccObject {
                     ListElement { text: "9%"; value: 9 }
                 }
                 flat: true
+
+                onCurrentIndexChanged: {
+                    var selectedValue = model.get(currentIndex).value;
+                    dccData.worker.setLowPowerAutoSleepThreshold(selectedValue)
+                }
             }
         }
     }
@@ -323,32 +344,8 @@ DccObject {
             pageType: DccObject.Editor
             page: Label {
                     Layout.leftMargin: 10
-                    text: dccData.model.batteryCapacity
+                    text: dccData.model.batteryCapacity + "%"
                 }
-
-            DccObject {
-                name: "optimizeChargingTime"
-                parentName: "power/onBattery/batteryManagementGroup"
-                displayName: qsTr("Optimize battery charging")
-                weight: 3
-                pageType: DccObject.Editor
-                page: D.Switch {
-
-                }
-            }
-            DccObject {
-                name: "maximumChargingCapacity"
-                parentName: "power/onBattery/batteryManagementGroup"
-                displayName: qsTr("Maximum charging capacity")
-                description: qsTr("When the battery is not frequently used, the maximum charging capacity of the battery can be limited to slow down battery aging")
-                weight: 4
-                pageType: DccObject.Editor
-                page: D.ComboBox {
-                    width: 100
-                    model: [ "90%", "85%", "80%" ]
-                    flat: true
-                }
-            }
         }
     }
 }

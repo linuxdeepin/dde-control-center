@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powerworker.h"
+#include "operation/powerdbusproxy.h"
 #include "powermodel.h"
 #include "utils.h"
 
@@ -19,6 +20,8 @@
 #define LINEPOWER_LOCKDELAY_NAME "linePowerLockDelay"
 #define LINEPOWER_SLEEPDELAY_NAME "linePowerSleepDelay"
 #define LINEPOWER_SBDELAY_NAME "linePowerScreenBlackDelay"
+#define TIME_WEEK_START_NAME "firstDayOfWeek"
+#define ENABLE_SCHEDULED_SHUTDOWN "enableScheduledShutdown"
 
 #define SHOW_HIBERNATE_NAME "showHibernate"
 #define SHOW_SHUTDOWN_NAME "showShutdown"
@@ -35,6 +38,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerDBusProxy(new PowerDBusProxy(this))
     , m_cfgDock(DConfig::create("org.deepin.dde.tray-loader", "org.deepin.dde.dock.plugin.power", QString(), this))
     , m_cfgPower(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.power", QString(), this))
+    , m_cfgTime(DConfig::createGeneric("org.deepin.region-format", QString(), this))
 {
     connect(m_powerDBusProxy, &PowerDBusProxy::noPasswdLoginChanged, m_powerModel, &PowerModel::setNoPasswdLogin);
     connect(m_powerDBusProxy, &PowerDBusProxy::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
@@ -53,7 +57,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
 
     connect(m_powerDBusProxy, &PowerDBusProxy::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
 
     //--------------------sp2 add----------------------------
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoWhenBatteryLowChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
@@ -67,16 +70,21 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerNotifyEnableChanged, m_powerModel, &PowerModel::setLowPowerNotifyEnable);
     connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerNotifyThresholdChanged, m_powerModel, &PowerModel::setLowPowerNotifyThreshold);
     connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
+    connect(m_powerDBusProxy, &PowerDBusProxy::ScheduledShutdownStateChanged, m_powerModel, &PowerModel::setScheduledShutdownState);
+    connect(m_powerDBusProxy, &PowerDBusProxy::ShutdownTimeChanged, m_powerModel, &PowerModel::setShutdownTime);
+    connect(m_powerDBusProxy, &PowerDBusProxy::ShutdownRepetitionChanged, m_powerModel, &PowerModel::setShutdownRepetition);
+    connect(m_powerDBusProxy, &PowerDBusProxy::CustomShutdownWeekDaysChanged, this, &PowerWorker::onCustomShutdownWeekDaysChanged);
     //-------------------------------------------------------
     connect(m_powerDBusProxy, &PowerDBusProxy::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
     connect(m_powerDBusProxy, &PowerDBusProxy::BatteryCapacityChanged, m_powerModel, &PowerModel::setBatteryCapacity);
+    connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerActionChanged, m_powerModel, &PowerModel::setLowPowerAction);
 
     connect(m_cfgDock, &DConfig::valueChanged, [this] (const QString &key) {
         if ("showTimeToFull" == key) {
             m_powerModel->setShowBatteryTimeToFull(m_cfgDock->value("showTimeToFull").toBool());
         }
     });
-
+  
     connect(m_cfgPower, &DConfig::valueChanged, [this](const QString &key) {
         if (key == BATTERY_LOCKDELAY_NAME) {
             readConfig(BATTERY_LOCKDELAY_NAME,
@@ -105,6 +113,16 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
         } else if (key == SHOW_SUSPEND_NAME) {
             readConfig(SHOW_SUSPEND_NAME,
                 std::bind(&PowerModel::setSuspend, m_powerModel, std::placeholders::_1));
+        } else if (key == ENABLE_SCHEDULED_SHUTDOWN) {
+            readConfig(ENABLE_SCHEDULED_SHUTDOWN,
+                std::bind(&PowerModel::setEnableScheduledShutdown, m_powerModel, std::placeholders::_1));
+        }
+    });
+
+    connect(m_cfgTime, &DConfig::valueChanged, [this](const QString &key) {
+        if (key == TIME_WEEK_START_NAME) {
+            int value = m_cfgTime->value(TIME_WEEK_START_NAME).toInt();
+            m_powerModel->setWeekBegins(value);
         }
     });
 
@@ -170,8 +188,14 @@ void PowerWorker::active()
     m_powerModel->setBatteryCapacity(m_powerDBusProxy->batteryCapacity());
     m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
     m_powerModel->setShowBatteryTimeToFull(m_cfgDock->value("showTimeToFull").toBool());
-
     m_powerModel->setNoPasswdLogin(m_powerDBusProxy->noPasswdLogin());
+    m_powerModel->setScheduledShutdownState(m_powerDBusProxy->scheduledShutdownState());
+    m_powerModel->setShutdownTime(m_powerDBusProxy->shutdownTime());
+    m_powerModel->setShutdownRepetition(m_powerDBusProxy->shutdownRepetition());
+    m_powerModel->setWeekBegins(m_cfgTime->value(TIME_WEEK_START_NAME).toInt());
+    m_powerModel->setLowPowerAction(m_powerDBusProxy->lowPowerAction());
+
+    onCustomShutdownWeekDaysChanged(m_powerDBusProxy->customShutdownWeekDays());
 
     setHighPerformanceSupported(m_powerDBusProxy->isHighPerformanceSupported());
     setBalancePerformanceSupported(m_powerDBusProxy->isBalancePerformanceSupported());
@@ -229,6 +253,8 @@ void PowerWorker::active()
     readConfig(SHOW_HIBERNATE_NAME, std::bind(&PowerModel::setHibernate, m_powerModel, std::placeholders::_1));
     readConfig(SHOW_SHUTDOWN_NAME, std::bind(&PowerModel::setShutdown, m_powerModel, std::placeholders::_1));
     readConfig(SHOW_SUSPEND_NAME, std::bind(&PowerModel::setSuspend, m_powerModel, std::placeholders::_1));
+    readConfig(ENABLE_SCHEDULED_SHUTDOWN, std::bind(&PowerModel::setEnableScheduledShutdown, m_powerModel, std::placeholders::_1));
+
 }
 
 void PowerWorker::readConfig(const QString &key, std::function<void(const QVariantList &value)> callback)
@@ -260,6 +286,12 @@ void PowerWorker::readConfig(const QString &key, std::function<void(const bool v
     callback(enable);
 }
 
+void PowerWorker::readConfig(const QString &key, std::function<void(const QString &value)> callback)
+{
+    const QString &enable = m_cfgPower->value(key, true).toString();
+    callback(enable);
+}
+
 void PowerWorker::deactive()
 {
     m_powerDBusProxy->blockSignals(true);
@@ -268,6 +300,35 @@ void PowerWorker::deactive()
 void PowerWorker::setScreenBlackLock(const bool lock)
 {
     m_powerDBusProxy->setScreenBlackLock(lock);
+}
+
+void PowerWorker::setScheduledShutdownState(const bool state)
+{
+    m_powerDBusProxy->setScheduledShutdownState(state);
+}
+
+void PowerWorker::setShutdownTime(const QString &time)
+{
+    m_powerDBusProxy->setShutdownTime(time);
+}
+
+void PowerWorker::setShutdownRepetition(int repetition)
+{
+    m_powerDBusProxy->setShutdownRepetition(repetition);
+}
+
+void PowerWorker::setCustomShutdownWeekDays(const QString &weekdays)
+{
+    QByteArray value;
+    
+    for (const auto &num : weekdays.simplified().split(',')) {
+        bool ok = false;
+        int day = num.toInt(&ok);
+        if (ok) {
+            value.append(static_cast<char>(day));
+        }
+    }
+    m_powerDBusProxy->setCustomShutdownWeekDays(value);
 }
 
 void PowerWorker::setSleepLock(const bool lock)
@@ -393,6 +454,10 @@ void PowerWorker::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
 {
     m_powerDBusProxy->setLowPowerAutoSleepThreshold(dLowPowerAutoSleepThreshold);
 }
+void PowerWorker::setLowPowerAction(int action)
+{
+    m_powerDBusProxy->setLowPowerAction(action);
+}
 
 /**
  * @brief PowerWorker::setPowerPlan
@@ -446,4 +511,13 @@ void PowerWorker::setShowBatteryTimeToFull(bool value)
     if (m_cfgDock) {
         m_cfgDock->setValue("showTimeToFull", value);
     }
+}
+
+void PowerWorker::onCustomShutdownWeekDaysChanged(const QByteArray &value)
+{
+    QVariantList valueList;
+    for (auto c : value) {
+        valueList.append(static_cast<int>(c));
+    }
+    m_powerModel->setCustomShutdownWeekDays(valueList);
 }
