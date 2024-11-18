@@ -4,6 +4,11 @@
 #include "notificationmodel.h"
 #include "model/sysitemmodel.h"
 #include "model/appitemmodel.h"
+#include "dccfactory.h"
+#include "appssourcemodel.h"
+#include "appslistmodel.h"
+#include "operation/notificationsetting.h"
+#include "appmgr.h"
 
 using namespace DCC_NAMESPACE;
 
@@ -11,7 +16,38 @@ using namespace DCC_NAMESPACE;
 
 NotificationModel::NotificationModel(QObject *parent)
     : QObject(parent)
-    , m_sysItemModel(new SysItemModel(this))
+    , m_setting(new NotificationSetting(this))
+    , m_sysItemModel(new SysItemModel(m_setting, this))
+    , m_appsSourceModel(new AppsSourceModel(this))
+    , m_appsListModel(new AppsListModel(this))
+{
+    m_appsListModel->setSourceModel(m_appsSourceModel);
+    m_appsListModel->sort(0);
+
+    auto addAppItem = [=] (const QString &appId) {
+        AppItemModel *item = new AppItemModel(m_setting, this);
+        item->setActName(m_setting->appValue(appId, NotificationSetting::AppId).toString());
+        item->setSoftName(m_setting->appValue(appId, NotificationSetting::AppName).toString());
+        item->setIcon(m_setting->appValue(appId, NotificationSetting::AppIcon).toString());
+        item->setAllowNotify(m_setting->appValue(appId, NotificationSetting::EnableNotification).toBool());
+        item->setShowNotifyPreview(m_setting->appValue(appId, NotificationSetting::EnablePreview).toBool());
+        item->setNotifySound(m_setting->appValue(appId, NotificationSetting::EnableSound).toBool());
+        item->setShowInNotifyCenter(m_setting->appValue(appId, NotificationSetting::ShowInCenter).toBool());
+        item->setLockShowNotify(m_setting->appValue(appId, NotificationSetting::ShowOnLockScreen).toBool());
+        item->setShowDesktop(m_setting->appValue(appId, NotificationSetting::ShowOnDesktop).toBool());
+        m_appsSourceModel->appAdded(item);
+    };
+
+    for (const auto &app : m_setting->apps()) {
+        addAppItem(app);
+    }
+    connect(m_setting, &NotificationSetting::appAdded, this, [=] (const QString &appId) {
+        addAppItem(appId);
+    });
+    connect(m_setting, &NotificationSetting::appRemoved, this, &NotificationModel::appRemoved);
+}
+
+NotificationModel::~NotificationModel()
 {
 
 }
@@ -31,24 +67,14 @@ void NotificationModel::clearModel()
 
 void NotificationModel::appAdded(AppItemModel *item)
 {
-    m_appItemModels.append(item);
-    Q_EMIT appListChanged();
-    Q_EMIT appListAdded(item);
+    m_appsSourceModel->appAdded(item);
 }
 
 void NotificationModel::appRemoved(const QString &appName)
 {
-    for (int i = 0; i < m_appItemModels.size(); i++) {
-        if (m_appItemModels[i]->getActName() == appName) {
-            Q_EMIT appListRemoved(m_appItemModels[i]);
-            m_appItemModels[i]->deleteLater();
-            m_appItemModels[i] = nullptr;
-            m_appItemModels.removeAt(i);
-            break;
-        }
-    }
-
-    Q_EMIT appListChanged();
+    m_appsSourceModel->appRemoved(appName);
 }
 
+DCC_FACTORY_CLASS(NotificationModel)
+#include "notificationmodel.moc"
 

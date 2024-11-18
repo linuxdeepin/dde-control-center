@@ -10,6 +10,7 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.SpinBox {
     id: control
+    readonly property string timeString: (hour < 10 ? "0" + Number(hour) : Number(hour)) + ":" + (minute < 10 ? "0" + Number(minute) : Number(minute))
     property int hour: 0
     property int minute: 0
     property var curInput: hourInput
@@ -19,6 +20,7 @@ D.SpinBox {
     value: 8
     editable: true
     font: D.DTK.fontManager.t7
+    signal timeChanged()
 
     function valueChanged() {
         if (curInput === hourInput) {
@@ -26,6 +28,7 @@ D.SpinBox {
         } else {
             minute = value
         }
+        control.timeChanged()
     }
 
     contentItem: RowLayout {
