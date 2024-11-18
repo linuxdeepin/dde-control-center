@@ -1,0 +1,164 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "https://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+    <interface name="org.desktopspec.ApplicationManager1.Application">
+        <annotation
+            name="org.freedesktop.DBus.Description"
+            value="This interface is designed to provide a dbus interface of desktop file. Missing fields will be added later."
+        />
+
+        <property name="Categories" type="as" access="read" />
+        <property name="X_linglong" type="b" access="read" />
+        <property name="X_Flatpak" type="b" access="read" />
+        <property name="X_Deepin_Vendor" type="s" access="read">
+            <annotation name="org.freedesktop.DBus.Description"
+                value="Whem this property is 'deepin', display name of the application
+                              should use GenericName."
+            />
+        </property>
+
+        <property name="NoDisplay" type="b" access="read" />
+        <property name="MimeTypes" type="as" access="readwrite" />
+
+        <property name="Actions" type="as" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Names of all action identifiers of this application.
+                       Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions
+                       for futher information."
+            />
+        </property>
+
+        <property name="AutoStart" type="b" access="readwrite" />
+        <property name="LastLaunchedTime" type="x" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Set the value of this property to -1 to
+                       indicates that some errors has occured."
+            />
+        </property>
+
+        <property name="LaunchedTimes" type="x" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Set the value of this property to -1 to
+                       indicates that some errors has occured."
+            />
+        </property>
+
+        <property name="InstalledTime" type="x" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Set the value of this property to -1 to
+                   indicates that some errors has occured."
+            />
+        </property>
+
+        <property name="Instances" type="ao" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="All instances of this application."
+            />
+        </property>
+
+        <property name="ID" type="s" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="The desktop file id of this application.
+                       Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#desktop-file-id
+                       for futher infomation."
+            />
+        </property>
+
+        <property name="Terminal" type="b" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Indicate this application should launch by terminal or not."
+            />
+        </property>
+
+        <property name="Environ" type="s" access="readwrite">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Indicate the environment of application's instance.
+                       passing some specific environment variables to Launch
+                       this application, eg. 'LANG=en_US;PATH=xxx:yyy;'"
+            />
+        </property>
+
+        <property name="ActionName" type="a{sa{ss}}" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="The type of ActionName is a Map, first key represents action, second key represents locale and the value is the corresponding content."
+            />
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="PropMap"/>
+        </property>
+
+        <property name="Icons" type="a{ss}" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="The type of IconName is a Map, where the key represents the action and the value is the corresponding content."
+            />
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="QStringMap"/>
+        </property>
+
+        <property name="Name" type="a{ss}" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="The meaning of this property's type is same as which in ActionName."
+            />
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="QStringMap"/>
+        </property>
+
+        <property name="GenericName" type="a{ss}" access="read">
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="The meaning of this property's type is same as which in ActionName."
+            />
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="QStringMap"/>
+        </property>
+
+        <method name="Launch">
+            <arg type="s" name="action" direction="in" />
+            <arg type="as" name="fields" direction="in" />
+            <arg type="o" name="job" direction="out" />
+
+            <arg type="a{sv}" name="options" direction="in"/>
+            <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="QVariantMap"/>
+            <annotation
+                name="org.freedesktop.DBus.Description"
+                value="Given an action identifier,
+                       and some fields (file path or URI),
+                       this method will launch this application,
+                       and the object path of the job launching application.
+                       Result of that job is a object path
+                       of the new application instance.
+                       If that job failed, the result is a bool `false`.
+
+                       Extra options can be passed in `options` argument:
+                       1. `uid` (type u):
+                          The user id as who is that application will be run.
+                          This option might request a polikit authentication.
+                       2. `env` (type s):
+                          passing some specific environment variables to Launch
+                          this application, eg. 'LANG=en_US;PATH=xxx:yyy;'
+                       3. `path` (type s):
+                          set this application's working directory, please pass
+                          absolute directory path.
+                       NOTE:
+                       When application launched with `uid` option,
+                       `env` option will not take effect at all."
+            />
+        </method>
+
+        <property name="isOnDesktop" type="b" access="read"/>
+
+        <method name="SendToDesktop">
+            <arg type="b" name="success" direction="out"/>
+        </method>
+
+        <method name="RemoveFromDesktop">
+            <arg type="b" name="success" direction="out"/>
+        </method>
+
+    </interface>
+</node>

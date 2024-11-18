@@ -3,8 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include "interface/namespace.h"
-
 #include <QObject>
 #include <QTime>
 #include <QDBusVariant>
@@ -14,6 +12,9 @@ class QJsonObject;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
+
+class NotificationSetting;
+class NotificationWorker;
 
 class SysItemModel : public QObject
 {
@@ -28,38 +29,48 @@ public:
         SHOWICON
     } SystemConfigurationItem;
 
-    explicit SysItemModel(QObject *parent = nullptr);
+    explicit SysItemModel(NotificationSetting *setting, QObject *parent = nullptr);
 
-    inline bool isDisturbMode() const {return m_isDisturbMode;}
+    Q_PROPERTY(bool disturbMode READ disturbMode WRITE setDisturbMode NOTIFY disturbModeChanged FINAL)
+    Q_PROPERTY(bool lockScreen READ lockScreen WRITE setLockScreen NOTIFY lockScreenChanged FINAL)
+    Q_PROPERTY(bool timeSlot READ timeSlot WRITE setTimeSlot NOTIFY timeSlotChanged FINAL)
+    Q_PROPERTY(int  bubbleCount READ bubbleCount WRITE setBubbleCount NOTIFY bubbleCountChanged FINAL)
+    Q_PROPERTY(QString timeStart READ timeStart WRITE setTimeStart NOTIFY timeStartChanged FINAL)
+    Q_PROPERTY(QString timeEnd READ timeEnd WRITE setTimeEnd NOTIFY timeEndChanged FINAL)
+
+    bool disturbMode() const;
     void setDisturbMode(const bool disturbMode);
 
-    inline bool isTimeSlot()const {return  m_isTimeSlot;}
+    bool timeSlot()const;
     void setTimeSlot(const bool timeSlot);
 
-    inline bool isLockScreen()const {return m_isLockScreen;}
+    bool lockScreen()const;
     void setLockScreen(const bool lockScreen);
 
-    inline QString timeStart()const {return m_timeStart;}
+    QString timeStart()const;
     void setTimeStart(const QString &timeStart);
 
-    inline QString timeEnd()const {return m_timeEnd;}
+    QString timeEnd()const;
     void setTimeEnd(const QString &timeEnd);
 
-    void onSettingChanged(uint item, const QDBusVariant &var);
+    int bubbleCount() const;
+    void setBubbleCount(int newBubbleCount);
+
+public Q_SLOTS:
+    void onSettingChanged(const QString &key);
 
 Q_SIGNALS:
-    void disturbModeChanged(bool isDisturbMode);
-    void timeSlotChanged(bool isTimeSlot);
-    void lockScreenChanged(bool isLockScreen);
+    void disturbModeChanged(bool disturbMode);
+    void timeSlotChanged(bool timeSlot);
+    void lockScreenChanged(bool lockScreen);
     void timeStartChanged(const QString &timeStart);
     void timeEndChanged(const QString &timeEnd);
+    void maxCountChanged(const int maxCount);
+
+    void bubbleCountChanged(const int bubbleCount);
 
 private:
-    bool m_isDisturbMode;//勿扰模式
-    bool m_isTimeSlot;//时间段
-    bool m_isLockScreen;//锁屏显示
-    QString m_timeStart;//开始时间
-    QString m_timeEnd;//结束时间
+    NotificationSetting *m_setting;
 };
 
 }
