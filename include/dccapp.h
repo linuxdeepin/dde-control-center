@@ -40,9 +40,6 @@ public Q_SLOTS:
     virtual QWindow *mainWindow() const;
     virtual QAbstractItemModel *navModel() const;
     virtual QSortFilterProxyModel *searchModel() const;
-    virtual void setShowPath(const QString &path);
-    virtual void addSearch(const QString &key, const QString &url);
-    virtual void removeSearch(const QString &key);
 
 Q_SIGNALS:
     void rootChanged(DccObject *root);

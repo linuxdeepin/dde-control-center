@@ -18,7 +18,6 @@ DccObject {
         parentName: "sound/outPut"
         displayName: qsTr("Output")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {

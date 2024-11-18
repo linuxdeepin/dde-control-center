@@ -20,7 +20,6 @@ Rectangle {
     ColumnLayout {
         id: layoutView
         width: parent.width
-        clip: true
         spacing: 0
         Repeater {
             id: repeater
@@ -43,6 +42,7 @@ Rectangle {
                 contentFlow: true
                 corners: getCornersForBackground(index, powerModeModel.count)
                 icon.name: model.icon
+                hoverEnabled: true
                 content: RowLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -70,7 +70,7 @@ Rectangle {
                 }
                 background: DccItemBackground {
                     separatorVisible: true
-                    highlightEnable: false
+                    backgroundType: DccObject.ClickStyle
                 }
 
                 MouseArea {

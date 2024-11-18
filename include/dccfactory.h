@@ -6,7 +6,6 @@
 
 #include <QObject>
 
-// #include <dccobject.h>
 namespace dccV25 {
 #define DccFactory_iid "org.deepin.dde.dcc-factory/v1.0"
 class DccObject;

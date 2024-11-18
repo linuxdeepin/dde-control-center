@@ -159,7 +159,7 @@ DccObject {
         // displayName: qsTr("你的图片")
         displayName: qsTr("系统壁纸")
         weight: 300
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
             model: dccData.model.wallpaperModel
@@ -180,7 +180,7 @@ DccObject {
         displayName: qsTr("每周推荐")
         weight: 300
         visible: false
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
             model: 10
@@ -193,7 +193,7 @@ DccObject {
         displayName: qsTr("炫彩")
         weight: 300
         visible: false
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
             model: 34
@@ -206,7 +206,7 @@ DccObject {
         displayName: qsTr("颜色")
         visible: false
         weight: 300
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
             model: 20
@@ -363,7 +363,7 @@ DccObject {
         displayName: qsTr("炫彩")
         visible: false
         weight: 800
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
             model: 9

@@ -287,6 +287,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
         return;
     }
     // metadata
+#if 0 // 文件夹有版本信息，不需要用metadata.json判断
     const QString metadataPath = plugin->path + "/metadata.json";
     QFile metadataFile(metadataPath);
     if (!metadataFile.open(QIODevice::ReadOnly)) {
@@ -304,6 +305,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
         updatePluginStatus(plugin, MetaDataErr | PluginEnd, "plugin's version is too low:" + metaData.value("Version").toString());
         return;
     }
+#endif
     updatePluginStatus(plugin, MetaDataEnd);
 }
 

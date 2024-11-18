@@ -17,7 +17,6 @@ DccObject {
         parentName: "touchscreen"
         displayName: qsTr("TouchScreen")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {

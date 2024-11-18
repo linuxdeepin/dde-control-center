@@ -14,7 +14,6 @@ DccObject {
     displayName: qsTr("Shortcuts")
     icon: "dcc_nav_keyboard" // TODO: shortcut icon required
     weight: parent.weight // 300
-    hasBackground: false
     page: DccSettingsView {
     }
 
@@ -26,7 +25,6 @@ DccObject {
         parentName: "shortcutSettingsView"
         displayName: qsTr("Shortcuts body")
         weight: 30
-        hasBackground: false
         pageType: DccObject.Item
         signal requestRestore
 
@@ -130,6 +128,7 @@ DccObject {
                     background: DccItemBackground {
                         id: background
                         separatorVisible: true
+                        backgroundType: DccObject.Normal
                     }
 
                     contentItem: ColumnLayout {
@@ -307,7 +306,6 @@ DccObject {
         parentName: "shortcutSettingsView"
         displayName: qsTr("Shortcuts bottom area view1")
         weight: 40
-        hasBackground: false
         pageType: DccObject.Item
 
         DccObject {

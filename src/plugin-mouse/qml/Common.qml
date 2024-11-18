@@ -16,7 +16,6 @@ DccObject {
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Common")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -31,7 +30,7 @@ DccObject {
         name: "ScrollSpeed"
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Scroll Speed")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         weight: 20
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -111,7 +110,7 @@ DccObject {
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Double Click Speed")
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: Rectangle {
             color: "transparent"
@@ -194,7 +193,7 @@ DccObject {
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Left Hand Mode")
         weight: 40
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             checked: dccData.leftHandState

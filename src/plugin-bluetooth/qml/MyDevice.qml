@@ -13,7 +13,6 @@ DccObject{
         parentName: "myDevice" + model.name
         displayName: qsTr("My Devices")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         visible: model.myDeviceVisiable
         page: Label {
@@ -29,7 +28,7 @@ DccObject{
         name: "myDeviceList"
         parentName: "myDevice" + model.name
         weight: 11
-        hasBackground: true
+        backgroundType: DccObject.Normal
         visible: model.myDeviceVisiable
         pageType: DccObject.Item
         page: BlueToothDeviceListView {

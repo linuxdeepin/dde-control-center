@@ -1,6 +1,3 @@
-\mainpage dde-control-center
-@brief dde-control-center
-
 # dde-control-center
 
 ## 接口变更记录

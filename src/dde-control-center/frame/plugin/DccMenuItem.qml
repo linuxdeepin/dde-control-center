@@ -18,7 +18,7 @@ DccEditorItem {
         icon.name: "arrow_ordinary_right"
     }
     onClicked: {
-        model.item.trigger()
+        DccApp.showPage(model.item)
         console.log(model.item.name, model.display, model.item.icon)
     }
 }

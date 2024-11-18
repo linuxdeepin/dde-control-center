@@ -16,7 +16,7 @@ DccObject {
         weight: 10
         parentName: "systemInfo"
         pageType: DccObject.Item
-        hasBackground: true
+        backgroundType: DccObject.Normal
         visible: !dccData.systemInfoMode().showDetail
         page: RowLayout {
             Image {
@@ -46,7 +46,7 @@ DccObject {
         weight: 20
         parentName: "systemInfo"
         pageType: DccObject.Item
-        hasBackground: true
+        backgroundType: DccObject.Normal
         visible: dccData.systemInfoMode().showDetail
         page: ColumnLayout{
             Layout.topMargin: 10
@@ -80,7 +80,7 @@ DccObject {
             weight: 10
             parentName: "nativeInfoGrp"
             displayName: qsTr("Computer name") + ":"
-            hasBackground: true
+            backgroundType: DccObject.Normal
             visible: dccData.systemInfoMode().showDetail
             pageType: DccObject.Editor
             page: RowLayout {
@@ -162,7 +162,7 @@ DccObject {
             weight: 20
             parentName: "nativeInfoGrp"
             displayName: qsTr("OS Name") + ":"
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Label {
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop

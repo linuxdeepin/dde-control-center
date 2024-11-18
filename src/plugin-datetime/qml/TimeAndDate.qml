@@ -14,7 +14,6 @@ DccObject {
         name: "dateTimeContent"
         parentName: "timeAndLang"
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -53,7 +52,7 @@ DccObject {
             parentName: "dateTimeGroup"
             displayName: qsTr("Auto sync time")
             weight: 10
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Switch {
                 checked: ntpSettings.ntpOn
@@ -69,7 +68,7 @@ DccObject {
             parentName: "dateTimeGroup"
             displayName: qsTr("System date and time")
             weight: 12
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             property bool showCustom
             property string customAddr
@@ -154,7 +153,7 @@ DccObject {
             displayName: qsTr("Server address")
             visible: dateAndTimeSettings && dateAndTimeSettings.showCustom
             weight: 13
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Item {
                 id: item
@@ -219,7 +218,7 @@ DccObject {
             parentName: "dateTimeGroup"
             displayName: qsTr("Use 24-hour format")
             weight: 14
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Switch {
                 checked: dccData.use24HourFormat
@@ -282,7 +281,7 @@ DccObject {
         parentName: "timezoneGroup"
         displayName: qsTr("system time zone")
         weight: 12
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: ComboBox {
             id: combo
@@ -329,7 +328,7 @@ DccObject {
         parentName: "timezoneGroup"
         displayName: qsTr("Timezone list")
         weight: 12
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: RowLayout {
             spacing: 10
@@ -372,7 +371,7 @@ DccObject {
     Component {
         id: itemZoneComp
         DccObject {
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Item
             property int shift: 8
             page: ItemDelegate {
@@ -447,7 +446,6 @@ DccObject {
                 }
                 background: DccItemBackground {
                     separatorVisible: true
-                    highlightEnable: false
                 }
             }
         }

@@ -13,7 +13,6 @@ DccObject{
     parentName: "bluetooth"
     weight: 10
     pageType: DccObject.Item
-    hasBackground: false
     page: DccGroupView {
         spacing: 0
         isGroup: false
@@ -25,7 +24,6 @@ DccObject{
             name: "blueToothAdapters" + model.name + index
             parentName: "bluetoothSetting"
             weight: 10
-            hasBackground: false
             pageType: DccObject.Item
 
             page: DccGroupView {

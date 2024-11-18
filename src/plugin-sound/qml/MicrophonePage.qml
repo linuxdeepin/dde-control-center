@@ -24,7 +24,6 @@ DccObject {
         parentName: "sound/inPut"
         displayName: qsTr("Input")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {

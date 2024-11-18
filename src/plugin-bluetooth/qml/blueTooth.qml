@@ -22,13 +22,13 @@ DccObject {
         connection: DccDBusInterface.SessionBus
 
         function errorSlot(adapters) {
-            console.log("bluetooth GetAdapters errorSlot : ",adapters)
+            console.log("bluetooth GetAdapters errorSlot : ", adapters)
         }
 
-        function onGetAdapters(adapters) {
-            console.log(" bluetooth onGetAdapters",adapters)
+        function getAdaptersSlot(adapters) {
+            console.log(" bluetooth onGetAdapters", adapters)
             if (adapters === "[]") {
-                 root.visible = false
+                root.visible = false
             } else {
                 root.visible = true
             }
@@ -38,13 +38,11 @@ DccObject {
             root.visible = true
         }
         function onAdapterRemoved(adapters) {
-            bluetoothDbus.callWithCallback("GetAdapters", "", onGetAdapters, errorSlot)
+            bluetoothDbus.callWithCallback("GetAdapters", [], getAdaptersSlot, errorSlot)
         }
 
         Component.onCompleted: {
-            callWithCallback("GetAdapters", "", onGetAdapters, errorSlot)
-            connectSignal("AdapterAdded",onAdapterAdded)
-            connectSignal("AdapterRemoved",onAdapterRemoved)
+            callWithCallback("GetAdapters", [], getAdaptersSlot, errorSlot)
         }
     }
 }

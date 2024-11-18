@@ -106,7 +106,7 @@ Control {
             case Qt.Key_Return:
                 var obj = dccModel.getObject(currentIndex)
                 if (obj) {
-                    obj.trigger()
+                    DccApp.showPage(obj)
                 }
                 break
             default:
@@ -143,8 +143,10 @@ Control {
                 height: 32
             }
             contentFlow: true
+            hoverEnabled: true
             background: DccItemBackground {
                 separatorVisible: false
+                backgroundType: DccObject.ClickStyle
             }
 
             content: RowLayout {
@@ -201,7 +203,7 @@ Control {
                 }
             }
             onClicked: {
-                model.item.trigger()
+                DccApp.showPage(model.item)
                 console.log(model.item.name, model.display, model.item.icon)
             }
         }

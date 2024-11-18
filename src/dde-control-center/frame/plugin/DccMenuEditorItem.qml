@@ -24,7 +24,7 @@ DccEditorItem {
     }
     onClicked: {
         if (model.item.children.length > 0) {
-            model.item.children[0].trigger()
+            DccApp.showPage(model.item.children[0])
         } else {
             console.warn(model.item.name, " MenuEditor nust include children", model.item.children.length)
         }

@@ -5,10 +5,11 @@
 #define DCCQUICKDBUSINTERFACE_H
 
 #include <QObject>
-#include <QQmlEngine>
+#include <QQmlParserStatus>
+#include <QtQml/qqml.h>
 
 namespace dccV25 {
-class DccQuickDBusInterface : public QObject
+class DccQuickDBusInterface : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
     QML_ELEMENT
@@ -17,7 +18,7 @@ class DccQuickDBusInterface : public QObject
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(QString inter READ interface WRITE setInterface NOTIFY interfaceChanged)
     Q_PROPERTY(BusType connection READ connection WRITE setConnection NOTIFY connectionChanged)
-    Q_PROPERTY(QStringList monitorProperties READ monitorProperties WRITE setMonitorProperties NOTIFY monitorPropertiesChanged)
+    Q_PROPERTY(QString suffix READ suffix WRITE setSuffix NOTIFY suffixChanged)
 public:
     explicit DccQuickDBusInterface(QObject *parent = nullptr);
     ~DccQuickDBusInterface() override;
@@ -36,27 +37,25 @@ public:
     void setInterface(const QString &interface);
     BusType connection() const;
     void setConnection(const BusType &connection);
-    QStringList monitorProperties() const;
-    void setMonitorProperties(const QStringList &monitorProperties);
+    // 属性前缀，防止属性与关键字冲突
+    QString suffix() const;
+    void setSuffix(const QString &suffix);
 
 public Q_SLOTS:
     bool callWithCallback(const QString &method, const QList<QVariant> &args, const QJSValue member, const QJSValue errorSlot);
-    bool connectSignal(const QString &signature, const QJSValue slot);
-    QVariant getProperty(const QString &propname);
-    void setProperty(const QString &propname, const QVariant &value);
 
 Q_SIGNALS:
     void serviceChanged(const QString &service);
     void pathChanged(const QString &path);
     void interfaceChanged(const QString &interface);
     void connectionChanged(const BusType &connection);
-    void monitorPropertiesChanged(const QStringList &monitorProperties);
-    // To prevent stuttering, the DBus interface uses asynchronous calls, and the correct properties can only be obtained after receiving the property Changed for the first time
-    void propertyChanged(const QVariantMap &properties);
+    void suffixChanged(const QString &suffix);
 
 protected:
     void connectNotify(const QMetaMethod &signal) override;
     void disconnectNotify(const QMetaMethod &signal) override;
+    void classBegin() override;
+    void componentComplete() override;
 
 protected:
     class Private;

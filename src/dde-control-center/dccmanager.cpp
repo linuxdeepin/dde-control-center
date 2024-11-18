@@ -13,6 +13,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
+#include <QElapsedTimer>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -53,7 +54,6 @@ DccManager::DccManager(QObject *parent)
     m_noParentObjects->setName("_noParent");
 
     m_root->setName("root");
-    m_root->setDefultObject(nullptr);
     m_root->setCanSearch(false);
     m_currentObjects.append(m_root);
     onObjectAdded(m_root);
@@ -149,7 +149,7 @@ void DccManager::addObject(DccObject *obj)
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
         if (o->parentName().isEmpty()) {
-            DccObject::Private::FromObject(m_noParentObjects)->addChild(o);
+            DccObject::Private::FromObject(m_noParentObjects)->addChild(o, false);
         } else {
             if (contains(m_hideModule, o)) {
                 DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
@@ -159,9 +159,9 @@ void DccManager::addObject(DccObject *obj)
             }
             if (!o->isVisibleToApp()) {
                 connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
-                DccObject::Private::FromObject(m_hideObjects)->addChild(o);
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
             } else if (!addObjectToParent(o)) {
-                DccObject::Private::FromObject(m_noAddObjects)->addChild(o);
+                DccObject::Private::FromObject(m_noAddObjects)->addChild(o, false);
             }
         }
 
@@ -171,7 +171,7 @@ void DccManager::addObject(DccObject *obj)
     objs.append(m_noAddObjects->getChildren());
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
-        if (DccObject *parentObj = findObject(o->parentName())) {
+        if (DccObject *parentObj = findParent(o)) {
             DccObject::Private::FromObject(m_noAddObjects)->removeChild(o);
             DccObject::Private::FromObject(parentObj)->addChild(o);
             objs = m_noAddObjects->getChildren();
@@ -197,10 +197,15 @@ void DccManager::showPage(const QString &url)
     if (url.isEmpty()) {
         showPage(m_root, QString());
     } else {
-        int i = url.indexOf('.');
-        QString cmd = i != -1 ? url.mid(i + 1, -1) : QString();
+        int i = url.indexOf('?');
+        QString cmd = i != -1 ? url.mid(i + 1) : QString();
         showPage(findObject(url.mid(0, i)), cmd);
     }
+}
+
+void DccManager::showPage(DccObject *obj)
+{
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
@@ -208,12 +213,24 @@ void DccManager::showPage(DccObject *obj, const QString &cmd)
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
 }
 
+void DccManager::toBack()
+{
+    int row = m_navModel->rowCount();
+    if (row < 3) {
+        showPage(m_root);
+    } else {
+        row = row - 3;
+        QString url = m_navModel->data(m_navModel->index(row, 0), NavigationModel::NavUrlRole).toString();
+        if (!url.isEmpty()) {
+            showPage(url);
+        }
+    }
+}
+
 QWindow *DccManager::mainWindow() const
 {
     return m_window;
 }
-
-void DccManager::setShowPath(const QString &path) { }
 
 void DccManager::showHelp()
 {
@@ -358,11 +375,31 @@ DccObject *DccManager::findObject(const QString &url)
     return nullptr;
 }
 
+DccObject *DccManager::findParent(const DccObject *obj)
+{
+    const QString &path = obj->parentName();
+    DccObject *p = qobject_cast<DccObject *>(obj->parent());
+    if (p) {
+        if (isEqual(path, p)) {
+            return p;
+        }
+        p = qobject_cast<DccObject *>(p->parent());
+        if (p && isEqual(path, p)) {
+            return p;
+        }
+    }
+    return findObject(path);
+}
+
 void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 {
     if (m_plugins->isDeleting() || !obj || (m_activeObject == obj && cmd.isEmpty()))
         return;
     // m_backwardBtn->setVisible(obj != m_root);
+    if (!cmd.isEmpty()) {
+        Q_EMIT obj->active(cmd);
+        return;
+    }
     QList<DccObject *> modules;
     DccObject *triggeredObj = obj;
     if (triggeredObj->pageType() == DccObject::MenuEditor && !triggeredObj->getChildren().isEmpty()) {
@@ -456,14 +493,6 @@ void DccManager::updateModuleConfig(const QString &key)
     }
 }
 
-void DccManager::onTriggered()
-{
-    DccObject *obj = qobject_cast<DccObject *>(sender());
-    if (obj) {
-        showPage(obj, QString());
-    }
-}
-
 void DccManager::onVisible(bool visible)
 {
     DccObject *obj = qobject_cast<DccObject *>(sender());
@@ -480,14 +509,14 @@ void DccManager::onVisible(bool visible)
             } else {
                 connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
                 removeObjectFromParent(o);
-                DccObject::Private::FromObject(m_hideObjects)->addChild(o);
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
             }
         }
         DccObject::Private::FromObject(m_hideObjects)->removeChild(obj);
         addObjectToParent(obj);
     } else {
         removeObjectFromParent(obj);
-        DccObject::Private::FromObject(m_hideObjects)->addChild(obj);
+        DccObject::Private::FromObject(m_hideObjects)->addChild(obj, false);
     }
 }
 
@@ -500,7 +529,6 @@ void DccManager::onObjectAdded(DccObject *obj)
         connect(o, &DccObject::childAdded, this, &DccManager::onObjectAdded);
         connect(o, &DccObject::childRemoved, this, &DccManager::onObjectRemoved);
         connect(o, &DccObject::displayNameChanged, this, &DccManager::onObjectDisplayChanged);
-        connect(o, &DccObject::triggered, this, &DccManager::onTriggered, Qt::QueuedConnection);
         connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
         m_searchModel->addSearchData(obj, QString(), QString());
         objs.append(o->getChildren());
@@ -515,7 +543,6 @@ void DccManager::onObjectRemoved(DccObject *obj)
         auto o = objs.takeFirst();
         disconnect(o, &DccObject::childAdded, this, nullptr);
         disconnect(o, &DccObject::childRemoved, this, nullptr);
-        disconnect(o, &DccObject::triggered, this, nullptr);
         disconnect(o, &DccObject::displayNameChanged, this, nullptr);
         m_searchModel->removeSearchData(o, QString());
         objs.append(o->getChildren());
@@ -540,7 +567,7 @@ void DccManager::onObjectDisplayChanged()
 
 bool DccManager::addObjectToParent(DccObject *obj)
 {
-    if (DccObject *parentObj = findObject(obj->parentName())) {
+    if (DccObject *parentObj = findParent(obj)) {
         DccObject::Private::FromObject(parentObj)->addChild(obj);
         return true;
     }

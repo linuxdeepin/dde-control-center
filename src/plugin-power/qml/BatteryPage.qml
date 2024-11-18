@@ -14,7 +14,6 @@ DccObject {
         parentName: "power/onBattery"
         displayName: qsTr("Screen and Suspend")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -190,7 +189,6 @@ DccObject {
         parentName: "power/onBattery"
         displayName: qsTr("Low Battery")
         weight: 500
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -305,7 +303,6 @@ DccObject {
         parentName: "power/onBattery"
         displayName: qsTr("Battery Management")
         weight: 800
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {

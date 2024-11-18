@@ -9,18 +9,17 @@ import org.deepin.dtk 1.0 as D
 D.ItemDelegate {
     id: root
     property alias separatorVisible: background.separatorVisible
+    property alias backgroundType: background.backgroundType
     property var item: model.item
 
     Layout.fillWidth: true
-    backgroundVisible: false
+    backgroundVisible: backgroundType & 0x01
     enabled: model.item.enabledToApp
     checkable: false
     topPadding: topInset
     bottomPadding: bottomInset
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
     padding: 0
-    leftPadding: 10
-    rightPadding: 10
 
     contentItem: model.item.getSectionItem(this)
     background: DccItemBackground {

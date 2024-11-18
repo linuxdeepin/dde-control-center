@@ -9,6 +9,7 @@ import org.deepin.dtk.style 1.0 as DS
 D.ItemDelegate {
     id: root
     property alias separatorVisible: background.separatorVisible
+    property alias backgroundType: background.backgroundType
     property var item: model.item
     property var rightItem: null
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
@@ -22,6 +23,10 @@ D.ItemDelegate {
     bottomPadding: bottomInset
     leftPadding: 10
     rightPadding: 8
+    hoverEnabled: backgroundType &0x02
+    checked: backgroundType& 0x08
+    cascadeSelected: !checked
+
     icon {
         name: model.item.icon
         source: model.item.iconSource
@@ -78,6 +83,12 @@ D.ItemDelegate {
         id: background
         separatorVisible: false
     }
+    onClicked: {
+        if(backgroundType &0x04){
+            model.item.active("")
+        }
+    }
+
     Component.onCompleted: {
         model.item.parentItem = root
     }

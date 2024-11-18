@@ -16,7 +16,6 @@ DccObject {
         name: "developTitle"
         parentName: "developerMode"
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: Label {
             leftPadding: 15
@@ -39,7 +38,7 @@ DccObject {
             name: "developerModeStatus"
             parentName: "developerModeSetting"
             pageType: DccObject.Item
-            hasBackground: true
+            backgroundType: DccObject.Normal
             weight: 20
             page: RowLayout {
                 width: parent.width
@@ -334,7 +333,6 @@ DccObject {
             name: "developTips"
             parentName: "developerModeSetting"
             weight: 40
-            hasBackground: false
             pageType: DccObject.Item
             page: Label {
                 height: 30
@@ -360,7 +358,6 @@ DccObject {
         name: "developDebugTitle"
         parentName: "developerMode"
         weight: 50
-        hasBackground: false
         pageType: DccObject.Item
         page: Label {
             leftPadding: 15
@@ -378,7 +375,7 @@ DccObject {
         displayName: qsTr("System logging level")
         description: qsTr("Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.")
         weight: 60
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page:  Row{
             ComboBox {

@@ -7,6 +7,7 @@ Rectangle {
     id: root
     property real size: 16
     property bool checked: true
+    property alias mouseEnabled: mouseArea.enabled
     signal clicked
 
     implicitHeight: size
@@ -25,6 +26,7 @@ Rectangle {
         source: "dcc_checked"
     }
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton
         onClicked: root.clicked()

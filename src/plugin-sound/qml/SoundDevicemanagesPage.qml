@@ -14,7 +14,6 @@ DccObject {
         parentName: "sound/deviceManger"
         displayName: qsTr("Output Devices")
         description: qsTr("Choose whether to enable the device")
-        hasBackground: false
         weight: 10
         pageType: DccObject.Editor
     }
@@ -23,7 +22,7 @@ DccObject {
         parentName: "sound/deviceManger"
         weight: 20
         visible: dccData.model().enableSoundEffect
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DeviceListView {
             model: dccData.model().soundOutputDeviceModel()
@@ -37,7 +36,6 @@ DccObject {
         parentName: "sound/deviceManger"
         displayName: qsTr("Input Devices")
         description: qsTr("Choose whether to enable the device")
-        hasBackground: false
         weight: 30
         pageType: DccObject.Editor
     }
@@ -46,7 +44,7 @@ DccObject {
         parentName: "sound/deviceManger"
         weight: 40
         visible: dccData.model().enableSoundEffect
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DeviceListView {
             model: dccData.model().soundInputDeviceModel()

@@ -16,7 +16,6 @@ DccObject {
         parentName: "KeyboardCommon"
         displayName: qsTr("Common")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -31,7 +30,7 @@ DccObject {
         name: "RepeatDelay"
         parentName: "KeyboardCommon"
         displayName: qsTr("Repeat delay")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         weight: 20
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -98,7 +97,7 @@ DccObject {
         name: "RepeatRateGroup"
         parentName: "KeyboardCommon"
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {
             spacing: 5
@@ -111,7 +110,7 @@ DccObject {
         parentName: "RepeatRateGroup"
         displayName: qsTr("Repeat rate")
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: Rectangle {
             color: "transparent"
@@ -186,7 +185,7 @@ DccObject {
         parentName: "RepeatRateGroup"
         displayName: qsTr("Numeric Keypad")
         weight: 40
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: TextField {
             placeholderText: qsTr("test here")
@@ -201,7 +200,7 @@ DccObject {
         parentName: "KeyboardCommon"
         displayName: qsTr("Numeric Keypad")
         weight: 40
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {
             spacing: 5
@@ -213,7 +212,7 @@ DccObject {
         parentName: "KeypadSettings"
         displayName: qsTr("Numeric Keypad")
         weight: 40
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             checked: dccData.numLock
@@ -227,7 +226,7 @@ DccObject {
         parentName: "KeypadSettings"
         displayName: qsTr("Caps lock prompt")
         weight: 50
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             checked: dccData.capsLock

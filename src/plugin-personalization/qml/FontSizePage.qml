@@ -14,7 +14,7 @@ DccObject {
         name: "fontSize"
         parentName: "personalization/font"
         displayName: qsTr("Size")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -60,7 +60,7 @@ DccObject {
         parentName: "personalization/font"
         displayName: qsTr("Standard Font")
         weight: 100
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
             flat: true
@@ -88,7 +88,7 @@ DccObject {
         parentName: "personalization/font"
         displayName: qsTr("Monospaced Font")
         weight: 200
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
             flat: true

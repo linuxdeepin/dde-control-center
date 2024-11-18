@@ -179,6 +179,7 @@ void DccRepeater::createdItem(int index, QObject *obj)
     QObject *object = d->model->object(index, QQmlIncubator::AsynchronousIfNested);
 
     DccObject *dccObj = qmlobject_cast<DccObject*>(object);
+    dccObj->setParent(parent());
     DccApp::instance()->addObject(dccObj);
 
     emit objAdded(index, object);
