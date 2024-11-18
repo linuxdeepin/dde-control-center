@@ -10,8 +10,6 @@
 namespace dccV25 {
 // static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.NavigationModel");
 
-enum DccModelRole { NavTypeRole = Qt::UserRole + 300, NavUrlRole };
-
 enum NavType {
     Separator,
     Middle,

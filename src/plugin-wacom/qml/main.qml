@@ -16,7 +16,6 @@ DccObject {
         parentName: "wacom"
         displayName: qsTr("wacom")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -33,7 +32,7 @@ DccObject {
         parentName: "wacom"
         displayName: qsTr("Wacom Mode")
         weight: 20
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: ComboBox {
             model: [qsTr("Pen Mode"), qsTr("Mouse Mode")]
@@ -48,7 +47,7 @@ DccObject {
         name: "pressure"
         parentName: "wacom"
         displayName: qsTr("Pressure Sensitivity")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         weight: 30
         pageType: DccObject.Item
         page: ColumnLayout {

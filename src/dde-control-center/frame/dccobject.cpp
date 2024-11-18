@@ -22,17 +22,16 @@ DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
 }
 
 DccObject::Private::Private(DccObject *obj)
-    : q_ptr(obj)
+    : m_badge(0)
+    , m_pageType(Menu)
+    , m_weight(-1)
+    , m_flags(0)
+    , q_ptr(obj)
     , m_parent(nullptr)
     , m_currentObject(nullptr)
-    , m_defultObject(nullptr)
     , m_page(nullptr)
     , m_sectionItem(nullptr)
     , m_parentItem(nullptr)
-    , m_weight(-1)
-    , m_badge(0)
-    , m_pageType(Menu)
-    , m_flags(0)
 {
 }
 
@@ -53,7 +52,9 @@ DccObject::Private::~Private()
     while (!m_children.isEmpty()) {
         DccObject *child = m_children.first();
         removeChild(0);
-        delete child;
+        if (child->parent() == q_ptr) {
+            delete child;
+        }
     }
 }
 
@@ -96,7 +97,7 @@ bool DccObject::Private::addChild(DccObject::Private *child)
     return addChild(child->q_ptr);
 }
 
-bool DccObject::Private::addChild(DccObject *child)
+bool DccObject::Private::addChild(DccObject *child, bool updateParent)
 {
     if (!child) {
         return false;
@@ -113,7 +114,9 @@ bool DccObject::Private::addChild(DccObject *child)
     Q_EMIT q_ptr->childAboutToBeAdded(q_ptr, index);
     m_children.insert(m_children.cbegin() + index, child);
     DccObject::Private::FromObject(child)->SetParent(q_ptr);
-    child->setParent(q_ptr);
+    if (updateParent) {
+        child->setParent(q_ptr);
+    }
     Q_EMIT q_ptr->childAdded(child);
     Q_EMIT q_ptr->childrenChanged(m_children);
     return true;
@@ -130,7 +133,6 @@ void DccObject::Private::removeChild(int index)
     Q_EMIT q_ptr->childAboutToBeRemoved(q_ptr, index);
     m_children.erase(m_children.cbegin() + index);
     DccObject::Private::FromObject(child)->SetParent(nullptr);
-    child->setParent(nullptr);
     Q_EMIT q_ptr->childRemoved(child);
     Q_EMIT q_ptr->childrenChanged(m_children);
 }
@@ -270,12 +272,12 @@ void DccObject::setParentName(const QString &parentName)
     }
 }
 
-int DccObject::weight() const
+quint32 DccObject::weight() const
 {
     return p_ptr->m_weight;
 }
 
-void DccObject::setWeight(int weight)
+void DccObject::setWeight(quint32 weight)
 {
     if (p_ptr->m_weight != weight) {
         p_ptr->m_weight = weight;
@@ -346,12 +348,12 @@ QUrl DccObject::iconSource() const
     return p_ptr->m_iconSource;
 }
 
-int DccObject::badge() const
+qint8 DccObject::badge() const
 {
     return p_ptr->m_badge;
 }
 
-void DccObject::setBadge(int badge)
+void DccObject::setBadge(qint8 badge)
 {
     if (p_ptr->m_badge != badge) {
         p_ptr->m_badge = badge;
@@ -405,15 +407,17 @@ void DccObject::setCanSearch(bool canSearch)
     }
 }
 
-bool DccObject::hasBackground() const
+DccObject::BackgroundTypes DccObject::backgroundType() const
 {
-    return p_ptr->getFlagState(DCC_HASBACKGROUND);
+    return BackgroundTypes(p_ptr->m_flags & DCC_MASK_BGTYPE);
 }
 
-void DccObject::setHasBackground(bool hasBackground)
+void DccObject::setBackgroundType(BackgroundTypes type)
 {
-    if (p_ptr->setFlagState(DCC_HASBACKGROUND, hasBackground)) {
-        Q_EMIT hasBackgroundChanged(hasBackground);
+    if (backgroundType() != type) {
+        p_ptr->m_flags &= DCC_MASK_NOBGTYPE;
+        p_ptr->m_flags |= type;
+        Q_EMIT backgroundTypeChanged(type);
     }
 }
 
@@ -433,29 +437,12 @@ void DccObject::setCurrentObject(DccObject *obj)
     }
 }
 
-DccObject *DccObject::defultObject()
-{
-    if (p_ptr->getFlagState(DCC_CUSTOM_DEFULT)) {
-        return p_ptr->m_defultObject;
-    } else {
-        return p_ptr->getChild(0);
-    }
-}
-
-void DccObject::setDefultObject(DccObject *obj)
-{
-    if (p_ptr->setFlagState(DCC_CUSTOM_DEFULT, true) || p_ptr->m_defultObject != obj) {
-        p_ptr->m_defultObject = obj;
-        Q_EMIT defultObjectChanged(p_ptr->m_defultObject);
-    }
-}
-
-uint DccObject::pageType() const
+quint8 DccObject::pageType() const
 {
     return p_ptr->m_pageType;
 }
 
-void DccObject::setPageType(uint type)
+void DccObject::setPageType(quint8 type)
 {
     if (p_ptr->m_pageType != type) {
         p_ptr->m_pageType = type;
@@ -552,8 +539,4 @@ const QVector<DccObject *> &DccObject::getChildren() const
     return p_ptr->getChildren();
 }
 
-void DccObject::trigger()
-{
-    Q_EMIT triggered();
-}
 } // namespace dccV25

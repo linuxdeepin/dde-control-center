@@ -51,11 +51,13 @@ public Q_SLOTS:
     void removeObject(DccObject *obj) override;
     void removeObject(const QString &name) override;
     void showPage(const QString &url) override;
+    void showPage(DccObject *obj);
     void showPage(DccObject *obj, const QString &cmd) override;
+    void toBack();
     QWindow *mainWindow() const override;
     QAbstractItemModel *navModel() const override;
     QSortFilterProxyModel *searchModel() const override;
-    void setShowPath(const QString &path) override;
+
     void showHelp();
     // DBus Search
     QString search(const QString &json);
@@ -74,11 +76,11 @@ private:
     bool contains(const QSet<QString> &urls, const DccObject *obj);
     bool isEqual(const QString &url, const DccObject *obj);
     DccObject *findObject(const QString &url);
+    DccObject *findParent(const DccObject *obj);
 
 private Q_SLOTS:
     void doShowPage(DccObject *obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
-    void onTriggered();
     void onVisible(bool visible);
     void onObjectAdded(DccObject *obj);
     void onObjectRemoved(DccObject *obj);

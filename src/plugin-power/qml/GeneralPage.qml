@@ -14,7 +14,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Power Plans")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -39,7 +38,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Power Saving Settings")
         weight: 200
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -164,7 +162,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Wakeup Settings")
         weight: 500
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -219,7 +216,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Shutdown Settings")
         weight: 700
-        hasBackground: false
         visible: dccData.model.enableScheduledShutdown !== "Hidden"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
         pageType: DccObject.Item
@@ -401,7 +397,6 @@ DccObject {
                                 }
                                 background: DccItemBackground {
                                     separatorVisible: true
-                                    highlightEnable: false
                                 }
 
                                 function handleSelected(index) {

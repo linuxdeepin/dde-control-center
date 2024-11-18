@@ -14,13 +14,11 @@ DccObject {
 
     visible: false
     DccDBusInterface {
-       service: "org.deepin.dde.Keybinding1"
-       path: "/org/deepin/dde/Keybinding1"
-       inter: "org.deepin.dde.Keybinding1"
-       connection: DccDBusInterface.SessionBus
-       monitorProperties: ["NumLockState"]
-       onPropertyChanged: function (properties) {
-           keyboard.visible = true
-       }
+        property var numLockState
+        service: "org.deepin.dde.Keybinding1"
+        path: "/org/deepin/dde/Keybinding1"
+        inter: "org.deepin.dde.Keybinding1"
+        connection: DccDBusInterface.SessionBus
+        onNumLockStateChanged: keyboard.visible = true
     }
 }

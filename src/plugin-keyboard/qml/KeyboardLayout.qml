@@ -15,7 +15,6 @@ DccObject {
         parentName: "KeyboardLayout"
         displayName: qsTr("Keyboard layout list")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: RowLayout {
             Label {
@@ -61,7 +60,7 @@ DccObject {
                 parentName: "KeyboardLayoutGroup"
                 weight: 10 + index * 2
                 pageType: DccObject.Item
-                hasBackground: true
+                backgroundType: DccObject.Normal
                 page: ItemDelegate {
                     id: itemDelegate
                     property bool isCurrentLang: dccData.currentLayout === dccData.userLayoutAt(index, true)
@@ -108,7 +107,6 @@ DccObject {
 
                     background: DccItemBackground {
                         separatorVisible: true
-                        highlightEnable: false
                     }
 
                     onClicked: {
@@ -127,7 +125,7 @@ DccObject {
             parentName: "KeyboardLayoutGroup"
             weight: 999
             pageType: DccObject.Item
-            hasBackground: true
+            backgroundType: DccObject.Normal
             page: Item {
                 implicitHeight: 40
                 D.Button {

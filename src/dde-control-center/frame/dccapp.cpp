@@ -40,20 +40,20 @@ DccObject *DccApp::activeObject() const
     return nullptr;
 }
 
-DccObject *DccApp::object(const QString &name)
+DccObject *DccApp::object(const QString &)
 {
     return nullptr;
 }
 
-void DccApp::addObject(DccObject *obj) { }
+void DccApp::addObject(DccObject *) { }
 
-void DccApp::removeObject(DccObject *obj) { }
+void DccApp::removeObject(DccObject *) { }
 
-void DccApp::removeObject(const QString &name) { }
+void DccApp::removeObject(const QString &) { }
 
-void DccApp::showPage(const QString &url) { }
+void DccApp::showPage(const QString &) { }
 
-void DccApp::showPage(DccObject *obj, const QString &cmd) { }
+void DccApp::showPage(DccObject *, const QString &) { }
 
 QWindow *DccApp::mainWindow() const
 {
@@ -69,11 +69,5 @@ QSortFilterProxyModel *DccApp::searchModel() const
 {
     return nullptr;
 }
-
-void DccApp::setShowPath(const QString &path) { }
-
-void DccApp::addSearch(const QString &key, const QString &url) { }
-
-void DccApp::removeSearch(const QString &key) { }
 
 } // namespace dccV25

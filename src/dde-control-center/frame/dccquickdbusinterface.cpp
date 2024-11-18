@@ -12,6 +12,7 @@
 #include <QDBusPendingCall>
 #include <QDBusUnixFileDescriptor>
 #include <QDBusVariant>
+#include <QJSPrimitiveValue>
 #include <QLoggingCategory>
 
 namespace dccV25 {
@@ -19,11 +20,10 @@ static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.quickDBus");
 static const QString &PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 static const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");
 
-DccQuickDBusCallback::DccQuickDBusCallback(QJSValue member, QJSValue errorSlot, bool autoDelete, QObject *parent)
+DccQuickDBusCallback::DccQuickDBusCallback(QJSValue member, QJSValue errorSlot, QObject *parent)
     : QObject(parent)
     , m_member(member)
     , m_errorSlot(errorSlot)
-    , m_autoDelete(autoDelete)
 {
 }
 
@@ -173,9 +173,7 @@ void DccQuickDBusCallback::returnMethod(const QDBusMessage &msg)
     if (m_member.isCallable()) {
         m_member.call(arglist);
     }
-    if (m_autoDelete) {
-        deleteLater();
-    }
+    deleteLater();
 }
 
 void DccQuickDBusCallback::errorMethod(const QDBusError &error, const QDBusMessage &)
@@ -185,13 +183,95 @@ void DccQuickDBusCallback::errorMethod(const QDBusError &error, const QDBusMessa
     if (m_member.isCallable()) {
         m_errorSlot.call(arglist);
     }
-    if (m_autoDelete) {
-        deleteLater();
+    deleteLater();
+}
+
+DccDBusSignalCallback::DccDBusSignalCallback(const QMetaMethod &method, QObject *parent)
+    : QObject(parent)
+    , m_method(method)
+    , m_target(parent)
+{
+}
+
+DccDBusSignalCallback::~DccDBusSignalCallback() { }
+
+void DccDBusSignalCallback::returnMethod(const QDBusMessage &msg)
+{
+    QVariantList arglist(m_method.parameterCount());
+    int i = 0;
+    for (auto &&v : msg.arguments()) {
+        arglist[i] = DccQuickDBusCallback::toValue(v);
+        i++;
+        if (i > arglist.size()) {
+            break;
+        }
+    }
+
+    switch (arglist.size()) {
+    case 0:
+        m_method.invoke(m_target);
+        break;
+    case 1:
+        m_method.invoke(m_target, arglist.at(0));
+        break;
+    case 2:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1));
+        break;
+    case 3:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2));
+        break;
+    case 4:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3));
+        break;
+    case 5:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3), arglist.at(4));
+        break;
+    case 6:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3), arglist.at(4), arglist.at(5));
+        break;
+    case 7:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3), arglist.at(4), arglist.at(5), arglist.at(6));
+        break;
+    case 8:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3), arglist.at(4), arglist.at(5), arglist.at(6), arglist.at(7));
+        break;
+    default:
+        m_method.invoke(m_target, arglist.at(0), arglist.at(1), arglist.at(2), arglist.at(3), arglist.at(4), arglist.at(5), arglist.at(6), arglist.at(7), arglist.at(8));
+        break;
     }
 }
 
+class DBusPropertySignalSpy : public QObject
+{
+public:
+    typedef std::function<void(const char *name, const QVariant &value)> PropertyCallbackFunc;
+
+    explicit DBusPropertySignalSpy(PropertyCallbackFunc fun, QObject *parent = nullptr)
+        : QObject(parent)
+        , m_propertyCallbackFunc(fun)
+    {
+    }
+
+    int qt_metacall(QMetaObject::Call c, int id, void **arguments) override
+    {
+        QObject *target = sender();
+        int signalIndex = id;
+        id = QObject::qt_metacall(c, id, arguments);
+        if (id < 0 || c != QMetaObject::InvokeMetaMethod)
+            return id;
+        const QMetaProperty prop = target->metaObject()->property(signalIndex);
+        m_propertyCallbackFunc(prop.name(), prop.read(target));
+        return id;
+    }
+
+protected:
+    PropertyCallbackFunc m_propertyCallbackFunc;
+};
+
+//////////////////////////////////////
 DccQuickDBusInterface::Private::Private(DccQuickDBusInterface *q)
     : q_ptr(q)
+    , m_propertySpy(new DBusPropertySignalSpy(std::bind(&DccQuickDBusInterface::Private::onPropertySpy, this, std::placeholders::_1, std::placeholders::_2), this))
     , m_connectionType(SessionBus)
     , m_connection(QDBusConnection::connectToBus(QDBusConnection::SessionBus, QString::number((quintptr)q)))
 {
@@ -208,15 +288,24 @@ void DccQuickDBusInterface::Private::getAllPropertys()
 
 void DccQuickDBusInterface::Private::onAllProperties(const QVariantMap &changedProperties)
 {
-    QVariantMap properties;
     for (QVariantMap::const_iterator it = changedProperties.cbegin(); it != changedProperties.cend(); ++it) {
-        if (m_monitorProperties.isEmpty() || m_monitorProperties.contains(it.key())) {
+        QString propName;
+        if (m_suffix.isEmpty()) {
+            propName = it.key();
+            propName[0] = propName.at(0).toLower();
+        } else {
+            propName = m_suffix + it.key();
+        }
+        if (m_mapProperties.contains(propName)) {
+            if (m_mapProperties.value(propName).isEmpty()) {
+                m_mapProperties[propName] = it.key();
+            }
             QVariant v = DccQuickDBusCallback::toValue(it.value());
-            m_propertyMap.insert(it.key(), v);
-            properties.insert(it.key(), v);
+            m_propertyMap.insert(propName, v);
+            // setProperty会触发属性变化信号
+            q_ptr->setProperty(propName.toLatin1(), v);
         }
     }
-    Q_EMIT q_ptr->propertyChanged(properties);
 }
 
 void DccQuickDBusInterface::Private::onGetPropertiesErr(const QDBusError &e)
@@ -229,6 +318,30 @@ void DccQuickDBusInterface::Private::onPropertiesChanged(const QString &interfac
     Q_UNUSED(interfaceName)
     Q_UNUSED(invalidatedProperties)
     onAllProperties(changedProperties);
+}
+
+QVariant DccQuickDBusInterface::Private::getProperty(const QString &propname)
+{
+    return m_propertyMap.value(propname, QVariant());
+}
+
+void DccQuickDBusInterface::Private::setProperty(const QString &propname, const QVariant &value)
+{
+    const QString prop = m_mapProperties.value(propname, propname);
+    QDBusMessage msg = QDBusMessage::createMethodCall(m_service, m_path, PropertiesInterface, QStringLiteral("Set"));
+    msg << m_interface << prop << QVariant::fromValue(QDBusVariant(value));
+    m_connection.asyncCall(msg);
+}
+
+void DccQuickDBusInterface::Private::onPropertySpy(const char *propname, const QVariant &value)
+{
+    QVariant v = value;
+    if (v.canConvert<QJSValue>()) {
+        v = value.value<QJSValue>().toVariant();
+    }
+    if (m_propertyMap.value(propname) != v) {
+        setProperty(propname, v);
+    }
 }
 
 ////////////////////////////////////////////////
@@ -297,48 +410,62 @@ void DccQuickDBusInterface::setConnection(const BusType &connection)
     }
 }
 
-QStringList DccQuickDBusInterface::monitorProperties() const
+QString DccQuickDBusInterface::suffix() const
 {
-    return p_ptr->m_monitorProperties;
+    return p_ptr->m_suffix;
 }
 
-void DccQuickDBusInterface::setMonitorProperties(const QStringList &monitorProperties)
+void DccQuickDBusInterface::setSuffix(const QString &suffix)
 {
-    if (p_ptr->m_monitorProperties != monitorProperties) {
-        p_ptr->m_monitorProperties = monitorProperties;
-        Q_EMIT monitorPropertiesChanged(p_ptr->m_monitorProperties);
+    if (p_ptr->m_suffix != suffix) {
+        p_ptr->m_suffix = suffix;
+        Q_EMIT suffixChanged(p_ptr->m_suffix);
     }
 }
 
 bool DccQuickDBusInterface::callWithCallback(const QString &method, const QList<QVariant> &args, const QJSValue member, const QJSValue errorSlot)
 {
-    DccQuickDBusCallback *callback = new DccQuickDBusCallback(member, errorSlot, true, this);
+    DccQuickDBusCallback *callback = new DccQuickDBusCallback(member, errorSlot, this);
     QDBusMessage msg = QDBusMessage::createMethodCall(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, method);
     msg.setArguments(args);
     return p_ptr->m_connection.callWithCallback(msg, callback, SLOT(returnMethod(QDBusMessage)), SLOT(errorMethod(QDBusError, QDBusMessage)));
 }
 
-bool DccQuickDBusInterface::connectSignal(const QString &signature, const QJSValue slot)
-{
-    DccQuickDBusCallback *callback = new DccQuickDBusCallback(slot, QJSValue(), false, this);
-    return p_ptr->m_connection.connect(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, signature, callback, SLOT(returnMethod(QDBusMessage)));
-}
-
-QVariant DccQuickDBusInterface::getProperty(const QString &propname)
-{
-    return p_ptr->m_propertyMap.value(propname, QVariant());
-}
-
-void DccQuickDBusInterface::setProperty(const QString &propname, const QVariant &value)
-{
-    QDBusMessage msg = QDBusMessage::createMethodCall(p_ptr->m_service, p_ptr->m_path, PropertiesInterface, QStringLiteral("Set"));
-    msg << p_ptr->m_interface << propname << QVariant::fromValue(QDBusVariant(value));
-    p_ptr->m_connection.asyncCall(msg);
-}
-
 void DccQuickDBusInterface::connectNotify(const QMetaMethod &signal)
 {
-    if (signal.name() == "propertyChanged") {
+    QObject::connectNotify(signal);
+}
+
+void DccQuickDBusInterface::disconnectNotify(const QMetaMethod &signal)
+{
+    QObject::disconnectNotify(signal);
+}
+
+void DccQuickDBusInterface::classBegin() { }
+
+void DccQuickDBusInterface::componentComplete()
+{
+    static const QStringList ReservedPropertyNames{ "service", "path", "inter", "connection", "suffix" };
+    const QMetaObject *mo = this->metaObject();
+    const int count = mo->propertyCount();
+    for (int i = mo->propertyOffset(); i < count; ++i) {
+        const QMetaProperty &property = mo->property(i);
+        if (!ReservedPropertyNames.contains(property.name())) {
+            p_ptr->m_mapProperties.insert(property.name(), QString());
+            if (property.hasNotifySignal()) {
+                QMetaObject::connect(this, property.notifySignalIndex(), p_ptr->m_propertySpy, i);
+            }
+        }
+    }
+    const int mcount = mo->methodCount();
+    for (int i = mo->methodOffset(); i < mcount; ++i) {
+        const QMetaMethod &m = mo->method(i);
+        if (m.methodType() == 2 && m.name().startsWith("on")) {
+            DccDBusSignalCallback *callback = new DccDBusSignalCallback(m, this);
+            p_ptr->m_connection.connect(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, m.name().mid(2), callback, SLOT(returnMethod(QDBusMessage)));
+        }
+    }
+    if (!p_ptr->m_mapProperties.isEmpty()) {
         p_ptr->getAllPropertys();
         p_ptr->m_connection.connect(p_ptr->m_service,
                                     p_ptr->m_path,
@@ -349,12 +476,6 @@ void DccQuickDBusInterface::connectNotify(const QMetaMethod &signal)
                                     p_ptr,
                                     SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
     }
-    QObject::connectNotify(signal);
-}
-
-void DccQuickDBusInterface::disconnectNotify(const QMetaMethod &signal)
-{
-    QObject::disconnectNotify(signal);
 }
 
 } // namespace dccV25

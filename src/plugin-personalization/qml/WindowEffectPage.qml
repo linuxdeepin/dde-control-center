@@ -156,7 +156,7 @@ DccObject {
         weight: 600
         visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal
         pageType: DccObject.Item
-        hasBackground: true
+        backgroundType: DccObject.Normal
         page: ColumnLayout {
             Layout.fillHeight: true
             Label {
@@ -207,7 +207,7 @@ DccObject {
         displayName: qsTr("Scroll Bars")
         visible: dccData.model.scrollBarPolicyConfig !== "Hidden" && scrollBarObject.hasDBusProperty
         weight: 700
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
             flat: true
@@ -232,16 +232,12 @@ DccObject {
         }
 
         DccDBusInterface {
+            property var qtScrollBarPolicy
             service: "org.deepin.dde.Appearance1"
             path: "/org/deepin/dde/Appearance1"
             inter: "org.deepin.dde.Appearance1"
             connection: DccDBusInterface.SessionBus
-            monitorProperties: ["QtScrollBarPolicy"]
-            onPropertyChanged: function (properties) {
-                if (properties.hasOwnProperty("QtScrollBarPolicy")) {
-                    scrollBarObject.hasDBusProperty = true
-                }
-            }
+            onQtScrollBarPolicyChanged:scrollBarObject.hasDBusProperty = true
         }
     }
 
@@ -252,7 +248,7 @@ DccObject {
         description: qsTr("If enabled, more content is displayed in the window.")
         visible: dccData.model.compactDisplayConfig !== "Hidden"
         weight: 700
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             enabled: dccData.model.compactDisplayConfig !== "Disabled"
@@ -269,7 +265,7 @@ DccObject {
         displayName: qsTr("Title Bar Height")
         description: qsTr("Only suitable for application window title bars drawn by the window manager.")
         weight: 700
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
             flat: true

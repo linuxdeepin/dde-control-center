@@ -119,7 +119,7 @@ QString ControlCenterDBusAdaptor::GetAllModule()
         QJsonObject obj;
         obj.insert("url", urlInfo.second.at(0));
         obj.insert("displayName", urlInfo.second.at(1));
-        obj.insert("weight", urlInfo.first->weight());
+        obj.insert("weight", (int)(urlInfo.first->weight()));
         arr.append(obj);
         const QList<DccObject *> &children = urlInfo.first->getChildren();
         for (auto it = children.crbegin(); it != children.crend(); ++it)

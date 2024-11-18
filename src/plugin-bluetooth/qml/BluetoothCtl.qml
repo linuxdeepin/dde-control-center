@@ -15,7 +15,7 @@ DccObject{
         displayName: model.name
         pageType: DccObject.Item
         weight: 10
-        hasBackground: true
+        backgroundType: DccObject.Normal
         page: RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -183,7 +183,6 @@ DccObject{
         icon: "audio"
         pageType: DccObject.Item
         weight: 20
-        hasBackground: false
         visible: !dccData.model().airplaneEnable && model.powered
 
         page: CheckBox {
@@ -202,7 +201,6 @@ DccObject{
         parentName: "blueToothCtl"  + model.name
         pageType: DccObject.Item
         weight: 30
-        hasBackground: false
         visible: dccData.model().airplaneEnable
         page: Label {
             height: 25

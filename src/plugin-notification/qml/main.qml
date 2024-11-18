@@ -19,7 +19,6 @@ DccObject {
         parentName: "notification"
         displayName: qsTr("Do Not Disturb Settings")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -36,7 +35,7 @@ DccObject {
         // displayName: qsTr("Enable Do Not Disturb")
         // icon: "notification"
         weight: 20
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
@@ -108,7 +107,7 @@ DccObject {
         parentName: "notification"
         displayName: qsTr("Number of notifications shown on the desktop")
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
             model: ["1", "2", "3"]
@@ -127,7 +126,7 @@ DccObject {
         name: "applicationList"
         parentName: "notification"
         weight: 50
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {}
         DccRepeater {
@@ -140,7 +139,7 @@ DccObject {
                 icon: model.AppIcon
                 displayName: model.AppName
                 // pageType: DccObject.Item
-                hasBackground: true
+                backgroundType: DccObject.Normal
                 page: D.Switch {
                     checked: model.EnableNotification
                     onCheckedChanged: {
@@ -154,7 +153,7 @@ DccObject {
                     parentName: "applicationList/" + "notificationItem" + index
                     // pageType: DccObject.Menu
                     DccObject{
-                        hasBackground: true
+                        backgroundType: DccObject.Normal
                         name: "allowNotifications" + index
                         parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
                         displayName: qsTr("Allow Notifications")
@@ -175,7 +174,7 @@ DccObject {
                     DccObject {
                         name: "notificationItemDetailsType" + index
                         parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
-                        hasBackground: true
+                        backgroundType: DccObject.Normal
                         visible: model.EnableNotification
                         weight: 10
                         pageType: DccObject.Item
@@ -227,7 +226,7 @@ DccObject {
                         name: "notificationSettingsGroup" + index
                         parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
                         pageType: DccObject.Item
-                        hasBackground: true
+                        backgroundType: DccObject.Normal
                         visible: model.EnableNotification
                         weight: 20
                         page: DccGroupView {}

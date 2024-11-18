@@ -14,7 +14,6 @@ DccObject {
         parentName: "power/onPower"
         displayName: qsTr("Screen and Suspend")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {

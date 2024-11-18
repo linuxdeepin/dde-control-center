@@ -12,15 +12,13 @@ DccObject {
     visible: false
     weight: 60
     DccDBusInterface {
+        property var touchscreensV2
         service: "org.deepin.dde.Display1"
         path: "/org/deepin/dde/Display1"
         inter: "org.deepin.dde.Display1"
         connection: DccDBusInterface.SessionBus
-        monitorProperties: ["TouchscreensV2"]
-        onPropertyChanged: function (properties) {
-            if (properties.hasOwnProperty("TouchscreensV2")) {
-                root.visible = properties["TouchscreensV2"].length !== 0
-            }
+        onTouchscreensV2Changed: {
+            root.visible = touchscreensV2.length !== 0
         }
     }
 }

@@ -22,7 +22,7 @@ DccObject {
         parentName: "personalization/colorAndIcons"
         weight: 100
         pageType: DccObject.Item
-        hasBackground: true
+        backgroundType: DccObject.Normal
         page: ListView {
             id: listview
             property var colors: ["#D8316C", "#FF5D00", "#F8CB00", "#89C32B", "#00C433", "#00A49E", "#1F6EE7", "#5624DA", "#7C1AC2", "#E564C9", "#4D4D4D", "CUSTOM"]
@@ -132,7 +132,7 @@ DccObject {
         description: qsTr("Customize your theme icon")
         icon: "theme_icon"
         weight: 300
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.MenuEditor
         page: Label {
             text: dccData.model.iconModel.currentTheme
@@ -142,12 +142,10 @@ DccObject {
             name: "iconThemeSelect"
             parentName: "personalization/colorAndIcons/iconTheme"
             weight: 1
-            hasBackground: false
             DccObject {
                 name: "cursorThemeSelect"
                 parentName: "personalization/colorAndIcons/iconTheme/iconThemeSelect"
                 weight: 1
-                hasBackground: false
                 pageType: DccObject.Item
                 page: IconThemeGridView {
                     model: dccData.iconThemeViewModel
@@ -165,7 +163,7 @@ DccObject {
         description: qsTr("Customize your theme cursor")
         icon: "topic_cursor"
         weight: 400
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.MenuEditor
         page: Label {
             text: dccData.model.cursorModel.currentTheme
@@ -175,12 +173,10 @@ DccObject {
             name: "cursorThemeSelect"
             parentName: "personalization/colorAndIcons/cursorTheme"
             weight: 1
-            hasBackground: false
             DccObject {
                 name: "cursorThemeSelect"
                 parentName: "personalization/colorAndIcons/cursorTheme/cursorThemeSelect"
                 weight: 1
-                hasBackground: false
                 pageType: DccObject.Item
                 page: IconThemeGridView {
                     model: dccData.cursorThemeViewModel

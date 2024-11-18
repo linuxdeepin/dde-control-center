@@ -16,13 +16,11 @@
 #define DCC_ALL_HIDDEN 0xA0000000
 #define DCC_ALL_DISABLED 0x50000000
 
+#define DCC_MASK_BGTYPE 0x000000FF   // 背景类型
+#define DCC_MASK_NOBGTYPE 0xFFFFFF00 // 背景类型
+
 #define DCC_CUSTOM_DEFULT 0x08000000
 
-#define DCC_LABELHIDDEN 0x00008000   // 扩展按钮(子项)
-#define DCC_HASBACKGROUND 0x00004000 // 扩展按钮(子项)
-#define DCC_EXTRA 0x00800000         // 扩展按钮(子项)
-
-#define DCC_EXTRA 0x00800000     // 扩展按钮(子项)
 #define DCC_CANSEARCH 0x04000000 // 不参与搜索
 
 namespace dccV25 {
@@ -36,7 +34,7 @@ public:
     uint32_t getFlag() const;
 
     bool addChild(DccObject::Private *child);
-    bool addChild(DccObject *child);
+    bool addChild(DccObject *child, bool updateParent = true);
     void removeChild(int index);
     void removeChild(DccObject *child);
     void updatePos(DccObject *child);
@@ -64,27 +62,26 @@ private:
     static void data_clear(QQmlListProperty<QObject> *data);
 
 protected:
-    DccObject *q_ptr;
-    DccObject *m_parent;
+    qint8 m_badge;
+    quint8 m_pageType;
+    quint16 m_weight;
+    quint32 m_flags;
+
+    DccObject *q_ptr;    // q指针
+    DccObject *m_parent; // 父项
     DccObject *m_currentObject;
-    DccObject *m_defultObject;
-    QVector<DccObject *> m_children;
-    QVector<DccObject *> m_objects;
-    QObjectList m_data;
+    QVector<DccObject *> m_children; // 子项
+    QVector<DccObject *> m_objects;  // m_data中DccObject(未保证有效(delete时未处理))
+    QObjectList m_data;              // data属性，为qml能加子项
     QPointer<QQmlComponent> m_page;
-    QPointer<QQuickItem> m_sectionItem;
-    QPointer<QQuickItem> m_parentItem;
+    QPointer<QQuickItem> m_sectionItem; // Item
+    QPointer<QQuickItem> m_parentItem;  // Item父项
 
     QString m_parentName;
     QString m_displayName;
     QString m_description;
-    QString m_icon;
-    QUrl m_iconSource;
-    int m_weight;
-    int m_badge;
-    uint m_pageType;
-
-    uint32_t m_flags;
+    QString m_icon;    // 属性
+    QUrl m_iconSource; // icon带相对路径处理
     friend class DccObject;
 };
 } // namespace dccV25

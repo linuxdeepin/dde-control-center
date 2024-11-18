@@ -36,7 +36,7 @@ Rectangle {
                         topInset: root.isGroup ? 0 : 5
                         bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
-                        backgroundVisible: true
+                        backgroundType: model.item.backgroundType | 3
                         Layout.fillWidth: true
                         corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
@@ -47,7 +47,7 @@ Rectangle {
                         topInset: root.isGroup ? 0 : 5
                         bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
-                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        backgroundType:model.item.backgroundType | (root.isGroup ? 1 : 0)
                         Layout.fillWidth: true
                         corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
@@ -58,7 +58,7 @@ Rectangle {
                         topInset: root.isGroup ? 0 : 5
                         bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
-                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        backgroundType: model.item.backgroundType | (root.isGroup ? 1 : 0)
                         Layout.fillWidth: true
                         corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
@@ -69,7 +69,7 @@ Rectangle {
                         topInset: root.isGroup ? 0 : 5
                         bottomInset: root.isGroup ? 0 : 5
                         separatorVisible: root.isGroup
-                        backgroundVisible: root.isGroup || model.item.hasBackground
+                        backgroundType: model.item.backgroundType | 3
                         Layout.fillWidth: true
                         corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }

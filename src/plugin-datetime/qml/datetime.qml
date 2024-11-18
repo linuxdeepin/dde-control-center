@@ -27,13 +27,11 @@ DccObject {
 
     visible: false
     DccDBusInterface {
+        property var locales
         service: "org.deepin.dde.LangSelector1"
         path: "/org/deepin/dde/LangSelector1"
         inter: "org.deepin.dde.LangSelector1"
         connection: DccDBusInterface.SessionBus
-        monitorProperties: ["Locales"]
-        onPropertyChanged: function (properties) {
-            datetime.visible = true
-        }
+        onLocalesChanged: datetime.visible = true
     }
 }

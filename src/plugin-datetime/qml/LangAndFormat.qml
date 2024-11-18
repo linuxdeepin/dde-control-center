@@ -17,7 +17,6 @@ DccObject {
         parentName: "langAndFormat"
         displayName: qsTr("Language list")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: RowLayout {
             Label {
@@ -69,7 +68,7 @@ DccObject {
                     parentName: "languageList"
                     displayName: modelData
                     weight: 20 + 10 * (index + 1)
-                    hasBackground: true
+                    backgroundType: DccObject.Normal
                     pageType: DccObject.Item
                     page: ItemDelegate {
                         id: itemDelegate
@@ -119,7 +118,6 @@ DccObject {
 
                         background: DccItemBackground {
                             separatorVisible: true
-                            highlightEnable: false
                         }
 
                         onClicked: {
@@ -149,7 +147,7 @@ DccObject {
             parentName: "otherLanguagesTitle"
             displayName: qsTr("Other languages")
             weight: 10
-            hasBackground: true
+            backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
                 implicitWidth: 80
@@ -176,7 +174,6 @@ DccObject {
         parentName: "langAndFormat"
         displayName: qsTr("Region and format")
         weight: 40
-        hasBackground: false
         pageType: DccObject.Item
         page: RowLayout {
             Label {
@@ -197,7 +194,7 @@ DccObject {
         weight: 45
         displayName: qsTr("Region")
         description: qsTr("Local content may be recommended based on your region.")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
             implicitWidth: rowlayout.implicitWidth
@@ -249,7 +246,7 @@ DccObject {
         weight: 50
         displayName: qsTr("Language and region")
         description: qsTr("Select matching date and time formats based on language and region")
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
             implicitWidth: layout.implicitWidth
@@ -312,7 +309,7 @@ DccObject {
                 parentName: "timeFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
-                hasBackground: true
+                backgroundType: DccObject.Normal
                 pageType: DccObject.Editor
                 page: ComboLabel {
                     comboModel: model.values
@@ -344,7 +341,7 @@ DccObject {
                 parentName: "currencyFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
-                hasBackground: true
+                backgroundType: DccObject.Normal
                 pageType: DccObject.Editor
                 page: ComboLabel {
                     comboModel: model.values
@@ -376,7 +373,7 @@ DccObject {
                 parentName: "numberFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
-                hasBackground: true
+                backgroundType: DccObject.Normal
                 pageType: DccObject.Editor
                 page: ComboLabel {
                     comboModel: model.values

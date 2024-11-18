@@ -13,13 +13,16 @@ import org.deepin.dcc.defApp 1.0
 
 DccObject {
     id: root
-    property DccObject parentObj: null
     property CategoryModel categoryModel: null
     property bool canDelete: false
+    page: DccRightView {
+        isGroup: true
+    }
+
     DccObject {
         name: "title"
-        parentName: parentObj.name
-        displayName: qsTr("Please choose the default program to open '%1'").arg(parentObj.displayName)
+        parentName: root.name
+        displayName: qsTr("Please choose the default program to open '%1'").arg(root.displayName)
         weight: 10
         pageType: DccObject.Editor
         page: RowLayout {
@@ -42,7 +45,7 @@ DccObject {
                 enabled: canDelete
                 icon.name: "action_reduce"
                 onClicked: {
-                    console.log(parentObj.name, "-")
+                    console.log(root.name, "-")
                 }
             }
             Button {
@@ -60,38 +63,23 @@ DccObject {
             }
         }
     }
-    DccObject {
-        name: "appList"
-        parentName: parentObj.name
-        weight: 20
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            clip: true
-            spacing: 0
-            Repeater {
-                model: categoryModel
-                delegate: ItemDelegate {
-                    property string name: model.id
-                    property bool canDelete: model.canDelete
-
-                    text: model.display
-                    icon.name: model.icon
-                    checked: true
-                    backgroundVisible: false
-                    cascadeSelected: true
-                    Layout.fillWidth: true
-                    // checkable: false
-                    indicatorVisible: model.isDefault
-
-                    onClicked: {
-                        if (!model.isDefault) {
-                            categoryModel.setDefaultApp(model.id)
-                        }
-                    }
-                    background: DccItemBackground {
-                        separatorVisible: true
-                        highlightEnable: false
-                    }
+    DccRepeater {
+        model: categoryModel
+        delegate: DccObject {
+            name: model.id
+            parentName: root.name
+            weight: 20 + index
+            icon: model.icon
+            displayName: model.display
+            backgroundType: DccObject.ClickStyle
+            pageType: DccObject.Editor
+            page: DccCheckIcon {
+                visible: model.isDefault
+                mouseEnabled: false
+            }
+            onActive: {
+                if (!model.isDefault) {
+                    categoryModel.setDefaultApp(model.id)
                 }
             }
         }

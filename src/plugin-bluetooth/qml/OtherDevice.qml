@@ -13,7 +13,6 @@ DccObject{
         parentName: "otherDevice" + model.name
         displayName: qsTr("Other Devices")
         weight: 10
-        hasBackground: false
         visible: model.powered
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -31,7 +30,6 @@ DccObject{
         parentName: "otherDevice" + model.name
         pageType: DccObject.Item
         weight: 20
-        hasBackground: false
         visible: model.powered
 
         page: RowLayout {
@@ -79,7 +77,7 @@ DccObject{
         parentName: "otherDevice" + model.name
         weight: 40
         visible: model.powered
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: BlueToothDeviceListView {
             showMoreBtn: false

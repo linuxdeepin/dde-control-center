@@ -16,7 +16,6 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Basic Settings")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -31,7 +30,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Disable touchpad when a mouse is connected")
         weight: 20
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             Layout.rightMargin: 10
@@ -47,7 +46,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Pointer Speed")
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -113,7 +112,6 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Pointer Speed")
         weight: 40
-        // hasBackground: true
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
@@ -163,7 +161,6 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Gesture")
         weight: 200
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -177,7 +174,6 @@ DccObject {
         name: "GestureGroup"
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 210
-        hasBackground: false
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {

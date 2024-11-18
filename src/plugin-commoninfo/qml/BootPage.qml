@@ -17,7 +17,6 @@ DccObject {
         parentName: "bootMenu"
         displayName: qsTr("Startup Settings")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: Label {
             leftPadding: 5
@@ -31,7 +30,6 @@ DccObject {
         name: "grubSettingList"
         parentName: "bootMenu"
         weight: 20
-        hasBackground: false
         pageType: DccObject.Item
         page: Rectangle {
 
@@ -152,7 +150,7 @@ DccObject {
         displayName: qsTr("grub start delay")
         weight: 30
         pageType: DccObject.Editor
-        hasBackground: true
+        backgroundType: DccObject.Normal
         page: Switch {
             Layout.alignment: Qt.AlignRight
             checked: dccData.mode().bootDelay
@@ -172,7 +170,7 @@ DccObject {
         description: qsTr("After turning on the theme, you can see the theme background when you turn on the computer")
         weight: 40
         pageType: DccObject.Editor
-        hasBackground: true
+        backgroundType: DccObject.Normal
         page: Switch {
             Layout.alignment: Qt.AlignRight
             checked: dccData.mode().themeEnabled
@@ -192,7 +190,7 @@ DccObject {
         displayName: qsTr("Boot menu verification")
         description: qsTr("After opening, entering the menu editing requires a password.")
         weight: 50
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
 
         page: RowLayout {
@@ -448,7 +446,6 @@ DccObject {
         displayName: qsTr("Start animation")
         description: qsTr("Adjust the size of the logo animation on the system startup interface")
         weight: 60
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             spacing: 0
@@ -472,7 +469,7 @@ DccObject {
         name: "checkAnimation"
         parentName: "bootMenu"
         weight: 70
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: Rectangle {
             implicitHeight: aniRoot.height

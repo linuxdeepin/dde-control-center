@@ -16,7 +16,8 @@ public:
     explicit NavigationModel(QObject *parent = nullptr);
     void setNavigationObject(const QVector<DccObject *> &objs);
 
-protected:
+    enum DccModelRole { NavTypeRole = Qt::UserRole + 300, NavUrlRole };
+
     QHash<int, QByteArray> roleNames() const override;
     // Basic functionality:
     QModelIndex index(int row, int column, const QModelIndex &parentIndex = QModelIndex()) const override;

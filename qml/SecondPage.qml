@@ -62,7 +62,6 @@ SplitView {
                 text: model.display
                 width: parent ? parent.width : 300
                 checked: dccObj.currentObject === model.item
-                backgroundVisible: false
                 icon {
                     name: model.item.icon
                     source: model.item.iconSource
@@ -78,8 +77,14 @@ SplitView {
                     radius: 8
                     color: "red"
                 }
+                hoverEnabled: true
+                background: DccItemBackground {
+                    separatorVisible: false
+                    backgroundType: DccObject.Hover | DccObject.Clickable
+                }
+
                 onClicked: {
-                    model.item.trigger()
+                    DccApp.showPage(model.item)
                     console.log(model.item.name, model.display, model.item.icon)
                 }
             }
@@ -103,7 +108,7 @@ SplitView {
                 Layout.margins: 10
                 implicitHeight: 16
                 implicitWidth: 16
-                onClicked: dccObj.trigger()
+                onClicked: DccApp.toBack()
             }
 
             Crumb {

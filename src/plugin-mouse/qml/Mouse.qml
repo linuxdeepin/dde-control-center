@@ -14,7 +14,6 @@ DccObject {
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Mouse")
         weight: 10
-        hasBackground: false
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -31,7 +30,7 @@ DccObject {
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Speed")
         weight: 20
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: ColumnLayout {
             Label {
@@ -97,7 +96,7 @@ DccObject {
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Size")
         weight: 30
-        hasBackground: true
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: RowLayout {
             ColumnLayout {
@@ -160,7 +159,6 @@ DccObject {
         name: "MouseSettings"
         parentName: "MouseAndTouchpadMouse"
         weight: 30
-        // hasBackground: true
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
