@@ -122,11 +122,6 @@ void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QSt
     if (sText.isEmpty()) {
         return;
     }
-    for (auto &&d : m_data) {
-        if (sText == d->sourceText()) {
-            return;
-        }
-    }
     SearchData *data = new SearchData(obj);
     data->text = text;
     data->url = url;

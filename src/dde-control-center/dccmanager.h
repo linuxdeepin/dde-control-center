@@ -41,7 +41,7 @@ public:
 
     inline DccObject *activeObject() const override { return m_activeObject; }
 
-    inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
+    Q_INVOKABLE inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
@@ -67,9 +67,6 @@ public Q_SLOTS:
 Q_SIGNALS:
     void activeItemChanged(QQuickItem *item);
     void hideModuleChanged(const QSet<QString> &hideModule);
-    //     void pathChanged(const QString &path);
-    //     void rootChanged(DccObject *root);
-    //     void activeObjectChanged(DccObject *activeObject);
 
 private:
     void initConfig();

@@ -18,4 +18,11 @@ DccObject {
         icon: "dcc_example"
         weight: 20
     }
+    ExamplePage3 {
+        name: "example_3"
+        parentName: "example"
+        displayName: qsTr("Settings Page")
+        icon: "dcc_example"
+        weight: 30
+    }
 }

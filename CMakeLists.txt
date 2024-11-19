@@ -18,6 +18,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(ENABLE_ASAN "Enable asan" OFF)
 option(BUILD_TESTING "UNIT test" OFF)
+set(BUILE_EXAMPLES OFF)
 
 # dcc-v23
 set(BUILD_DCC_OLD ON)
@@ -57,7 +58,6 @@ include(DdeControlCenterPluginMacros)
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UNITTEST ON)
-    set(BUILE_EXAMPLES ON)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type -fno-omit-frame-pointer -Wextra")
     if(ENABLE_ASAN)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
