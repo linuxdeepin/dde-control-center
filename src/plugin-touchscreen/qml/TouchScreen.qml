@@ -37,16 +37,14 @@ DccObject {
                     id: touchItem
                     property var data: model
                     text: model.name
+                    checkable: false
                     Layout.fillWidth: true
                     content: ComboBox{
                         id: combo
                         model: dccData.monitors
-                        // currentValue: item1.data.screenName
                         currentIndex: dccData.monitors.indexOf(touchItem.data.screenName)
                         onCurrentIndexChanged: {
-                            console.log("999 currentIndex",currentIndex,dccData.monitors[currentIndex],touchItem.data.UUID)
                             if (touchItem.data.screenName !== dccData.monitors[currentIndex]) {
-                                console.log("66666666 currentText",dccData.monitors[currentIndex],dccData.monitors[currentIndex],touchItem.data.UUID)
                                 dccData.assoiateTouch(dccData.monitors[currentIndex],touchItem.data.UUID)
                             }
                         }
