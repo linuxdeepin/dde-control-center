@@ -355,6 +355,9 @@ bool DccManager::isEqual(const QString &url, const DccObject *obj)
 
 DccObject *DccManager::findObject(const QString &url)
 {
+    if (!m_root) {
+        return nullptr;
+    }
     QString path = url;
     if (path.startsWith("/")) {
         path = path.mid(1);
@@ -495,6 +498,9 @@ void DccManager::updateModuleConfig(const QString &key)
 
 void DccManager::onVisible(bool visible)
 {
+    if (!m_root) {
+        return;
+    }
     DccObject *obj = qobject_cast<DccObject *>(sender());
     if (!obj) {
         return;
@@ -522,6 +528,10 @@ void DccManager::onVisible(bool visible)
 
 void DccManager::onObjectAdded(DccObject *obj)
 {
+    if (!m_root) {
+        return;
+    }
+    m_searchModel->addSearchData(obj, QString(), QString());
     QVector<DccObject *> objs;
     objs.append(obj);
     while (!objs.isEmpty()) {
@@ -530,13 +540,15 @@ void DccManager::onObjectAdded(DccObject *obj)
         connect(o, &DccObject::childRemoved, this, &DccManager::onObjectRemoved);
         connect(o, &DccObject::displayNameChanged, this, &DccManager::onObjectDisplayChanged);
         connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
-        m_searchModel->addSearchData(obj, QString(), QString());
         objs.append(o->getChildren());
     }
 }
 
 void DccManager::onObjectRemoved(DccObject *obj)
 {
+    if (!m_root) {
+        return;
+    }
     QVector<DccObject *> objs;
     objs.append(obj);
     while (!objs.isEmpty()) {
@@ -558,6 +570,9 @@ void DccManager::onObjectRemoved(DccObject *obj)
 
 void DccManager::onObjectDisplayChanged()
 {
+    if (!m_root) {
+        return;
+    }
     DccObject *obj = qobject_cast<DccObject *>(sender());
     if (obj) {
         m_searchModel->removeSearchData(obj, QString());
