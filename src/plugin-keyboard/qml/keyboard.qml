@@ -5,7 +5,7 @@ import org.deepin.dcc 1.0
 
 DccObject {
     id: keyboard
-    name: "Keyboard"
+    name: "keyboard"
     parentName: "device"
     displayName: qsTr("Keyboard")
     description: qsTr("Keyboard layout, input method, shortcuts")
