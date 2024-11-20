@@ -10,7 +10,7 @@ import org.deepin.dtk.style 1.0 as DS
 DccObject {
     id: shortcutSettingsView
     name: "shortcutSettingsView"
-    parentName: "Keyboard"
+    parentName: "keyboard"
     displayName: qsTr("Shortcuts")
     icon: "dcc_nav_keyboard" // TODO: shortcut icon required
     weight: parent.weight // 300
