@@ -1,3 +1,13 @@
+dde-control-center (6.0.76) unstable; urgency=medium
+
+  * feat: Implement notification module code(Task: 366517)
+  * fix: Multiple creation issues with modifying plugin objects(Task: 361721)
+  * feat: Improve the interface of the control center(Task: 361721)
+  * fix: Add DccSetingsObject(Task: 361721)
+  * fix: modify keyboard name(Task: 361721)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 20 Nov 2024 13:39:40 +0800
+
 dde-control-center (6.0.75) unstable; urgency=medium
 
   * release 6.0.75
