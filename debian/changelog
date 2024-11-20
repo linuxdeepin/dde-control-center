@@ -1,3 +1,9 @@
+dde-control-center (6.0.76.1) unstable; urgency=medium
+
+  * fix: modify keyboard name(Task: 361721)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Wed, 20 Nov 2024 16:09:40 +0800
+
 dde-control-center (6.0.76) unstable; urgency=medium
 
   * feat: Implement notification module code(Task: 366517)
