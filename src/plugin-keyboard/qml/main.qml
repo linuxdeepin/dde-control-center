@@ -8,7 +8,7 @@ import org.deepin.dcc 1.0
 DccObject {
     DccObject {
         name: "KeyboardCommon"
-        parentName: "Keyboard"
+        parentName: "keyboard"
         displayName: qsTr("Common")
         weight: 10
         pageType: DccObject.Item
@@ -21,7 +21,7 @@ DccObject {
     }
     DccObject {
         name: "KeyboardLayout"
-        parentName: "Keyboard"
+        parentName: "keyboard"
         displayName: qsTr("Keyboard layout")
         icon: "dcc_nav_keyboard"
         weight: 100
