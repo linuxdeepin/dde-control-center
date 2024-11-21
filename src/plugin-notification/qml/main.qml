@@ -159,6 +159,7 @@ DccObject {
                         displayName: qsTr("Allow Notifications")
                         description: qsTr("Display notification on desktop or show unread messages in the notification center")
                         icon: model.AppIcon
+                        weight: 10
                         pageType: DccObject.Editor
                         page: D.Switch {
                             Layout.rightMargin: 10
@@ -176,7 +177,7 @@ DccObject {
                         parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
                         backgroundType: DccObject.Normal
                         visible: model.EnableNotification
-                        weight: 10
+                        weight: 20
                         pageType: DccObject.Item
                         page: Rectangle {
                             color: "transparent"
@@ -228,13 +229,14 @@ DccObject {
                         pageType: DccObject.Item
                         backgroundType: DccObject.Normal
                         visible: model.EnableNotification
-                        weight: 20
+                        weight: 30
                         page: DccGroupView {}
                         DccObject {
                             name: "notificationPreview" + index
                             parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index +"/"+"notificationSettingsGroup" + index
                             displayName: qsTr("Show message preview")
                             pageType: DccObject.Item
+                            weight: 10
                             page: D.CheckBox {
                                 Layout.rightMargin: 10
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -252,6 +254,7 @@ DccObject {
                             parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index +"/"+"notificationSettingsGroup" + index
                             displayName: qsTr("Play a sound")
                             pageType: DccObject.Item
+                            weight: 20
                             page: D.CheckBox {
                                 Layout.rightMargin: 10
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
