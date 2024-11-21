@@ -62,6 +62,7 @@ struct PluginData
     DccObject *mainObj;
     DccObject *soObj;
     QObject *data;
+    QThread *thread;
     uint status;
 
     PluginData(const QString &_name, const QString &_path)
@@ -71,6 +72,7 @@ struct PluginData
         , mainObj(nullptr)
         , soObj(nullptr)
         , data(nullptr)
+        , thread(nullptr)
         , status(PluginBegin)
     {
     }
@@ -88,6 +90,7 @@ public:
 
 protected:
     void run() override;
+    void doRun();
 
 protected:
     PluginManager *m_pManager;
@@ -95,6 +98,13 @@ protected:
 };
 
 void LoadPluginTask::run()
+{
+    m_data->thread = QThread::currentThread();
+    doRun();
+    m_data->thread = nullptr;
+}
+
+void LoadPluginTask::doRun()
 {
     m_pManager->updatePluginStatus(m_data, DataBegin, "load plugin begin");
     // {main.qml}
@@ -504,8 +514,18 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
 void PluginManager::cancelLoad()
 {
     if (m_threadPool) {
-        m_threadPool->waitForDone(500);
         m_threadPool->clear();
+        for (auto &&plugin : m_plugins) {
+            if (plugin->thread && plugin->thread->isRunning()) {
+                plugin->thread->wait(50);
+                if (plugin->thread->isRunning()) {
+                    qCWarning(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << plugin->thread << "thread exit timeout";
+                    plugin->thread->terminate();
+                    plugin->thread->wait(50);
+                    plugin->thread = nullptr;
+                }
+            }
+        }
         delete m_threadPool;
         m_threadPool = nullptr;
     }
