@@ -506,7 +506,8 @@ void PluginManager::cancelLoad()
     if (m_threadPool) {
         m_threadPool->waitForDone(500);
         m_threadPool->clear();
-        delete m_threadPool;
+        // TODO 导致Treeland下无法正常推出，临时处理，需要优化
+        // delete m_threadPool;
         m_threadPool = nullptr;
     }
 }

@@ -169,6 +169,7 @@ int main(int argc, char *argv[])
     }
 #endif
     int exitCode = app->exec();
-    delete dccManager;
+    // TODO 导致Treeland下无法正常推出，临时处理，需要优化
+    // delete dccManager;
     return exitCode;
 }
