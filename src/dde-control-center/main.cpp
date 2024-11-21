@@ -122,52 +122,38 @@ int main(int argc, char *argv[])
         }
     }
     if (!dccManager->mainWindow()) {
-        qWarning() << "";
+        qWarning() << "Failed to create window";
         return 1;
     }
 
     dccV25::ControlCenterDBusAdaptor *adaptor = new dccV25::ControlCenterDBusAdaptor(dccManager);
     dccV25::DBusControlCenterGrandSearchService *grandSearchadAptor = new dccV25::DBusControlCenterGrandSearchService(dccManager);
 
-    if (!refPluginDir.isEmpty()) {
-        dccManager->loadModules(true, { refPluginDir });
-        QDBusConnection conn = QDBusConnection::sessionBus();
-        if (!conn.registerObject(DccDBusPath, dccManager)) {
-            qDebug() << "dbus service already registered!"
-                     << "pid is:" << qApp->applicationPid();
-            if (!parser.isSet(showOption))
-                return -1;
-        }
-        adaptor->Show();
-        return app->exec();
-    }
-
-    dccManager->loadModules(!parser.isSet(dbusOption), defaultpath());
-
-    // QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerObject(DccDBusPath, dccManager)) {
         qDebug() << "dbus service already registered!"
                  << "pid is:" << qApp->applicationPid();
-        if (!parser.isSet(showOption))
-            return -1;
+        return -1;
     }
-
-    if (!reqPage.isEmpty()) {
-        adaptor->ShowPage(reqPage);
-    }
-
-    if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
+    if (!refPluginDir.isEmpty()) {
+        dccManager->loadModules(true, { refPluginDir });
         adaptor->Show();
-    }
+    } else {
+        dccManager->loadModules(!parser.isSet(dbusOption), defaultpath());
+        if (!reqPage.isEmpty()) {
+            adaptor->ShowPage(reqPage);
+        } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
+            adaptor->Show();
+        }
 
 #ifdef QT_DEBUG
-    // debug时会直接show
-    // 发布版本，不会直接显示，为了满足在被dbus调用时，
-    // 如果dbus参数错误，不会有任何UI上的变化
-    if (1 == argc) {
-        DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Show").call();
-    }
+        // debug时会直接show
+        // 发布版本，不会直接显示，为了满足在被dbus调用时，
+        // 如果dbus参数错误，不会有任何UI上的变化
+        if (1 == argc) {
+            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Show").call();
+        }
 #endif
+    }
     int exitCode = app->exec();
     delete dccManager;
     return exitCode;
