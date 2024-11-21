@@ -72,13 +72,13 @@ void TreeLandWorker::setAppearanceTheme(const QString &id)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setAppearanceTheme:" << id;
     PersonalizationWorker::setAppearanceTheme(id);
-    if (id == ".light") {
+    if (id == ".light" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_light) {
         m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_light;
         m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_light);
-    } else if (id == ".dark") {
+    } else if (id == ".dark" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_dark) {
         m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_dark;
         m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_dark);
-    } else if (id.isEmpty()) {
+    } else if (id.isEmpty() && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_auto) {
         m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_auto;
         m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_auto);
     } else {
@@ -89,6 +89,9 @@ void TreeLandWorker::setAppearanceTheme(const QString &id)
 void TreeLandWorker::setFontName(const QString& fontName)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setFontName:" << fontName;
+    if (m_fontName == fontName) {
+        return;
+    }
     m_fontName = fontName;
     m_fontContext->set_font(fontName);
 }
@@ -96,6 +99,9 @@ void TreeLandWorker::setFontName(const QString& fontName)
 void TreeLandWorker::setMonoFontName(const QString& monoFontName)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setMonoFontName:" << monoFontName;
+    if (m_monoFontName == monoFontName) {
+        return;
+    }
     m_monoFontName = monoFontName;
     m_fontContext->set_monospace_font(monoFontName);
 }
@@ -103,6 +109,9 @@ void TreeLandWorker::setMonoFontName(const QString& monoFontName)
 void TreeLandWorker::setIconTheme(const QString &id)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setIconTheme:" << id;
+    if (m_iconTheme == id) {
+        return;
+    }
     m_iconTheme = id;
     PersonalizationWorker::setIconTheme(id);
     m_appearanceContext->set_icon_theme(id);
@@ -111,6 +120,9 @@ void TreeLandWorker::setIconTheme(const QString &id)
 void TreeLandWorker::setCursorTheme(const QString &id)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setIconTheme:" << id;
+    if (m_cursorTheme == id) {
+        return;
+    }
     m_cursorTheme = id;
     PersonalizationWorker::setCursorTheme(id);
     m_cursorContext->set_theme(id);
@@ -119,6 +131,9 @@ void TreeLandWorker::setCursorTheme(const QString &id)
 void TreeLandWorker::setActiveColor(const QString &hexColor)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setActiveColor:" << hexColor;
+    if (m_activeColor == hexColor) {
+        return;
+    }
     m_activeColor = hexColor;
     PersonalizationWorker::setActiveColor(hexColor);
     m_appearanceContext->set_active_color(hexColor);
@@ -127,14 +142,20 @@ void TreeLandWorker::setActiveColor(const QString &hexColor)
 void TreeLandWorker::setFontSize(const int value) 
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setFontSize:" << value;
+    if (m_fontSize == value) {
+        return;
+    }
     m_fontSize = value;
     PersonalizationWorker::setFontSize(value);
-    // m_fontContext->set_font_size(value);
+    m_fontContext->set_font_size(value);
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setTitleBarHeight:" << value;
+    if (m_titleBarHeight == value) {
+        return;
+    }
     m_titleBarHeight = value;
     PersonalizationWorker::setTitleBarHeight(value);
     m_appearanceContext->set_window_titlebar_height(value);
@@ -143,6 +164,9 @@ void TreeLandWorker::setTitleBarHeight(int value)
 void TreeLandWorker::setWindowRadius(int value)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setWindowRadius:" << value;
+    if (m_windowRadius == value) {
+        return;
+    }
     m_windowRadius = value;
     PersonalizationWorker::setWindowRadius(value);
     m_appearanceContext->set_round_corner_radius(value);
@@ -151,6 +175,9 @@ void TreeLandWorker::setWindowRadius(int value)
 void TreeLandWorker::setOpacity(int value)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setOpacity:" << value / 100.0;
+    if (m_opacity == value) {
+        return;
+    }
     m_opacity = value;
     PersonalizationWorker::setOpacity(value);
     m_appearanceContext->set_window_opacity(value / 100.0);
