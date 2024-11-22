@@ -58,6 +58,7 @@ public:
 
     void setCurrentAppearance(const QString &appearance);
     QString getCurrentAppearance() const { return m_currentAppearance; };
+    Q_INVOKABLE QString platformName();
 
 private:
     void initAppearanceSwitchModel();

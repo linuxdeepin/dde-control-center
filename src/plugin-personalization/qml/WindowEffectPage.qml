@@ -13,6 +13,7 @@ DccObject {
         name: "interfaceAndEffectTitle"
         parentName: "personalization/windowEffect"
         displayName: qsTr("Interface and Effects")
+        visible: dccData.platformName() !== "wayland"
         weight: 10
     }
 
@@ -21,6 +22,7 @@ DccObject {
         parentName: "personalization/windowEffect"
         weight: 100
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: InterfaceEffectListview { }
     }
 
@@ -119,7 +121,7 @@ DccObject {
             name: "enableTransparentWhenMoveWindow"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Enable transparent effects when moving windows")
-            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal
+            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal && dccData.platformName() !== "wayland"
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
@@ -134,7 +136,7 @@ DccObject {
             name: "minimizeEffect"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Window Minimize Effect")
-            visible: dccData.model.windowEffectType <= InterfaceEffectListview.WindowEffectType.Best
+            visible: dccData.model.windowEffectType <= InterfaceEffectListview.WindowEffectType.Best && dccData.platformName() !== "wayland"
             weight: 3
             pageType: DccObject.Editor
             page: D.ComboBox {
