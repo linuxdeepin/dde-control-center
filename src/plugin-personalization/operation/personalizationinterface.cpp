@@ -168,6 +168,11 @@ void PersonalizationInterface::initAppearanceSwitchModel()
     connect(globalTheme, &ThemeModel::itemRemoved, updateDefault);
 }
 
+QString PersonalizationInterface::platformName()
+{
+    return qApp->platformName();
+}
+
 DCC_FACTORY_CLASS(PersonalizationInterface)
 
 #include "personalizationinterface.moc"
