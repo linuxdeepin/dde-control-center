@@ -831,7 +831,8 @@ QString DatetimeModel::currentTime() const
 {
     QLocale locale(m_localeName);
     QString timeFormat = longTimeFormat();
-
+    // remove timezone format
+    timeFormat.remove("t");
     return locale.toString(QTime::currentTime(), timeFormat);
 }
 

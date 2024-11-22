@@ -7,7 +7,6 @@
         <file>texts/dcc_noun_hour_16px.svg</file>
         <file>texts/dcc_clock_black_16px.svg</file>
         <file>texts/dcc_noun_second_16px.svg</file>
-        <file>resource/deepindigitaltimes-Regular.ttf</file>
         <file alias="icons/indicator_active_12px.png">images/indicator_active.png</file>
         <file>images/timezone_map_big2.png</file>
         <file>images/timezone_map_big.png</file>
@@ -18,5 +17,8 @@
     <qresource prefix="/dsg/icons">
         <file alias="dcc_time_date.dci">dsg/icons/time.dci</file>
         <file alias="dcc_lang_format.dci">dsg/icons/language.dci</file>
+    </qresource>
+    <qresource prefix="/builtin-font">
+        <file>resource/Outfit-Light.ttf</file>
     </qresource>
 </RCC>

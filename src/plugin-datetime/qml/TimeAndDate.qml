@@ -16,20 +16,30 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
+
+            FontLoader {
+                id: webFont
+                source: "qrc:/builtin-font/resource/Outfit-Light.ttf"
+            }
+
             Label {
                 id: timeLabel
-
                 height: contentHeight
                 Layout.leftMargin: 10
-                font: DTK.fontManager.t1
+                font {
+                    pointSize: 40
+                    family: webFont.font.family
+                 }
                 text: dccData.currentTime
             }
             Label {
                 id: dateLabel
-                property bool needUpdate: false
                 height: contentHeight
                 Layout.leftMargin: 10
-                font: DTK.fontManager.t5
+                font {
+                    pointSize: 20
+                    family: webFont.font.family
+                }
                 text: dccData.currentDate
             }
         }
