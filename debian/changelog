@@ -1,3 +1,9 @@
+dde-control-center (6.0.76.2) unstable; urgency=medium
+
+  * release 6.0.76.2
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 22 Nov 2024 11:18:36 +0800
+
 dde-control-center (6.0.76.1) unstable; urgency=medium
 
   * fix: modify keyboard name(Task: 361721)
