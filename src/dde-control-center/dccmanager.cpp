@@ -128,6 +128,12 @@ int DccManager::height() const
     return h > 530 ? h : 530;
 }
 
+DccApp::UosEdition DccManager::uosEdition() const
+{
+    DSysInfo::UosEdition edition = DSysInfo::uosEditionType();
+    return DccApp::UosEdition(edition);
+}
+
 DccObject *DccManager::object(const QString &name)
 {
     return findObject(name);
