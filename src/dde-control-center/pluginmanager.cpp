@@ -7,6 +7,8 @@
 #include "dccfactory.h"
 #include "dccmanager.h"
 
+#include <DIconTheme>
+
 #include <QDebug>
 #include <QDir>
 #include <QElapsedTimer>
@@ -40,7 +42,7 @@ enum PluginStatus {
     ModuleErr = 0x00800000,
     // data 0x0000FF00
     DataBegin = 0x00000100,
-    DataLoad = 0x00000300,
+    DataLoad = 0x00000200,
     DataEnd = 0x00004000,
     DataErr = 0x00008000,
     // mainObj 0x000000FF
@@ -501,14 +503,16 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
             pluginList += plugindir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
         }
     }
-
+    QStringList paths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
     for (auto &lib : pluginList) {
         const QString &filepath = lib.absoluteFilePath();
         auto filename = lib.fileName();
         PluginData *plugin = new PluginData(lib.baseName(), filepath);
         m_plugins.append(plugin);
         loadPlugin(plugin);
+        paths.prepend(filepath);
     }
+    Dtk::Gui::DIconTheme::setDciThemeSearchPaths(paths);
 }
 
 void PluginManager::cancelLoad()

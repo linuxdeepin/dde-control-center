@@ -14,8 +14,6 @@
 namespace dccV25 {
 static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.object");
 
-static QHash<QString, bool> s_notIcon;
-
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
 {
     return obj ? obj->p_ptr : nullptr;
@@ -316,16 +314,7 @@ void DccObject::setDescription(const QString &description)
 
 QString DccObject::icon() const
 {
-    // TODO: 原设计是name和source分别给icon.name、icon.source
-    // 但icon.name有值时，无论是否有效，icon.source都不起作用，固加此处理
-    bool notIcon = false;
-    if (s_notIcon.contains(p_ptr->m_icon)) {
-        notIcon = s_notIcon.value(p_ptr->m_icon);
-    } else {
-        notIcon = QIcon::fromTheme(p_ptr->m_icon).isNull();
-        s_notIcon.insert(p_ptr->m_icon, notIcon);
-    }
-    return notIcon ? p_ptr->m_iconSource.toLocalFile() : p_ptr->m_icon;
+    return p_ptr->m_icon;
 }
 
 void DccObject::setIcon(const QString &icon)

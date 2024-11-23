@@ -10,6 +10,7 @@ DccObject {
     displayName: qsTr("wacom")
     description: qsTr("Configuring wacom")
     icon: "dcc_nav_wacom"
+    visible: false
     weight: 50
     DccDBusInterface {
         property var exist
