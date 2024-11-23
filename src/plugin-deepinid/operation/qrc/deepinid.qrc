@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_login_bg.svg</file>
+        <file>icons/dcc_cloud_logo.svg</file>
+        <file>icons/waitting.svg</file>
+    </qresource>
+</RCC>
