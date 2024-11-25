@@ -108,7 +108,7 @@ public:
 
     virtual QStringList shortTimeFormats() override
     {
-        return { "aphh:mm", "H:mm", "HH:mm", "ap h:mm", "ap hh:mm" };
+        return { "H:mm", "HH:mm", "ap h:mm", "ap hh:mm" };
     }
 
     virtual QStringList longTimeFormats() override

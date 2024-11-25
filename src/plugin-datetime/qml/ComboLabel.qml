@@ -19,8 +19,8 @@ Item {
         flat: true
         implicitWidth: 280
         model: item.comboModel
-        // textRole: item.textRole
         currentIndex: comboCurrentIndex
+        hoverEnabled: true
         onActivated: function (index) {
             item.comboBoxActivated(index)
         }
