@@ -143,7 +143,7 @@ void LoadPluginTask::doRun()
                 DccFactory *factory = qobject_cast<DccFactory *>(loader.instance());
                 if (!factory) {
                     m_pManager->updatePluginStatus(m_data, DataErr, "The plugin isn't a DccFactory." + soPath);
-                    delete loader.instance();
+                    loader.unload();
                     break;
                 }
                 dataObj = factory->create();
@@ -154,7 +154,6 @@ void LoadPluginTask::doRun()
                 if (soObj && soObj->parent()) {
                     soObj->setParent(nullptr);
                 }
-                delete factory;
             } while (false);
         }
     } else {
