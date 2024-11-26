@@ -92,7 +92,10 @@ DccObject {
                     flat: true
                     visible: dccData.ntpEnabled
                     anchors.fill: parent
+                    hoverEnabled: true
                     model: serverList
+                    // 不设置默认的话可能无法滚动（不显示上下箭头按钮）。。。
+                    maxVisibleItems: serverList.length - 1
                     currentIndex:  {
                         let index = serverList.indexOf(dccData.ntpServerAddress)
                         dateAndTimeSettings.showCustom = (index < 0)
