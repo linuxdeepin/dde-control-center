@@ -6,6 +6,7 @@ GenericName=Control Center
 Icon=preferences-system
 Name=Deepin Control Center
 StartupNotify=false
+StartupWMClass=dde-control-center
 Terminal=false
 Type=Application
 X-Deepin-TurboType=dtkwidget
