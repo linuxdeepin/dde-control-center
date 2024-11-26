@@ -15,6 +15,7 @@ D.ItemDelegate {
     Layout.fillWidth: true
     backgroundVisible: backgroundType & 0x01
     enabled: model.item.enabledToApp
+    hoverEnabled: true
     checkable: false
     topPadding: topInset
     bottomPadding: bottomInset
