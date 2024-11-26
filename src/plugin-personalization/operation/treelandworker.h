@@ -10,11 +10,13 @@
 
 #include <private/qwaylanddisplay_p.h>
 
+#include "operation/personalizationmodel.h"
 #include "personalizationworker.h"
 
 #ifdef Enable_Treeland
 #include "wayland-treeland-personalization-manager-v1-client-protocol.h"
 #include "qwayland-treeland-personalization-manager-v1.h"
+#include "keyfile.h"
 #endif
 
 class PersonalizationManager;
@@ -75,6 +77,9 @@ public:
     void setOpacity(const int value) override;
     int opacity() const { return m_opacity; }
 
+    void setGlobalTheme(const QString &themeId) override;
+    QString globalTheme()const { return m_globalTheme;}
+
     void active() override;
     void init();
 
@@ -90,6 +95,9 @@ signals:
 private:
     void wallpaperMetaDataChanged(const QString &data);
     void setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t type);
+    void handleGlobalTheme(const QString &themeId);
+    void applyGlobalTheme(KeyFile &theme, const QString &themeName, const QString &defaultTheme, const QString &themePath);
+    void doSetByType(const QString &type, const QString &value);
 
 private:
     QScopedPointer<PersonalizationManager> m_personalizationManager;
@@ -110,6 +118,8 @@ private:
     int m_titleBarHeight;
     int m_windowRadius;
     int m_opacity;
+    QString m_globalTheme;
+    bool m_compactDisplay;
 #endif
 };
 
@@ -138,7 +148,7 @@ class PersonalizationAppearanceContext : public QWaylandClientExtensionTemplate<
     Q_OBJECT
 
 public:
-    explicit PersonalizationAppearanceContext(struct ::treeland_personalization_appearance_context_v1 *context, TreeLandWorker *worker);
+    explicit PersonalizationAppearanceContext(struct ::treeland_personalization_appearance_context_v1 *context, PersonalizationModel *model);
 
 protected:
     void treeland_personalization_appearance_context_v1_round_corner_radius(int32_t radius) override;
@@ -148,7 +158,7 @@ protected:
     void treeland_personalization_appearance_context_v1_window_theme_type(uint32_t type) override;
     void treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height) override;
 private:
-    TreeLandWorker *m_work;
+    PersonalizationModel *m_model;
 };
 
 class PersonalizationWallpaperContext : public QWaylandClientExtensionTemplate<PersonalizationWallpaperContext>,
@@ -170,13 +180,13 @@ class PersonalizationCursorContext : public QWaylandClientExtensionTemplate<Pers
 {
     Q_OBJECT
 public:
-    explicit PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, TreeLandWorker *worker);
+    explicit PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, PersonalizationModel *model);
 
 protected:
     void treeland_personalization_cursor_context_v1_theme(const QString &name) override;
 
 private:
-    TreeLandWorker *m_worker;
+    PersonalizationModel *m_model;
 };
 
 class PersonalizationFontContext : public QWaylandClientExtensionTemplate<PersonalizationFontContext>,
@@ -184,7 +194,7 @@ class PersonalizationFontContext : public QWaylandClientExtensionTemplate<Person
 {
     Q_OBJECT
 public:
-    explicit PersonalizationFontContext(struct ::treeland_personalization_font_context_v1 *context, TreeLandWorker *worker);
+    explicit PersonalizationFontContext(struct ::treeland_personalization_font_context_v1 *context, PersonalizationModel *model);
 
 protected:
     void treeland_personalization_font_context_v1_font(const QString &font_name) override;
@@ -192,6 +202,6 @@ protected:
     void treeland_personalization_font_context_v1_font_size(uint32_t font_size) override;
 
 private:
-    TreeLandWorker *m_worker;
+    PersonalizationModel *m_model;
 };
 #endif

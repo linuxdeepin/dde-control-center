@@ -47,7 +47,7 @@ public Q_SLOTS:
     virtual void setWindowRadius(int radius);
     virtual void setCompactDisplay(bool value);
     virtual void setTitleBarHeight(int value);
-    virtual void setGlobalTheme(const QString &themeId); // need implementation
+    virtual void setGlobalTheme(const QString &themeId);
     virtual void setAppearanceTheme(const QString &id);
     virtual void setIconTheme(const QString &id);
     virtual void setCursorTheme(const QString &id);
@@ -89,6 +89,7 @@ private:
     void onKWinTitleBarConfigChanged(const QString &key);
     void onKWinCompositingConfigChanged(const QString &key);
     void onPersonalizationConfigChanged(const QString &key);
+    void onDTKConfigChanged(const QString &key);
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);
@@ -102,6 +103,7 @@ private:
     Dtk::Core::DConfig *m_kwinTitleBarConfig;
     Dtk::Core::DConfig *m_kwinCompositingConfig;
     Dtk::Core::DConfig *m_personalizationConfig;
+    Dtk::Core::DConfig *m_dtkConfig;
 
     QMap<QString, ThemeModel *> m_themeModels;
     QMap<QString, FontModel *> m_fontModels;

@@ -207,7 +207,7 @@ DccObject {
         property bool hasDBusProperty: false
         parentName: "personalization/windowEffect"
         displayName: qsTr("Scroll Bars")
-        visible: dccData.model.scrollBarPolicyConfig !== "Hidden" && scrollBarObject.hasDBusProperty
+        visible: dccData.model.scrollBarPolicyConfig !== "Hidden"
         weight: 700
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
@@ -231,15 +231,6 @@ DccObject {
                     dccData.worker.setScrollBarPolicy(Qt.ScrollBarAlwaysOn)
                 }
             }
-        }
-
-        DccDBusInterface {
-            property var qtScrollBarPolicy
-            service: "org.deepin.dde.Appearance1"
-            path: "/org/deepin/dde/Appearance1"
-            inter: "org.deepin.dde.Appearance1"
-            connection: DccDBusInterface.SessionBus
-            onQtScrollBarPolicyChanged:scrollBarObject.hasDBusProperty = true
         }
     }
 

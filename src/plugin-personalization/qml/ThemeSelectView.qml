@@ -11,15 +11,17 @@ import org.deepin.dtk 1.0 as D
 ListView {
     id: listview
     // 132 = 130 + itemBorderWidth
-    readonly property int itemWidth: 132
-    readonly property int itemHeight: 107
+    readonly property int itemWidth: 185
+    readonly property int itemHeight: 150
     readonly property int itemBorderWidth: 2
     readonly property int itemSpacing: 50
-    readonly property int imageRectH: 78 // 84
+    readonly property int imageRectH: 110
     readonly property int imageRectW: itemWidth
 
-    readonly property int gridMaxColumns: Math.floor(listview.width / (itemWidth + itemSpacing))
-    readonly property int gridMaxRows: 2
+    property int gridMaxColumns: Math.floor(listview.width / (itemWidth + itemSpacing))
+    property int gridMaxRows: 2
+
+    property string selectTheme: ""
     model: Math.ceil((dccData.globalThemeModel.rowCount()  + 1) / (2 * gridMaxColumns))
     spacing: 0
     clip: true
@@ -29,6 +31,14 @@ ListView {
     boundsBehavior: Flickable.StopAtBounds
     highlightRangeMode: ListView.StrictlyEnforceRange
     highlightMoveDuration: 400
+
+    Connections {
+        target: dccData.globalThemeModel
+        onModelReset: {
+            listview.selectTheme = ""
+        }
+    }
+
     delegate: Item {
         width: listview.width
         height: listview.height
@@ -48,12 +58,14 @@ ListView {
             }
 
             delegate: Rectangle {
+                id: delegateRoot
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 color: "transparent"
                 ToolTip.visible: mouseArea.containsMouse && model.toolTip !== ""
                 ToolTip.text: model.toolTip
                 ToolTip.delay: 300
+                property bool isCurrent: listview.selectTheme === "" ? model.checked : listview.selectTheme === model.id
                 ColumnLayout {
                     width: listview.itemWidth
                     height: listview.itemHeight
@@ -65,18 +77,18 @@ ListView {
 
                         Rectangle {
                             anchors.fill: parent
-                            visible: model.checked
+                            visible: delegateRoot.isCurrent
                             color: "transparent"
                             border.width: 2
                             border.color: D.DTK.platformTheme.activeColor
-                            radius: 7
+                            radius: 12
                         }
 
                         Rectangle {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 7
+                            radius: 12
 
                             Image {
                                 anchors.fill: parent
@@ -98,7 +110,7 @@ ListView {
                         text: model.id
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        color: model.checked ? D.DTK.platformTheme.activeColor : this.palette.windowText
+                        color: delegateRoot.isCurrent ? D.DTK.platformTheme.activeColor : this.palette.windowText
                     }
                 }
                 MouseArea {
@@ -106,6 +118,7 @@ ListView {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
+                        listview.selectTheme = model.id
                         dccData.worker.setGlobalTheme(model.id)
                     }
                 }
@@ -143,7 +156,7 @@ ListView {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 7
+                            radius: 12
 
                             D.DciIcon {
                                 anchors.fill: parent
