@@ -23,8 +23,8 @@ D.ItemDelegate {
     bottomPadding: bottomInset
     leftPadding: 10
     rightPadding: 8
-    hoverEnabled: backgroundType &0x02
-    checked: backgroundType& 0x08
+    hoverEnabled: true
+    checked: backgroundType & 0x08
     cascadeSelected: !checked
 
     icon {
@@ -84,7 +84,7 @@ D.ItemDelegate {
         separatorVisible: false
     }
     onClicked: {
-        if(backgroundType &0x04){
+        if (backgroundType & 0x04) {
             model.item.active("")
         }
     }

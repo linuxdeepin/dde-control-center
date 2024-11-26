@@ -49,11 +49,11 @@ Item {
         anchors.fill: parent
         active: (backgroundType & 0x01) || ((backgroundType & 0x02) && control.hovered)
         // active: backgroundType !== 0 // (backgroundType & 0xFF) && !(backgroundType & 0x08)
-        anchors.topMargin: control.hovered && !(control.corners & D.RoundRectangle.TopCorner) ? 1 : 0
-        anchors.bottomMargin: control.hovered && !(control.corners & D.RoundRectangle.BottomCorner) ? 1 : 0
+        anchors.topMargin: ((backgroundType & 0x02) && control.hovered) && !(control.corners & D.RoundRectangle.TopCorner) ? 1 : 0
+        anchors.bottomMargin: ((backgroundType & 0x02) && control.hovered) && !(control.corners & D.RoundRectangle.BottomCorner) ? 1 : 0
         sourceComponent: D.RoundRectangle {
             // 高亮时，hovered状态HighlightPanel有处理,无阴影时，hovered状态使用半透明
-            color: (backgroundType & 0x08) ? palette.base : ((backgroundType & 0x01) ? root.D.ColorSelector.backgroundColor : root.D.ColorSelector.onlyHoveredColor)
+            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0) ? palette.base : ((backgroundType & 0x01) ? root.D.ColorSelector.backgroundColor : root.D.ColorSelector.onlyHoveredColor)
             radius: root.radius
             corners: control.corners
         }
