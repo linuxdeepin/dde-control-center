@@ -56,25 +56,12 @@ static QString getDescription(const ZoneInfo &zoneInfo)
         description = DatetimeModel::tr("%1 hours later than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
     }
 
-    return description;
-}
-
-static QString getUtcOffsetText(int utcOffset)
-{
-    QString gmData;
-    int utcOff = utcOffset / 3600;
-    if (utcOff >= 0) {
-        gmData = QString("(UTC+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
-    } else {
-        gmData = QString("(UTC%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
-    }
-
-    return gmData;
+    return QString("%1, %2").arg(dateLiteral).arg(description);
 }
 
 static QString getDisplayText(const ZoneInfo &zoneInfo)
 {
-    QString gmData = getUtcOffsetText(zoneInfo.getUTCOffset());
+    QString gmData = zoneInfo.getUtcOffsetText();
     QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
 
     return QString("%1 %2").arg(cityName).arg(gmData);
@@ -206,12 +193,8 @@ DatetimeModel::DatetimeModel(QObject *parent)
     // 设置ntp地址失败回退到之前的地址
     connect(this, &DatetimeModel::NTPServerNotChanged, this, &DatetimeModel::setNtpServerAddress);
 
-    connect(this, &DatetimeModel::userTimeZoneAdded, m_work, [this](const ZoneInfo &zone){
-        m_work->addUserTimeZone(zone.getZoneName());
-    });
-    connect(this, &DatetimeModel::userTimeZoneRemoved, m_work, &DatetimeWorker::removeUserTimeZone);
     // set timezone
-    connect(this, &DatetimeModel::timeZoneChanged, m_work, &DatetimeWorker::setTimezone);
+    // connect(this, &DatetimeModel::timeZoneChanged, m_work, &DatetimeWorker::setTimezone);
 
     connect(this, &DatetimeModel::currencyFormatChanged, this, [this](const QString &oldFormat, const QString &newFormat){
         // get PositiveCurrency/NegativeCurrency
@@ -333,11 +316,28 @@ QString DatetimeModel::zoneDisplayName(const QString &zoneName)
 {
     if (m_work) {
         auto zoneInfo = m_work->GetZoneInfo(zoneName);
-        QString utcOffsetText = getUtcOffsetText(zoneInfo.getUTCOffset());
+        QString utcOffsetText = zoneInfo.getUtcOffsetText();
         QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
         return QString("%1 %2").arg(utcOffsetText).arg(cityName);
     }
     return QString();
+}
+
+QAbstractListModel *DatetimeModel::userTimezoneModel()
+{
+    if (m_userTimezoneModel)
+        return m_userTimezoneModel;
+
+    m_userTimezoneModel = new dccV25::UserTimezoneModel(this);
+    connect(this, &DatetimeModel::userTimeZoneAdded, m_userTimezoneModel, &dccV25::UserTimezoneModel::reset);
+    connect(this, &DatetimeModel::userTimeZoneRemoved, m_userTimezoneModel, &dccV25::UserTimezoneModel::reset);
+    connect(this, &DatetimeModel::timeZoneChanged, m_userTimezoneModel, [this]() {
+        auto indexBegin = m_userTimezoneModel->index(0);
+        auto indexEnd = m_userTimezoneModel->index(m_userTimeZones.count() - 1);
+        Q_EMIT m_userTimezoneModel->dataChanged(indexBegin, indexEnd);
+    });
+
+    return m_userTimezoneModel;
 }
 
 QSortFilterProxyModel *DatetimeModel::zoneSearchModel()
@@ -841,45 +841,28 @@ int DatetimeModel::currentLanguageAndRegionIndex()
     return m_regions.keys().indexOf(m_langCountry);
 }
 
-void DatetimeModel::addUserTimeZoneByName(const QString &zoneName)
-{
-    using namespace installer;
-    if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
-
-    if (!m_timezoneCache.contains(zoneName))
-        timeZoneList(g_totalZones, m_timezoneCache);
-
-    if (!m_timezoneCache.contains(zoneName)) {
-        qWarning() << "timezone cache not contain.." << zoneName;
-        return;
-    }
-    QString zoneId = m_timezoneCache.value(zoneName);
-
-    if (m_userZoneIds.contains(zoneId)) {
-        qWarning() << "user timezone already existed";
-        return;
-    }
-
-    addUserTimeZoneById(zoneId);
-}
-
 void DatetimeModel::addUserTimeZoneById(const QString &zoneId)
 {
-    if (m_work)
-        m_work->addUserTimeZone(zoneId);
-}
-void DatetimeModel::removeUserTimeZoneByName(const QString &name)
-{
-    // displayText list
-    auto zonelist = userTimeZoneText(0);
-    int index = zonelist.indexOf(name);
-    if (index < 0) {
-      qWarning() << name << "Not found in User TimeZones";
+    if (zoneId.isEmpty() || !m_work)
         return;
-    }
 
-    removeUserTimeZone(m_userTimeZones.value(index));
+    m_work->addUserTimeZone(zoneId);
+}
+
+void DatetimeModel::removeUserTimeZoneById(const QString &zoneId)
+{
+    if (zoneId.isEmpty() || !m_work)
+        return;
+
+    m_work->removeUserTimeZone(zoneId);
+}
+
+void DatetimeModel::setSystemTimeZone(const QString &zoneId)
+{
+    if (zoneId.isEmpty() || !m_work)
+        return;
+
+    m_work->setTimezone(zoneId);
 }
 
 #ifndef DCC_DISABLE_TIMEZONE
@@ -1092,37 +1075,9 @@ void DatetimeModel::setRegions(const Regions &regions)
     }
 }
 
-QStringList DatetimeModel::userTimeZoneText(int index) const
+QString DatetimeModel::timeZoneDescription(const ZoneInfo &zone) const
 {
-    QStringList userTimeZoneList;
-    for (const ZoneInfo &zoneInfo : m_userTimeZones) {
-        QString text;
-        switch (index) {
-        case 1:
-            text = getDescription(zoneInfo);
-            break;
-        case 2:
-            text = QString::number(zoneInfo.getUTCOffset());
-            break;
-        case 3:
-            text = zoneInfo.getZoneName();
-            break;
-        case 4:
-            text = zoneInfo.getZoneCity();
-            break;
-        default:
-            text = getDisplayText(zoneInfo);
-            break;
-        }
-        userTimeZoneList << text;
-    }
-
-    return userTimeZoneList;
-}
-
-QString DatetimeModel::currentTimeZoneName() const
-{
-    return getDescription(m_currentTimeZone);
+    return getDescription(zone);
 }
 
 QString DatetimeModel::timeZoneDispalyName() const

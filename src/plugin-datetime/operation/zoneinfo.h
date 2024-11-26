@@ -31,6 +31,18 @@ public:
     inline QString getZoneName() const { return m_zoneName; }
     inline QString getZoneCity() const { return m_zoneCity; }
     inline int getUTCOffset() const { return m_utcOffset; }
+    QString getUtcOffsetText() const
+    {
+        QString gmData;
+        int utcOff = m_utcOffset / 3600;
+        if (utcOff >= 0) {
+            gmData = QString("(UTC+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(m_utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
+        } else {
+            gmData = QString("(UTC%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(m_utcOffset % 3600 / 60, 2, 10, QLatin1Char('0'));
+        }
+
+        return gmData;
+    }
 
 private:
     QString m_zoneName;

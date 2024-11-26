@@ -46,7 +46,7 @@ QVariant LanguageListModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> LanguageListModel::roleNames() const
 {
     QHash<int, QByteArray> names = QAbstractListModel::roleNames();
-    names[SearchTextRole] = "searchTextRole";
+    names[SearchTextRole] = "searchText";
     names[LangKeyIdRole] = "key";
     return names;
 }
