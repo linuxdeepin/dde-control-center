@@ -6,6 +6,7 @@
 #define UTILS_H
 
 #include <QObject>
+#include <QUrl>
 
 const int RENDER_DPI = 72;
 const double DPI = 96;
@@ -34,6 +35,39 @@ inline double pxToPt(double px)
 {
     double pt = px * RENDER_DPI / DPI;
     return pt;
+}
+
+inline bool isURI(QString uri)
+{
+    if (uri.indexOf("://") != -1)
+        return true;
+
+    return false;
+}
+
+
+inline QString deCodeURI(QString uri)
+{
+    QString path;
+    if (isURI(uri)) {
+        QUrl Url(uri);
+        path = Url.path();
+    } else {
+        path = uri;
+    }
+
+    return path;
+}
+
+inline QString enCodeURI(QString content, QString scheme)
+{
+    QString path;
+    if (isURI(content)) {
+        path = deCodeURI(content);
+    } else {
+        path = content;
+    }
+    return scheme + path;
 }
 
 #endif // UTILS_H

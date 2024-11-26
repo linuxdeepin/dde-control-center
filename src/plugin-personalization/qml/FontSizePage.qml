@@ -40,14 +40,16 @@ DccObject {
                 slider.live: true
                 slider.stepSize: 1
                 slider.snapMode: Slider.SnapAlways
-                ticks: Repeater {
-                    model: fontSizeSlider.fontSizeModel.length
-                    D.SliderTipItem {
-                        text: fontSizeSlider.fontSizeModel[index]
-                        highlight: fontSizeSlider.slider.value === index
-                    }
-
-                }
+                ticks: [
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[0]; highlight: fontSizeSlider.slider.value === 0},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[1]; highlight: fontSizeSlider.slider.value === 1},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[2]; highlight: fontSizeSlider.slider.value === 2},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[3]; highlight: fontSizeSlider.slider.value === 3},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[4]; highlight: fontSizeSlider.slider.value === 4},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[5]; highlight: fontSizeSlider.slider.value === 5},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[6]; highlight: fontSizeSlider.slider.value === 6},
+                    D.SliderTipItem {text: fontSizeSlider.fontSizeModel[7]; highlight: fontSizeSlider.slider.value === 7}
+                ]
                 slider.onValueChanged: {
                     dccData.worker.setFontSize(fontSizeSlider.fontSizeModel[fontSizeSlider.slider.value])
                 }

@@ -59,7 +59,7 @@ DccObject {
                 ThemeSelectView {
                     id: themeSelectView
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 240
+                    Layout.preferredHeight: 320
                 }
             }
         }
