@@ -59,7 +59,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignCenter
             model: dccData.zoneSearchModel()
             onClicked: function(model) {
-                layout.showIndicator(model.zoneIdRole, model.cityNameRole)
+                layout.showIndicator(model.zoneId, model.cityName)
             }
         }
 

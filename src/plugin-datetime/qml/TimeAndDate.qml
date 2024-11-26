@@ -253,34 +253,17 @@ DccObject {
             id: view
         }
 
-        function addUserTimeZone(zoneId) {
-            let displays = dccData.userTimeZoneText(0);
-            let descritions = dccData.userTimeZoneText(1);
-            let shifts = dccData.userTimeZoneText(2);
-            let zoneIds = dccData.userTimeZoneText(3);
-            for (let i = 0; i < displays.length && i < descritions.length; ++i) {
-                if (zoneId && zoneId !== zoneIds[i])
-                    continue
-
-                var obj = itemZoneComp.createObject(timezoneGroup)
-                obj.name = "timezoneItem" + i
-                obj.parentName = "timezoneGroup"
-                obj.displayName = displays[i]
-                obj.description = descritions[i]
-                obj.shift = shifts[i] / 3600
-                obj.weight = 20 + 10 * (i + 1)
-                DccApp.addObject(obj)
-            }
-        }
-
-        Component.onCompleted: {
-            timezoneGroup.addUserTimeZone(null)
-        }
-
-        Connections {
-            target: dccData
-            function onUserTimeZoneAdded(zoneInfo) {
-                timezoneGroup.addUserTimeZone(zoneInfo.zoneName)
+        DccRepeater {
+            id: userTimezoneRepeater
+            model: dccData.userTimezoneModel()
+            delegate: ItemZoneComp {
+                name: "userTimezoneItem" + index
+                parentName: "timezoneGroup"
+                displayName: model.display
+                description: model.description
+                weight: 20 + 10 * (index + 1)
+                shift: model.shift
+                zoneId: model.zoneId
             }
         }
 
@@ -303,6 +286,7 @@ DccObject {
             model: dccData.zoneSearchModel()
             textRole: "display"
             displayText: dccData.timeZoneDispalyName
+            hoverEnabled: true
             currentIndex: dccData.currentTimeZoneIndex
 
             popup: SearchableListViewPopup {
@@ -311,10 +295,7 @@ DccObject {
                 implicitWidth: combo.width
                 delegateModel: combo.delegateModel
                 maxVisibleItems: combo.maxVisibleItems
-                Component.onCompleted: {
-                    searchView.highlightedIndex = combo.currentIndex
-                }
-
+                highlightedIndex: combo.highlightedIndex
                 onSearchTextChanged: {
                     let delegateModel = dccData.zoneSearchModel()
                     delegateModel.setFilterWildcard(searchView.searchText);
@@ -325,13 +306,13 @@ DccObject {
             }
 
             onActivated: function (index) {
-                let zoneId = currentValue["zoneIdRole"]
+                let zoneId = currentValue["zoneId"]
                 if (systemTimezone.showPopForCustom) {
                     dccData.addUserTimeZoneById(zoneId)
                     return
                 }
 
-                dccData.systemTimeZone = zoneId
+                dccData.setSystemTimeZone(zoneId)
             }
         }
     }
@@ -351,117 +332,86 @@ DccObject {
                 icon.name: "add"
                 implicitHeight: 32
                 implicitWidth: 32
-
-                Loader {
-                    id: timezoneLoader
-                    active: addButton.needShowDialog
-                    sourceComponent: TimezoneDialog {
-                        id: timezoneDialog
-                        currentTimeZone: dccData.timeZoneDispalyName
-                        currentLocation: dccData.country
-                        onClosing: {
-                            dccData.zoneSearchModel().setFilterRegularExpression("")
-                            addButton.needShowDialog = false
-                            if (timezoneDialog.saved) {
-                                dccData.addUserTimeZoneByName(timezoneDialog.selectedTimeZone)
-                            }
-                        }
-                    }
-                    onLoaded: {
-                        item.show()
-                    }
-                }
                 onClicked: {
-                    // disable Timezone map Dialog
-                    // addButton.needShowDialog = true
-                    // 共用 combobox。。
                     systemTimezone.showPopForCustom = true
                 }
             }
         }
     }
 
-    Component {
-        id: itemZoneComp
-        DccObject {
-            backgroundType: DccObject.Normal
-            pageType: DccObject.Item
-            property int shift: 8
-            page: ItemDelegate {
-                id: itemDelegate
-                visible: dccObj
-                hoverEnabled: true
-                implicitHeight: 50
-                icon.name: dccObj.icon
-                checkable: false
-                RowLayout {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    ColumnLayout {
-                        Layout.topMargin: 8
-                        Layout.leftMargin: 60
+    component ItemZoneComp: DccObject {
+        property int shift: 8
+        property string zoneId
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: ItemDelegate {
+            id: itemDelegate
+            visible: dccObj
+            hoverEnabled: true
+            implicitHeight: 50
+            icon.name: dccObj.icon
+            checkable: false
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ColumnLayout {
+                    Layout.topMargin: 8
+                    Layout.leftMargin: 60
+                    Layout.maximumWidth: 160
+
+                    Label {
+                        id: display
                         Layout.maximumWidth: 160
-
-                        Label {
-                            id: display
-                            Layout.maximumWidth: 160
-                            text: dccObj.displayName
-                            elide: Text.ElideRight
-                        }
-                        Label {
-                            id: description
-                            Layout.maximumWidth: 160
-                            visible: text !== ""
-                            font: DTK.fontManager.t10
-                            text: dccObj.description
-                            opacity: 0.5
-                            elide: Text.ElideRight
-                        }
+                        text: dccObj.displayName
+                        elide: Text.ElideRight
+                    }
+                    Label {
+                        id: description
+                        Layout.maximumWidth: 160
+                        visible: text !== ""
+                        font: DTK.fontManager.t10
+                        text: dccObj.description
+                        opacity: 0.5
+                        elide: Text.ElideRight
                     }
                 }
+            }
 
-                TimezoneClock {
-                    id: clock
-                    width: 36
-                    height: 36
-                    shift: dccObj.shift
-                    anchors {
-                        left: itemDelegate.left
-                        leftMargin: 10
-                        top: itemDelegate.top
-                        topMargin: (itemDelegate.height - clock.height) / 2
-                    }
+            TimezoneClock {
+                id: clock
+                width: 36
+                height: 36
+                shift: dccObj.shift
+                anchors {
+                    left: itemDelegate.left
+                    leftMargin: 10
+                    top: itemDelegate.top
+                    topMargin: (itemDelegate.height - clock.height) / 2
                 }
+            }
 
-                IconButton {
-                    id: removeButton
-                    visible: itemDelegate.hovered
-                    icon.name: "user-trash-symbolic"
-                    icon.width: 24
-                    icon.height: 24
-                    implicitWidth: 36
-                    implicitHeight: 36
-                    anchors {
-                        right: itemDelegate.right
-                        rightMargin: 10
-                        // verticalCenter: itemDelegate // not work ?
-                        top: itemDelegate.top
-                        topMargin: (itemDelegate.height - removeButton.height) / 2
-
-                    }
-                    background: null
-                    onClicked: {
-                        console.log("need remove timezone", dccObj.displayName)
-                        dccData.removeUserTimeZoneByName(dccObj.displayName)
-                        DccApp.removeObject(dccObj)
-                        dccObj.destroy(1000)
-                    }
+            IconButton {
+                id: removeButton
+                visible: itemDelegate.hovered
+                icon.name: "user-trash-symbolic"
+                icon.width: 24
+                icon.height: 24
+                implicitWidth: 36
+                implicitHeight: 36
+                anchors {
+                    right: itemDelegate.right
+                    rightMargin: 10
+                    verticalCenter: itemDelegate.verticalCenter
                 }
-                background: DccItemBackground {
-                    separatorVisible: true
+                background: null
+                onClicked: {
+                    console.log("need remove timezone", dccObj.displayName)
+                    dccData.removeUserTimeZoneById(dccObj.zoneId)
                 }
+            }
+            background: DccItemBackground {
+                separatorVisible: true
             }
         }
     }
-
 }

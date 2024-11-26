@@ -205,6 +205,7 @@ public Q_SLOTS:
     QPoint zonePosition(const QString &timezone, int map_width, int map_height);
     QStringList zoneIdList();
     QString zoneDisplayName(const QString &zoneName);
+    QAbstractListModel *userTimezoneModel();
     QSortFilterProxyModel *zoneSearchModel();
     QSortFilterProxyModel *langSearchModel();
     QSortFilterProxyModel *langRegionSearchModel();
@@ -215,11 +216,10 @@ public Q_SLOTS:
     QString region(); // country
     int currentRegionIndex();
     void setRegion(const QString &region); // setCountry
-    void addUserTimeZoneByName(const QString &name);
     void addUserTimeZoneById(const QString &zoneId);
-    void removeUserTimeZoneByName(const QString &name);
-    QStringList userTimeZoneText(int index) const;
-    QString currentTimeZoneName() const;
+    void removeUserTimeZoneById(const QString &name);
+    void setSystemTimeZone(const QString &zoneId);
+    QString timeZoneDescription(const ZoneInfo &zone) const;
     void ensureLangModel();
     void addLang(const QString &lang);
     void deleteLang(const QString &lang);
@@ -268,6 +268,7 @@ private:
     RegionFormat m_regionFormat;
     QMap<QString, QString> m_timezoneCache;
     DatetimeWorker *m_work = nullptr;
+    dccV25::UserTimezoneModel *m_userTimezoneModel = nullptr;
     QSortFilterProxyModel *m_zoneSearchModel = nullptr;
     QSortFilterProxyModel *m_langSearchModel = nullptr;
     QSortFilterProxyModel *m_regionSearchModel = nullptr;

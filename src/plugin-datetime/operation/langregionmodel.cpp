@@ -75,7 +75,7 @@ QVariant LangRegionModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> LangRegionModel::roleNames() const
 {
     QHash<int, QByteArray> names = QAbstractListModel::roleNames();
-    names[SearchTextRole] = "searchTextRole";
+    names[SearchTextRole] = "searchText";
     names[RegionKeyIdRole] = "langKey";
     names[LocaleKeyIdRole] = "localeKey";
     names[FirstDayOfWeek] = "firstDay";

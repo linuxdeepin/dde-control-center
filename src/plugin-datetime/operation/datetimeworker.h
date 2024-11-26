@@ -47,7 +47,7 @@ public Q_SLOTS:
     void set24HourType(bool state);
 #ifndef DCC_DISABLE_TIMEZONE
     void setTimezone(const QString &timezone);
-    void removeUserTimeZone(const ZoneInfo &info);
+    void removeUserTimeZone(const QString &zone);
     void addUserTimeZone(const QString &zone);
 #endif
     void setNtpServer(QString server);

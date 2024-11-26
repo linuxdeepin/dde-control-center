@@ -9,6 +9,23 @@
 
 namespace dccV25 {
 
+class UserTimezoneModel : public QAbstractListModel {
+public:
+    explicit UserTimezoneModel(QObject *parent = nullptr);
+    virtual ~UserTimezoneModel();
+    enum UserTimezoneRole {
+        DescriptionRole = Qt::UserRole + 1,
+        ShiftRole,
+        ZoneIdRole
+    };
+
+    // QAbstractItemModel interface
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    void reset();
+};
+
 class ZoneInfoModel : public QAbstractListModel
 {
 public:

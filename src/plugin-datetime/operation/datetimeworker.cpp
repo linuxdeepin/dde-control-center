@@ -144,9 +144,9 @@ void DatetimeWorker::setTimezone(const QString &timezone)
     m_timedateInter->SetTimezone(timezone);
 }
 
-void DatetimeWorker::removeUserTimeZone(const ZoneInfo &info)
+void DatetimeWorker::removeUserTimeZone(const QString &zone)
 {
-    m_timedateInter->DeleteUserTimezone(info.getZoneName());
+    m_timedateInter->DeleteUserTimezone(zone);
 }
 
 void DatetimeWorker::addUserTimeZone(const QString &zone)
