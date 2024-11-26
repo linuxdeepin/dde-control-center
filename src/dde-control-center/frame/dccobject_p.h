@@ -47,6 +47,7 @@ public:
 
     DccObject *getChild(int childPos) const;
     int getChildIndex(const DccObject *child) const;
+    void deleteSectionItem();
 
 protected:
     explicit Private(DccObject *obj);

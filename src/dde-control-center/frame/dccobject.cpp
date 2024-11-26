@@ -71,6 +71,9 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
         else
             m_flags &= (~flag);
         if (hidden != getFlagState(DCC_ALL_HIDDEN)) {
+            if (!hidden) {
+                deleteSectionItem();
+            }
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
         bool allDisabled = getFlagState(DCC_ALL_DISABLED);
@@ -185,6 +188,24 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
     return m_children.indexOf(const_cast<DccObject *>(child));
 }
 
+void DccObject::Private::deleteSectionItem()
+{
+    if (m_sectionItem) {
+        QQuickItem *item = m_sectionItem.get();
+        m_sectionItem = nullptr;
+        q_ptr->setParentItem(nullptr);
+        for (auto &&child : m_children) {
+            if (child->p_ptr->m_sectionItem) {
+                Q_EMIT child->deactive();
+            }
+        }
+        // 延时delete等动画完成
+        QTimer::singleShot(500, item, [item]() {
+            item->deleteLater();
+        });
+    }
+}
+
 void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o)
 {
     if (!o)
@@ -224,20 +245,7 @@ DccObject::DccObject(QObject *parent)
     , p_ptr(new DccObject::Private(this))
 {
     connect(this, &DccObject::deactive, this, [this]() {
-        if (p_ptr->m_sectionItem) {
-            QQuickItem *item = p_ptr->m_sectionItem.get();
-            p_ptr->m_sectionItem = nullptr;
-            setParentItem(nullptr);
-            for (auto &&child : p_ptr->m_children) {
-                if (child->p_ptr->m_sectionItem) {
-                    Q_EMIT child->deactive();
-                }
-            }
-            // 延时delete等动画完成
-            QTimer::singleShot(500, item, [item]() {
-                item->deleteLater();
-            });
-        }
+        p_ptr->deleteSectionItem();
     });
 }
 
@@ -441,9 +449,7 @@ void DccObject::setPageType(quint8 type)
 
 QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    if (p_ptr->m_sectionItem) {
-        return p_ptr->m_sectionItem.get();
-    }
+    p_ptr->deleteSectionItem();
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
         QQmlContext *context = new QQmlContext(creationContext);
