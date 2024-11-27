@@ -108,12 +108,12 @@ public:
 
     virtual QStringList shortTimeFormats() override
     {
-        return { "H:mm", "HH:mm", "ap h:mm", "ap hh:mm" };
+        return { "H:mm", "HH:mm", "AP h:mm", "AP hh:mm" };
     }
 
     virtual QStringList longTimeFormats() override
     {
-        return { "H:mm:ss", "HH:mm:ss", "ap h:mm:ss", "ap hh:mm:ss" };
+        return { "H:mm:ss", "HH:mm:ss", "AP h:mm:ss", "AP hh:mm:ss" };
     }
 };
 
@@ -132,12 +132,12 @@ public:
 
     virtual QStringList shortTimeFormats() override
     {
-        return { "HH:mm", "H:mm", "hh:mm ap", "h:mm ap" };
+        return { "HH:mm", "H:mm", "hh:mm AP", "h:mm AP" };
     }
 
     virtual QStringList longTimeFormats() override
     {
-        return { "HH:mm:ss", "H:mm:ss", "hh:mm:ss ap", "h:mm:ss ap" };
+        return { "HH:mm:ss", "H:mm:ss", "hh:mm:ss AP", "h:mm:ss AP" };
     }
 };
 
@@ -157,7 +157,7 @@ public:
 
     virtual QStringList shortTimeFormats() override
     {
-        return { "H:mm ap", "HH:mm ap", "H:mm", "HH:mm" };
+        return { "H:mm AP", "HH:mm AP", "H:mm", "HH:mm" };
     }
 
     virtual QStringList longTimeFormats() override
@@ -176,9 +176,9 @@ public:
         return { "dddd, d MMMM yyyy", "d MMMM yyyy" };
     }
 
-    virtual QStringList shortTimeFormats() override { return { "H:mm ap", "HH:mm" }; }
+    virtual QStringList shortTimeFormats() override { return { "H:mm AP", "HH:mm" }; }
 
-    virtual QStringList longTimeFormats() override { return { "H:mm:ss ap", "HH:mm:ss" }; }
+    virtual QStringList longTimeFormats() override { return { "H:mm:ss AP", "HH:mm:ss" }; }
 };
 
 RegionAvailableData RegionProxy::m_formatData = RegionAvailableData();
