@@ -38,10 +38,7 @@ QStringList systemFilter = {"terminal",
                             "wm-switcher",
                             "system-monitor",
                             "color-picker",
-                            "clipboard",
-                            "view-zoom-in",
-                            "view-zoom-out",
-                            "view-actual-size",
+                            "clipboard"
 };
 
 const QStringList &windowFilter = {"maximize",
@@ -62,7 +59,10 @@ const QStringList &workspaceFilter = {"switch-to-workspace-left",
 const QStringList &assistiveToolsFilter = {"ai-assistant",
                                            "text-to-speech",
                                            "speech-to-text",
-                                           "translation"};
+                                           "translation",
+                                            "view-zoom-in",
+                                            "view-zoom-out",
+                                            "view-actual-size"};
 
 // from dquickrectangle_p.h
 #define NoneCorner 0x0
