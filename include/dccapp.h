@@ -18,6 +18,23 @@ class DccApp : public QObject
 {
     Q_OBJECT
 public:
+    enum UosEdition {
+        UosEditionUnknown,
+        UosProfessional,
+        UosHome,
+        UosCommunity,
+        UosMilitary,
+        UosEnterprise,
+        UosEnterpriseC,
+        UosEuler,
+        UosMilitaryS, // for Server
+        UosDeviceEdition,
+        UosEducation,
+
+        UosEditionCount // must at last
+    };
+    Q_ENUM(UosEdition)
+
     static DccApp *instance();
 
     Q_PROPERTY(int width READ width)

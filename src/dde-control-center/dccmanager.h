@@ -7,6 +7,7 @@
 #include "dccobject.h"
 
 #include <DConfig>
+#include <DSysInfo>
 
 #include <QObject>
 
@@ -42,6 +43,8 @@ public:
     inline DccObject *activeObject() const override { return m_activeObject; }
 
     Q_INVOKABLE inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
+
+    Q_INVOKABLE DccApp::UosEdition uosEdition() const;
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 

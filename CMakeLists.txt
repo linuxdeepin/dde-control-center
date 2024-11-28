@@ -194,6 +194,7 @@ add_subdirectory(src/plugin-wacom)
 add_subdirectory(src/plugin-bluetooth)
 add_subdirectory(src/plugin-update)
 add_subdirectory(src/plugin-notification)
+add_subdirectory(src/plugin-deepinid)
 add_subdirectory(src/plugin-display)
 
 if(BUILE_EXAMPLES)
