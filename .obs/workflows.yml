@@ -6,7 +6,7 @@ test_build:
         target_project: deepin:CI
 
     - configure_repositories:
-        project: deepin:CI
+        project: deepin:CI:dodconfig
         repositories:
           - name: deepin_develop
             paths:
