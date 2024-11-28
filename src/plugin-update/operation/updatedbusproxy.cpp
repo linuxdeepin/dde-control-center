@@ -3,8 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatedbusproxy.h"
 
-#include "widgets/dccdbusinterface.h"
-
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDBusMetaType>

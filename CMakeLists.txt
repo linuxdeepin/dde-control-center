@@ -192,6 +192,7 @@ add_subdirectory(src/plugin-touchscreen)
 add_subdirectory(src/plugin-datetime)
 add_subdirectory(src/plugin-wacom)
 add_subdirectory(src/plugin-bluetooth)
+add_subdirectory(src/plugin-update)
 add_subdirectory(src/plugin-notification)
 
 if(BUILE_EXAMPLES)

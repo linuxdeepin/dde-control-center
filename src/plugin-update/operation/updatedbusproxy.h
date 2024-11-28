@@ -4,8 +4,6 @@
 #ifndef UPDATEDBUSPROXY_H
 #define UPDATEDBUSPROXY_H
 
-#include "interface/namespace.h"
-
 #include <DDBusInterface>
 
 #include <QDBusObjectPath>
