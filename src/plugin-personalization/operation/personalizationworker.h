@@ -36,6 +36,7 @@ public Q_SLOTS:
     void setDiabledCompactToTitleHeight();
     void setScrollBarPolicy(int policy);
     void goDownloadTheme();
+    void setActiveColors(const QString &activeColors);
 
     virtual void setDefaultByType(const QString &type, const QString &value);
     virtual void setDefault(const QJsonObject &value);
