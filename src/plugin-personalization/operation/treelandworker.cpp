@@ -202,8 +202,8 @@ void TreeLandWorker::setGlobalTheme(const QString &themeId)
         return;
     }
     m_globalTheme = themeId;
-    PersonalizationWorker::setGlobalTheme(themeId);
     handleGlobalTheme(themeId);
+    PersonalizationWorker::setGlobalTheme(themeId);
 }
 
 void TreeLandWorker::onWallpaperUrlsChanged()

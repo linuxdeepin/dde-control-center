@@ -77,7 +77,6 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::OpacityChanged, this, &PersonalizationWorker::refreshOpacity);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::QtActiveColorChanged, this, &PersonalizationWorker::refreshActiveColor);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperURlsChanged, this, &PersonalizationWorker::onWallpaperUrlsChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
@@ -235,12 +234,6 @@ void PersonalizationWorker::onToggleWM(const QString &wm)
 {
     qCDebug(DdcPersonalWorker) << "onToggleWM: " << wm;
     m_model->setIs3DWm(wm == "deepin wm");
-}
-
-void PersonalizationWorker::onWindowWM(bool value)
-{
-    qDebug() << "onWindowWM: " << value;
-    m_model->setIs3DWm(value);
 }
 
 void PersonalizationWorker::onMiniEffectChanged(bool value)
