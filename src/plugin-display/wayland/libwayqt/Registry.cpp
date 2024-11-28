@@ -27,10 +27,10 @@
 #include "wayland-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"
 
-#include <Output.hpp>
-#include <OutputManager.hpp>
-#include <Registry.hpp>
-#include <TreeLandOutputManager.hpp>
+#include "Output.hpp"
+#include "OutputManager.hpp"
+#include "Registry.hpp"
+#include "TreeLandOutputManager.hpp"
 
 #include <QCoreApplication>
 #include <QDebug>
@@ -41,7 +41,6 @@ void WQt::Registry::globalAnnounce(
         void *data, struct wl_registry *, uint32_t name, const char *interface, uint32_t version)
 {
     auto r = reinterpret_cast<WQt::Registry *>(data);
-
     r->handleAnnounce(name, interface, version);
 }
 
@@ -60,7 +59,8 @@ const struct wl_registry_listener WQt::Registry::mRegListener = {
     globalRemove,
 };
 
-WQt::Registry::Registry(wl_display *wlDisplay)
+WQt::Registry::Registry(wl_display *wlDisplay, QObject *parent)
+    : QObject(parent)
 {
     mWlDisplay = wlDisplay;
     mObj = wl_display_get_registry(mWlDisplay);
@@ -209,8 +209,9 @@ void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_
         wl_output *op = (wl_output *)wl_registry_bind(mObj, name, &wl_output_interface, version);
 
         if (op) {
-            mOutputs[name] = new WQt::Output(op);
-            emitOutput(mOutputs[name], true);
+            auto outputObj = new WQt::Output(op);
+            mOutputs[name] = outputObj;
+            emitOutput(outputObj, true);
         }
     }
 

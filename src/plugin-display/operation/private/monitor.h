@@ -4,7 +4,6 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include "interface/namespace.h"
 #include "monitordbusproxy.h"
 
 #include <QObject>
@@ -12,7 +11,7 @@
 
 #include <optional>
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class DisplayWorker;
 class TouchscreenWorker;

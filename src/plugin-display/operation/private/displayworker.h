@@ -4,7 +4,6 @@
 #ifndef DISPLAYWORKER_H
 #define DISPLAYWORKER_H
 
-#include "interface/namespace.h"
 #include "displaydbusproxy.h"
 #include "monitor.h"
 
@@ -31,7 +30,7 @@ namespace WQt {
     class OutputHead;
 }
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 class DisplayModel;
 class DisplayWorker : public QObject
 {

@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "displayworker.h"
 #include "displaymodel.h"
-#include "widgets/utils.h"
 
 #include <dconfig.h>
 
@@ -12,8 +11,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
-#include <QSocketNotifier>
-#include <QApplication>
 
 #include <Registry.hpp>
 #include <WayQtUtils.hpp>
@@ -27,7 +24,7 @@ Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 const QString DisplayInterface("org.deepin.dde.Display1");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent)
@@ -35,7 +32,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     , m_displayInter(new DisplayDBusProxy(this))
     , m_updateScale(false)
     , m_timer(new QTimer(this))
-    , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
+    , m_dconfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
 {
     // NOTE: what will it be used?
     Q_UNUSED(isSync)
@@ -43,7 +40,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_timer->setInterval(200);
 
     if (WQt::Utils::isTreeland()) {
-        m_reg = new WQt::Registry(WQt::Wayland::display());
+        m_reg = new WQt::Registry(WQt::Wayland::display(), this);
         m_reg->setup();
         auto *opMgr = m_reg->outputManager();
         if (!opMgr) {

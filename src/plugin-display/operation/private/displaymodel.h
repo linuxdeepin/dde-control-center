@@ -9,7 +9,6 @@
 #include <QObject>
 #include <QDebug>
 
-#include "interface/namespace.h"
 #include "monitor.h"
 #include "types/brightnessmap.h"
 #include "types/touchscreeninfolist_v2.h"
@@ -20,7 +19,7 @@
 #define EXTEND_MODE 2
 #define SINGLE_MODE 3
 
-namespace DCC_NAMESPACE {
+namespace dccV25 {
 
 class DisplayWorker;
 class DisplayModel : public QObject

@@ -7,7 +7,7 @@
 #include <QGuiApplication>
 
 
-using namespace DCC_NAMESPACE;
+using namespace dccV25;
 const double DoubleZero = 0.000001;
 
 Monitor::Monitor(QObject *parent)

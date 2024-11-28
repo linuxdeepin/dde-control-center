@@ -2,7 +2,6 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "displaydbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include <QDBusInterface>
 #include <QDBusPendingReply>
