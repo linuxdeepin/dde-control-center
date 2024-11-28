@@ -4,7 +4,6 @@
 #ifndef DISPLAYDBUSPROXY_H
 #define DISPLAYDBUSPROXY_H
 
-#include "interface/namespace.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 #include "types/resolutionlist.h"
@@ -142,10 +141,10 @@ Q_SIGNALS: // SIGNALS
     void HasAmbientLightSensorChanged(bool  value) const;
 
 private:
-    DDBusInterface *m_dBusDisplayInter;
-    DDBusInterface *m_dBusSystemDisplayInter;
-    DDBusInterface *m_dBusAppearanceInter;
-    DDBusInterface *m_dBusPowerInter;
+    Dtk::Core::DDBusInterface *m_dBusDisplayInter;
+    Dtk::Core::DDBusInterface *m_dBusSystemDisplayInter;
+    Dtk::Core::DDBusInterface *m_dBusAppearanceInter;
+    Dtk::Core::DDBusInterface *m_dBusPowerInter;
 };
 
 #endif // DISPLAYDBUSPROXY_H
