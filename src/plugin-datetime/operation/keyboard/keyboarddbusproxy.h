@@ -47,7 +47,7 @@ public:
 signals:
     // LangSelector property
     void CurrentLocaleChanged(const QString & value) const;
-    void LocaleStateChanged(int  value) const;
+    void LocaleStateChanged(int value) const;
     void LocalesChanged(const QStringList & value) const;
     void langSelectorServiceStartFinished(const quint32 ret) const;
 

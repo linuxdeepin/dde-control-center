@@ -34,6 +34,7 @@ DccObject {
                 Layout.rightMargin: 10
                 text: languageListTiltle.isEditing ? qsTr("done") : qsTr("edit")
                 background: null
+                enabled: dccData.langState === 0
                 textColor: Palette {
                     normal {
                         common: DTK.makeColor(Color.Highlight)
@@ -70,6 +71,7 @@ DccObject {
                     weight: 20 + 10 * (index + 1)
                     backgroundType: DccObject.Normal
                     pageType: DccObject.Item
+                    enabled: dccData.langState === 0 // language set finished
                     page: ItemDelegate {
                         id: itemDelegate
                         property bool isCurrentLang: dccData.currentLang === dccObj.displayName
@@ -93,8 +95,8 @@ DccObject {
 
                         IconButton {
                             id: removeButton
-                            visible: itemDelegate.isCurrentLang
-                                     || languageListTiltle.isEditing
+                            visible: (itemDelegate.isCurrentLang && dccObj.enabled) ||
+                                     languageListTiltle.isEditing
                             icon.name: itemDelegate.isCurrentLang ? "sp_ok" : "list_delete"
                             icon.width: 24
                             icon.height: 24
@@ -113,6 +115,22 @@ DccObject {
                                     return
 
                                 dccData.deleteLang(dccObj.displayName)
+                            }
+                        }
+
+                        Loader {
+                            active: itemDelegate.isCurrentLang && !dccObj.enabled
+                            sourceComponent: BusyIndicator {
+                                running: true
+                                implicitWidth: 36
+                                implicitHeight: 36
+                            }
+                            onLoaded: {
+                                item.parent = itemDelegate
+                                item.anchors.right = itemDelegate.right
+                                item.anchors.rightMargin = 10
+                                item.anchors.top = itemDelegate.top
+                                item.anchors.topMargin = (itemDelegate.height - removeButton.height) / 2
                             }
                         }
 

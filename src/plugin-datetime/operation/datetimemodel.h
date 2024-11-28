@@ -50,6 +50,7 @@ class DatetimeModel : public QObject
     Q_PROPERTY(QString currentTime READ currentTime NOTIFY currentTimeChanged FINAL)
 
     Q_PROPERTY(QString digitGroupingSymbol READ digitGroupingSymbol WRITE setDigitGroupingSymbol NOTIFY digitGroupingSymbolChanged FINAL)
+    Q_PROPERTY(int langState READ langState NOTIFY langStateChanged FINAL)
 
 public:
     using Regions = QMap<QString, QLocale>;
@@ -159,6 +160,7 @@ public:
 
     int weekdayFormat() const;
     void setWeekdayFormat(int newWeekdayFormat);
+    int langState() const;
 
 Q_SIGNALS:
     void ntpChanged(bool value);
@@ -197,6 +199,7 @@ Q_SIGNALS:
     void currentDateChanged();
     void currentTimeChanged();
     void currentFormatChanged(int format);
+    void langStateChanged(int state);
 
 public Q_SLOTS:
     void set24HourFormat(bool state);

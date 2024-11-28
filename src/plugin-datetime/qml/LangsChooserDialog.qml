@@ -36,6 +36,12 @@ Loader {
                 onVisibleChanged: {
                     clear()
                 }
+                onTextChanged: {
+                    viewModel.setFilterWildcard(text);
+                }
+                onEditingFinished: {
+                    viewModel.setFilterWildcard(text);
+                }
             }
 
             ListView {
