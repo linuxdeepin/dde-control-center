@@ -25,11 +25,13 @@ DccObject {
         backgroundType: DccObject.Normal
         page: ListView {
             id: listview
-            property var colors: ["#D8316C", "#FF5D00", "#F8CB00", "#89C32B", "#00C433", "#00A49E", "#1F6EE7", "#5624DA", "#7C1AC2", "#E564C9", "#4D4D4D", "CUSTOM"]
+            readonly property var colors: ["#D8316C", "#FF5D00", "#F8CB00", "#89C32B", "#00C433", "#00A49E", "#1F6EE7", "#5624DA", "#7C1AC2", "#E564C9", "#4D4D4D", "CUSTOM"]
+            readonly property var darkColors: ["#D8316C", "#FF5D00", "#F8CB00", "#89C32B", "#00C433", "#00A49E", "#1F6EE7", "#5624DA", "#7C1AC2", "#E564C9", "#4D4D4D", "CUSTOM"]
+            property var cutColors: dccData.currentAppearance === ".dark" ? darkColors : colors
             implicitHeight: 60
             leftMargin: 10
             clip: true
-            model: colors.length
+            model: cutColors.length
             orientation: ListView.Horizontal
             layoutDirection: Qt.LeftToRight
             spacing: 12
@@ -37,13 +39,13 @@ DccObject {
             delegate: Item {
                 anchors.verticalCenter: parent.verticalCenter
                 property string activeColor: dccData.model.activeColor
-                property string currentColor: listview.colors[index]
+                property string currentColor: listview.cutColors[index]
                 width: 30
                 height: 30
                 Rectangle {
                     anchors.fill: parent
                     border.width: 2
-                    visible: activeColor === currentColor || (currentColor == "CUSTOM" && listview.colors.indexOf(activeColor) === -1)
+                    visible: activeColor === currentColor || (currentColor == "CUSTOM" && listview.cutColors.indexOf(activeColor) === -1)
                     border.color: currentColor == "CUSTOM" ? activeColor : currentColor
                     radius: width / 2
                 }
@@ -52,7 +54,7 @@ DccObject {
                     anchors.fill: parent
                     anchors.margins: 4
                     radius: width / 2
-                    color: listview.colors[index] === "CUSTOM" ? "transparent" : listview.colors[index]
+                    color: listview.cutColors[index] === "CUSTOM" ? "transparent" : listview.cutColors[index]
                     anchors.centerIn: parent
 
                     D.BoxShadow {
@@ -65,7 +67,7 @@ DccObject {
 
                     Canvas {
                         anchors.fill: parent
-                        visible: listview.colors[index] === "CUSTOM"
+                        visible: listview.cutColors[index] === "CUSTOM"
                         onPaint: {
                             var ctx = getContext("2d");
                             ctx.clearRect(0, 0, width, height);
@@ -95,11 +97,12 @@ DccObject {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            if (listview.colors[index] === "CUSTOM") {
+                            if (listview.cutColors[index] === "CUSTOM") {
                                 colorDialog.color = dccData.model.activeColor
                                 colorDialog.open()
                             } else {
-                                dccData.worker.setActiveColor(listview.colors[index])
+                                dccData.worker.setActiveColor(listview.cutColors[index])
+                                dccData.worker.setActiveColors(listview.colors[index] + "," + listview.darkColors[index])
                             }
                         }
                     }
@@ -113,6 +116,7 @@ DccObject {
                 onAccepted: {
                     console.warn(colorDialog.color)
                     dccData.worker.setActiveColor(colorDialog.color)
+                    dccData.worker.setActiveColors(colorDialog.color + "," + colorDialog.color)
                 }
             }
         }
