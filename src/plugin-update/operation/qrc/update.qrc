@@ -11,5 +11,11 @@
         <file>icons/dcc_safe_update.svg</file>
         <file>icons/dcc_system_update.svg</file>
         <file>icons/dcc_unknown_update.svg</file>
+        <file>icons/dcc_update_success.png</file>
+        <file>icons/dcc_updating.png</file>
+        <file>icons/update_close.png</file>
+        <file>icons/update_stop.png</file>
+        <file>icons/system_update.png</file>
+        <file>icons/check_update_failed.png</file>
     </qresource>
 </RCC>

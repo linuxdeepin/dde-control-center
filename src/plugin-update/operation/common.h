@@ -181,14 +181,14 @@ enum CanExitTestingChannelStatus {
     for (auto it = regex.globalMatch(data); it.hasNext(); ) {
         auto match = it.next();
         if (match.hasMatch() && match.captured(1).isEmpty()) { // 匹配到文字颜色，替换
-            result.append(data.midRef(lastMatchEnd, match.capturedStart() - lastMatchEnd));
+            result.append(data.mid(lastMatchEnd, match.capturedStart() - lastMatchEnd));
             result.append(textColor);
         } else { // 匹配到背景颜色，删除
-            result.append(data.midRef(lastMatchEnd, match.capturedStart() - lastMatchEnd));
+            result.append(data.mid(lastMatchEnd, match.capturedStart() - lastMatchEnd));
         }
         lastMatchEnd = match.capturedEnd();
     }
-    result.append(data.midRef(lastMatchEnd));
+    result.append(data.mid(lastMatchEnd));
 
     return result;
 }
