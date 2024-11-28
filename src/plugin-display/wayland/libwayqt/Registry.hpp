@@ -81,7 +81,7 @@ public:
 
     Q_ENUM(Interface);
 
-    Registry(wl_display *wlDisplay);
+    Registry(wl_display *wlDisplay, QObject *parent = nullptr);
     ~Registry();
 
     void setup();

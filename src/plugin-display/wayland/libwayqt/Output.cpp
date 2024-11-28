@@ -25,7 +25,7 @@
 
 #include "wayland-client-protocol.h"
 
-#include <Output.hpp>
+#include "Output.hpp"
 #include <wayland-client.h>
 
 #include <QCoreApplication>
