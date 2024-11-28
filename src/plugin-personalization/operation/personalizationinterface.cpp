@@ -119,7 +119,7 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
 , m_iconThemeViewModel(new ThemeVieweModel(this))
 , m_cursorThemeViewModel(new ThemeVieweModel(this))
 {
-    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsTreelandPlatform)) {
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
         m_work = new TreeLandWorker(m_model, this);
     } else {
         m_work = new X11Worker(m_model, this);
@@ -157,7 +157,8 @@ void PersonalizationInterface::initAppearanceSwitchModel()
         Q_EMIT appearanceSwitchModelChanged(m_appearanceSwitchModel);
         if (mode != m_currentAppearance) {
             m_currentAppearance = mode;
-            Q_EMIT currentAppearanceChanged(m_currentAppearance);
+            // FIXME: 可能导致外观主题循环绑定
+            // Q_EMIT currentAppearanceChanged(m_currentAppearance);
         }
     };
 

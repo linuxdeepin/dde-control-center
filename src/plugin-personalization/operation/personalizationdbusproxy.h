@@ -136,10 +136,10 @@ private slots:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
-    QDBusInterface *m_AppearanceInter;
-    QDBusInterface *m_WMSwitcherInter;
-    QDBusInterface *m_WMInter;
-    QDBusInterface *m_EffectsInter;
+    QDBusInterface *m_AppearanceInter = nullptr;
+    QDBusInterface *m_WMSwitcherInter = nullptr;
+    QDBusInterface *m_WMInter = nullptr;
+    QDBusInterface *m_EffectsInter = nullptr;
 };
 
 #endif // PERSONALIZATIONDBUSPROXY_H
