@@ -1112,6 +1112,7 @@ void DatetimeModel::ensureLangModel()
     m_langModel = new dccV25::KeyboardModel(this);
     connect(m_langModel, &dccV25::KeyboardModel::curLocalLangChanged, this, &DatetimeModel::langListChanged);
     connect(m_langModel, &dccV25::KeyboardModel::curLangChanged, this, &DatetimeModel::currentLangChanged);
+    connect(m_langModel, &dccV25::KeyboardModel::onSetCurLangFinish, this, &DatetimeModel::langStateChanged);
 }
 
 void DatetimeModel::addLang(const QString &lang)
@@ -1165,6 +1166,13 @@ void DatetimeModel::setWeekdayFormat(int newWeekdayFormat)
     m_work->setWeekdayFormat(newWeekdayFormat);
 }
 
+int DatetimeModel::langState() const
+{
+    if (!m_langModel)
+        return 0;
+
+    return m_langModel->getLangChangedState();
+}
 
 DCC_FACTORY_CLASS(DatetimeModel)
 

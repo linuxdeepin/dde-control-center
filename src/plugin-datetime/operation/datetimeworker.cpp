@@ -15,7 +15,6 @@
 
 Q_LOGGING_CATEGORY(DdcDateTimeWorkder, "dcc-datetime-worker")
 
-
 DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
