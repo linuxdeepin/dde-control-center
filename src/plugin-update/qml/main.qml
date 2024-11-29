@@ -13,13 +13,12 @@ DccObject {
         parentName: "update"
         backgroundType: DccObject.AutoBg
         displayName: qsTr("check update")
-        description: qsTr("您有新的系统更新，请查看并更新")
+        description: dccData.model().upgradable ? qsTr("Your system is already the latest version") : qsTr("You have a new system update, please check and update")
         pageType: DccObject.Menu
         weight: 10
         visible: true
         page: DccGroupView {
             isGroup: false
-            // height: implicitHeight
             anchors {
                 left: parent.left
                 right: parent.right
