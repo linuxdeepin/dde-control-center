@@ -38,6 +38,9 @@ add_library(libwayqt6
     treeland-output-management-client-protocol.c
 )
 
+# fix arm64 build failed relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol
+target_compile_options(libwayqt6 PRIVATE "-fpic")
+
 target_include_directories(libwayqt6
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/wayland/libwayqt"
