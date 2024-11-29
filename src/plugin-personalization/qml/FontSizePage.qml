@@ -34,7 +34,6 @@ DccObject {
                 Layout.fillWidth: true
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
-                slider.value: fontSizeModel.indexOf(dccData.model.fontSizeModel.size)
                 slider.from: 0
                 slider.to: fontSizeModel.length - 1
                 slider.live: true
@@ -52,6 +51,10 @@ DccObject {
                 ]
                 slider.onValueChanged: {
                     dccData.worker.setFontSize(fontSizeSlider.fontSizeModel[fontSizeSlider.slider.value])
+                }
+
+                Component.onCompleted: {
+                    slider.value = fontSizeModel.indexOf(dccData.model.fontSizeModel.size)
                 }
             }
         }

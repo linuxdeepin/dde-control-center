@@ -12,6 +12,7 @@
 #include <QLoggingCategory>
 #include <QDebug>
 #include <QDir>
+#include "utils.hpp"
 
 #include <private/qguiapplication_p.h>
 #include <private/qwaylandintegration_p.h>
@@ -159,7 +160,7 @@ void TreeLandWorker::setFontSize(const int value)
     }
     m_fontSize = value;
     PersonalizationWorker::setFontSize(value);
-    m_fontContext->set_font_size(value);
+    m_fontContext->set_font_size(pxToPt(value) * 10);
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
