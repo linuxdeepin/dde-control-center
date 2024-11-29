@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationdbusproxy.h"
 
+#include <DGuiApplicationHelper>
 #include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -27,21 +28,25 @@ const QString EffectsInterface = QStringLiteral("org.kde.kwin.Effects");
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
+DGUI_USE_NAMESPACE
+
 PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     : QObject(parent)
     , m_AppearanceInter(new QDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this))
     , m_WMSwitcherInter(new QDBusInterface(WMSwitcherService, WMSwitcherPath, WMSwitcherInterface, QDBusConnection::sessionBus(), this))
-    , m_WMInter(new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this))
-    , m_EffectsInter(new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this))
 
 {
+    if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
+        m_WMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
+        m_EffectsInter = new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
+        connect(m_WMSwitcherInter, SIGNAL(WMChanged(const QString &)), this, SIGNAL(WMChanged(const QString &)));
+    }
+    
     QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     QDBusConnection::sessionBus().connect(WMService, WMPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
     connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
-    connect(m_WMSwitcherInter, SIGNAL(WMChanged(const QString &)), this, SIGNAL(WMChanged(const QString &)));
-    connect(m_WMInter, SIGNAL(compositingEnabledChanged(bool)), this, SIGNAL(compositingEnabledChanged(bool)));
 }
 
 // Appearance
@@ -260,65 +265,111 @@ void PersonalizationDBusProxy::RequestSwitchWM()
 // WM
 bool PersonalizationDBusProxy::compositingAllowSwitch()
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return qvariant_cast<bool>(m_WMInter->property("compositingAllowSwitch"));
 }
 
 bool PersonalizationDBusProxy::compositingEnabled()
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return qvariant_cast<bool>(m_WMInter->property("compositingEnabled"));
 }
 
 void PersonalizationDBusProxy::setCompositingEnabled(bool value)
 {
+    if (!m_WMInter) {
+        return;
+    }
     m_WMInter->setProperty("compositingEnabled", QVariant::fromValue(value));
 }
 
 bool PersonalizationDBusProxy::compositingPossible()
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return qvariant_cast<bool>(m_WMInter->property("compositingPossible"));
 }
 
 int PersonalizationDBusProxy::cursorSize()
 {
+    if (!m_WMInter) {
+        return 0;
+    }
     return qvariant_cast<int>(m_WMInter->property("cursorSize"));
 }
 
 void PersonalizationDBusProxy::setCursorSize(int value)
 {
+    if (!m_WMInter) {
+        return;
+    }
     m_WMInter->setProperty("cursorSize", QVariant::fromValue(value));
 }
 
 bool PersonalizationDBusProxy::zoneEnabled()
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return qvariant_cast<bool>(m_WMInter->property("zoneEnabled"));
 }
 
 void PersonalizationDBusProxy::setZoneEnabled(bool value)
 {
+    if (!m_WMInter) {
+        return;
+    }
     m_WMInter->setProperty("zoneEnabled", QVariant::fromValue(value));
 }
 
 // Effects
 bool PersonalizationDBusProxy::loadEffect(const QString &name)
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("loadEffect"), QVariant::fromValue(name)));
 }
 
 void PersonalizationDBusProxy::unloadEffect(const QString &name)
 {
+    if (!m_EffectsInter) {
+        return;
+    }
     m_EffectsInter->asyncCall(QStringLiteral("unloadEffect"), QVariant::fromValue(name));
 }
 
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name)
 {
+    if (!m_WMInter) {
+        return false;
+    }
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectLoaded"), QVariant::fromValue(name)));
 }
 
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *receiver, const char *member)
 {
+    if (!m_WMInter) {
+        return false;
+    }
     QList<QVariant> args;
     args << QVariant::fromValue(name);
     return m_EffectsInter->callWithCallback(QStringLiteral("isEffectLoaded"), args, receiver, member);
+}
+
+QString PersonalizationDBusProxy::activeColors()
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetActiveColors")));
+}
+
+void PersonalizationDBusProxy::setActiveColors(const QString &activeColors)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("SetActiveColors"), QVariant::fromValue(activeColors));
 }
 
 void PersonalizationDBusProxy::onPropertiesChanged(const QDBusMessage &message)

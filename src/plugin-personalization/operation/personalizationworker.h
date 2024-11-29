@@ -36,6 +36,7 @@ public Q_SLOTS:
     void setDiabledCompactToTitleHeight();
     void setScrollBarPolicy(int policy);
     void goDownloadTheme();
+    void setActiveColors(const QString &activeColors);
 
     virtual void setDefaultByType(const QString &type, const QString &value);
     virtual void setDefault(const QJsonObject &value);
@@ -67,7 +68,6 @@ private Q_SLOTS:
     void onToggleWM(const QString &wm);
     void setFontList(FontModel *model, const QString &type, const QString &list);
     void onCompositingAllowSwitch(bool value);
-    void onWindowWM(bool value);
     void onMiniEffectChanged(bool value);
     void onWindowRadiusChanged(int value);
     void onCompactDisplayChanged(int value);
