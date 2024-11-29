@@ -6,11 +6,13 @@ test_build:
         target_project: deepin:CI
 
     - configure_repositories:
-        project: deepin:CI:dodconfig
+        project: deepin:CI
         repositories:
           - name: deepin_develop
             paths:
               - target_project: deepin:CI
+                target_repository: deepin_develop
+              - target_project: deepin:CI:dodconfig
                 target_repository: deepin_develop
             architectures:
               - x86_64
