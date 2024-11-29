@@ -9,11 +9,19 @@ D.ComboBox {
     flat: true
     property string visibleRole
 
+    displayText: {
+        if (currentIndex < 0 || currentIndex >= model.count) {
+            return ""
+        } else {
+            return model[currentIndex][textRole]
+        }
+    }
+
     delegate: D.MenuItem {
         id: menuItem
         useIndicatorPadding: true
         width: parent.width
-        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
+        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : (model[control.textRole] === undefined ? modelData[control.textRole] : model[control.textRole])) : modelData
         font.family: text
         icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
         highlighted: control.highlightedIndex === index
