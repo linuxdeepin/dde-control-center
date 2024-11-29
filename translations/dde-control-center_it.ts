@@ -925,6 +925,17 @@
     </message>
 </context>
 <context>
+    <name>ConfirmManager</name>
+    <message>
+        <source>Password must contain numbers and letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password must be between 8 and 64 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
@@ -2967,6 +2978,69 @@
     </message>
 </context>
 <context>
+    <name>DeepinIDAccountSecurity</name>
+    <message>
+        <source>Bind WeChat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlinked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unbinding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to unbind WeChat?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Let me think it over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Local Account Binding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After binding your local account, you can use the following functions:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WeChat Scan Code Login System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset password via %1 ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset your local password via %1 ID in case you forget it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
@@ -2978,6 +3052,99 @@
     </message>
 </context>
 <context>
+    <name>DeepinIDLogin</name>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage your %1 ID and sync your personal data across devices.
+Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign In to %1 ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DeepinIDSyncService</name>
+    <message>
+        <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last sync time: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear cloud data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Once the data is cleared, it cannot be recovered!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DeepinIDUserInfo</name>
+    <message>
+        <source>Synchronization Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to web settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account and Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DeepinWorker</name>
+    <message>
+        <source>encrypt password failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong password, %1 chances left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The login error has reached the limit today. You can reset the password and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -2985,6 +3152,14 @@
     </message>
     <message>
         <source>Other regions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3837,22 +4012,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LoginPage</name>
-    <message>
-        <source>Cloud Sync</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign In to %1 ID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Manage your %1 ID and sync your personal data across devices.
-Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4718,6 +4877,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>RegisterDialog</name>
+    <message>
+        <source>Set a Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat the password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passwords don&apos;t match</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ResultItem</name>
     <message>
         <source>Your system is not authorized, please activate first</source>
@@ -5031,6 +5217,45 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No output device for sound found</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SyncInfoListModel</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5991,29 +6216,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>UserInfo</name>
+    <name>VerifyDialog</name>
     <message>
-        <source>The relevant functions are still under development, so stay tuned</source>
+        <source>Security Verification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Synchronization Service</source>
+        <source>The action is sensitive, please enter the login password first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 Auto Sync</source>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign out</source>
+        <source>8-64 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Go to web settings</source>
+        <source>Forgot Password?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

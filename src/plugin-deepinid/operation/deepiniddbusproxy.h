@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -23,6 +23,7 @@ public:
     void logout() const;
 
     QDBusReply<QString> localBindCheck(const QString &uuid);
+    QDBusReply<QString> meteInfo();
     QVariantMap userInfo();
 
 signals:

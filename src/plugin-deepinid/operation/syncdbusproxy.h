@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -12,46 +12,28 @@
 #include <QtCore/QString>
 #include <QtDBus/QtDBus>
 
-struct IntString
-{
-    qint32 state;
-    QString description;
-
-    bool operator!=(const IntString &intString);
-};
-
-Q_DECLARE_METATYPE(IntString)
-
-QDBusArgument &operator<<(QDBusArgument &argument, const IntString &intString);
-const QDBusArgument &operator>>(const QDBusArgument &argument, IntString &intString);
-
-void registerIntStringMetaType();
-
 using Dtk::Core::DDBusInterface;
 
 class SyncDBusProxy : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(qlonglong lastSyncTime READ lastSyncTime NOTIFY lastSyncTimeChanged)
-    Q_PROPERTY(IntString state READ state NOTIFY stateChanged)
+    Q_PROPERTY(qlonglong LastSyncTime READ lastSyncTime NOTIFY LastSyncTimeChanged)
 
 public:
     explicit SyncDBusProxy(QObject *parent = nullptr);
 
-    void switcherSet(const QString &arg_0, bool state);
-    bool switcherGet(const QString &arg_0);
-    QDBusPendingCall switcherDump();
+    void SwitcherSet(const QString &arg_0, bool state);
+    bool SwitcherGet(const QString &arg_0);
+    QDBusPendingCall SwitcherDump();
 
     qlonglong lastSyncTime();
-    IntString state();
 
 signals:
     void SwitcherChange(QString, bool);
-    void lastSyncTimeChanged(qlonglong);
-    void stateChanged(IntString);
+    void LastSyncTimeChanged(qlonglong);
 
 private:
-    DDBusInterface *m_syncInner;
+    DDBusInterface *m_syncInter;
 
 };
 

@@ -925,6 +925,17 @@
     </message>
 </context>
 <context>
+    <name>ConfirmManager</name>
+    <message>
+        <source>Password must contain numbers and letters</source>
+        <translation>密码必须包含数字和字母</translation>
+    </message>
+    <message>
+        <source>Password must be between 8 and 64 characters</source>
+        <translation>密码长度必须为8~64个字符</translation>
+    </message>
+</context>
+<context>
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
@@ -2967,6 +2978,69 @@
     </message>
 </context>
 <context>
+    <name>DeepinIDAccountSecurity</name>
+    <message>
+        <source>Bind WeChat</source>
+        <translation>绑定微信</translation>
+    </message>
+    <message>
+        <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
+        <translation>通过绑定微信，您可以安全快速地登录您的%1 ID和本地账户</translation>
+    </message>
+    <message>
+        <source>Unlinked</source>
+        <translation>未绑定</translation>
+    </message>
+    <message>
+        <source>Unbinding</source>
+        <translation>解绑</translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation>去绑定</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to unbind WeChat?</source>
+        <translation>您确定要解绑微信吗？</translation>
+    </message>
+    <message>
+        <source>Let me think it over</source>
+        <translation>我再想想</translation>
+    </message>
+    <message>
+        <source>Local Account Binding</source>
+        <translation>绑定本地账户</translation>
+    </message>
+    <message>
+        <source>After binding your local account, you can use the following functions:</source>
+        <translation>绑定本地账户后，您可以使用如下功能：</translation>
+    </message>
+    <message>
+        <source>WeChat Scan Code Login System</source>
+        <translation>微信扫码登录系统</translation>
+    </message>
+    <message>
+        <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
+        <translation>使用%1 ID绑定的微信，扫码登录本地账户</translation>
+    </message>
+    <message>
+        <source>Reset password via %1 ID</source>
+        <translation>通过%1 ID重置密码</translation>
+    </message>
+    <message>
+        <source>Reset your local password via %1 ID in case you forget it.</source>
+        <translation>在您忘记本地账户密码时，通过%1 ID重置密码</translation>
+    </message>
+    <message>
+        <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
+        <translation>如需使用上述功能，请前往控制中心-账户，开启相应选项</translation>
+    </message>
+    <message>
+        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
+        <translation>解绑微信后，您将无法使用微信扫码登录%1 ID、微信扫码登录本地账户</translation>
+    </message>
+</context>
+<context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
@@ -2978,6 +3052,100 @@
     </message>
 </context>
 <context>
+    <name>DeepinIDLogin</name>
+    <message>
+        <source>Cloud Sync</source>
+        <translation>云同步</translation>
+    </message>
+    <message>
+        <source>Manage your %1 ID and sync your personal data across devices.
+Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
+        <translation>管理您的%1 ID，将您的个人数据在不同设备之间同步。
+登录%1 ID以获取浏览器、应用商店、服务与支持等众多应用的个性功能和服务。</translation>
+    </message>
+    <message>
+        <source>Sign In to %1 ID</source>
+        <translation>登录%1 ID</translation>
+    </message>
+</context>
+<context>
+    <name>DeepinIDSyncService</name>
+    <message>
+        <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
+        <translation>将您的系统设置和个人信息安全地存储在云端，并在您不同的设备上保持同步</translation>
+    </message>
+    <message>
+        <source>System Settings</source>
+        <translation>系统设置</translation>
+    </message>
+    <message>
+        <source>Last sync time: %1</source>
+        <translation>最近同步时间：%1</translation>
+    </message>
+    <message>
+        <source>Clear cloud data</source>
+        <translation>清除云端数据</translation>
+    </message>
+    <message>
+        <source>Auto Sync</source>
+        <translation>自动同步</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
+        <translation>确定要清除您保存在云端的系统设置和个人数据吗？</translation>
+    </message>
+    <message>
+        <source>Once the data is cleared, it cannot be recovered!</source>
+        <translation>数据清除后将无法恢复！</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>清除</translation>
+    </message>
+</context>
+<context>
+    <name>DeepinIDUserInfo</name>
+    <message>
+        <source>Synchronization Service</source>
+        <translation>同步服务</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>退出登录</translation>
+    </message>
+    <message>
+        <source>Go to web settings</source>
+        <translation>前往网页设置</translation>
+    </message>
+    <message>
+        <source>Account and Security</source>
+        <translation>账户与安全</translation>
+    </message>
+</context>
+<context>
+    <name>DeepinWorker</name>
+    <message>
+        <source>encrypt password failed</source>
+        <translation>加密密码失败</translation>
+    </message>
+    <message>
+        <source>Wrong password, %1 chances left</source>
+        <translation>密码错误，您还可以尝试%1次</translation>
+    </message>
+    <message>
+        <source>The login error has reached the limit today. You can reset the password and try again.</source>
+        <translation>密码错误已达今日上限，可重置密码再试</translation>
+    </message>
+    <message>
+        <source>Operation Successful</source>
+        <translation>操作成功</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -2986,6 +3154,14 @@
     <message>
         <source>Other regions</source>
         <translation>其他地区</translation>
+    </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation>当前系统未激活，暂无法使用该功能</translation>
+    </message>
+    <message>
+        <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
+        <translation>受限于您当地的法律法规，同步服务暂未覆盖您所在地区，敬请期待。</translation>
     </message>
 </context>
 <context>
@@ -3838,23 +4014,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Always</source>
         <translation>长期有效</translation>
-    </message>
-</context>
-<context>
-    <name>LoginPage</name>
-    <message>
-        <source>Cloud Sync</source>
-        <translation>云同步</translation>
-    </message>
-    <message>
-        <source>Sign In to %1 ID</source>
-        <translation>登录%1 ID</translation>
-    </message>
-    <message>
-        <source>Manage your %1 ID and sync your personal data across devices.
-Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation>管理您的%1 ID，将您的个人数据在不同设备之间同步。
-登录%1 ID以获取浏览器、应用商店、服务与支持等众多应用的个性功能和服务。</translation>
     </message>
 </context>
 <context>
@@ -4719,6 +4878,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>RegisterDialog</name>
+    <message>
+        <source>Set a Password</source>
+        <translation>设置密码</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation>请输入8-64位密码</translation>
+    </message>
+    <message>
+        <source>Repeat the password</source>
+        <translation>请再次输入密码</translation>
+    </message>
+    <message>
+        <source>Passwords don&apos;t match</source>
+        <translation>两次密码输入不一致</translation>
+    </message>
+</context>
+<context>
     <name>ResultItem</name>
     <message>
         <source>Your system is not authorized, please activate first</source>
@@ -5033,6 +5219,45 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>No output device for sound found</source>
         <translation>没有找到声音输出设备</translation>
+    </message>
+</context>
+<context>
+    <name>SyncInfoListModel</name>
+    <message>
+        <source>Sound</source>
+        <translation>声音</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>主题</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>电源</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>更新</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation>任务栏</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation>启动器</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>壁纸</translation>
     </message>
 </context>
 <context>
@@ -5992,30 +6217,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>UserInfo</name>
+    <name>VerifyDialog</name>
     <message>
-        <source>The relevant functions are still under development, so stay tuned</source>
-        <translation>相关功能仍在开发中，敬请期待～</translation>
+        <source>Security Verification</source>
+        <translation>安全验证</translation>
     </message>
     <message>
-        <source>Synchronization Service</source>
-        <translation>同步服务</translation>
+        <source>The action is sensitive, please enter the login password first</source>
+        <translation>您正在进行敏感操作，请进行登录密码认证</translation>
     </message>
     <message>
-        <source>%1 Auto Sync</source>
-        <translation>%1自动同步</translation>
+        <source>Forgot Password?</source>
+        <translation>忘记密码？</translation>
     </message>
     <message>
-        <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation>将系统设置和个人数据安全地存储在云端，并在设备之间保持同步</translation>
+        <source>Cancel</source>
+        <translation>取消</translation>
     </message>
     <message>
-        <source>Sign out</source>
-        <translation>退出登录</translation>
+        <source>Confirm</source>
+        <translation>确定</translation>
     </message>
     <message>
-        <source>Go to web settings</source>
-        <translation>前往网页设置</translation>
+        <source>8-64 characters</source>
+        <translation>请输入8-64位密码</translation>
     </message>
 </context>
 <context>

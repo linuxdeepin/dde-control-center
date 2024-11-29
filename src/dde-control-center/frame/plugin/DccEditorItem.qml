@@ -14,6 +14,7 @@ D.ItemDelegate {
     property var rightItem: null
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
+    property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
 
     Layout.fillWidth: true
     Layout.minimumHeight: model.item.description.length !== 0 ? 48 : 0
@@ -21,7 +22,7 @@ D.ItemDelegate {
     checkable: false
     topPadding: topInset
     bottomPadding: bottomInset
-    leftPadding: 10
+    leftPadding: root.leftPaddingSize
     rightPadding: 8
     hoverEnabled: true
     checked: backgroundType & 0x08

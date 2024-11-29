@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -24,6 +24,11 @@ void DeepinidDBusProxy::logout() const
 QDBusReply<QString> DeepinidDBusProxy::localBindCheck(const QString &uuid)
 {
     return m_deepinId->call(QDBus::BlockWithGui, "LocalBindCheck", uuid);
+}
+
+QDBusReply<QString> DeepinidDBusProxy::meteInfo()
+{
+    return m_deepinId->call("MeteInfo");
 }
 
 QVariantMap DeepinidDBusProxy::userInfo()
