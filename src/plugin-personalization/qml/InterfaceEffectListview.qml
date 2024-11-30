@@ -41,7 +41,7 @@ Rectangle {
                 cascadeSelected: true
                 checkable: false
                 contentFlow: true
-                corners: getCornersForBackground(index, powerModeModel.count)
+                corners: getCornersForBackground(index, listModel.count)
                 icon.name: model.icon
                 content: RowLayout {
                     Layout.fillWidth: true
@@ -71,6 +71,7 @@ Rectangle {
                 }
                 background: DccItemBackground {
                     separatorVisible: true
+                    backgroundType: DccObject.ClickStyle
                 }
 
                 MouseArea {
