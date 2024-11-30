@@ -16,10 +16,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Acount Informations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Acount name, acount fullname, account type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -37,14 +33,6 @@
     </message>
     <message>
         <source>Acount type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -81,6 +69,18 @@
     </message>
     <message>
         <source>Add group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Acount Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -398,6 +398,14 @@
     </message>
     <message>
         <source>Maximum capacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto suspend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6913,10 +6921,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>您有新的系统更新，请查看并更新</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6942,6 +6946,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is already the latest version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new system update, please check and update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

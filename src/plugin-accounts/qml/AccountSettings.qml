@@ -207,7 +207,7 @@ DccObject {
     DccObject {
         name: settings.papaName + "acountInfos"
         parentName: settings.papaName
-        displayName: qsTr("Acount Informations")
+        displayName: qsTr("Acount Information")
         description: qsTr("Acount name, acount fullname, account type")
         weight: 20
         pageType: DccObject.Item
@@ -275,7 +275,7 @@ DccObject {
     DccObject {
         name: settings.papaName + "acountSettingsTitle"
         parentName: settings.papaName
-        displayName: qsTr("Acount settings")
+        displayName: qsTr("Login settings")
         weight: 28
         pageType: DccObject.Item
         visible: acountSettings.visible
@@ -293,7 +293,7 @@ DccObject {
         id: acountSettings
         name: settings.papaName + "acountSettings"
         parentName: settings.papaName
-        displayName: qsTr("Acount Settings")
+        displayName: qsTr("Login Settings")
         description: qsTr("Auto longin, login without password")
         weight: 30
         pageType: DccObject.Item

@@ -5,83 +5,83 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
         <source>Acount information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>账户信息</translation>
     </message>
     <message>
         <source>Acount name, acount fullname, account type</source>
-        <translation type="unfinished"></translation>
+        <translation>帐户名，全名，账户类型</translation>
     </message>
     <message>
         <source>Acount name</source>
-        <translation type="unfinished"></translation>
+        <translation>帐户名</translation>
     </message>
     <message>
         <source>Acount fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>帐户全名</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>设置全名</translation>
     </message>
     <message>
         <source>Acount type</source>
-        <translation type="unfinished"></translation>
+        <translation>账户类型</translation>
     </message>
     <message>
-        <source>Acount settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount Settings</source>
-        <translation type="unfinished"></translation>
+        <source>Login settings</source>
+        <translation>登录设置</translation>
     </message>
     <message>
         <source>Auto longin, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>自动登录, 免密登录</translation>
     </message>
     <message>
         <source>Auto longin</source>
-        <translation type="unfinished"></translation>
+        <translation>自动登录</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>免密登录</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"></translation>
+        <translation>删除当前帐户</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"></translation>
+        <translation>用户组设置</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"></translation>
+        <translation>用户组</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished">完成</translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"></translation>
+        <translation>用户组名称</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"></translation>
+        <translation>添加用户组</translation>
+    </message>
+    <message>
+        <source>Acount Information</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <source>Login Settings</source>
+        <translation>登录设置</translation>
     </message>
 </context>
 <context>
@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"></translation>
+        <translation>人物</translation>
     </message>
     <message>
         <source>Animal</source>
@@ -319,19 +319,19 @@
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"></translation>
+        <translation>表情符号</translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义图片</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"></translation>
+        <translation>立体风格</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"></translation>
+        <translation>平面风格</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -412,12 +412,12 @@
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-    <source>Bluetooth is turned on, and the namcde is displayed as %1</source>
-        <translation>蓝牙已经打开，名称显示为</translation>
-    </message>
-    <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
+    </message>
+    <message>
+        <source>Bluetooth&#xa0;is&#xa0;turned&#xa0;on,&#xa0;and&#xa0;the&#xa0;namcde&#xa0;is&#xa0;displayed&#xa0;as&#xa0;%1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -431,20 +431,20 @@
         <translation>连接</translation>
     </message>
     <message>
-        <source>Send Files</source>
-        <translation>发送文件</translation>
-    </message>
-    <message>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <source>Remove Device</source>
-        <translation>删除设备</translation>
-    </message>
-    <message>
         <source>Select file</source>
         <translation>选择文件</translation>
+    </message>
+    <message>
+        <source>Send&#xa0;Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove&#xa0;Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -830,11 +830,11 @@
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"></translation>
+        <translation>重复延迟</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"></translation>
+        <translation>重复速度</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -850,11 +850,11 @@
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"></translation>
+        <translation>在此处输入测试</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>大写锁定提示</translation>
     </message>
 </context>
 <context>
@@ -957,15 +957,15 @@
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>创建新用户</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"></translation>
+        <translation>账户类型</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>Required</source>
@@ -973,7 +973,7 @@
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"></translation>
+        <translation>全名</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -985,14 +985,14 @@
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"></translation>
+        <translation>创建用户</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
-        <source>You haven't uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"></translation>
+        <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
+        <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
     </message>
 </context>
 <context>
@@ -1085,7 +1085,7 @@
         <translation>确 定</translation>
     </message>
     <message>
-        <source>"Auto Login" can be enabled for only one account, please disable it for the account "%1" first</source>
+        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>只允许一个账户开启自动登录，请先关闭%1账户的自动登录，再进行操作</translation>
     </message>
 </context>
@@ -2077,7 +2077,7 @@
         <translation>最小压力值</translation>
     </message>
     <message>
-        <source>Disable the option if touchpad doesn't work after enabled</source>
+        <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>开启后若导致触控板不可用，请关闭此选项即可</translation>
     </message>
 </context>
@@ -2111,8 +2111,8 @@
         <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p>&lt;p>You can &lt;a href="%1">click here&lt;/a> to view our latest privacy policy and/or view it online by visiting &lt;a href="%1"> %1&lt;/a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p></source>
-        <translation>&lt;p>统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p>&lt;p>您可以&lt;a href="%1">点击此处&lt;/a>查看我们最新的隐私政策和/或通过访问 &lt;a href="%1">%1&lt;/a>在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p></translation>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;点击此处&lt;/a&gt;查看我们最新的隐私政策和/或通过访问 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2130,8 +2130,8 @@
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
@@ -2146,8 +2146,8 @@
         <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -2391,11 +2391,11 @@
         <translation>请选择安全问题</translation>
     </message>
     <message>
-        <source>What's the name of the city where you were born?</source>
+        <source>What&apos;s the name of the city where you were born?</source>
         <translation>您出生城市的名称是什么？</translation>
     </message>
     <message>
-        <source>What's the name of the first school you attended?</source>
+        <source>What&apos;s the name of the first school you attended?</source>
         <translation>您的母校名称是什么？</translation>
     </message>
     <message>
@@ -2403,15 +2403,15 @@
         <translation>您最爱的人是谁？</translation>
     </message>
     <message>
-        <source>What's your favorite animal?</source>
+        <source>What&apos;s your favorite animal?</source>
         <translation>您最喜欢的动物是什么？</translation>
     </message>
     <message>
-        <source>What's your favorite song?</source>
+        <source>What&apos;s your favorite song?</source>
         <translation>您最喜欢的音乐是什么？</translation>
     </message>
     <message>
-        <source>What's your nickname?</source>
+        <source>What&apos;s your nickname?</source>
         <translation>您的绰号是什么？</translation>
     </message>
     <message>
@@ -2583,16 +2583,16 @@
         <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p>&lt;p>You can &lt;a href="%1">click here&lt;/a> to view our latest privacy policy and/or view it online by visiting &lt;a href="%1"> %1&lt;/a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p></source>
-        <translation>&lt;p>统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p>&lt;p>您可以&lt;a href="%1">点击此处&lt;/a>查看我们最新的隐私政策和/或通过访问 &lt;a href="%1">%1&lt;/a>在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p></translation>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;点击此处&lt;/a&gt;查看我们最新的隐私政策和/或通过访问 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
-        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
-        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -2739,12 +2739,12 @@
         <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
-        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
-        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2969,7 +2969,7 @@
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UOS</translation>
     </message>
 </context>
 <context>
@@ -3043,7 +3043,7 @@
         <translation>所有文件(*)</translation>
     </message>
     <message>
-        <source>Please choose the default program to open '%1'</source>
+        <source>Please choose the default program to open &apos;%1&apos;</source>
         <translation>选择打开“%1”的默认程序</translation>
     </message>
 </context>
@@ -3141,7 +3141,15 @@
         <translation>《用户免责声明》</translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that:
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <source>Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
 3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
@@ -3153,36 +3161,14 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>在使用人脸识别功能前，请注意以下事项：
-1.您的设备可能会被容貌、外形与您相近的人或物品解锁。
-2.人脸识别的安全性低于数字密码、混合密码。
-3.在暗光、强光、逆光或角度过大等场景下，人脸识别的解锁成功率会有所降低。
-4.请勿将设备随意交给他人使用，避免人脸识别功能被恶意利用。
-5.除以上场景外，您需注意其他可能影响人脸识别功能正常使用的情况。
-
-为更好使用人脸识别，录入面部数据时请注意以下事项：
-1.请保证光线充足，避免阳光直射并避免其他人出现在录入的画面中。
-2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
-3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>"Biometric authentication" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through "biometric authentication", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS.
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
-请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
-统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
-</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>下一步</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3450,7 +3436,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>放置手指</translation>
     </message>
     <message>
-        <source>Place your finger firmly on the sensor until you're asked to lift it</source>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>请以手指压指纹收集器，然后根据提示抬起</translation>
     </message>
     <message>
@@ -3908,12 +3894,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Manage your %1 ID and sync your personal data across devices.
-Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
+        <source>Sign In to %1 ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign In to %1 ID</source>
+        <source>Manage your %1 ID and sync your personal data across devices.                             
+Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4079,7 +4065,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"></translation>
+        <translation>当前密码</translation>
     </message>
     <message>
         <source>Required</source>
@@ -4107,7 +4093,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -4134,15 +4120,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished">修改密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"></translation>
+        <translation>重置密码</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"></translation>
+        <translation>建议密码长度8位以上，同时包含大写字母、小写字母、数字、符号中的3中密码更安全</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -4526,8 +4512,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
@@ -4542,8 +4528,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -4649,7 +4635,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"></translation>
+        <translation>区域和格式</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4657,7 +4643,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"></translation>
+        <translation>默认格式</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -4685,11 +4671,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"></translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>纸张</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4861,11 +4847,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>添加自定义快捷键</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>名称：</translation>
     </message>
     <message>
         <source>Required</source>
@@ -4873,7 +4859,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"></translation>
+        <translation>命令：</translation>
     </message>
     <message>
         <source>Shortcut</source>
@@ -4885,7 +4871,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入新的快捷键</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4897,7 +4883,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"></translation>
+        <translation>点击添加替换</translation>
     </message>
 </context>
 <context>
@@ -4908,11 +4894,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcuts body</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索快捷键</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4920,19 +4906,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished">完成</translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入新的快捷键</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>点击</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4940,7 +4926,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"></translation>
+        <translation>或</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -4948,15 +4934,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcuts bottom area view1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复默认</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>添加自定义快捷键</translation>
     </message>
 </context>
 <context>
@@ -5141,11 +5127,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"></translation>
+        <translation>自动同步</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"></translation>
+        <translation>系统日期和时间</translation>
     </message>
     <message>
         <source>Customize</source>
@@ -5153,11 +5139,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>设置</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"></translation>
+        <translation>服务器地址</translation>
     </message>
     <message>
         <source>Required</source>
@@ -5165,19 +5151,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>NTP 服务地址不能为空</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"></translation>
+        <translation>24小时制</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>系统时区</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"></translation>
+        <translation>和时区列表</translation>
     </message>
 </context>
 <context>
@@ -5461,7 +5447,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>当前用户未绑定Union ID</translation>
     </message>
     <message>
-        <source>To reset passwords, you should authenticate your Union ID first. Click "Go to Link" to finish the settings.</source>
+        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
         <translation>重置密码功能需对您的Union ID认证后才能进行，请点击“去绑定”完成相关设置后，再重置密码。</translation>
     </message>
     <message>
@@ -5578,7 +5564,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <source>Please ensure sufficient power to restart, and don't power off or unplug your machine</source>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
     <message>
@@ -5820,7 +5806,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>下载完成后会自动进行安装</translation>
     </message>
     <message>
-        <source>Install "%1" automatically when the download is complete</source>
+        <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>“%1”下载完成后会自动进行安装</translation>
     </message>
     <message>
@@ -6294,26 +6280,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"></translation>
+        <translation>账户管理</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"></translation>
+        <translation>时间日期</translation>
     </message>
     <message>
         <source>Set your time and date</source>
-        <translation type="unfinished"></translation>
+        <translation>时间日期设置</translation>
     </message>
     <message>
         <source>Language and format</source>
-        <translation type="unfinished"></translation>
+        <translation>语言格式</translation>
     </message>
     <message>
         <source>Set your system language and region formats</source>
-        <translation type="unfinished"></translation>
+        <translation>设置您的系统语言和区域格式</translation>
     </message>
 </context>
 <context>
@@ -6408,7 +6394,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>此快捷键与[%1]冲突</translation>
     </message>
 </context>
 <context>
@@ -6426,8 +6412,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
@@ -6442,8 +6428,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -6478,7 +6464,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"></translation>
+        <translation>辅助功能</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -6540,7 +6526,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局，输入法，快捷键等</translation>
     </message>
 </context>
 <context>
@@ -6603,7 +6589,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>其他帐户</translation>
     </message>
     <message>
         <source>Boot Menu</source>
@@ -6751,7 +6737,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Do Not Disturb Settings</source>
@@ -6935,10 +6921,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>您有新的系统更新，请查看并更新</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
@@ -6965,6 +6947,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Light</source>
         <translation>轻</translation>
+    </message>
+    <message>
+        <source>Your system is already the latest version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new system update, please check and update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
