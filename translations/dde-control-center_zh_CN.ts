@@ -412,8 +412,8 @@
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on, and the namcde is displayed as %1</source>
-        <translation type="unfinished"></translation>
+    <source>Bluetooth is turned on, and the namcde is displayed as %1</source>
+        <translation>蓝牙已经打开，名称显示为</translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
@@ -431,43 +431,43 @@
         <translation>连接</translation>
     </message>
     <message>
-        <source>Send Files</source>
-        <translation type="unfinished"></translation>
+        <source>Send Files</source>
+        <translation>发送文件</translation>
     </message>
     <message>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <source>Remove Device</source>
-        <translation type="unfinished"></translation>
+        <source>Remove Device</source>
+        <translation>删除设备</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>选择文件</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation>修改</translation>
     </message>
     <message>
         <source>Length greater than or equal to 32</source>
-        <translation type="unfinished"></translation>
+        <translation>长度大于或等于 32</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>允许蓝牙设备可被发现</translation>
+        <translation>允许其他蓝牙设备找到该设备</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"></translation>
+        <translation>如需使用蓝牙功能，请关闭</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>飞行模式</translation>
     </message>
 </context>
 <context>
@@ -496,55 +496,55 @@
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>启动设置</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"></translation>
+        <translation>启动延时</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"></translation>
+        <translation>主题</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"></translation>
+        <translation>启动菜单验证</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后进入启动菜单编辑需要密码.</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>重设密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"></translation>
+        <translation>修改启动菜单验证密码</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
+        <translation>设置启动菜单验证密码</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名：</translation>
     </message>
     <message>
         <source>roots</source>
-        <translation type="unfinished"></translation>
+        <translation>roots</translation>
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"></translation>
+        <translation>新密码：</translation>
     </message>
     <message>
         <source>Required</source>
@@ -560,7 +560,7 @@
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>重复密码：</translation>
+        <translation>确认密码：</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -568,15 +568,15 @@
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"></translation>
+        <translation>启动动画</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
+        <translation>调整系统启动界面的logo动画尺寸大小</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>Last checking time</source>
-        <translation type="unfinished"></translation>
+        <translation>上次检查更新时间</translation>
     </message>
 </context>
 <context>
@@ -861,11 +861,11 @@
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"></translation>
+        <translation>大尺寸</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"></translation>
+        <translation>小尺寸</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -3051,7 +3051,7 @@
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式</translation>
     </message>
     <message>
         <source>Request Root Access</source>
@@ -3059,7 +3059,7 @@
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"></translation>
+        <translation>可获得root使用权限，但同时也可能导致系统完教性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -3067,7 +3067,7 @@
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"></translation>
+        <translation>进入</translation>
     </message>
     <message>
         <source>Online</source>
@@ -3075,7 +3075,7 @@
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>登录UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -3087,11 +3087,11 @@
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>选择文件</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation>您的UOS ID已登录，点击进入开发者模式</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
@@ -3099,31 +3099,31 @@
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"></translation>
+        <translation>1.导出机器信息</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>导出</translation>
     </message>
     <message>
-        <source>2.please go to &lt;a href="http://www.chinauos.com/developMode">http：//www.chinauos.com/developMode&lt;/a> to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
+        <translation>2.前往 &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode 下载离线证书.</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href="Security Center">Security Center&lt;/a> to change the settings.</source>
-        <translation>如需安装和运行未签名应用，前往&lt;a href="Security Center">安全中心&lt;/a>进行设置。</translation>
+        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
+        <translation>如需安装非应用商店来源的应用，前往 &lt;a href=&quot;Security Center&quot;&gt;安全中心 进行设置。</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"></translation>
+        <translation>开发调试选项</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"></translation>
+        <translation>系统日志记录级别</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
+        <translation>更改此选项可以获得更详细的日志记录，这些日志可能会降低系统性能和/或占用更多存储空间.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -3168,8 +3168,8 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>"Biometric authentication" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through "biometric authentication", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS.
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
 请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
@@ -4009,11 +4009,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -4037,7 +4037,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"></translation>
+        <translation>位</translation>
     </message>
     <message>
         <source>Authorization</source>
@@ -4045,7 +4045,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"></translation>
+        <translation>系统安装日期</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -4967,7 +4967,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether to enable the device</source>
-        <translation type="unfinished"></translation>
+        <translation>选择是否启用该设备</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -5122,7 +5122,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>左右平衡</translation>
     </message>
     <message>
         <source>Auto pause</source>
@@ -5488,19 +5488,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Installation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>安装失败</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"></translation>
+        <translation>安装更新</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"></translation>
+        <translation>安装更新中</translation>
     </message>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>功能更新</translation>
     </message>
 </context>
 <context>
@@ -5610,42 +5610,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Updates：</source>
-        <translation type="unfinished"></translation>
+        <translation>更新：</translation>
     </message>
     <message>
         <source>Release time：</source>
-        <translation type="unfinished"></translation>
+        <translation>发布时间：</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"></translation>
+        <translation>查看详细信息</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation>检测到有更新可用</translation>
+        <translation>可用更新</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在安装更新…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>更新安装成功</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新下载失败</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在检查更新，请等待…</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>您的系统已经是最新的</translation>
+        <translation>您的系统已更新</translation>
     </message>
 </context>
 <context>
@@ -5659,7 +5659,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation>检查更新</translation>
+        <translation>检测到有更新可用</translation>
     </message>
 </context>
 <context>
@@ -5847,7 +5847,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UpdateWork</name>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"></translation>
+        <translation>检测到更新。</translation>
     </message>
 </context>
 <context>
@@ -7043,11 +7043,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Update</source>
-        <translation type="unfinished"></translation>
+        <translation>系统更新</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>系统更新升级</translation>
     </message>
 </context>
 <context>
