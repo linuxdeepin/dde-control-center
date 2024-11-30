@@ -88,222 +88,222 @@
     <name>AdapterModule</name>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"></translation>
+        <translation>允许蓝牙设备可被发现</translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished"></translation>
+        <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>我的设备</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>其他设备</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"></translation>
+        <translation>显示没有名称的蓝牙设备</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>连接</translation>
     </message>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>断开连接</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"></translation>
+        <translation>发送文件</translation>
     </message>
     <message>
         <source>Ignore this device</source>
-        <translation type="unfinished"></translation>
+        <translation>忽略此设备</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"></translation>
+        <translation>正在连接</translation>
     </message>
     <message>
         <source>Disconnecting</source>
-        <translation type="unfinished"></translation>
+        <translation>正在断开</translation>
     </message>
 </context>
 <context>
     <name>AddButtonWidget</name>
     <message>
         <source>Add Application</source>
-        <translation type="unfinished"></translation>
+        <translation>添加默认程序</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"></translation>
+        <translation>打开Desktop文件</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"></translation>
+        <translation>应用程序(*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>所有文件(*)</translation>
     </message>
 </context>
 <context>
     <name>AddFaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
+        <translation>添加人脸数据</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>请确保五官清晰可见，避免佩戴帽子、墨镜、口罩等物件，保证光线充足，避免阳光直射，以提高录入成功率</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>人脸录入完成</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation>使用人脸数据解锁您的设备，之后还可进行更多设置</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"></translation>
+        <translation>人脸录入失败</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新录入</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关 闭</translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Scan Again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新录入</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>录入中断</translation>
     </message>
 </context>
 <context>
     <name>AddIrisInfoDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>添加虹膜数据</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>虹膜录入已完成</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation>虹膜录入失败</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新录入</translation>
     </message>
 </context>
 <context>
     <name>AdvancedSettingModule</name>
     <message>
         <source>Advanced Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>高级设置</translation>
     </message>
     <message>
         <source>Audio Framework</source>
-        <translation type="unfinished"></translation>
+        <translation>音频框架</translation>
     </message>
     <message>
         <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation type="unfinished"></translation>
+        <translation>不同音频框架各有优劣，可选择与你最匹配的框架使用</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>不得超过15个字符</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"></translation>
+        <translation>只能由字母、数字、中文、下划线组成</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationModule</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>生物认证</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationPlugin</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation>人脸</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>虹膜</translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
     <message>
         <source>Human</source>
@@ -311,11 +311,11 @@
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"></translation>
+        <translation>动物</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"></translation>
+        <translation>创意插图</translation>
     </message>
     <message>
         <source>Emoji</source>
@@ -335,46 +335,46 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕和待机</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>自动锁屏</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>进入待机</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>笔记本合盖时</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>按电源按钮时</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量管理</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量通知</translation>
     </message>
     <message>
         <source>Disbale</source>
@@ -386,52 +386,52 @@
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量阈值</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"></translation>
+        <translation>电池管理</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"></translation>
+        <translation>显示剩余使用时间及剩余充电时间</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"></translation>
+        <translation>最大容量</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth&#xa0;is&#xa0;turned&#xa0;on,&#xa0;and&#xa0;the&#xa0;namcde&#xa0;is&#xa0;displayed&#xa0;as&#xa0;%1</source>
+        <source>Bluetooth is turned on, and the namcde is displayed as %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished"></translation>
+        <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>断开连接</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>连接</translation>
     </message>
     <message>
-        <source>Send&#xa0;Files</source>
+        <source>Send Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名</translation>
     </message>
     <message>
-        <source>Remove&#xa0;Device</source>
+        <source>Remove Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -443,7 +443,7 @@
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Length greater than or equal to 32</source>
@@ -451,7 +451,7 @@
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"></translation>
+        <translation>允许蓝牙设备可被发现</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
@@ -466,22 +466,22 @@
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>已连接</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>未连接</translation>
     </message>
 </context>
 <context>
     <name>BluetoothModule</name>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
+        <translation>蓝牙</translation>
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation type="unfinished"></translation>
+        <translation>蓝牙设备管理</translation>
     </message>
 </context>
 <context>
@@ -516,7 +516,7 @@
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
@@ -540,23 +540,23 @@
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"></translation>
+        <translation>重复密码：</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Sure</source>
@@ -575,158 +575,158 @@
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹录入失败</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹已存在</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"></translation>
+        <translation>请使用其他手指录入</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>未知错误</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹录入被中断</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation type="unfinished"></translation>
+        <translation>无法识别</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation type="unfinished"></translation>
+        <translation>接触时间短</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>接触时间短，验证时请勿移动手指</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>图像模糊</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"></translation>
+        <translation>请清洁手指或调整触摸位置，再次按压指纹识别器</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"></translation>
+        <translation>图像重复</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"></translation>
+        <translation>请调整手指按压区域以录入更多指纹</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹采集间隙，请勿移动手指，直到提示您抬起</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>请抬起手指，再次按压</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>请确保您的面部全部显示在识别区域内</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>人脸录入完成</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"></translation>
+        <translation>请使用人类面容</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>请远离镜头</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>请靠近镜头</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>请不要多人入镜</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"></translation>
+        <translation>请确保镜头清洁</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"></translation>
+        <translation>请避免在暗光、强光、逆光环境下操作</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"></translation>
+        <translation>请保持面部无遮挡</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>录入超时</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"></translation>
+        <translation>录入设备崩溃，请重新录入！</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新检查更新</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <source>Last checking time</source>
@@ -737,15 +737,15 @@
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"></translation>
+        <translation>活动用色</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>图标设置</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>图标主题</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -753,7 +753,7 @@
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>光标主题</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
@@ -764,19 +764,19 @@
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"></translation>
+        <translation>您确定要删除此账户吗？</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"></translation>
+        <translation>删除账户目录</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -787,7 +787,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -830,15 +830,15 @@
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"></translation>
+        <translation>启用数字键盘</translation>
     </message>
     <message>
         <source>test here</source>
@@ -861,88 +861,88 @@
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式失败</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"></translation>
+        <translation>请先登录Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>无法获取硬件信息</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"></translation>
+        <translation>无网络连接</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>证书加载失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>签名验证失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>同意并加入用户体验计划</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式免责声明</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>同意并进入开发者模式</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"></translation>
+        <translation>开始设置启动新动画，请稍等一会儿</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"></translation>
+        <translation>新的启动动画设置完成</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"></translation>
+        <translation>新的设置会在重启系统后生效</translation>
     </message>
 </context>
 <context>
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>协同设置</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>共享鼠标和键盘</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后支持在协同设备间共享鼠标和键盘</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>剪贴板共享</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>共享文件夹</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后支持在协同设备间共享复制内容</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -961,7 +961,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>FullName</source>
@@ -969,11 +969,11 @@
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>选填</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Create account</source>
@@ -983,7 +983,7 @@
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
-        <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
+        <source>You haven't uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -991,1794 +991,1794 @@
     <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
-        <translation type="unfinished">长期有效</translation>
+        <translation>长期有效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"></translation>
+        <translation>用户</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"></translation>
+        <translation>用户管理</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"></translation>
+        <translation>创建用户</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"></translation>
+        <translation>删除用户</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"></translation>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Auto Login</source>
-        <translation type="unfinished"></translation>
+        <translation>自动登录</translation>
     </message>
     <message>
         <source>Login Without Password</source>
-        <translation type="unfinished"></translation>
+        <translation>免密登录</translation>
     </message>
     <message>
         <source>Validity Days</source>
-        <translation type="unfinished"></translation>
+        <translation>密码有效天数</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>用户组</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"></translation>
+        <translation>名称过长</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"></translation>
+        <translation>标准用户</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"></translation>
+        <translation>管理员</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>全名与其他账户的全名/用户名重复</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"></translation>
+        <translation>全名</translation>
     </message>
     <message>
         <source>Go to Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>前往设置</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>确 定</translation>
     </message>
     <message>
-        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"></translation>
+        <source>"Auto Login" can be enabled for only one account, please disable it for the account "%1" first</source>
+        <translation>只允许一个账户开启自动登录，请先关闭%1账户的自动登录，再进行操作</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"></translation>
+        <translation>AD域设置</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"></translation>
+        <translation>允许来自%1的通知，可在屏幕中显示消息横幅，也可在通知中心查看历史未读消息。</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"></translation>
+        <translation>通知时提示声音</translation>
     </message>
     <message>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>锁屏时显示消息</translation>
     </message>
     <message>
         <source>Show in notification center</source>
-        <translation type="unfinished"></translation>
+        <translation>在通知中心显示</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"></translation>
+        <translation>显示消息预览</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"></translation>
+        <translation>人物</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"></translation>
+        <translation>动物</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"></translation>
+        <translation>创意插图</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>表情符号</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义图片</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"></translation>
+        <translation>立体风格</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"></translation>
+        <translation>平面风格</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::BootWidget</name>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在更新...</translation>
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>启动延时</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>主题</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以点击菜单改变默认启动项</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"></translation>
+        <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>启动菜单验证</translation>
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后进入启动菜单编辑需要密码</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>启动菜单</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
-        <translation type="unfinished"></translation>
+        <translation>修改启动菜单验证密码</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名：</translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>root</translation>
     </message>
     <message>
         <source>New password:</source>
-        <translation type="unfinished"></translation>
+        <translation>新密码：</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"></translation>
+        <translation>重复密码：</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::BrightnessWidget</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>亮度</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>色温</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调节亮度</translation>
     </message>
     <message>
         <source>Night Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调节色温</translation>
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"></translation>
+        <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色偏色</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>手动调节</translation>
     </message>
     <message>
         <source>Cool</source>
-        <translation type="unfinished"></translation>
+        <translation>较冷</translation>
     </message>
     <message>
         <source>Warm</source>
-        <translation type="unfinished"></translation>
+        <translation>较暖</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>通用</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>启动菜单</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>用户体验计划</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>同意并加入用户体验计划</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式免责声明</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>同意并进入开发者模式</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式失败</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"></translation>
+        <translation>请先登录Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>无法获取硬件信息</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"></translation>
+        <translation>无网络连接</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>证书加载失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>签名验证失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"></translation>
+        <translation>开始设置启动新动画，请稍等一会儿</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"></translation>
+        <translation>新的启动动画设置完成</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"></translation>
+        <translation>新的设置会在重启系统后生效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CreateAccountPage</name>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>用户组</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>创建</translation>
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"></translation>
+        <translation>新用户</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"></translation>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"></translation>
+        <translation>全名</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重复密码</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"></translation>
+        <translation>名称过长</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"></translation>
+        <translation>标准用户</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"></translation>
+        <translation>管理员</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义用户</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>optional</source>
-        <translation type="unfinished"></translation>
+        <translation>选填</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation type="unfinished"></translation>
+        <translation>认证失败</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名长度必须介于3到32个字符之间</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"></translation>
+        <translation>首字符必须为字母或数字</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名不能只包含数字</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名与其他用户的全名/用户名重复</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>全名与其他账户的全名/用户名重复</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"></translation>
+        <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"></translation>
+        <translation>上传的文件类型不正确，请重新上传</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomContentDialog</name>
     <message>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>添加自定义快捷键</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>命令</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomEdit</name>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>命令</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomItem</name>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入快捷键</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomRegionFormatDialog</name>
     <message>
         <source>Custom Format</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义格式</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished">一周首日</translation>
+        <translation>一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished">短日期</translation>
+        <translation>短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished">长日期</translation>
+        <translation>长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished">短时间</translation>
+        <translation>短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished">长时间</translation>
+        <translation>长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished">货币符号</translation>
+        <translation>货币符号</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"></translation>
+        <translation>纸张</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation type="unfinished"></translation>
+        <translation>有关本次更新的详细内容可访问：</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>在线激活</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>离线激活</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式需要登录Union ID</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation type="unfinished"></translation>
+        <translation>导出机器信息</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>导入证书</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>1. 导出机器信息</translation>
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>2. 前往https://www.chinauos.com/developMode 下载离线证书</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>3. 导入证书</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式</translation>
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"></translation>
+        <translation>当前系统未激活，暂无法使用该功能</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式失败</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"></translation>
+        <translation>请先登录Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>无法获取硬件信息</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"></translation>
+        <translation>无网络连接</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>证书加载失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>签名验证失败，无法进入开发者模式</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式部分功能需要重启后生效，是否立即重启？</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"></translation>
+        <translation>现在重启</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"></translation>
+        <translation>已进入开发者模式</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DisplayPlugin</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"></translation>
+        <translation>亮度、分辨率、缩放设置等</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation type="unfinished"></translation>
+        <translation>双击测试</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘设置</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>重复延迟</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished">短</translation>
+        <translation>短</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished">长</translation>
+        <translation>长</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>重复速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="unfinished"></translation>
+        <translation>请在此测试</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"></translation>
+        <translation>启用数字键盘</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>大写锁定提示</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"></translation>
+        <translation>左手模式</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"></translation>
+        <translation>输入时禁用触控板</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>滚动速度</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>双击速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>添加键盘布局</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>添加键盘布局</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KeyboardPlugin</name>
     <message>
         <source>Keyboard and Language</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘和语言</translation>
     </message>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘</translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘设置</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MainWindow</name>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码将会清除密钥环内已存储的数据</translation>
     </message>
     <message>
         <source>Current Password</source>
-        <translation type="unfinished"></translation>
+        <translation>当前密码</translation>
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation type="unfinished"></translation>
+        <translation>忘记密码</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation type="unfinished"></translation>
+        <translation>新密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重复密码</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>选填</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"></translation>
+        <translation>密码错误</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"></translation>
+        <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
         <source>System error</source>
-        <translation type="unfinished"></translation>
+        <translation>系统错误</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"></translation>
+        <translation>网络错误</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"></translation>
+        <translation>识别</translation>
     </message>
     <message>
         <source>Gather Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>集合窗口</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕拼接将在修改完成%1s后生效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>通用</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished">触摸板</translation>
+        <translation>触控板</translation>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="unfinished"></translation>
+        <translation>指点杆</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished">鼠标加速</translation>
+        <translation>鼠标加速</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"></translation>
+        <translation>插入鼠标时禁用触控板</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">自然滚动</translation>
+        <translation>自然滚动</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"></translation>
+        <translation>多屏设置</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>模式</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>主屏幕</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>复制</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"></translation>
+        <translation>扩展</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>仅%1屏</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"></translation>
+        <translation>应用通知</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished">通知</translation>
+        <translation>通知</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"></translation>
+        <translation>系统通知</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>掌压检测</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"></translation>
+        <translation>最小接触面</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"></translation>
+        <translation>最小压力值</translation>
     </message>
     <message>
-        <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"></translation>
+        <source>Disable the option if touchpad doesn't work after enabled</source>
+        <translation>开启后若导致触控板不可用，请关闭此选项即可</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>启动动画</translation>
     </message>
     <message>
         <source>Small Size</source>
-        <translation type="unfinished"></translation>
+        <translation>小尺寸</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation type="unfinished"></translation>
+        <translation>大尺寸</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p>&lt;p>You can &lt;a href="%1">click here&lt;/a> to view our latest privacy policy and/or view it online by visiting &lt;a href="%1"> %1&lt;/a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p></source>
+        <translation>&lt;p>统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p>&lt;p>您可以&lt;a href="%1">点击此处&lt;/a>查看我们最新的隐私政策和/或通过访问 &lt;a href="%1">%1&lt;/a>在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能少于%1个字符</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>回文字符长度不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>单调性字符不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能是常见单词及组合</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>密码过于简单，请增加密码复杂度</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不符合安全要求</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>刷新率</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"></translation>
+        <translation>赫兹</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>推荐</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation type="unfinished"></translation>
+        <translation>区域格式</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"></translation>
+        <translation>默认格式</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"></translation>
+        <translation>一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished">短日期</translation>
+        <translation>短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished">长日期</translation>
+        <translation>长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished">短时间</translation>
+        <translation>短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished">长时间</translation>
+        <translation>长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished">货币符号</translation>
+        <translation>货币符号</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"></translation>
+        <translation>纸张</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"></translation>
+        <translation>您确定要删除此账户吗？</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"></translation>
+        <translation>删除账户目录</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>分辨率</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面显示</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>适应</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"></translation>
+        <translation>拉伸</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>居中</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>推荐</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>方向</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>标准</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"></translation>
+        <translation>90度</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"></translation>
+        <translation>180度</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"></translation>
+        <translation>270度</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>当前屏幕仅支持1倍缩放</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕缩放</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>亮度</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"></translation>
+        <translation>强度低</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>强度中</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"></translation>
+        <translation>强度高</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"></translation>
+        <translation>安全问题</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"></translation>
+        <translation>忘记密码时，可使用安全问题重置密码。</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"></translation>
+        <translation>安全问题1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"></translation>
+        <translation>安全问题2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"></translation>
+        <translation>安全问题3</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>答案请保持在30个字符以内</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"></translation>
+        <translation>不能选择重复的问题</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"></translation>
+        <translation>请选择安全问题</translation>
     </message>
     <message>
-        <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"></translation>
+        <source>What's the name of the city where you were born?</source>
+        <translation>您出生城市的名称是什么？</translation>
     </message>
     <message>
-        <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"></translation>
+        <source>What's the name of the first school you attended?</source>
+        <translation>您的母校名称是什么？</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"></translation>
+        <translation>您最爱的人是谁？</translation>
     </message>
     <message>
-        <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"></translation>
+        <source>What's your favorite animal?</source>
+        <translation>您最喜欢的动物是什么？</translation>
     </message>
     <message>
-        <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"></translation>
+        <source>What's your favorite song?</source>
+        <translation>您最喜欢的音乐是什么？</translation>
     </message>
     <message>
-        <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"></translation>
+        <source>What's your nickname?</source>
+        <translation>您的绰号是什么？</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>内容不能为空</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System Management</source>
-        <translation type="unfinished"></translation>
+        <translation>系统管理</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>工作区</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>辅助功能</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义快捷键</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复默认</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>请重新设置快捷键</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"></translation>
+        <translation>替换</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入新的快捷键</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"></translation>
+        <translation>可用</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"></translation>
+        <translation>关于本机</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>系统信息</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"></translation>
+        <translation>产品名称</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>版本号</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>版本</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>类型</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>版本授权</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"></translation>
+        <translation>处理器</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>内存</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>图形平台</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>内核版本</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>协议与隐私政策</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation type="unfinished"></translation>
+        <translation>版本协议</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>最终用户许可协议</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"></translation>
+        <translation>%1位</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"></translation>
+        <translation>系统信息</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p>&lt;p>You can &lt;a href="%1">click here&lt;/a> to view our latest privacy policy and/or view it online by visiting &lt;a href="%1"> %1&lt;/a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p></source>
+        <translation>&lt;p>统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p>&lt;p>您可以&lt;a href="%1">点击此处&lt;/a>查看我们最新的隐私政策和/或通过访问 &lt;a href="%1">%1&lt;/a>在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p></translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
+        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
+        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>同意并加入用户体验计划</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"></translation>
+        <translation>添加系统语言</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"></translation>
+        <translation>语言列表</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"></translation>
+        <translation>添加语言</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>勿扰模式</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"></translation>
+        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"></translation>
+        <translation>在屏幕锁屏时</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>从</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>到</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>触控屏</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>您可在接入触控屏时设置所在屏幕，或在此进行调整。</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"></translation>
+        <translation>启用触控板</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished">轻触以点击</translation>
+        <translation>轻触以点击</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">自然滚动</translation>
+        <translation>自然滚动</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>加入用户体验计划</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
+        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href="%1"> %1&lt;/a>).&lt;/p></source>
+        <translation>&lt;p>开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href="%1"> %1&lt;/a>)。&lt;/p></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::MirrorSourceItem</name>
     <message>
         <source>Untested</source>
-        <translation type="unfinished"></translation>
+        <translation>未检测</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>超时</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>强度中</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"></translation>
+        <translation>镜像源列表</translation>
     </message>
     <message>
         <source>Test Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>测速</translation>
     </message>
     <message>
         <source>Untested</source>
-        <translation type="unfinished"></translation>
+        <translation>未检测</translation>
     </message>
     <message>
         <source>Retest</source>
-        <translation type="unfinished"></translation>
+        <translation>重新测速</translation>
     </message>
 </context>
 <context>
@@ -2914,7 +2914,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation type="unfinished"></translation>
+        <translation>时间与格式</translation>
     </message>
 </context>
 <context>
@@ -2928,11 +2928,11 @@
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -2950,7 +2950,7 @@
     </message>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>控制中心提供操作系统的所有设置选项。</translation>
     </message>
 </context>
 <context>
@@ -2979,63 +2979,63 @@
     <name>DefAppModule</name>
     <message>
         <source>Default Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>默认程序</translation>
     </message>
 </context>
 <context>
     <name>DefAppPlugin</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished">网页</translation>
+        <translation>网页</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished">邮件</translation>
+        <translation>邮件</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">文本</translation>
+        <translation>文本</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">音乐</translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">视频</translation>
+        <translation>视频</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished">图片</translation>
+        <translation>图片</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">终端</translation>
+        <translation>终端</translation>
     </message>
 </context>
 <context>
     <name>DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation type="unfinished"></translation>
+        <translation>有关本次更新的详细内容可访问：</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"></translation>
+        <translation>打开Desktop文件</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"></translation>
+        <translation>应用程序(*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>所有文件(*)</translation>
     </message>
     <message>
-        <source>Please choose the default program to open &apos;%1&apos;</source>
+        <source>Please choose the default program to open '%1'</source>
         <translation>选择打开“%1”的默认程序</translation>
     </message>
 </context>
@@ -3047,7 +3047,7 @@
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
@@ -3055,7 +3055,7 @@
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"></translation>
+        <translation>已进入</translation>
     </message>
     <message>
         <source>Enter</source>
@@ -3063,7 +3063,7 @@
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>在线激活</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
@@ -3071,11 +3071,11 @@
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>离线激活</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>导入证书</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -3087,7 +3087,7 @@
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"></translation>
+        <translation>进入开发者模式需要登录UOS ID</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -3098,12 +3098,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
+        <source>2.please go to &lt;a href="http://www.chinauos.com/developMode">http：//www.chinauos.com/developMode&lt;/a> to Download offline certificate.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <source>To install and run unsigned apps, please go to &lt;a href="Security Center">Security Center&lt;/a> to change the settings.</source>
+        <translation>如需安装和运行未签名应用，前往&lt;a href="Security Center">安全中心&lt;/a>进行设置。</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -3119,21 +3119,21 @@
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>调试</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>《用户免责声明》</translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that: 
+        <source>Before using face recognition, please note that:
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
 3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
@@ -3145,128 +3145,142 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>在使用人脸识别功能前，请注意以下事项：
+1.您的设备可能会被容貌、外形与您相近的人或物品解锁。
+2.人脸识别的安全性低于数字密码、混合密码。
+3.在暗光、强光、逆光或角度过大等场景下，人脸识别的解锁成功率会有所降低。
+4.请勿将设备随意交给他人使用，避免人脸识别功能被恶意利用。
+5.除以上场景外，您需注意其他可能影响人脸识别功能正常使用的情况。
+
+为更好使用人脸识别，录入面部数据时请注意以下事项：
+1.请保证光线充足，避免阳光直射并避免其他人出现在录入的画面中。
+2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
+3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
+</translation>
     </message>
     <message>
-        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+        <source>"Biometric authentication" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through "biometric authentication", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS. 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersItem</name>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation>我已阅读并同意</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>《用户免责声明》</translation>
     </message>
 </context>
 <context>
     <name>DockModuleObject</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>任务栏</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"></translation>
+        <translation>多屏设置</translation>
     </message>
     <message>
         <source>Show Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>任务栏位置</translation>
     </message>
     <message>
         <source>Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>应用布局</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>位置</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>状态</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>字号</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"></translation>
+        <translation>插件区域</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>选择显示在任务栏插件区域的图标</translation>
     </message>
     <message>
         <source>Align center</source>
-        <translation type="unfinished"></translation>
+        <translation>居中</translation>
     </message>
     <message>
         <source>Align left</source>
-        <translation type="unfinished"></translation>
+        <translation>靠左</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>下</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>位置</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>一直显示</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>一直隐藏</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"></translation>
+        <translation>智能隐藏</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"></translation>
+        <translation>小</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>大</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"></translation>
+        <translation>跟随鼠标位置显示</translation>
     </message>
     <message>
         <source>Only on main screen</source>
-        <translation type="unfinished"></translation>
+        <translation>仅主屏显示</translation>
     </message>
 </context>
 <context>
@@ -3324,7 +3338,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Are you sure you want to delete this configuration?</source>
@@ -3332,11 +3346,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -3347,241 +3361,241 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
+        <translation>添加人脸数据</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>请确保您的面部全部显示在识别区域内</translation>
     </message>
 </context>
 <context>
     <name>FaceWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Manage Faces</source>
-        <translation type="unfinished"></translation>
+        <translation>人脸管理</translation>
     </message>
     <message>
         <source>You can add up to 5 faces</source>
-        <translation type="unfinished"></translation>
+        <translation>您最多可录入5个人脸数据</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Add Face</source>
-        <translation type="unfinished"></translation>
+        <translation>添加人脸</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>该名称已存在</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation>面纹</translation>
     </message>
 </context>
 <context>
     <name>FaceidDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到可支持设备</translation>
     </message>
 </context>
 <context>
     <name>FingerDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到可支持设备</translation>
     </message>
 </context>
 <context>
     <name>FingerDisclaimer</name>
     <message>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>添加指纹</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
 </context>
 <context>
     <name>FingerInfoWidget</name>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>放置手指</translation>
     </message>
     <message>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <source>Place your finger firmly on the sensor until you're asked to lift it</source>
+        <translation>请以手指压指纹收集器，然后根据提示抬起</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>录入边缘指纹</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>请以手指边缘压指纹收集器，然后根据提示抬起</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>抬起手指</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>请抬起手指，再次按压</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>请调整按压区域，继续录入边缘指纹</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation>请抬起手指，再次按压</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation>成功添加指纹</translation>
     </message>
 </context>
 <context>
     <name>FingerWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"></translation>
+        <translation>指纹密码</translation>
     </message>
     <message>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"></translation>
+        <translation>您最多可录入10个指纹</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>该名称已存在</translation>
     </message>
     <message>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>添加指纹</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>字号</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"></translation>
+        <translation>标准字体</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"></translation>
+        <translation>等宽字体</translation>
     </message>
 </context>
 <context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>通用</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>平衡模式</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>性能模式</translation>
     </message>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>高性能模式</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>节能模式</translation>
     </message>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"></translation>
+        <translation>性能模式</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>节能设置</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>自动降低亮度</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量阈值</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>唤醒设置</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>待机恢复时需要解锁</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>唤醒显示器时需要解锁</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"></translation>
+        <translation>性能模式</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>节能设置</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量阈值</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
         <source>Auto reduce screen brightness during power saving</source>
@@ -3589,47 +3603,47 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>唤醒设置</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>待机恢复时需要密码</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>唤醒显示器时需要密码</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>关机设置</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>定时关机</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished">时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>重复</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>一次</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"></translation>
+        <translation>每天</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"></translation>
+        <translation>工作日</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
@@ -3637,11 +3651,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -3666,11 +3680,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>HostNameItem</name>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机名不能以 - 开头结尾</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机名长度必须介于1到63个字符之间</translation>
     </message>
 </context>
 <context>
@@ -3685,7 +3699,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>均衡</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
@@ -3693,7 +3707,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"></translation>
+        <translation>最佳视觉</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
@@ -3704,49 +3718,49 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation type="unfinished"></translation>
+        <translation>内测通道</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation type="unfinished"></translation>
+        <translation>点击这里打开链接</translation>
     </message>
 </context>
 <context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到可支持设备</translation>
     </message>
 </context>
 <context>
     <name>IrisWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Manage Irises</source>
-        <translation type="unfinished"></translation>
+        <translation>虹膜管理</translation>
     </message>
     <message>
         <source>You can add up to 5 irises</source>
-        <translation type="unfinished"></translation>
+        <translation>您最多可录入5个虹膜数据</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <source>Add Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>添加虹膜</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>该名称已存在</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>虹膜</translation>
     </message>
 </context>
 <context>
@@ -3886,7 +3900,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Manage your %1 ID and sync your personal data across devices.                             
+        <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3899,38 +3913,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright © 2011-%1 深度社区</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright © 2019-%1 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"></translation>
+        <translation>输入设备</translation>
     </message>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"></translation>
+        <translation>噪音抑制</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>输入音量</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"></translation>
+        <translation>反馈音量</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>输入</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输入设备</translation>
     </message>
 </context>
 <context>
@@ -3980,7 +3994,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>我的设备</translation>
     </message>
 </context>
 <context>
@@ -3995,23 +4009,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机名不能以 - 开头结尾</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"></translation>
+        <translation>产品名称</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>版本号</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>版本</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>类型</translation>
     </message>
     <message>
         <source>bit</source>
@@ -4019,7 +4033,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>版本授权</translation>
     </message>
     <message>
         <source>System installation time</source>
@@ -4027,30 +4041,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>内核版本</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>图形平台</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"></translation>
+        <translation>处理器</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>内存</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>其他设备</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"></translation>
+        <translation>显示没有名称的蓝牙设备</translation>
     </message>
 </context>
 <context>
@@ -4061,27 +4075,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"></translation>
+        <translation>强度低</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>强度中</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"></translation>
+        <translation>强度高</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"></translation>
+        <translation>重复密码</translation>
     </message>
     <message>
         <source>Password hint</source>
@@ -4089,23 +4103,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>选填</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"></translation>
+        <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"></translation>
+        <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
 </context>
 <context>
@@ -4124,30 +4138,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"></translation>
+        <translation>重设密码将会清除密钥环内已存储的数据</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口</translation>
     </message>
     <message>
         <source>Window Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口特效</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化时效果</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -4155,266 +4169,266 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Rounded Corner</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口圆角</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度调节</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>魔灯</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"></translation>
+        <translation>小</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>大</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"></translation>
+        <translation>紧凑模式</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后，窗口将显示更多内容</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"></translation>
+        <translation>个性化</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeList</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeModule</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>主题</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>外观</translation>
     </message>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"></translation>
+        <translation>活动用色</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>图标设置</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>图标主题</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>光标主题</translation>
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>文字设置</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>字体大小</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"></translation>
+        <translation>标准字体</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"></translation>
+        <translation>等宽字体</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeWidget</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
 </context>
 <context>
     <name>PinCodeDialog</name>
     <message>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"></translation>
+        <translation>连接蓝牙设备的PIN码为：</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
     <name>PowerModule</name>
     <message>
         <source>Power</source>
-        <translation type="unfinished"></translation>
+        <translation>电源管理</translation>
     </message>
     <message>
         <source>Battery low, please plug in</source>
-        <translation type="unfinished"></translation>
+        <translation>电池电量低，请连接电源</translation>
     </message>
     <message>
         <source>Battery critically low</source>
-        <translation type="unfinished"></translation>
+        <translation>电池电量耗尽</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>待机</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>休眠</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>进入关机界面</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>无任何操作</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕和待机</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>进入待机</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>自动锁屏</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>笔记本合盖时</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>按电源按钮时</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>高性能模式</translation>
     </message>
     <message>
         <source>Performance priority will significantly improve power consumption and heat generation</source>
@@ -4422,15 +4436,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>性能模式</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>根据负载情况积极调整运行频率</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>平衡模式</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusting according to usage conditions</source>
@@ -4438,7 +4452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>节能模式</translation>
     </message>
     <message>
         <source>Prioritizing battery life, the system sacrifices some performance to reduce power consumption</source>
@@ -4449,95 +4463,95 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerWorker</name>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
 </context>
 <context>
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私和安全</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
 </context>
 <context>
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>摄像头</translation>
     </message>
     <message>
         <source>Microphone</source>
-        <translation type="unfinished"></translation>
+        <translation>麦克风</translation>
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>用户文件夹</translation>
     </message>
     <message>
         <source>Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>日历</translation>
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕截图</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能少于%1个字符</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>回文字符长度不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>单调性字符不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能是常见单词及组合</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>密码过于简单，请增加密码复杂度</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不符合安全要求</translation>
     </message>
 </context>
 <context>
@@ -4548,7 +4562,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"></translation>
+        <translation>密码规则配置文件读取错误</translation>
     </message>
     <message>
         <source>dde-control-center</source>
@@ -4556,71 +4570,71 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>根据负载情况自动调整运行频率</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>根据负载情况积极调整运行频率</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"></translation>
+        <translation>有利于增加性能，会显著提升功耗和发热</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>始终低频率运行，可降低功耗</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>已激活</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>查看</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"></translation>
+        <translation>待激活</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"></translation>
+        <translation>激活</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation type="unfinished"></translation>
+        <translation>已过期</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation type="unfinished"></translation>
+        <translation>试用期</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation type="unfinished"></translation>
+        <translation>试用期过期</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>触控屏设置</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"></translation>
+        <translation>已变更触控屏设置</translation>
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在对系统版本进行ั验证，请耐心等待...</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>退 出</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>, </source>
-        <translation type="unfinished"></translation>
+        <translation>、</translation>
     </message>
 </context>
 <context>
@@ -4631,7 +4645,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <source>Default formats</source>
@@ -4639,27 +4653,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished">一周首日</translation>
+        <translation>一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished">短日期</translation>
+        <translation>短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished">长日期</translation>
+        <translation>长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished">短时间</translation>
+        <translation>短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished">长时间</translation>
+        <translation>长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished">货币符号</translation>
+        <translation>货币符号</translation>
     </message>
     <message>
         <source>Digit</source>
@@ -4671,107 +4685,107 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>RegionModule</name>
     <message>
         <source>Region and Format</source>
-        <translation type="unfinished"></translation>
+        <translation>区域与格式</translation>
     </message>
     <message>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>格式</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished">一周首日</translation>
+        <translation>一周第一天</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished">短日期</translation>
+        <translation>短日期</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished">长日期</translation>
+        <translation>长日期</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished">短时间</translation>
+        <translation>短时间</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished">长时间</translation>
+        <translation>长时间</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished">货币符号</translation>
+        <translation>货币符号</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>数字</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"></translation>
+        <translation>纸张</translation>
     </message>
     <message>
         <source>Custom Format</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义格式</translation>
     </message>
     <message>
         <source>Country or Region</source>
-        <translation type="unfinished"></translation>
+        <translation>国家或地区</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation type="unfinished"></translation>
+        <translation>操作系统和应用可能会根据你所在的国家或地区向你提供本地内容</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation>地区</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation type="unfinished"></translation>
+        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
     </message>
     <message>
         <source>Region format</source>
-        <translation type="unfinished"></translation>
+        <translation>区域格式</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
     <name>ResultItem</name>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"></translation>
+        <translation>当前系统未授权，请激活后再更新</translation>
     </message>
     <message>
         <source>Update successful</source>
-        <translation type="unfinished"></translation>
+        <translation>升级成功</translation>
     </message>
     <message>
         <source>Failed to update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新失败</translation>
     </message>
 </context>
 <context>
     <name>SearchInput</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
@@ -4785,54 +4799,54 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"></translation>
+        <translation>请求使用相机权限的应用：</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"></translation>
+        <translation>请求使用麦克风权限的应用：</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"></translation>
+        <translation>请求访问用户文件夹权限的应用：</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"></translation>
+        <translation>请求访问日历权限的应用：</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"></translation>
+        <translation>请求使用屏幕截图权限的应用：</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>没有应用使用摄像头权限</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"></translation>
+        <translation>暂无应用请求使用麦克风权限</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"></translation>
+        <translation>暂无应用请求访问用户文件夹权限</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>暂无应用请求访问日历权限</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>暂无应用请求使用屏幕截图权限</translation>
     </message>
 </context>
 <context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -4847,7 +4861,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Command:</source>
@@ -4855,11 +4869,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">无</translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
@@ -4867,11 +4881,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
@@ -4882,7 +4896,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Shortcuts body</source>
@@ -4894,7 +4908,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>done</source>
@@ -4914,7 +4928,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>or</source>
@@ -4922,7 +4936,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"></translation>
+        <translation>替换</translation>
     </message>
     <message>
         <source>Shortcuts bottom area view1</source>
@@ -4941,7 +4955,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输出设备</translation>
     </message>
     <message>
         <source>Choose whether to enable the device</source>
@@ -4949,14 +4963,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输入设备</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>系统音效</translation>
     </message>
 </context>
 <context>
@@ -5022,81 +5036,81 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>声音</translation>
     </message>
 </context>
 <context>
     <name>SoundPlugin</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>输出</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"></translation>
+        <translation>插拔管理</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>外设插拔时音频输出是否自动暂停</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>输入</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>系统音效</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>设备</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输入设备</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输出设备</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Output Device</source>
-        <translation type="unfinished"></translation>
+        <translation>输出设备</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>模式</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>输出音量</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>音量增强</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"></translation>
+        <translation>音量大于100%时可能会导致音效失真，同时损害您的音频输出设备</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>左/右平衡</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>输出</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
@@ -5104,15 +5118,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"></translation>
+        <translation>插拔管理</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>外设插拔时音频输出是否自动暂停</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输出设备</translation>
     </message>
 </context>
 <context>
@@ -5127,7 +5141,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5139,7 +5153,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
@@ -5173,93 +5187,93 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>时间设置</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished">时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>自动同步配置</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>重置</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>服务器</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>地址</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished">年</translation>
+        <translation>年</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished">月</translation>
+        <translation>月</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished">日</translation>
+        <translation>日</translation>
     </message>
 </context>
 <context>
     <name>TimeZoneChooser</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>添加时区</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Change Timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>修改系统时区</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>是否要保存显示设置？</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"></translation>
+        <translation>如无任何操作将在%1秒后还原。</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <translation>还原</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -5282,49 +5296,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>TimezoneItem</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished">明天</translation>
+        <translation>明天</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished">昨天</translation>
+        <translation>昨天</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">今天</translation>
+        <translation>今天</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished">比本地早了 %1 小时</translation>
+        <translation>比本地早了%1个小时</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished">比本地晚了 %1 小时</translation>
+        <translation>比本地晚了%1个小时</translation>
     </message>
 </context>
 <context>
     <name>TimezoneModule</name>
     <message>
         <source>Timezone List</source>
-        <translation type="unfinished"></translation>
+        <translation>时区列表</translation>
     </message>
     <message>
         <source>System Timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>系统时区</translation>
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>添加时区</translation>
     </message>
 </context>
 <context>
@@ -5429,33 +5443,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>协同设置</translation>
     </message>
 </context>
 <context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
-        <translation type="unfinished"></translation>
+        <translation>当前用户未绑定Union ID</translation>
     </message>
     <message>
-        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation type="unfinished"></translation>
+        <source>To reset passwords, you should authenticate your Union ID first. Click "Go to Link" to finish the settings.</source>
+        <translation>重置密码功能需对您的Union ID认证后才能进行，请点击“去绑定”完成相关设置后，再重置密码。</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Go to Link</source>
-        <translation type="unfinished"></translation>
+        <translation>去绑定</translation>
     </message>
 </context>
 <context>
     <name>UnknownUpdateItem</name>
     <message>
         <source>Release date: </source>
-        <translation type="unfinished"></translation>
+        <translation>发布时间：</translation>
     </message>
 </context>
 <context>
@@ -5485,99 +5499,99 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UpdateCtrlWidget</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新检查更新</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"></translation>
+        <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"></translation>
+        <translation>依赖错误，检测更新失败</translation>
     </message>
     <message>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"></translation>
+        <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"></translation>
+        <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"></translation>
+        <translation>当前系统未授权，请激活后再更新</translation>
     </message>
     <message>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"></translation>
+        <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>检测到有更新可用</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在更新...</translation>
     </message>
     <message>
         <source>Download Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>下载更新</translation>
     </message>
     <message>
         <source>Last checking time: </source>
-        <translation type="unfinished"></translation>
+        <translation>上次检查更新时间：</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>您的系统已经是最新的</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"></translation>
+        <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"></translation>
+        <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"></translation>
+        <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"></translation>
+        <source>Please ensure sufficient power to restart, and don't power off or unplug your machine</source>
+        <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
     <message>
         <source>Current Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>当前版本</translation>
     </message>
     <message>
         <source>The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!</source>
-        <translation type="unfinished"></translation>
+        <translation>当前已关闭备份更新功能，升级失败系统则无法回退！</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Update Now</source>
-        <translation type="unfinished"></translation>
+        <translation>立即更新</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>字号</translation>
     </message>
 </context>
 <context>
@@ -5603,7 +5617,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>检测到有更新可用</translation>
     </message>
     <message>
         <source>Installing updates…</source>
@@ -5623,202 +5637,202 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>您的系统已经是最新的</translation>
     </message>
 </context>
 <context>
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingItem</name>
     <message>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"></translation>
+        <translation>磁盘空间不足</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"></translation>
+        <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新失败</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"></translation>
+        <translation>网络错误</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"></translation>
+        <translation>网络异常，请检查后重试</translation>
     </message>
     <message>
         <source>Packages error</source>
-        <translation type="unfinished"></translation>
+        <translation>安装包错误</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"></translation>
+        <translation>安装包错误，请重试</translation>
     </message>
     <message>
         <source>Dependency error</source>
-        <translation type="unfinished"></translation>
+        <translation>依赖错误</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>依赖关系不满足</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
         <source>Waiting</source>
-        <translation type="unfinished"></translation>
+        <translation>等待中</translation>
     </message>
     <message>
         <source>Backing up</source>
-        <translation type="unfinished"></translation>
+        <translation>备份中</translation>
     </message>
     <message>
         <source>System backup failed</source>
-        <translation type="unfinished"></translation>
+        <translation>系统备份失败</translation>
     </message>
     <message>
         <source>System backup failed, space is full</source>
-        <translation type="unfinished"></translation>
+        <translation>系统空间不足，备份失败</translation>
     </message>
     <message>
         <source>Release date: </source>
-        <translation type="unfinished"></translation>
+        <translation>发布时间：</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>服务器</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>版本号</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingsModule</name>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>系统</translation>
     </message>
     <message>
         <source>Security Updates Only</source>
-        <translation type="unfinished"></translation>
+        <translation>仅安全性更新</translation>
     </message>
     <message>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"></translation>
+        <translation>开启“仅安全性更新”将只会进行安全漏洞和兼容性相关的更新</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation>第三方仓库</translation>
     </message>
     <message>
         <source>Other settings</source>
-        <translation type="unfinished"></translation>
+        <translation>其他设置</translation>
     </message>
     <message>
         <source>Auto Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>自动检查</translation>
     </message>
     <message>
         <source>Auto Download Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>自动下载</translation>
     </message>
     <message>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"></translation>
+        <translation>开启“下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>自动安装</translation>
     </message>
     <message>
         <source>Backup updates</source>
-        <translation type="unfinished"></translation>
+        <translation>备份更新</translation>
     </message>
     <message>
         <source>Ensuring normal system rollback in case of upgrade failure</source>
-        <translation type="unfinished"></translation>
+        <translation>升级失败可保证系统正常回退</translation>
     </message>
     <message>
         <source>Updates Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>更新提醒</translation>
     </message>
     <message>
         <source>Clear Package Cache</source>
-        <translation type="unfinished"></translation>
+        <translation>清除软件包缓存</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>从内测通道升级</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation type="unfinished"></translation>
+        <translation>内测更新</translation>
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"></translation>
+        <translation>加入deepin内测通道，以获取deepin最新更新内容</translation>
     </message>
     <message>
         <source>System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查系统更新</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查安全更新</translation>
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"></translation>
+        <translation>下载完成后会自动进行安装</translation>
     </message>
     <message>
-        <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"></translation>
+        <source>Install "%1" automatically when the download is complete</source>
+        <translation>“%1”下载完成后会自动进行安装</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"></translation>
+        <translation>智能镜像源</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"></translation>
+        <translation>镜像源列表</translation>
     </message>
 </context>
 <context>
     <name>UpdateWidget</name>
     <message>
         <source>Current Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>当前版本</translation>
     </message>
 </context>
 <context>
@@ -5832,228 +5846,228 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UpdateWorker</name>
     <message>
         <source>System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查系统更新</translation>
     </message>
     <message>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation type="unfinished"></translation>
+        <translation>修复部分已知缺陷和安全漏洞</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查安全更新</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation>第三方仓库</translation>
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation type="unfinished"></translation>
+        <translation>退出内测通道可能是不安全的，您确定退出吗？</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以安全退出内测通道</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到机器码</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation type="unfinished"></translation>
+        <translation>不能卸载包</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation type="unfinished"></translation>
+        <translation>在退出内测通道时候有错误</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation type="unfinished"></translation>
+        <translation>尝试手动卸载包</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation type="unfinished"></translation>
+        <translation>无法安装包</translation>
     </message>
 </context>
 <context>
     <name>UseBatteryModule</name>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电池</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>待机</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>休眠</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>无任何操作</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="unfinished"></translation>
+        <translation>1 分钟</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 分钟</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>1 小时</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕和待机</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>自动锁屏</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>进入待机</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"></translation>
+        <translation>电脑进入待机模式</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>笔记本合盖时</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>按电源按钮时</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量管理</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量通知</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量</translation>
     </message>
     <message>
         <source>Auto suspend battery level</source>
-        <translation type="unfinished"></translation>
+        <translation>自动待机电量</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"></translation>
+        <translation>电池管理</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"></translation>
+        <translation>显示剩余使用时间及剩余充电时间</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"></translation>
+        <translation>最大容量</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>进入关机界面</translation>
     </message>
 </context>
 <context>
     <name>UseElectricModule</name>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电源</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="unfinished"></translation>
+        <translation>1 分钟</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 分钟</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>1 小时</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕和待机</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>自动锁屏</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>进入待机</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>笔记本合盖时</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>按电源按钮时</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>待机</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>休眠</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>进入关机界面</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>无任何操作</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>加入用户体验计划</translation>
     </message>
 </context>
 <context>
@@ -6087,31 +6101,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>模式</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>压感</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"></translation>
+        <translation>笔</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"></translation>
+        <translation>重</translation>
     </message>
 </context>
 <context>
@@ -6162,11 +6176,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>闲置时间</source>
@@ -6177,7 +6191,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>界面和效果</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -6189,19 +6203,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">无</translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"></translation>
+        <translation>小</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>强度中</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>大</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -6209,55 +6223,55 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化时效果</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>魔灯</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度调节</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>低</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>高</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"></translation>
+        <translation>滚动条</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>滚动时显示</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>一直显示</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"></translation>
+        <translation>紧凑模式</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后，窗口将显示更多内容</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"></translation>
+        <translation>标题栏高度</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>仅适用于窗口管理器绘制的应用标题栏</translation>
     </message>
     <message>
         <source>Extremely small</source>
@@ -6268,7 +6282,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>账户</translation>
     </message>
     <message>
         <source>Account manager</source>
@@ -6345,23 +6359,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"></translation>
+        <translation>AD域设置</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不一致</translation>
     </message>
 </context>
 <context>
@@ -6393,66 +6407,66 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能少于%1个字符</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）组成</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>回文字符长度不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>单调性字符不超过%1位</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>重复字符不超过%1位</translation>
     </message>
     <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~`!@#$%^&amp;*()-_+=|\{}[]:"'&lt;>,.?/）三种类型组成</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不能是常见单词及组合</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>密码过于简单，请增加密码复杂度</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>密码不符合安全要求</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>系统</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>工作区</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
@@ -6460,22 +6474,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">无</translation>
+        <translation>无</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>Deepin ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
@@ -6500,21 +6514,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
 </context>
 <context>
     <name>example</name>
     <message>
         <source>Example</source>
-        <translation type="unfinished"></translation>
+        <translation>示例</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘</translation>
     </message>
     <message>
         <source>Keyboard layout, input method, shortcuts</source>
@@ -6569,7 +6583,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>控制中心提供操作系统的所有设置选项。</translation>
     </message>
     <message>
         <source>Normal Page</source>
@@ -6585,7 +6599,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>启动菜单</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
@@ -6593,7 +6607,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者模式</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
@@ -6601,11 +6615,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>复制</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"></translation>
+        <translation>扩展</translation>
     </message>
     <message>
         <source> (Recommended)</source>
@@ -6613,27 +6627,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"></translation>
+        <translation>赫兹</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>适应</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"></translation>
+        <translation>拉伸</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>居中</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>仅%1屏</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
@@ -6641,11 +6655,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>模式</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>主屏幕</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -6653,67 +6667,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>亮度</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>分辨率</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面显示</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>刷新率</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>方向</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>标准</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"></translation>
+        <translation>90度</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"></translation>
+        <translation>180度</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"></translation>
+        <translation>270度</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕缩放</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"></translation>
+        <translation>护眼模式</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"></translation>
+        <translation>调整屏幕显示较暖的颜色，减少屏幕蓝光</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished">时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"></translation>
+        <translation>全天</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"></translation>
+        <translation>日落到日出</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>from</source>
@@ -6725,7 +6739,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>色温</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -6737,7 +6751,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>启用勿扰模式</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb3</source>
@@ -6745,11 +6759,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"></translation>
+        <translation>在屏幕锁屏时</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>通知横幅展示数量</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
@@ -6761,7 +6775,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Lock Screen</source>
@@ -6773,19 +6787,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"></translation>
+        <translation>显示消息预览</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"></translation>
+        <translation>通知时提示声音</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>主题</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>外观</translation>
     </message>
     <message>
         <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
@@ -6825,11 +6839,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>通用</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电源</translation>
     </message>
     <message>
         <source>Screen and standby management</source>
@@ -6837,7 +6851,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>使用电池</translation>
     </message>
     <message>
         <source>Screen and standby management, low battery management, battery management</source>
@@ -6845,15 +6859,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>输出</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>输入</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>系统音效</translation>
     </message>
     <message>
         <source>Control system sound effect</source>
@@ -6861,7 +6875,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>设备</translation>
     </message>
     <message>
         <source>Choose whether to enable the device
@@ -6870,7 +6884,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"></translation>
+        <translation>关于本机</translation>
     </message>
     <message>
         <source>View information about this machine</source>
@@ -6886,7 +6900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>用户体验计划</translation>
     </message>
     <message>
         <source>Join the User Experience Program and help improve the product</source>
@@ -6894,7 +6908,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>最终用户许可协议</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
@@ -6902,7 +6916,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>隐私政策</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
@@ -6918,7 +6932,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
@@ -6938,11 +6952,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>压感</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
 </context>
 <context>
@@ -6967,7 +6981,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"></translation>
+        <translation>个性化</translation>
     </message>
 </context>
 <context>
@@ -7032,23 +7046,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>updateControlPanel</name>
     <message>
         <source>Downloading </source>
-        <translation type="unfinished"></translation>
+        <translation>下载中</translation>
     </message>
     <message>
         <source>Waiting </source>
-        <translation type="unfinished"></translation>
+        <translation>等待中</translation>
     </message>
     <message>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>安装中</translation>
     </message>
     <message>
         <source>Backing up </source>
-        <translation type="unfinished"></translation>
+        <translation>备份中</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"></translation>
+        <translation>了解详情</translation>
     </message>
 </context>
 <context>
