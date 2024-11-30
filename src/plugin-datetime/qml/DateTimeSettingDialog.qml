@@ -40,7 +40,7 @@ id: ddialog
             }
             SpinboxEx {
                 id: spYear
-                unitText: qsTr("年")
+                unitText: qsTr("Year")
                 from: 1990
                 to: 2090
                 value: currentDate.getFullYear()
@@ -53,7 +53,7 @@ id: ddialog
             }
             SpinboxEx {
                 id: spMonth
-                unitText: qsTr("月")
+                unitText: qsTr("Month")
                 from: 1
                 to: 12
                 value: currentDate.getMonth() + 1 //  // January gives 0
@@ -61,7 +61,7 @@ id: ddialog
             }
             SpinboxEx {
                 id: spDay
-                unitText: qsTr("日")
+                unitText: qsTr("Day")
                 from: 1
                 to: 31
                 value: currentDate.getDate()

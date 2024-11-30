@@ -262,7 +262,7 @@ DccObject {
         name: "regionAndFormat"
         parentName: "langAndFormat"
         weight: 50
-        displayName: qsTr("Language and region")
+        displayName: qsTr("Region and format")
         description: qsTr("Select matching date and time formats based on language and region")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
