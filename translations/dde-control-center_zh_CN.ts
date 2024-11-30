@@ -3133,6 +3133,24 @@
         <translation>《用户免责声明》</translation>
     </message>
     <message>
+        <source>"Biometric authentication" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through "biometric authentication", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS. 
+</source>
+        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
         <source>Before using face recognition, please note that:
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
@@ -3157,24 +3175,6 @@ In order to better use of face recognition, please pay attention to the followin
 2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
 3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
 </translation>
-    </message>
-    <message>
-        <source>"Biometric authentication" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through "biometric authentication", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UnionTech OS. 
-</source>
-        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
-请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
-统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
-</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>下一步</translation>
     </message>
 </context>
 <context>
@@ -3897,15 +3897,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>LoginPage</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>云同步</translation>
+    </message>
+    <message>
+        <source>Sign In to %1 ID</source>
+        <translation>登录%1 ID</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign In to %1 ID</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5176,11 +5176,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">至</translation>
     </message>
 </context>
 <context>
@@ -5345,11 +5345,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"></translation>
+        <translation>触控屏</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"></translation>
+        <translation>连接触摸屏时在此处设置</translation>
     </message>
 </context>
 <context>
@@ -6074,27 +6074,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UserInfo</name>
     <message>
         <source>The relevant functions are still under development, so stay tuned</source>
-        <translation type="unfinished"></translation>
+        <translation>相关功能仍在开发中，敬请期待～</translation>
     </message>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"></translation>
+        <translation>同步服务</translation>
     </message>
     <message>
         <source>%1 Auto Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>%1自动同步</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"></translation>
+        <translation>将系统设置和个人数据安全地存储在云端，并在设备之间保持同步</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"></translation>
+        <translation>退出登录</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"></translation>
+        <translation>前往网页设置</translation>
     </message>
 </context>
 <context>
@@ -6493,7 +6493,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"></translation>
+        <translation>云服务</translation>
     </message>
 </context>
 <context>
@@ -6567,7 +6567,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板</translation>
     </message>
     <message>
         <source>Common</source>
@@ -6623,7 +6623,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation> （推荐）</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -6651,7 +6651,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>多屏设置</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -6663,7 +6663,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>显示和布局</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -6731,11 +6731,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>从</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>至</translation>
     </message>
     <message>
         <source>Color Temperature</source>
@@ -6747,15 +6747,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>勿扰设置</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
         <translation>启用勿扰模式</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb3</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -6767,11 +6763,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>允许通知</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"></translation>
+        <translation>可以显示通知横幅，或在通知中心显示未读消息</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -6779,11 +6775,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>锁屏</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"></translation>
+        <translation>通知中心</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -6927,10 +6923,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>您有新的系统更新，请查看并更新</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
@@ -6940,15 +6932,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>模式</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>笔模式</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标模式</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
@@ -6957,6 +6949,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Light</source>
         <translation>轻</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
+    </message>
+    <message>
+        <source>Your system is already the latest version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new system update, please check and update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6974,7 +6978,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>notification</name>
     <message>
         <source>notification</source>
-        <translation type="unfinished"></translation>
+        <translation>通知</translation>
     </message>
 </context>
 <context>
@@ -7006,25 +7010,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"></translation>
+        <translation>常用设置</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"></translation>
+        <translation>辅助信息</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>触控屏</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>触控屏设置</translation>
     </message>
 </context>
 <context>
@@ -7069,11 +7073,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板选项设置</translation>
     </message>
 </context>
 </TS>

@@ -6740,10 +6740,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable Do Not Disturb3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>When the screen is locked</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6913,10 +6909,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>您有新的系统更新，请查看并更新</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6942,6 +6934,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is already the latest version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new system update, please check and update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
