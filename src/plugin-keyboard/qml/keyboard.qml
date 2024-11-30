@@ -5,12 +5,14 @@ import org.deepin.dcc 1.0
 
 DccObject {
     id: keyboard
-    name: "keyboard"
-    parentName: "device"
-    displayName: qsTr("Keyboard")
-    description: qsTr("Keyboard layout, input method, shortcuts")
-    icon: "dcc_nav_keyboard"
-    weight: 40
+    DccObject {
+        name: "keyboard"
+        parentName: "device"
+        displayName: qsTr("Keyboard")
+        description: qsTr("Keyboard layout, input method, shortcuts")
+        icon: "dcc_nav_keyboard"
+        weight: 40
+    }
 
     visible: false
     DccDBusInterface {
