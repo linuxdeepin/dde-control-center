@@ -16,6 +16,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Acount Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Acount name, acount fullname, account type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33,6 +37,14 @@
     </message>
     <message>
         <source>Acount type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -69,18 +81,6 @@
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -385,6 +385,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Auto suspend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Low battery threshold</source>
         <translation type="unfinished"></translation>
     </message>
@@ -401,11 +405,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto Hibernate</source>
+        <source>Optimize battery charging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto suspend</source>
+        <source>Maximum charging capacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When the battery is not frequently used, the maximum charging capacity of the battery can be limited to slow down battery aging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -523,19 +535,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Change boot menu verification password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Name :</source>
+        <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -543,7 +547,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New Password :</source>
+        <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -559,7 +563,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Repeat password:</source>
+        <source>Repeat password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -576,6 +580,26 @@
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the boot menu authentication password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Password :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat password:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -805,11 +829,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Double Click Speed</source>
+        <source>Repeat delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -818,18 +838,6 @@
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Double Click Test</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Left Hand Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repeat delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -854,6 +862,22 @@
     </message>
     <message>
         <source>Caps lock prompt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double Click Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double Click Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left Hand Mode</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2800,6 +2824,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>年</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>月</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>日</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2821,18 +2857,6 @@
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>年</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>月</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>日</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2965,11 +2989,11 @@
 <context>
     <name>DccWindow</name>
     <message>
-        <source>%1 is released under %2</source>
+        <source>Control Center provides the options for system settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Control Center provides the options for system settings.</source>
+        <source>%1 is released under %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3043,6 +3067,10 @@
 <context>
     <name>DetailItem</name>
     <message>
+        <source>Please choose the default program to open &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Desktop file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3052,10 +3080,6 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please choose the default program to open &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3652,15 +3676,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3846,11 +3870,63 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Language and region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select matching date and time formats based on language and region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Language and region</source>
+        <source>Week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Positive currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Negative currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decimal symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digit grouping symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digit grouping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Page size</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3926,7 +4002,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Manage your %1 ID and sync your personal data across devices.                             
+        <source>Manage your %1 ID and sync your personal data across devices. 
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3965,6 +4041,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>输入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入音量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>反馈音量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>噪音抑制</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3981,6 +4077,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pointer Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4005,14 +4109,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4066,10 +4162,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Kernel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Graphics Platform</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4079,6 +4171,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Memory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kernel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4190,6 +4286,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Compact Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4219,14 +4323,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Compact Display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If enabled, more content is displayed in the window.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4583,31 +4679,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>QObject</name>
     <message>
+        <source>, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Control Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>dde-control-center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CPU always works under low frequency, will reduce power consumption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4639,11 +4715,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Touch Screen Settings</source>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The settings of touch screen changed</source>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dde-control-center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error occurred when reading the configuration files of password rules!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4659,7 +4751,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>, </source>
+        <source>Touch Screen Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The settings of touch screen changed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4725,7 +4821,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Country or Region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operating system and applications may provide you with local content based on your country and region.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operating system and applications may set date and time formats based on regional formats.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Region format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4762,26 +4878,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom Format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Country or Region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Area</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Region format</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4980,6 +5076,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
+        <source>输出设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择是否启用设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Output Devices</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4996,6 +5104,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>系统音效</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5132,6 +5244,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出音量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>音量增强</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>音量大于100%时可能会导致音效失真,同时损害您的音频输出设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>音量平衡</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>插拔管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>外设插拔时音频输出是否自动暂停</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出设备</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5400,6 +5544,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Slow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Disable touchpad during input</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5416,15 +5568,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Slow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fast</source>
+        <source>Two fingers up and down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scroll Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three fingers left and right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four finger click</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5469,18 +5625,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Two fingers up and down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three fingers left and right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four finger click</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5833,6 +5977,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Updates from Internal Testing Sources</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5858,18 +6014,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mirror List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6583,6 +6727,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>main</name>
     <message>
+        <source>Control Center provides the options for system settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Webpage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6611,11 +6775,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>wacom</source>
+        <source>Common</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Common</source>
+        <source>Keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6627,7 +6791,163 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Control Center provides the options for system settings.</source>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the display and size of icons on the desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set interface effects and icon sizes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallpaper and screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust preferred activity colors and theme icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify the system font and font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen and standby management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen and standby management, low battery management, battery management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>系统音效</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>控制系统声音效果</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>设备管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择是否启用设备</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About This PC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View information about this machine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View GCC related protocol statements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join the User Experience Program and help improve the product</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View End User License Agreement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Privacy Policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wacom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wacom Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6640,22 +6960,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Developer Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6787,19 +7091,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Do Not Disturb Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable Do Not Disturb</source>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable Do Not Disturb3</source>
+        <source>Enable Do Not Disturb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6839,67 +7139,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Theme</source>
+        <source>Select light, dark, or automatic theme appearance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Appearance</source>
+        <source>Interface and effects、rounded corner、compact display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
+        <source>Adjust accent color and theme icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Window effect</source>
+        <source>Change system font and size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set interface effects and icon sizes</source>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wallpaper and screensaver</source>
+        <source>Screen and suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust preferred activity colors and theme icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modify the system font and font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>General</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screen and standby management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screen and standby management, low battery management, battery management</source>
+        <source>screen and suspend, low battery, battery management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6928,14 +7192,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About This PC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View information about this machine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open Source Software Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6944,23 +7200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Join the User Experience Program and help improve the product</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6972,34 +7212,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wacom Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Your system is already the latest version</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7008,31 +7220,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select light, dark, or automatic theme appearance</source>
+        <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
+        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
