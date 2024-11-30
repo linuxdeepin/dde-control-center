@@ -12,7 +12,7 @@ DccObject {
         name: "general"
         parentName: "power"
         displayName: qsTr("General")
-        description: "Performance mode switching, energy-saving settings, wake-up settings, shutdown settings"
+        description: qsTr("Power plans, power saving settings, wakeup settings, shutdown settings")
         icon: "general"
         weight: 10
         page: DccRightView {
@@ -24,7 +24,7 @@ DccObject {
         name: "onPower"
         parentName: "power"
         displayName: qsTr("Plugged In")
-        description: qsTr("Screen and standby management")
+        description: qsTr("Screen and suspend")
         icon: "plugged_in"
         weight: 100
         page: DccRightView {
@@ -36,7 +36,7 @@ DccObject {
         name: "onBattery"
         parentName: "power"
         displayName: qsTr("On Battery")
-        description: qsTr("Screen and standby management, low battery management, battery management")
+        description: qsTr("screen and suspend, low battery, battery management")
         icon: "on_battery"
         weight: 200
         visible: dccData.model.haveBettary

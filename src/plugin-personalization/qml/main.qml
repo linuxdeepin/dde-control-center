@@ -68,7 +68,7 @@ DccObject {
             name: "appearance"
             parentName: "personalization/themeGroup"
             displayName: qsTr("Appearance")
-            description: qsTr("The appearance determines whether the theme displays light or dark colors, or automatically switches")
+            description: qsTr("Select light, dark, or automatic theme appearance")
             weight: 2
             pageType: DccObject.Editor
             icon: "appearance"
@@ -97,7 +97,7 @@ DccObject {
         name: "windowEffect"
         parentName: "personalization"
         displayName: qsTr("Window effect")
-        description: qsTr("Set interface effects and icon sizes")
+        description: qsTr("Interface and effects、rounded corner、compact display")
         icon: "window_effect"
         weight: 200
         WindowEffectPage {}
@@ -115,7 +115,7 @@ DccObject {
         name: "colorAndIcons"
         parentName: "personalization"
         displayName: qsTr("Colors and icons")
-        description: qsTr("Adjust preferred activity colors and theme icons")
+        description: qsTr("Adjust accent color and theme icons")
         icon: "icon_cursor"
         weight: 400
         ColorAndIcons {}
@@ -124,7 +124,7 @@ DccObject {
         name: "font"
         parentName: "personalization"
         displayName: qsTr("Font and font size")
-        description: qsTr("Modify the system font and font size")
+        description: qsTr("Change system font and size")
         icon: "font_size"
         weight: 500
         FontSizePage {}
