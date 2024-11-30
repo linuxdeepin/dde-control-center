@@ -378,11 +378,11 @@
     </message>
     <message>
         <source>Disbale</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用</translation>
     </message>
     <message>
         <source>Low battery operation</source>
-        <translation type="unfinished"></translation>
+        <translation>低电量时</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -399,6 +399,14 @@
     <message>
         <source>Maximum capacity</source>
         <translation>最大容量</translation>
+    </message>
+    <message>
+        <source>Auto Hibernate</source>
+        <translation>自动待机</translation>
+    </message>
+    <message>
+        <source>Auto suspend</source>
+        <translation>自动休眠</translation>
     </message>
 </context>
 <context>
@@ -3599,7 +3607,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Auto reduce screen brightness during power saving</source>
-        <translation type="unfinished"></translation>
+        <translation>节能模式时降低屏幕亮度</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -3647,7 +3655,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义重复时间</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4432,7 +4440,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Performance priority will significantly improve power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
+        <translation>性能优先，会显著提升功耗和发热</translation>
     </message>
     <message>
         <source>Balance Performance</source>
@@ -4448,7 +4456,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusting according to usage conditions</source>
-        <translation type="unfinished"></translation>
+        <translation>兼顾性能和续航，根据使用情况自动调节</translation>
     </message>
     <message>
         <source>Power Saver</source>
@@ -4456,7 +4464,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritizing battery life, the system sacrifices some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>续航优先，系统会牺牲一些性能表现来降低功耗</translation>
     </message>
 </context>
 <context>
