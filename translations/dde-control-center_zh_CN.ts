@@ -378,7 +378,7 @@
     </message>
     <message>
         <source>Disbale</source>
-        <translation>禁用</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Low battery operation</source>
@@ -757,7 +757,7 @@
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义您的主题图标</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
@@ -765,7 +765,7 @@
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义您的主题光标</translation>
     </message>
 </context>
 <context>
@@ -2823,6 +2823,18 @@
         <source>Day</source>
         <translation>日</translation>
     </message>
+    <message>
+        <source>年</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>月</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>日</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateWidget</name>
@@ -3684,6 +3696,34 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>InterfaceEffectListview</name>
     <message>
+        <source>Optimal Performance</source>
+        <translation>最佳性能</translation>
+    </message>
+    <message>
+        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
+        <translation>最佳性能：关闭所有界面和窗口特效，保障系统高效运行.</translation>
+    </message>
+    <message>
+        <source>Balance</source>
+        <translation>均衡</translation>
+    </message>
+    <message>
+        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation>均衡：限制部分窗口特效，保障出色的视觉效果，同时维持系统流畅运行</translation>
+    </message>
+    <message>
+        <source>Best Visuals</source>
+        <translation>最佳视觉</translation>
+    </message>
+    <message>
+        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
+        <translation>最佳视觉：启用所有界面和窗口特效，体验最佳视觉效果</translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Optimal performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3692,19 +3732,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Balance</source>
-        <translation>均衡</translation>
-    </message>
-    <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Best Visuals</source>
-        <translation>最佳视觉</translation>
-    </message>
-    <message>
-        <source>Enable all interface and window effects for the best visual experience.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3820,6 +3848,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Select matching date and time formats based on language and region</source>
         <translation>根据语言和区域先择匹配的日期和时间格式</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4202,7 +4234,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>轻</translation>
+        <translation>浅色</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -5124,6 +5156,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>ThemeSelectView</name>
+    <message>
+        <source>More Wallpapers</source>
+        <translation>下载更多</translation>
+    </message>
+</context>
+<context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
@@ -5430,6 +5469,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two fingers up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three fingers left and right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four finger click</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6130,11 +6181,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口圆角</translation>
     </message>
     <message>
         <source>Select Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>选择屏幕</translation>
     </message>
     <message>
         <source>wave of the blue</source>
@@ -6185,15 +6236,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>界面和效果</translation>
+        <translation>界面效果</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口设置</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口圆角</translation>
     </message>
     <message>
         <source>None</source>
@@ -6205,7 +6256,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Medium</source>
-        <translation>强度中</translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>Large</source>
@@ -6213,7 +6264,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口移动时启用透明特效</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -6269,7 +6320,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"></translation>
+        <translation>极小</translation>
     </message>
 </context>
 <context>
@@ -6796,40 +6847,40 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>外观</translation>
     </message>
     <message>
-        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
-        <translation type="unfinished"></translation>
+        <source>Select light, dark, or automatic theme appearance</source>
+        <translation>选择浅色、深色或自动切换主题外观</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口效果</translation>
     </message>
     <message>
-        <source>Set interface effects and icon sizes</source>
-        <translation type="unfinished"></translation>
+        <source>Interface and effects、rounded corner、compact display</source>
+        <translation>界面和效果、窗口圆角、紧凑模式</translation>
     </message>
     <message>
         <source>Wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>壁纸和屏保</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>个性化您的壁纸和屏保</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色和图标</translation>
     </message>
     <message>
-        <source>Adjust preferred activity colors and theme icons</source>
-        <translation type="unfinished"></translation>
+        <source>Adjust accent color and theme icons</source>
+        <translation>调整活动色和主题图标</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"></translation>
+        <translation>字体和字号</translation>
     </message>
     <message>
-        <source>Modify the system font and font size</source>
-        <translation type="unfinished"></translation>
+        <source>Change system font and size</source>
+        <translation>修改系统字体与字号</translation>
     </message>
     <message>
         <source>General</source>
@@ -6949,6 +7000,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>轻</translation>
     </message>
     <message>
+        <source>Screen and suspend</source>
+        <translation>屏幕和待机管理</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>屏幕和待机管理、低电量管理、电池管理</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>性能模式、节能设置、唤醒设置、关机设置</translation>
+    </message>
+    <message>
+        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set interface effects and icon sizes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust preferred activity colors and theme icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify the system font and font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Your system is already the latest version</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6987,6 +7066,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>power</source>
         <translation>电源管理</translation>
+    </message>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>节能设置、屏幕和待机管理</translation>
     </message>
 </context>
 <context>

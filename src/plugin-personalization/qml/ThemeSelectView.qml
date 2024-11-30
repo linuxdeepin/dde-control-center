@@ -107,7 +107,7 @@ ListView {
                     Text {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        text: model.id
+                        text: model.name
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         color: delegateRoot.isCurrent ? D.DTK.platformTheme.activeColor : this.palette.windowText
@@ -174,7 +174,7 @@ ListView {
                     Text {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        text: "More Wallpapers"
+                        text: qsTr("More Wallpapers")
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         color: this.palette.windowText

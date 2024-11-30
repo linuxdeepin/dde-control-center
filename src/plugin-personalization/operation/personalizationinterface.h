@@ -15,6 +15,7 @@ class ThemeVieweModel : public QAbstractItemModel
 public:
     enum UserDataRole {
         IdRole = Qt::UserRole + 0x101,
+        NameRole,
         PicRole
     };
     explicit ThemeVieweModel(QObject *parent = nullptr);

@@ -2823,6 +2823,18 @@
         <source>Day</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>年</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>月</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>日</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateWidget</name>
@@ -3707,6 +3719,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Enable all interface and window effects for the best visual experience.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Optimal Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>InternalButtonItem</name>
@@ -3819,6 +3847,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Select matching date and time formats based on language and region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language and region</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5124,6 +5156,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>ThemeSelectView</name>
+    <message>
+        <source>More Wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
@@ -5430,6 +5469,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two fingers up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three fingers left and right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four finger click</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6956,6 +7007,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>You have a new system update, please check and update</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select light, dark, or automatic theme appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Interface and effects、rounded corner、compact display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>mouse</name>
@@ -6986,6 +7065,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>power</name>
     <message>
         <source>power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

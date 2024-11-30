@@ -65,7 +65,7 @@ QVariant ThemeVieweModel::data(const QModelIndex &index, int role) const
 
     int row = index.row();
     switch (role) {
-    case Qt::DisplayRole:
+    case ThemeVieweModel::NameRole:
         return m_themeModel->getList().value(m_keys.at(row))["Name"].toString();
     case Qt::ToolTipRole:
         return m_themeModel->getList().value(m_keys.at(row))["Comment"].toString();
@@ -106,6 +106,7 @@ QHash<int, QByteArray> ThemeVieweModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[IdRole] = "id";
+    roles[NameRole] = "name";
     roles[PicRole] = "pic";
     roles[Qt::CheckStateRole] = "checked";
     return roles;
