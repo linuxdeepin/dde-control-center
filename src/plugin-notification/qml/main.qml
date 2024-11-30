@@ -41,7 +41,7 @@ DccObject {
         DccObject {
             name: "enableDoNotDisturbSwitch"
             parentName: "enableDoNotDisturb"
-            description: "App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center."
+            description: qsTr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.")
             displayName: qsTr("Enable Do Not Disturb")
             // icon: "notification"
             weight: 10
@@ -69,7 +69,7 @@ DccObject {
         DccObject {
             name: "enableDoNotDisturbLock"
             parentName: "enableDoNotDisturb"
-            displayName: qsTr("Enable Do Not Disturb3")
+            displayName: qsTr("Enable Do Not Disturb")
             icon: "notification"
             weight: 30
             pageType: DccObject.Item
