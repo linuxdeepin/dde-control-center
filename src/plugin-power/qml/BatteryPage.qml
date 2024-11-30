@@ -258,8 +258,8 @@ DccObject {
                 flat: true
                 currentIndex: indexByValue(dccData.model.lowPowerAction)
                 model: ListModel {
-                    ListElement { text: "Auto Hibernate"; value: 1 }
-                    ListElement { text: "Auto suspend"; value: 0 }
+                    ListElement { text: qsTr("Auto Hibernate"); value: 1 }
+                    ListElement { text: qsTr("Auto suspend"); value: 0 }
                 }
                 onCurrentIndexChanged: {
                     var selectedValue = model.get(currentIndex).value;
