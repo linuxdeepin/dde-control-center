@@ -13,7 +13,7 @@ DccObject {
     parentName: "root"
     displayName: qsTr("system")
     icon: "commoninfo"
-    weight: 20
+    weight: 30
 
     DccTitleObject {
         name: "common"
