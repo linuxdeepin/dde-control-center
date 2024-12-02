@@ -15,6 +15,7 @@ add_library(${Sound_Name} MODULE
     operation/soundDeviceData.h
     operation/port.cpp
     operation/port.h
+    operation/audioservermodel.cpp
 )
 
 if (DISABLE_SOUND_ADVANCED)

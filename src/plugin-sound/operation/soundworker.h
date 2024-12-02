@@ -40,6 +40,7 @@ public:
     Q_INVOKABLE void enableAllSoundEffect(bool enable);
     Q_INVOKABLE void setPortEnableIndex(int index, bool checked, int portType);
     Q_INVOKABLE void playSoundEffect(int index);
+    Q_INVOKABLE void setAudioServerIndex(int index);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
@@ -76,6 +77,7 @@ private Q_SLOTS:
 private:
     void initConnect();
     void updatePortActivity();
+    void initAudioServerData();
 
 private:
     SoundModel *m_model;

@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QDebug>
 #include <QLoggingCategory>
+#include <QPair>
 
 #include <QMediaPlayer>
 #include <QAudioDevice>
@@ -17,6 +18,8 @@
 Q_LOGGING_CATEGORY(DdcSoundWorker, "dcc-sound-worker")
 
 #define GSETTINGS_WAIT_SOUND_RECEIPT "wait-sound-receipt"
+
+const QList<QPair<QString, QString>>& AudioServerNames = {qMakePair(QString("pipewire"),QString("PipeWire")), qMakePair(QString("pulseaudio"),QString("PulseAudio"))};
 
 SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     : QObject(parent)
@@ -102,6 +105,7 @@ void SoundWorker::activate()
     m_model->setAudioServer(m_soundDBusInter->audioServer());
     m_model->setAudioServerChangedState(m_soundDBusInter->audioServerState());
 
+    initAudioServerData();
     refreshSoundEffect();
     m_model->updateSoundEffectsModel();
 
@@ -131,7 +135,6 @@ void SoundWorker::refreshSoundEffect()
 void SoundWorker::setAudioServer(const QString &value)
 {
     m_soundDBusInter->SetAudioServer(value);
-    m_model->setAudioServer(value);
 }
 
 void SoundWorker::switchSpeaker(bool on)
@@ -490,5 +493,28 @@ void SoundWorker::updatePortActivity()
         if (isActiveInputPort) {
             m_model->setActiveinPutPort(port);
         }
+    }
+}
+
+void SoundWorker::initAudioServerData()
+{
+    for (auto item : AudioServerNames) {
+        AudioServerData data;
+        data.name = item.second;
+        data.serverName = item.first;
+
+        data.checked = false;
+        if (data.serverName == m_model->audioServer()) {
+            data.checked = true;
+        }
+        m_model->addAudioServerData(data);
+    }
+}
+
+
+void SoundWorker::setAudioServerIndex(int index)
+{
+    if (index >= 0  && AudioServerNames.count() > index) {
+        setAudioServer(AudioServerNames.at(index).first);
     }
 }

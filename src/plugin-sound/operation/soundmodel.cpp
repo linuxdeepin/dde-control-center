@@ -54,6 +54,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_soundEffectsModel(new SoundEffectsModel(this))
     , m_soundOutputDeviceModel(new SoundDeviceModel(this))
     , m_soundInputDeviceModel(new SoundDeviceModel(this))
+    , m_audioServerModel(new AudioServerModel(this))
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
@@ -617,6 +618,21 @@ void SoundModel::updatePlayAniIconPath(int index, const QString &newPlayAniIconP
     m_soundEffectsModel->updateSoundEffectsAniIcon(index, newPlayAniIconPath);
 }
 
+AudioServerModel *SoundModel::audioServerModel() const
+{
+    return m_audioServerModel;
+}
+
+void SoundModel::setAudioServerModel(AudioServerModel *newAudioServerModel)
+{
+    m_audioServerModel = newAudioServerModel;
+}
+
+void SoundModel::addAudioServerData(const AudioServerData &newAudioServerData)
+{
+    m_audioServerModel->addData(newAudioServerData);
+}
+
 void SoundModel::setInPutPortCount(int newInPutPortCount)
 {
     if (m_inPutPortCount == newInPutPortCount)
@@ -678,6 +694,8 @@ void SoundModel::setAudioServer(const QString &audioServer)
     if (m_audioServer != audioServer) {
         m_audioServer = audioServer;
         Q_EMIT curAudioServerChanged(audioServer);
+
+        m_audioServerModel->updateCheckedService(audioServer);
     }
 }
 
