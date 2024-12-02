@@ -345,9 +345,15 @@ void PluginManager::loadMain(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
-    const QString qmlPath = plugin->path + "/main.qml";
-    updatePluginStatus(plugin, MainObjLoad, "load main");
-    if (QFile::exists(qmlPath)) {
+    updatePluginStatus(plugin, MainObjLoad, "load Main");
+    QString qmlPath = plugin->path + "/" + plugin->name + "Main.qml";
+    if (!QFile::exists(qmlPath)) {
+        qmlPath = plugin->path + "/main.qml";
+        if (!QFile::exists(qmlPath)) {
+            qmlPath.clear();
+        }
+    }
+    if (!qmlPath.isEmpty()) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));
         component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
@@ -357,7 +363,7 @@ void PluginManager::loadMain(PluginData *plugin)
             createMain(component);
         }
     } else {
-        updatePluginStatus(plugin, MainObjErr | MainObjEnd, "main.qml not exists");
+        updatePluginStatus(plugin, MainObjErr | MainObjEnd, "Main.qml not exists");
     }
 }
 
