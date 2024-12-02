@@ -6,6 +6,7 @@
 | 时间 | 版本 | 说明 | 控制中心版本号 |
 |---|---|---|---|
 | 2024.11.8 | 1.0 | 创建 | 6.0.71 |
+| 2024.12.2 | 1.0 | 修改main.qml为{name}Main.qml(防止翻译冲突，兼容以前命名) | 6.0.77 |
 
 ## V25控制中心新特性
 1.  V25控制中心只负责框架设计，具体功能全部由插件实现
@@ -23,13 +24,13 @@
 ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 ├── example.qml
 ├── example.so
-├── main.qml
+├── exampleMain.qml
 └── xxx.qml
 ```
 1.  example.qml为插件元数据文件，包含一个DccObject对象。通常该对象只是插件入口菜单。为了让主界面快速显示出来
 2.  example.so为插件c++导出的动态库
-3.  main.qml为插件入口文件，插件启动时，会自动加载该文件，该文件中根对象为一个DccObject对象，该对象可以包含任意qml对象，并且该文件中可以用到example.so导出的函数，使用方式为：dccData.xxx(),dccData为example.so导出的对象
-4.  xxx.qml为插件其他文件，在main.qml中使用
+3.  exampleMain.qml为插件入口文件，插件启动时，会自动加载该文件，该文件中根对象为一个DccObject对象，该对象可以包含任意qml对象，并且该文件中可以用到example.so导出的函数，使用方式为：dccData.xxx(),dccData为example.so导出的对象
+4.  xxx.qml为插件其他文件，在exampleMain.qml中使用
 ## V25控制中心插件开发说明
 1.  V25控制中心插件开发需要安装dde-control-center-dev包，该包中包含V25控制中心插件开发所需头文件和库文件
 2.  V25控制中心使用的是qt6,qt6与qt5混用会导致程序崩溃。因此插件需要使用qt6进行开发
@@ -37,7 +38,7 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 1.  插件加载时，会先根据配置判断该插件是否显示，若不显示，则加载结束。查看配置命令：`dde-dconfig get org.deepin.dde.control-center -r org.deepin.dde.control-center hideModule`
 2.  加载example.qml，若example.qml中根对象DccObject对象visible属性为false，则加载结束
 3.  在线程中加载example.so，最后会将example.so导出的对象移动到主线程
-4.  将example.so导出的对象设置为dccData,加载main.qml。此时，main.qml中可以使用dccData.xxx()调用example.so导出的函数
+4.  将example.so导出的对象设置为dccData,加载exampleMain.qml。此时，exampleMain.qml中可以使用dccData.xxx()调用example.so导出的函数
 5.  加载完成，将DccObject对象插入到模块树中
 ## V25控制中心插件开发必要说明
 1.  控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以`dde-control-center --spec ./lib/plugins_v1.0`来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件
@@ -107,10 +108,10 @@ plugin-example
 ├── CMakeLists.txt          # CMake构建脚本，用于编译和构建插件
 ├── qml                     # QML文件目录
 │   ├── dcc_example.dci     # 图标文件
-│   ├── ExamplePage1.qml    # 第一个示例页面的QML文件，在main.qml中加载
-│   ├── ExamplePage2.qml    # 第二个示例页面的QML文件，在main.qml中加载
+│   ├── ExamplePage1.qml    # 第一个示例页面的QML文件，在exampleMain.qml中加载
+│   ├── ExamplePage2.qml    # 第二个示例页面的QML文件，在exampleMain.qml中加载
 │   ├── example.qml         # 主QML文件，包含简单的插件信息
-│   └── main.qml            # 主QML文件，包含插件所有页面
+│   └── exampleMain.qml     # 主QML文件，包含插件所有页面
 └── src                     # 源文件目录，存放C++源文件和相关头文件
     ├── pluginexample.cpp   # 插件的C++实现文件，包含功能实现和QML与C++的交互
     ├── pluginexample.h     # 插件的头文件，定义类、函数和QML中可能用到的接口
@@ -218,7 +219,7 @@ pluginexample.cpp为PluginExample类实现，与控制中心插件相关内容�
 DCC_FACTORY_CLASS(PluginExample) // DCC_FACTORY_CLASS在dccfactory.h中定义，用于注册插件,该宏会自动生成PluginExampleFactory类，并实现create函数。PluginExampleFactory类为Qt类，所以需要包含pluginexample.moc
 #include "pluginexample.moc"
 ```
-### main.qml
+### exampleMain.qml
 ```javascript
 import org.deepin.dcc 1.0
 
