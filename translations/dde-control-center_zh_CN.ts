@@ -408,18 +408,6 @@
         <source>Auto suspend</source>
         <translation>自动休眠</translation>
     </message>
-    <message>
-        <source>Optimize battery charging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maximum charging capacity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When the battery is not frequently used, the maximum charging capacity of the battery can be limited to slow down battery aging</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
@@ -589,18 +577,6 @@
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>调整系统启动界面的logo动画尺寸大小</translation>
-    </message>
-    <message>
-        <source>User Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Password</source>
-        <translation>新密码</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2847,18 +2823,6 @@
         <source>Day</source>
         <translation>日</translation>
     </message>
-    <message>
-        <source>年</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>月</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>日</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DateWidget</name>
@@ -2990,7 +2954,7 @@
     <name>DccWindow</name>
     <message>
         <source>%1 is released under %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1在%2下发布</translation>
     </message>
     <message>
         <source>Control Center provides the options for system settings.</source>
@@ -3012,11 +2976,11 @@
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"></translation>
+        <translation>中国大陆</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"></translation>
+        <translation>其他地区</translation>
     </message>
 </context>
 <context>
@@ -3185,7 +3149,14 @@
         <translation>下一步</translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that:
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
 3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
@@ -3196,13 +3167,6 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3703,7 +3667,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>等</translation>
     </message>
 </context>
 <context>
@@ -3742,22 +3706,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
         <translation>最佳视觉：启用所有界面和窗口特效，体验最佳视觉效果</translation>
-    </message>
-    <message>
-        <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Optimal performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3872,62 +3820,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Select matching date and time formats based on language and region</source>
         <translation>根据语言和区域先择匹配的日期和时间格式</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Week</source>
-        <translation>星期/周</translation>
-    </message>
-    <message>
-        <source>First day of week</source>
-        <translation>一周第一天</translation>
-    </message>
-    <message>
-        <source>Long date</source>
-        <translation>长日期</translation>
-    </message>
-    <message>
-        <source>Short date</source>
-        <translation>短日期</translation>
-    </message>
-    <message>
-        <source>Long time</source>
-        <translation>长时间</translation>
-    </message>
-    <message>
-        <source>Short time</source>
-        <translation>短时间</translation>
-    </message>
-    <message>
-        <source>Currency symbol</source>
-        <translation>货币符号</translation>
-    </message>
-    <message>
-        <source>Positive currency</source>
-        <translation>货币正数</translation>
-    </message>
-    <message>
-        <source>Negative currency</source>
-        <translation>货币负数</translation>
-    </message>
-    <message>
-        <source>Decimal symbol</source>
-        <translation>小数点</translation>
-    </message>
-    <message>
-        <source>Digit grouping symbol</source>
-        <translation>分隔符</translation>
-    </message>
-    <message>
-        <source>Digit grouping</source>
-        <translation>数字分组</translation>
-    </message>
-    <message>
-        <source>Page size</source>
-        <translation>纸张</translation>
     </message>
 </context>
 <context>
@@ -4048,26 +3940,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Devices</source>
         <translation>输入设备</translation>
-    </message>
-    <message>
-        <source>输入</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输入音量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>反馈音量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>噪音抑制</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输入设备</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4288,7 +4160,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度</translation>
     </message>
     <message>
         <source>Rounded Corner</source>
@@ -5022,10 +4894,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>快捷键</translation>
     </message>
     <message>
-        <source>Shortcuts body</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search shortcuts</source>
         <translation>搜索快捷键</translation>
     </message>
@@ -5062,10 +4930,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>替换</translation>
     </message>
     <message>
-        <source>Shortcuts bottom area view1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Restore default</source>
         <translation>恢复默认</translation>
     </message>
@@ -5088,28 +4952,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Devices</source>
         <translation>输入设备</translation>
     </message>
-    <message>
-        <source>输出设备</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>选择是否启用设备</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输入设备</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
         <translation>系统音效</translation>
-    </message>
-    <message>
-        <source>系统音效</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5266,38 +5114,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Output Devices</source>
         <translation>输出设备</translation>
-    </message>
-    <message>
-        <source>输出</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输出音量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>音量增强</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>音量大于100%时可能会导致音效失真,同时损害您的音频输出设备</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>音量平衡</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>插拔管理</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>外设插拔时音频输出是否自动暂停</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输出设备</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5614,18 +5430,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Two fingers up and down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three fingers left and right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four finger click</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6480,6 +6284,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>accountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>其他帐户</translation>
+    </message>
+</context>
+<context>
+    <name>commonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>启动菜单</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>管理您的开机启动菜单</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation>开发者模式</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>开发者Root权限管理</translation>
+    </message>
+</context>
+<context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
@@ -6694,39 +6524,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>device</name>
-    <message>
-        <source>device</source>
-        <translation>设备</translation>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>显示</translation>
-    </message>
-</context>
-<context>
-    <name>example</name>
-    <message>
-        <source>Example</source>
-        <translation>示例</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>键盘</translation>
-    </message>
-    <message>
-        <source>Keyboard layout, input method, shortcuts</source>
-        <translation>键盘布局，输入法，快捷键等</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
+    <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
         <translation>网页</translation>
@@ -6755,54 +6553,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Terminal</source>
         <translation>终端</translation>
     </message>
+</context>
+<context>
+    <name>device</name>
     <message>
-        <source>wacom</source>
-        <translation>数位板</translation>
+        <source>device</source>
+        <translation>设备</translation>
     </message>
+</context>
+<context>
+    <name>display</name>
     <message>
-        <source>Common</source>
-        <translation>通用</translation>
+        <source>Display</source>
+        <translation>显示</translation>
     </message>
-    <message>
-        <source>Mouse</source>
-        <translation>鼠标</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>触摸板</translation>
-    </message>
-    <message>
-        <source>Control Center provides the options for system settings.</source>
-        <translation>控制中心提供操作系统的所有设置选项。</translation>
-    </message>
-    <message>
-        <source>Normal Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Other accounts</source>
-        <translation>其他帐户</translation>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation>启动菜单</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Developer Mode</source>
-        <translation>开发者模式</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation type="unfinished"></translation>
-    </message>
+</context>
+<context>
+    <name>displayMain</name>
     <message>
         <source>Duplicate</source>
         <translation>复制</translation>
@@ -6931,13 +6698,96 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Color Temperature</source>
         <translation>色温</translation>
     </message>
+</context>
+<context>
+    <name>example</name>
+    <message>
+        <source>Example</source>
+        <translation>示例</translation>
+    </message>
+</context>
+<context>
+    <name>exampleMain</name>
+    <message>
+        <source>Normal Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>键盘</translation>
+    </message>
+    <message>
+        <source>Keyboard layout, input method, shortcuts</source>
+        <translation>键盘布局，输入法，快捷键等</translation>
+    </message>
+</context>
+<context>
+    <name>keyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>通用</translation>
+    </message>
     <message>
         <source>Keyboard layout</source>
         <translation>键盘布局</translation>
     </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Control Center provides the options for system settings.</source>
+        <translation>控制中心提供操作系统的所有设置选项。</translation>
+    </message>
+</context>
+<context>
+    <name>mouse</name>
+    <message>
+        <source>Mouse and Touchpad</source>
+        <translation>鼠标与触控板</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>通用、鼠标、触控板</translation>
+    </message>
+</context>
+<context>
+    <name>mouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>通用</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>触控板</translation>
+    </message>
+</context>
+<context>
+    <name>notification</name>
+    <message>
+        <source>notification</source>
+        <translation>通知</translation>
+    </message>
+</context>
+<context>
+    <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
         <translation>勿扰设置</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -6979,6 +6829,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Play a sound</source>
         <translation>通知时提示声音</translation>
     </message>
+</context>
+<context>
+    <name>personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>个性化</translation>
+    </message>
+</context>
+<context>
+    <name>personalizationMain</name>
     <message>
         <source>Theme</source>
         <translation>主题</translation>
@@ -7023,26 +6883,54 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Change system font and size</source>
         <translation>修改系统字体与字号</translation>
     </message>
+</context>
+<context>
+    <name>power</name>
+    <message>
+        <source>power</source>
+        <translation>电源管理</translation>
+    </message>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>节能设置、屏幕和待机管理</translation>
+    </message>
+</context>
+<context>
+    <name>powerMain</name>
     <message>
         <source>General</source>
         <translation>通用</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>性能模式、节能设置、唤醒设置、关机设置</translation>
     </message>
     <message>
         <source>Plugged In</source>
         <translation>使用电源</translation>
     </message>
     <message>
-        <source>Screen and standby management</source>
-        <translation type="unfinished"></translation>
+        <source>Screen and suspend</source>
+        <translation>屏幕和待机管理</translation>
     </message>
     <message>
         <source>On Battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
-        <source>Screen and standby management, low battery management, battery management</source>
-        <translation type="unfinished"></translation>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>屏幕和待机管理、低电量管理、电池管理</translation>
     </message>
+</context>
+<context>
+    <name>sound</name>
+    <message>
+        <source>sound</source>
+        <translation>声音</translation>
+    </message>
+</context>
+<context>
+    <name>soundMain</name>
     <message>
         <source>Output</source>
         <translation>输出</translation>
@@ -7068,209 +6956,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>About This PC</source>
-        <translation>关于本机</translation>
-    </message>
-    <message>
-        <source>View information about this machine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>用户体验计划</translation>
-    </message>
-    <message>
-        <source>Join the User Experience Program and help improve the product</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>最终用户许可协议</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>隐私政策</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>check update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>更新</translation>
-    </message>
-    <message>
-        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wacom Mode</source>
-        <translation>模式</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>笔模式</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>鼠标模式</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>压感</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>轻</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>屏幕和待机管理</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>屏幕和待机管理、低电量管理、电池管理</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>性能模式、节能设置、唤醒设置、关机设置</translation>
-    </message>
-    <message>
-        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set interface effects and icon sizes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust preferred activity colors and theme icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modify the system font and font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your system is already the latest version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You have a new system update, please check and update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输出</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输入</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>系统音效</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>控制系统声音效果</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>设备管理</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>选择是否启用设备</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edition License</source>
-        <translation>版本协议</translation>
-    </message>
-    <message>
-        <source>View GCC related protocol statements</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View End User License Agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View Privacy Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>鼠标与触控板</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>通用、鼠标、触控板</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>notification</source>
-        <translation>通知</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>个性化</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>power</source>
-        <translation>电源管理</translation>
-    </message>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>节能设置、屏幕和待机管理</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>sound</source>
-        <translation>声音</translation>
-    </message>
 </context>
 <context>
     <name>system</name>
@@ -7291,6 +6976,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>systemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>关于本机</translation>
+    </message>
+    <message>
+        <source>View information about this machine</source>
+        <translation>查看本机相关信息</translation>
+    </message>
+    <message>
+        <source>Open Source Software Description</source>
+        <translation>开源软件声明</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>查看GCC相关协议声明</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>用户体验计划</translation>
+    </message>
+    <message>
+        <source>Join the User Experience Program and help improve the product</source>
+        <translation>加入用户体验计划，帮忙改进产品</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>最终用户许可协议</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>查看最终用户许可协议</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>隐私政策</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>查看您的隐私政策信息</translation>
+    </message>
+</context>
+<context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
@@ -7302,11 +7030,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>update</name>
+    <name>touchscreenMain</name>
     <message>
-        <source>update</source>
-        <translation>更新</translation>
+        <source>Common</source>
+        <translation>通用</translation>
     </message>
+</context>
+<context>
+    <name>update</name>
     <message>
         <source>System Update</source>
         <translation>系统更新</translation>
@@ -7340,6 +7071,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>updateMain</name>
+    <message>
+        <source>check update</source>
+        <translation>检查更新</translation>
+    </message>
+    <message>
+        <source>Your system is already the latest version</source>
+        <translation>您的系统已经是最新版本</translation>
+    </message>
+    <message>
+        <source>You have a new system update, please check and update</source>
+        <translation>您有新的系统更新，请检查并更新</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation>更新</translation>
+    </message>
+    <message>
+        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
+        <translation>您可以设置系统更新、安全更新、空闲更新、更新提醒等。</translation>
+    </message>
+</context>
+<context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
@@ -7348,6 +7102,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Configuring wacom</source>
         <translation>数位板选项设置</translation>
+    </message>
+</context>
+<context>
+    <name>wacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>数位板</translation>
+    </message>
+    <message>
+        <source>Wacom Mode</source>
+        <translation>模式</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>笔模式</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>鼠标模式</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>压感</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>轻</translation>
     </message>
 </context>
 </TS>

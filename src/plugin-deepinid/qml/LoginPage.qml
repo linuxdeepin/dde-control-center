@@ -101,7 +101,7 @@ DccObject {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
-                text: qsTr("Manage your %1 ID and sync your personal data across devices. \nSign in to %1 ID to get personalized features and services of Browser, App Store, and more.").arg(dccData.editionName())
+                text: qsTr("Manage your %1 ID and sync your personal data across devices.\nSign in to %1 ID to get personalized features and services of Browser, App Store, and more.").arg(dccData.editionName())
             }
         }
 
