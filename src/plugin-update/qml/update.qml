@@ -15,5 +15,5 @@ DccObject {
     displayName: qsTr("System Update")
     description: qsTr("System update and upgrade")
     icon: "update"
-    weight: 91
+    weight: 100
 }

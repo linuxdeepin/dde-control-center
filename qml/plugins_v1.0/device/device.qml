@@ -8,5 +8,5 @@ DccObject {
     parentName: "root"
     displayName: qsTr("device")
     icon: "hardware"
-    weight: 50
+    weight: 60
 }
