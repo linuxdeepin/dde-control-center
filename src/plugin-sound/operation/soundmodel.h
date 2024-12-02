@@ -13,6 +13,7 @@
 
 #include "soundeffectsmodel.h"
 #include "soundDeviceModel.h"
+#include "audioservermodel.h"
 #include "port.h"
 
 DGUI_USE_NAMESPACE
@@ -44,6 +45,7 @@ class SoundModel : public QObject
     Q_PROPERTY(int inPutPortComboIndex READ inPutPortComboIndex WRITE setInPutPortComboIndex NOTIFY inPutPortComboIndexChanged FINAL)
     Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
     Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
+    Q_PROPERTY(bool audioServerStatus READ audioServerChangedState NOTIFY onSetAudioServerFinish FINAL)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -186,6 +188,10 @@ public:
 
     void updatePlayAniIconPath(int index, const QString &newPlayAniIconPath);
 
+    Q_INVOKABLE AudioServerModel *audioServerModel() const;
+    void setAudioServerModel(AudioServerModel *newAudioServerModel);
+    void addAudioServerData(const AudioServerData &newAudioServerData);
+
 private:
 
 
@@ -291,6 +297,7 @@ private:
     SoundEffectsModel* m_soundEffectsModel;
     SoundDeviceModel* m_soundInputDeviceModel;
     SoundDeviceModel* m_soundOutputDeviceModel;
+    AudioServerModel* m_audioServerModel;
 
     int m_inPutPortCount;
     int m_outPutCount;

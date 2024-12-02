@@ -18,6 +18,8 @@ Rectangle {
     color: "transparent"
     implicitHeight: layoutView.height
     Layout.fillWidth: true
+
+    anchors.left: parent.left
     ColumnLayout {
         id: layoutView
         width: parent.width
@@ -28,7 +30,7 @@ Rectangle {
             delegate: ItemDelegate {
                 id: itemCtl
                 Layout.fillWidth: true
-                leftPadding: 10
+                leftPadding: 16
                 rightPadding: 10
                 implicitHeight: 40
                 cascadeSelected: true
@@ -37,39 +39,39 @@ Rectangle {
                 text: model.name
                 hoverEnabled: true
                 content: RowLayout {
-                        DciIcon {
+                    DciIcon {
+                        Layout.alignment: Qt.AlignLeft
+                        visible: showPlayBtn && model.aniIconPath.length !== 0
+                        name: model.aniIconPath
+                    }
+
+                    RowLayout {
+                        Layout.alignment: Qt.AlignRight
+
+                        ToolButton {
                             Layout.alignment: Qt.AlignLeft
-                            visible: showPlayBtn && model.aniIconPath.length !== 0
-                            name: model.aniIconPath
-                        }
+                            icon.name: "qrc:/icons/deepin/builtin/icons/play_back.dci"
+                            flat: true
+                            visible: showPlayBtn && itemCtl.hovered
 
-                        RowLayout {
-                            Layout.alignment: Qt.AlignRight
-
-                            ToolButton {
-                                Layout.alignment: Qt.AlignLeft
-                                icon.name: "qrc:/icons/deepin/builtin/icons/play_back.dci"
-                                flat: true
-                                visible: showPlayBtn && itemCtl.hovered
-
-                                onClicked: {
-                                    console.log("play_back has clicked ")
-                                    root.playbtnClicked(index)
-                                }
-                            }
-
-                            DccCheckIcon {
-                                checked: model.isChecked
-                                size: 16
-                                onClicked: {
-                                    root.clicked(index, !model.isChecked)
-                                }
+                            onClicked: {
+                                console.log("play_back has clicked ")
+                                root.playbtnClicked(index)
                             }
                         }
+
+                        DccCheckIcon {
+                            checked: model.isChecked
+                            size: 16
+                            onClicked: {
+                                root.clicked(index, !model.isChecked)
+                            }
+                        }
+                    }
                 }
                 background: DccItemBackground {
                     separatorVisible: true
-                }              
+                }
 
                 onClicked: {
                     root.clicked(index, !model.isChecked)
