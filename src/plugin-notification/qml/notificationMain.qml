@@ -25,7 +25,7 @@ DccObject {
                 height: contentHeight
                 Layout.leftMargin: 10
                 font: D.DTK.fontManager.t4
-                text: "Do Not Disturb Settings"
+                text: dccObj.displayName
             }
         }
     }

@@ -23,7 +23,6 @@ DccObject {
         property string conflictAccels
         name: "shortcutSettingsBody"
         parentName: "shortcutSettingsView"
-        displayName: qsTr("Shortcuts body")
         weight: 30
         pageType: DccObject.Item
         signal requestRestore
@@ -304,7 +303,6 @@ DccObject {
     DccObject {
         name: "bottomAreaFoot"
         parentName: "shortcutSettingsView"
-        displayName: qsTr("Shortcuts bottom area view1")
         weight: 40
         pageType: DccObject.Item
 
