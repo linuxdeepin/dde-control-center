@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
+import QtQml.Models 2.11
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0
 import org.deepin.dtk.private 1.0 as P
@@ -272,7 +273,6 @@ DccObject {
 
     DccObject {
         id: systemTimezone
-        property bool showPopForCustom: false
         name: "systemTimezone"
         parentName: "timezoneGroup"
         displayName: qsTr("system time zone")
@@ -291,7 +291,6 @@ DccObject {
 
             popup: SearchableListViewPopup {
                 id: searchView
-                visible: systemTimezone.showPopForCustom
                 implicitWidth: combo.width
                 delegateModel: combo.delegateModel
                 maxVisibleItems: combo.maxVisibleItems
@@ -300,18 +299,10 @@ DccObject {
                     let delegateModel = dccData.zoneSearchModel()
                     delegateModel.setFilterWildcard(searchView.searchText);
                 }
-                onClosed: {
-                    systemTimezone.showPopForCustom = false
-                }
             }
 
             onActivated: function (index) {
                 let zoneId = currentValue["zoneId"]
-                if (systemTimezone.showPopForCustom) {
-                    dccData.addUserTimeZoneById(zoneId)
-                    return
-                }
-
                 dccData.setSystemTimeZone(zoneId)
             }
         }
@@ -332,8 +323,50 @@ DccObject {
                 icon.name: "add"
                 implicitHeight: 32
                 implicitWidth: 32
+                Loader {
+                    id: customLoader
+                    active: false
+                    sourceComponent: SearchableListViewPopup {
+                        id: popup
+                        implicitWidth: 280
+                        delegateModel: DelegateModel {
+                            model: dccData.zoneSearchModel()
+                            delegate: MenuItem {
+                                useIndicatorPadding: true
+                                width: popup.width
+                                text: model.display
+                                highlighted: hovered
+                                hoverEnabled: true
+                                checkable: true
+                                autoExclusive: true
+                                onHoveredChanged: {
+                                    if (hovered)
+                                        popup.highlightedIndex = index
+                                }
+                                onCheckedChanged: {
+                                    let zoneId = model.zoneId
+                                    dccData.addUserTimeZoneById(zoneId)
+                                    popup.close()
+                                }
+                            }
+                        }
+                        maxVisibleItems: 16
+                        onSearchTextChanged: {
+                            let delegateModel = dccData.zoneSearchModel()
+                            delegateModel.setFilterWildcard(popup.searchText);
+                        }
+                        onClosed: {
+                            customLoader.active = false
+                        }
+                    }
+                    onLoaded: {
+                        item.open()
+                        item.x = addButton.implicitWidth - item.implicitWidth + 10
+                    }
+                }
+
                 onClicked: {
-                    systemTimezone.showPopForCustom = true
+                    customLoader.active = true
                 }
             }
         }
