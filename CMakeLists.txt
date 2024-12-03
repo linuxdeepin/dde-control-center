@@ -119,25 +119,39 @@ set(DCC_LIBDIR ${PROJECT_BINARY_DIR}/lib)
 set(DCC_PLUGINS_DIR plugins_v1.0)
 # 安装目录
 set(DCC_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/dde-control-center)
-set(DCC_PREFIX "")
+set(DCC_DEBUG_LIBDIR ${DCC_INSTALL_DIR})
+set(DCC_TRANSLATE_READ_DIR ${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR})
+
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(DCC_DEBUG_LIBDIR ${DCC_LIBDIR})
     set(DCC_TRANSLATE_READ_DIR ${PROJECT_BINARY_DIR}/src/dde-control-center)
-else()
-    set(DCC_DEBUG_LIBDIR ${DCC_INSTALL_DIR})
-    set(DCC_PREFIX "/usr/")
-    set(DCC_TRANSLATE_READ_DIR ${CMAKE_INSTALL_PREFIX}/${DCC_TRANSLATION_INSTALL_DIR})
 endif()
 
 add_definitions(-DTRANSLATE_READ_DIR="${DCC_TRANSLATE_READ_DIR}")
 # 插件安装目录
 set(DCC_PLUGINS_INSTALL_DIR ${DCC_DEBUG_LIBDIR}/${DCC_PLUGINS_DIR} CACHE STRING "Install dir for dde-control-center plugins")
 # 插件读取目录
-set(MODULE_READ_DIR "${DCC_PREFIX}${DCC_DEBUG_LIBDIR}" CACHE STRING "Dir to find dde-control-center modules")
-set(PLUGINS_READ_DIR "${DCC_PREFIX}${DCC_PLUGINS_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center plugins")
+set(MODULE_READ_DIR "${DCC_DEBUG_LIBDIR}" CACHE STRING "Dir to find dde-control-center modules")
+set(PLUGINS_READ_DIR "${DCC_PLUGINS_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center plugins")
 
-add_definitions(-DDefaultModuleDirectory="${MODULE_READ_DIR}")
-add_definitions(-DDefaultPluginsDirectory="${PLUGINS_READ_DIR}")
+GNUInstallDirs_get_absolute_install_dir(
+    MODULE_READ_FULL_DIR
+    MODULE_READ_DIR
+    LIBDIR
+)
+
+GNUInstallDirs_get_absolute_install_dir(
+    PLUGINS_READ_FULL_DIR
+    PLUGINS_READ_DIR
+    LIBDIR
+)
+
+message(STATUS ${MODULE_READ_FULL_DIR})
+message(STATUS ${PLUGINS_READ_FULL_DIR})
+message(STATUS ${DCC_PLUGINS_INSTALL_DIR})
+
+add_definitions(-DDefaultModuleDirectory="${MODULE_READ_FULL_DIR}")
+add_definitions(-DDefaultPluginsDirectory="${PLUGINS_READ_FULL_DIR}")
 
 # DdeControlCenterPluginMacros.cmake 使用
 set(DDE_CONTROL_CENTER_PLUGIN_DIR ${DCC_PLUGINS_DIR})
