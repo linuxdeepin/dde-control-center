@@ -59,7 +59,7 @@ DccObject {
     DccObject {
         name: "deviceManger"
         parentName: "sound"
-        displayName: qsTr("Devices")
+        displayName: qsTr("DevicesManger")
         description: qsTr("Choose whether to enable the device\n")
         icon: "equipment_management"
         weight: 40
