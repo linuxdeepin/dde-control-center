@@ -12,7 +12,7 @@ DccObject {
     DccObject {
         name: "audioServerTitle"
         parentName: "sound/audioServerSetting"
-        displayName: qsTr("Sound Effects")
+        displayName: qsTr("Audio Framework")
         description: qsTr("Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use")
         weight: 10
         pageType: DccObject.Item
