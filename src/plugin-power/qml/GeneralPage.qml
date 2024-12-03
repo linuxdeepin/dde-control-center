@@ -129,7 +129,7 @@ DccObject {
                 }
                 D.TipsSlider {
                     id: scrollSlider
-                    readonly property var tips: [("10%"), ("20%"), ("30%"), ("40%"), ("50%")]
+                    readonly property var tips: [("10%"), ("20%"), ("30%"), ("40%")]
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
                     Layout.margins: 10
@@ -145,8 +145,7 @@ DccObject {
                         D.SliderTipItem { text: scrollSlider.tips[0]; highlight: scrollSlider.slider.value === 10 },
                         D.SliderTipItem { text: scrollSlider.tips[1]; highlight: scrollSlider.slider.value === 20 },
                         D.SliderTipItem { text: scrollSlider.tips[2]; highlight: scrollSlider.slider.value === 30 },
-                        D.SliderTipItem { text: scrollSlider.tips[3]; highlight: scrollSlider.slider.value === 40 },
-                        D.SliderTipItem { text: scrollSlider.tips[4]; highlight: scrollSlider.slider.value === 50 }
+                        D.SliderTipItem { text: scrollSlider.tips[3]; highlight: scrollSlider.slider.value === 40 }
                     ]
 
                     slider.onValueChanged: {
