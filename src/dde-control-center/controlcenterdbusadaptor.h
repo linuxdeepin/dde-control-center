@@ -48,6 +48,8 @@ public Q_SLOTS: // METHODS
     void ShowPage(const QString &url);
     void Toggle();
     QString GetAllModule();
+    Q_DECL_DEPRECATED_X("Use ShowPage") void ShowPage(const QString &module, const QString &page);
+    Q_DECL_DEPRECATED_X("Use ShowPage") void ShowModule(const QString &module);
 
 private:
     bool eventFilter(QObject *obj, QEvent *event) override;

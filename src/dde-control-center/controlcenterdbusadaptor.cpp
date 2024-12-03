@@ -79,22 +79,17 @@ void ControlCenterDBusAdaptor::Hide()
 
 void ControlCenterDBusAdaptor::Show()
 {
-    QWindow *w = parent()->mainWindow();
-    if (w->windowStates() == Qt::WindowMinimized || !w->isVisible())
-        w->showNormal();
-    w->requestActivate();
+    parent()->show();
 }
 
 void ControlCenterDBusAdaptor::ShowHome()
 {
-    parent()->showPage("");
-    Show();
+    parent()->showPageActivate(QString());
 }
 
 void ControlCenterDBusAdaptor::ShowPage(const QString &url)
 {
-    parent()->showPage(url);
-    Show();
+    parent()->showPageActivate(url);
 }
 
 void ControlCenterDBusAdaptor::Toggle()
@@ -129,6 +124,16 @@ QString ControlCenterDBusAdaptor::GetAllModule()
     QJsonDocument doc;
     doc.setArray(arr);
     return doc.toJson(QJsonDocument::Compact);
+}
+
+void ControlCenterDBusAdaptor::ShowPage(const QString &module, const QString &page)
+{
+    page.isEmpty() ? ShowPage(module) : ShowPage(module + "/" + page);
+}
+
+void ControlCenterDBusAdaptor::ShowModule(const QString &module)
+{
+    ShowPage(module);
 }
 
 bool ControlCenterDBusAdaptor::eventFilter(QObject *obj, QEvent *event)

@@ -35,7 +35,6 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
-    void loadedModule(const PluginData &data);
     void loadAllFinished();
 
     void pluginEndStatusChanged(PluginData *plugin);

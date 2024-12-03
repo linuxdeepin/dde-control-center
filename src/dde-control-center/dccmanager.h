@@ -34,6 +34,7 @@ public:
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
     void loadModules(bool async, const QStringList &dirs);
+    void showPageActivate(const QString &url);
 
     int width() const override;
     int height() const override;
@@ -61,6 +62,7 @@ public Q_SLOTS:
     QAbstractItemModel *navModel() const override;
     QSortFilterProxyModel *searchModel() const override;
 
+    void show();
     void showHelp();
     // DBus Search
     QString search(const QString &json);
@@ -75,7 +77,7 @@ private:
     void initConfig();
     bool contains(const QSet<QString> &urls, const DccObject *obj);
     bool isEqual(const QString &url, const DccObject *obj);
-    DccObject *findObject(const QString &url);
+    DccObject *findObject(const QString &url, bool onlyRoot = false);
     DccObject *findParent(const DccObject *obj);
 
 private Q_SLOTS:
@@ -106,6 +108,7 @@ private:
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
+    bool m_needActivate;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H

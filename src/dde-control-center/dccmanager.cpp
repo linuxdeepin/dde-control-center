@@ -20,6 +20,7 @@
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QTimer>
 #include <QTranslator>
 #include <QWindow>
 
@@ -48,6 +49,7 @@ DccManager::DccManager(QObject *parent)
     , m_engine(nullptr)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
+    , m_needActivate(false)
 {
     m_hideObjects->setName("_hide");
     m_noAddObjects->setName("_noAdd");
@@ -114,6 +116,13 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
     // onAddModule(m_rootModule);
     m_plugins->loadModules(m_root, async, dirs);
     // showModule(m_rootModule);
+}
+
+void DccManager::showPageActivate(const QString &url)
+{
+    // m_needActivate = true;
+    showPage(url);
+    show();
 }
 
 int DccManager::width() const
@@ -205,7 +214,14 @@ void DccManager::showPage(const QString &url)
     } else {
         int i = url.indexOf('?');
         QString cmd = i != -1 ? url.mid(i + 1) : QString();
-        showPage(findObject(url.mid(0, i)), cmd);
+        DccObject *obj = findObject(url.mid(0, i), true);
+        if (obj) {
+            showPage(obj, cmd);
+        } else if (!m_plugins->loadFinished()) {
+            QTimer::singleShot(10, this, [url, this] {
+                showPage(url);
+            });
+        }
     }
 }
 
@@ -326,6 +342,14 @@ QSortFilterProxyModel *DccManager::searchModel() const
     return m_searchModel;
 }
 
+void DccManager::show()
+{
+    QWindow *w = mainWindow();
+    if (w->windowStates() == Qt::WindowMinimized || !w->isVisible())
+        w->showNormal();
+    w->requestActivate();
+}
+
 void DccManager::initConfig()
 {
     if (!m_dconfig->isValid()) {
@@ -359,7 +383,7 @@ bool DccManager::isEqual(const QString &url, const DccObject *obj)
     return true;
 }
 
-DccObject *DccManager::findObject(const QString &url)
+DccObject *DccManager::findObject(const QString &url, bool onlyRoot)
 {
     if (!m_root) {
         return nullptr;
@@ -370,7 +394,9 @@ DccObject *DccManager::findObject(const QString &url)
     }
     QVector<QVector<DccObject *>> objs;
     objs.append({ m_root });
-    objs.append(m_hideObjects->getChildren());
+    if (!onlyRoot) {
+        objs.append(m_hideObjects->getChildren());
+    }
     while (!objs.isEmpty()) {
         QVector<DccObject *> subObjs = objs.takeFirst();
         while (!subObjs.isEmpty()) {
@@ -402,9 +428,16 @@ DccObject *DccManager::findParent(const DccObject *obj)
 
 void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 {
-    if (m_plugins->isDeleting() || !obj || (m_activeObject == obj && cmd.isEmpty()))
+    if (m_plugins->isDeleting() || !obj) {
         return;
-    // m_backwardBtn->setVisible(obj != m_root);
+    }
+    if (m_activeObject == obj && cmd.isEmpty()) {
+        if (m_needActivate) {
+            m_needActivate = false;
+            show();
+        }
+        return;
+    }
     if (!cmd.isEmpty()) {
         Q_EMIT obj->active(cmd);
         return;
@@ -451,6 +484,10 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << (void *)(triggeredObj->parentItem());
     if (!(triggeredObj->pageType() & DccObject::Menu) && triggeredObj->parentItem()) {
         Q_EMIT activeItemChanged(triggeredObj->parentItem());
+    }
+    if (m_needActivate) {
+        m_needActivate = false;
+        QTimer::singleShot(10, this, &DccManager::show);
     }
 }
 
