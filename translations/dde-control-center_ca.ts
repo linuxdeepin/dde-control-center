@@ -4947,6 +4947,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Add custom shortcut</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
@@ -6766,6 +6770,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keyboard layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set system default keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
