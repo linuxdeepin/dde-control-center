@@ -214,7 +214,8 @@ void DccManager::showPage(const QString &url)
     } else {
         int i = url.indexOf('?');
         QString cmd = i != -1 ? url.mid(i + 1) : QString();
-        DccObject *obj = findObject(url.mid(0, i), true);
+        QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
+        DccObject *obj = findObject(path, true);
         if (obj) {
             showPage(obj, cmd);
         } else if (!m_plugins->loadFinished()) {
