@@ -72,6 +72,7 @@ private Q_SLOTS:
     void onWindowRadiusChanged(int value);
     void onCompactDisplayChanged(int value);
     void onWindowEffectChanged(int value);
+    void onScreensChanged();
 
 protected:
     virtual void onWallpaperUrlsChanged();

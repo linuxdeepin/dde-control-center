@@ -80,8 +80,7 @@ DccObject {
                 pageType: DccObject.Editor
                 page: D.ComboBox {
                     flat: true
-                    textRole: "name"
-                    model: Qt.application.screens
+                    model: dccData.model.screens
                     onCurrentTextChanged: {
                         dccData.model.currentSelectScreen = currentText
                     }
