@@ -83,18 +83,6 @@
         <source>Login Settings</source>
         <translation>登录设置</translation>
     </message>
-    <message>
-        <source>Acount Informations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acount Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AdapterModule</name>
@@ -276,10 +264,6 @@
 </context>
 <context>
     <name>AudioServerSetting</name>
-    <message>
-        <source>Sound Effects</source>
-        <translation>系统音效</translation>
-    </message>
     <message>
         <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
         <translation>不同音频框架各有优劣，可选择与你最匹配的框架使用</translation>
@@ -3538,13 +3522,6 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
-    <name>Formats</name>
-    <message>
-        <source>format</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
@@ -3741,22 +3718,6 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
         <translation>最佳视觉：启用所有界面和窗口特效，体验最佳视觉效果</translation>
     </message>
-    <message>
-        <source>Optimal performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>InternalButtonItem</name>
@@ -3873,21 +3834,6 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
-    <name>LangAndRegion</name>
-    <message>
-        <source>language and region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language list</source>
-        <translation type="unfinished">语言列表</translation>
-    </message>
-    <message>
-        <source>Chinese-Chinese</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
@@ -3967,11 +3913,6 @@ In order to better use of face recognition, please pay attention to the followin
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation>管理您的%1 ID，将您的个人数据在不同设备之间同步。
 登录%1 ID以获取浏览器、应用商店、服务与支持等众多应用的个性功能和服务。</translation>
-    </message>
-    <message>
-        <source>Manage your %1 ID and sync your personal data across devices.                             
-Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5006,14 +4947,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>添加自定义快捷键</translation>
-    </message>
-    <message>
-        <source>Shortcuts body</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shortcuts bottom area view1</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6394,16 +6327,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>时间日期</translation>
     </message>
     <message>
-        <source>Set your time and date</source>
-        <translation>时间日期设置</translation>
+        <source>Time and date, time zone settings</source>
+        <translation>时间日期、时区设置</translation>
     </message>
     <message>
-        <source>Language and format</source>
-        <translation>语言格式</translation>
+        <source>Language and region</source>
+        <translation>语言和区域</translation>
     </message>
     <message>
-        <source>Set your system language and region formats</source>
-        <translation>设置您的系统语言和区域格式</translation>
+        <source>System language,region fommat</source>
+        <translation>系统语言、区域格式</translation>
     </message>
 </context>
 <context>
@@ -6823,435 +6756,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Control Center provides the options for system settings.</source>
         <translation>控制中心提供操作系统的所有设置选项。</translation>
     </message>
-    <message>
-        <source>Other accounts</source>
-        <translation type="unfinished">其他帐户</translation>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="unfinished">启动菜单</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation type="unfinished">管理您的开机启动菜单</translation>
-    </message>
-    <message>
-        <source>Developer Mode</source>
-        <translation type="unfinished">开发者模式</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation type="unfinished">开发者Root权限管理</translation>
-    </message>
-    <message>
-        <source>Webpage</source>
-        <translation type="unfinished">网页</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation type="unfinished">邮件</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="unfinished">文本</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation type="unfinished">音乐</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="unfinished">视频</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation type="unfinished">图片</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation type="unfinished">终端</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="unfinished">复制</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="unfinished">扩展</translation>
-    </message>
-    <message>
-        <source> (Recommended)</source>
-        <translation type="unfinished"> （推荐）</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="unfinished">赫兹</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished">默认</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation type="unfinished">适应</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="unfinished">拉伸</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="unfinished">居中</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation type="unfinished">仅%1屏</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation type="unfinished">多屏设置</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="unfinished">模式</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation type="unfinished">主屏幕</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation type="unfinished">显示和布局</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="unfinished">亮度</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="unfinished">分辨率</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation type="unfinished">桌面显示</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="unfinished">刷新率</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation type="unfinished">方向</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation type="unfinished">标准</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation type="unfinished">90度</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation type="unfinished">180度</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation type="unfinished">270度</translation>
-    </message>
-    <message>
-        <source>Display Scaling</source>
-        <translation type="unfinished">屏幕缩放</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation type="unfinished">护眼模式</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished">调整屏幕显示较暖的颜色，减少屏幕蓝光</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished">时间</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation type="unfinished">全天</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation type="unfinished">日落到日出</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation type="unfinished">自定义</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation type="unfinished">从</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation type="unfinished">至</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation type="unfinished">色温</translation>
-    </message>
-    <message>
-        <source>Normal Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Common</source>
-        <translation type="unfinished">通用</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished">键盘布局</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="unfinished">触控板</translation>
-    </message>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation type="unfinished">勿扰设置</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation type="unfinished">启用勿扰模式</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation type="unfinished">在屏幕锁屏时</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished">通知横幅展示数量</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation type="unfinished">允许通知</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished">可以显示通知横幅，或在通知中心显示未读消息</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished">桌面</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation type="unfinished">锁屏</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation type="unfinished">通知中心</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation type="unfinished">显示消息预览</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation type="unfinished">通知时提示声音</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished">主题</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation type="unfinished">外观</translation>
-    </message>
-    <message>
-        <source>The appearance determines whether the theme displays light or dark colors, or automatically switches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation type="unfinished">窗口效果</translation>
-    </message>
-    <message>
-        <source>Set interface effects and icon sizes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallpaper and screensaver</source>
-        <translation type="unfinished">壁纸和屏保</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished">个性化您的壁纸和屏保</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation type="unfinished">颜色和图标</translation>
-    </message>
-    <message>
-        <source>Adjust preferred activity colors and theme icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation type="unfinished">字体和字号</translation>
-    </message>
-    <message>
-        <source>Modify the system font and font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>General</source>
-        <translation type="unfinished">通用</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation type="unfinished">使用电源</translation>
-    </message>
-    <message>
-        <source>Screen and standby management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation type="unfinished">使用电池</translation>
-    </message>
-    <message>
-        <source>Screen and standby management, low battery management, battery management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation type="unfinished">输出</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation type="unfinished">输入</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="unfinished">系统音效</translation>
-    </message>
-    <message>
-        <source>Control system sound effect</source>
-        <translation type="unfinished">控制系统声音效果</translation>
-    </message>
-    <message>
-        <source>Devices</source>
-        <translation type="unfinished">设备</translation>
-    </message>
-    <message>
-        <source>Choose whether to enable the device
-</source>
-        <translation type="unfinished">启动/禁用音频设备</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation type="unfinished">音频框架</translation>
-    </message>
-    <message>
-        <source>Choose the appropriate audio framework</source>
-        <translation type="unfinished">选择合适的音频框架</translation>
-    </message>
-    <message>
-        <source>About This PC</source>
-        <translation type="unfinished">关于本机</translation>
-    </message>
-    <message>
-        <source>View information about this machine</source>
-        <translation type="unfinished">查看本机相关信息</translation>
-    </message>
-    <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished">开源软件声明</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation type="unfinished">查看GCC相关协议声明</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="unfinished">用户体验计划</translation>
-    </message>
-    <message>
-        <source>Join the User Experience Program and help improve the product</source>
-        <translation type="unfinished">加入用户体验计划，帮忙改进产品</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation type="unfinished">最终用户许可协议</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation type="unfinished">查看最终用户许可协议</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation type="unfinished">隐私政策</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation type="unfinished">查看您的隐私政策信息</translation>
-    </message>
-    <message>
-        <source>check update</source>
-        <translation type="unfinished">检查更新</translation>
-    </message>
-    <message>
-        <source>Your system is already the latest version</source>
-        <translation type="unfinished">您的系统已经是最新版本</translation>
-    </message>
-    <message>
-        <source>You have a new system update, please check and update</source>
-        <translation type="unfinished">您有新的系统更新，请检查并更新</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation type="unfinished">更新</translation>
-    </message>
-    <message>
-        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
-        <translation type="unfinished">您可以设置系统更新、安全更新、空闲更新、更新提醒等。</translation>
-    </message>
-    <message>
-        <source>wacom</source>
-        <translation type="unfinished">数位板</translation>
-    </message>
-    <message>
-        <source>Wacom Mode</source>
-        <translation type="unfinished">模式</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation type="unfinished">笔模式</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation type="unfinished">鼠标模式</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation type="unfinished">压感</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>mouse</name>
@@ -7453,10 +6957,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Control system sound effect</source>
         <translation>控制系统声音效果</translation>
-    </message>
-    <message>
-        <source>Devices</source>
-        <translation>设备</translation>
     </message>
     <message>
         <source>Choose whether to enable the device

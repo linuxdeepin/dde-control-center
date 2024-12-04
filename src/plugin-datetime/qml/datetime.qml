@@ -10,7 +10,7 @@ DccObject {
         name: "timeAndLang"
         parentName: "system"
         displayName: qsTr("Time and date")
-        description: qsTr("Set your time and date")
+        description: qsTr("Time and date, time zone settings")
         icon: "dcc_time_date"
         weight: 40
     }
@@ -19,8 +19,8 @@ DccObject {
     DccObject {
         name: "langAndFormat"
         parentName: "system"
-        displayName: qsTr("Language and format")
-        description: qsTr("Set your system language and region formats")
+        displayName: qsTr("Language and region")
+        description: qsTr("System language,region fommat")
         icon: "dcc_lang_format"
         weight: 45
     }
