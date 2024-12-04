@@ -12,7 +12,7 @@ DccObject {
         name: "systemInfo"
         parentName: "system"
         displayName: qsTr("About This PC")
-        description: qsTr("View information about this machine")
+        description: qsTr("System version, device information")
         icon: "about"
         weight: 1010
         NativeInfoPage{}
@@ -30,7 +30,7 @@ DccObject {
         name: "userExperienceProgram"
         parentName: "system"
         displayName: qsTr("User Experience Program")
-        description: qsTr("Join the User Experience Program and help improve the product")
+        description: qsTr("Join the user experience program to help improve the product")
         icon: "user_experience_plan"
         weight: 1030
         visible: dccData.systemInfoMode().showUserExperienceProgram()
