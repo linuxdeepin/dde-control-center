@@ -6,6 +6,7 @@ DccObject {
     name: "display"
     parentName: "system"
     displayName: qsTr("Display")
+    description: qsTr("Brightness,resolution,scaling")
     icon: "default_program"
     weight: 10
 }

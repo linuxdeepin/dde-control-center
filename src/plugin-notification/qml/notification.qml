@@ -8,6 +8,7 @@ DccObject {
         name: "notification"
         parentName: "system"
         displayName: qsTr("notification")
+        description: qsTr("DND mode, app notifications")
         icon: "dcc_notification"
         weight: 30
     }

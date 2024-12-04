@@ -6,6 +6,7 @@ DccObject {
     name: "defaultapp"
     parentName: "system"
     displayName: qsTr("Default App")
+    description: qsTr("Set the default application for opening various types of files")
     icon: "default_program"
     weight: 40
 }

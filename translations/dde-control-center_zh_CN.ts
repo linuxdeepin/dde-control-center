@@ -6338,6 +6338,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>System language,region fommat</source>
         <translation>系统语言、区域格式</translation>
     </message>
+    <message>
+        <source>Set your time and date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language and format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set your system language and region formats</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
@@ -6533,6 +6545,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Default App</source>
         <translation>默认程序</translation>
     </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>设置打开各类文件的默认程序</translation>
+    </message>
 </context>
 <context>
     <name>defaultappMain</name>
@@ -6577,6 +6593,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Display</source>
         <translation>显示</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>亮度、分辨率、缩放</translation>
     </message>
 </context>
 <context>
@@ -6789,6 +6809,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>notification</source>
         <translation>通知</translation>
     </message>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>勿扰模式、应用通知</translation>
+    </message>
 </context>
 <context>
     <name>notificationMain</name>
@@ -6939,6 +6963,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>sound</source>
         <translation>声音</translation>
     </message>
+    <message>
+        <source>Output,input sound efects,devices</source>
+        <translation>输入、输出、系统音效、设备管理</translation>
+    </message>
 </context>
 <context>
     <name>soundMain</name>
@@ -6975,6 +7003,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>DevicesManger</source>
         <translation>设备管理</translation>
     </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">设备</translation>
+    </message>
 </context>
 <context>
     <name>system</name>
@@ -7010,7 +7042,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>查看GCC相关协议声明</translation>
+        <translation>查看开源软件声明</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -7022,7 +7054,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>最终用户许可协议</translation>
+        <translation>用户许可协议</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
@@ -7034,7 +7066,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>查看您的隐私政策信息</translation>
+        <translation>查看隐私政策相关信息</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>系统版本、设备信息</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>加入用户体验计划，帮助改进产品</translation>
     </message>
 </context>
 <context>
