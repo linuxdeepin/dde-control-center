@@ -79,6 +79,8 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperURlsChanged, this, &PersonalizationWorker::onWallpaperUrlsChanged);
+    connect(qApp, &QGuiApplication::screenAdded, this, &PersonalizationWorker::onScreensChanged);
+    connect(qApp, &QGuiApplication::screenRemoved, this, &PersonalizationWorker::onScreensChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
         qCDebug(DdcPersonalWorker) << "ChangeProperty is " << propertyName << "; value is" << value;
         if (propertyName == "globaltheme") {
@@ -112,6 +114,7 @@ void PersonalizationWorker::active()
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());
     onCompositingAllowSwitch(m_personalizationDBusProxy->compositingAllowSwitch());
     onWallpaperUrlsChanged();
+    onScreensChanged();
 
     m_model->setCurrentSelectScreen(qApp->primaryScreen()->name());
     m_model->getWindowModel()->setDefault(m_personalizationDBusProxy->gtkTheme());
@@ -259,6 +262,15 @@ void PersonalizationWorker::onCompactDisplayChanged(int value)
 void PersonalizationWorker::onWindowEffectChanged(int value)
 {
     m_model->setWindowEffectType(value);
+}
+
+void PersonalizationWorker::onScreensChanged()
+{
+    QStringList screenNameList{};
+    for (const auto &screen : qApp->screens()) {
+        screenNameList << screen->name();
+    } 
+    m_model->setScreens(screenNameList);
 }
 
 void PersonalizationWorker::onWallpaperUrlsChanged()

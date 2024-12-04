@@ -29,6 +29,7 @@ class PersonalizationModel : public QObject
     Q_PROPERTY(QString compactDisplayConfig READ getCompactDisplayConfig WRITE setCompactDisplayConfig NOTIFY compactDisplayConfigChanged)
     Q_PROPERTY(QVariantMap wallpaperMap READ getWallpaperMap WRITE setWallpaperMap NOTIFY wallpaperMapChanged)
     Q_PROPERTY(QString currentSelectScreen READ getCurrentSelectScreen WRITE setCurrentSelectScreen NOTIFY currentSelectScreenChanged)
+    Q_PROPERTY(QStringList screens READ getScreens WRITE setScreens NOTIFY screensChanged)
 
     Q_PROPERTY(FontSizeModel *fontSizeModel MEMBER m_fontSizeModel CONSTANT)
     Q_PROPERTY(FontModel *standardFontModel MEMBER m_standFontModel CONSTANT)
@@ -96,6 +97,9 @@ public:
     inline QString getCurrentSelectScreen() const { return m_currentSelectScreen; }
     void setCurrentSelectScreen(const QString &screen);
 
+    inline QStringList getScreens() const { return m_screens; }
+    void setScreens(const QStringList &screens);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void opacityChanged(double opacity);
@@ -113,6 +117,7 @@ Q_SIGNALS:
     void compactDisplayConfigChanged(const QString &config);
     void wallpaperMapChanged(const QVariantMap &map);
     void currentSelectScreenChanged(const QString &screen);
+    void screensChanged(const QStringList &screens);
 
 private:
     ThemeModel *m_windowModel;
@@ -142,5 +147,6 @@ private:
 
     QVariantMap m_wallpaperMap;
     QString m_currentSelectScreen;
+    QStringList m_screens;
 };
 #endif // PERSONALIZATIONMODEL_H

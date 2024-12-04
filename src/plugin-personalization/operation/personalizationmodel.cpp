@@ -168,3 +168,11 @@ void PersonalizationModel::setCurrentSelectScreen(const QString &screenName)
     m_currentSelectScreen = screenName;
     Q_EMIT currentSelectScreenChanged(screenName);
 }
+
+void PersonalizationModel::setScreens(const QStringList &screens)
+{
+    if (m_screens == screens)
+        return;
+    m_screens = screens;
+    Q_EMIT screensChanged(screens);
+}
