@@ -22,7 +22,8 @@ DccObject {
         parentName: "system"
         displayName: qsTr("Developer Mode")
         description: qsTr("Developer root permission management")
-        visible: !dccData.mode().isCommunitySystem()
+        //visible: !dccData.mode().isCommunitySystem()
+        visible: false
         icon: "developer"
         weight: 90
         DevelopModePage{}
