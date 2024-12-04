@@ -6337,6 +6337,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>System language,region fommat</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Set your time and date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language and format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set your system language and region formats</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
@@ -6938,6 +6950,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>sound</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Output,input sound efects,devices</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>soundMain</name>
@@ -7033,6 +7049,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
