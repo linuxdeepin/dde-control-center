@@ -4948,6 +4948,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Add custom shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
+    <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation>系统快捷键、自定义快捷键</translation>
+    </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
@@ -6768,6 +6772,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Keyboard layout</source>
         <translation>键盘布局</translation>
+    </message>
+    <message>
+        <source>Set system default keyboard layout</source>
+        <translation>设置系统默认键盘布局</translation>
     </message>
 </context>
 <context>
