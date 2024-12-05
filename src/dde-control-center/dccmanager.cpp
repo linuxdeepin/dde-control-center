@@ -11,7 +11,6 @@
 
 #include <QCoreApplication>
 #include <QDBusConnection>
-#include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QElapsedTimer>
 #include <QJsonArray>
@@ -49,7 +48,6 @@ DccManager::DccManager(QObject *parent)
     , m_engine(nullptr)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
-    , m_needActivate(false)
 {
     m_hideObjects->setName("_hide");
     m_noAddObjects->setName("_noAdd");
@@ -116,13 +114,6 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
     // onAddModule(m_rootModule);
     m_plugins->loadModules(m_root, async, dirs);
     // showModule(m_rootModule);
-}
-
-void DccManager::showPageActivate(const QString &url)
-{
-    // m_needActivate = true;
-    showPage(url);
-    show();
 }
 
 int DccManager::width() const
@@ -208,21 +199,13 @@ void DccManager::removeObject(const QString &name)
 
 void DccManager::showPage(const QString &url)
 {
-    qCInfo(dccLog()) << "show page:" << url;
-    if (url.isEmpty()) {
-        showPage(m_root, QString());
+    if (this->calledFromDBus()) {
+        auto message = this->message();
+        setDelayedReply(true);
+        QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, message);
+        // show(); // 先查找再显示则注释掉此处
     } else {
-        int i = url.indexOf('?');
-        QString cmd = i != -1 ? url.mid(i + 1) : QString();
-        QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
-        DccObject *obj = findObject(path, true);
-        if (obj) {
-            showPage(obj, cmd);
-        } else if (!m_plugins->loadFinished()) {
-            QTimer::singleShot(10, this, [url, this] {
-                showPage(url);
-            });
-        }
+        QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, QDBusMessage());
     }
 }
 
@@ -333,6 +316,14 @@ bool DccManager::action(const QString &json)
     return true;
 }
 
+QString DccManager::GetAllModule()
+{
+    auto message = this->message();
+    setDelayedReply(true);
+    QMetaObject::invokeMethod(this, &DccManager::doGetAllModule, Qt::QueuedConnection, message);
+    return QString();
+}
+
 QAbstractItemModel *DccManager::navModel() const
 {
     return m_navModel;
@@ -427,16 +418,54 @@ DccObject *DccManager::findParent(const DccObject *obj)
     return findObject(path);
 }
 
+void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
+{
+    qCInfo(dccLog()) << "show page:" << url;
+    DccObject *obj = nullptr;
+    if (url.isEmpty()) {
+        obj = m_root;
+        showPage(obj, QString());
+    } else {
+        int i = url.indexOf('?');
+        QString cmd = i != -1 ? url.mid(i + 1) : QString();
+        QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
+        obj = findObject(path, true);
+        if (obj) {
+            showPage(obj, cmd);
+        } else if (!m_plugins->loadFinished()) {
+            QEventLoop loop;
+            QTimer timer;
+            connect(&timer, &QTimer::timeout, this, [this, &path, &loop]() {
+                DccObject *obj = findObject(path, true);
+                if (obj) {
+                    loop.quit();
+                }
+            });
+            connect(m_plugins, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
+            timer.start(10);
+            loop.exec();
+            obj = findObject(path, true);
+            if (obj) {
+                showPage(obj, cmd);
+            }
+        }
+    }
+    if (message.type() != QDBusMessage::InvalidMessage) {
+        if (obj) {
+            show();
+            QDBusConnection::sessionBus().send(message.createReply());
+        } else {
+            QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
+        }
+    }
+}
+
 void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 {
     if (m_plugins->isDeleting() || !obj) {
         return;
     }
     if (m_activeObject == obj && cmd.isEmpty()) {
-        if (m_needActivate) {
-            m_needActivate = false;
-            show();
-        }
         return;
     }
     if (!cmd.isEmpty()) {
@@ -485,10 +514,6 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << (void *)(triggeredObj->parentItem());
     if (!(triggeredObj->pageType() & DccObject::Menu) && triggeredObj->parentItem()) {
         Q_EMIT activeItemChanged(triggeredObj->parentItem());
-    }
-    if (m_needActivate) {
-        m_needActivate = false;
-        QTimer::singleShot(10, this, &DccManager::show);
     }
 }
 
@@ -679,6 +704,46 @@ void DccManager::onQuit()
     qCDebug(dccLog()) << "clear QmlEngine";
     m_engine = nullptr;
     // #endif
+}
+
+void DccManager::waitLoadFinished() const
+{
+    if (!m_plugins->loadFinished()) {
+        QEventLoop loop;
+        QTimer timer;
+        connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+        connect(m_plugins, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
+        timer.start(5000);
+        loop.exec();
+    }
+}
+
+void DccManager::doGetAllModule(const QDBusMessage message) const
+{
+    waitLoadFinished();
+    DccObject *root = m_root;
+    QList<QPair<DccObject *, QStringList>> modules;
+    for (auto &&child : root->getChildren()) {
+        modules.append({ child, { child->name(), child->displayName() } });
+    }
+
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        const auto &urlInfo = modules.takeFirst();
+        QJsonObject obj;
+        obj.insert("url", urlInfo.second.at(0));
+        obj.insert("displayName", urlInfo.second.at(1));
+        obj.insert("weight", (int)(urlInfo.first->weight()));
+        arr.append(obj);
+        const QList<DccObject *> &children = urlInfo.first->getChildren();
+        for (auto it = children.crbegin(); it != children.crend(); ++it)
+            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
+    }
+
+    QJsonDocument doc;
+    doc.setArray(arr);
+    QString json = doc.toJson(QJsonDocument::Compact);
+    QDBusConnection::sessionBus().send(message.createReply(json));
 }
 
 } // namespace dccV25
