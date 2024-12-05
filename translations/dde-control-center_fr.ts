@@ -3033,13 +3033,6 @@
     </message>
 </context>
 <context>
-    <name>DetailInfoItem</name>
-    <message>
-        <source>For more details, visit:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
@@ -3285,87 +3278,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Only on main screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage1</name>
-    <message>
-        <source>calc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>calc type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage2</name>
-    <message>
-        <source>calc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>no Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage3</name>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4801,60 +4713,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>ServiceSettingsModule</name>
-    <message>
-        <source>Apps can access your camera:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apps can access your microphone:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apps can access user folders:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apps can access Calendar:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No apps requested access to the camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No apps requested access to user folders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
@@ -6147,10 +6005,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>WallpaperPage</name>
     <message>
-        <source>壁纸</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window rounded corners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6164,10 +6018,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>auto change wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>系统壁纸</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6200,6 +6050,37 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>闲置时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Wallapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperSelectView</name>
+    <message>
+        <source>unfold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>show all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set lock screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set all</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6358,18 +6239,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language,region fommat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set your time and date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language and format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set your system language and region formats</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6753,24 +6622,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>example</name>
-    <message>
-        <source>Example</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>exampleMain</name>
-    <message>
-        <source>Normal Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
@@ -7055,10 +6906,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>View information about this machine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open Source Software Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7068,10 +6915,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Join the User Experience Program and help improve the product</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
