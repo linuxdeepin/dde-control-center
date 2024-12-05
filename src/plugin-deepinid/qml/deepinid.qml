@@ -8,7 +8,7 @@ DccObject {
     id: root
     name: "deepinid"
     parentName: "root"
-    displayName: DccApp.uosEdition() === DccApp.UosCommunity ? qsTr("Deepin ID") : qsTr("UOS ID")
+    displayName: DccApp.uosEdition() === DccApp.UosCommunity ? qsTr("deepin ID") : qsTr("UOS ID")
     description: qsTr("Cloud services")
     icon: "deepinid"
     weight: 20
