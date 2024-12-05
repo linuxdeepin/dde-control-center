@@ -131,6 +131,12 @@ public:
     Q_PROPERTY(double VolumeMeter READ volumeMeter NOTIFY VolumeMeterChanged)
     double volumeMeter();
 
+    // Audio.Mono
+    Q_PROPERTY(bool AudioMono READ audioMono WRITE setAudioMono NOTIFY AudioMonoChanged)
+    bool audioMono();
+    void setAudioMono(bool audioMono);
+
+
 Q_SIGNALS:
     // Audio SIGNALS
     void PortEnabledChanged(uint in0, const QString &in1, bool in2);
@@ -173,6 +179,8 @@ Q_SIGNALS:
 
     // Meter SIGNALS
     void VolumeMeterChanged(double value) const;
+
+    void AudioMonoChanged(bool value) const;
 
 private:
     DDBusInterface *m_audioInter;

@@ -85,6 +85,7 @@ void SoundWorker::initConnect()
 
     connect(m_soundDBusInter, &SoundDBusProxy::CurrentAudioServerChanged, m_model, &SoundModel::setAudioServer);
     connect(m_soundDBusInter, &SoundDBusProxy::AudioServerStateChanged, m_model, &SoundModel::setAudioServerChangedState);
+    connect(m_soundDBusInter, &SoundDBusProxy::AudioMonoChanged, m_model, &SoundModel::setAudioMono);
 }
 
 void SoundWorker::activate()
@@ -104,6 +105,7 @@ void SoundWorker::activate()
     m_model->setWaitSoundReceiptTime(m_waitSoundPortReceipt);
     m_model->setAudioServer(m_soundDBusInter->audioServer());
     m_model->setAudioServerChangedState(m_soundDBusInter->audioServerState());
+    m_model->setAudioMono(m_soundDBusInter->audioMono());
 
     initAudioServerData();
     refreshSoundEffect();
@@ -511,10 +513,16 @@ void SoundWorker::initAudioServerData()
     }
 }
 
-
 void SoundWorker::setAudioServerIndex(int index)
 {
     if (index >= 0  && AudioServerNames.count() > index) {
         setAudioServer(AudioServerNames.at(index).first);
+    }
+}
+
+void SoundWorker::setAudioMono(bool enable)
+{
+    if (enable != m_model->audioMono()) {
+        m_soundDBusInter->setAudioMono(enable);
     }
 }

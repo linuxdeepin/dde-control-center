@@ -46,6 +46,7 @@ class SoundModel : public QObject
     Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
     Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
     Q_PROPERTY(bool audioServerStatus READ audioServerChangedState NOTIFY onSetAudioServerFinish FINAL)
+    Q_PROPERTY(bool audioMono READ audioMono NOTIFY audioMonoChanged FINAL)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -192,6 +193,9 @@ public:
     void setAudioServerModel(AudioServerModel *newAudioServerModel);
     void addAudioServerData(const AudioServerData &newAudioServerData);
 
+    bool audioMono() const;
+    void setAudioMono(bool newAudioMono);
+
 private:
 
 
@@ -247,6 +251,8 @@ Q_SIGNALS:
 
     void playAniIconPathChanged();
 
+    void audioMonoChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -301,6 +307,8 @@ private:
 
     int m_inPutPortCount;
     int m_outPutCount;
+
+    bool m_audioMono;
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H
