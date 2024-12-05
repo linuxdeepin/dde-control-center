@@ -39,7 +39,7 @@ ColumnLayout {
             Layout.fillWidth: true
         }
         D.ToolButton {
-            text: isExpand ? "收起" : `显示全部-${model.rowCount()}张`
+            text: isExpand ? qsTr("unfold") : qsTr("show all") + `-${model.rowCount()}` + qsTr("items")
             font: D.DTK.fontManager.t6
             flat: true
             onClicked: {
@@ -184,13 +184,13 @@ ColumnLayout {
                     D.Menu {
                         id: contextMenu
                         MenuItem {
-                            text: "设置锁屏"
+                            text: qsTr("Set lock screen")
                             onTriggered: {
                                 wallpaperItem.requestSetWallpaper(false)
                             }
                         }
                         MenuItem {
-                            text: "全部设置"
+                            text: qsTr("Set all")
                             onTriggered: {
                                 wallpaperItem.requestSetWallpaper(true)
                                 wallpaperItem.requestSetWallpaper(false)

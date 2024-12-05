@@ -15,7 +15,7 @@ DccObject {
         name: "wallpaperTitle"
         weight: 10
         parentName: "personalization/wallpaper"
-        displayName: qsTr("壁纸")
+        displayName: qsTr("wallpaper")
     }
     DccObject {
         name: "wallpaperStatusGroup"
@@ -156,7 +156,7 @@ DccObject {
         name: "screenAndSuspendTitle"
         parentName: "personalization/wallpaper"
         // displayName: qsTr("你的图片")
-        displayName: qsTr("系统壁纸")
+        displayName: qsTr("System Wallapers")
         weight: 300
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
