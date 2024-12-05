@@ -17,15 +17,15 @@
     </message>
     <message>
         <source>Acount name, acount fullname, account type</source>
-        <translation>帐户名，全名，账户类型</translation>
+        <translation>账户名，全名，账户类型</translation>
     </message>
     <message>
         <source>Acount name</source>
-        <translation>帐户名</translation>
+        <translation>账户名</translation>
     </message>
     <message>
         <source>Acount fullname</source>
-        <translation>帐户全名</translation>
+        <translation>账户全名</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>删除当前帐户</translation>
+        <translation>删除当前账户</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -423,12 +423,12 @@
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
+        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
+        <translation>蓝牙已打开，名称显示为&quot;%1&quot;</translation>
     </message>
     <message>
-        <source>Bluetooth&#xa0;is&#xa0;turned&#xa0;on,&#xa0;and&#xa0;the&#xa0;namcde&#xa0;is&#xa0;displayed&#xa0;as&#xa0;%1</source>
-        <translation type="unfinished"></translation>
+        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
+        <translation>蓝牙已关闭，名称显示为&quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -5130,6 +5130,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Output Devices</source>
         <translation>输出设备</translation>
     </message>
+    <message>
+        <source>Mono audio</source>
+        <translation>单声道音频</translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation>将左声道和右声道合并成一个声道</translation>
+    </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
@@ -6302,7 +6310,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>其他帐户</translation>
+        <translation>其他账户</translation>
+    </message>
+</context>
+<context>
+    <name>blueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>蓝牙设置、设备管理</translation>
+    </message>
+    <message>
+        <source>bluetooth</source>
+        <translation>蓝牙</translation>
     </message>
 </context>
 <context>
@@ -7010,10 +7029,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>DevicesManger</source>
         <translation>设备管理</translation>
-    </message>
-    <message>
-        <source>Devices</source>
-        <translation type="unfinished">设备</translation>
     </message>
 </context>
 <context>

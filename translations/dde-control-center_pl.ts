@@ -423,11 +423,11 @@
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth&#xa0;is&#xa0;turned&#xa0;on,&#xa0;and&#xa0;the&#xa0;namcde&#xa0;is&#xa0;displayed&#xa0;as&#xa0;%1</source>
+        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5129,6 +5129,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Output Devices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Mono audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
@@ -6305,6 +6313,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>blueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
@@ -7008,10 +7027,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
