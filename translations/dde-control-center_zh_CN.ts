@@ -6148,10 +6148,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>WallpaperPage</name>
     <message>
-        <source>壁纸</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window rounded corners</source>
         <translation>窗口圆角</translation>
     </message>
@@ -6165,10 +6161,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>auto change wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>系统壁纸</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6202,6 +6194,37 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>闲置时间</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wallpaper</source>
+        <translation>壁纸</translation>
+    </message>
+    <message>
+        <source>System Wallapers</source>
+        <translation>系统壁纸</translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperSelectView</name>
+    <message>
+        <source>unfold</source>
+        <translation>收起</translation>
+    </message>
+    <message>
+        <source>show all</source>
+        <translation>显示全部</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation>张</translation>
+    </message>
+    <message>
+        <source>Set lock screen</source>
+        <translation>设置锁屏</translation>
+    </message>
+    <message>
+        <source>Set all</source>
+        <translation>全部设置</translation>
     </message>
 </context>
 <context>
