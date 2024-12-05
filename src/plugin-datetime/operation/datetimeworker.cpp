@@ -313,58 +313,78 @@ void DatetimeWorker::initRegionFormatData()
         return;
 
     if (m_config->isDefaultValue(country_key)) {
+        setConfigValue(country_key, m_regionInter->systemCountry());
         m_model->setCountry(m_regionInter->systemCountry());
     } else {
         m_model->setCountry(m_config->value(country_key).toString());
     }
     if (m_config->isDefaultValue(languageRegion_key) || m_config->value(languageRegion_key).toString().isEmpty()) {
+        setConfigValue(languageRegion_key, m_regionInter->langCountry());
         m_model->setLangRegion(m_regionInter->langCountry());
     } else {
         m_model->setLangRegion(m_config->value(languageRegion_key).toString());
     }
     if (m_config->isDefaultValue(localeName_key)) {
+        setConfigValue(localeName_key, QLocale::system().name());
         m_model->setLocaleName(QLocale::system().name());
     } else {
         m_model->setLocaleName(m_config->value(localeName_key).toString());
     }
     if (m_config->isDefaultValue(firstDayOfWeek_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(firstDayOfWeek_key, m_regionInter->regionFormat(locale).firstDayOfWeekFormat);
         m_model->setFirstDayOfWeek(m_regionInter->regionFormat(locale).firstDayOfWeekFormat);
     } else {
         m_model->setFirstDayOfWeek(m_config->value(firstDayOfWeek_key).toInt());
     }
     if (m_config->isDefaultValue(shortDateFormat_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(shortDateFormat_key, m_regionInter->regionFormat(locale).shortDateFormat);
         m_model->setShortDateFormat(m_regionInter->regionFormat(locale).shortDateFormat);
     } else {
         m_model->setShortDateFormat(m_config->value(shortDateFormat_key).toString());
     }
     if (m_config->isDefaultValue(longDateFormat_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(longDateFormat_key, m_regionInter->regionFormat(locale).longDateFormat);
         m_model->setLongDateFormat(m_regionInter->regionFormat(locale).longDateFormat);
     } else {
         m_model->setLongDateFormat(m_config->value(longDateFormat_key).toString());
     }
     if (m_config->isDefaultValue(shortTimeFormat_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(shortTimeFormat_key, m_regionInter->regionFormat(locale).shortTimeFormat);
         m_model->setShortTimeFormat(m_regionInter->regionFormat(locale).shortTimeFormat);
     } else {
         m_model->setShortTimeFormat(m_config->value(shortTimeFormat_key).toString());
     }
     if (m_config->isDefaultValue(longTimeFormat_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(longTimeFormat_key, m_regionInter->regionFormat(locale).longTimeFormat);
         m_model->setLongTimeFormat(m_regionInter->regionFormat(locale).longTimeFormat);
     } else {
         m_model->setLongTimeFormat(m_config->value(longTimeFormat_key).toString());
     }
     if (m_config->isDefaultValue(currencyFormat_key)) {
         QLocale locale(QLocale::system().name());
-        m_model->setCurrencyFormat(m_regionInter->regionFormat(locale).currencyFormat);
+        const auto newFormat = m_regionInter->regionFormat(locale).currencyFormat;
+        setConfigValue(currencyFormat_key, newFormat);
+        m_model->setCurrencyFormat(newFormat);
+
+        const auto oldFormat = currencySymbol();
+        auto posFmt = positiveCurrencyFormat();
+        posFmt.replace(oldFormat, newFormat);
+        auto negFmt = negativeCurrencyFormat();
+        negFmt.replace(oldFormat, newFormat);
+        QMetaObject::invokeMethod(this, "setCurrencySymbol", Qt::QueuedConnection, newFormat);
+        QMetaObject::invokeMethod(this, "setPositiveCurrencyFormat", Qt::QueuedConnection, posFmt);
+        QMetaObject::invokeMethod(this, "setNegativeCurrencyFormat", Qt::QueuedConnection, negFmt);
     } else {
         m_model->setCurrencyFormat(m_config->value(currencyFormat_key).toString());
     }
     if (m_config->isDefaultValue(numberFormat_key)) {
         QLocale locale(QLocale::system().name());
+        setConfigValue(numberFormat_key, m_regionInter->regionFormat(locale).numberFormat);
         m_model->setNumberFormat(m_regionInter->regionFormat(locale).numberFormat);
     } else {
         m_model->setNumberFormat(m_config->value(numberFormat_key).toString());
@@ -372,6 +392,7 @@ void DatetimeWorker::initRegionFormatData()
     if (m_config->isDefaultValue(paperFormat_key)) {
         QLocale locale(QLocale::system().name());
         m_model->setPaperFormat(m_regionInter->regionFormat(locale).paperFormat);
+        setConfigValue(paperFormat_key, m_regionInter->regionFormat(locale).paperFormat);
     } else {
         m_model->setPaperFormat(m_config->value(paperFormat_key).toString());
     }
