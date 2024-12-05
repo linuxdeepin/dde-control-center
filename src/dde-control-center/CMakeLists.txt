@@ -92,7 +92,9 @@ add_custom_command(TARGET ${Control_Center_Name}_qml
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${DCC_PROJECT_ROOT_DIR}/qml" ${DCC_LIBDIR}
 )
 
-dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR})
+file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${DCC_PROJECT_ROOT_DIR}/src/*.qml)
+file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp ${DCC_PROJECT_ROOT_DIR}/src/*.h)
+dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
 # bin
 if (BUILD_DCC_OLD)
     install(TARGETS ${Control_Center_Name} DESTINATION ${DCC_DEBUG_LIBDIR})

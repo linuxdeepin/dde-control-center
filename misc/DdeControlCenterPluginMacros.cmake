@@ -42,13 +42,11 @@ function(dcc_handle_plugin_translation)
     endif()
 
     if(NOT _config_QML_FILES)
-        file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/qml/*.qml)
-        file(GLOB_RECURSE additional_QML_FILES ${_config_SOURCE_DIR}/*.qml)
-        list(APPEND _config_QML_FILES ${additional_QML_FILES})
+        file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/*.qml)
     endif()
 
     if(NOT _config_SOURCE_FILES)
-        file(GLOB_RECURSE _config_SOURCE_FILES ${_config_SOURCE_DIR}/*.cpp)
+        file(GLOB_RECURSE _config_SOURCE_FILES ${_config_SOURCE_DIR}/*.cpp ${_config_SOURCE_DIR}/*.h)
     endif()
 
     set(TRANSLATION_FILES
