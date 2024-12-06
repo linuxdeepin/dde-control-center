@@ -422,12 +422,13 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
 {
     qCInfo(dccLog()) << "show page:" << url;
     DccObject *obj = nullptr;
+    QString cmd;
     if (url.isEmpty()) {
         obj = m_root;
         showPage(obj, QString());
     } else {
         int i = url.indexOf('?');
-        QString cmd = i != -1 ? url.mid(i + 1) : QString();
+        cmd = i != -1 ? url.mid(i + 1) : QString();
         QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
         obj = findObject(path, true);
         if (obj) {
@@ -452,7 +453,9 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
     }
     if (message.type() != QDBusMessage::InvalidMessage) {
         if (obj) {
-            show();
+            if (cmd.isEmpty()) {
+                show();
+            }
             QDBusConnection::sessionBus().send(message.createReply());
         } else {
             QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
