@@ -305,6 +305,7 @@ void SoundModel::addPort(Port *port)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.append(port);
+            setOutPutCount(static_cast<int>(m_outputPorts.count()));
             if (port->isEnabled()) {
                 m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
             }
@@ -312,6 +313,7 @@ void SoundModel::addPort(Port *port)
             m_soundOutputDeviceModel->addData(port);
         } else {
             m_inputPorts.append(port);
+            setInPutPortCount(static_cast<int>(m_inputPorts.count()));
             if (port->isEnabled()) {
                 m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
             }
@@ -333,12 +335,14 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
+            setOutPutCount(static_cast<int>(m_outputPorts.count()));
             m_outPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
 
             m_soundOutputDeviceModel->removeData(port);
 
         } else {
             m_inputPorts.removeOne(port);
+            setInPutPortCount(static_cast<int>(m_inputPorts.count()));
             m_inPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
             m_soundInputDeviceModel->removeData(port);
             emit inPutPortComboChanged();
