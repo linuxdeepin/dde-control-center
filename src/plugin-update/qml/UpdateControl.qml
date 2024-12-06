@@ -43,14 +43,12 @@ DccObject {
 
             D.Button {
                 Layout.alignment: Qt.AlignRight
-                text: dccData.model().updateState === "failed" ? qsTr("Installation failed") : qsTr("Installing Update")
+                text: dccData.model().actionBtnText
                 font.pixelSize: 14
                 implicitWidth: 120
                 visible: dccData.model().updateState !== "upgrading"
                 onClicked: {
-                    if (dccData.model().updateState !== "success") {
-                        dccData.work().upgrade();
-                    }
+                    dccData.work().onActionBtnClicked();
                 }
             }
 

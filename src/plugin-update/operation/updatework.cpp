@@ -4,6 +4,7 @@
 #include "updatework.h"
 
 #include <qdbuspendingreply.h>
+#include <DDBusSender>
 
 UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     : QObject{ parent }
@@ -20,9 +21,12 @@ void UpdateWork::checkUpgrade()
     m_model->setCheckProcessRunning(true);
     QDBusPendingCall call = m_updateInterface->asyncCall("checkUpgrade");
     QDBusPendingCallWatcher *watcherCheckUpdate = new QDBusPendingCallWatcher(call, this);
-    connect(watcherCheckUpdate, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher* watcherCheckUpdate) {
+    connect(watcherCheckUpdate, &QDBusPendingCallWatcher::finished, this,[this] (QDBusPendingCallWatcher* watcherCheckUpdate) {
+        if (watcherCheckUpdate == nullptr) {
+            return;
+        }
         if (watcherCheckUpdate->isError()) {
-            qDebug() << "checkUpgrade dbus error :" << watcherCheckUpdate->error().message();
+            qDebug() << "checkUpgrade dbus error :"<< watcherCheckUpdate->error().message();
             m_model->setLastCheckUpdateErrorMsg(watcherCheckUpdate->error().message());
             m_model->setCheckUpdateState(UpdateModel::CheckUpdateState::checkFailed);
         } else {
@@ -33,6 +37,22 @@ void UpdateWork::checkUpgrade()
         delete watcherCheckUpdate;
         watcherCheckUpdate = nullptr;
     });
+}
+
+void UpdateWork::onActionBtnClicked()
+{
+    qInfo() << " onActionBtnClicked : " << m_model->getUpdateState();
+    if (m_model->getUpdateState() == "success") {
+        DDBusSender()
+            .service("com.deepin.dde.shutdownFront")
+            .interface("com.deepin.dde.shutdownFront")
+            .path("/com/deepin/dde/shutdownFront")
+            .method("Restart")
+            .call();
+        return;
+    }
+
+    upgrade();
 }
 
 void UpdateWork::upgrade()

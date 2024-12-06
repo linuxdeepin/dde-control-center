@@ -22,7 +22,7 @@ public:
     explicit UpdateWork(UpdateModel* model, QObject *parent = nullptr);
 
     Q_INVOKABLE void checkUpgrade();
-    Q_INVOKABLE void upgrade();
+    Q_INVOKABLE void onActionBtnClicked();
     Q_INVOKABLE void showUpdateCtl(bool isShow);
     Q_INVOKABLE void checkProcessStop();
 signals:
@@ -34,6 +34,8 @@ private Q_SLOTS:
 private:
     void initData();
     void initConnection();
+
+    void upgrade();
     
     UpdateModel* m_model;
     QDBusInterface* m_updateInterface;

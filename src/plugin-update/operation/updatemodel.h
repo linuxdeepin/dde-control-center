@@ -57,6 +57,9 @@ public:
     QString lastCheckUpdateErrorMsg() const;
     void setLastCheckUpdateErrorMsg(const QString &newLastCheckUpdateErrorMsg);
 
+    QString actionBtnText() const;
+    void setActionBtnText(const QString &newActionBtnText);
+
 signals:
     void upgradableChanged();
     void updateStateChanged();
@@ -66,6 +69,8 @@ signals:
     void checkProcessRunningChanged();
     void checkUpdateStateTipsChanged();
     void checkUpdateIconChanged();
+
+    void actionBtnTextChanged();
 
 private:
     bool m_upgradable;
@@ -78,6 +83,8 @@ private:
     bool m_checkProcessRunning;
     QString m_lastCheckUpdateErrorMsg;
 
+    QString m_actionBtnText;
+
     Q_PROPERTY(bool upgradable READ upgradable NOTIFY upgradableChanged FINAL)
     Q_PROPERTY(QString updateState READ getUpdateState NOTIFY updateStateChanged FINAL)
     Q_PROPERTY(QString updateStateTips READ getUpdateStateTips NOTIFY updateStateTipsChanged FINAL)
@@ -86,6 +93,7 @@ private:
     Q_PROPERTY(bool checkProcessRunning READ checkProcessRunning NOTIFY checkProcessRunningChanged FINAL)
     Q_PROPERTY(QString checkUpdateStateTips READ checkUpdateStateTips NOTIFY checkUpdateStateTipsChanged FINAL)
     Q_PROPERTY(QString checkUpdateIcon READ checkUpdateIcon NOTIFY checkUpdateIconChanged FINAL)
+    Q_PROPERTY(QString actionBtnText READ actionBtnText NOTIFY actionBtnTextChanged FINAL)
 };
 
 #endif // UPDATEMODEL_H
