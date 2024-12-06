@@ -38,7 +38,7 @@ DccObject {
                 height: contentHeight
                 Layout.leftMargin: 10
                 font {
-                    pointSize: 20
+                    pointSize: 14
                     family: webFont.font.family
                 }
                 text: dccData.currentDate
@@ -77,7 +77,7 @@ DccObject {
             id: dateAndTimeSettings
             name: "dateAndTimeSettings"
             parentName: "dateTimeGroup"
-            displayName: qsTr("System date and time")
+            displayName: dccData.ntpEnabled ? qsTr("Ntp server") : qsTr("System date and time")
             weight: 12
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor

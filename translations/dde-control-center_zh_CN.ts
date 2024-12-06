@@ -2804,7 +2804,7 @@
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation>时间日期设置</translation>
+        <translation>日期和时间设置</translation>
     </message>
     <message>
         <source>Date</source>
@@ -3741,8 +3741,8 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>LangAndFormat</name>
     <message>
-        <source>Language list</source>
-        <translation>语言列表</translation>
+        <source>Language</source>
+        <translation>语言</translation>
     </message>
     <message>
         <source>done</source>
@@ -3769,12 +3769,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>地区</translation>
     </message>
     <message>
-        <source>Local content may be recommended based on your region.</source>
-        <translation>应用可能会根据你所在的国家和地区向你提供本地内容</translation>
+        <source>Operating system and applications may provide you with local content based on your country and region</source>
+        <translation>操作系统和应用可能会根据你所在的国家和地区向你提供本地内容</translation>
     </message>
     <message>
-        <source>Select matching date and time formats based on language and region</source>
-        <translation>根据语言和区域先择匹配的日期和时间格式</translation>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
     </message>
 </context>
 <context>
@@ -5039,14 +5039,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>TimeAndDate</name>
     <message>
-        <source>Auto sync time</source>
-        <translation>自动同步</translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation>系统日期和时间</translation>
-    </message>
-    <message>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
@@ -5076,7 +5068,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Timezone list</source>
-        <translation>和时区列表</translation>
+        <translation>时区列表</translation>
+    </message>
+    <message>
+        <source>Auto sync time</source>
+        <translation>自动同步配置</translation>
+    </message>
+    <message>
+        <source>Ntp server</source>
+        <translation>服务器</translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation>系统日期和时间</translation>
     </message>
 </context>
 <context>
