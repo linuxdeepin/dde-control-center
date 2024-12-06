@@ -5390,14 +5390,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installation failed</source>
-        <translation>安装失败</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>安装更新</translation>
-    </message>
-    <message>
         <source>Installing</source>
         <translation>安装更新中</translation>
     </message>
@@ -5549,6 +5541,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Your system is up to date</source>
         <translation>您的系统已更新</translation>
+    </message>
+    <message>
+        <source>Installing Update</source>
+        <translation>安装更新</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <source>retry</source>
+        <translation>重试</translation>
     </message>
 </context>
 <context>

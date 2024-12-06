@@ -5389,14 +5389,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installation failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Installing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5547,6 +5539,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your system is up to date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>retry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
