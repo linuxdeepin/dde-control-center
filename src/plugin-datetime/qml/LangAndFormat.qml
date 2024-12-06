@@ -15,7 +15,7 @@ DccObject {
         property bool isEditing: false
         name: "languageListTiltle"
         parentName: "langAndFormat"
-        displayName: qsTr("Language list")
+        displayName: qsTr("Language")
         weight: 10
         pageType: DccObject.Item
         page: RowLayout {
@@ -190,7 +190,7 @@ DccObject {
     DccObject {
         name: "langlistTiltle"
         parentName: "langAndFormat"
-        displayName: qsTr("Region and format")
+        displayName: qsTr("Region")
         weight: 40
         pageType: DccObject.Item
         page: RowLayout {
@@ -211,7 +211,7 @@ DccObject {
         parentName: "langAndFormat"
         weight: 45
         displayName: qsTr("Region")
-        description: qsTr("Local content may be recommended based on your region.")
+        description: qsTr("Operating system and applications may provide you with local content based on your country and region")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
@@ -263,7 +263,7 @@ DccObject {
         parentName: "langAndFormat"
         weight: 50
         displayName: qsTr("Region and format")
-        description: qsTr("Select matching date and time formats based on language and region")
+        description: qsTr("Operating system and applications may set date and time formats based on regional formats")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {

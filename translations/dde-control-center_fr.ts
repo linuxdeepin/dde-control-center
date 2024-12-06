@@ -3741,10 +3741,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>LangAndFormat</name>
     <message>
-        <source>Language list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3769,11 +3765,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Local content may be recommended based on your region.</source>
+        <source>Operating system and applications may provide you with local content based on your country and region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select matching date and time formats based on language and region</source>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5042,10 +5042,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>System date and time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5075,6 +5071,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Timezone list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ntp server</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
