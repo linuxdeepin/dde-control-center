@@ -342,7 +342,7 @@ DccObject {
 
                     // Copy is used here to prevent contamination of data in the original model when selecting items
                     property var selectedDays: dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
-                    property var dateStr: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+                    property var dateStr: [qsTr("Monday"), qsTr("Tuesday"), qsTr("Wednesday"), qsTr("Thursday"), qsTr("Friday"), qsTr("Saturday"), qsTr("Sunday")]
                     property var dayModel: generateDayModel()
 
                     function generateDayModel() {
