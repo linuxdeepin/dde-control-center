@@ -3662,6 +3662,34 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Save</source>
         <translation>保存</translation>
     </message>
+    <message>
+        <source>Monday</source>
+        <translation>周一</translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation>周二</translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation>周三</translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation>周四</translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation>周五</translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation>周六</translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation>周日</translation>
+    </message>
 </context>
 <context>
     <name>GestureGroup</name>
