@@ -861,7 +861,7 @@
     </message>
     <message>
         <source>test here</source>
-        <translation>在此处输入测试</translation>
+        <translation>请在此输入测试</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
@@ -3718,10 +3718,6 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>KeyboardLayout</name>
     <message>
-        <source>Keyboard layout list</source>
-        <translation>键盘布局列表</translation>
-    </message>
-    <message>
         <source>done</source>
         <translation>完成</translation>
     </message>
@@ -3736,6 +3732,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
         <translation>如需添加或切换键盘布局，请同时在 &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt; 输入法管理 &lt;/a&gt;  中添加对应的输入法以确保生效</translation>
+    </message>
+    <message>
+        <source>Keyboard layout</source>
+        <translation>键盘布局</translation>
     </message>
 </context>
 <context>
@@ -4836,7 +4836,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation>添加自定义快捷键</translation>
+        <translation>添加快捷键</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
@@ -6665,8 +6665,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>键盘</translation>
     </message>
     <message>
-        <source>Keyboard layout, input method, shortcuts</source>
-        <translation>键盘布局，输入法，快捷键等</translation>
+        <source>General Settings, keyboard layout, input method, shortcuts</source>
+        <translation>通用设置、键盘布局、输入法、快捷键</translation>
     </message>
 </context>
 <context>

@@ -3718,10 +3718,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>KeyboardLayout</name>
     <message>
-        <source>Keyboard layout list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3735,6 +3731,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6664,7 +6664,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keyboard layout, input method, shortcuts</source>
+        <source>General Settings, keyboard layout, input method, shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
