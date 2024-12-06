@@ -32,7 +32,10 @@ DccObject {
         parentName: "sound/outPut"
         weight: 20
         pageType: DccObject.Item
-        page: DccGroupView {}
+        page: DccGroupView {
+            height: implicitHeight + 10
+            spacing: 0
+        }
         DccObject {
             name: "outputVolume"
             parentName: "sound/outPut/outputGroup"
@@ -70,7 +73,6 @@ DccObject {
                     }
                 }
                 IconButton {
-                    // Layout.alignment: Qt.AlignTop
                     icon.name: "qrc:/icons/deepin/builtin/actions/dcc_volume3_32px.svg"
                     icon.width: 24
                     icon.height: 24
@@ -138,11 +140,25 @@ DccObject {
             }
         }
         DccObject {
+            name: "monoAudio"
+            parentName: "sound/outPut/outputGroup"
+            displayName: qsTr("Mono audio")
+            description: qsTr("Merge left and right channels into a single channel")
+            weight: 40
+            pageType: DccObject.Editor
+            page: Switch {
+                checked: dccData.model().audioMono
+                onCheckedChanged: {
+                    dccData.worker().setAudioMono(checked)
+                }
+            }
+        }
+        DccObject {
             name: "plugAndUnplugManagement"
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Auto pause")
             description: qsTr("Whether the audio will be automatically paused when the current audio device is unplugged")
-            weight: 40
+            weight: 50
             pageType: DccObject.Editor
             page: Switch {
                 checked: dccData.model().pausePlayer
@@ -155,7 +171,7 @@ DccObject {
             name: "outputDevice"
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Output Devices")
-            weight: 50
+            weight: 60
             pageType: DccObject.Editor
             page: ComboBox {
                 id: outPutCombo

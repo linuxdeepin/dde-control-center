@@ -9,6 +9,8 @@
 #include <DConfig>
 #include <DSysInfo>
 
+#include <QDBusContext>
+#include <QDBusMessage>
 #include <QObject>
 
 QT_BEGIN_NAMESPACE
@@ -22,7 +24,7 @@ class NavigationModel;
 class SearchModel;
 class PluginManager;
 
-class DccManager : public DccApp
+class DccManager : public DccApp, protected QDBusContext
 {
     Q_OBJECT
 public:
@@ -34,7 +36,6 @@ public:
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
     void loadModules(bool async, const QStringList &dirs);
-    void showPageActivate(const QString &url);
 
     int width() const override;
     int height() const override;
@@ -68,6 +69,7 @@ public Q_SLOTS:
     QString search(const QString &json);
     bool stop(const QString &json);
     bool action(const QString &json);
+    QString GetAllModule();
 
 Q_SIGNALS:
     void activeItemChanged(QQuickItem *item);
@@ -81,6 +83,7 @@ private:
     DccObject *findParent(const DccObject *obj);
 
 private Q_SLOTS:
+    void waitShowPage(const QString &url, const QDBusMessage message);
     void doShowPage(DccObject *obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
     void onVisible(bool visible);
@@ -90,6 +93,8 @@ private Q_SLOTS:
     bool addObjectToParent(DccObject *obj);
     bool removeObjectFromParent(DccObject *obj);
     void onQuit();
+    void waitLoadFinished() const;
+    void doGetAllModule(const QDBusMessage message) const;
 
 private:
     DccObject *m_root;
@@ -108,7 +113,6 @@ private:
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
-    bool m_needActivate;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H

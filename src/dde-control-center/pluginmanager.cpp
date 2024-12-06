@@ -326,7 +326,7 @@ void PluginManager::loadModule(PluginData *plugin)
         return;
     }
     const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
-    updatePluginStatus(plugin, ModuleLoad, ": load module" + qmlPath);
+    updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
     if (QFile::exists(qmlPath)) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));

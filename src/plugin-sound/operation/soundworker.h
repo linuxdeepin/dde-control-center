@@ -41,6 +41,7 @@ public:
     Q_INVOKABLE void setPortEnableIndex(int index, bool checked, int portType);
     Q_INVOKABLE void playSoundEffect(int index);
     Q_INVOKABLE void setAudioServerIndex(int index);
+    Q_INVOKABLE void setAudioMono(bool enable);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);

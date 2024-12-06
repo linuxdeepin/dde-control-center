@@ -333,3 +333,24 @@ bool SoundDBusProxy::muteSource()
 {
     return qvariant_cast<bool>(m_defaultSource->property("MuteSource"));
 }
+
+bool SoundDBusProxy::audioMono()
+{
+    return qvariant_cast<bool>(m_audioInter->property("Mono"));
+}
+
+void SoundDBusProxy::setAudioMono(bool audioMono)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(audioMono);
+    QDBusPendingCall call = m_audioInter->asyncCallWithArgumentList(QStringLiteral("SetMono"), argumentList);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call, watcher] {
+        if (call.isError()) {
+            qWarning() << " set Audio Mono error: " << call.error().message();
+            Q_EMIT AudioMonoChanged(this->audioMono());
+        }
+        watcher->deleteLater();
+    });
+}
