@@ -3033,13 +3033,6 @@
     </message>
 </context>
 <context>
-    <name>DetailInfoItem</name>
-    <message>
-        <source>For more details, visit:</source>
-        <translation>有关本次更新的详细内容可访问：</translation>
-    </message>
-</context>
-<context>
     <name>DetailItem</name>
     <message>
         <source>Open Desktop file</source>
@@ -3286,87 +3279,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Only on main screen</source>
         <translation>仅主屏显示</translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage1</name>
-    <message>
-        <source>calc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>calc type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage2</name>
-    <message>
-        <source>calc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>no Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>group2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>删除</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-</context>
-<context>
-    <name>ExamplePage3</name>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -3820,6 +3732,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Add new keyboard layout...</source>
         <translation>添加键盘布局...</translation>
+    </message>
+    <message>
+        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
+        <translation>如需添加或切换键盘布局，请同时在 &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt; 输入法管理 &lt;/a&gt;  中添加对应的输入法以确保生效</translation>
     </message>
 </context>
 <context>
@@ -4827,60 +4743,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>搜索</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ServiceSettingsModule</name>
-    <message>
-        <source>Apps can access your camera:</source>
-        <translation>请求使用相机权限的应用：</translation>
-    </message>
-    <message>
-        <source>Apps can access your microphone:</source>
-        <translation>请求使用麦克风权限的应用：</translation>
-    </message>
-    <message>
-        <source>Apps can access user folders:</source>
-        <translation>请求访问用户文件夹权限的应用：</translation>
-    </message>
-    <message>
-        <source>Apps can access Calendar:</source>
-        <translation>请求访问日历权限的应用：</translation>
-    </message>
-    <message>
-        <source>Apps can access Screen Capture:</source>
-        <translation>请求使用屏幕截图权限的应用：</translation>
-    </message>
-    <message>
-        <source>No apps requested access to the camera</source>
-        <translation>没有应用使用摄像头权限</translation>
-    </message>
-    <message>
-        <source>No apps requested access to the microphone</source>
-        <translation>暂无应用请求使用麦克风权限</translation>
-    </message>
-    <message>
-        <source>No apps requested access to user folders</source>
-        <translation>暂无应用请求访问用户文件夹权限</translation>
-    </message>
-    <message>
-        <source>No apps requested access to Calendar</source>
-        <translation>暂无应用请求访问日历权限</translation>
-    </message>
-    <message>
-        <source>No apps requested access to Screen Capture</source>
-        <translation>暂无应用请求使用屏幕截图权限</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation>编辑</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -6412,18 +6274,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>System language,region fommat</source>
         <translation>系统语言、区域格式</translation>
     </message>
-    <message>
-        <source>Set your time and date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language and format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set your system language and region formats</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
@@ -6601,16 +6451,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>deepinid</name>
     <message>
-        <source>Deepin ID</source>
-        <translation>Deepin ID</translation>
-    </message>
-    <message>
         <source>UOS ID</source>
         <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
         <translation>云服务</translation>
+    </message>
+    <message>
+        <source>deepin ID</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6802,24 +6652,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Color Temperature</source>
         <translation>色温</translation>
-    </message>
-</context>
-<context>
-    <name>example</name>
-    <message>
-        <source>Example</source>
-        <translation>示例</translation>
-    </message>
-</context>
-<context>
-    <name>exampleMain</name>
-    <message>
-        <source>Normal Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings Page</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7107,10 +6939,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>关于本机</translation>
     </message>
     <message>
-        <source>View information about this machine</source>
-        <translation>查看本机相关信息</translation>
-    </message>
-    <message>
         <source>Open Source Software Description</source>
         <translation>开源软件声明</translation>
     </message>
@@ -7121,10 +6949,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>User Experience Program</source>
         <translation>用户体验计划</translation>
-    </message>
-    <message>
-        <source>Join the User Experience Program and help improve the product</source>
-        <translation>加入用户体验计划，帮忙改进产品</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
