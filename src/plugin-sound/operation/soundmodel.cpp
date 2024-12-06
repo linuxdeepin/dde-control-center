@@ -633,6 +633,17 @@ void SoundModel::addAudioServerData(const AudioServerData &newAudioServerData)
     m_audioServerModel->addData(newAudioServerData);
 }
 
+bool SoundModel::audioMono() const
+{
+    return m_audioMono;
+}
+
+void SoundModel::setAudioMono(bool newAudioMono)
+{
+    m_audioMono = newAudioMono;
+    emit audioMonoChanged();
+}
+
 void SoundModel::setInPutPortCount(int newInPutPortCount)
 {
     if (m_inPutPortCount == newInPutPortCount)

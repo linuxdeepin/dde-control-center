@@ -32,7 +32,10 @@ DccObject {
         parentName: "sound/outPut"
         weight: 20
         pageType: DccObject.Item
-        page: DccGroupView {}
+        page: DccGroupView {
+            height: implicitHeight + 10
+            spacing: 0
+        }
         DccObject {
             name: "outputVolume"
             parentName: "sound/outPut/outputGroup"
@@ -144,8 +147,9 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: Switch {
-                checked: true
+                checked: dccData.model().audioMono
                 onCheckedChanged: {
+                    dccData.worker().setAudioMono(checked)
                 }
             }
         }
