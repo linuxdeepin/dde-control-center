@@ -13,7 +13,7 @@ DccObject {
         property bool isEditing: false
         name: "KeyboardLayoutTitle"
         parentName: "KeyboardLayout"
-        displayName: qsTr("Keyboard layout list")
+        displayName: qsTr("Keyboard layout")
         weight: 10
         pageType: DccObject.Item
         page: RowLayout {
