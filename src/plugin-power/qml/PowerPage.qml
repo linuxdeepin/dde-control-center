@@ -13,6 +13,7 @@ DccObject {
         name: "screenAndSuspendTitle"
         parentName: "power/onPower"
         displayName: qsTr("Screen and Suspend")
+        visible: dccData.platformName() !== "wayland"
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -29,6 +30,7 @@ DccObject {
         parentName: "power/onPower"
         weight: 100
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -67,6 +69,7 @@ DccObject {
         parentName: "power/onPower"
         weight: 200
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -105,6 +108,7 @@ DccObject {
         parentName: "power/onPower"
         weight: 300
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -170,6 +174,7 @@ DccObject {
             displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
+            visible: dccData.platformName() !== "wayland"
             page: CustomComboBox {
                 textRole: "text"
                 enableRole: "enable"
