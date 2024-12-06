@@ -3733,6 +3733,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Add new keyboard layout...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LangAndFormat</name>
@@ -6446,15 +6450,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>deepinid</name>
     <message>
-        <source>Deepin ID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>UOS ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cloud services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deepin ID</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

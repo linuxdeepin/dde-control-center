@@ -47,6 +47,22 @@ DccObject {
     }
 
     DccObject {
+        name: "KeyboardLayoutTips"
+        parentName: "KeyboardLayout"
+        displayName: qsTr("Add the corresponding input method in <a style='text-decoration: none;' href='Manage Input Methods'>Input Method Management</a> to ensure the keyboard layout works when added or switched.")
+        weight: 12
+        pageType: DccObject.Item
+        page: D.Label {
+            textFormat: Text.RichText
+            text: dccObj.displayName
+            leftPadding: 10
+            rightPadding: 10
+            wrapMode: Text.WordWrap
+            onLinkActivated: link => DccApp.showPage(link)
+        }
+    }
+
+    DccObject {
         name: "KeyboardLayoutGroup"
         parentName: "KeyboardLayout"
         weight: 20
