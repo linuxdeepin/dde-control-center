@@ -15,6 +15,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_checkUpdateStateTips("")
     , m_checkUpdateIcon("")
     , m_lastCheckUpdateErrorMsg("")
+    , m_actionBtnText("")
 {
 }
 
@@ -46,6 +47,7 @@ void UpdateModel::setUpdateState(const QString &newUpdateState)
 
     if (newUpdateState == "idle" && m_upgradable) {
         setUpdateStateTips(tr("Updates Available"));
+        setActionBtnText(tr("Installing Update"));
         return;
     }
 
@@ -56,11 +58,13 @@ void UpdateModel::setUpdateState(const QString &newUpdateState)
 
     if (newUpdateState == "success" ) {
         setUpdateStateTips(tr("Update installed successfully"));
+        setActionBtnText(tr("Restart Now"));
         return;
     }
 
     if (newUpdateState == "failed") {
         setUpdateStateTips(tr("Update download failed"));
+        setActionBtnText(tr("retry"));
     }
 }
 
@@ -180,4 +184,17 @@ QString UpdateModel::lastCheckUpdateErrorMsg() const
 void UpdateModel::setLastCheckUpdateErrorMsg(const QString &newLastCheckUpdateErrorMsg)
 {
     m_lastCheckUpdateErrorMsg = newLastCheckUpdateErrorMsg;
+}
+
+QString UpdateModel::actionBtnText() const
+{
+    return m_actionBtnText;
+}
+
+void UpdateModel::setActionBtnText(const QString &newActionBtnText)
+{
+    if (m_actionBtnText == newActionBtnText)
+        return;
+    m_actionBtnText = newActionBtnText;
+    emit actionBtnTextChanged();
 }
