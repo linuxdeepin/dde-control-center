@@ -1,3 +1,78 @@
+dde-control-center (6.0.77) unstable; urgency=medium
+
+  * fix: Fix incorrect page status after the update is completed
+  * chore: adjust active colors
+  * chore: keyboard translations tweak
+  * chore: update datetime/language translations
+  * chore: add keboard layout tips
+  * chore(power): update translate
+  * chore(personalization): update translate
+  * fix: modify deepinid module display name
+  * fix: have no input device,there are input titles and prompt texts (#1873)
+  * fix: DBus adds asynchronous return processing
+  * feat: add audio Mono (#1871)
+  * chore: dcc focus tweak
+  * Fix: update bluetooth translation
+  * fix: wallpaper color selection is not effective
+  * fix: region format init failed
+  * fix: wrong lib install path
+  * feat: Modify translation processing errors
+  * chore: udpate keyboard shortcut translations
+  * fix(personnalization): screen select combobox is empty
+  * feat: Update menu item description
+  * feat: add sound description (#1859)
+  * chore: update date and time translations
+  * chore(personalization): update activeColor list
+  * fix: hidden developer mode (#1856)
+  * fix: system/custom timezone datas affect each other
+  * fix(power): The sliding bar scale value is incorrect
+  * feat: update audio framework translations (#1853)
+  * fix: Modifying DBus cannot redirect properly
+  * feat: Add audio framework module (#1850)
+  * feat: Update weight
+  * feat: Update {name}Main translation
+  * feat: Change main.qml to {name}Main.qm
+  * fix: window effect no background
+  * feat: Update display,notification,deepinid,wacom,touchscreen translation
+  * chore: update power and personalization translations
+  * chore: keyboard visble tweak
+  * chore: update datetime/accounts translations
+  * feat: Update translations for Bluetooth, General, System Information, Sound, etc.
+  * chore: update power translations
+  * feat: Update translation
+  * chore: datetime translation tweak
+  * chore: init ts files
+  * fix: Modify update description (#1832)
+  * fix: Update workflows.yml
+  * fix(build): display module arm64 build failed
+  * fix: Hide menu without touchpad
+  * fix: font size error
+  * fix: font Combobox is empty
+  * fix: update deepinid description
+  * feat: Add display module
+  * feat: Update workflows.yml
+  * fix: language set failed
+  * fix: Setting activity color invalid
+  * fix: Personalization module starts slowly in Treeland
+  * feat: dcc deepinid module
+  * fix: Create a new object when calling getSectionItem
+  * fix: zoom shortcut filter tweak
+  * chore: use AP instead of ap/Ap
+  * fix: system timezone setting error
+  * feat: Added initial version update function
+  * feat: Treeland adaptation of personalized modules
+  * feat: add the StartupWMClass field to the desktop file
+  * fix: ntp server list can not scroll
+  * fix: The hoverEnabled of DccItem defaults to true
+  * feat: add current acount page
+  * feat: add account module
+  * chore: time date tweak
+  * fix: loading plugin crashed
+  * chore: time date display tweak
+  * fix: Add DCI search path
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 06 Dec 2024 16:25:17 +0800
+
 dde-control-center (6.0.76.2) unstable; urgency=medium
 
   * release 6.0.76.2
