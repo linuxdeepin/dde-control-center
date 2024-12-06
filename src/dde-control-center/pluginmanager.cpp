@@ -399,7 +399,7 @@ void PluginManager::createMain(QQmlComponent *component)
         updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
     } else {
         QQmlContext *context = new QQmlContext(component->engine(), component);
-        context->setContextProperties({ { "dccData", QVariant::fromValue(plugin->data) } });
+        context->setContextProperties({ { "dccData", QVariant::fromValue(plugin->data) }, { "dccModule", QVariant::fromValue(plugin->module) } });
         QObject *object = component->create(context);
         // component->createWithInitialProperties({}, context);
         if (!object) {
@@ -435,6 +435,8 @@ void PluginManager::addMainObject(PluginData *plugin)
                 connect(plugin->mainObj, &DccObject::iconChanged, plugin->module, &DccObject::setIcon);
                 connect(plugin->mainObj, &DccObject::badgeChanged, plugin->module, &DccObject::setBadge);
                 connect(plugin->mainObj, &DccObject::visibleChanged, plugin->module, &DccObject::setVisible);
+                connect(plugin->mainObj, &DccObject::active, plugin->module, &DccObject::active);
+                connect(plugin->mainObj, &DccObject::deactive, plugin->module, &DccObject::deactive);
             }
         } else {
         }
