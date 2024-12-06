@@ -25,6 +25,7 @@ public:
 
     Q_INVOKABLE int indexByValueOnModel(QAbstractListModel *model, int targetValue);
     Q_INVOKABLE int indexByValueOnMap(const QVariantList& dataMap, int targetValue);
+    Q_INVOKABLE QString platformName();
 
 signals:
     void powerModelChanged(PowerModel *model);

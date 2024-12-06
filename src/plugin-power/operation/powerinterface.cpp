@@ -5,6 +5,7 @@
 #include "powermodel.h"
 #include "dccfactory.h"
 #include "poweroperatormodel.h"
+#include <QGuiApplication>
 #include "utils.h"
 
 PowerInterface::PowerInterface(QObject *parent) 
@@ -77,6 +78,11 @@ int PowerInterface::indexByValueOnMap(const QVariantList& dataMap, int targetVal
     }
 
     return -1;
+}
+
+QString PowerInterface::platformName()
+{
+    return qApp->platformName();
 }
 
 DCC_FACTORY_CLASS(PowerInterface)

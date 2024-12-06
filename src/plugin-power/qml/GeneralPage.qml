@@ -118,6 +118,7 @@ DccObject {
             displayName: qsTr("Auto reduce screen brightness during power saving")
             weight: 2
             pageType: DccObject.Item
+            visible: dccData.platformName() !== "wayland"
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Label {
