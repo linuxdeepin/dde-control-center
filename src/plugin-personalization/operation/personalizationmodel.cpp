@@ -8,7 +8,6 @@
 #include "model/wallpapermodel.h"
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
-    , m_allowSwitch(false)
 {
     m_windowModel    = new ThemeModel(this);
     m_iconModel      = new ThemeModel(this);
@@ -18,26 +17,12 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
     m_wallpaperModel = new WallpaperModel(this);
-    m_is3DWm = true;
     m_miniEffect = 0;
 }
 
 PersonalizationModel::~PersonalizationModel()
 {
 
-}
-
-void PersonalizationModel::setIs3DWm(const bool is3d)
-{
-    if (is3d != m_is3DWm) {
-        m_is3DWm = is3d;
-        Q_EMIT wmChanged(is3d);
-    }
-}
-
-bool PersonalizationModel::is3DWm() const
-{
-    return m_is3DWm;
 }
 
 void PersonalizationModel::setWindowRadius(int radius)
@@ -79,15 +64,6 @@ void PersonalizationModel::setActiveColor(const QString &color)
     m_activeColor = color;
 
     Q_EMIT onActiveColorChanged(color);
-}
-
-void PersonalizationModel::setCompositingAllowSwitch(bool value)
-{
-    if (m_allowSwitch == value)
-        return;
-    m_allowSwitch = value;
-
-    Q_EMIT onCompositingAllowSwitch(value);
 }
 
 void PersonalizationModel::setCompactDisplay(bool value)
