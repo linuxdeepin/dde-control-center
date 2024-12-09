@@ -81,7 +81,7 @@ DccObject {
             weight: 12
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
-            property bool showCustom
+            property bool showCustom: false
             property string customAddr
             page: Item {
                 implicitHeight: 36
@@ -165,7 +165,7 @@ DccObject {
             name: "customNTPServer"
             parentName: "dateTimeGroup"
             displayName: qsTr("Server address")
-            visible: dateAndTimeSettings && dateAndTimeSettings.showCustom
+            visible: dccData.ntpEnabled && dateAndTimeSettings.showCustom
             weight: 13
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
@@ -195,12 +195,13 @@ DccObject {
                         }
                     }
                     Component.onCompleted: {
+                        Qt.callLater( function(){ addr.forceActiveFocus() } )
                         addr.readOnly = text.length > 0
                     }
                 }
                 IconButton {
                     id: editBtn
-                    flat: true
+                    enabled: addr.text.length > 0
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     icon {
@@ -221,7 +222,6 @@ DccObject {
                         }
 
                         addr.readOnly = !addr.readOnly
-
                     }
                 }
             }
