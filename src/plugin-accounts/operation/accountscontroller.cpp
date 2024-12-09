@@ -114,7 +114,8 @@ QString AccountsController::fullName(const QString &id) const
 void AccountsController::setFullname(const QString &id, const QString &name)
 {
     if (User *user = m_model->getUser(id))
-        m_worker->setFullname(user, name.simplified()); // 去除空白字符
+        if (name.simplified() != user->fullname())
+            m_worker->setFullname(user, name.simplified()); // 去除空白字符
 }
 
 int AccountsController::userType(const QString &id) const
