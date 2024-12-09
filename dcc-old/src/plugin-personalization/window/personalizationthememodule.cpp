@@ -384,13 +384,15 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
                 break;
             }
 
-            if (w->color() == newColor) {
+            if (w->activeColors().first.compare(newColor, Qt::CaseInsensitive) == 0 ||
+                w->activeColors().second.compare(newColor, Qt::CaseInsensitive) == 0) {
                 bgWidget->setSelectedItem(w);
                 break;
             } else if (i == endIndex) {
                 bgWidget->setSelectedItem(w);
             }
         }
+        bgWidget->update();
     };
     setColorFun(m_model->getActiveColor());
     connect(m_model, &PersonalizationModel::onActiveColorChanged, bgWidget, setColorFun);
