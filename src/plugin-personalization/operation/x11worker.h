@@ -11,4 +11,22 @@ class X11Worker : public PersonalizationWorker
     Q_OBJECT
 public:
     X11Worker(PersonalizationModel *model, QObject *parent = nullptr);
+    void active() override;
+
+public Q_SLOTS:
+    void setTitleBarHeight(int value) override;
+    void setWindowEffect(int value) override;
+    void setMovedWindowOpacity(bool value) override;
+    void setMiniEffect(int effect) override;
+
+private Q_SLOTS:
+    void onMiniEffectChanged(bool value);
+
+private:
+    void onKWinConfigChanged(const QString &key);
+    void refreshWMState();
+
+private:
+    Dtk::Core::DConfig *m_kwinTitleBarConfig = nullptr;
+    Dtk::Core::DConfig *m_kwinCompositingConfig = nullptr;
 };
