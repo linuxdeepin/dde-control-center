@@ -169,6 +169,9 @@ void AccountsController::checkPwdLimitLevel(int lvl)
 bool AccountsController::isDeleteAble(const QString &id) const
 {
     User *editUser = m_model->getUser(id);
+    if (!editUser)
+        return false;
+
     User *curLoginUser = m_model->currentUser();
     auto isOnlyAdmin = [this, editUser] {         // 是最后一个管理员
         return isSystemAdmin(editUser)            // 是管理员
@@ -476,6 +479,8 @@ QAbstractListModel *AccountsController::accountsModel()
         auto index = m_accountsModel->index(idIdx);
         m_accountsModel->dataChanged(index, index, {AccountListModel::OnlineRole});
     });
+
+    connect(this, &AccountsController::userIdListChanged, static_cast<AccountListModel *>(m_accountsModel), &AccountListModel::reset);
 
     return m_accountsModel;
 }

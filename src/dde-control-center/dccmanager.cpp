@@ -634,7 +634,7 @@ void DccManager::onObjectRemoved(DccObject *obj)
 
     for (auto &&o : m_currentObjects) {
         if (o == obj) {
-            showPage(QString());
+            doShowPage(m_root, QString());
             break;
         }
     }

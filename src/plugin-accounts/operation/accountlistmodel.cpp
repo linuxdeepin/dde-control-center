@@ -10,6 +10,12 @@ AccountListModel::AccountListModel(QObject *parent)
 {
 }
 
+void AccountListModel::reset()
+{
+    beginResetModel();
+    endResetModel();
+}
+
 int AccountListModel::rowCount(const QModelIndex &) const
 {
     AccountsController *controller = dynamic_cast<AccountsController *>(parent());
