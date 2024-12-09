@@ -120,7 +120,7 @@ DccObject {
                     anchors {
                         horizontalCenter: control.horizontalCenter
                         bottom: control.bottom
-                        bottomMargin: 10
+                        bottomMargin: 2
                     }
                 }
 
@@ -234,10 +234,11 @@ DccObject {
                     implicitWidth: 200
                     text: dccData.fullName(settings.userId)
                     placeholderText: qsTr("Set fullname")
-                    background: null
                     horizontalAlignment: TextInput.AlignRight
                     editBtn.visible: readOnly
                     onTextEdited: {
+                        if (showAlert)
+                            showAlert = false
                         // validtor can not paste invalid text..
                         var regex = /^[^:]{0,32}$/
                         if (!regex.test(text)) {
@@ -251,6 +252,21 @@ DccObject {
                     }
 
                     onFinished: function () {
+                        let alertMsg = dccData.checkFullname(text)
+                        if (alertMsg.length > 0) {
+                            showAlert = false
+                            showAlert = true
+                            alertText = alertMsg
+                            readOnly = false
+
+                            return
+                        }
+
+                        if (text.trim().length === 0) {
+                            text = dccData.fullName(settings.userId)
+                            return
+                        }
+
                         dccData.setFullname(settings.userId, text)
                     }
                 }
