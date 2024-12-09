@@ -20,6 +20,7 @@ SystemInfoInteraction::SystemInfoInteraction(QObject *parent)
     m_systemInfoMode = new SystemInfoModel(this);
     m_systemInfoWork = new SystemInfoWork(m_systemInfoMode, this);
 
+    connect(m_systemInfoWork, &SystemInfoWork::requestUeProgram, this, &SystemInfoInteraction::requestUeProgram);
     m_systemInfoWork->activate();
 }
 

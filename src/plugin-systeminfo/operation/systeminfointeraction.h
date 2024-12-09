@@ -24,7 +24,7 @@ public:
     void setSystemInfoMode(SystemInfoModel *newSystemInfoMode);
 
 signals:
-
+    void requestUeProgram(bool visible) const;
 
 private:
     SystemInfoWork* m_systemInfoWork;
