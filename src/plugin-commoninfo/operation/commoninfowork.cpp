@@ -558,6 +558,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     contentFile->write(content.toLocal8Bit());
     contentFile->close();
 
+    Q_EMIT requestDevlicenseDlg(true);
     auto pathType = "-c";
     QStringList sl;
     sl << "zh_CN" << "zh_TW";
@@ -573,6 +574,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         } else {
             qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
         }
+        Q_EMIT requestDevlicenseDlg(false);
         contentFile->remove();
         contentFile->deleteLater();
         m_process->deleteLater();

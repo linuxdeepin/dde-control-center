@@ -23,7 +23,7 @@ public:
     void setMode(CommonInfoModel *newMode);
 
 signals:
-
+    void requestDevlicenseDlg(bool visible) const;
 
 private:
     CommonInfoWork* m_work;

@@ -62,6 +62,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void settingScaling(bool);
+    void requestDevlicenseDlg(bool visible) const;
 
 private:
     QString passwdEncrypt(const QString &password);
