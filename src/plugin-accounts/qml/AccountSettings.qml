@@ -241,6 +241,7 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 EditActionLabel {
+                    id: fullNameEdit
                     implicitWidth: 200
                     text: dccData.fullName(settings.userId)
                     placeholderText: qsTr("Set fullname")
@@ -278,6 +279,14 @@ DccObject {
                         }
 
                         dccData.setFullname(settings.userId, text)
+                    }
+                    Connections {
+                        target: dccData
+                        function onFullnameChanged(userId, fullname) {
+                            if (userId === settings.userId) {
+                                fullNameEdit.text = dccData.fullName(settings.userId)
+                            }
+                        }
                     }
                 }
             }
