@@ -16,6 +16,11 @@ DccObject {
     property bool nopasswdLoginChecked: true
     property bool isDeleteUser: false
 
+    Component.onCompleted: {
+        settings.autoLoginChecked = dccData.autoLogin(settings.userId)
+        settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
+    }
+
     Component.onDestruction: {
         if (isDeleteUser) {
             DccApp.showPage("accounts")
@@ -348,13 +353,16 @@ DccObject {
             visible: dccData.isAutoLoginVisable()
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
-                checked: settings.autoLoginChecked && dccData.autoLogin(settings.userId)
+                checked: settings.autoLoginChecked
                 onCheckedChanged: {
-                    settings.autoLoginChecked = checked
+                    if (settings.autoLoginChecked != checked)
+                        settings.autoLoginChecked = checked
+
                     dccData.setAutoLogin(settings.userId, checked)
                 }
             }
         }
+
         DccObject {
             id: noPassword
             name: settings.papaName + "noPassword"
@@ -365,9 +373,11 @@ DccObject {
             visible: dccData.isNoPassWordLoginVisable()
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
-                checked: settings.nopasswdLoginChecked && dccData.nopasswdLogin(settings.userId)
+                checked: settings.nopasswdLoginChecked
                 onCheckedChanged: {
-                    settings.nopasswdLoginChecked = checked
+                    if (settings.nopasswdLoginChecked != checked)
+                        settings.nopasswdLoginChecked = checked
+
                     dccData.setNopasswdLogin(settings.userId, checked)
                 }
             }
