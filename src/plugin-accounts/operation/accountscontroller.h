@@ -85,6 +85,7 @@ signals:
     void onlineUserListChanged();
     void avatarChanged(const QString &userId, const QString &avatar);
     void userTypeChanged(const QString &userId, const int userType);
+    void fullnameChanged(const QString &userId, const QString &fullname);
     void autoLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void groupsChanged(const QString &userId, const QStringList &groups);

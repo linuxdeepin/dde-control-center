@@ -70,6 +70,9 @@ void UserModel::addUser(const QString &id, User *user)
     connect(user, &User::userTypeChanged, this, [this, user](const int userType){
         Q_EMIT userTypeChanged(user->id(), userType);
     });
+    connect(user, &User::fullnameChanged, this, [this, user](const QString &fullname){
+        Q_EMIT fullnameChanged(user->id(), fullname);
+    });
 
     Q_EMIT userAdded(user);
 }

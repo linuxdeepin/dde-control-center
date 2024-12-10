@@ -434,7 +434,9 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
     QDBusPendingCall call = ui->SetFullName(fullname);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (!call.isError()) {
+        if (call.isError()) {
+            Q_EMIT user->fullnameChanged(user->fullname());
+        } else {
             Q_EMIT accountFullNameChangeFinished();
         }
         watcher->deleteLater();
