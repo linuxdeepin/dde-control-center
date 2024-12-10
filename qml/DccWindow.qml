@@ -83,9 +83,14 @@ D.ApplicationWindow {
                 return
 
             let pt = mapToItem(root.activeFocusItem, mouse.x ,mouse.y)
-            // 焦点控件区域以外点击都把焦点取消
+            // clear focus if click out of activeFocusItem
             if (!root.activeFocusItem.contains(pt)) {
                 root.activeFocusItem.focus = false
+
+                // if focus = false not work (e.g. password spinbox edit, focus scope, flags with ItemIsFocusScope)
+                // parent focus set false
+                if (root.activeFocusItem.parent)
+                    root.activeFocusItem.parent.focus = false
             }
         }
     }
