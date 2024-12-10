@@ -49,8 +49,6 @@ public:
     inline FontModel *getMonoFontModel() const { return m_monoFontModel; }
     inline FontSizeModel *getFontSizeModel() const { return m_fontSizeModel; }
     inline WallpaperModel *getWallpaperModel() const { return m_wallpaperModel; }
-    void setIs3DWm(const bool is3d);
-    bool is3DWm() const;
 
     void setWindowRadius(int radius);
     int windowRadius();
@@ -66,9 +64,6 @@ public:
 
     inline QString getActiveColor() { return m_activeColor; }
     void setActiveColor(const QString &color);
-
-    inline bool getAllowSwitch() { return m_allowSwitch; }
-    void setCompositingAllowSwitch(bool value);
 
     inline bool getCompactDisplay() { return m_compactDisplay; }
     void setCompactDisplay(bool value);
@@ -129,12 +124,10 @@ private:
     FontSizeModel *m_fontSizeModel;
     WallpaperModel *m_wallpaperModel;
 
-    bool m_is3DWm;
     bool m_isMoveWindow;
     double m_opacity;
     int m_miniEffect;
     QString m_activeColor;
-    bool m_allowSwitch;
     int m_windowRadius;
     bool m_compactDisplay;
     int m_scrollBarPolicy;

@@ -25,7 +25,7 @@ class CommonInfoModel : public QObject
     Q_PROPERTY(bool isLogin READ isLogin NOTIFY isLoginChenged FINAL)
     Q_PROPERTY(bool isActivate READ isActivate NOTIFY LicenseStateChanged FINAL)
     Q_PROPERTY(QString grubThemePath READ grubThemePath NOTIFY grubThemePathChanged FINAL)
-
+    Q_PROPERTY(bool needShowModalDialog READ needShowModalDialog NOTIFY needShowModalDialogChanged FINAL)
 
 public:
     explicit CommonInfoModel(QObject *parent = nullptr);
@@ -58,6 +58,9 @@ public:
     QString grubThemePath() const;
     void setGrubThemePath(const QString &newGrubThemePath);
 
+    bool needShowModalDialog() const;
+    void setNeedShowModalDialog(bool newNeedShowModalDialog);
+
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
     void themeEnabledChanged(const bool enabled) const;
@@ -78,6 +81,8 @@ Q_SIGNALS:
     void debugLogCurrentIndexChanged();
 
     void grubThemePathChanged();
+
+    void needShowModalDialogChanged();
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -113,4 +118,6 @@ private:
     GrubMenuListModel* m_GrubMenuListModel;
 
     int m_debugLogCurrentIndex;
+    bool m_needShowModalDialog;
+
 };

@@ -120,7 +120,7 @@ DccObject {
                     anchors {
                         horizontalCenter: control.horizontalCenter
                         bottom: control.bottom
-                        bottomMargin: 10
+                        bottomMargin: 2
                     }
                 }
 
@@ -148,8 +148,18 @@ DccObject {
                     color: palette.text // not update ?
                 }
                 Text {
+                    id: userTypeName
                     text: dccData.userTypeName(settings.userId)
                     color: palette.text
+
+                    Connections {
+                        target: dccData
+                        function onUserTypeChanged(userId, type) {
+                            if (userId === settings.userId) {
+                                userTypeName.text = dccData.userTypeName(settings.userId)
+                            }
+                        }
+                    }
                 }
             }
             RowLayout {
@@ -231,13 +241,15 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 EditActionLabel {
+                    id: fullNameEdit
                     implicitWidth: 200
                     text: dccData.fullName(settings.userId)
                     placeholderText: qsTr("Set fullname")
-                    background: null
                     horizontalAlignment: TextInput.AlignRight
                     editBtn.visible: readOnly
                     onTextEdited: {
+                        if (showAlert)
+                            showAlert = false
                         // validtor can not paste invalid text..
                         var regex = /^[^:]{0,32}$/
                         if (!regex.test(text)) {
@@ -251,7 +263,30 @@ DccObject {
                     }
 
                     onFinished: function () {
+                        let alertMsg = dccData.checkFullname(text)
+                        if (alertMsg.length > 0) {
+                            showAlert = false
+                            showAlert = true
+                            alertText = alertMsg
+                            readOnly = false
+
+                            return
+                        }
+
+                        if (text.trim().length === 0) {
+                            text = dccData.fullName(settings.userId)
+                            return
+                        }
+
                         dccData.setFullname(settings.userId, text)
+                    }
+                    Connections {
+                        target: dccData
+                        function onFullnameChanged(userId, fullname) {
+                            if (userId === settings.userId) {
+                                fullNameEdit.text = dccData.fullName(settings.userId)
+                            }
+                        }
                     }
                 }
             }
@@ -267,6 +302,9 @@ DccObject {
                 model: dccData.userTypes()
                 currentIndex: dccData.userType(settings.userId)
                 enabled: dccData.isDeleteAble(settings.userId)
+                onActivated: function(index) {
+                    dccData.setUserType(settings.userId, index)
+                }
             }
         }
     }

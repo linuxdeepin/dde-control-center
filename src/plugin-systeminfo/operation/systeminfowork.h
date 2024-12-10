@@ -44,6 +44,7 @@ public:
 
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
+    void requestUeProgram(bool visible) const;
 
 public Q_SLOTS:
     void onSetHostname(const QString &hostname);

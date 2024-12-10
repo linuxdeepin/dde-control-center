@@ -50,6 +50,8 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::nopasswdLoginChanged, this, &AccountsController::nopasswdLoginChanged);
     connect(m_model, &UserModel::groupsChanged, this, &AccountsController::groupsChanged);
     connect(m_model, &UserModel::passwordModifyFinished, this, &AccountsController::passwordModifyFinished);
+    connect(m_model, &UserModel::userTypeChanged, this, &AccountsController::userTypeChanged);
+    connect(m_model, &UserModel::fullnameChanged, this, &AccountsController::fullnameChanged);
 
     connect(m_worker, &AccountsWorker::showSafetyPage, this, &AccountsController::showSafetyPage);
     connect(m_model, &UserModel::allGroupsChange, this, [this](){
@@ -114,13 +116,21 @@ QString AccountsController::fullName(const QString &id) const
 void AccountsController::setFullname(const QString &id, const QString &name)
 {
     if (User *user = m_model->getUser(id))
-        m_worker->setFullname(user, name.simplified()); // 去除空白字符
+        if (name.simplified() != user->fullname())
+            m_worker->setFullname(user, name.simplified()); // 去除空白字符
 }
 
 int AccountsController::userType(const QString &id) const
 {
     User *user = m_model->getUser(id);
     return user ? user->userType() : 0;
+}
+
+void AccountsController::setUserType(const QString &id, int index)
+{
+    if (User *user = m_model->getUser(id))
+        if (index != user->userType())
+            m_worker->setAdministrator(user, User::Administrator == index);
 }
 
 QString AccountsController::userTypeName(const QString &id) const

@@ -23,7 +23,7 @@ DccObject {
             text: qsTr("Root Access")
             font.bold: true
             color: "black"
-            font.pointSize: 14
+            font.pixelSize: 14
         }
     }
 
@@ -32,7 +32,10 @@ DccObject {
         parentName: "developerMode"
         weight: 20
         pageType: DccObject.Item
-        page: DccGroupView {}
+        page: DccGroupView {
+
+            Layout.topMargin: 10
+        }
 
         DccObject {
             name: "developerModeStatus"
@@ -41,50 +44,63 @@ DccObject {
             backgroundType: DccObject.Normal
             weight: 20
             page: RowLayout {
+                id: root
                 width: parent.width
-                height: 60
-                Column {
-                    height: parent.height
-                    Layout.fillWidth: true
-
+                Layout.topMargin: 5
+                ColumnLayout {
+                    spacing: 2
+                    width: parent.width - 70
+                    Layout.leftMargin: 15
+                    Layout.topMargin: 5
+                    Layout.bottomMargin: 5
                     Label {
-                        topPadding: 10
-                        leftPadding: 15
-                        bottomPadding: 5
                         text: qsTr("Request Root Access")
-                        font.pointSize: 14
+                        font.pixelSize: 16
                         color:"#7A000000"
                     }
 
                     Label {
-                        width: 500
-                        height: 40
-                        leftPadding: 15
-                        bottomPadding: 10
+                        Layout.preferredWidth: parent.width
+                        horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
                         text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
-                        font.pointSize: 10
+                        font.pixelSize: 12
                         color:"#5A000000"
                     }
                 }
 
                 Label {
                     Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 10
                     visible: dccData.mode().developerModeState || dccData.mode().isActivate
-                    leftPadding: 15
-                    bottomPadding: 5
                     text: qsTr("Allowed")
-                    font.pointSize: 10
+                    font.pixelSize: 12
                 }
 
                 Button {
                     Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 10
                     implicitWidth: 50
                     visible: !(dccData.mode().developerModeState || dccData.mode().isActivate)
                     text: qsTr("Enter")
 
                     onClicked: {
                         developDlg.show()
+                    }
+                }
+
+                Loader {
+                    id: loader
+                    active: dccData.mode().needShowModalDialog
+                    sourceComponent: Window {
+                        id: modalDialog
+                        flags: Qt.Window
+                        modality: Qt.ApplicationModal
+                        color: "transparent"
+                        opacity: 0.0
+                    }
+                    onLoaded: {
+                        item.show()
                     }
                 }
 
@@ -156,7 +172,6 @@ DccObject {
                             width: 340
                             height: 160
                             initialItem: page1Component
-
                         }
 
                         RecommandButton {
@@ -174,6 +189,7 @@ DccObject {
 
                                 if (dccData.mode().isLogin) {
                                     dccData.work().setEnableDeveloperMode(true)
+                                    developDlg.close()
                                 } else {
                                     dccData.work().login()
                                 }
@@ -292,9 +308,7 @@ DccObject {
                                         width: 340
                                         leftPadding: 10
                                         text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
-                                        font.pointSize: 10
                                         wrapMode: Text.WordWrap
-                                        color:"#5A000000"
                                         // 超链接点击事件
                                         onLinkActivated: function(url) {
                                             console.log("点击的链接是: " + url)
@@ -314,7 +328,6 @@ DccObject {
                                         leftPadding: 10
                                         text: qsTr("Import Certificate")
                                         font: DTK.fontManager.t6
-                                        color:"#5A000000"
                                         // 超链接点击事件
                                         onLinkActivated: function(url) {
                                             Qt.openUrlExternally(url) // 使用默认浏览器打开链接
@@ -340,7 +353,7 @@ DccObject {
                 topPadding: 10
                 bottomPadding: 5
                 text: qsTr("To install and run unsigned apps, please go to <a href=\"Security Center\">Security Center</a> to change the settings.")
-                font.pointSize: 10
+                font.pixelSize: 12
                 //opacity: 0.5
                 color:"#5A000000"
                 // 超链接点击事件
@@ -365,7 +378,7 @@ DccObject {
             text: qsTr("Development and debugging options")
             font.bold: true
             color: "black"
-            font.pointSize: 14
+            font.pixelSize: 16
         }
     }
 

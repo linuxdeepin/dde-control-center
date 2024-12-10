@@ -30,12 +30,12 @@ public:
     void refreshFont();
 
 public Q_SLOTS:
-    void switchWM();
-    void windowSwitchWM(bool value);
-    void movedWindowSwitchWM(bool value);
     void setDiabledCompactToTitleHeight();
     void setScrollBarPolicy(int policy);
+    void setCompactDisplay(bool value);
     void goDownloadTheme();
+
+    // 设置给Appearance分别在深色和浅色下的活动色
     void setActiveColors(const QString &activeColors);
 
     virtual void setDefaultByType(const QString &type, const QString &value);
@@ -44,9 +44,9 @@ public Q_SLOTS:
     virtual void setOpacity(int opcaity);
     virtual void setWindowEffect(int value);
     virtual void setMiniEffect(int effect);
+    virtual void setMovedWindowOpacity(bool value);
     virtual void setActiveColor(const QString &hexColor);
     virtual void setWindowRadius(int radius);
-    virtual void setCompactDisplay(bool value);
     virtual void setTitleBarHeight(int value);
     virtual void setGlobalTheme(const QString &themeId);
     virtual void setAppearanceTheme(const QString &id);
@@ -63,12 +63,8 @@ private Q_SLOTS:
     void onGetFontFinished(const QString &category, const QString &json);
     void onGetThemeFinished(const QString &category, const QString &json);
     void onGetPicFinished(const QString &category, const QString &id, const QString &json);
-    //    void onGetActiveColorFinished(QDBusPendingCallWatcher *w);
     void onRefreshedChanged(const QString &type);
-    void onToggleWM(const QString &wm);
     void setFontList(FontModel *model, const QString &type, const QString &list);
-    void onCompositingAllowSwitch(bool value);
-    void onMiniEffectChanged(bool value);
     void onWindowRadiusChanged(int value);
     void onCompactDisplayChanged(int value);
     void onWindowEffectChanged(int value);
@@ -81,14 +77,10 @@ private:
     double sliderValutToOpacity(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
-    void refreshWMState();
     void refreshThemeByType(const QString &type);
     void refreshFontByType(const QString &type);
     void refreshOpacity(double opacity);
     void refreshActiveColor(const QString &color);
-    bool allowSwitchWM();
-    void onKWinTitleBarConfigChanged(const QString &key);
-    void onKWinCompositingConfigChanged(const QString &key);
     void onPersonalizationConfigChanged(const QString &key);
     void onDTKConfigChanged(const QString &key);
 
@@ -97,12 +89,10 @@ private:
 
 protected:
     PersonalizationModel *m_model;
+    PersonalizationDBusProxy *m_personalizationDBusProxy;
 
 private:
-    PersonalizationDBusProxy *m_personalizationDBusProxy;
     WallpaperWorker *m_wallpaperWorker;
-    Dtk::Core::DConfig *m_kwinTitleBarConfig;
-    Dtk::Core::DConfig *m_kwinCompositingConfig;
     Dtk::Core::DConfig *m_personalizationConfig;
     Dtk::Core::DConfig *m_dtkConfig;
 

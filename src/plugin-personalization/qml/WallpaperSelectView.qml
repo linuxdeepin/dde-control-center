@@ -66,10 +66,26 @@ ColumnLayout {
             }
         }
 
+        Flow {
+            id: layout
+            property int lineCount: Math.floor((parent.width + imageSpacing) / (imageRectW + imageSpacing))
+            width: lineCount * (imageRectW + imageSpacing) - imageSpacing
+            spacing: imageSpacing
+            bottomPadding: imageSpacing
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            move: Transition {
+            }
+
+            Repeater {
+                model: sortedModel
+            }
+        }
+
         D.SortFilterModel {
             id: sortedModel
             model: root.model
-            property int maxCount: Math.floor((layout.width + imageSpacing) / (imageRectW + imageSpacing)) * 2
+            property int maxCount: layout.lineCount * 2
             lessThan: function(left, right) {
                 return left.index < right.index
             }
@@ -104,6 +120,7 @@ ColumnLayout {
                         height: 2 / Screen.devicePixelRatio
                         source: model.url
                         fillMode: Image.Stretch
+                        asynchronous: true
                     }
 
                     Image {
@@ -198,19 +215,6 @@ ColumnLayout {
                         }
                     }
                 }
-            }
-        }
-        Flow {
-            id: layout
-            width: parent.width
-            spacing: imageSpacing
-            bottomPadding: imageSpacing
-
-            move: Transition {
-            }
-
-            Repeater {
-                model: sortedModel
             }
         }
     }

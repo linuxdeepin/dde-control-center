@@ -341,6 +341,7 @@ void SystemInfoWork::setUeProgram(bool enabled)
     QDateTime current_date_time = QDateTime::currentDateTime();
     QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
     if (enabled && (isUeProgramEnabled() != enabled)) {
+        Q_EMIT requestUeProgram(true);
         qInfo() << "Suser opened experience project switch";
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
         QString allowContent(tr("Agree and Join User Experience Program"));
@@ -375,6 +376,7 @@ void SystemInfoWork::setUeProgram(bool enabled)
                 m_model->setJoinUeProgram(isUeProgramEnabled());
                 qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
+            Q_EMIT requestUeProgram(false);
             m_process->deleteLater();
             m_process = nullptr;
         });

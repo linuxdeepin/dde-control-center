@@ -86,6 +86,7 @@ DccObject {
                 displayName: qsTr("Modify password")
                 weight: 12
                 pageType: DccObject.Item
+                enabled: dccData.currentUserId() === loginMethodTitle.userId || !dccData.isOnline(loginMethodTitle.userId)
                 page: Item {
                     implicitHeight: 40
                     RowLayout {

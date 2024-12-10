@@ -3,8 +3,109 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "x11worker.h"
+#include "operation/personalizationworker.h"
+
+#include <QLoggingCategory>
+#include <QTimer>
+#include <DConfig>
+
+DCORE_USE_NAMESPACE
+Q_LOGGING_CATEGORY(DdcPersonnalizationX11Worker, "dcc-personalization-X11-woker")
+
+constexpr auto ORG_KDE_KWIN_DECORATION = "org.kde.kwin.decoration";
+constexpr auto ORG_KDE_KWIN_DECORATION_TITLEBAR = "org.kde.kwin.decoration.titlebar";
+constexpr auto TITLE_BAR_HEIGHT_KEY = "titlebarHeight";
+constexpr auto WINDOW_EFFECT_TYPE_KEY = "user_type";
+constexpr auto ORG_KDE_KWIN = "org.kde.kwin";
+constexpr auto ORG_KDE_KWIN_COMPOSITING = "org.kde.kwin.compositing";
+constexpr auto EffectMoveWindowArg = "kwin4_effect_translucency";
 
 X11Worker::X11Worker(PersonalizationModel *model, QObject *parent)
-: PersonalizationWorker(model, parent)
+    : PersonalizationWorker(model, parent)
+    , m_kwinTitleBarConfig(DConfig::create(ORG_KDE_KWIN_DECORATION, ORG_KDE_KWIN_DECORATION_TITLEBAR, "", this))
+    , m_kwinCompositingConfig(DConfig::create(ORG_KDE_KWIN, ORG_KDE_KWIN_COMPOSITING, "", this))
+
 {
+    connect(m_kwinTitleBarConfig, &DConfig::valueChanged, this, &X11Worker::onKWinConfigChanged);
+    connect(m_kwinCompositingConfig, &DConfig::valueChanged, this, &X11Worker::onKWinConfigChanged);
+}
+
+void X11Worker::active()
+{
+    PersonalizationWorker::active();
+    int titleBarHight = m_kwinTitleBarConfig->value(TITLE_BAR_HEIGHT_KEY).toInt();
+    m_model->setTitleBarHeight(titleBarHight);
+    int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
+    m_model->setWindowEffectType(windowEffectType);
+    m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
+    refreshWMState();
+}
+
+void X11Worker::setTitleBarHeight(int value)
+{
+    if (m_kwinTitleBarConfig->value(TITLE_BAR_HEIGHT_KEY).toInt() != value) {
+        m_kwinTitleBarConfig->setValue(TITLE_BAR_HEIGHT_KEY, value);
+    }
+}
+
+void X11Worker::setWindowEffect(int value)
+{
+    qCDebug(DdcPersonnalizationX11Worker) << "windowSwitchWM switch to: " << value;
+    m_kwinCompositingConfig->setValue(WINDOW_EFFECT_TYPE_KEY, value);
+}
+
+void X11Worker::onKWinConfigChanged(const QString &key)
+{
+    if (key == TITLE_BAR_HEIGHT_KEY) {
+        int value = m_kwinTitleBarConfig->value(key).toInt();
+        m_model->setTitleBarHeight(value);
+    } else if (key == WINDOW_EFFECT_TYPE_KEY) {
+        int value = m_kwinCompositingConfig->value(key).toInt();
+        m_model->setWindowEffectType(value);
+    }
+}
+
+void X11Worker::onMiniEffectChanged(bool value)
+{
+    m_model->setMiniEffect(value ? 1 : 0);
+}
+
+void X11Worker::refreshWMState()
+{
+    m_personalizationDBusProxy->CurrentWM(this, SLOT(onToggleWM(const QString &)));
+    m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
+}
+
+void X11Worker::setMovedWindowOpacity(bool value)
+{
+    if (value) {
+        m_personalizationDBusProxy->loadEffect(EffectMoveWindowArg);
+    } else {
+        m_personalizationDBusProxy->unloadEffect(EffectMoveWindowArg);
+    }
+
+    //设置kwin接口后, 等待50ms给kwin反应，根据isEffectLoaded返回值确定真实状态
+    QTimer::singleShot(50, [this] {
+        bool isLoaded =  m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg);
+        qCDebug(DdcPersonnalizationX11Worker) << "Moved window switch WM, load effect translucency: " << isLoaded;
+        m_model->setIsMoveWindow(isLoaded);
+    });
+}
+
+void X11Worker::setMiniEffect(int effect)
+{
+    switch (effect) {
+    case 0:
+        qCDebug(DdcPersonnalizationX11Worker) << "scale";
+        m_personalizationDBusProxy->unloadEffect("magiclamp");
+        m_model->setMiniEffect(effect);
+        break;
+    case 1:
+        qCDebug(DdcPersonnalizationX11Worker) << "magiclamp";
+        m_personalizationDBusProxy->loadEffect("magiclamp");
+        m_model->setMiniEffect(effect);
+        break;
+    default:
+        break;
+    }
 }

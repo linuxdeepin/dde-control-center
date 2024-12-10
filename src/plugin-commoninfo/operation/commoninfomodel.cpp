@@ -18,6 +18,7 @@ CommonInfoModel::CommonInfoModel(QObject *parent)
     , m_GrubAnimationModel(new GrubAnimationModel(this))
     , m_GrubMenuListModel(new GrubMenuListModel(this))
     , m_debugLogCurrentIndex(0)
+    , m_needShowModalDialog(false)
 {
 }
 
@@ -147,6 +148,19 @@ void CommonInfoModel::setPlymouthTheme(const QString &themeName)
     m_plymouththeme = themeName;
 
     Q_EMIT plymouthThemeChanged(themeName);
+}
+
+bool CommonInfoModel::needShowModalDialog() const
+{
+    return m_needShowModalDialog;
+}
+
+void CommonInfoModel::setNeedShowModalDialog(bool newNeedShowModalDialog)
+{
+    if (m_needShowModalDialog == newNeedShowModalDialog)
+        return;
+    m_needShowModalDialog = newNeedShowModalDialog;
+    emit needShowModalDialogChanged();
 }
 
 QString CommonInfoModel::grubThemePath() const

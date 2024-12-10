@@ -12,13 +12,16 @@ D.LineEdit {
     signal finished()
 
     readOnly: true
-    background: null
+    background.visible: showAlert
     horizontalAlignment: TextInput.AlignLeft
     clearButton.visible: !readOnly
     rightPadding: clearButton.width + clearButton.anchors.rightMargin
+    alertDuration: 3000
     onEditingFinished: {
         if (edit.readOnly)
             return
+        if (showAlert)
+            showAlert = false
 
         edit.readOnly = true
 

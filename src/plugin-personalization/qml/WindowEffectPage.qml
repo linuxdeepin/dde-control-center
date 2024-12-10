@@ -127,7 +127,7 @@ DccObject {
             page: D.Switch {
                 checked: dccData.model.isMoveWindow
                 onCheckedChanged: {
-                    dccData.worker.movedWindowSwitchWM(checked)
+                    dccData.worker.setMovedWindowOpacity(checked)
                 }
             }
         }
