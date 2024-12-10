@@ -442,19 +442,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Send&#xa0;Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remove&#xa0;Device</source>
+        <source>Select file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select file</source>
+        <source>Send Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4849,11 +4849,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Choose whether to enable the device</source>
+        <source>Input Devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Input Devices</source>
+        <source>Select whether to enable the devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6900,15 +6900,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Control system sound effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose whether to enable the device
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Framework</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6918,6 +6909,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>DevicesManger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

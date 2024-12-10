@@ -13,7 +13,7 @@ DccObject {
         name: "outputDevice"
         parentName: "sound/deviceManger"
         displayName: qsTr("Output Devices")
-        description: qsTr("Choose whether to enable the device")
+        description: qsTr("Select whether to enable the devices")
         visible: dccData.model().outPutCount !== 0
         weight: 10
         pageType: DccObject.Editor
@@ -36,7 +36,7 @@ DccObject {
         name: "inputDevice"
         parentName: "sound/deviceManger"
         displayName: qsTr("Input Devices")
-        description: qsTr("Choose whether to enable the device")
+        description: qsTr("Select whether to enable the devices")
         visible: dccData.model().inPutPortCount !== 0
         weight: 30
         pageType: DccObject.Editor

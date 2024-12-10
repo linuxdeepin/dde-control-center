@@ -450,12 +450,12 @@
         <translation>选择文件</translation>
     </message>
     <message>
-        <source>Send&#xa0;Files</source>
-        <translation type="unfinished"></translation>
+        <source>Send Files</source>
+        <translation>发送文件</translation>
     </message>
     <message>
-        <source>Remove&#xa0;Device</source>
-        <translation type="unfinished"></translation>
+        <source>Remove Device</source>
+        <translation>移除设备</translation>
     </message>
 </context>
 <context>
@@ -4850,12 +4850,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>输出设备</translation>
     </message>
     <message>
-        <source>Choose whether to enable the device</source>
-        <translation>选择是否启用该设备</translation>
-    </message>
-    <message>
         <source>Input Devices</source>
         <translation>输入设备</translation>
+    </message>
+    <message>
+        <source>Select whether to enable the devices</source>
+        <translation>选择是否启用设备</translation>
     </message>
 </context>
 <context>
@@ -6901,15 +6901,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>系统音效</translation>
     </message>
     <message>
-        <source>Control system sound effect</source>
-        <translation>控制系统声音效果</translation>
-    </message>
-    <message>
-        <source>Choose whether to enable the device
-</source>
-        <translation>启动/禁用音频设备</translation>
-    </message>
-    <message>
         <source>Audio Framework</source>
         <translation>音频框架</translation>
     </message>
@@ -6920,6 +6911,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>DevicesManger</source>
         <translation>设备管理</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>开启/关闭系统音效</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>启用/禁用音频设备</translation>
     </message>
 </context>
 <context>
