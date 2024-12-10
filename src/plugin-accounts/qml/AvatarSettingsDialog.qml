@@ -121,19 +121,22 @@ D.DialogWindow {
 
             CustomAvatarEmpatyArea {
                 id: customEmptyAvatar
-                visible: {
+                visible: needShow()
+                onIconDropped: function (url){
+                    dialog.currentAvatar = url
+                    // 23 dcc 选中自定义就会出发设置图标
+                    dialog.accepted();
+                }
+                onRequireFileDialog: {
+                    fileDlgLoader.active = true
+                }
+
+                function needShow() {
                     if (!scrollView.isCustom)
                         return false
 
                     let icons = dccData.avatars(dialog.userId, scrollView.filter, "")
                     return icons.length < 1
-                }
-
-                onIconDropped: function (url){
-                    dialog.currentAvatar = url
-                }
-                onRequireFileDialog: {
-                    fileDlgLoader.active = true
                 }
             }
 
@@ -188,6 +191,8 @@ D.DialogWindow {
                                         view.currentAvatar = avatar
                                         view.model = []
                                         view.model = dccData.avatars(dialog.userId, scrollView.filter, modelData)
+
+                                        customEmptyAvatar.visible = customEmptyAvatar.needShow()
                                     }
                                 }
                             }
