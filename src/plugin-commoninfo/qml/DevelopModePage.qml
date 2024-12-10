@@ -32,7 +32,10 @@ DccObject {
         parentName: "developerMode"
         weight: 20
         pageType: DccObject.Item
-        page: DccGroupView {}
+        page: DccGroupView {
+
+            Layout.topMargin: 10
+        }
 
         DccObject {
             name: "developerModeStatus"
@@ -42,49 +45,67 @@ DccObject {
             weight: 20
             page: RowLayout {
                 width: parent.width
-                height: 60
-                Column {
-                    height: parent.height
-                    Layout.fillWidth: true
-
+                Layout.topMargin: 5
+                ColumnLayout {
+                    spacing: 2
+                    width: parent.width - 70
+                    Layout.leftMargin: 15
+                    Layout.topMargin: 5
+                    Layout.bottomMargin: 5
                     Label {
-                        topPadding: 10
-                        leftPadding: 15
-                        bottomPadding: 5
                         text: qsTr("Request Root Access")
-                        font.pointSize: 14
+                        font.pixelSize: 16
                         color:"#7A000000"
                     }
 
                     Label {
-                        width: 500
-                        height: 40
-                        leftPadding: 15
-                        bottomPadding: 10
+                        Layout.preferredWidth: parent.width
+                        horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
                         text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
-                        font.pointSize: 10
+                        font.pixelSize: 12
                         color:"#5A000000"
                     }
                 }
 
                 Label {
                     Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 10
                     visible: dccData.mode().developerModeState || dccData.mode().isActivate
-                    leftPadding: 15
-                    bottomPadding: 5
                     text: qsTr("Allowed")
                     font.pointSize: 10
                 }
 
                 Button {
                     Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 10
                     implicitWidth: 50
                     visible: !(dccData.mode().developerModeState || dccData.mode().isActivate)
                     text: qsTr("Enter")
 
                     onClicked: {
                         developDlg.show()
+                    }
+                }
+
+                Window {
+                    id: modalDialog
+                    visible: false
+                    flags: Qt.Window
+                    modality: Qt.ApplicationModal
+                    color: "transparent"
+                    opacity: 0.0
+                }
+
+                Connections {
+                    target: dccData
+                    function onRequestDevlicenseDlg(visible) {
+
+                        if (visible) {
+                            modalDialog.show()
+                        } else {
+                            modalDialog.close()
+                        }
                     }
                 }
 
@@ -156,7 +177,6 @@ DccObject {
                             width: 340
                             height: 160
                             initialItem: page1Component
-
                         }
 
                         RecommandButton {
@@ -174,6 +194,7 @@ DccObject {
 
                                 if (dccData.mode().isLogin) {
                                     dccData.work().setEnableDeveloperMode(true)
+                                    developDlg.close()
                                 } else {
                                     dccData.work().login()
                                 }

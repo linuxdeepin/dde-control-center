@@ -18,6 +18,8 @@ CommonInfoInteraction::CommonInfoInteraction(QObject *parent)
     m_mode = new CommonInfoModel(this);
     m_work = new CommonInfoWork(m_mode, this);
 
+    connect(m_work, &CommonInfoWork::requestDevlicenseDlg, this, &CommonInfoInteraction::requestDevlicenseDlg);
+
     m_work->active();
 }
 
