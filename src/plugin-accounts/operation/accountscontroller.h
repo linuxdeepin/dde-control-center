@@ -38,6 +38,7 @@ public slots:
     QString fullName(const QString &id) const;
     void setFullname(const QString &id, const QString &name);
     int userType(const QString &id) const;
+    void setUserType(const QString &id, int index);
     QString userTypeName(const QString &id) const;
     QStringList userTypes(bool createUser = false) const;
     bool isDeleteAble(const QString &id) const;
@@ -83,6 +84,7 @@ signals:
     void userIdListChanged();
     void onlineUserListChanged();
     void avatarChanged(const QString &userId, const QString &avatar);
+    void userTypeChanged(const QString &userId, const int userType);
     void autoLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void groupsChanged(const QString &userId, const QStringList &groups);

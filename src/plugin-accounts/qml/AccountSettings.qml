@@ -148,8 +148,18 @@ DccObject {
                     color: palette.text // not update ?
                 }
                 Text {
+                    id: userTypeName
                     text: dccData.userTypeName(settings.userId)
                     color: palette.text
+
+                    Connections {
+                        target: dccData
+                        function onUserTypeChanged(userId, type) {
+                            if (userId === settings.userId) {
+                                userTypeName.text = dccData.userTypeName(settings.userId)
+                            }
+                        }
+                    }
                 }
             }
             RowLayout {
@@ -283,6 +293,9 @@ DccObject {
                 model: dccData.userTypes()
                 currentIndex: dccData.userType(settings.userId)
                 enabled: dccData.isDeleteAble(settings.userId)
+                onActivated: function(index) {
+                    dccData.setUserType(settings.userId, index)
+                }
             }
         }
     }
