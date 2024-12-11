@@ -139,6 +139,7 @@ void TreeLandWorker::setCursorTheme(const QString &id)
     m_cursorTheme = id;
     PersonalizationWorker::setCursorTheme(id);
     m_cursorContext->set_theme(id);
+    m_cursorContext->commit();
 }
 
 void TreeLandWorker::setActiveColor(const QString &hexColor)
