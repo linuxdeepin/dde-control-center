@@ -121,11 +121,6 @@ public slots:
     bool Show(const QString &ty, const QStringList &names, QObject *receiver, const char *member);
     QString Thumbnail(const QString &ty, const QString &name);
     bool Thumbnail(const QString &ty, const QString &name, QObject *receiver, const char *member, const char *errorSlot);
-    // WMSwitcher
-    bool AllowSwitch();
-    QString CurrentWM();
-    bool CurrentWM(QObject *receiver, const char *member);
-    void RequestSwitchWM();
     // Effects
     bool loadEffect(const QString &name);
     void unloadEffect(const QString &name);
@@ -139,7 +134,6 @@ private slots:
 
 private:
     QDBusInterface *m_AppearanceInter = nullptr;
-    QDBusInterface *m_WMSwitcherInter = nullptr;
     QDBusInterface *m_WMInter = nullptr;
     QDBusInterface *m_EffectsInter = nullptr;
 };

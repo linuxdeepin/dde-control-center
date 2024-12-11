@@ -13,10 +13,6 @@ const QString AppearanceService = QStringLiteral("org.deepin.dde.Appearance1");
 const QString AppearancePath = QStringLiteral("/org/deepin/dde/Appearance1");
 const QString AppearanceInterface = QStringLiteral("org.deepin.dde.Appearance1");
 
-const QString WMSwitcherService = QStringLiteral("org.deepin.dde.WMSwitcher1");
-const QString WMSwitcherPath = QStringLiteral("/org/deepin/dde/WMSwitcher1");
-const QString WMSwitcherInterface = QStringLiteral("org.deepin.dde.WMSwitcher1");
-
 const QString WMService = QStringLiteral("com.deepin.wm");
 const QString WMPath = QStringLiteral("/com/deepin/wm");
 const QString WMInterface = QStringLiteral("com.deepin.wm");
@@ -32,18 +28,16 @@ DGUI_USE_NAMESPACE
 
 PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_AppearanceInter(new QDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this))
-    , m_WMSwitcherInter(new QDBusInterface(WMSwitcherService, WMSwitcherPath, WMSwitcherInterface, QDBusConnection::sessionBus(), this))
-
 {
+    m_AppearanceInter = new QDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
-        connect(m_WMSwitcherInter, SIGNAL(WMChanged(const QString &)), this, SIGNAL(WMChanged(const QString &)));
+
+        QDBusConnection::sessionBus().connect(WMService, WMPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     }
     
     QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::sessionBus().connect(WMService, WMPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
     connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
@@ -238,28 +232,6 @@ void PersonalizationDBusProxy::SetCurrentWorkspaceBackgroundForMonitor(const QSt
 QString PersonalizationDBusProxy::getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName)
 {
     return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), screenName));
-}
-
-// WMSwitcher
-bool PersonalizationDBusProxy::AllowSwitch()
-{
-    return QDBusPendingReply<bool>(m_WMSwitcherInter->asyncCall(QStringLiteral("AllowSwitch")));
-}
-
-QString PersonalizationDBusProxy::CurrentWM()
-{
-    return QDBusPendingReply<QString>(m_WMSwitcherInter->asyncCall(QStringLiteral("CurrentWM")));
-}
-
-bool PersonalizationDBusProxy::CurrentWM(QObject *receiver, const char *member)
-{
-    QList<QVariant> args;
-    return m_WMSwitcherInter->callWithCallback(QStringLiteral("CurrentWM"), args, receiver, member);
-}
-
-void PersonalizationDBusProxy::RequestSwitchWM()
-{
-    m_WMSwitcherInter->asyncCall(QStringLiteral("RequestSwitchWM"));
 }
 
 // WM
