@@ -10,7 +10,7 @@
 
 #include <QObject>
 #include <QSortFilterProxyModel>
-
+#include <QHash>
 namespace dccV25 {
 
 class AccountsController : public QObject
@@ -52,7 +52,9 @@ public slots:
     bool isOnline(const QString &id);
 
     QStringList allGroups() const;
-    QStringList groups(const QString &id) const;
+    QStringList groups(const QString &id);
+    void updateGroups(const QString &id);
+    void updateAllGroups();
     void setGroup(const QString &id, const QString &group, bool on);
     bool groupContains(const QString &id, const QString &name) const;
     bool groupEnabled(const QString &id, const QString &name) const;
@@ -82,6 +84,7 @@ public slots:
 signals:
     void currentUserNameChanged();
     void userIdListChanged();
+    void userRemoved(const QString &userId);
     void onlineUserListChanged();
     void avatarChanged(const QString &userId, const QString &avatar);
     void userTypeChanged(const QString &userId, const int userType);
@@ -104,6 +107,7 @@ private:
     QSortFilterProxyModel *m_avatarFilterModel = nullptr;
     QAbstractListModel    *m_avatarTypesModel = nullptr;
     QAbstractListModel    *m_accountsModel = nullptr;
+    QHash<QString, QStringList> m_groups;
 };
 
 }

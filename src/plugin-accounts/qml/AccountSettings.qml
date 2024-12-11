@@ -14,17 +14,10 @@ DccObject {
     property string papaName
     property bool autoLoginChecked: true
     property bool nopasswdLoginChecked: true
-    property bool isDeleteUser: false
 
     Component.onCompleted: {
         settings.autoLoginChecked = dccData.autoLogin(settings.userId)
         settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
-    }
-
-    Component.onDestruction: {
-        if (isDeleteUser) {
-            DccApp.showPage("accounts")
-        }
     }
 
     // 账户头像
@@ -83,6 +76,11 @@ DccObject {
                         function onNopasswdLoginChanged(userId, enable) {
                             if (userId === settings.userId) {
                                 settings.nopasswdLoginChecked = enable
+                            }
+                        }
+                        function onUserRemoved(userId) {
+                            if (userId === settings.userId) {
+                                DccApp.showPage("accounts")
                             }
                         }
                     }
@@ -446,7 +444,6 @@ DccObject {
                             cfdLoader.active = false
                         }
                         onRequestDelete: function (deleteHome) {
-                            settings.isDeleteUser = true
                             dccData.removeUser(settings.userId, deleteHome)
                         }
                     }
