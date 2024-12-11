@@ -66,7 +66,6 @@ DccObject{
                         text: qsTr("Edit")
                         checked: true
                         spacing: 0
-                        visible: model.powered
                         topPadding: -5
                         onClicked: {
                             nameEdit.visible = true
