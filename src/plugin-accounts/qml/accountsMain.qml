@@ -152,18 +152,26 @@ DccObject {
                         separatorVisible: true
                     }
                     onClicked: {
+                        otherSettings.displayName = model.display
+                        otherSettings.userId = model.userId
                         DccApp.showPage(otherSettings)
                     }
                 }
 
-                AccountSettings {
-                    id: otherSettings
-                    name: "otherAccountsItem_" + index + "_Content"
-                    parentName: "otherAccountsItem" + index
-                    papaName: name
-                    displayName: model.display
-                    userId: model.userId
-                }
+            }
+        }
+
+        DccObject {
+            name: "otherSettingsHolder"
+            parentName: "accounts"
+            pageType: DccObject.Item
+            page: Item { }
+
+            AccountSettings {
+                id: otherSettings
+                name: "otherAccountSettings"
+                parentName: "otherSettingsHolder"
+                papaName: name
             }
         }
     }

@@ -41,14 +41,18 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::userAdded, this, [this]() {
         Q_EMIT userIdListChanged();
     });
-    connect(m_model, &UserModel::userRemoved, this, [this]() {
+    connect(m_model, &UserModel::userRemoved, this, [this](User *user) {
+        Q_EMIT userRemoved(user->id());
         Q_EMIT userIdListChanged();
     });
 
     connect(m_model, &UserModel::avatarChanged, this, &AccountsController::avatarChanged);
     connect(m_model, &UserModel::autoLoginChanged, this, &AccountsController::autoLoginChanged);
     connect(m_model, &UserModel::nopasswdLoginChanged, this, &AccountsController::nopasswdLoginChanged);
-    connect(m_model, &UserModel::groupsChanged, this, &AccountsController::groupsChanged);
+    connect(m_model, &UserModel::groupsChanged, this, [this](const QString &userId, const QStringList &groups) {
+        updateGroups(userId);
+        Q_EMIT groupsChanged(userId, groups);
+    });
     connect(m_model, &UserModel::passwordModifyFinished, this, &AccountsController::passwordModifyFinished);
     connect(m_model, &UserModel::userTypeChanged, this, &AccountsController::userTypeChanged);
     connect(m_model, &UserModel::fullnameChanged, this, &AccountsController::fullnameChanged);
@@ -57,6 +61,7 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_worker, &AccountsWorker::showSafetyPage, this, &AccountsController::showSafetyPage);
     connect(m_model, &UserModel::allGroupsChange, this, [this](){
         this->groupsUpdate();
+        updateAllGroups();
     });
     connect(m_worker, &AccountsWorker::updateGroupFailed, this, &AccountsController::groupsUpdateFailed);
 
@@ -245,7 +250,17 @@ QStringList AccountsController::allGroups() const
     return m_model->getAllGroups();
 }
 
-QStringList AccountsController::groups(const QString &id) const
+QStringList AccountsController::groups(const QString &id)
+{
+    if (m_groups.contains(id))
+        return m_groups.value(id);
+
+    updateGroups(id);
+
+    return m_groups.value(id);
+}
+
+void AccountsController::updateGroups(const QString &id)
 {
     QStringList ag = allGroups();
     std::sort(ag.begin(), ag.end(), [this, id](const QString &left, const QString &right){
@@ -258,8 +273,24 @@ QStringList AccountsController::groups(const QString &id) const
             return isLeftContains ? true : false;
         }
     });
+    m_groups[id] = ag;
+}
 
-    return ag;
+void AccountsController::updateAllGroups()
+{
+    if (!m_model)
+        return;
+
+    QList<User *> userList = m_model->userList();
+    for (const auto user : userList) {
+        updateGroups(user->id());
+    }
+
+    for (const auto id : m_groups.keys()) {
+        if (!m_model->getUser(id)) {
+            m_groups.remove(id);
+        }
+    }
 }
 
 bool AccountsController::groupContains(const QString &id, const QString &name) const
