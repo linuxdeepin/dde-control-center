@@ -12,7 +12,7 @@ DccObject {
         name: "defappWebpage"
         parentName: "defaultapp"
         displayName: qsTr("Webpage")
-        icon: "dcc_network"
+        icon: "defapp_network"
         weight: 10
         categoryModel: dccData.browser()
     }
@@ -20,7 +20,7 @@ DccObject {
         name: "defappMail"
         parentName: "defaultapp"
         displayName: qsTr("Mail")
-        icon: "dcc_mail"
+        icon: "defapp_mail"
         weight: 20
         categoryModel: dccData.mail()
     }
@@ -28,7 +28,7 @@ DccObject {
         name: "defappText"
         parentName: "defaultapp"
         displayName: qsTr("Text")
-        icon: "dcc_text"
+        icon: "defapp_text"
         weight: 30
         categoryModel: dccData.text()
     }
@@ -36,7 +36,7 @@ DccObject {
         name: "defappMusic"
         parentName: "defaultapp"
         displayName: qsTr("Music")
-        icon: "dcc_music"
+        icon: "defapp_music"
         weight: 40
         categoryModel: dccData.music()
     }
@@ -44,7 +44,7 @@ DccObject {
         name: "defappVideo"
         parentName: "defaultapp"
         displayName: qsTr("Video")
-        icon: "dcc_video"
+        icon: "defapp_video"
         weight: 50
         categoryModel: dccData.video()
     }
@@ -52,7 +52,7 @@ DccObject {
         name: "defappPicture"
         parentName: "defaultapp"
         displayName: qsTr("Picture")
-        icon: "dcc_picture"
+        icon: "defapp_picture"
         weight: 60
         categoryModel: dccData.picture()
     }
@@ -60,7 +60,7 @@ DccObject {
         name: "defappTerminal"
         parentName: "defaultapp"
         displayName: qsTr("Terminal")
-        icon: "dcc_terminal"
+        icon: "defapp_terminal"
         weight: 70
         categoryModel: dccData.terminal()
     }
