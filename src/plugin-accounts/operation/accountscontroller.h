@@ -89,6 +89,7 @@ signals:
     void autoLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void groupsChanged(const QString &userId, const QStringList &groups);
+    void passwordAgeChanged(const QString &userId, const int age);
     void passwordModifyFinished(const QString &userId, const int exitCode, const QString &msg);
     void groupsUpdate(); // create/delete/modify
     void groupsUpdateFailed(const QString &groupName);
