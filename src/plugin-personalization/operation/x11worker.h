@@ -24,7 +24,6 @@ private Q_SLOTS:
 
 private:
     void onKWinConfigChanged(const QString &key);
-    void refreshWMState();
 
 private:
     Dtk::Core::DConfig *m_kwinTitleBarConfig = nullptr;

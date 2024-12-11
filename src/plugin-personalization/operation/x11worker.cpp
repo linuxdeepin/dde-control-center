@@ -38,7 +38,7 @@ void X11Worker::active()
     int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
     m_model->setWindowEffectType(windowEffectType);
     m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
-    refreshWMState();
+    m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
 }
 
 void X11Worker::setTitleBarHeight(int value)
@@ -68,12 +68,6 @@ void X11Worker::onKWinConfigChanged(const QString &key)
 void X11Worker::onMiniEffectChanged(bool value)
 {
     m_model->setMiniEffect(value ? 1 : 0);
-}
-
-void X11Worker::refreshWMState()
-{
-    m_personalizationDBusProxy->CurrentWM(this, SLOT(onToggleWM(const QString &)));
-    m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
 }
 
 void X11Worker::setMovedWindowOpacity(bool value)
