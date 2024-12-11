@@ -39,7 +39,9 @@ DccObject {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             checked: dccData.disTpad
             onCheckedChanged: {
-                dccData.disTpad = checked;
+                if (checked !== dccData.disTpad) {
+                    dccData.disTpad = checked;
+                }
             }
         }
 
@@ -136,6 +138,12 @@ DccObject {
             page: D.Switch {
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                checked: dccData.disIfTyping
+                onCheckedChanged: {
+                    if (checked !== dccData.disIfTyping) {
+                        dccData.disIfTyping = checked;
+                    }
+                }
             }
 
         }
@@ -152,7 +160,9 @@ DccObject {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.tapClick
                 onCheckedChanged: {
-                    dccData.tapClick = checked;
+                    if (checked !== dccData.tapClick) {
+                        dccData.tapClick = checked;
+                    }
                 }
             }
 
@@ -170,7 +180,9 @@ DccObject {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.tpadNaturalScroll
                 onCheckedChanged: {
-                    dccData.tpadNaturalScroll = checked;
+                    if (checked !== dccData.tpadNaturalScroll) {
+                        dccData.tpadNaturalScroll = checked;
+                    }
                 }
             }
 

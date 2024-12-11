@@ -30,6 +30,7 @@ public:
     Q_PROPERTY(int tpadMoveSpeed READ tpadMoveSpeed WRITE setTpadMoveSpeed NOTIFY tpadMoveSpeedChanged FINAL)
     Q_PROPERTY(bool tapClick READ tapClick WRITE setTapClick NOTIFY tapClickChanged FINAL)
     Q_PROPERTY(bool tpadNaturalScroll READ tpadNaturalScroll WRITE setTpadNaturalScroll NOTIFY tpadNaturalScrollChanged FINAL)
+    Q_PROPERTY(bool disIfTyping READ disIfTyping WRITE setDisIfTyping NOTIFY disIfTypingChanged FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -108,6 +109,7 @@ Q_SIGNALS:
     void tapClickChanged(bool tapClick);
     void tapEnabledChanged(bool tapClick);
     void scrollSpeedChanged(int speed);
+    void disIfTypingChanged(bool state);
 
 private:
     bool m_leftHandState;
