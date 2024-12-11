@@ -62,6 +62,7 @@ DccObject {
         displayName: qsTr("DevicesManger")
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
+        visible: dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0
         weight: 40
         SoundDevicemanagesPage {}
     }

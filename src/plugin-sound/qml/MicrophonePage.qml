@@ -12,9 +12,6 @@ import org.deepin.dcc 1.0
 DccObject {
     id: root
 
-    // readonly property int itemDelegateMaxWidth: parent.width
-    // readonly property int itemDelegateMaxheight: 40
-
     function toPercent(value: string) {
         return Number(value * 100).toFixed(0) + "%"
     }
@@ -35,18 +32,39 @@ DccObject {
     }
 
     DccObject {
-        name: "inputGroup"
+        name: "noIntput"
         parentName: "sound/inPut"
         weight: 20
         pageType: DccObject.Item
+        backgroundType: DccObject.Normal
+        visible: dccData.model().inPutPortCombo.length === 0
+        page: Column {
+            width: parent.width
+            Label {
+                height: 100
+                width: parent.width
+                Layout.leftMargin: 10
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font: DTK.fontManager.t4
+                text: qsTr("No input device for sound found")
+            }
+        }
+    }
+
+    DccObject {
+        name: "inputGroup"
+        parentName: "sound/inPut"
+        weight: 30
+        pageType: DccObject.Item
         page: DccGroupView {}
+        visible: dccData.model().inPutPortCombo.length !== 0
         DccObject{
             name: "inputVolume"
             parentName: "sound/inPut/inputGroup"
             displayName: qsTr("Input Volume")
             weight: 10
             pageType: DccObject.Editor
-            visible: dccData.model().inPutPortCombo.length !== 0
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
 
@@ -102,7 +120,6 @@ DccObject {
             displayName: qsTr("Input Level")
             weight: 20
             pageType: DccObject.Editor
-            visible: dccData.model().inPutPortCombo.length !== 0
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
