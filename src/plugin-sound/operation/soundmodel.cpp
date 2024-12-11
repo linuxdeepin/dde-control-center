@@ -55,6 +55,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_soundOutputDeviceModel(new SoundDeviceModel(this))
     , m_soundInputDeviceModel(new SoundDeviceModel(this))
     , m_audioServerModel(new AudioServerModel(this))
+    , m_showBluetoothMode(false)
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
@@ -202,6 +203,7 @@ void SoundModel::setActiveOutPutPort(Port *newActiveOutPutPort)
 {
     m_activeOutPutPort = newActiveOutPutPort;
     setOutPutPortComboIndex(m_outPutPortCombo.indexOf(m_activeOutPutPort->name() + "(" + m_activeOutPutPort->cardName() + ")"));
+    setShowBluetoothMode(m_activeOutPutPort->isBluetoothPort());
 }
 
 int SoundModel::outPutPortComboIndex() const
@@ -646,6 +648,19 @@ void SoundModel::setAudioMono(bool newAudioMono)
 {
     m_audioMono = newAudioMono;
     emit audioMonoChanged();
+}
+
+bool SoundModel::showBluetoothMode() const
+{
+    return m_showBluetoothMode;
+}
+
+void SoundModel::setShowBluetoothMode(bool newShowBluetoothMode)
+{
+    if (m_showBluetoothMode == newShowBluetoothMode)
+        return;
+    m_showBluetoothMode = newShowBluetoothMode;
+    emit showBluetoothModeChanged();
 }
 
 void SoundModel::setInPutPortCount(int newInPutPortCount)

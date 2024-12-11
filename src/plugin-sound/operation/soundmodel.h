@@ -47,6 +47,9 @@ class SoundModel : public QObject
     Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
     Q_PROPERTY(bool audioServerStatus READ audioServerChangedState NOTIFY onSetAudioServerFinish FINAL)
     Q_PROPERTY(bool audioMono READ audioMono NOTIFY audioMonoChanged FINAL)
+    Q_PROPERTY(QStringList bluetoothModeOpts READ bluetoothAudioModeOpts NOTIFY bluetoothModeOptsChanged FINAL)
+    Q_PROPERTY(QString currentBluetoothAudioMode READ currentBluetoothAudioMode NOTIFY bluetoothModeChanged FINAL)
+    Q_PROPERTY(bool showBluetoothMode READ showBluetoothMode NOTIFY showBluetoothModeChanged FINAL)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -196,6 +199,9 @@ public:
     bool audioMono() const;
     void setAudioMono(bool newAudioMono);
 
+    bool showBluetoothMode() const;
+    void setShowBluetoothMode(bool newShowBluetoothMode);
+
 private:
 
 
@@ -253,6 +259,8 @@ Q_SIGNALS:
 
     void audioMonoChanged();
 
+    void showBluetoothModeChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -309,6 +317,7 @@ private:
     int m_outPutCount;
 
     bool m_audioMono;
+    bool m_showBluetoothMode;
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H
