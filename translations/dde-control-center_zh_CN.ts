@@ -3766,7 +3766,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Region</source>
-        <translation>地区</translation>
+        <translation>区域</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -6268,7 +6268,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>时间日期</translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
@@ -6279,7 +6279,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>语言和区域</translation>
     </message>
     <message>
-        <source>System language,region fommat</source>
+        <source>System language, region format</source>
         <translation>系统语言、区域格式</translation>
     </message>
 </context>

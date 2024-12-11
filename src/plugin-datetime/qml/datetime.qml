@@ -20,7 +20,7 @@ DccObject {
         name: "langAndFormat"
         parentName: "system"
         displayName: qsTr("Language and region")
-        description: qsTr("System language,region fommat")
+        description: qsTr("System language, region format")
         icon: "dcc_lang_format"
         weight: 45
     }
