@@ -133,6 +133,7 @@ DccObject {
                 weight: 12
                 pageType: DccObject.Editor
                 page: SpinBox {
+                    id: sbAge
                     from: 1
                     to: 99999
                     value: dccData.passwordAge(loginMethodTitle.userId)
@@ -141,10 +142,37 @@ DccObject {
                         regularExpression: /[\d]{1,5}/
                     }
                     textFromValue: function(value) {
-                        return value > 9999 ? qsTr("Always") : value
+                        return value > 99998 ? qsTr("Always") : value
+                    }
+                    valueFromText: function(text, locale) {
+                        if (text === qsTr("Always"))
+                            return 99999
+
+                        return text
                     }
                     onValueChanged: function() {
-                        dccData.setPasswordAge(loginMethodTitle.userId, value)
+                        timer.restart()
+                    }
+
+                    onFocusChanged: {
+                        if (!focus)
+                            dccData.setPasswordAge(loginMethodTitle.userId, value)
+                    }
+
+                    Timer {
+                        id: timer
+                        interval: 1000
+                        onTriggered: {
+                            dccData.setPasswordAge(loginMethodTitle.userId, sbAge.value)
+                        }
+                    }
+                    Connections {
+                        target: dccData
+                        function onPasswordAgeChanged(userId, age) {
+                            if (userId === loginMethodTitle.userId) {
+                                sbAge.value = dccData.passwordAge(loginMethodTitle.userId)
+                            }
+                        }
                     }
                 }
             }

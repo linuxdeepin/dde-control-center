@@ -52,6 +52,7 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::passwordModifyFinished, this, &AccountsController::passwordModifyFinished);
     connect(m_model, &UserModel::userTypeChanged, this, &AccountsController::userTypeChanged);
     connect(m_model, &UserModel::fullnameChanged, this, &AccountsController::fullnameChanged);
+    connect(m_model, &UserModel::passwordAgeChanged, this, &AccountsController::passwordAgeChanged);
 
     connect(m_worker, &AccountsWorker::showSafetyPage, this, &AccountsController::showSafetyPage);
     connect(m_model, &UserModel::allGroupsChange, this, [this](){

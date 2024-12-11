@@ -69,6 +69,7 @@ Q_SIGNALS:
     void onlineChanged(const QString &userId, const bool &online) const;
     void userTypeChanged(const QString &userId, const int userType);
     void fullnameChanged(const QString &userId, const QString &fullname);
+    void passwordAgeChanged(const QString &userId, const int age);
     void isJoinADDomainChanged(bool isjoin);
     void isADUserLoginChanged(bool isLogind);
     void allGroupsChange(const QStringList &groups);
