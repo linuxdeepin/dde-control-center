@@ -48,7 +48,7 @@ DccObject {
         name: "soundEffectsPage"
         parentName: "sound"
         displayName: qsTr("Sound Effects")
-        description: qsTr("Control system sound effect")
+        description: qsTr("Enable/disable sound effects")
         icon: "system_sound"
         weight: 30
         page: DccRightView {
@@ -60,7 +60,7 @@ DccObject {
         name: "deviceManger"
         parentName: "sound"
         displayName: qsTr("DevicesManger")
-        description: qsTr("Choose whether to enable the device\n")
+        description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
         weight: 40
         SoundDevicemanagesPage {}

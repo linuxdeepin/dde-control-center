@@ -225,7 +225,7 @@ Rectangle {
                                     D.MenuItem {
                                         id: sendFile
                                         padding: 0
-                                        text: qsTr("Send Files")
+                                        text: qsTr("Send Files")
 
                                         // TODO 当前通过visible属性隐藏的时候item隐藏了，但是外部的区域没有隐藏会有空白显示，暂时改成通过takeItem移除的方式
                                         // visible: model.canSendFile && model.connectStatus
@@ -256,7 +256,7 @@ Rectangle {
 
                                     D.MenuItem {
                                         id: removeDev
-                                        text: qsTr("Remove Device")
+                                        text: qsTr("Remove Device")
                                         enabled: model.connectStatus === 2 || model.connectStatus === 0
                                         padding: 0
                                         onTriggered: {
