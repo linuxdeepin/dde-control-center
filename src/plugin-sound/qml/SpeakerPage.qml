@@ -27,10 +27,33 @@ DccObject {
             }
         }
     }
+
+    DccObject {
+        name: "noOutput"
+        parentName: "sound/outPut"
+        weight: 20
+        pageType: DccObject.Item
+        backgroundType: DccObject.Normal
+        visible: dccData.model().outPutPortCombo.length === 0
+        page: Column {
+            width: parent.width
+            Label {
+                height: 100
+                width: parent.width
+                Layout.leftMargin: 10
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font: DTK.fontManager.t4
+                text: qsTr("No output device for sound found")
+            }
+        }
+    }
+
     DccObject {
         name: "outputGroup"
         parentName: "sound/outPut"
-        weight: 20
+        weight: 30
+        visible: dccData.model().outPutPortCombo.length !== 0
         pageType: DccObject.Item
         page: DccGroupView {
             height: implicitHeight + 10
@@ -42,7 +65,6 @@ DccObject {
             displayName: qsTr("Output Volume")
             weight: 10
             pageType: DccObject.Editor
-            visible: dccData.model().outPutPortCombo.length !== 0
             page: RowLayout {
                 Label {
                     font: DTK.fontManager.t7
@@ -91,7 +113,6 @@ DccObject {
             displayName: qsTr("Volume Boost")
             description: qsTr("If the volume is louder than 100%, it may distort audio and be harmful to output devices")
             weight: 20
-            visible: dccData.model().outPutPortCombo.length !== 0
             pageType: DccObject.Editor
             page: Switch {
                 Layout.alignment: Qt.AlignRight
@@ -107,7 +128,6 @@ DccObject {
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Left Right Balance")
             weight: 30
-            visible: dccData.model().outPutPortCombo.length !== 0
             pageType: DccObject.Editor
             page: RowLayout {
                 Label {
@@ -191,6 +211,36 @@ DccObject {
                     console.log("Selected index:", currentIndex, isInitialized)
                     if (isInitialized) {
                         dccData.worker().setActivePort(currentIndex, 1)
+                    }
+                }
+            }
+        }
+
+        DccObject {
+            name: "bluetoothMode"
+            parentName: "sound/outPut/outputGroup"
+            displayName: qsTr("Mode")
+            weight: 60
+            pageType: DccObject.Editor
+            visible: dccData.model().showBluetoothMode
+            page: ComboBox {
+                id: bluetoothModeCombo
+                Layout.alignment: Qt.AlignRight
+                Layout.rightMargin: 10
+                flat: true
+                model: dccData.model().bluetoothModeOpts
+                currentIndex: indexOfValue(dccData.model().currentBluetoothAudioMode)
+                property bool isInitialized: false
+                // 等待组件加载完成后，设置 isInitialized 为 true
+                Component.onCompleted: {
+                    console.log("outputDevice onCompleted:", isInitialized)
+                    incrementCurrentIndex()
+                    isInitialized = true
+                }
+                onCurrentIndexChanged: {
+                    console.log("Selected index:", currentIndex, isInitialized)
+                    if (isInitialized) {
+                        dccData.worker().setBluetoothMode(valueAt(currentIndex))
                     }
                 }
             }
