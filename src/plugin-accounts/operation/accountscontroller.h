@@ -50,6 +50,7 @@ public slots:
     bool nopasswdLogin(const QString &id);
     void setNopasswdLogin(const QString &id, const bool enable);
     bool isOnline(const QString &id);
+    bool needShowGroups();
 
     QStringList allGroups() const;
     QStringList groups(const QString &id);

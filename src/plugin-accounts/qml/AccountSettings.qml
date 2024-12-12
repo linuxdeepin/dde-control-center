@@ -433,7 +433,7 @@ DccObject {
         pageType: DccObject.Item
         page: RowLayout {
             Button {
-                Layout.alignment: Qt.AlignLeft
+                Layout.alignment: groupSettingsBtn.visible ? Qt.AlignLeft : Qt.AlignRight
                 text: qsTr("Delete current account")
                 enabled: dccData.isDeleteAble(settings.userId)
                 Loader {
@@ -457,8 +457,10 @@ DccObject {
             }
 
             Button {
+                id: groupSettingsBtn
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Group setting")
+                visible: dccData.needShowGroups()
                 onClicked: {
                     DccApp.showPage(groupSettings)
                 }
