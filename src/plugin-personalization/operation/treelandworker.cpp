@@ -272,7 +272,7 @@ void TreeLandWorker::wallpaperMetaDataChanged(const QString &data)
 
 void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t option)
 {
-    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << url << isDark << option;
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "isDark:" << isDark << "option:" << option;
     if (!m_wallpaperContext)
         return;
 
