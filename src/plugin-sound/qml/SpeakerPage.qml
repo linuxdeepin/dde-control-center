@@ -165,6 +165,7 @@ DccObject {
             displayName: qsTr("Mono audio")
             description: qsTr("Merge left and right channels into a single channel")
             weight: 40
+            visible: dccData.model().audioServer === "pipewire"
             pageType: DccObject.Editor
             page: Switch {
                 checked: dccData.model().audioMono
@@ -200,7 +201,7 @@ DccObject {
                 flat: true
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().outPutPortCombo
-
+                enabled: dccData.model().outPutPortComboEnable
                 property bool isInitialized: false
                 // 等待组件加载完成后，设置 isInitialized 为 true
                 Component.onCompleted: {
@@ -209,7 +210,7 @@ DccObject {
                 }
                 onCurrentIndexChanged: {
                     console.log("Selected index:", currentIndex, isInitialized)
-                    if (isInitialized) {
+                    if (isInitialized && currentIndex !== dccData.model().outPutPortComboIndex) {
                         dccData.worker().setActivePort(currentIndex, 1)
                     }
                 }

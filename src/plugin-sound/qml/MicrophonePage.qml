@@ -172,6 +172,7 @@ DccObject {
                 currentIndex: dccData.model().inPutPortComboIndex
                 flat: true
                 model: dccData.model().inPutPortCombo
+                enabled: dccData.model().inPutPortComboEnable
                 property bool isInitialized: false
                 // 等待组件加载完成后，设置 isInitialized 为 true
                 Component.onCompleted: {
@@ -180,7 +181,7 @@ DccObject {
                 }
                 onCurrentIndexChanged: {
                     console.log("Selected index:", currentIndex, isInitialized)
-                    if (isInitialized) {
+                    if (isInitialized && dccData.model().inPutPortCombo !== currentIndex) {
                         dccData.worker().setActivePort(currentIndex, 2)
                     }
                 }

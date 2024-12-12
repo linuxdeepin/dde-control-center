@@ -46,10 +46,14 @@ class SoundModel : public QObject
     Q_PROPERTY(int inPutPortCount READ inPutPortCount NOTIFY inPutPortCountChanged FINAL)
     Q_PROPERTY(int outPutCount READ outPutCount NOTIFY outPutCountChanged FINAL)
     Q_PROPERTY(bool audioServerStatus READ audioServerChangedState NOTIFY onSetAudioServerFinish FINAL)
+    Q_PROPERTY(QString audioServer READ audioServer NOTIFY curAudioServerChanged FINAL)
     Q_PROPERTY(bool audioMono READ audioMono NOTIFY audioMonoChanged FINAL)
     Q_PROPERTY(QStringList bluetoothModeOpts READ bluetoothAudioModeOpts NOTIFY bluetoothModeOptsChanged FINAL)
     Q_PROPERTY(QString currentBluetoothAudioMode READ currentBluetoothAudioMode NOTIFY bluetoothModeChanged FINAL)
     Q_PROPERTY(bool showBluetoothMode READ showBluetoothMode NOTIFY showBluetoothModeChanged FINAL)
+
+    Q_PROPERTY(bool outPutPortComboEnable READ outPutPortComboEnable NOTIFY outPutPortComboEnableChanged FINAL)
+    Q_PROPERTY(bool inPutPortComboEnable READ inPutPortComboEnable NOTIFY inPutPortComboEnableChanged FINAL)
 
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
@@ -202,6 +206,12 @@ public:
     bool showBluetoothMode() const;
     void setShowBluetoothMode(bool newShowBluetoothMode);
 
+    bool outPutPortComboEnable() const;
+    void setOutPutPortComboEnable(bool newOutPutPortComboEnable);
+
+    bool inPutPortComboEnable() const;
+    void setInPutPortComboEnable(bool newInPutPortComboEnable);
+
 private:
 
 
@@ -261,6 +271,10 @@ Q_SIGNALS:
 
     void showBluetoothModeChanged();
 
+    void outPutPortComboEnableChanged();
+
+    void inPutPortComboEnableChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -303,10 +317,12 @@ private:
     QStringList m_outPutPortCombo;
     int m_outPutPortComboIndex;
     Port* m_activeOutPutPort;
+    bool m_outPutPortComboEnable;
 
     QStringList m_inPutPortCombo;
     int m_inPutPortComboIndex;
     Port* m_activeinPutPort;
+    bool m_inPutPortComboEnable;
 
     SoundEffectsModel* m_soundEffectsModel;
     SoundDeviceModel* m_soundInputDeviceModel;

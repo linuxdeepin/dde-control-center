@@ -94,6 +94,8 @@ private:
 
     QSoundEffect* m_sound;
     int m_waitSoundPortReceipt;
+    QTimer* m_waitInputReceiptTimer;
+    QTimer* m_waitOutputReceiptTimer;
     QMediaDevices* m_mediaDevices;
 
     QTimer* m_playAnimationTime;

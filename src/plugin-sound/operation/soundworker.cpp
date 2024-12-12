@@ -30,6 +30,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_pingTimer(new QTimer(this))
     , m_inter(QDBusConnection::sessionBus().interface())
     , m_sound(new QSoundEffect(this))
+    , m_waitInputReceiptTimer(new QTimer(this))
+    , m_waitOutputReceiptTimer(new QTimer(this))
     , m_mediaDevices(new QMediaDevices(this))
     , m_playAnimationTime(new QTimer(this))
     , m_playAniIconIndex(1)
@@ -40,6 +42,9 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
 
     m_playAnimationTime->setInterval(300);
     m_playAnimationTime->setSingleShot(false);
+
+    m_waitInputReceiptTimer->setSingleShot(true);
+    m_waitOutputReceiptTimer->setSingleShot(true);
 
     m_sound->setAudioDevice(QMediaDevices::defaultAudioOutput());
     qDebug() << " sound is playging " << m_sound->isPlaying();
@@ -86,6 +91,14 @@ void SoundWorker::initConnect()
     connect(m_soundDBusInter, &SoundDBusProxy::CurrentAudioServerChanged, m_model, &SoundModel::setAudioServer);
     connect(m_soundDBusInter, &SoundDBusProxy::AudioServerStateChanged, m_model, &SoundModel::setAudioServerChangedState);
     connect(m_soundDBusInter, &SoundDBusProxy::AudioMonoChanged, m_model, &SoundModel::setAudioMono);
+
+    connect(m_waitInputReceiptTimer, &QTimer::timeout, this, [ this ] {
+        m_model->setInPutPortComboEnable(true);
+    });
+
+    connect(m_waitOutputReceiptTimer, &QTimer::timeout, this, [this] {
+        m_model->setOutPutPortComboEnable(true);
+    });
 }
 
 void SoundWorker::activate()
@@ -164,6 +177,16 @@ void SoundWorker::setSinkBalance(double balance)
 
 void SoundWorker::setActivePort(int index, int portType)
 {
+    if (portType == Port::Out) {
+        m_model->setOutPutPortComboEnable(false);
+        m_waitOutputReceiptTimer->setInterval(m_model->currentWaitSoundReceiptTime());
+        m_waitOutputReceiptTimer->start();
+    } else if(portType == Port::In) {
+        m_model->setInPutPortComboEnable(false);
+        m_waitInputReceiptTimer->setInterval(m_model->currentWaitSoundReceiptTime());
+        m_waitInputReceiptTimer->start();
+    }
+
     Port* port = m_model->getPortForComboIndex(index, portType);
     if (port) {
         setPort(port);
