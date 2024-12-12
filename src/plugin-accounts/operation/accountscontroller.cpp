@@ -245,6 +245,16 @@ bool AccountsController::isOnline(const QString &id)
     return user ? user->online() : false;
 }
 
+bool AccountsController::needShowGroups()
+{
+#ifdef QT_DEBUG
+    // alwayls show groups for test
+    return true;
+#endif
+
+    return !DSysInfo::isCommunityEdition();
+}
+
 QStringList AccountsController::allGroups() const
 {
     return m_model->getAllGroups();
@@ -252,6 +262,9 @@ QStringList AccountsController::allGroups() const
 
 QStringList AccountsController::groups(const QString &id)
 {
+    if (!needShowGroups())
+        return QStringList();
+
     if (m_groups.contains(id))
         return m_groups.value(id);
 
