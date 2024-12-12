@@ -127,6 +127,11 @@ bool SystemInfoModel::showUserExperienceProgram() const
     return !IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM && DSysInfo::isDeepin();
 }
 
+bool SystemInfoModel::showGraphicsPlatform() const
+{
+    return  IS_COMMUNITY_SYSTEM;
+}
+
 QString SystemInfoModel::systemInstallationDate() const
 {
     return m_systemInstallationDate;

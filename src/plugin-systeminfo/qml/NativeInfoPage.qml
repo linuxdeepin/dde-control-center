@@ -268,6 +268,7 @@ DccObject {
             weight: 90
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
+            visible: dccData.systemInfoMode().showGraphicsPlatform()
             displayName: qsTr("Graphics Platform") + ":"
             page: Label {
                 font: DTK.fontManager.t6

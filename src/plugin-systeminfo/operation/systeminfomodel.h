@@ -114,6 +114,7 @@ public:
 
     Q_INVOKABLE bool showAuthorization() const;
     Q_INVOKABLE bool showUserExperienceProgram() const;
+    Q_INVOKABLE bool showGraphicsPlatform() const;
 
     QString graphicsPlatform() const;
     void setGraphicsPlatform(const QString &newGraphicsPlatform);
