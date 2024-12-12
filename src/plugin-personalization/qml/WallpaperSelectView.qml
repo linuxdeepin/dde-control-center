@@ -109,15 +109,15 @@ ColumnLayout {
                         img2x2.grabToImage(function(result) {
                             const isDarkType = dccData.imageHelper.isDarkType(result.image);
                             root.wallpaperSelected(model.url, isDarkType, isLock)
-                        });
+                        }, Qt.size(2, 2));
                     }
 
                     Image {
                         property bool isDarktype: true
                         anchors.centerIn : parent
                         id: img2x2
-                        width: 2 / Screen.devicePixelRatio
-                        height: 2 / Screen.devicePixelRatio
+                        width: 2
+                        height: 2
                         source: model.url
                         fillMode: Image.Stretch
                         asynchronous: true
