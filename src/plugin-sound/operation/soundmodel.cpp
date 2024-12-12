@@ -663,6 +663,32 @@ void SoundModel::setShowBluetoothMode(bool newShowBluetoothMode)
     emit showBluetoothModeChanged();
 }
 
+bool SoundModel::outPutPortComboEnable() const
+{
+    return m_outPutPortComboEnable;
+}
+
+void SoundModel::setOutPutPortComboEnable(bool newOutPutPortComboEnable)
+{
+    if (m_outPutPortComboEnable == newOutPutPortComboEnable)
+        return;
+    m_outPutPortComboEnable = newOutPutPortComboEnable;
+    emit outPutPortComboEnableChanged();
+}
+
+bool SoundModel::inPutPortComboEnable() const
+{
+    return m_inPutPortComboEnable;
+}
+
+void SoundModel::setInPutPortComboEnable(bool newInPutPortComboEnable)
+{
+    if (m_inPutPortComboEnable == newInPutPortComboEnable)
+        return;
+    m_inPutPortComboEnable = newInPutPortComboEnable;
+    emit inPutPortComboEnableChanged();
+}
+
 void SoundModel::setInPutPortCount(int newInPutPortCount)
 {
     if (m_inPutPortCount == newInPutPortCount)
