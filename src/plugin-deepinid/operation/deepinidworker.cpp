@@ -79,13 +79,16 @@ QString DeepinWorker::loadCodeURL()
         return token;
     };
 
-    QString oauthURI = "https://login.deepin.org";
+    QString oauthURI = "https://login.uniontech.com";
+    if (IsCommunitySystem) {
+        oauthURI = "https://login.deepin.org";
+    }
 
     if (!qEnvironmentVariableIsEmpty("DEEPINID_OAUTH_URI")) {
         oauthURI = qgetenv("DEEPINID_OAUTH_URI");
     }
 
-    QString url = oauthURI += QString("/oauth2/authorize/registerlogin?autoLoginKey=%1").arg(func_getToken());
+    QString url = oauthURI + QString("/oauth2/authorize/registerlogin?autoLoginKey=%1").arg(func_getToken());
     return url;
 }
 
