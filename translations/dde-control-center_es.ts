@@ -3895,6 +3895,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Devices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>No input device for sound found</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -5025,6 +5029,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

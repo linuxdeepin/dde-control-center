@@ -3896,6 +3896,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Devices</source>
         <translation>输入设备</translation>
     </message>
+    <message>
+        <source>No input device for sound found</source>
+        <translation>没有找到声音输入设备</translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -5027,6 +5031,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>将左声道和右声道合并成一个声道</translation>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
+        <translation>没有找到声音输出设备</translation>
     </message>
 </context>
 <context>
