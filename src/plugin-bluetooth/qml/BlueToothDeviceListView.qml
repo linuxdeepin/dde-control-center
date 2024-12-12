@@ -50,10 +50,9 @@ Rectangle {
                 }
 
                 content: Rectangle {
-
                     width: parent.width
                     height: 50
-
+                    color: "transparent"
                     MouseArea {
                         anchors.fill: parent
                         onDoubleClicked: {
@@ -63,7 +62,6 @@ Rectangle {
                                 dccData.work().connectDevice(model.id, model.adapterId)
                             }
                         }
-
                     }
 
 
@@ -71,7 +69,6 @@ Rectangle {
                         width: parent.width
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-
 
                         Column {
                             id: status
@@ -103,7 +100,6 @@ Rectangle {
                                     horizontalAlignment: Qt.AlignLeft
                                     verticalAlignment: Qt.AlignTop
                                     font.pointSize: 8
-                                    color: "#5A000000"
                                 }
 
                                 D.DciIcon {
@@ -121,7 +117,6 @@ Rectangle {
                                     horizontalAlignment: Qt.AlignLeft
                                     verticalAlignment: Qt.AlignTop
                                     font.pointSize: 8
-                                    color: "#5A000000"
                                 }
 
                             }
