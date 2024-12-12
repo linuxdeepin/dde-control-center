@@ -3,17 +3,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundworker.h"
 
-#include <QJsonDocument>
-#include <QTimer>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QDebug>
-#include <QLoggingCategory>
-#include <QPair>
+#include <DGuiApplicationHelper>
 
-#include <QMediaPlayer>
 #include <QAudioDevice>
-
+#include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QLoggingCategory>
+#include <QMediaPlayer>
+#include <QPair>
+#include <QTimer>
 
 Q_LOGGING_CATEGORY(DdcSoundWorker, "dcc-sound-worker")
 
@@ -520,6 +520,15 @@ void SoundWorker::updatePortActivity()
 
 void SoundWorker::initAudioServerData()
 {
+    // treeland单独处理，避免后续这里有变动
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+        AudioServerData data;
+        data.name = "PipeWire";
+        data.serverName = "pipewire";
+        m_model->addAudioServerData(data);
+        return;
+    }
+
     for (auto item : AudioServerNames) {
         AudioServerData data;
         data.name = item.second;
