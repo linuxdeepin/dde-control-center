@@ -95,9 +95,7 @@ void DccScreenPrivate::setMode(QSize resolution, double rate)
             m_worker->setMonitorResolutionBySize(monitor, resolution.width(), resolution.height());
         }
     }
-    if (m_monitors.size() < 2) {
-        m_worker->applyChanges();
-    }
+    m_worker->applyChanges();
 }
 
 void DccScreenPrivate::setRotate(uint rotate)
@@ -118,10 +116,24 @@ void DccScreenPrivate::setFillMode(const QString &fileMode)
 void DccScreenPrivate::updateResolutionList()
 {
     QList<QSize> resolutionList;
-    for (auto mode : monitor()->modeList()) {
-        QSize tmpMode(mode.width(), mode.height());
-        if (!resolutionList.contains(tmpMode)) {
-            resolutionList.append(tmpMode);
+    for (auto monitor = m_monitors.cbegin(); monitor != m_monitors.cend(); monitor++) {
+        QList<QSize> tmpResolutionList;
+        for (auto mode : (*monitor)->modeList()) {
+            QSize tmpMode(mode.width(), mode.height());
+            if (!tmpResolutionList.contains(tmpMode)) {
+                tmpResolutionList.append(tmpMode);
+            }
+        }
+        if (monitor == m_monitors.cbegin()) {
+            resolutionList = tmpResolutionList;
+        } else {
+            for (auto it = resolutionList.begin(); it != resolutionList.end();) {
+                if (tmpResolutionList.contains(*it)) {
+                    it++;
+                } else {
+                    it = resolutionList.erase(it);
+                }
+            }
         }
     }
     m_resolutionList = resolutionList;
@@ -203,8 +215,8 @@ QSize DccScreen::bestResolution() const
 
 QSize DccScreen::currentResolution() const
 {
-    Resolution resolution = d_ptrDccScreen->monitor()->currentMode();
-    return QSize(resolution.width(), resolution.height());
+    auto monitor = d_ptrDccScreen->monitor();
+    return QSize(monitor->w(), monitor->h());
 }
 
 void DccScreen::setCurrentResolution(const QSize &resolution)
