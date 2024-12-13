@@ -96,7 +96,9 @@ DccObject {
                     to: 1
                     value: dccData.model().microphoneVolume
                     onValueChanged: {
-                        dccData.worker().setSourceVolume(voiceTipsSlider1.value)
+                        if (voiceTipsSlider1.value != dccData.model().microphoneVolume) {
+                            dccData.worker().setSourceVolume(voiceTipsSlider1.value)
+                        }
                     }
                 }
                 IconButton {

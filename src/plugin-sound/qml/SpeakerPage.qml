@@ -91,7 +91,9 @@ DccObject {
                     value: dccData.model().speakerVolume
                     to: dccData.model().increaseVolume ? 1.5 : 1.0
                     onValueChanged: {
-                        dccData.worker().setSinkVolume(voiceTipsSlider.value)
+                        if (voiceTipsSlider.value != dccData.model().speakerVolume) {
+                            dccData.worker().setSinkVolume(voiceTipsSlider.value)
+                        }
                     }
                 }
                 IconButton {
@@ -148,7 +150,9 @@ DccObject {
                     value: dccData.model().speakerBalance
 
                     onValueChanged: {
-                        dccData.worker().setSinkBalance(balanceSlider.value)
+                        if (balanceSlider.value != dccData.model().speakerBalance) {
+                            dccData.worker().setSinkBalance(balanceSlider.value)
+                        }
                     }
                 }
                 Label {
