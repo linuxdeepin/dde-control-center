@@ -264,7 +264,8 @@ void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGrou
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, oldGroup, newGroup] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
             qWarning() << "Modify group from " << oldGroup << " to " << newGroup << " failed, error:" << call->error().message();
-            Q_EMIT updateGroupFailed(newGroup);
+            // 这里返回旧的 groupname， 因为 model 中的数据还没更新，给一个新的是定位不到 model 的 index 来触发 datachanged
+            Q_EMIT updateGroupFailed(oldGroup);
             return;
         }
 

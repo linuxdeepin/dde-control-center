@@ -1,11 +1,11 @@
+
 // SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.deepin.dcc 1.0
-import org.deepin.dtk 1.0 as D
+import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 
 DccObject {
@@ -93,7 +93,6 @@ DccObject {
                 // crashed https://github.com/linuxdeepin/dtkdeclarative/pull/385
                 // ToolTip.text: qsTr("Clicked to changed avatar")
                 // ToolTip.visible: control.hovered
-
                 Image {
                     id: image
                     source: dccData.avatar(settings.userId)
@@ -128,7 +127,7 @@ DccObject {
                 }
 
                 // fake round image, just set shadowColor same with window color
-                D.BoxShadow {
+                BoxShadow {
                     id: boxShadow
                     hollow: true
                     anchors.fill: image
@@ -272,7 +271,6 @@ DccObject {
                             showAlert = true
                             alertText = alertMsg
                             readOnly = false
-
                             return
                         }
 
@@ -305,7 +303,7 @@ DccObject {
                 model: dccData.userTypes()
                 currentIndex: dccData.userType(settings.userId)
                 enabled: dccData.isDeleteAble(settings.userId)
-                onActivated: function(index) {
+                onActivated: function (index) {
                     dccData.setUserType(settings.userId, index)
                 }
             }
@@ -384,9 +382,9 @@ DccObject {
 
     // 登陆方式
     LoginMethod {
-         name: settings.papaName + "loginMethodTitle"
-         parentName: settings.papaName
-         userId: settings.userId
+        name: settings.papaName + "loginMethodTitle"
+        parentName: settings.papaName
+        userId: settings.userId
     }
 
     // 动态锁
@@ -424,7 +422,6 @@ DccObject {
     //         page: Switch {}
     //     }
     // }
-
     DccObject {
         id: bottomButtons
         name: settings.papaName + "/bottomButtons"
@@ -470,209 +467,182 @@ DccObject {
 
     DccObject {
         id: groupSettings
+        property bool isEditing
+        property int lrMargin: 60
         name: settings.papaName + "/groupSettings"
         parentName: bottomButtons.name
         displayName: qsTr("Account groups")
-        weight: 70
+        weight: 10
         pageType: DccObject.Menu
-        page: DccRightView {}
+        page: ListView {
+            id: groupview
+            spacing: 1
+            anchors {
+                left: parent ? parent.left : undefined
+                right: parent ? parent.right : undefined
+            }
 
-        DccObject {
-            id: groupSettingsTitle
-            property bool isEditing: false
-            name: settings.papaName + "/groupSettingsTitle"
-            parentName: groupSettings.name
-            displayName: qsTr("Account groups")
-            weight: 10
-            pageType: DccObject.Item
-            page: RowLayout {
-                Label {
-                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                    Layout.leftMargin: 10
-                    font.bold: true
-                    font.pointSize: 14
-                    text: dccObj.displayName
+            ScrollBar.vertical: ScrollBar {
+                width: 10
+            }
+
+            header: Item {
+                implicitHeight: 50
+                anchors {
+                    left: parent ? parent.left : undefined
+                    right: parent ? parent.right : undefined
+                    leftMargin: groupSettings.lrMargin
+                    rightMargin: groupSettings.lrMargin
                 }
-                D.Button {
-                    id: button
-                    checkable: true
-                    checked: groupSettingsTitle.isEditing
-                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    Layout.rightMargin: 10
-                    text: groupSettingsTitle.isEditing ? qsTr("done") : qsTr("edit")
-                    font.pointSize: 13
-                    background: null
-                    textColor: D.Palette {
-                        normal {
-                            common: D.DTK.makeColor(D.Color.Highlight)
-                            crystal: D.DTK.makeColor(D.Color.Highlight)
+                RowLayout {
+                    anchors.fill: parent
+                    Label {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                        Layout.leftMargin: 10
+                        font.bold: true
+                        font.pointSize: 14
+                        text: dccObj.displayName
+                    }
+
+                    Button {
+                        id: button
+                        checkable: true
+                        checked: groupSettings.isEditing
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        Layout.rightMargin: 10
+                        text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
+                        font.pointSize: 13
+                        background: null
+                        textColor: Palette {
+                            normal {
+                                common: DTK.makeColor(Color.Highlight)
+                                crystal: DTK.makeColor(Color.Highlight)
+                            }
+                        }
+                        onCheckedChanged: {
+                            groupSettings.isEditing = button.checked
                         }
                     }
-                    onCheckedChanged: {
-                        groupSettingsTitle.isEditing = button.checked
-                    }
-                }
-            }
-            onParentItemChanged: item => { if (item) item.topPadding = 10 }
-        }
-
-        DccObject {
-            id: groupSettingsView
-            name: settings.papaName + "/groupSettingsView"
-            parentName: groupSettings.name
-            weight: 20
-            pageType: DccObject.Item
-            page: DccGroupView {}
-
-            Connections {
-                target: dccData
-                function onGroupsChanged(userId, groups) {
-                    if (userId === settings.userId) {
-                        groupsRepeater.model = dccData.groups(settings.userId)
-                    }
-                }
-                function onGroupsUpdate() {
-                    groupsRepeater.model = dccData.groups(settings.userId)
-                }
-                function onGroupsUpdateFailed(group) {
-                    groupsRepeater.failedGroupName = group
                 }
             }
 
-            DccRepeater {
-                id: groupsRepeater
-                property string failedGroupName
-                model: dccData.groups(settings.userId)
-                delegate: DccObject {
-                    name: "groupSettingsItem" + index
-                    parentName: groupSettingsView.name
-                    weight: 10 + 10 * index
-                    pageType: DccObject.Item
-                    enabled: dccData.groupEnabled(settings.userId, modelData)
-                    page: Item {
+            model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
+            delegate: ItemDelegate {
+                implicitHeight: 50
+                checkable: false
+                enabled: model.groupEnabled
+                background: DccItemBackground {
+                    backgroundType: DccObject.Normal
+                    separatorVisible: true
+                }
+                anchors {
+                    left: parent ? parent.left : undefined
+                    right: parent ? parent.right : undefined
+                    leftMargin: groupSettings.lrMargin
+                    rightMargin: groupSettings.lrMargin
+                }
+
+                contentItem: RowLayout {
+                    EditActionLabel {
+                        id: editLabel
+                        property bool editAble: model.groupEditAble
+                        text: model.display
+                        validator: RegularExpressionValidator {
+                            // 仅使用字母、数字、下划线或短横线，并且以字母开头
+                            regularExpression: /[a-zA-Z][a-zA-Z0-9-_]{0,31}$/
+                        }
                         implicitHeight: 40
-                        RowLayout {
-                            anchors.fill: parent
-                            EditActionLabel {
-                                id: edit
-                                property bool editAble: dccData.groupEditAble(settings.userId, modelData)
-                                property string failedText: groupsRepeater.failedGroupName
-                                onFailedTextChanged: {
-                                    if (failedText === text)
-                                        text = modelData
-                                }
-                                text: modelData
-                                validator: RegularExpressionValidator {
-                                    // 仅使用字母、数字、下划线或短横线，并且以字母开头
-                                    regularExpression: /[a-zA-Z][a-zA-Z0-9-_]{0,31}$/
-                                }
-                                implicitHeight: 40
-                                implicitWidth: 200
-                                placeholderText: qsTr("Group name")
-                                horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
-                                editBtn.visible: readOnly && editAble && !groupSettingsTitle.isEditing
+                        implicitWidth: 200
+                        placeholderText: qsTr("Group name")
+                        horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
+                        editBtn.visible: readOnly && editAble
+                                         && !groupSettings.isEditing
+                        readOnly: model.display.length > 0
 
-                                onFinished: function () {
-                                    if (text.length < 1) {
-                                        text = modelData
-                                        return
-                                    }
-
-                                    dccData.modifyGroup(modelData, text)
-                                }
+                        onFinished: function () {
+                            if (text.length < 1) {
+                                text = model.display
+                                return
                             }
-
-                            D.ActionButton {
-                                id: editButton
-                                focusPolicy: Qt.NoFocus
-                                icon.width: 18
-                                icon.height: 18
-                                visible: groupSettingsTitle.isEditing ? edit.editAble : true
-                                icon.name: {
-                                    if (groupSettingsTitle.isEditing) {
-                                        return "list_delete"
-                                    }
-
-                                    return editButton.checked ? "item_checked" : "item_unchecked"
-                                }
-
-                                background: null
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                // list_delete.dci icon has padding 10 (1.10p)
-                                Layout.rightMargin: groupSettingsTitle.isEditing ? 0 : 10
-                                // only checked from groupsChanged
-                                checkable: false
-                                checked: dccData.groupContains(settings.userId,
-                                                               modelData)
-                                onClicked: {
-                                    if (groupSettingsTitle.isEditing) {
-                                        // delete group
-                                        dccData.deleteGroup(modelData)
-                                        groupSettingsTitle.isEditing = false
-                                        return
-                                    }
-
-                                    dccData.setGroup(settings.userId,modelData, !editButton.checked)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            DccObject {
-                id: groupAddEdit
-                name: "groupAddEdit"
-                parentName: groupSettingsView.name
-                weight: 0xFFFF
-                pageType: DccObject.Item
-                visible: groupAddBtn.needShowEdit && !groupSettingsTitle.isEditing
-                page: Item {
-                    implicitHeight: 40
-                    RowLayout {
-                        anchors.fill: parent
-                        EditActionLabel {
-                            id: editLabel
-                            validator: RegularExpressionValidator {
-                                // 仅使用字母、数字、下划线或短横线，并且以字母开头
-                                regularExpression: /[a-zA-Z][a-zA-Z0-9-_]{0,31}$/
-                            }
-                            implicitHeight: 40
-                            implicitWidth: 300
-                            placeholderText: qsTr("Group name")
-                            horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
-                            editBtn.visible: false
-                            readOnly: false
-                            onFinished: function () {
-                                if (text.length < 1) {
-                                    return
-                                }
-
+                            if (model.display.length < 1)
                                 dccData.createGroup(text)
+                            else
+                                dccData.modifyGroup(model.display, text)
+                        }
+                        onFocusChanged: {
+                            if (focus || text.length > 0 || editLabel.readonly)
+                                return
 
-                                editLabel.readOnly = false
-                                groupAddBtn.needShowEdit = false
-                                editLabel.text = ""
+                            if (model.display.length < 1) {
+                                dccData.requestClearEmptyGroup(settings.userId)
+                                return
                             }
+
+                            text = model.display
+                        }
+                        Component.onCompleted: {
+                            if (editLabel.readOnly)
+                                return
+
+                            Qt.callLater(function () {
+                                editLabel.focus = true
+                            })
+                        }
+                    }
+
+                    ActionButton {
+                        id: editButton
+                        focusPolicy: Qt.NoFocus
+                        icon.width: 18
+                        icon.height: 18
+                        visible: groupSettings.isEditing ? editLabel.editAble : true
+                        icon.name: {
+                            if (groupSettings.isEditing) {
+                                return "list_delete"
+                            }
+
+                            return editButton.checked ? "item_checked" : "item_unchecked"
+                        }
+
+                        background: null
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        // list_delete.dci icon has padding 10 (1.10p)
+                        Layout.rightMargin: groupSettings.isEditing ? 0 : 10
+                        // only checked from groupsChanged
+                        checkable: false
+                        checked: dccData.groupContains(settings.userId, model.display)
+                        onClicked: {
+                            if (groupSettings.isEditing) {
+                                // delete group
+                                dccData.deleteGroup(model.display)
+                                groupSettings.isEditing = false
+                                return
+                            }
+
+                            dccData.setGroup(settings.userId, model.display, !editButton.checked)
                         }
                     }
                 }
+
+                corners: getCornersForBackground(index, groupview.count)
             }
 
-            DccObject {
-                id: groupAddBtn
-                property bool needShowEdit: false
-                name: settings.papaName + "/groupAddButton"
-                parentName: groupSettings.name
-                weight: 0xFFFF
-                pageType: DccObject.Item
-                enabled: !groupSettingsTitle.isEditing
-                page: RowLayout {
-
+            footer: Item {
+                implicitHeight: 50
+                anchors {
+                    left: parent ? parent.left : undefined
+                    right: parent ? parent.right : undefined
+                    leftMargin: groupSettings.lrMargin
+                    rightMargin: groupSettings.lrMargin
+                }
+                RowLayout {
+                    anchors.fill: parent
                     Button {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Add group")
                         onClicked: {
-                            groupAddBtn.needShowEdit = true
+                            dccData.requestCreateGroup(settings.userId)
+                            groupview.positionViewAtEnd()
                         }
                     }
                 }
