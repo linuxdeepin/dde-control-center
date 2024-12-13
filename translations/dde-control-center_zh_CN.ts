@@ -5278,10 +5278,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>基础设置</translation>
     </message>
     <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation>连接鼠标时禁用触摸板</translation>
-    </message>
-    <message>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
     </message>
@@ -5356,6 +5352,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger tap</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>触控板</translation>
     </message>
 </context>
 <context>

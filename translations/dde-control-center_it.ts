@@ -5277,10 +5277,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5354,6 +5350,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
