@@ -224,6 +224,7 @@ void MouseModel::setTapEnabled(bool tabEnabled)
 
     m_touchpadEnabled = tabEnabled;
 
+    QMetaObject::invokeMethod(m_worker,"onTouchpadEnabledChanged", Qt::QueuedConnection, Q_ARG(bool, m_touchpadEnabled));
     Q_EMIT tapEnabledChanged(tabEnabled);
 }
 

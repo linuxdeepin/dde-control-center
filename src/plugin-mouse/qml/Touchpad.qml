@@ -9,6 +9,8 @@ import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 DccObject {
+    id: touchpad
+    property bool enabled : dccData.tapEnabled
     DccObject {
         name: "BasicSettings"
         parentName: "MouseAndTouchpad/Touchpad"
@@ -22,29 +24,26 @@ DccObject {
                 font: D.DTK.fontManager.t4
                 text: dccObj.displayName
             }
-
         }
-
     }
 
     DccObject {
         name: "DisableTouchpadByMouse"
         parentName: "MouseAndTouchpad/Touchpad"
-        displayName: qsTr("Disable touchpad when a mouse is connected")
+        displayName: qsTr("Touchpad")
         weight: 20
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            checked: dccData.disTpad
+            checked: dccData.tapEnabled
             onCheckedChanged: {
-                if (checked !== dccData.disTpad) {
-                    dccData.disTpad = checked;
+                if (checked !== dccData.tapEnabled) {
+                    dccData.tapEnabled = checked;
                 }
             }
         }
-
     }
 
     DccObject {
@@ -52,6 +51,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Pointer Speed")
         weight: 30
+        visible: touchpad.enabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
 
@@ -126,6 +126,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Pointer Speed")
         weight: 40
+        visible: touchpad.enabled
         pageType: DccObject.Item
 
         DccObject {
