@@ -525,6 +525,7 @@ void SoundWorker::initAudioServerData()
         AudioServerData data;
         data.name = "PipeWire";
         data.serverName = "pipewire";
+        data.checked = true;
         m_model->addAudioServerData(data);
         return;
     }
