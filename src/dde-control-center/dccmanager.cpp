@@ -61,6 +61,7 @@ DccManager::DccManager(QObject *parent)
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
     connect(qApp, &QCoreApplication::aboutToQuit, this, &DccManager::onQuit);
+    showPage("system");
 }
 
 DccManager::~DccManager()
@@ -468,6 +469,13 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     if (m_plugins->isDeleting() || !obj) {
         return;
     }
+    // 禁用首页
+    if (obj == m_root) {
+        if (m_root->getChildren().isEmpty()) {
+            return;
+        }
+        obj = m_root->getChildren().first();
+    }
     if (m_activeObject == obj && cmd.isEmpty()) {
         return;
     }
@@ -631,12 +639,13 @@ void DccManager::onObjectRemoved(DccObject *obj)
         m_searchModel->removeSearchData(o, QString());
         objs.append(o->getChildren());
     }
-
+    DccObject *parentObj = m_root;
     for (auto &&o : m_currentObjects) {
         if (o == obj) {
-            doShowPage(m_root, QString());
+            doShowPage(parentObj, QString());
             break;
         }
+        parentObj = o;
     }
 }
 

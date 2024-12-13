@@ -11,7 +11,7 @@ DccObject {
     displayName: DccApp.uosEdition() === DccApp.UosCommunity ? qsTr("deepin ID") : qsTr("UOS ID")
     description: qsTr("Cloud services")
     icon: "deepinid"
-    weight: 20
+    weight: 70
     
     visible: false
     DccDBusInterface {

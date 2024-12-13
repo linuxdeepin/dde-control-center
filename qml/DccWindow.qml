@@ -99,14 +99,15 @@ D.ApplicationWindow {
         id: rootLayout
         SwipeView {
             id: stackView
-            currentIndex: 0
+            currentIndex: 1
             interactive: false
             HomePage {
                 id: homePage
+                visible: false
             }
             SecondPage {
                 id: secondPage
-                visible: false
+                // visible: false
             }
             Timer {
                 id: hideTimer
