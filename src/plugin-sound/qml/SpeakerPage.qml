@@ -169,7 +169,6 @@ DccObject {
             displayName: qsTr("Mono audio")
             description: qsTr("Merge left and right channels into a single channel")
             weight: 40
-            visible: dccData.model().audioServer === "pipewire"
             pageType: DccObject.Editor
             page: Switch {
                 checked: dccData.model().audioMono
