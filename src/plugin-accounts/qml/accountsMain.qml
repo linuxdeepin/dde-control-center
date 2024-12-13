@@ -157,7 +157,6 @@ DccObject {
                         DccApp.showPage(otherSettings)
                     }
                 }
-
             }
         }
 

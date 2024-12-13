@@ -59,11 +59,15 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::passwordAgeChanged, this, &AccountsController::passwordAgeChanged);
 
     connect(m_worker, &AccountsWorker::showSafetyPage, this, &AccountsController::showSafetyPage);
-    connect(m_model, &UserModel::allGroupsChange, this, [this](){
-        this->groupsUpdate();
+    connect(m_model, &UserModel::allGroupsChange, this, [this]() {
         updateAllGroups();
+        this->groupsUpdate();
     });
     connect(m_worker, &AccountsWorker::updateGroupFailed, this, &AccountsController::groupsUpdateFailed);
+    connect(m_worker, &AccountsWorker::updateGroupFinished, this, [this]() {
+        updateAllGroups();
+        this->groupsUpdate();
+    });
 
     QMetaObject::invokeMethod(m_worker, "active", Qt::QueuedConnection);
 }
@@ -538,6 +542,18 @@ QAbstractListModel *AccountsController::accountsModel()
     connect(this, &AccountsController::userIdListChanged, static_cast<AccountListModel *>(m_accountsModel), &AccountListModel::reset);
 
     return m_accountsModel;
+}
+
+QAbstractListModel *AccountsController::groupsModel(const QString &id)
+{
+    if (m_groupsModel) {
+        static_cast<GroupListModel*>(m_groupsModel)->setUserId(id);
+        return m_groupsModel;
+    }
+
+    auto groupsModel = new GroupListModel(id, this);
+    m_groupsModel = groupsModel;
+    return m_groupsModel;
 }
 
 int AccountsController::passwordLevel(const QString &pwd)

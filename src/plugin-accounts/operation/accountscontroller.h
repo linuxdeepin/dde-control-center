@@ -74,6 +74,7 @@ public slots:
     QSortFilterProxyModel *avatarFilterModel();
     QAbstractListModel *avatarTypesModel();
     QAbstractListModel *accountsModel();
+    QAbstractListModel *groupsModel(const QString &id);
 
     int passwordLevel(const QString &pwd);
     QString checkUsername(const QString &name);
@@ -92,11 +93,13 @@ signals:
     void fullnameChanged(const QString &userId, const QString &fullname);
     void autoLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
-    void groupsChanged(const QString &userId, const QStringList &groups);
     void passwordAgeChanged(const QString &userId, const int age);
     void passwordModifyFinished(const QString &userId, const int exitCode, const QString &msg);
+    void groupsChanged(const QString &userId, const QStringList &groups);
     void groupsUpdate(); // create/delete/modify
     void groupsUpdateFailed(const QString &groupName);
+    void requestCreateGroup(const QString &userId);
+    void requestClearEmptyGroup(const QString &userId);
     void showSafetyPage(const QString &errorTips);
 protected:
     bool isSystemAdmin(const User *user) const;
@@ -109,6 +112,7 @@ private:
     QAbstractListModel    *m_avatarTypesModel = nullptr;
     QAbstractListModel    *m_accountsModel = nullptr;
     QHash<QString, QStringList> m_groups;
+    QAbstractListModel    *m_groupsModel = nullptr;
 };
 
 }
