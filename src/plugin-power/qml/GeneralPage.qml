@@ -15,6 +15,7 @@ DccObject {
         displayName: qsTr("Power Plans")
         weight: 10
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
@@ -29,6 +30,7 @@ DccObject {
         parentName: "power/general"
         weight: 100
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: PowerPlansListview {
         }
     }
@@ -39,6 +41,7 @@ DccObject {
         displayName: qsTr("Power Saving Settings")
         weight: 200
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
@@ -53,6 +56,7 @@ DccObject {
         parentName: "power/general"
         weight: 300
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -95,6 +99,7 @@ DccObject {
         parentName: "power/general"
         weight: 400
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -118,7 +123,6 @@ DccObject {
             displayName: qsTr("Auto reduce screen brightness during power saving")
             weight: 2
             pageType: DccObject.Item
-            visible: dccData.platformName() !== "wayland"
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Label {
@@ -216,7 +220,7 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Shutdown Settings")
         weight: 700
-        visible: dccData.model.enableScheduledShutdown !== "Hidden"
+        visible: dccData.model.enableScheduledShutdown !== "Hidden" && dccData.platformName() !== "wayland"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -233,7 +237,7 @@ DccObject {
         parentName: "power/general"
         weight: 800
         pageType: DccObject.Item
-        visible: dccData.model.enableScheduledShutdown !== "Hidden"
+        visible: dccData.model.enableScheduledShutdown !== "Hidden" && dccData.platformName() !== "wayland"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
         page: DccGroupView {}
 
