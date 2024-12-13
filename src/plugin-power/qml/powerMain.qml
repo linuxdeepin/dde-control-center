@@ -27,6 +27,7 @@ DccObject {
         description: qsTr("Screen and suspend")
         icon: "plugged_in"
         weight: 100
+        visible: dccData.platformName() !== "wayland"
         page: DccRightView {
             spacing: 5
         }

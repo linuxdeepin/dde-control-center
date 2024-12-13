@@ -145,6 +145,7 @@ DccObject {
         parentName: "power/onBattery"
         weight: 400
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -173,7 +174,6 @@ DccObject {
             displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
-            visible: dccData.platformName() !== "wayland"
             page: CustomComboBox {
                 textRole: "text"
                 enableRole: "enable"
@@ -249,6 +249,7 @@ DccObject {
         parentName: "power/onBattery"
         weight: 700
         pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
