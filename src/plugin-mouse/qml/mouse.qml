@@ -12,13 +12,5 @@ DccObject {
     icon:"dcc_nav_mouse"
     weight: 30
 
-    visible: false
-    DccDBusInterface {
-        property var wheelSpeed
-        service: "org.deepin.dde.InputDevices1"
-        path: "/org/deepin/dde/InputDevices1"
-        inter: "org.deepin.dde.InputDevices1"
-        connection: DccDBusInterface.SessionBus
-        onWheelSpeedChanged: mouse.visible = true
-    }
+    visible: !DccApp.isTreeland()
 }

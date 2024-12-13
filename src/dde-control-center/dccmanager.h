@@ -48,6 +48,8 @@ public:
 
     Q_INVOKABLE DccApp::UosEdition uosEdition() const;
 
+    Q_INVOKABLE bool isTreeland() const;
+
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
 public Q_SLOTS:

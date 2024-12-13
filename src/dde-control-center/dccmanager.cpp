@@ -9,6 +9,8 @@
 #include "pluginmanager.h"
 #include "searchmodel.h"
 
+#include <DGuiApplicationHelper>
+
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
@@ -133,6 +135,11 @@ DccApp::UosEdition DccManager::uosEdition() const
 {
     DSysInfo::UosEdition edition = DSysInfo::uosEditionType();
     return DccApp::UosEdition(edition);
+}
+
+bool DccManager::isTreeland() const
+{
+    return Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform);
 }
 
 DccObject *DccManager::object(const QString &name)
