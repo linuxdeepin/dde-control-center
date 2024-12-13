@@ -7,5 +7,5 @@ DccObject {
     parentName: "root"
     displayName: qsTr("Personalization")
     icon: "personalization"
-    weight: 70
+    weight: 30
 }

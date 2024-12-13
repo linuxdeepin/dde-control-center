@@ -9,7 +9,7 @@ DccObject {
     displayName: qsTr("power")
     description: qsTr("Power saving settings, screen and suspend")
     icon: "power"
-    weight: 40
+    weight: 50
 
     visible: false
     DccDBusInterface {

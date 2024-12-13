@@ -108,7 +108,15 @@ SplitView {
                 Layout.margins: 10
                 implicitHeight: 16
                 implicitWidth: 16
+                visible: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
+            }
+            Item {
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                Layout.margins: 10
+                implicitHeight: 16
+                implicitWidth: 16
+                visible: !breakBut.visible
             }
 
             Crumb {
