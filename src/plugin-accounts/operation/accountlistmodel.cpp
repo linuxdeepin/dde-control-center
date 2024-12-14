@@ -33,10 +33,13 @@ QVariant AccountListModel::data(const QModelIndex &index, int role) const
 
     const QStringList &ids = controller->userIdList();
     const QString &id = ids.value(index.row());
+    QString name = controller->fullName(id);
+    if (name.isEmpty())
+        name = controller->userName(id);
 
     switch (role) {
     case Qt::DisplayRole:
-        return controller->userName(id);
+        return name;
     case UserIdRole:
         return id;
     case UserTypeRole:
