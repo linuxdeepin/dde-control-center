@@ -96,6 +96,7 @@ DccObject {
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Size")
         weight: 30
+        visible: false
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: RowLayout {
@@ -193,7 +194,6 @@ DccObject {
             parentName: "MouseSettings"
             displayName: qsTr("Natural Scrolling")
             weight: 30
-            visible: dccData.tpadExist
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.mouseNaturalScroll
