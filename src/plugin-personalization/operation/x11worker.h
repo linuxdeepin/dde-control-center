@@ -18,6 +18,8 @@ public Q_SLOTS:
     void setWindowEffect(int value) override;
     void setMovedWindowOpacity(bool value) override;
     void setMiniEffect(int effect) override;
+    void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark) override;
+    void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark) override;
 
 private Q_SLOTS:
     void onMiniEffectChanged(bool value);

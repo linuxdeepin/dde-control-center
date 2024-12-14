@@ -229,6 +229,11 @@ void PersonalizationDBusProxy::SetCurrentWorkspaceBackgroundForMonitor(const QSt
     m_AppearanceInter->asyncCall(QStringLiteral("SetCurrentWorkspaceBackgroundForMonitor"), url, screenName);
 }
 
+void PersonalizationDBusProxy::SetGreeterBackground(const QString &url)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("Set"), QStringLiteral("greeterbackground"), QVariant::fromValue(url));
+}
+
 QString PersonalizationDBusProxy::getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName)
 {
     return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), screenName));

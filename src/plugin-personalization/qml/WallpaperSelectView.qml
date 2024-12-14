@@ -190,6 +190,7 @@ ColumnLayout {
                         onClicked: {
                             if (mouse.button === Qt.LeftButton) {
                                 wallpaperItem.requestSetWallpaper(false)
+                                wallpaperItem.requestSetWallpaper(true)
                             } else if (mouse.button === Qt.RightButton) {
                                 contextMenu.x = mouse.x
                                 contextMenu.y = mouse.y
@@ -203,13 +204,12 @@ ColumnLayout {
                         MenuItem {
                             text: qsTr("Set lock screen")
                             onTriggered: {
-                                wallpaperItem.requestSetWallpaper(false)
+                                wallpaperItem.requestSetWallpaper(true)
                             }
                         }
                         MenuItem {
-                            text: qsTr("Set all")
+                            text: qsTr("Set desktop")
                             onTriggered: {
-                                wallpaperItem.requestSetWallpaper(true)
                                 wallpaperItem.requestSetWallpaper(false)
                             }
                         }

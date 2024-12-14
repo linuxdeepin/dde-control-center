@@ -103,3 +103,23 @@ void X11Worker::setMiniEffect(int effect)
         break;
     }
 }
+
+void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark)
+{
+    Q_UNUSED(isDark)
+    qCDebug(DdcPersonnalizationX11Worker) << "setMonitorBackground " << screenName << url;
+    if (screenName.isEmpty() || url.isEmpty())
+        return;
+
+    m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
+}
+
+void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark)
+{
+    Q_UNUSED(isDark)
+    qCDebug(DdcPersonnalizationX11Worker) << "setGreeterBackground " << screenName << url;
+    if (screenName.isEmpty() || url.isEmpty())
+        return;
+
+    m_personalizationDBusProxy->SetGreeterBackground(url);
+}
