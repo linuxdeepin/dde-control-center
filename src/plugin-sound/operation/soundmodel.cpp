@@ -58,6 +58,11 @@ SoundModel::SoundModel(QObject *parent)
     , m_showBluetoothMode(false)
     , m_inPutPortCount(0)
     , m_outPutCount(0)
+    , m_outPutPortComboEnable(true)
+    , m_inPutPortComboEnable(true)
+    , m_currentBluetoothMode("")
+    , m_audioMono(false)
+    , m_bluetoothModeOpts("")
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },

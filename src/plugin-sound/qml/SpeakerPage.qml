@@ -208,11 +208,11 @@ DccObject {
                 property bool isInitialized: false
                 // 等待组件加载完成后，设置 isInitialized 为 true
                 Component.onCompleted: {
-                    console.log("outputDevice onCompleted:", isInitialized)
+                    console.log("outputDevice onCompleted:", isInitialized, dccData.model().outPutPortComboEnable)
                     isInitialized = true
                 }
                 onCurrentIndexChanged: {
-                    console.log("Selected index:", currentIndex, isInitialized)
+                    console.log("outputDevice Selected index:", currentIndex, isInitialized)
                     if (isInitialized && currentIndex !== dccData.model().outPutPortComboIndex) {
                         dccData.worker().setActivePort(currentIndex, 1)
                     }
@@ -237,12 +237,12 @@ DccObject {
                 property bool isInitialized: false
                 // 等待组件加载完成后，设置 isInitialized 为 true
                 Component.onCompleted: {
-                    console.log("outputDevice onCompleted:", isInitialized)
+                    console.log("bluetoothModeCombo onCompleted:", isInitialized)
                     incrementCurrentIndex()
                     isInitialized = true
                 }
                 onCurrentIndexChanged: {
-                    console.log("Selected index:", currentIndex, isInitialized)
+                    console.log("bluetoothModeCombo Selected index:", currentIndex, isInitialized)
                     if (isInitialized) {
                         dccData.worker().setBluetoothMode(valueAt(currentIndex))
                     }
