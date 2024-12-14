@@ -6129,8 +6129,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>设置锁屏</translation>
     </message>
     <message>
-        <source>Set all</source>
-        <translation>全部设置</translation>
+        <source>Set desktop</source>
+        <translation>设置桌面</translation>
     </message>
 </context>
 <context>

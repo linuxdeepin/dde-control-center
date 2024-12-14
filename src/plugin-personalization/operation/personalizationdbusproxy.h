@@ -81,6 +81,8 @@ public:
     void SetCurrentWorkspaceBackgroundForMonitor(const QString &url, const QString &screenName);
     QString getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName);
 
+    void SetGreeterBackground(const QString &url);
+
 signals:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
