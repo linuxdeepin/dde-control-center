@@ -66,7 +66,7 @@ GridLayout {
                         Image {
                             anchors.fill: parent
                             fillMode: Image.PreserveAspectFit
-                            sourceSize: Qt.size(parent.width, parent.height)
+                            mipmap: true
                             source: model.pic
                             asynchronous: true
                         }

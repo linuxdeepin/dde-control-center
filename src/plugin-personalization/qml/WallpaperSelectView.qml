@@ -128,7 +128,7 @@ ColumnLayout {
                         anchors.margins: parent.imageMargin
                         id: image
                         source: model.url
-                        sourceSize: Qt.size(image.width, image.height)
+                        mipmap: true
                         visible: false
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
