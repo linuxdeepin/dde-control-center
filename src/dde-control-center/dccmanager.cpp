@@ -50,6 +50,7 @@ DccManager::DccManager(QObject *parent)
     , m_engine(nullptr)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
+    , m_showTimer(nullptr)
 {
     m_hideObjects->setName("_hide");
     m_noAddObjects->setName("_noAdd");
@@ -63,7 +64,7 @@ DccManager::DccManager(QObject *parent)
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
     connect(qApp, &QCoreApplication::aboutToQuit, this, &DccManager::onQuit);
-    showPage("system");
+    waitShowPage("system", QDBusMessage());
 }
 
 DccManager::~DccManager()
@@ -219,11 +220,13 @@ void DccManager::showPage(const QString &url)
 
 void DccManager::showPage(DccObject *obj)
 {
+    clearShowParam();
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
+    clearShowParam();
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
 }
 
@@ -442,21 +445,14 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         if (obj) {
             showPage(obj, cmd);
         } else if (!m_plugins->loadFinished()) {
-            QEventLoop loop;
-            QTimer timer;
-            connect(&timer, &QTimer::timeout, this, [this, &path, &loop]() {
-                DccObject *obj = findObject(path, true);
-                if (obj) {
-                    loop.quit();
-                }
-            });
-            connect(m_plugins, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
-            timer.start(10);
-            loop.exec();
-            obj = findObject(path, true);
-            if (obj) {
-                showPage(obj, cmd);
+            m_showUrl = url;
+            m_showMessage = message;
+            if (!m_showTimer) {
+                m_showTimer = new QTimer(this);
+                connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
+                m_showTimer->start(10);
             }
+            return;
         }
     }
     if (message.type() != QDBusMessage::InvalidMessage) {
@@ -468,6 +464,44 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         } else {
             QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
         }
+    }
+}
+
+void DccManager::clearShowParam()
+{
+    if (m_showTimer) {
+        m_showTimer->stop();
+        m_showTimer->deleteLater();
+        m_showTimer = nullptr;
+    }
+    m_showUrl.clear();
+    m_showMessage = QDBusMessage();
+}
+
+void DccManager::tryShow()
+{
+    if (m_showUrl.isEmpty()) {
+        clearShowParam();
+        return;
+    }
+    int i = m_showUrl.indexOf('?');
+    QString cmd = i != -1 ? m_showUrl.mid(i + 1) : QString();
+    QString path = m_showUrl.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
+    DccObject *obj = findObject(path, true);
+    if (obj) {
+        showPage(obj, cmd);
+        if (m_showMessage.type() != QDBusMessage::InvalidMessage) {
+            if (cmd.isEmpty()) {
+                show();
+            }
+            QDBusConnection::sessionBus().send(m_showMessage.createReply());
+        }
+        clearShowParam();
+    } else if (m_plugins->loadFinished()) {
+        if (m_showMessage.type() != QDBusMessage::InvalidMessage) {
+            QDBusConnection::sessionBus().send(m_showMessage.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + m_showUrl));
+        }
+        clearShowParam();
     }
 }
 

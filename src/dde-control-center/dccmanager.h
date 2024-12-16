@@ -86,6 +86,8 @@ private:
 
 private Q_SLOTS:
     void waitShowPage(const QString &url, const QDBusMessage message);
+    void clearShowParam();
+    void tryShow();
     void doShowPage(DccObject *obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
     void onVisible(bool visible);
@@ -115,6 +117,10 @@ private:
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
+    // DBus调用时，对应项还没加载完成，此处保存跳转参数
+    QTimer *m_showTimer;
+    QString m_showUrl;
+    QDBusMessage m_showMessage;
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H
