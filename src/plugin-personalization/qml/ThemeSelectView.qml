@@ -92,7 +92,7 @@ ListView {
 
                             Image {
                                 anchors.fill: parent
-                                sourceSize: Qt.size(parent.width, parent.height)
+                                mipmap: true
                                 source: model.pic
                                 asynchronous: true
                             }
