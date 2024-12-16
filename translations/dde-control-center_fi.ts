@@ -1188,6 +1188,10 @@
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Scenery</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
@@ -1197,6 +1201,10 @@
     </message>
     <message>
         <source>Flat Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cartoon Style</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -75,6 +75,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
     QList<AvatarItem> items = {
         AvatarItem(tr("Person"), "dcc_user_human", Role::Person, true),
         AvatarItem(tr("Animal"), "dcc_user_animal", Role::Animal, true),
+        AvatarItem(tr("Scenery"), "dcc_user_scenery", Role::Scenery, true),
         AvatarItem(tr("Illustration"), "dcc_user_funny", Role::Illustration, true),
         AvatarItem(tr("Expression"), "dcc_user_emoji", Role::Expression, true),
         AvatarItem(tr("Custom Picture"), "dcc_user_custom", Role::Custom, true),
