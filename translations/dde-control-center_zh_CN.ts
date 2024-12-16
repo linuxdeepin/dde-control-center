@@ -352,6 +352,14 @@
         <source>Save</source>
         <translation>保存</translation>
     </message>
+    <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
+    <message>
+        <source>Cartoon style</source>
+        <translation>卡通风格</translation>
+    </message>
 </context>
 <context>
     <name>BatteryPage</name>

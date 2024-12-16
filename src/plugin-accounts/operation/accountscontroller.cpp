@@ -97,7 +97,8 @@ QStringList AccountsController::avatars(const QString &id, const QString &filter
     std::copy_if(list.begin(), list.end(), std::back_inserter(res),
                  [filter, section](const QString &iconFile) {
         bool exists = QFileInfo::exists(QUrl(iconFile).toLocalFile());
-        return exists && iconFile.contains(filter + "/" + section);
+        const QString subPath = section.isEmpty() ? "" : section + "/";
+        return exists && iconFile.contains(filter + "/" + subPath);
     });
 
     std::sort(res.begin(), res.end(), [=](const QString &path1, const QString &path2){
