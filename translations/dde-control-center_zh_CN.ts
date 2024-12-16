@@ -3792,6 +3792,10 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
     </message>
+    <message>
+        <source>Area</source>
+        <translation>地区</translation>
+    </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>

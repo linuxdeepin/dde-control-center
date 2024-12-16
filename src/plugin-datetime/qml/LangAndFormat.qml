@@ -210,7 +210,7 @@ DccObject {
         name: "regions"
         parentName: "langAndFormat"
         weight: 45
-        displayName: qsTr("Region")
+        displayName: qsTr("Area")
         description: qsTr("Operating system and applications may provide you with local content based on your country and region")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
