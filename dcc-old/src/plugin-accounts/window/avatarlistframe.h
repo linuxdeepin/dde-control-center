@@ -72,8 +72,7 @@ private:
 private:
     int m_role;
     QString m_path;
-    AvatarListView *m_avatarDimensionalLsv;
-    AvatarListView *m_avatarFlatLsv;
+    QMap<int, AvatarListView *> m_avatarViewMap;
     AvatarListView *m_currentAvatarLsv;
 };
 
