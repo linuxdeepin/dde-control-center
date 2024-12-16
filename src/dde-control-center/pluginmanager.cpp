@@ -549,7 +549,7 @@ bool PluginManager::loadFinished() const
         status &= plugin->status;
     }
 
-    return status & PluginEnd;
+    return (status & PluginEnd) && (!m_plugins.isEmpty());
 }
 
 void PluginManager::beginDelete()
