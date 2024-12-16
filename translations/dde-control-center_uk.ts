@@ -3792,6 +3792,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
