@@ -127,7 +127,7 @@ public:
 
     virtual QStringList longDateFormats() override
     {
-        return { "dd MMMMM yyyy", "d MMMM yyyy", "dddd,d MMMM yyyy", "dddd, dd MMMM yyyy" };
+        return { "dd MMMM yyyy", "d MMMM yyyy", "dddd,d MMMM yyyy", "dddd, dd MMMM yyyy" };
     }
 
     virtual QStringList shortTimeFormats() override
