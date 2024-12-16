@@ -298,11 +298,11 @@ DccObject {
             displayName: qsTr("Acount type")
             weight: 30
             pageType: DccObject.Editor
+            enabled: dccData.isDeleteAble(settings.userId)
             page: ComboBox {
                 flat: true
                 model: dccData.userTypes()
                 currentIndex: dccData.userType(settings.userId)
-                enabled: dccData.isDeleteAble(settings.userId)
                 onActivated: function (index) {
                     dccData.setUserType(settings.userId, index)
                 }
