@@ -1,3 +1,10 @@
+dde-control-center (6.1.0) unstable; urgency=medium
+
+  * fix: Failed to modify DBus jump issue
+  * fix: long date formats error
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Mon, 16 Dec 2024 16:33:40 +0800
+
 dde-control-center (6.0.78) unstable; urgency=medium
 
   * 6.0.78
