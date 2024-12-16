@@ -5,7 +5,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.deepin.dcc 1.0
-import org.deepin.dtk 1.0 as D
+import org.deepin.dtk 1.0
 
 DccObject {
     id: loginMethodTitle
@@ -100,8 +100,9 @@ DccObject {
                         Control {
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Layout.rightMargin: 10
-                            contentItem: D.IconLabel {
+                            contentItem: IconLabel {
                                 icon.name: "arrow_ordinary_right"
+                                opacity: enabled ? 1 : 0.4
                             }
                         }
                     }
