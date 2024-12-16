@@ -59,13 +59,19 @@ D.DialogWindow {
                     name: qsTr("Human")
                     filter: "icons/human"
                     icon: "dcc_user_human"
-                    sections: "dimensional/flat"
+                    sections: "dimensional/dimensional_v2/flat"
                     checked: true
                 }
                 ListElement {
                     name: qsTr("Animal")
                     filter: "icons/animal"
                     icon: "dcc_user_animal"
+                    sections: ""
+                }
+                ListElement {
+                    name: qsTr("Scenery")
+                    filter: "icons/scenery"
+                    icon: "dcc_user_scenery"
                     sections: ""
                 }
                 ListElement {
@@ -142,7 +148,7 @@ D.DialogWindow {
 
             ScrollView {
                 id: scrollView
-                property list<string> sections: ["dimensional", "flat"]
+                property list<string> sections: []
                 property string filter
                 property bool isCustom: filter === "icons/local"
                 implicitHeight: 360
@@ -171,6 +177,7 @@ D.DialogWindow {
                         model: scrollView.sections
                         AvatarGridView {
                             id: view
+                            visible: view.count > 0
                             currentAvatar: dialog.currentAvatar
                             onCurrentAvatarChanged: {
                                 dialog.currentAvatar = currentAvatar
@@ -199,6 +206,8 @@ D.DialogWindow {
 
                             headerText: {
                                 if (modelData === "dimensional")
+                                    return qsTr("Cartoon style")
+                                else if (modelData === "dimensional_v2")
                                     return qsTr("Dimensional style")
                                 else if (modelData === "flat")
                                     return qsTr("Flat style")
@@ -207,7 +216,6 @@ D.DialogWindow {
                             }
 
                             model: dccData.avatars(dialog.userId, scrollView.filter, modelData)
-                            isCustom: scrollView.isCustom
                             onIsCustomChanged: {
                                 if (isCustom && !customEmptyAvatar.visible) {
                                     let icons = dccData.avatars(dialog.userId, scrollView.filter, modelData)
