@@ -40,7 +40,7 @@ public Q_SLOTS:
 
     virtual void setDefaultByType(const QString &type, const QString &value);
     virtual void setDefault(const QJsonObject &value);
-    virtual void setFontSize(const int value);
+    virtual void setFontSize(const int pixelSize);
     virtual void setOpacity(int opcaity);
     virtual void setWindowEffect(int value);
     virtual void setMiniEffect(int effect);
