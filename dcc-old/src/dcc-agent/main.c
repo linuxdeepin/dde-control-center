@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     int (*main_func)(int, char **);
     char *error;
-    bool isOldDcc = false;
+    bool isOldDcc = true;
     if (argc >= 1 && strcmp(argv[argc - 1], "n") == 0) {
         isOldDcc = false;
         argc = argc - 1;
