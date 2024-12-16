@@ -65,7 +65,7 @@ public:
     void setActiveColor(const QString &hexColor) override;
     QString activeColor() const { return m_activeColor; }
 
-    void setFontSize(const int value) override;
+    void setFontSize(const int pixelSize) override;
     int fontSize() const { return m_fontSize; }
 
     void setTitleBarHeight(int value) override;

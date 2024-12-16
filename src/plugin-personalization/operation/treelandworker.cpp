@@ -153,15 +153,15 @@ void TreeLandWorker::setActiveColor(const QString &hexColor)
     m_appearanceContext->set_active_color(hexColor);
 }
 
-void TreeLandWorker::setFontSize(const int value) 
+void TreeLandWorker::setFontSize(const int pixelSize) 
 {
-    qCDebug(DdcPersonnalizationTreelandWorker) << "setFontSize:" << value;
-    if (m_fontSize == value) {
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setFontSize:" << pixelSize;
+    if (m_fontSize == pixelSize) {
         return;
     }
-    m_fontSize = value;
-    PersonalizationWorker::setFontSize(value);
-    m_fontContext->set_font_size(pxToPt(value) * 10);
+    m_fontSize = pixelSize;
+    PersonalizationWorker::setFontSize(pixelSize);
+    m_fontContext->set_font_size(pxToPt(pixelSize) * 10);
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
@@ -446,7 +446,7 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
     } else if (type == TYPEFONTSIZE) {
         double pointSize = value.toDouble();
         if (pointSize > 0) {
-            setFontSize(pointSize);
+            setFontSize(ptToPx(pointSize));
         }
     } else if (type == TYPEACTIVECOLOR) {
         setActiveColor(value);

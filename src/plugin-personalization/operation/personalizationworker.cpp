@@ -326,9 +326,9 @@ void PersonalizationWorker::setDefault(const QJsonObject &value)
     m_personalizationDBusProxy->Set(value["type"].toString(), value["Id"].toString());
 }
 
-void PersonalizationWorker::setFontSize(const int value)
+void PersonalizationWorker::setFontSize(const int pixelSize)
 {
-    m_personalizationDBusProxy->setFontSize(pxToPt(value));
+    m_personalizationDBusProxy->setFontSize(pxToPt(pixelSize));
 }
 
 void PersonalizationWorker::setWindowEffect(int)
