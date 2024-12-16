@@ -352,6 +352,14 @@
         <source>Save</source>
         <translation>保存</translation>
     </message>
+    <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
+    <message>
+        <source>Cartoon style</source>
+        <translation>Q版风格</translation>
+    </message>
 </context>
 <context>
     <name>BatteryPage</name>
@@ -1180,6 +1188,10 @@
         <source>Save</source>
         <translation>保存</translation>
     </message>
+    <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
@@ -1190,6 +1202,10 @@
     <message>
         <source>Flat Style</source>
         <translation>平面风格</translation>
+    </message>
+    <message>
+        <source>Cartoon Style</source>
+        <translation>Q版风格</translation>
     </message>
 </context>
 <context>

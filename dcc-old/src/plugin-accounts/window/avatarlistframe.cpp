@@ -33,8 +33,10 @@ const QString VarDirectory = QStringLiteral(VARDIRECTORY);
 
 // 系统用户头像存放路径
 const QString PersonDimensionalPath = QStringLiteral("lib/AccountsService/icons/human/dimensional");
+const QString PersonDimensional2Path = QStringLiteral("lib/AccountsService/icons/human/dimensional_v2");
 const QString PersonFlatPath = QStringLiteral("lib/AccountsService/icons/human/flat");
 const QString AnimalDimensionalPath = QStringLiteral("lib/AccountsService/icons/animal");
+const QString SceneryPath = QStringLiteral("lib/AccountsService/icons/scenery");
 const QString IllustrationDimensionalPath = QStringLiteral("lib/AccountsService/icons/illustration");
 const QString EmojiDimensionalPath = QStringLiteral("lib/AccountsService/icons/emoji");
 
@@ -75,13 +77,13 @@ struct AvatarItem
 AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
     : QFrame(parent)
     , m_role(role)
-    , m_avatarDimensionalLsv(nullptr)
-    , m_avatarFlatLsv(nullptr)
     , m_currentAvatarLsv(nullptr)
 {
     const QString personDimensionPath = QString("%1/%2").arg(VarDirectory).arg(PersonDimensionalPath);
+    const QString personDimension2Path = QString("%1/%2").arg(VarDirectory).arg(PersonDimensional2Path);
     const QString personFlatPath = QString("%1/%2").arg(VarDirectory).arg(PersonFlatPath);
     const QString animalDimensionPath = QString("%1/%2").arg(VarDirectory).arg(AnimalDimensionalPath);
+    const QString sceneryPath = QString("%1/%2").arg(VarDirectory).arg(SceneryPath);
     const QString illustrationDimensionPath = QString("%1/%2").arg(VarDirectory).arg(IllustrationDimensionalPath);
     const QString emojiDimensionPath = QString("%1/%2").arg(VarDirectory).arg(EmojiDimensionalPath);
     const QString customAvatarPath = QString("%1/%2").arg(VarDirectory).arg(AvatarCustomPath);
@@ -90,7 +92,7 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
     setContentsMargins(0, 0, 0, 0);
     if (role == Role::Custom) {
         m_path = customAvatarPath;
-        m_currentAvatarLsv = new AvatarListView(user, role, Type::Dimensional, customAvatarPath);
+        m_currentAvatarLsv = new AvatarListView(user, role, Type::Dimensional, customAvatarPath, this);
         m_currentAvatarLsv->setCurrentAvatarChecked(user->currentAvatar());
         return;
     }
@@ -99,9 +101,13 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
 
     QList<AvatarRoleItem> items = {
         AvatarRoleItem{ Role::Person,
-                        Type::Dimensional,
+                        Type::Cartoon,
                         personDimensionPath,
                         isExistCustomAvatar(personDimensionPath, name) },
+        AvatarRoleItem{ Role::Person,
+                        Type::Dimensional,
+                        personDimension2Path,
+                        isExistCustomAvatar(personDimension2Path, name) },
         AvatarRoleItem{ Role::Person,
                         Type::Flat,
                         personFlatPath,
@@ -110,6 +116,10 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
                         Type::Dimensional,
                         animalDimensionPath,
                         isExistCustomAvatar(animalDimensionPath, name) },
+        AvatarRoleItem{ Role::Scenery,
+                        Type::Dimensional,
+                        sceneryPath,
+                        isExistCustomAvatar(sceneryPath, name) },
         AvatarRoleItem{ Role::Illustration,
                         Type::Dimensional,
                         illustrationDimensionPath,
@@ -124,10 +134,8 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
     auto addAvatar = [this, mainLayout, user](const AvatarRoleItem &item) {
-        m_currentAvatarLsv = new AvatarListView(user, item.role, item.type, item.path);
-        item.type == Type::Dimensional ? m_avatarDimensionalLsv = m_currentAvatarLsv
-                                       : m_avatarFlatLsv = m_currentAvatarLsv;
-
+        m_currentAvatarLsv = new AvatarListView(user, item.role, item.type, item.path, this);
+        m_avatarViewMap[item.type] = m_currentAvatarLsv;
         m_currentAvatarLsv->setCurrentAvatarChecked(user->currentAvatar());
 
         QHBoxLayout *hBoxLayout = new QHBoxLayout;
@@ -136,8 +144,8 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
         // 人物头像有两种, 需要添加类型标签
         if (item.role == Role::Person) {
             QLabel *dimStyleNameLabel = new QLabel(this);
-            dimStyleNameLabel->setText(item.type == Type::Dimensional ? tr("Dimensional Style")
-                                                                      : tr("Flat Style"));
+            const QStringList styles { tr("Cartoon Style"), tr("Dimensional Style"), tr("Flat Style")};
+            dimStyleNameLabel->setText(styles.value(item.type));
 
             QHBoxLayout *nameLabelLayout = new QHBoxLayout;
             nameLabelLayout->addSpacing(10);
@@ -166,7 +174,7 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
 
     setLayout(layout);
 
-    m_currentAvatarLsv = m_avatarDimensionalLsv;
+    m_currentAvatarLsv = m_avatarViewMap.value(Type::Cartoon);
 }
 
 QString AvatarListFrame::getAvatarPath() const
@@ -203,16 +211,12 @@ void AvatarListFrame::updateListView(bool isSave, const int &role, const int &ty
     Q_UNUSED(isSave);
     // 人物头像有两种类型,当有一种类型的item被选中时，取消另外一种类型item的选中状态
     if (role == Role::Person) {
-        if (type == Type::Dimensional) {
-            m_currentAvatarLsv = m_avatarDimensionalLsv;
-            if (m_avatarFlatLsv) {
-                m_avatarFlatLsv->setCurrentAvatarUnChecked();
+        for (auto it = m_avatarViewMap.begin(); it != m_avatarViewMap.end(); ++it) {
+            if (it.key() == type) {
+                m_currentAvatarLsv = it.value();
+            } else {
+                it.value()->setCurrentAvatarUnChecked();
             }
-        } else if (type == Type::Flat) {
-            m_currentAvatarLsv = m_avatarFlatLsv;
-            m_avatarDimensionalLsv->setCurrentAvatarUnChecked();
-        } else {
-            // nothing to do
         }
     }
 }
