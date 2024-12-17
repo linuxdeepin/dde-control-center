@@ -14,7 +14,10 @@ D.DialogWindow {
     id: dialog
     property string userId
     width: 520
-    height: 480
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     title: isCurrent() ? qsTr("Modify password") : qsTr("Reset password")
@@ -24,8 +27,7 @@ D.DialogWindow {
     }
 
     ColumnLayout {
-        anchors.fill: parent
-
+        width: dialog.width - 20
         Label {
             text: dialog.title
             font.bold: true
@@ -41,7 +43,8 @@ D.DialogWindow {
             wrapMode: Text.WordWrap
             rightPadding: 10
             leftPadding: 10
-            Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 10)
+            // horizontalAlignment: Text.AlignHCenter
+            Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 20)
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             Layout.bottomMargin: 10
         }
@@ -49,6 +52,7 @@ D.DialogWindow {
         PasswordLayout {
             id: pwdLayout
             userId: dialog.userId
+            Layout.leftMargin: 10
             onRequestClose: {
                 // no error, close dialog
                 close()
@@ -59,6 +63,7 @@ D.DialogWindow {
             spacing: 10
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 10
+            Layout.leftMargin: 10
             Layout.rightMargin: 20
 
             Button {

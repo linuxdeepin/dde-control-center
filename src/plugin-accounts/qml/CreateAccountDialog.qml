@@ -13,7 +13,10 @@ import org.deepin.dcc 1.0
 D.DialogWindow {
     id: dialog
     width: 450
-    height: 500
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     title: qsTr("Create a new account")
@@ -21,8 +24,7 @@ D.DialogWindow {
     signal accepted()
 
     ColumnLayout {
-        anchors.fill: parent
-
+        width: dialog.width - 20
         Label {
             text: dialog.title
             font.bold: true
@@ -162,6 +164,7 @@ D.DialogWindow {
         PasswordLayout {
             id: pwdLayout
             currentPwdVisible: false
+            Layout.fillWidth: true
             name:  {
                 let nameEdit = namesContainter.eidtItems[0]
                 if (nameEdit === undefined)
@@ -175,6 +178,8 @@ D.DialogWindow {
             spacing: 10
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 10
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
 
             Button {
                 Layout.fillWidth: true

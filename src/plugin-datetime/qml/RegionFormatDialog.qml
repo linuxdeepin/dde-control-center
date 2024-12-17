@@ -24,9 +24,11 @@ Loader {
     sourceComponent: DialogWindow {
         id: ddialog
         width: 640
-        height: 680
+        minimumWidth: width
+        minimumHeight: height
+        maximumWidth: minimumWidth
+        maximumHeight: minimumHeight
         icon: "preferences-system"
-        // DWindow.enableBlurWindow: true
         modality: Qt.WindowModal
         ColumnLayout {
             spacing: 10

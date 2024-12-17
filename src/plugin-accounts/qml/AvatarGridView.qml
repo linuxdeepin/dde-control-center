@@ -36,6 +36,7 @@ GridView {
                 font.pointSize: 16
                 anchors.left: parent.left
                 anchors.leftMargin: 10
+                color: palette.text
             }
         }
     }

@@ -9,16 +9,21 @@ import QtQml.Models
 import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 
 D.DialogWindow {
     id: dialog
     property string userId: dccData.currentUserId()
     property string currentAvatar: dccData.avatar()
-    width: 640
-    height: 500
+    width: 630
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     D.DWindow.enableSystemMove: !cropper.dragActived
+    color: "transparent"
 
     signal accepted();
 
@@ -45,13 +50,38 @@ D.DialogWindow {
         }
     }
 
+    header: D.DialogTitleBar {
+        // titlebar do not enbale blur again
+        // enableInWindowBlendBlur: true
+        icon.name: dialog.icon
+    }
+
     RowLayout {
-        anchors.fill: parent
+        width: dialog.width
         Rectangle {
+            id: leftBar
             color: "transparent"
-            Layout.preferredWidth: 160
+            Layout.preferredWidth: 150
             Layout.preferredHeight: dialog.height - 100
             Layout.alignment: Qt.AlignTop
+
+            Rectangle {
+                x: -DS.Style.dialogWindow.contentHMargin
+                y: -DS.Style.dialogWindow.titleBarHeight
+                width: leftBar.width - x
+                height: dialog.height + 10
+                color: "transparent"
+                D.StyledBehindWindowBlur {
+                    anchors.fill: parent
+                }
+            }
+            Rectangle {
+                x: leftView.width
+                y: -DS.Style.dialogWindow.titleBarHeight
+                width: scrollView.width + DS.Style.dialogWindow.contentHMargin * 2
+                height: dialog.height
+                color: palette.window
+            }
 
             ListModel {
                 id: listModel
@@ -108,7 +138,7 @@ D.DialogWindow {
                         width: 16
                         height: 16
                     }
-                    implicitWidth: 160
+                    implicitWidth: leftView.width - 10
                     checked: model.checked
                     normalBackgroundVisible: false
                     onCheckedChanged: {
@@ -237,6 +267,8 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                 Layout.bottomMargin: 10
                 Layout.topMargin: 20
+                Layout.leftMargin: 30
+                Layout.rightMargin: 60
 
                 Button {
                     Layout.fillWidth: true

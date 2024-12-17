@@ -15,7 +15,10 @@ Loader {
     sourceComponent: DialogWindow {
         id: ddialog
         width: 420
-        height: 550
+        minimumWidth: width
+        minimumHeight: height
+        maximumWidth: minimumWidth
+        maximumHeight: minimumHeight
         icon: "preferences-system"
         modality: Qt.WindowModal
         ColumnLayout {

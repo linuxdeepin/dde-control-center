@@ -200,7 +200,7 @@ void DccRepeater::initItem(int index, QObject *object)
                 if (!d->delegateValidated) {
                     d->delegateValidated = true;
                     QObject* delegate = this->delegate();
-                    qmlWarning(delegate ? delegate : this) << tr("Delegate must be of `DccObject` type");
+                    qmlWarning(delegate ? delegate : this) << "Delegate must be of `DccObject` type";
                 }
             }
             return;

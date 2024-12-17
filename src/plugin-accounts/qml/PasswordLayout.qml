@@ -12,7 +12,6 @@ ColumnLayout {
     property string userId
     property string name: dccData.userName(pwdLayout.userId)
     property bool currentPwdVisible: true
-    // property alas pwdContainter: pwdContainter
     Layout.fillWidth: true
 
     signal requestClose();
@@ -23,7 +22,7 @@ ColumnLayout {
 
     function minWidth(font, text, width) {
         fm.font = font
-        return Math.min(width, fm.advanceWidth(text))
+        return Math.min(width, fm.advanceWidth(text) + 20)
     }
 
     function getPwdInfo() {
@@ -47,8 +46,8 @@ ColumnLayout {
         visible: pwdLayout.currentPwdVisible
         label.text: qsTr("Current password")
         edit.placeholderText: qsTr("Required")
-        Layout.leftMargin: 10
-        Layout.rightMargin: 20
+        Layout.leftMargin: 0
+        Layout.rightMargin: 16
         Layout.bottomMargin: 10
 
         Loader {
@@ -106,8 +105,8 @@ ColumnLayout {
     RowLayout {
         id: pwdIndicator
         spacing: 4
-        Layout.alignment: Qt.AlignRight
-        Layout.rightMargin: 30
+        Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+        Layout.rightMargin: pwdLayout.currentPwdVisible ? 30 : 20
         Label {
             id: pwdStrengthHintText
             text: ""
@@ -182,7 +181,7 @@ ColumnLayout {
         radius: 8
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-        Layout.rightMargin: 10
+        Layout.rightMargin: pwdLayout.currentPwdVisible ? 10 : 0
         Layout.bottomMargin: 30
         implicitHeight: 150
         color: "transparent"
@@ -261,7 +260,7 @@ ColumnLayout {
                     backgroundVisible: false
                     checkable: false
                     implicitHeight: 50
-                    leftPadding: 10
+                    leftPadding: pwdLayout.currentPwdVisible ? 0 : 10
                     rightPadding: 10
 
                     contentItem: PasswordItem {
@@ -297,7 +296,7 @@ ColumnLayout {
                 Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 20)
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
-                Layout.leftMargin: 10
+                Layout.leftMargin: 0
             }
         }
     }
