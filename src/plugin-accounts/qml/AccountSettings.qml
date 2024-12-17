@@ -107,11 +107,15 @@ DccObject {
                 Rectangle {
                     width: 100
                     height: 30
-                    color: Qt.rgba(0, 0, 0, 0.5)
                     visible: control.hovered
                     anchors {
                         bottom: image.bottom
                         horizontalCenter: image.horizontalCenter
+                    }
+                    // color: Qt.rgba(0, 0, 0, 0.5)
+                    gradient: Gradient {
+                        GradientStop {  position: 0.0; color: Qt.rgba(0, 0, 0, 0) }
+                        GradientStop {  position: 1.0; color: Qt.rgba(0, 0, 0, 1) }
                     }
                 }
 
@@ -119,6 +123,7 @@ DccObject {
                     id: editText
                     text: qsTr("edit")
                     color: "white"
+                    visible: control.hovered
                     anchors {
                         horizontalCenter: control.horizontalCenter
                         bottom: control.bottom

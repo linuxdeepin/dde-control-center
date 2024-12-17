@@ -101,7 +101,7 @@ DccObject {
                     D.IconButton {
                         id: removeButton
                         visible: itemDelegate.isCurrentLang || keyboardLayoutTitle.isEditing
-                        icon.name: itemDelegate.isCurrentLang ? "sp_ok" : "list_delete"
+                        icon.name: itemDelegate.isCurrentLang ? "item_checked" : "list_delete"
                         icon.width: 24
                         icon.height: 24
                         implicitWidth: 36
