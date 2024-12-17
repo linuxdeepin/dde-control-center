@@ -8,9 +8,11 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
         
 D.DialogWindow {
-id: ddialog
-    width: 400
-    height: 220
+    id: ddialog
+    minimumWidth: 400
+    minimumHeight: 220
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     property date currentDate: new Date()

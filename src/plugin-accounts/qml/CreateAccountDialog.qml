@@ -12,8 +12,10 @@ import org.deepin.dcc 1.0
 
 D.DialogWindow {
     id: dialog
-    width: 450
-    height: 500
+    minimumWidth: 450
+    minimumHeight: 500
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     title: qsTr("Create a new account")

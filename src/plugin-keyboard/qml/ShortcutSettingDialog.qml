@@ -11,8 +11,10 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.DialogWindow {
     id: ddialog
-    width: 400
-    height: 360
+    minimumWidth: 400
+    minimumHeight: 360
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     visible: true
     icon: "preferences-system"
     modality: Qt.WindowModal
