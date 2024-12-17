@@ -171,7 +171,7 @@ DccObject {
             pageType: DccObject.Editor
             page: Item {
                 id: item
-                implicitHeight: 50
+                implicitHeight: 40
                 implicitWidth: 300
                 LineEdit {
                     id: addr
@@ -179,6 +179,8 @@ DccObject {
                     text: dateAndTimeSettings.customAddr
                     placeholderText: qsTr("Required")
                     alertText: qsTr("The ntp server address cannot be empty")
+                    alertDuration: 3000
+                    horizontalAlignment: TextInput.AlignRight
                     anchors{
                         rightMargin: 10
                         right: editBtn.left

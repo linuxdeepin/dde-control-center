@@ -103,7 +103,11 @@ D.DialogWindow {
                 model: listModel
                 delegate: D.ItemDelegate {
                     text: model.name
-                    icon.name: model.icon
+                    icon {
+                        name: model.icon
+                        width: 16
+                        height: 16
+                    }
                     implicitWidth: 160
                     checked: model.checked
                     normalBackgroundVisible: false
