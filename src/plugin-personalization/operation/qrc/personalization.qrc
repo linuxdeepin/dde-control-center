@@ -9,16 +9,20 @@
         <file>texts/round_high_16px.svg</file>
         <file>texts/round_low_16px.svg</file>
         <file>texts/help_16px.svg</file>
-		<file>texts/download-more_84px.svg</file>
 
-        <file>dark/icons/corner_none_84px.svg</file>
-        <file>dark/icons/corner_small_84px.svg</file>
-        <file>dark/icons/corner_middle_84px.svg</file>
-        <file>dark/icons/corner_big_84px.svg</file>
-        <file>light/icons/corner_none_84px.svg</file>
-        <file>light/icons/corner_small_84px.svg</file>
-        <file>light/icons/corner_middle_84px.svg</file>
-        <file>light/icons/corner_big_84px.svg</file>
+        <file>dark/icons/corner_none_108px.svg</file>
+        <file>dark/icons/corner_small_108px.svg</file>
+        <file>dark/icons/corner_middle_108px.svg</file>
+        <file>dark/icons/corner_big_108px.svg</file>
+        <file>light/icons/corner_none_108px.svg</file>
+        <file>light/icons/corner_small_108px.svg</file>
+        <file>light/icons/corner_middle_108px.svg</file>
+        <file>light/icons/corner_big_108px.svg</file>
+    </qresource>
+
+    <qresource prefix="/">
+        <file>icons/download_more_light.png</file>
+        <file>icons/download_more_dark.png</file>
     </qresource>
 
     <qresource prefix="/dsg">

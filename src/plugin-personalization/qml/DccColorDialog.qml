@@ -14,9 +14,6 @@ import org.deepin.dtk.style 1.0 as DS
 
 ColorDialogImpl {
     id: control
-    color: "transparent"
-    width: parent.width
-    height: parent.height
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             contentWidth + leftPadding + rightPadding,
@@ -122,21 +119,39 @@ ColorDialogImpl {
 
             D.TextField {
                 text: control.color.toString().substring(1)
-                readOnly: true
                 Layout.preferredWidth: 70
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                validator: RegularExpressionValidator {
+                    regularExpression: /^[0-9a-fA-F]{6}$/
+                }
+                onEditingFinished: {
+                    control.color = "#" + text
+                }
             }
 
             Repeater {
                 model: [control.red, control.green, control.blue]
                 D.TextField {
                     text: modelData
-                    readOnly: true
                     Layout.fillWidth: true
                     Layout.preferredWidth: 70
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    inputMethodHints: Qt.ImhDigitsOnly
+                    validator: IntValidator { bottom: 0; top: 255 }
+
+                    onEditingFinished: {
+                        if (text !== "") {
+                            if (modelData === control.red) {
+                                control.red = text;
+                            } else if (modelData === control.green) {
+                                control.green = text;
+                            } else if (modelData === control.blue) {
+                                control.blue = text;
+                            }
+                        }
+                    }
                 }
             }
 

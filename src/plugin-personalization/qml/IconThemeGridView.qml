@@ -42,6 +42,7 @@ GridLayout {
                         Layout.fillWidth: true
                         Text {
                             text: model.id
+                            color: this.palette.windowText
                         }
 
                         Item {
