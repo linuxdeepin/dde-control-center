@@ -176,6 +176,7 @@ void PersonalizationThemeModule::onActiveColorClicked()
         QColorDialog *colorDialog = new QColorDialog(pItem->palette().highlight().color(), pItem);
         colorDialog->deleteLater();
         if (QDialog::Accepted == colorDialog->exec()) {
+            m_work->setActiveColors(colorDialog->selectedColor().name() + "," + colorDialog->selectedColor().name());
             m_work->setActiveColor(colorDialog->selectedColor().name());
         }
     } else {
@@ -387,6 +388,8 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
             if (w->activeColors().first.compare(newColor, Qt::CaseInsensitive) == 0 ||
                 w->activeColors().second.compare(newColor, Qt::CaseInsensitive) == 0) {
                 bgWidget->setSelectedItem(w);
+                w->setColor(newColor);
+                w->update();
                 break;
             } else if (i == endIndex) {
                 bgWidget->setSelectedItem(w);
