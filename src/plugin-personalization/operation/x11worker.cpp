@@ -15,6 +15,7 @@ Q_LOGGING_CATEGORY(DdcPersonnalizationX11Worker, "dcc-personalization-X11-woker"
 constexpr auto ORG_KDE_KWIN_DECORATION = "org.kde.kwin.decoration";
 constexpr auto ORG_KDE_KWIN_DECORATION_TITLEBAR = "org.kde.kwin.decoration.titlebar";
 constexpr auto TITLE_BAR_HEIGHT_KEY = "titlebarHeight";
+constexpr auto DEFAULT_TITLE_BAR_HEIGHT_KEY = "defaultTitlebarHeight";
 constexpr auto WINDOW_EFFECT_TYPE_KEY = "user_type";
 constexpr auto ORG_KDE_KWIN = "org.kde.kwin";
 constexpr auto ORG_KDE_KWIN_COMPOSITING = "org.kde.kwin.compositing";
@@ -33,8 +34,7 @@ X11Worker::X11Worker(PersonalizationModel *model, QObject *parent)
 void X11Worker::active()
 {
     PersonalizationWorker::active();
-    int titleBarHight = m_kwinTitleBarConfig->value(TITLE_BAR_HEIGHT_KEY).toInt();
-    m_model->setTitleBarHeight(titleBarHight);
+    onTitleHeightChanged();
     int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
     m_model->setWindowEffectType(windowEffectType);
     m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
@@ -57,12 +57,20 @@ void X11Worker::setWindowEffect(int value)
 void X11Worker::onKWinConfigChanged(const QString &key)
 {
     if (key == TITLE_BAR_HEIGHT_KEY) {
-        int value = m_kwinTitleBarConfig->value(key).toInt();
-        m_model->setTitleBarHeight(value);
+        onTitleHeightChanged();
     } else if (key == WINDOW_EFFECT_TYPE_KEY) {
         int value = m_kwinCompositingConfig->value(key).toInt();
         m_model->setWindowEffectType(value);
     }
+}
+
+void X11Worker::onTitleHeightChanged()
+{
+    int titleBarHight = m_kwinTitleBarConfig->value(TITLE_BAR_HEIGHT_KEY).toInt();
+    if (titleBarHight < 24 || titleBarHight > 50) {
+        titleBarHight = m_kwinTitleBarConfig->value(DEFAULT_TITLE_BAR_HEIGHT_KEY).toInt();
+    }
+    m_model->setTitleBarHeight(titleBarHight);
 }
 
 void X11Worker::onMiniEffectChanged(bool value)
