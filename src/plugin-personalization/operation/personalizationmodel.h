@@ -74,9 +74,6 @@ public:
     inline int getTitleBarHeight() const { return m_titleBarHeight; }
     void setTitleBarHeight(int titleBarHeight);
 
-    inline int getTitleBarDefaultHeight() const { return m_titleBarDefaultHeight; }
-    void setTitleBarDefaultHeight(int titleBarDefaultHeight);
-
     void setIsMoveWindow(const bool isMoveWindow);
     bool getIsMoveWindow() const { return m_isMoveWindow; };
 
@@ -132,7 +129,6 @@ private:
     bool m_compactDisplay;
     int m_scrollBarPolicy;
     int m_titleBarHeight;
-    int m_titleBarDefaultHeight;
     int m_windowEffectType;
 
     QString m_scrollBarPolicyConfig;
