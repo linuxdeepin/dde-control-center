@@ -29,7 +29,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_soundDBusInter(new SoundDBusProxy(this))
     , m_pingTimer(new QTimer(this))
     , m_inter(QDBusConnection::sessionBus().interface())
-    , m_sound(new QSoundEffect(this))
+    , m_sound(nullptr)
     , m_waitInputReceiptTimer(new QTimer(this))
     , m_waitOutputReceiptTimer(new QTimer(this))
     , m_mediaDevices(new QMediaDevices(this))
@@ -46,28 +46,12 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_waitInputReceiptTimer->setSingleShot(true);
     m_waitOutputReceiptTimer->setSingleShot(true);
 
-    m_sound->setAudioDevice(QMediaDevices::defaultAudioOutput());
-    qDebug() << " sound is playging " << m_sound->isPlaying();
     initConnect();
 }
 
 void SoundWorker::initConnect()
 {
-
-    connect(m_mediaDevices, &QMediaDevices::audioOutputsChanged,this, [this] {
-        QAudioDevice defaultDevice = QMediaDevices::defaultAudioOutput();
-        qDebug() << "audioDeviceChanged Device:" << defaultDevice.description();
-        // 默认播放设备发生变化，需要重新构建新的对象
-        if (defaultDevice.description() != m_sound->audioDevice().description()) {
-            delete m_sound;
-            m_sound = new QSoundEffect(this);
-            m_sound->setAudioDevice(defaultDevice);
-        }
-    });
-
     connect(m_playAnimationTime, &QTimer::timeout, this, &SoundWorker::onAniTimerTimeOut);
-    connect(m_sound, &QSoundEffect::playingChanged, this, &SoundWorker::onSoundPlayingChanged);
-
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
@@ -280,14 +264,23 @@ void SoundWorker::setPortEnableIndex(int index, bool checked, int portType)
 
 void SoundWorker::playSoundEffect(int index)
 {
-    auto eff = m_model->soundEffectMap()[index].second;
-
-    if (m_sound->isPlaying()) {
-        m_sound->stop();
-        m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, "");
+    // Todo 当前QSoundEffect重复设置setSource的时候没有生效，当前先通过重新构造来控制
+    if (m_sound) {
+        if (m_sound->isPlaying()) {
+            m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, "");
+        }
+        delete m_sound;
+        m_sound = nullptr;
     }
+
+    m_sound = new QSoundEffect(this);
+    m_sound->setAudioDevice(QMediaDevices::defaultAudioOutput());
+    connect(m_sound, &QSoundEffect::playingChanged, this, &SoundWorker::onSoundPlayingChanged);
+
+    auto eff = m_model->soundEffectMap()[index].second;
     m_upateSoundEffectsIndex = index;
 
+    qDebug() << " sound play soundEffect :" << QUrl::fromLocalFile(m_model->soundEffectPathByType(eff));
     m_sound->setSource(QUrl::fromLocalFile(m_model->soundEffectPathByType(eff)));
     m_sound->setVolume(1);
     m_sound->play();
@@ -490,7 +483,7 @@ void SoundWorker::onSoundPlayingChanged()
 {
     m_playAniIconIndex = 1;
     QString path("");
-    if (m_sound->isPlaying()) {
+    if (m_sound && m_sound->isPlaying()) {
         path = QString("qrc:/icons/deepin/builtin/icons/sound_preview_%1.svg").arg(m_playAniIconIndex);
         m_playAniIconIndex++;
         m_playAnimationTime->start();
