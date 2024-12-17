@@ -27,9 +27,10 @@ DCORE_END_NAMESPACE
 namespace DCC_NAMESPACE {
 class AvatarItemDelegate;
 
-enum Role { Person, Animal, Illustration, Expression, Custom, AvatarAdd };
+enum Role { Person, Animal, Scenery, Illustration, Expression, Custom, AvatarAdd };
 
 enum Type {
+    Cartoon,     // 卡通风格
     Dimensional, // 立体风格
     Flat         // 平面风格
 };
