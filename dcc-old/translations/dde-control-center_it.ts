@@ -598,6 +598,10 @@
 <context>
     <name>dccV23::AvatarListFrame</name>
     <message>
+        <source>Cartoon Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dimensional Style</source>
         <translation>Stile dimensioni</translation>
     </message>

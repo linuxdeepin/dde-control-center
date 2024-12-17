@@ -569,6 +569,10 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Scenery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Person</source>
         <translation type="unfinished"></translation>
     </message>
@@ -599,6 +603,10 @@
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Cartoon Style</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Dimensional Style</source>
         <translation type="unfinished"></translation>

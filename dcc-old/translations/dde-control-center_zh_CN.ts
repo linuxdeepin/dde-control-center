@@ -569,6 +569,10 @@
 <context>
     <name>dccV23::AvatarListDialog</name>
     <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
+    <message>
         <source>Person</source>
         <translation>人物</translation>
     </message>
@@ -599,6 +603,10 @@
 </context>
 <context>
     <name>dccV23::AvatarListFrame</name>
+    <message>
+        <source>Cartoon Style</source>
+        <translation>Q版风格</translation>
+    </message>
     <message>
         <source>Dimensional Style</source>
         <translation>立体风格</translation>
