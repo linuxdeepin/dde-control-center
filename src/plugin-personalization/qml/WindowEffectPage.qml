@@ -176,6 +176,7 @@ DccObject {
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.from: 20
                 slider.to: 100
+                slider.value: 20
                 slider.live: true
                 slider.stepSize: 1
                 slider.snapMode: Slider.SnapAlways

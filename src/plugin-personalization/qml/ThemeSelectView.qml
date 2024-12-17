@@ -81,14 +81,14 @@ ListView {
                             color: "transparent"
                             border.width: 2
                             border.color: D.DTK.platformTheme.activeColor
-                            radius: 12
+                            radius: 10
                         }
 
                         Rectangle {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 12
+                            radius: 10
 
                             Image {
                                 anchors.fill: parent
@@ -156,12 +156,13 @@ ListView {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 12
+                            radius: 10
 
-                            D.DciIcon {
+                            Image {
                                 anchors.fill: parent
-                                sourceSize: Qt.size(parent.width, parent.height)
-                                name: "download-more"
+                                mipmap: true
+                                source: D.DTK.themeType === D.ApplicationHelper.LightType ? 
+                                    "qrc:/icons/download_more_light.png" : "qrc:/icons/download_more_dark.png"
                             }
                         }
                     }

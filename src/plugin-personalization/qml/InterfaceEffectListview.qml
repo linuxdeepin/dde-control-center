@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
 
-Rectangle {
+Control {
     id: root
     property alias model: repeater.model
     property bool backgroundVisible: true
@@ -22,14 +22,10 @@ Rectangle {
         Compatible
     }
 
-    color: "transparent"
-    implicitHeight: layoutView.height
     Layout.fillWidth: true
-
-    ColumnLayout {
+    contentItem: ColumnLayout {
         id: layoutView
         width: parent.width
-        clip: true
         spacing: 0
         Repeater {
             id: repeater

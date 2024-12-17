@@ -101,8 +101,8 @@ DccObject {
                                 colorDialog.color = dccData.model.activeColor
                                 colorDialog.open()
                             } else {
-                                dccData.worker.setActiveColor(listview.cutColors[index])
                                 dccData.worker.setActiveColors(listview.colors[index] + "," + listview.darkColors[index])
+                                dccData.worker.setActiveColor(listview.cutColors[index])
                             }
                         }
                     }
@@ -111,12 +111,13 @@ DccObject {
             DccColorDialog {
                 id: colorDialog
                 anchors.centerIn: Overlay.overlay
+                popupType: Popup.Item
                 width: 300
                 height: 300
                 onAccepted: {
                     console.warn(colorDialog.color)
-                    dccData.worker.setActiveColor(colorDialog.color)
                     dccData.worker.setActiveColors(colorDialog.color + "," + colorDialog.color)
+                    dccData.worker.setActiveColor(colorDialog.color)
                 }
             }
         }
