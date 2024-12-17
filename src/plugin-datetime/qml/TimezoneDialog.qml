@@ -18,6 +18,10 @@ D.DialogWindow {
     visible: true
     width: 1080
     height: 730
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     color: "#66000000"
     modality: Qt.WindowModal
 

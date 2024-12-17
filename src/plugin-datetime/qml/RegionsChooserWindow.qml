@@ -25,6 +25,10 @@ Loader {
         id: searchWindow
         width: 200
         height: 500
+        minimumWidth: width
+        minimumHeight: height
+        maximumWidth: minimumWidth
+        maximumHeight: minimumHeight
         DWindow.enabled: true
         DWindow.enableSystemResize: false
         DWindow.enableBlurWindow: true

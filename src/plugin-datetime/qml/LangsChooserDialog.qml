@@ -15,7 +15,10 @@ Loader {
     sourceComponent: DialogWindow {
         id: ddialog
         width: 420
-        height: 550
+        minimumWidth: width
+        minimumHeight: height
+        maximumWidth: minimumWidth
+        maximumHeight: minimumHeight
         icon: "preferences-system"
         modality: Qt.WindowModal
         ColumnLayout {
@@ -50,6 +53,9 @@ Loader {
                 Layout.fillWidth: true
                 height: 360
                 clip: true
+                snapMode: ListView.SnapOneItem
+                Layout.leftMargin: 10
+                Layout.rightMargin: 10
                 model: langDialogLoader.viewModel
                 ButtonGroup {
                     id: langGroup

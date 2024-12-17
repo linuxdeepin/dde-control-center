@@ -2971,13 +2971,6 @@
     </message>
 </context>
 <context>
-    <name>DccRepeater</name>
-    <message>
-        <source>Delegate must be of `DccObject` type</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DccWindow</name>
     <message>
         <source>%1 is released under %2</source>
@@ -4765,8 +4758,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>SearchableListViewPopup</name>
     <message>
-        <source>搜索</source>
-        <translation type="unfinished"></translation>
+        <source>Search</source>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
@@ -6389,13 +6382,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::DccRepeater</name>
-    <message>
-        <source>Delegate must be of `DccObject` type</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

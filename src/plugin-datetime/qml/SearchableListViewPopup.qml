@@ -23,7 +23,7 @@ Popup {
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-            placeholder: qsTr("搜索")
+            placeholder: qsTr("Search")
             onVisibleChanged: {
                 clear() // clear seach text
             }

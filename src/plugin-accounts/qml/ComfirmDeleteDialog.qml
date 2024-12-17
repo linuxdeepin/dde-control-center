@@ -11,10 +11,14 @@ D.DialogWindow {
     id: dialog
     icon: "preferences-system"
     width: 400
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
 
     signal requestDelete(bool deleteHome)
     ColumnLayout {
-        // width: 400
+        width: dialog.width - 20
         Label {
             Layout.alignment: Qt.AlignHCenter
             font: D.DTK.fontManager.t5
@@ -33,7 +37,7 @@ D.DialogWindow {
             Layout.fillWidth: true
             Button {
                 text: qsTr("Cancel")
-                Layout.preferredWidth: 175
+                Layout.preferredWidth: 180
                 onClicked: {
                     close()
                 }
@@ -43,7 +47,7 @@ D.DialogWindow {
             }
             D.WarningButton {
                 text: qsTr("Delete")
-                Layout.preferredWidth: 175
+                Layout.preferredWidth: 180
                 Layout.alignment: Qt.AlignRight
                 onClicked: {
                     requestDelete(deleteHomeCheckbox.checked)
