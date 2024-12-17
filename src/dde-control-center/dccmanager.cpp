@@ -220,13 +220,11 @@ void DccManager::showPage(const QString &url)
 
 void DccManager::showPage(DccObject *obj)
 {
-    clearShowParam();
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
-    clearShowParam();
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
 }
 
@@ -432,6 +430,10 @@ DccObject *DccManager::findParent(const DccObject *obj)
 void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
 {
     qCInfo(dccLog()) << "show page:" << url;
+    clearShowParam();
+    if (m_plugins->isDeleting()) {
+        return;
+    }
     DccObject *obj = nullptr;
     QString cmd;
     if (url.isEmpty()) {
@@ -474,8 +476,10 @@ void DccManager::clearShowParam()
         m_showTimer->deleteLater();
         m_showTimer = nullptr;
     }
-    m_showUrl.clear();
-    m_showMessage = QDBusMessage();
+    if (!m_showUrl.isEmpty()) {
+        m_showUrl.clear();
+        m_showMessage = QDBusMessage();
+    }
 }
 
 void DccManager::tryShow()
@@ -727,6 +731,7 @@ void DccManager::onQuit()
         return;
     }
     m_plugins->beginDelete();
+    clearShowParam();
     int width_remember = m_window->width();
     int height_remember = m_window->height();
 
