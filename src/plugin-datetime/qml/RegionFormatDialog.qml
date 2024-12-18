@@ -169,6 +169,7 @@ Loader {
                             }
                             background: DccItemBackground {
                                 id: background
+                                backgroundType: DccObject.Normal
                                 separatorVisible: true
                                 radius: 8
                             }
