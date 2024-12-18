@@ -51,16 +51,15 @@ DccObject {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 fillMode: Image.Pad
-                clip: true                
+                clip: true
                 source: "qrc:/icons/deepin/builtin/icons/dcc_login_bg.svg"
             }
 
-            Image {
+            D.DciIcon {
                 id: logoImage
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                fillMode: Image.Pad
-                source: "qrc:/icons/deepin/builtin/icons/dcc_cloud_logo.svg"
+                name: "dcc_cloud_logo"
             }
         }
 
