@@ -174,7 +174,7 @@ AvatarListFrame::AvatarListFrame(User * user, const int &role, QWidget *parent)
 
     setLayout(layout);
 
-    m_currentAvatarLsv = m_avatarViewMap.value(Type::Cartoon);
+    m_currentAvatarLsv = m_avatarViewMap.value(Type::Dimensional);
 }
 
 QString AvatarListFrame::getAvatarPath() const
