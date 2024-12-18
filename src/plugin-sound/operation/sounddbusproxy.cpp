@@ -349,8 +349,8 @@ void SoundDBusProxy::setAudioMono(bool audioMono)
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call, watcher] {
         if (call.isError()) {
             qWarning() << " set Audio Mono error: " << call.error().message();
-            Q_EMIT AudioMonoChanged(this->audioMono());
         }
+        Q_EMIT AudioMonoChanged(this->audioMono());
         watcher->deleteLater();
     });
 }
