@@ -470,7 +470,7 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
 
 void SoundWorker::onAniTimerTimeOut()
 {
-    QString path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1.svg").arg(m_playAniIconIndex);
+    QString path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1").arg(m_playAniIconIndex);
 
     m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, path);
     m_playAniIconIndex++;
@@ -484,7 +484,7 @@ void SoundWorker::onSoundPlayingChanged()
     m_playAniIconIndex = 1;
     QString path("");
     if (m_sound && m_sound->isPlaying()) {
-        path = QString("qrc:/icons/deepin/builtin/icons/sound_preview_%1.svg").arg(m_playAniIconIndex);
+        path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1").arg(m_playAniIconIndex);
         m_playAniIconIndex++;
         m_playAnimationTime->start();
     } else {

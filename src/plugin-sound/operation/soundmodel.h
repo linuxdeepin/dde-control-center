@@ -55,13 +55,16 @@ class SoundModel : public QObject
     Q_PROPERTY(bool outPutPortComboEnable READ outPutPortComboEnable NOTIFY outPutPortComboEnableChanged FINAL)
     Q_PROPERTY(bool inPutPortComboEnable READ inPutPortComboEnable NOTIFY inPutPortComboEnableChanged FINAL)
 
+    Q_PROPERTY(bool speakerOn READ speakerOn NOTIFY speakerOnChanged FINAL)
+    Q_PROPERTY(bool microphoneOn READ microphoneOn NOTIFY microphoneOnChanged FINAL)
+
     QML_NAMED_ELEMENT(SoundModel)
     QML_SINGLETON
 public:
     explicit SoundModel(QObject *parent = 0);
     ~SoundModel();
 
-    inline bool speakerOn() const { return m_speakerOn; }
+    bool speakerOn() const { return m_speakerOn; }
     void setSpeakerOn(bool speakerOn);
 
     inline bool isPortEnable() const { return m_portEnable; }

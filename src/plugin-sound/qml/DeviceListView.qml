@@ -39,6 +39,8 @@ Rectangle {
                 text: model.name
                 hoverEnabled: true
                 content: RowLayout {
+                    Layout.alignment: Qt.AlignVCenter
+                    spacing: 0
                     DciIcon {
                         Layout.alignment: Qt.AlignLeft
                         visible: showPlayBtn && model.aniIconPath.length !== 0
@@ -46,14 +48,16 @@ Rectangle {
                     }
 
                     RowLayout {
+                        spacing: 0
                         Layout.alignment: Qt.AlignRight
-
-                        ToolButton {
+                        IconButton {
                             Layout.alignment: Qt.AlignLeft
-                            icon.name: "qrc:/icons/deepin/builtin/icons/play_back.dci"
+                            icon.name: "play_back"
                             flat: true
                             visible: showPlayBtn && itemCtl.hovered
-
+                            implicitHeight: 20
+                            icon.width: 16
+                            icon.height: 16
                             onClicked: {
                                 console.log("play_back has clicked ")
                                 root.playbtnClicked(index)
