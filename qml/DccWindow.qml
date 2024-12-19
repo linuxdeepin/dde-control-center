@@ -11,16 +11,19 @@ import org.deepin.dcc 1.0
 D.ApplicationWindow {
     id: root
     property string appProductName: Qt.application.displayName
-    property string appLicense: "LGPL-3.0-or-later"
+    property string appLicense: "GPL-3.0-or-later"
 
-    minimumWidth: 500
-    minimumHeight: 200
+    minimumWidth: 520
+    minimumHeight: 400
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
     color: "transparent"
     D.DWindow.enabled: true
 
+    D.StyledBehindWindowBlur {
+        anchors.fill: parent
+    }
     Shortcut {
         context: Qt.ApplicationShortcut
         sequences: [StandardKey.HelpContents, "F1"]
@@ -40,22 +43,18 @@ D.ApplicationWindow {
                 onTriggered: DccApp.showHelp()
             }
             D.AboutAction {
-                aboutDialog: titleBar.aboutDialog
+                aboutDialog: D.AboutDialog {
+                    D.DWindow.enabled: true
+                    productIcon: "preferences-system"
+                    modality: Qt.NonModal
+                    productName: appProductName
+                    websiteName: DTK.deepinWebsiteName
+                    websiteLink: DTK.deepinWebsiteLink
+                    description: qsTr("Control Center provides the options for system settings.")
+                    onClosing: destroy(10)
+                }
             }
             D.QuitAction {}
-        }
-        aboutDialog: D.AboutDialog {
-            id: aboutDialog
-            D.DWindow.enabled: true
-            productIcon: "preferences-system"
-            modality: Qt.NonModal
-            productName: appProductName
-            companyLogo: "file://" + DTK.deepinDistributionOrgLogo
-            websiteName: DTK.deepinWebsiteName
-            websiteLink: DTK.deepinWebsiteLink
-            description: qsTr("Control Center provides the options for system settings.")
-            license: appLicense === "" ? "" : qsTr("%1 is released under %2").arg(appProductName).arg(appLicense)
-            onClosing: destroy(10)
         }
         embedMode: false
         autoHideOnFullscreen: true
@@ -76,13 +75,13 @@ D.ApplicationWindow {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton
 
-        onPressed: function(mouse) {
+        onPressed: function (mouse) {
             mouse.accepted = false
 
             if (!root.activeFocusItem)
                 return
 
-            let pt = mapToItem(root.activeFocusItem, mouse.x ,mouse.y)
+            let pt = mapToItem(root.activeFocusItem, mouse.x, mouse.y)
             // clear focus if click out of activeFocusItem
             if (!root.activeFocusItem.contains(pt)) {
                 root.activeFocusItem.focus = false
