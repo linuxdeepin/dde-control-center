@@ -5,10 +5,8 @@
 #include "dccmanager.h"
 
 #include <DDBusSender>
-#include <DGuiApplicationHelper>
 #include <DIconTheme>
 #include <DLog>
-#include <DPalette>
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -33,9 +31,6 @@ QStringList defaultpath()
 
 int main(int argc, char *argv[])
 {
-    DGuiApplicationHelper::setAttribute(DGuiApplicationHelper::DontSaveApplicationTheme, true);
-    DGuiApplicationHelper::setAttribute(DGuiApplicationHelper::UseInactiveColorGroup, false);
-
     QGuiApplication *app = new QGuiApplication(argc, argv);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -109,7 +104,7 @@ int main(int argc, char *argv[])
 
     // QAccessible::installFactory(accessibleFactory);
 
-    dccV25::DccManager *dccManager = new dccV25::DccManager();
+    dccV25::DccManager *dccManager = new dccV25::DccManager(app);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
     engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));

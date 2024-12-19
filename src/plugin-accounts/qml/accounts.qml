@@ -8,7 +8,7 @@ DccObject {
     parentName: "root"
     displayName: qsTr("Account")
     description: qsTr("Account manager")
-    icon: "dcc_nav_accounts"
+    icon: "accounts"
     weight: 60
 }
 
