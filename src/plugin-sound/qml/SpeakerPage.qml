@@ -168,7 +168,6 @@ DccObject {
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Mono audio")
             description: qsTr("Merge left and right channels into a single channel")
-            visible: dccData.model().audioServer === "pipewire"
             weight: 40
             pageType: DccObject.Editor
             page: Switch {
