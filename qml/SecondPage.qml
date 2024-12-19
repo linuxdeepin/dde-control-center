@@ -10,22 +10,18 @@ import org.deepin.dtk.style 1.0 as DStyle
 
 import org.deepin.dcc 1.0
 
-SplitView {
+Item {
     id: root
-    orientation: Qt.Horizontal
-    handle: Rectangle {
-        implicitWidth: 2
-        color: palette.light // "#B9DEFB"
-    }
+    property real oldX: 180
 
-    StyledBehindWindowBlur {
+    Item {
         id: leftView
-        control: null // DccApp.mainWindow()
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        SplitView.preferredWidth: 180
-
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            left: parent.left
+            right: splitter.left
+        }
         SearchBar {
             id: searchEdit
             anchors {
@@ -52,7 +48,6 @@ SplitView {
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
             clip: true
-            spacing: 8
             focus: true
             model: DccModel {
                 id: dccModel
@@ -90,9 +85,13 @@ SplitView {
             }
         }
     }
-
     Rectangle {
-        SplitView.minimumWidth: 500
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            left: splitter.right
+            right: parent.right
+        }
         color: palette.window
         RowLayout {
             id: header
@@ -101,6 +100,9 @@ SplitView {
                 left: parent.left
                 right: parent.right
             }
+            Item {
+                implicitWidth: splitter.x < 110 ? 110 - splitter.x : 0
+            }
             ToolButton {
                 id: breakBut
                 icon.name: "arrow_ordinary_left"
@@ -108,15 +110,8 @@ SplitView {
                 Layout.margins: 10
                 implicitHeight: 16
                 implicitWidth: 16
-                visible: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
+                enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
-            }
-            Item {
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                Layout.margins: 10
-                implicitHeight: 16
-                implicitWidth: 16
-                visible: !breakBut.visible
             }
 
             Crumb {
@@ -140,6 +135,94 @@ SplitView {
                 left: parent.left
                 right: parent.right
             }
+        }
+    }
+    RowLayout {
+        height: 50
+        implicitWidth: 100
+        ToolButton {
+            property real oldSplitterX: 180
+            icon.name: "sidebar"
+            implicitHeight: 16
+            implicitWidth: 16
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+            Layout.leftMargin: 60
+            onClicked: {
+                if (splitter.x < 110) {
+                    var newX = oldSplitterX
+                    if (root.width - newX > 520) {
+                        splitter.x = newX
+                    } else if (root.width - 180 > 520) {
+                        splitter.x = 180
+                    } else if (root.width - 110 > 520) {
+                        splitter.x = 110
+                    } else {
+                        let dx = 630 - root.width
+                        DccApp.mainWindow().x -= dx
+                        DccApp.mainWindow().width = 630
+                        splitter.x = 110
+                    }
+                } else {
+                    oldSplitterX = splitter.x
+                    splitter.x = 0
+                    root.oldX = 0
+                }
+            }
+        }
+    }
+    Rectangle {
+        id: splitter
+        implicitWidth: 1
+        x: 180
+        height: root.height
+        color: palette.light // "#B9DEFB"
+    }
+    MouseArea {
+        x: splitter.x - 2
+        width: 5
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        cursorShape: Qt.SizeHorCursor
+        onPositionChanged: function (mouse) {
+            var newX = mouse.x + splitter.x
+            if (newX >= 0 && newX < root.width - splitter.width) {
+                if (root.width - newX < 520) {
+                    return
+                }
+                if (newX < 110) {
+                    newX = 0
+                }
+
+                splitter.x = newX
+                root.oldX = newX
+            }
+        }
+    }
+
+    onWidthChanged: {
+        var newX = width - 510
+        if (width - splitter.x < 510) {
+            if (newX < 0) {
+                return
+            }
+            if (newX < 110) {
+                newX = 0
+            }
+            splitter.x = newX
+        } else if (splitter.x < oldX) {
+
+            newX = width - 510
+            if (newX < 0) {
+                return
+            }
+            if (newX < 110) {
+                newX = 0
+            }
+            if (newX > oldX) {
+                newX = oldX
+            }
+
+            splitter.x = newX
         }
     }
     Component {

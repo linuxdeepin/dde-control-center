@@ -32,7 +32,7 @@ Item {
     }
     // 阴影
     Loader {
-        y: 2
+        y: 1
         z: 0
         width: parent.width
         height: parent.height
