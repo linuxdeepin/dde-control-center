@@ -4,11 +4,13 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Qt.labs.qmlmodels 1.2
 import QtQuick.Layouts 1.15
+import "DccUtils.js" as DccUtils
 
 Flickable {
     id: root
     property real spacing: 0
     property bool isGroup: false
+    property real margin: DccUtils.getMargin(width)
 
     contentHeight: centralItem.height + bottomItem.height + 10
     ScrollBar.vertical: ScrollBar {
@@ -33,8 +35,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 60
-            rightMargin: 60
+            leftMargin: root.margin
+            rightMargin: root.margin
         }
     }
     Rectangle {
@@ -43,8 +45,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 60
-            rightMargin: 60
+            leftMargin: root.margin
+            rightMargin: root.margin
         }
         // 防止鼠标穿透
         MouseArea {
@@ -77,8 +79,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 60
-            rightMargin: 60
+            leftMargin: root.margin
+            rightMargin: root.margin
         }
     }
     Timer {
