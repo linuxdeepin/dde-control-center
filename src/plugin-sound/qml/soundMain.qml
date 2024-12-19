@@ -66,13 +66,4 @@ DccObject {
         weight: 40
         SoundDevicemanagesPage {}
     }
-    DccObject {
-        name: "audioServerSetting"
-        parentName: "sound"
-        displayName: qsTr("Audio Framework")
-        description: qsTr("Choose the appropriate audio framework")
-        icon: "audio_framework"
-        weight: 50
-        AudioServerSetting {}
-    }
 }
