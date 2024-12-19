@@ -8,9 +8,9 @@ Item {
 
     property int hours
     property int minutes
-    property int seconds
     property real shift: 8 // (UTC+08)
     property bool internationalTime: true
+    property bool animationEnabled: false
 
     width: 80
     height: 80
@@ -23,7 +23,6 @@ Item {
         const date = new Date
         clock.hours = internationalTime ? date.getUTCHours() + Math.floor(clock.shift) : date.getHours()
         clock.minutes = internationalTime ? date.getUTCMinutes() + ((clock.shift % 1) * 60) : date.getMinutes()
-        clock.seconds = date.getUTCSeconds()
         if (clock.hours < 0)
             clock.hours += 12
     }
@@ -64,6 +63,7 @@ Item {
                 origin.y: 2
                 angle: (clock.hours * 30) + (clock.minutes * 0.5) - 90
                 Behavior on angle {
+                    enabled: clock.animationEnabled
                     SpringAnimation {
                         spring: 2
                         damping: 0.2
@@ -88,6 +88,7 @@ Item {
                 origin.y: 2
                 angle: clock.minutes * 6 - 90
                 Behavior on angle {
+                    enabled: clock.animationEnabled
                     SpringAnimation {
                         spring: 2
                         damping: 0.2
