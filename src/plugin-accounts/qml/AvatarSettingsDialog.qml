@@ -14,8 +14,10 @@ D.DialogWindow {
     id: dialog
     property string userId: dccData.currentUserId()
     property string currentAvatar: dccData.avatar()
-    width: 640
-    height: 500
+    minimumWidth: 640
+    minimumHeight: 500
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     D.DWindow.enableSystemMove: !cropper.dragActived

@@ -2971,13 +2971,6 @@
     </message>
 </context>
 <context>
-    <name>DccRepeater</name>
-    <message>
-        <source>Delegate must be of `DccObject` type</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
@@ -4764,7 +4757,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>SearchableListViewPopup</name>
     <message>
-        <source>搜索</source>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6388,13 +6381,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::DccRepeater</name>
-    <message>
-        <source>Delegate must be of `DccObject` type</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
