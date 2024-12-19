@@ -1,3 +1,9 @@
+dde-control-center (6.1.1) unstable; urgency=medium
+
+  * release 6.1.1
+
+ -- Mike Chen <chenke@deepin.org>  Thu, 19 Dec 2024 11:06:42 +0800
+
 dde-control-center (6.1.0) unstable; urgency=medium
 
   * fix: Failed to modify DBus jump issue
