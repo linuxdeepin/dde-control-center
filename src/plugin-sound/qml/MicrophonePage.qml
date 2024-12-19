@@ -75,14 +75,15 @@ DccObject {
                 }
 
                 IconButton {
-                    icon.name: "qrc:/icons/deepin/builtin/actions/dcc_volume1_32px.svg"
+                    icon.name: dccData.model().microphoneOn ? "qrc:/icons/deepin/builtin/icons/sound_off.dci" : "qrc:/icons/deepin/builtin/icons/small_volume.dci"
                     icon.width: 24
                     icon.height: 24
                     implicitWidth: 24
-                    background: Rectangle {
-                        color: "transparent" // 背景透明
-                        border.color: "transparent" // 边框透明
-                        border.width: 0
+
+                    flat: !hovered
+
+                    onClicked: {
+                        dccData.worker().setSourceMute()
                     }
                 }
                 Slider {
@@ -103,7 +104,7 @@ DccObject {
                 }
                 IconButton {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    icon.name: "qrc:/icons/deepin/builtin/actions/dcc_volume3_32px.svg"
+                    icon.name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
                     icon.width: 24
                     icon.height: 24
                     implicitWidth: 24
@@ -124,23 +125,27 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
-                Layout.rightMargin: 10
-                spacing: 10
 
                 DciIcon {
-                    name: "entry_voice"
-                    sourceSize: Qt.size(16, 16)
+                    name: "qrc:/icons/deepin/builtin/icons/small_volume.dci"
+                    sourceSize: Qt.size(24, 24)
+                    implicitWidth: 24
+                    Layout.rightMargin: 4
                 }
                 Slider {
                     Layout.fillWidth: false
-                    handleType: Slider.HandleType.NoArrowHorizontal
+                   // handleType: Slider.HandleType.NoArrowHorizontal
+                    handleType: -2
                     highlightedPassedGroove: true
                     implicitHeight: 24
                     value: dccData.model().microphoneFeedback
                 }
                 DciIcon {
-                    name: "entry_voice"
-                    sourceSize: Qt.size(16, 16)
+                    name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
+                    sourceSize: Qt.size(24, 24)
+                    implicitWidth: 24
+                    Layout.rightMargin: 4
+                    Layout.leftMargin: 4
                 }
             }
         }

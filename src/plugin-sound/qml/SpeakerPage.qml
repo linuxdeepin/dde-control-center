@@ -72,14 +72,14 @@ DccObject {
                 }
                 IconButton {
                     Layout.alignment: Qt.AlignVCenter
-                    icon.name: "qrc:/icons/deepin/builtin/actions/dcc_volume1_32px.svg"
+                    icon.name: dccData.model().speakerOn ? "qrc:/icons/deepin/builtin/icons/sound_off.dci" : "qrc:/icons/deepin/builtin/icons/small_volume.dci"
                     icon.width: 24
                     icon.height: 24
                     implicitWidth: 24
-                    background: Rectangle {
-                        color: "transparent" // 背景透明
-                        border.color: "transparent" // 边框透明
-                        border.width: 0
+                    flat: !hovered
+
+                    onClicked: {
+                        dccData.worker().setSinkMute()
                     }
                 }
                 Slider {
@@ -97,7 +97,7 @@ DccObject {
                     }
                 }
                 IconButton {
-                    icon.name: "qrc:/icons/deepin/builtin/actions/dcc_volume3_32px.svg"
+                    icon.name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
                     icon.width: 24
                     icon.height: 24
                     implicitWidth: 24
