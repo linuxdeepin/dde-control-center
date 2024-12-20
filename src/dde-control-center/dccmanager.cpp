@@ -123,13 +123,13 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
 int DccManager::width() const
 {
     auto w = m_dconfig->value(WidthConfig).toInt();
-    return w > 780 ? w : 780;
+    return w > 520 ? w : 780;
 }
 
 int DccManager::height() const
 {
     auto h = m_dconfig->value(HeightConfig).toInt();
-    return h > 530 ? h : 530;
+    return h > 400 ? h : 530;
 }
 
 DccApp::UosEdition DccManager::uosEdition() const

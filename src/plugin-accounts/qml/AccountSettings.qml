@@ -473,7 +473,6 @@ DccObject {
     DccObject {
         id: groupSettings
         property bool isEditing
-        property int lrMargin: 60
         name: settings.papaName + "/groupSettings"
         parentName: bottomButtons.name
         displayName: qsTr("Account groups")
@@ -481,6 +480,7 @@ DccObject {
         pageType: DccObject.Menu
         page: ListView {
             id: groupview
+            property int lrMargin: DccUtils.getMargin(width)
             spacing: 1
             anchors {
                 left: parent ? parent.left : undefined
@@ -496,8 +496,8 @@ DccObject {
                 anchors {
                     left: parent ? parent.left : undefined
                     right: parent ? parent.right : undefined
-                    leftMargin: groupSettings.lrMargin
-                    rightMargin: groupSettings.lrMargin
+                    leftMargin: groupview.lrMargin
+                    rightMargin: groupview.lrMargin
                 }
                 RowLayout {
                     anchors.fill: parent
@@ -543,8 +543,8 @@ DccObject {
                 anchors {
                     left: parent ? parent.left : undefined
                     right: parent ? parent.right : undefined
-                    leftMargin: groupSettings.lrMargin
-                    rightMargin: groupSettings.lrMargin
+                    leftMargin: groupview.lrMargin
+                    rightMargin: groupview.lrMargin
                 }
 
                 contentItem: RowLayout {
@@ -637,8 +637,8 @@ DccObject {
                 anchors {
                     left: parent ? parent.left : undefined
                     right: parent ? parent.right : undefined
-                    leftMargin: groupSettings.lrMargin
-                    rightMargin: groupSettings.lrMargin
+                    leftMargin: groupview.lrMargin
+                    rightMargin: groupview.lrMargin
                 }
                 RowLayout {
                     anchors.fill: parent

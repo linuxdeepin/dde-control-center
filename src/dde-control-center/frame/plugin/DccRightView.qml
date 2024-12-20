@@ -4,11 +4,13 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Qt.labs.qmlmodels 1.2
 import QtQuick.Layouts 1.15
+import "DccUtils.js" as DccUtils
 
 Flickable {
     id: root
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup
+    property real margin: DccUtils.getMargin(width)
 
     contentHeight: groupView.height
     ScrollBar.vertical: ScrollBar {
@@ -21,8 +23,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 60
-            rightMargin: 60
+            leftMargin: root.margin
+            rightMargin: root.margin
         }
     }
     Rectangle {
@@ -38,8 +40,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 60
-            rightMargin: 60
+            leftMargin: root.margin
+            rightMargin: root.margin
         }
     }
     Timer {
