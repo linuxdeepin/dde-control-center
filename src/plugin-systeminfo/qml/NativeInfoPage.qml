@@ -20,7 +20,6 @@ DccObject {
         visible: !dccData.systemInfoMode().showDetail
         page: RowLayout {
             Image {
-                // source: "qrc:/icons/deepin/builtin/icons/dcc_nav_systeminfo_84px.svg"
                 source: "file://" + DTK.deepinDistributionOrgLogo
             }
 
@@ -33,7 +32,6 @@ DccObject {
                 }
 
                 Label {
-                    font: DTK.fontManager.t6
                     horizontalAlignment: Text.AlignLeft
                     text: dccData.systemInfoMode().systemCopyright
                 }
@@ -49,18 +47,15 @@ DccObject {
         backgroundType: DccObject.Normal
         visible: dccData.systemInfoMode().showDetail
         page: ColumnLayout{
-            Layout.topMargin: 10
-            Layout.bottomMargin: 10
             Image {
-                Layout.topMargin: 10
+                Layout.topMargin: 25
                 Layout.alignment: Qt.AlignHCenter
                 source: "file://" + dccData.systemInfoMode().logoPath
             }
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                font: DTK.fontManager.t6
                 text: dccData.systemInfoMode().systemCopyright
-                Layout.bottomMargin: 10
+                Layout.bottomMargin: 25
             }
         }
     }
@@ -72,7 +67,6 @@ DccObject {
         pageType: DccObject.Item
         page: ColumnLayout {
             DccGroupView {
-                Layout.topMargin: 10
             }
         }
         DccObject {
@@ -89,21 +83,16 @@ DccObject {
                     id: hostNameLabel
                     Layout.alignment: Qt.AlignRight | Qt.AlignTop
                     text: dccData.systemInfoMode().hostName
-                    font: DTK.fontManager.t6
                 }
 
                 IconButton {
                     id: editBtn
-                    icon.name: "qrc:/icons/deepin/builtin/texts/dcc_edit_12px.svg"
-                    icon.width: 12
-                    icon.height: 12
+                    icon.name: "dcc_systemInfo_edit"
+                    icon.width: 16
+                    icon.height: 16
                     implicitWidth: 20
                     implicitHeight: 20
-                    background: Rectangle {
-                        color: "transparent" // 背景透明
-                        border.color: "transparent" // 边框透明
-                        border.width: 0
-                    }
+                    flat: !hovered
                     onClicked: {
                         editBtn.visible = false
                         hostNameLabel.visible = false
@@ -167,7 +156,6 @@ DccObject {
             page: Label {
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
                 text: dccData.systemInfoMode().productName
-                font: DTK.fontManager.t6
             }
         }
         DccObject {
@@ -177,7 +165,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Version") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().versionNumber
             }
@@ -189,7 +176,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Edition") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().version
             }
@@ -201,7 +187,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Type") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().type+ "-" + qsTr("bit")
             }
@@ -217,7 +202,6 @@ DccObject {
             page: RowLayout {
                 Label {
                     color: dccData.systemInfoMode().licenseStatusColor
-                    font: DTK.fontManager.t6
                     horizontalAlignment: Text.AlignLeft
                     text: dccData.systemInfoMode().licenseStatusText
                 }
@@ -225,7 +209,6 @@ DccObject {
                 ToolButton {
                     text: dccData.systemInfoMode().licenseActionText
                     ColorSelector.family: Palette.CommonColor
-                    font: DTK.fontManager.t6
                     flat: false
                     visible: dccData.systemInfoMode().showDetail
                     opacity: 0.7
@@ -244,7 +227,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("System installation time") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().systemInstallationDate
             }
@@ -257,7 +239,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Kernel") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().kernel
             }
@@ -271,7 +252,6 @@ DccObject {
             visible: dccData.systemInfoMode().showGraphicsPlatform()
             displayName: qsTr("Graphics Platform") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().graphicsPlatform
             }
@@ -284,7 +264,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Processor") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().processor
             }
@@ -297,7 +276,6 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Memory") + ":"
             page: Label {
-                font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().memory
             }
