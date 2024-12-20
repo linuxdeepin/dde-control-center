@@ -13,8 +13,10 @@ import org.deepin.dcc 1.0
 D.DialogWindow {
     id: dialog
     property string userId
-    width: 520
-    height: 480
+    minimumWidth: 520
+    minimumHeight: 480
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
     icon: "preferences-system"
     modality: Qt.WindowModal
     title: isCurrent() ? qsTr("Modify password") : qsTr("Reset password")
