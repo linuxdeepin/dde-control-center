@@ -164,7 +164,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
         }
 
         // 切换到自定义头像界面, 更新用户头像编辑页面
-        if (index.row() == 4) {
+        if (index.row() == Custom) {
             getCustomAvatarWidget()->getCustomAvatarView()->setAvatarPath(
                     m_avatarFrames[Custom]->getCurrentListView()->getAvatarPath());
         }
@@ -204,7 +204,7 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
             this,
             [avatarSelectWidget, this](const QString &path) {
                 m_currentSelectAvatarWidget = m_avatarFrames[Custom];
-                avatarSelectWidget->setCurrentIndex(4);
+                avatarSelectWidget->setCurrentIndex(Custom);
                 m_currentSelectAvatarWidget->getCurrentListView()->requestAddCustomAvatar(path);
             });
 
@@ -212,10 +212,9 @@ AvatarListDialog::AvatarListDialog(User *usr, AccountsWorker *worker, QWidget *p
         const QString path = getAvatarPath();
         if (!path.isEmpty() && path != m_curUser->currentAvatar()) {
             m_path = path;
-
-            // 成功设置头像后关闭窗口
-            accept();
         }
+        // 成功设置头像后关闭窗口
+        accept();
     });
     connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 
