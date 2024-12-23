@@ -28,6 +28,10 @@ Loader {
         DWindow.enabled: true
         DWindow.enableSystemResize: false
         DWindow.enableBlurWindow: true
+        // ensure show in center of mainwindow
+        flags: Qt.Dialog
+        // default color is white
+        color: active ? DTK.palette.window : DTK.inactivePalette.window
 
         Item {
             anchors.fill: parent
