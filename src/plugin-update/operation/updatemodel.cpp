@@ -15,7 +15,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_checkUpdateStateTips("")
     , m_checkUpdateIcon("")
     , m_lastCheckUpdateErrorMsg("")
-    , m_actionBtnText("")
+    , m_actionBtnText(tr("Installing Update"))
 {
 }
 
