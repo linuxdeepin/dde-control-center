@@ -98,10 +98,14 @@ DccObject {
                         }
 
                         Control {
+                            id: control
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Layout.rightMargin: 10
                             contentItem: IconLabel {
                                 icon.name: "arrow_ordinary_right"
+                                icon.palette: DTK.makeIconPalette(control.palette)
+                                icon.mode: control.ColorSelector.controlState
+                                icon.theme: control.ColorSelector.controlTheme
                                 opacity: enabled ? 1 : 0.4
                             }
                         }
