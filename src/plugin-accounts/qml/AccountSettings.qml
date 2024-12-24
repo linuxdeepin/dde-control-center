@@ -20,6 +20,10 @@ DccObject {
         settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
     }
 
+    FontMetrics {
+        id: fm
+    }
+
     // 账户头像
     DccObject {
         id: userAvatars
@@ -184,9 +188,12 @@ DccObject {
                     text: qsTr("Add new user")
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     Layout.rightMargin: 10
+                    implicitWidth: fm.advanceWidth(text) + 12
+                    implicitHeight: 30
                     onClicked: {
                         cadLoader.active = true
                     }
+
                     Loader {
                         id: cadLoader
                         active: false
@@ -438,6 +445,8 @@ DccObject {
                 Layout.alignment: groupSettingsBtn.visible ? Qt.AlignLeft : Qt.AlignRight
                 text: qsTr("Delete current account")
                 enabled: dccData.isDeleteAble(settings.userId)
+                implicitWidth: fm.advanceWidth(text) + 12
+                implicitHeight: 30
                 Loader {
                     id: cfdLoader
                     active: false
@@ -463,6 +472,8 @@ DccObject {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Group setting")
                 visible: dccData.needShowGroups()
+                implicitWidth: fm.advanceWidth(text) + 12
+                implicitHeight: 30
                 onClicked: {
                     DccApp.showPage(groupSettings)
                 }
@@ -645,6 +656,8 @@ DccObject {
                     Button {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Add group")
+                        implicitWidth: fm.advanceWidth(text) + 12
+                        implicitHeight: 30
                         onClicked: {
                             dccData.requestCreateGroup(settings.userId)
                             groupview.positionViewAtEnd()
