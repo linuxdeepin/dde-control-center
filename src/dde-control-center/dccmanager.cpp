@@ -63,14 +63,13 @@ DccManager::DccManager(QObject *parent)
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
-    connect(qApp, &QCoreApplication::aboutToQuit, this, &DccManager::onQuit);
     waitShowPage("system", QDBusMessage());
 }
 
 DccManager::~DccManager()
 {
     qCDebug(dccLog()) << "delete dccManger";
-    onQuit();
+    clearData();
     delete m_plugins;
     qCDebug(dccLog()) << "delete dccManger end";
 }
@@ -725,7 +724,7 @@ bool DccManager::removeObjectFromParent(DccObject *obj)
     return false;
 }
 
-void DccManager::onQuit()
+void DccManager::clearData()
 {
     if (m_plugins->isDeleting()) {
         return;

@@ -96,7 +96,7 @@ private Q_SLOTS:
     void onObjectDisplayChanged();
     bool addObjectToParent(DccObject *obj);
     bool removeObjectFromParent(DccObject *obj);
-    void onQuit();
+    void clearData();
     void waitLoadFinished() const;
     void doGetAllModule(const QDBusMessage message) const;
 
