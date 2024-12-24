@@ -29,11 +29,6 @@ KeyboardController::KeyboardController(QObject *parent)
 
         ShortcutInfo *conflict = m_shortcutModel->getInfo(shortcut);
 
-        if (conflict && conflict == current && conflict->accels == current->accels) {
-            Q_EMIT requestRestore();
-            return;
-        }
-
         if (!press) {
             if (shortcut.isEmpty()) {
                 Q_EMIT requestRestore();
@@ -45,8 +40,13 @@ KeyboardController::KeyboardController(QObject *parent)
                 return;
             }
 
+            // have conflict
             if (conflict) {
-                // have conflict
+                // self conflict
+                if (conflict == current && conflict->accels == current->accels) {
+                    Q_EMIT requestRestore();
+                    return;
+                }
 
                 auto conflictName = QString("<font color=\"red\">%1</font>").arg(conflict->name);
                 QString text = KeyboardController::tr("This shortcut conflicts with [%1]").arg(conflictName);
