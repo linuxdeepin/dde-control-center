@@ -9,6 +9,9 @@ import QtQml.Models
 
 // 语言和区域
 DccObject {
+    FontMetrics {
+        id: fm
+    }
     // 语言列表抬头
     DccObject {
         id: languageListTiltle
@@ -168,7 +171,8 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
-                implicitWidth: 80
+                implicitWidth: fm.advanceWidth(text) + 12
+                implicitHeight: 30
                 text: qsTr("add")
                 LangsChooserDialog {
                     id: dialogLoader

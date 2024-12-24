@@ -810,7 +810,7 @@
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"></translation>
+        <translation>去设置</translation>
     </message>
     <message>
         <source>Cancel</source>
