@@ -32,8 +32,8 @@ DccObject {
         pageType: DccObject.Item
         page: RowLayout {
             Item {
-                width: 270
-                height: 180
+                implicitWidth: 197
+                implicitHeight: 110
 
                 Image {
                     id: image
@@ -80,6 +80,8 @@ DccObject {
                 pageType: DccObject.Editor
                 page: D.ComboBox {
                     flat: true
+                    implicitWidth: 150
+                    implicitHeight: 30
                     model: dccData.model.screens
                     onCurrentTextChanged: {
                         dccData.model.currentSelectScreen = currentText

@@ -118,7 +118,7 @@ ColorDialogImpl {
             }
 
             D.TextField {
-                text: control.color.toString().substring(1)
+                text: control.color.toString().substring(1).toUpperCase()
                 Layout.preferredWidth: 70
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -126,7 +126,7 @@ ColorDialogImpl {
                     regularExpression: /^[0-9a-fA-F]{6}$/
                 }
                 onEditingFinished: {
-                    control.color = "#" + text
+                    control.color = "#" + text.toUpperCase()
                 }
             }
 
