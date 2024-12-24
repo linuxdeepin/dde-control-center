@@ -44,7 +44,7 @@ DccObject {
             name: "roundedEffect"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Window rounded corners")
-            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal
+            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal || dccData.platformName() === "wayland"
             weight: 1
             pageType: DccObject.Item
             page: ColumnLayout {
@@ -153,7 +153,7 @@ DccObject {
         parentName: "personalization/windowEffect"
         displayName: qsTr("Opacity")
         weight: 600
-        visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal
+        visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal || dccData.platformName() === "wayland"
         pageType: DccObject.Item
         backgroundType: DccObject.Normal
         page: ColumnLayout {
