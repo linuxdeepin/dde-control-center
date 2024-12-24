@@ -70,6 +70,7 @@ Control {
         wrapMode: Text.WordWrap
         anchors.top: addIcon.bottom
         anchors.topMargin: 20
+        horizontalAlignment: Text.AlignHCenter
         anchors.horizontalCenter: parent.horizontalCenter
         text: qsTr("You haven't uploaded an avatar yet. Click or drag and drop to upload an image.")
     }
