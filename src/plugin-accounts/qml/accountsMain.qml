@@ -138,11 +138,15 @@ DccObject {
                                }
                                // rightItem
                                Control {
+                                   id: control
                                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                    Layout.topMargin: 5
                                    Layout.bottomMargin: 5
                                    contentItem: D.IconLabel {
                                        icon.name: "arrow_ordinary_right"
+                                       icon.palette: D.DTK.makeIconPalette(control.palette)
+                                       icon.mode: control.D.ColorSelector.controlState
+                                       icon.theme: control.D.ColorSelector.controlTheme
                                    }
                                }
                            }

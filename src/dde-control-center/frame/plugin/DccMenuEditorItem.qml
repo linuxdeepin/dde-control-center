@@ -7,6 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 DccEditorItem {
+    id: control
     property var editor: null
     leftPadding: 12
     rightPadding: 10
@@ -20,6 +21,9 @@ DccEditorItem {
 
         D.IconLabel {
             icon.name: "arrow_ordinary_right"
+            icon.palette: D.DTK.makeIconPalette(control.palette)
+            icon.mode: control.D.ColorSelector.controlState
+            icon.theme: control.D.ColorSelector.controlTheme
         }
     }
     onClicked: {
