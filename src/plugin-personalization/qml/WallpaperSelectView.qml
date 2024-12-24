@@ -14,9 +14,14 @@ import org.deepin.dtk.private as P
 ColumnLayout {
     id: root
     property var model
-    readonly property int imageRectH: 120
-    readonly property int imageRectW: 180
-    readonly property int imageSpacing: 10
+    readonly property int imageRectW: 84
+    readonly property int imageRectH: 54
+    readonly property int imageBorder: 2
+    // 1 is the distance between the border and the image
+    readonly property int imageMargin: imageBorder + 1
+    readonly property int itemWidth: imageRectW + imageBorder * 2 + 1
+    readonly property int itemHeight: imageRectH + imageBorder * 2 + 1
+    readonly property int imageSpacing: 5
     property bool isExpand: false
     property var currentItem
 
@@ -32,19 +37,28 @@ ColumnLayout {
         Layout.fillWidth: true
         Label {
             Layout.leftMargin: 10
-            font: D.DTK.fontManager.t4
+            font: D.DTK.fontManager.t6
             text: dccObj.displayName
         }
         Item {
             Layout.fillWidth: true
         }
         D.ToolButton {
-            text: isExpand ? qsTr("unfold") : qsTr("show all") + `-${model.rowCount()}` + qsTr("items")
-            font: D.DTK.fontManager.t6
-            flat: true
-            onClicked: {
-                isExpand = !isExpand
+            textColor: D.Palette {
+                normal {
+                    common: D.DTK.makeColor(D.Color.Highlight)
+                }
+                normalDark: normal
+                hovered {
+                    common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
+                }
+                hoveredDark: hovered
             }
+            text: root.isExpand ? qsTr("unfold") : qsTr("show all") + `-${root.model.rowCount()}` + qsTr("items")
+            onClicked: {
+                root.isExpand = !root.isExpand
+            }
+            background: Item {}
         }
     }
 
@@ -68,10 +82,10 @@ ColumnLayout {
 
         Flow {
             id: layout
-            property int lineCount: Math.floor((parent.width + imageSpacing) / (imageRectW + imageSpacing))
-            width: lineCount * (imageRectW + imageSpacing) - imageSpacing
-            spacing: imageSpacing
-            bottomPadding: imageSpacing
+            property int lineCount: Math.floor((parent.width + root.imageSpacing) / (root.itemWidth + root.imageSpacing))
+            width: lineCount * (root.itemWidth + root.imageSpacing) - root.imageSpacing
+            spacing: root.imageSpacing
+            bottomPadding: root.imageSpacing
             anchors.horizontalCenter: parent.horizontalCenter
 
             move: Transition {
@@ -90,7 +104,7 @@ ColumnLayout {
                 return left.index < right.index
             }
             filterAcceptsItem: function(item) {
-                return isExpand ? true : item.index < maxCount
+                return root.isExpand ? true : item.index < maxCount
             }
             onMaxCountChanged: {
                 sortedModel.update()
@@ -98,24 +112,23 @@ ColumnLayout {
 
             delegate: Control {
                 id: control
-                width: root.imageRectW
-                height: root.imageRectH
+                width: root.itemWidth
+                height: root.itemHeight
                 hoverEnabled: true
 
                 contentItem: Item {
                     id: wallpaperItem
-                    readonly property int imageMargin: 3
                     function requestSetWallpaper(isLock) {
                         img2x2.grabToImage(function(result) {
-                            const isDarkType = dccData.imageHelper.isDarkType(result.image);
+                            const isDarkType = dccData.imageHelper.isDarkType(result.image)
                             root.wallpaperSelected(model.url, isDarkType, isLock)
-                        }, Qt.size(2, 2));
+                        }, Qt.size(2, 2))
                     }
 
                     Image {
+                        id: img2x2
                         property bool isDarktype: true
                         anchors.centerIn : parent
-                        id: img2x2
                         width: 2
                         height: 2
                         source: model.url
@@ -124,9 +137,11 @@ ColumnLayout {
                     }
 
                     Image {
-                        anchors.fill: parent
-                        anchors.margins: parent.imageMargin
                         id: image
+                        anchors.centerIn: parent
+                        width: root.imageRectW
+                        height: root.imageRectH
+                        sourceSize: Qt.size(width, height)
                         source: model.url
                         mipmap: true
                         visible: false
@@ -140,17 +155,18 @@ ColumnLayout {
                         color: "transparent"
                         border.width: 2
                         border.color: D.DTK.platformTheme.activeColor
-                        radius: 9
+                        radius: 8
                     }
 
                     OpacityMask {
                         anchors.fill: parent
-                        anchors.margins: parent.imageMargin
+                        anchors.margins: root.imageMargin
                         source: image
                         maskSource: Rectangle {
+                            anchors.fill: parent
                             implicitWidth: image.width
                             implicitHeight: image.height
-                            radius: 8
+                            radius: 6
                         }
                     }
                     Control {
@@ -158,8 +174,8 @@ ColumnLayout {
                         implicitWidth: 24
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.topMargin: - height / 2 + parent.imageMargin
-                        anchors.rightMargin: - width / 2 + parent.imageMargin
+                        anchors.topMargin: - height / 2 + root.imageMargin
+                        anchors.rightMargin: - width / 2 + root.imageMargin
                         hoverEnabled: true
                         contentItem: D.IconButton {
                             icon.name: "close"

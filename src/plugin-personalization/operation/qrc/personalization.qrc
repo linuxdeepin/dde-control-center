@@ -39,5 +39,7 @@
         <file>icons/topic_cursor.dci</file>
         <file>icons/color_extractor.dci</file>
 	    <file>icons/close.dci</file>
+        <file>icons/arrow_left.dci</file>
+        <file>icons/arrow_right.dci</file>
     </qresource>
 </RCC>

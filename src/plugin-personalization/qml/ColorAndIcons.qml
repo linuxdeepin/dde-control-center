@@ -45,6 +45,7 @@ DccObject {
                 Rectangle {
                     anchors.fill: parent
                     border.width: 2
+                    color: "transparent"
                     visible: activeColor === currentColor || (currentColor == "CUSTOM" && listview.cutColors.indexOf(activeColor) === -1)
                     border.color: currentColor == "CUSTOM" ? activeColor : currentColor
                     radius: width / 2
@@ -60,8 +61,8 @@ DccObject {
                     D.BoxShadow {
                         anchors.fill: parent
                         shadowColor: parent.color
-                        shadowOffsetY: 2
-                        shadowBlur: 6
+                        shadowOffsetY: 3
+                        shadowBlur: 4
                         cornerRadius: parent.radius
                     }
 

@@ -11,11 +11,11 @@ import org.deepin.dtk 1.0 as D
 ListView {
     id: listview
     // 132 = 130 + itemBorderWidth
-    readonly property int itemWidth: 185
-    readonly property int itemHeight: 150
+    readonly property int itemWidth: 132
+    readonly property int itemHeight: 100
     readonly property int itemBorderWidth: 2
-    readonly property int itemSpacing: 50
-    readonly property int imageRectH: 110
+    readonly property int itemSpacing: 18
+    readonly property int imageRectH: 86
     readonly property int imageRectW: itemWidth
 
     property int gridMaxColumns: Math.floor(listview.width / (itemWidth + itemSpacing))
@@ -70,7 +70,7 @@ ListView {
                     width: listview.itemWidth
                     height: listview.itemHeight
                     anchors.centerIn: parent
-
+    
                     Item {
                         Layout.preferredHeight: listview.imageRectH
                         Layout.preferredWidth: listview.imageRectW
@@ -81,14 +81,14 @@ ListView {
                             color: "transparent"
                             border.width: 2
                             border.color: D.DTK.platformTheme.activeColor
-                            radius: 10
+                            radius: 8
                         }
 
                         Rectangle {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 10
+                            radius: 8
 
                             Image {
                                 anchors.fill: parent
@@ -110,6 +110,7 @@ ListView {
                         text: model.name
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
+                        font: D.DTK.fontManager.t9
                         color: delegateRoot.isCurrent ? D.DTK.platformTheme.activeColor : this.palette.windowText
                     }
                 }
@@ -156,7 +157,7 @@ ListView {
                             anchors.fill: parent
                             anchors.margins: listview.itemBorderWidth + 1
                             color: "transparent"
-                            radius: 10
+                            radius: 8
 
                             Image {
                                 anchors.fill: parent
@@ -179,6 +180,7 @@ ListView {
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         color: this.palette.windowText
+                        font: D.DTK.fontManager.t9
                     }
                 }
                 MouseArea {

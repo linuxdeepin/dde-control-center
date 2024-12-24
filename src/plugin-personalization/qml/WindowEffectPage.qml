@@ -23,7 +23,7 @@ DccObject {
         weight: 100
         pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
-        page: InterfaceEffectListview { }
+        page: InterfaceEffectListview {}
     }
 
     DccTitleObject {
@@ -57,60 +57,58 @@ DccObject {
                     Layout.leftMargin: 10
                 }
 
-                ListView {
+                Flow {
                     id: listview
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 100
-                    Layout.margins: 10
-                    clip: true
+                    Layout.bottomMargin: 10
+                    Layout.leftMargin: 10
                     property var tips: [qsTr("None"), qsTr("Small"), qsTr("Medium"), qsTr("Large")]
                     property var icons: ["corner_none", "corner_small", "corner_middle", "corner_big"]
-
-                    model: tips.length
-                    orientation: ListView.Horizontal
-                    layoutDirection: Qt.LeftToRight
-                    spacing: 12
-                    delegate: ColumnLayout {
-                        id: layout
-                        property bool checked : dccData.model.windowRadius === 6 * index
-                        width: 112
-                        height: 104
-                        Item {
-                            Layout.preferredHeight: 77
-                            Layout.fillWidth: true
-                            Rectangle {
-                                anchors.fill: parent
-                                radius: 7
-                                color: "transparent"
-                                visible: layout.checked
-                                border.width: 2
-                                border.color: D.DTK.platformTheme.activeColor
-                            }
-                            Rectangle {
-                                anchors.fill: parent
-                                anchors.margins: 4
-                                color: Qt.rgba(0, 0, 0, 0.05)
-                                radius: 7
-                                D.DciIcon {
-                                    sourceSize: Qt.size(parent.width, parent.height)
-                                    name: listview.icons[index]
+                    spacing: 8
+                    Repeater {
+                        model: listview.tips.length
+                        ColumnLayout {
+                            id: layout
+                            property bool checked: dccData.model.windowRadius === 6 * index
+                            width: 112
+                            height: 104
+                            Item {
+                                Layout.preferredHeight: 77
+                                Layout.fillWidth: true
+                                Rectangle {
+                                    anchors.fill: parent
+                                    radius: 7
+                                    color: "transparent"
+                                    visible: layout.checked
+                                    border.width: 2
+                                    border.color: D.DTK.platformTheme.activeColor
+                                }
+                                Rectangle {
+                                    anchors.fill: parent
+                                    anchors.margins: 4
+                                    color: Qt.rgba(0, 0, 0, 0.05)
+                                    radius: 7
+                                    D.DciIcon {
+                                        sourceSize: Qt.size(parent.width, parent.height)
+                                        name: listview.icons[index]
+                                    }
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        dccData.worker.setWindowRadius(6 * index)
+                                    }
                                 }
                             }
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    dccData.worker.setWindowRadius(6 * index)
-                                }
-                            }
-                        }
 
-                        Text {
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            text: listview.tips[index]
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            color: layout.checked ? D.DTK.platformTheme.activeColor : this.palette.windowText
+                            Text {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: listview.tips[index]
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                color: layout.checked ? D.DTK.platformTheme.activeColor : this.palette.windowText
+                            }
                         }
                     }
                 }
@@ -148,7 +146,6 @@ DccObject {
                 }
             }
         }
-
     }
 
     DccObject {
@@ -228,7 +225,7 @@ DccObject {
             onCurrentIndexChanged: {
                 if (currentIndex === 0) {
                     dccData.worker.setScrollBarPolicy(Qt.ScrollBarAsNeeded)
-                } else if(currentIndex === 1) {
+                } else if (currentIndex === 1) {
                     dccData.worker.setScrollBarPolicy(Qt.ScrollBarAlwaysOn)
                 }
             }
@@ -265,10 +262,22 @@ DccObject {
             flat: true
             currentIndex: indexOfValue(dccData.model.titleBarHeight)
             model: [
-                { text: qsTr("Extremely small"), value: 24 },
-                { text: qsTr("Small"), value: 32 },
-                { text: qsTr("Medium"), value: 40 },
-                { text: qsTr("Large"), value: 50 }
+                {
+                    text: qsTr("Extremely small"),
+                    value: 24
+                },
+                {
+                    text: qsTr("Small"),
+                    value: 32
+                },
+                {
+                    text: qsTr("Medium"),
+                    value: 40
+                },
+                {
+                    text: qsTr("Large"),
+                    value: 50
+                }
             ]
 
             textRole: "text"

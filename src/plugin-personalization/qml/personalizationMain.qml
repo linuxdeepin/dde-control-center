@@ -27,9 +27,11 @@ DccObject {
                 Layout.margins: 10
                 RowLayout {
                     Layout.fillWidth: true
+                    spacing: 10
+                    Layout.topMargin: 10
+                    Layout.rightMargin: 10
                     Label {
-                        Layout.topMargin: 10
-                        font: D.DTK.fontManager.t5
+                        font: D.DTK.fontManager.t6
                         text: dccObj.displayName
                         Layout.leftMargin: 10
                     }
@@ -42,24 +44,35 @@ DccObject {
                     D.IconButton {
                         flat: true
                         enabled: themeSelectView.currentIndex !== 0
-                        icon.name: "arrow_ordinary_left"
+                        icon.name: "arrow_left"
+                        icon.width: 16
+                        icon.height: 16
+                        implicitWidth: 16
+                        implicitHeight: 16
                         onClicked: {
                             themeSelectView.decrementCurrentIndex()
                         }
+                        background:{}
                     }
                     D.IconButton {
                         flat: true
                         enabled: themeSelectView.currentIndex !== themeSelectView.count - 1
-                        icon.name: "arrow_ordinary_right"
+                        icon.name: "arrow_right"
+                        icon.width: 16
+                        icon.height: 16
+                        implicitWidth: 16
+                        implicitHeight: 16
                         onClicked: {
                             themeSelectView.incrementCurrentIndex()
                         }
+                        background:{}
                     }
                 }
                 ThemeSelectView {
                     id: themeSelectView
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 320
+                    Layout.preferredHeight: 240
+                    Layout.bottomMargin: 15
                 }
             }
         }
@@ -76,6 +89,7 @@ DccObject {
                 flat: true
                 textRole: "text"
                 model: dccData.appearanceSwitchModel
+                implicitWidth: 180
                 currentIndex: {
                     for (var i = 0; i < model.length; ++i) {
                         if (model[i].value === dccData.currentAppearance) {
