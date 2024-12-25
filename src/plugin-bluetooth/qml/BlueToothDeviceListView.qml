@@ -35,14 +35,19 @@ Rectangle {
                 property Item removedItem: null
                 id: itemCtl
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 leftPadding: 10
-                implicitHeight: 60
+
+                topPadding: 0
+                bottomPadding: 0
+                spacing: 0
+
+                implicitHeight: 50
                 cascadeSelected: true
                 visible: model.visiable
                 backgroundVisible: root.backgroundVisible
                 icon.name: model.iconName
                 contentFlow: true
-
                 hoverEnabled: true
 
                 background: DccItemBackground {
@@ -57,109 +62,96 @@ Rectangle {
                         anchors.fill: parent
                         onDoubleClicked: {
                             console.log("双击了项 ", model.id, model.adapterId);
-                            //处理双击事件
+                            // 处理双击事件
                             if (model.connectStatus !== 2) {
                                 dccData.work().connectDevice(model.id, model.adapterId)
                             }
                         }
                     }
 
-
                     RowLayout {
                         width: parent.width
+                        anchors.fill: parent
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        Column {
+                        ColumnLayout {
                             id: status
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.leftMargin: 5
+                            Layout.fillHeight: true
                             spacing: 0
-                            height: myDeviceName.height + deatilShow.height
                             Label {
                                 id: myDeviceName
-                                height: 25
                                 text: model.name
                                 font: D.DTK.fontManager.t6
                                 horizontalAlignment: Qt.AlignLeft
-                                verticalAlignment: Qt.AlignBottom
-                                leftPadding: 0
+                                verticalAlignment: Qt.AlignVCenter
                                 elide: Text.ElideRight
-                                width: Math.min(implicitWidth, root.width - 200)
+                                Layout.fillWidth: true
+                                Layout.fillHeight: !showConnectStatus
                             }
 
-                            Row {
-                                id: deatilShow
-                                height: 25
-                                visible: showConnectStatus
-                                Label {
-                                    id: nameDetail
-                                    visible: showConnectStatus
-                                    width: 60
-                                    text: model.connectStatusText
-                                    horizontalAlignment: Qt.AlignLeft
-                                    verticalAlignment: Qt.AlignTop
-                                    font.pointSize: 8
-                                }
+                            Loader {
+                                id: loader
+                                active: showConnectStatus
+                                sourceComponent:
+                                    RowLayout {
+                                    id: deatilShow
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Label {
+                                        id: nameDetail
+                                        width: 60
+                                        text: model.connectStatusText
+                                        horizontalAlignment: Qt.AlignLeft
+                                        verticalAlignment: Qt.AlignTop
+                                        font.pointSize: 8
+                                        Layout.fillHeight: true
+                                    }
 
-                                D.DciIcon {
-                                    id: powerIcon
-                                    visible: showPowerStatus && model.battery !== "0%"
-                                    width: 20
-                                    name: model.batteryIconPath
-                                    sourceSize: Qt.size(14, 14)
-                                }
+                                    D.DciIcon {
+                                        id: powerIcon
+                                        visible: model.battery !== "0%"
+                                        width: 20
+                                        name: model.batteryIconPath
+                                        sourceSize: Qt.size(14, 14)
+                                    }
 
-                                Label {
-                                    id: power
-                                    visible: showPowerStatus && model.battery !== "0%"
-                                    text: model.battery
-                                    horizontalAlignment: Qt.AlignLeft
-                                    verticalAlignment: Qt.AlignTop
-                                    font.pointSize: 8
+                                    Label {
+                                        id: power
+                                        visible: model.battery !== "0%"
+                                        text: model.battery
+                                        horizontalAlignment: Qt.AlignLeft
+                                        verticalAlignment: Qt.AlignTop
+                                        font.pointSize: 8
+                                    }
                                 }
-
+                                onLoaded: {
+                                    item.show()
+                                }
                             }
-
                         }
 
-                        Rectangle {
-                            id: nameEditBackgrd
-                            width: root.width - 100
-                            height: 50
-                            color: "transparent"
+                        D.LineEdit {
+                            id: nameEdit
                             visible: false
-                            D.LineEdit {
-                                id: nameEdit
-                                visible: false
-                                anchors.centerIn: parent
-                                width: root.width - 100
-                                height: 40
-                                text: model.name
-                                topPadding: 5
-                                bottomPadding: 5
+                            text: model.name
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            Layout.topMargin: 10
+                            Layout.bottomMargin: 10
 
-                                background: Rectangle {
-                                    color: "transparent" // 设置为透明
-                                    border.color: nameEdit.selectionColor // 边框颜色设置为蓝色
-                                    border.width: 2      // 边框宽度
-                                    radius: 5            // 可选：设置圆角
-                                }
+                            onEditingFinished: {
+                                nameEdit.visible = false
+                                status.visible = true
+                                itemCtl.hoverEnabled = true
 
-                                onEditingFinished: {
-                                    nameEdit.visible = false
-                                    nameEditBackgrd.visible = false
-                                    status.visible = true
-                                    itemCtl.hoverEnabled = true
+                                console.log("set device name ", model.id, nameEdit.text)
+                                dccData.work().setDeviceAlias(model.id, nameEdit.text)
 
-                                    console.log("set device name ", model.id, nameEdit.text)
-                                    dccData.work().setDeviceAlias(model.id, nameEdit.text)
-
-                                }
-                                Keys.onPressed: {
-                                    if (event.key === Qt.Key_Return) {
-                                        hostNameEdit.forceActiveFocus(false); // 结束编辑
-                                    }
+                            }
+                            Keys.onPressed: {
+                                if (event.key === Qt.Key_Return) {
+                                    hostNameEdit.forceActiveFocus(false); // 结束编辑
                                 }
                             }
                         }
@@ -167,19 +159,18 @@ Rectangle {
                         RowLayout {
                             id: rowCtl
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                            height: 50
                             spacing: 10
                             D.Button {
                                 id: connectBtn
                                 implicitWidth: 100
-                                padding: 0
-                                height: 30
                                 background.visible: true
                                 text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
                                 enabled: model.connectStatus === 2 || model.connectStatus === 0
                                 font: D.DTK.fontManager.t6
                                 flat: false
                                 visible: itemCtl.hovered
+
+                                Layout.alignment: Qt.AlignVCenter
                                 onClicked: {
                                     if (model.connectStatus === 2) {
                                         dccData.work().disconnectDevice(model.id)
@@ -193,12 +184,14 @@ Rectangle {
                                 id: moreBtn
                                 visible: showMoreBtn
                                 Layout.alignment: Qt.AlignRight
-                                icon.name: "qrc:/icons/deepin/builtin/icons/bluetooth_option.dci"
-                                icon.width: 16
-                                icon.height: 16
-                                width: 20
-                                height: 20
-                                flat: true
+                                icon.name: "bluetooth_option"
+                                icon.width: 24
+                                icon.height: 24
+
+                                implicitHeight: 30
+                                implicitWidth: 30
+
+                                flat: !hovered
 
                                 D.Menu {
                                     id: contextMenu
@@ -236,7 +229,6 @@ Rectangle {
                                         padding: 0
                                         onTriggered: {
                                             nameEdit.visible = true
-                                            nameEditBackgrd.visible = true
 
                                             status.visible = false
                                             itemCtl.hoverEnabled = false
