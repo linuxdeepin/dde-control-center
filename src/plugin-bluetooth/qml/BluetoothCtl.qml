@@ -18,127 +18,127 @@ DccObject{
         backgroundType: DccObject.Normal
         page: RowLayout {
             Layout.fillWidth: true
-            Layout.fillHeight: true
-            height: 60
+            spacing: 0
             id: root
-
             DciIcon {
                 id: deviceIcon
                 Layout.leftMargin: 10
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                 name: "qrc:/icons/deepin/builtin/icons/bluetoothNomal"
-                sourceSize:  Qt.size(36, 36)
+                sourceSize: Qt.size(36, 36)
+                Layout.preferredHeight: 50
+                Layout.preferredWidth: 40
             }
 
-            Column {
+            ColumnLayout {
                 spacing: 0
+                id: devName
+                Layout.fillWidth: true
                 Label {
-                    width: 100
                     id: myDeviceName
-                    height: 25
+                    Layout.alignment: Qt.AlignLeft
                     text: dccObj.displayName
                     font: DTK.fontManager.t6
                     horizontalAlignment: Qt.AlignLeft
                     verticalAlignment: Qt.AlignBottom
                     leftPadding: 0
-                }
-
-                Row {
-                    width: root.width - deviceSwitch.width - 36 - 52
-                    spacing: 5
-                    Label {
-                        id: nameDetail
-                        height: 25
-                        width: Math.min(implicitWidth, root.width - deviceSwitch.width - 36 - 52)
-                        text: model.nameDetail
-                        horizontalAlignment: Qt.AlignLeft
-                        verticalAlignment: Qt.AlignTop
-                        font.pointSize: 8
-                        color:"#5A000000"
-                        elide: Text.ElideRight
-                    }
-
-                    ToolButton {
-                        id: editBtn
-                        flat: false
-                        height: 25
-                        font.pointSize: 8
-                        text: qsTr("Edit")
-                        checked: true
-                        spacing: 0
-                        topPadding: -5
-                        onClicked: {
-                            nameEdit.visible = true
-                            nameDetail.visible = false
-                            myDeviceName.visible = false
-                            nameEditBackgrd.visible = true
-                            nameEdit.forceActiveFocus(true)
-                            nameEdit.selectAll()
-                            editBtn.visible = false
-                        }
-                    }
+                    topPadding: 5
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
                 }
 
                 Rectangle {
-                    id: nameEditBackgrd
-                    width: root.width - deviceSwitch.width - 36 - 52
-                    height: 50
                     color: "transparent"
-                    visible: false
-                    LineEdit {
-                        id: nameEdit
-                        visible: false
-                        anchors.centerIn: parent
-                        width: root.width - deviceSwitch.width - 36 - 52
-                        height: 30
-                        text: myDeviceName.text
-                        topPadding: 5
-                        bottomPadding: 5
+                    id: nameDetaillay
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    RowLayout {
+                        spacing: 5
+                        Layout.fillWidth: true
+                        Label {
+                            id: nameDetail
+                            Layout.alignment: Qt.AlignLeft
+                            width: Math.min(implicitWidth, nameDetaillay.width - editBtn.width - 10)
 
-                        onTextChanged: {
-                            if (text.length > 32) {
-                                text = text.substr(0, 32);  // 截断到31个字符
-                                nameEdit.alertText = qsTr("Length greater than or equal to 32")
-                                nameEdit.showAlert = true
-                            } else {
-                                nameEdit.showAlert = false
+                            text: model.nameDetail
+                            horizontalAlignment: Qt.AlignLeft
+                            verticalAlignment: Qt.AlignTop
+                            font.pointSize: 8
+                            elide: Text.ElideRight
+                        }
+
+                        ToolButton {
+                            id: editBtn
+                            flat: false
+                            font.pointSize: 8
+                            text: qsTr("Edit")
+                            checked: true
+                            spacing: 0
+                            implicitHeight: 20
+
+                            anchors.left: nameDetail.right
+                            onClicked: {
+                                nameEdit.visible = true
+                                devName.visible =false
+                                nameEdit.forceActiveFocus(true)
+                                nameEdit.selectAll()
                             }
                         }
+                    }
+                }
 
-                        // background: Rectangle {
-                        //     color: "transparent" // 设置为透明
-                        //     border.color: nameEdit.selectionColor // 边框颜色设置为蓝色
-                        //     border.width: 2      // 边框宽度
-                        //     radius: 5            // 可选：设置圆角
-                        // }
 
-                        onEditingFinished: {
-                            nameEdit.visible = false
-                            nameDetail.visible = true
-                            myDeviceName.visible = true
-                            nameEditBackgrd.visible = false
-                            editBtn.visible = true
+            }
 
-                            dccData.work().setAdapterAlias(model.id, nameEdit.text)
-                        }
-                        Keys.onPressed: {
-                            if (event.key === Qt.Key_Return) {
-                                nameEdit.forceActiveFocus(false); // 结束编辑
-                            }
-                        }
+            LineEdit {
+                id: nameEdit
+                visible: false
+                Layout.fillWidth: true
+              //  implicitWidth: root.width - deviceSwitch.width - 40 - 32
+                text: myDeviceName.text
+                topPadding: 5
+                bottomPadding: 5
+                Layout.rightMargin: 10
+                implicitHeight: 30
+
+                onTextChanged: {
+                    if (text.length > 64) {
+                        text = text.substr(0, 64);  // 截断到31个字符
+                        nameEdit.alertText = qsTr("Length greater than or equal to 64")
+                        nameEdit.showAlert = true
+                        alertTimer.start()
+                    } else {
+                        nameEdit.showAlert = false
+                    }
+                }
+                Timer {
+                    id: alertTimer
+                    interval: 2000
+                    repeat: false
+                    onTriggered: {
+                        nameEdit.showAlert = false
+                    }
+                }
+
+                onEditingFinished: {
+                    nameEdit.visible = false
+                    devName.visible = true
+                    dccData.work().setAdapterAlias(model.id, nameEdit.text)
+                }
+                Keys.onPressed: {
+                    if (event.key === Qt.Key_Return) {
+                        nameEdit.forceActiveFocus(false); // 结束编辑
                     }
                 }
             }
 
             BusyIndicator {
                 id: initAnimation
-                //    Layout.alignment: Qt.AlignRight
                 running: true
                 visible: false
                 implicitWidth: 32
                 implicitHeight: 32
             }
-
 
             Timer {
                 id: timer
@@ -156,6 +156,8 @@ DccObject{
             Switch {
                 id: deviceSwitch
                 checked: model.powered
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: 10
                 onCheckedChanged: {
                     if (checked === model.powered) {
                         return
@@ -207,7 +209,6 @@ DccObject{
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignTop
             font.pointSize: 8
-            color:"#5A000000"
             // 超链接点击事件
             onLinkActivated: function(url) {
                 console.log("点击的链接是: " + url)
