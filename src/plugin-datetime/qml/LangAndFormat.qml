@@ -32,6 +32,8 @@ DccObject {
             Button {
                 id: button
                 checkable: true
+                visible: langRepeater.count > 1
+                font.pointSize: 12
                 checked: languageListTiltle.isEditing
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
@@ -66,6 +68,7 @@ DccObject {
             onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
             DccRepeater {
+                id: langRepeater
                 model: dccData.langList
                 delegate: DccObject {
                     name: "languageItem" + index
@@ -230,7 +233,7 @@ DccObject {
                 IconLabel {
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     icon.name: "arrow_ordinary_right"
-                    icon.palette: DTK.makeIconPalette(palette)
+                    icon.palette: DTK.makeIconPalette(regionLabel.palette)
                     icon.mode: ColorSelector.controlState
                     icon.theme: ColorSelector.controlTheme
                 }
@@ -279,12 +282,13 @@ DccObject {
             RowLayout {
                 id: layout
                 Label {
+                    id: currentLabel
                     text: dccData.currentLanguageAndRegion
                 }
                 IconLabel {
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     icon.name: "arrow_ordinary_right"
-                    icon.palette: DTK.makeIconPalette(palette)
+                    icon.palette: DTK.makeIconPalette(currentLabel.palette)
                     icon.mode: ColorSelector.controlState
                     icon.theme: ColorSelector.controlTheme
                 }
