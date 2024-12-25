@@ -27,11 +27,12 @@ DccObject {
             D.Button {
                 id: button
                 checkable: true
+                visible: dccData.layoutCount > 1
                 checked: keyboardLayoutTitle.isEditing
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
                 text: keyboardLayoutTitle.isEditing ? qsTr("done") : qsTr("edit")
-                font.pointSize: 13
+                font.pointSize: 12
                 background: null
                 textColor: D.Palette {
                     normal {

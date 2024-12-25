@@ -527,7 +527,7 @@ DccObject {
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         Layout.rightMargin: 10
                         text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
-                        font.pointSize: 13
+                        font.pointSize: 12
                         background: null
                         textColor: Palette {
                             normal {
