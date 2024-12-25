@@ -104,8 +104,8 @@ static const QString getDevelopModeLicense(const QString &filePath, const QStrin
 static void notifyInfo(const QString &summary)
 {
     DUtil::DNotifySender(summary)
-            .appIcon("dde-control-center")
-            .appName(QObject::tr("dde-control-center"))
+            .appIcon("")
+            .appName("org.deepin.dde.control-center")
             .timeOut(5000)
             .call();
 }
@@ -113,8 +113,8 @@ static void notifyInfo(const QString &summary)
 static void notifyInfoWithBody(const QString &summary, const QString &body)
 {
     DUtil::DNotifySender(summary)
-            .appIcon("dde-control-center")
-            .appName(QObject::tr("dde-control-center"))
+            .appIcon("")
+            .appName("org.deepin.dde.control-center")
             .appBody(body)
             .timeOut(5000)
             .call();
