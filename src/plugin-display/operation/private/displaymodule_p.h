@@ -25,6 +25,7 @@ public:
     void updateMonitorList();
     void updatePrimary();
     void updateDisplayMode();
+    void updateMaxGlobalScale();
     DccScreen *primary() const;
     QString displayMode() const;
 
@@ -36,6 +37,7 @@ public:
     QList<DccScreen *> m_virtualScreens;
     DccScreen *m_primary;
     QString m_displayMode;
+    qreal m_maxGlobalScale;
 
     Q_DECLARE_PUBLIC(DisplayModule)
 };

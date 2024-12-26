@@ -30,6 +30,8 @@ class DccScreen : public QObject
     Q_PROPERTY(QString currentFillMode READ currentFillMode WRITE setCurrentFillMode NOTIFY currentFillModeChanged FINAL)
     Q_PROPERTY(QStringList availableFillModes READ availableFillModes NOTIFY availableFillModesChanged FINAL)
     Q_PROPERTY(QScreen* screen READ screen NOTIFY screenChanged FINAL)
+    Q_PROPERTY(qreal scale READ scale WRITE setScale NOTIFY scaleChanged FINAL)
+    Q_PROPERTY(qreal maxScale READ maxScale NOTIFY maxScaleChanged FINAL)
 public:
     QString name() const;
     bool enable() const;
@@ -50,6 +52,9 @@ public:
     void setCurrentFillMode(const QString &fill);
     QStringList availableFillModes() const;
     QScreen *screen() const;
+    qreal scale() const;
+    void setScale(qreal scale);
+    qreal maxScale() const;
 
 Q_SIGNALS:
     void nameChanged();
@@ -67,6 +72,8 @@ Q_SIGNALS:
     void currentFillModeChanged();
     void availableFillModesChanged();
     void screenChanged();
+    void scaleChanged();
+    void maxScaleChanged();
 
 protected:
     explicit DccScreen(QObject *parent = nullptr);

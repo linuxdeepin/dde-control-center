@@ -52,6 +52,7 @@ public:
 DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     : q_ptr(parent)
     , m_primary(nullptr)
+    , m_maxGlobalScale(1.0)
 {
     QMetaObject::invokeMethod(
             q_ptr,
@@ -154,23 +155,29 @@ void DisplayModulePrivate::updateMonitorList()
             it = m_screens.erase(it);
         }
     }
+    auto updateVirtualScreensFun = [this]() {
+        updateVirtualScreens();
+    };
+    auto updateMaxGlobalScaleFun = [this]() {
+        updateMaxGlobalScale();
+    };
     for (auto monitor : addMonitorList) {
         changed = true;
         m_screens << DccScreenPrivate::New({ monitor }, m_worker, q_ptr);
-        auto updateVirtualScreensFun = [this]() {
-            updateVirtualScreens();
-        };
         q_ptr->connect(monitor, &Monitor::xChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::yChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::wChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::hChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateVirtualScreensFun);
+        q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxGlobalScaleFun);
+        q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxGlobalScaleFun);
     }
     if (changed) {
         std::sort(m_screens.begin(), m_screens.end(), [](const DccScreen *screen1, const DccScreen *screen2) {
             return screen1->name() < screen2->name();
         });
         updateVirtualScreens();
+        updateMaxGlobalScale();
         Q_EMIT q_ptr->screensChanged();
     }
 }
@@ -209,6 +216,31 @@ void DisplayModulePrivate::updateDisplayMode()
         break;
     default:
         break;
+    }
+}
+
+void DisplayModulePrivate::updateMaxGlobalScale()
+{
+    qreal maxScale = 3.0;
+    for (auto monitor : m_model->monitorList()) {
+        if (!monitor->enable()) {
+            continue;
+        }
+        auto tmode = monitor->currentMode();
+        if (tmode.width() == 0 || tmode.height() == 0) {
+            maxScale = 1.0;
+            break;
+        }
+        qreal maxWScale = tmode.width() / MinScreenWidth;
+        qreal maxHScale = tmode.height() / MinScreenHeight;
+        maxScale = std::min(maxScale, std::min(maxWScale, maxHScale));
+    }
+    if (maxScale < 1.0) {
+        maxScale = 1.0;
+    }
+    if (m_maxGlobalScale != maxScale) {
+        m_maxGlobalScale = maxScale;
+        Q_EMIT q_ptr->maxGlobalScaleChanged();
     }
 }
 
@@ -279,6 +311,24 @@ void DisplayModule::setDisplayMode(const QString &mode)
 bool DisplayModule::isX11() const
 {
     return !WQt::Utils::isTreeland();
+}
+
+qreal DisplayModule::globalScale() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->uiScale();
+}
+
+void DisplayModule::setGlobalScale(qreal scale)
+{
+    Q_D(DisplayModule);
+    d->m_worker->setUiScale(scale);
+}
+
+qreal DisplayModule::maxGlobalScale() const
+{
+    Q_D(const DisplayModule);
+    return d->m_maxGlobalScale;
 }
 
 void DisplayModule::saveChanges()
