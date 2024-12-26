@@ -19,7 +19,8 @@ class SoundDeviceModel: public QAbstractListModel {
 public:
     enum soundEffectsRoles{
         NameRole = Qt::UserRole + 1,
-        IsChecked
+        IsEnabled,
+        IsActive,
     };
 
     explicit SoundDeviceModel(QObject *parent = nullptr);
@@ -29,8 +30,11 @@ public:
     void removeData(Port* port);
     int getRowCount();
 
-    SoundDeviceData* getSoundDeviceData(int index);
+    int getCurrentIndex() const;
+
+    Port* getSoundDeviceData(int index);
     void updateSoundDeviceData(Port* port);
+    void updateAllSoundDeviceData();
 
 protected:
 
@@ -40,13 +44,13 @@ protected:
     QHash<int, QByteArray> roleNames() const override {
         QHash<int, QByteArray> roles;
         roles[NameRole] = "name";
-        roles[IsChecked] = "isChecked";
+        roles[IsEnabled] = "isEnabled";
+        roles[IsActive] = "isActive";
         return roles;
     }
 
 
 private:
-    QList<SoundDeviceData*> m_soundDeviceDatas;
     QList<Port*> m_ports;
 };
 

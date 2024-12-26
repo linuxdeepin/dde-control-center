@@ -22,7 +22,7 @@ public:
     enum soundEffectsRoles{
         NameRole = Qt::UserRole + 1,
         DisplayTextRole,
-        IsChecked,
+        IsEnabled,
         AniIconPath
     };
 
@@ -46,7 +46,7 @@ protected:
         QHash<int, QByteArray> roles;
         roles[NameRole] = "name";
         roles[DisplayTextRole] = "dispalyText";
-        roles[IsChecked] = "isChecked";
+        roles[IsEnabled] = "isEnabled";
         roles[AniIconPath] = "aniIconPath";
         return roles;
     }

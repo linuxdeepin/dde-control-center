@@ -109,24 +109,11 @@ SoundModel::~SoundModel()
     }
 }
 
-Port *SoundModel::activeinPutPort() const
-{
-    return m_activeinPutPort;
-}
-
-void SoundModel::setActiveinPutPort(Port *newActiveinPutPort)
-{
-    m_activeinPutPort = newActiveinPutPort;
-    setInPutPortComboIndex(m_inPutPortCombo.indexOf(m_activeinPutPort->name() + "(" + m_activeinPutPort->cardName() + ")"));
-}
-
 void SoundModel::updatePortCombo()
 {
     QStringList outPutPortCombo;
     QStringList inPutPortCombo;
 
-    Port* inputActivePort = nullptr;
-    Port* outputActivePort = nullptr;
     for (Port* port : m_ports) {
         if (port->isEnabled()) {
             switch (port->direction()) {
@@ -138,41 +125,10 @@ void SoundModel::updatePortCombo()
                 break;
             }
         }
-
-        if (port->isActive()) {
-            switch (port->direction()) {
-            case Port::In:
-                inputActivePort= port;
-                break;
-            case Port::Out:
-                outputActivePort = port;
-                break;
-            }
-        }
     }
 
     setInPutPortCombo(inPutPortCombo);
     setOutPutPortCombo(outPutPortCombo);
-
-    if (inputActivePort)
-        setActiveinPutPort(inputActivePort);
-    if (outputActivePort)
-        setActiveOutPutPort(outputActivePort);
-}
-
-Port * SoundModel::getPortForComboIndex(int index, int portType)
-{
-    QList<Port*> ports = portType == Port::In ? m_inputPorts : m_outputPorts;
-    QStringList portCombo = portType == Port::In ? m_inPutPortCombo : m_outPutPortCombo;
-    if (portCombo.count()) {
-        for (Port* port : ports) {
-            if (port->name() + "(" + port->cardName() + ")" == portCombo.at(index)) {
-                return port;
-            }
-        }
-    }
-
-    return nullptr;
 }
 
 int SoundModel::inPutPortComboIndex() const
@@ -199,18 +155,6 @@ void SoundModel::setInPutPortCombo(const QStringList &newInPutPortCombo)
         return;
     m_inPutPortCombo = newInPutPortCombo;
     emit inPutPortComboChanged();
-}
-
-Port *SoundModel::activeOutPutPort() const
-{
-    return m_activeOutPutPort;
-}
-
-void SoundModel::setActiveOutPutPort(Port *newActiveOutPutPort)
-{
-    m_activeOutPutPort = newActiveOutPutPort;
-    setOutPutPortComboIndex(m_outPutPortCombo.indexOf(m_activeOutPutPort->name() + "(" + m_activeOutPutPort->cardName() + ")"));
-    setShowBluetoothMode(m_activeOutPutPort->isBluetoothPort());
 }
 
 int SoundModel::outPutPortComboIndex() const
@@ -298,12 +242,6 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 
 void SoundModel::setPort(Port *port)
 {
-    if (port->direction() == Port::Direction::Out) {
-        setActiveOutPutPort(port);
-    }
-    if (port->direction() == Port::Direction::In) {
-        setActiveinPutPort(port);
-    }
     Q_EMIT setPortChanged(port);
 }
 
@@ -598,24 +536,30 @@ void SoundModel::initSoundDeviceModel(Port::Direction direction)
     }
 }
 
-SoundDeviceData *SoundModel::getSoundDeviceData(int index, int portType)
+Port *SoundModel::getSoundDeviceData(int index, int portType)
 {
-    SoundDeviceModel *soundDeviceModel =
-            portType == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
+    SoundDeviceModel *soundDeviceModel = portType == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
     return soundDeviceModel ? soundDeviceModel->getSoundDeviceData(index) : nullptr;
 }
 
 void SoundModel::updateSoundDeviceModel(Port *port)
 {
-    if (port->direction() == Port::In ) {
-        m_soundInputDeviceModel->updateSoundDeviceData(port);
-        return;
-    }
+    SoundDeviceModel *soundDeviceModel =
+            port->direction() == Port::In ? soundInputDeviceModel() : soundOutputDeviceModel();
 
-    if (port->direction() == Port::Out) {
-        m_soundOutputDeviceModel->updateSoundDeviceData(port);
-        return;
-    }
+    soundDeviceModel->updateSoundDeviceData(port);
+}
+
+void SoundModel::updateAllDeviceModel()
+{
+    m_soundOutputDeviceModel->updateAllSoundDeviceData();
+    m_soundInputDeviceModel->updateAllSoundDeviceData();
+}
+
+void SoundModel::updateActiveComboIndex()
+{
+    setInPutPortComboIndex(m_soundInputDeviceModel->getCurrentIndex());
+    setOutPutPortComboIndex(m_soundOutputDeviceModel->getCurrentIndex());
 }
 
 void SoundModel::setOutPutCount(int newOutPutCount)

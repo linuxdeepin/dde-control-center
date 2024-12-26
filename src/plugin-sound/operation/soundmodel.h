@@ -167,22 +167,19 @@ public:
 
     // 初始化输入设备ui数据
     void initSoundDeviceModel(Port::Direction direction);
-    SoundDeviceData* getSoundDeviceData(int index, int portType);
+    Port* getSoundDeviceData(int index, int portType);
     void updateSoundDeviceModel(Port* port);
+    void updateAllDeviceModel();
+    void updateActiveComboIndex();
 
     int outPutPortComboIndex() const;
     void setOutPutPortComboIndex(int newOutPutPortComboIndex);
-    Port *activeOutPutPort() const;
-    void setActiveOutPutPort(Port *newActiveOutPutPort);
     QStringList inPutPortCombo() const;
     void setInPutPortCombo(const QStringList &newInPutPortCombo);
     int inPutPortComboIndex() const;
     void setInPutPortComboIndex(int newInPutPortComboIndex);
-    Port *activeinPutPort() const;
-    void setActiveinPutPort(Port *newActiveinPutPort);
 
     void updatePortCombo();
-    Port* getPortForComboIndex(int index, int portType);
 
     Q_INVOKABLE SoundEffectsModel* soundEffectsModel() const;
     Q_INVOKABLE QString getListName(int index) const;
@@ -319,12 +316,10 @@ private:
 
     QStringList m_outPutPortCombo;
     int m_outPutPortComboIndex;
-    Port* m_activeOutPutPort;
     bool m_outPutPortComboEnable;
 
     QStringList m_inPutPortCombo;
     int m_inPutPortComboIndex;
-    Port* m_activeinPutPort;
     bool m_inPutPortComboEnable;
 
     SoundEffectsModel* m_soundEffectsModel;
