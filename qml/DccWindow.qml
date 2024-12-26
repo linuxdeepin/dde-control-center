@@ -59,7 +59,6 @@ D.ApplicationWindow {
         embedMode: false
         autoHideOnFullscreen: true
         focus: true
-        Keys.onSpacePressed: Window.window.visibility = Window.FullScreen
     }
 
     Control {
