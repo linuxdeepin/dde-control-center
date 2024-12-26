@@ -25,6 +25,7 @@ DccScreenPrivate *DccScreenPrivate::Private(DccScreen *screen)
 DccScreenPrivate::DccScreenPrivate(DccScreen *screen)
     : q_ptr(screen)
     , m_screen(nullptr)
+    , m_maxScale(1.0)
 {
 }
 
@@ -37,13 +38,19 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
         return monitor1->name() < monitor2->name();
     });
     QStringList name;
+    auto updateMaxScaleFun = [this]() {
+        updateMaxScale();
+    };
     for (auto monitor : m_monitors) {
         name << monitor->name();
+        q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxScaleFun);
+        q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxScaleFun);
     }
     m_name = name.join(" = ");
     updateResolutionList();
     updateRateList();
     updateScreen();
+    updateMaxScale();
     q_ptr->connect(monitor(), &Monitor::modelListChanged, q_ptr, [this]() {
         updateResolutionList();
         updateRateList();
@@ -113,6 +120,13 @@ void DccScreenPrivate::setFillMode(const QString &fileMode)
     }
 }
 
+void DccScreenPrivate::setScale(qreal scale)
+{
+    for (auto monitor : m_monitors) {
+        m_worker->setIndividualScaling(monitor, scale);
+    }
+}
+
 void DccScreenPrivate::updateResolutionList()
 {
     QList<QSize> resolutionList;
@@ -179,6 +193,31 @@ void DccScreenPrivate::updateScreen()
     }
 }
 
+void DccScreenPrivate::updateMaxScale()
+{
+    qreal maxScale = 3.0;
+    for (auto monitor : m_monitors) {
+        if (!monitor->enable()) {
+            continue;
+        }
+        auto tmode = monitor->currentMode();
+        if (tmode.width() == 0 || tmode.height() == 0) {
+            maxScale = 1.0;
+            break;
+        }
+        qreal maxWScale = tmode.width() / MinScreenWidth;
+        qreal maxHScale = tmode.height() / MinScreenHeight;
+        maxScale = std::min(maxScale, std::min(maxWScale, maxHScale));
+    }
+    if (maxScale < 1.0) {
+        maxScale = 1.0;
+    }
+    if (m_maxScale != maxScale) {
+        m_maxScale = maxScale;
+        Q_EMIT q_ptr->maxScaleChanged();
+    }
+}
+
 DccScreen::DccScreen(QObject *parent)
     : QObject(parent)
     , d_ptrDccScreen(new DccScreenPrivate(this))
@@ -215,8 +254,8 @@ QSize DccScreen::bestResolution() const
 
 QSize DccScreen::currentResolution() const
 {
-    auto monitor = d_ptrDccScreen->monitor();
-    return QSize(monitor->w(), monitor->h());
+    auto mode = d_ptrDccScreen->monitor()->currentMode();
+    return QSize(mode.width(), mode.height());
 }
 
 void DccScreen::setCurrentResolution(const QSize &resolution)
@@ -283,6 +322,21 @@ QStringList DccScreen::availableFillModes() const
 QScreen *DccScreen::screen() const
 {
     return d_ptrDccScreen->m_screen;
+}
+
+qreal DccScreen::scale() const
+{
+    return d_ptrDccScreen->monitor()->scale();
+}
+
+void DccScreen::setScale(qreal scale)
+{
+    d_ptrDccScreen->setScale(scale);
+}
+
+qreal DccScreen::maxScale() const
+{
+    return d_ptrDccScreen->m_maxScale;
 }
 
 } // namespace dccV25

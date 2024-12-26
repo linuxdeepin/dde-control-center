@@ -9,6 +9,9 @@
 #include <QObject>
 
 namespace dccV25 {
+const float MinScreenWidth = 1024.0f;
+const float MinScreenHeight = 768.0f;
+
 class DisplayWorker;
 class DccScreen;
 
@@ -27,10 +30,12 @@ public:
     void setMode(QSize resolution, double rate);
     void setRotate(uint rotate);
     void setFillMode(const QString &fileMode);
+    void setScale(qreal scale);
 
     void updateResolutionList();
     void updateRateList();
     void updateScreen();
+    void updateMaxScale();
 
 private:
     DccScreen *q_ptr;
@@ -40,6 +45,7 @@ private:
     QString m_name;
     DisplayWorker *m_worker;
     QScreen *m_screen;
+    qreal m_maxScale;
     Q_DECLARE_PUBLIC(DccScreen)
 };
 } // namespace dccV25

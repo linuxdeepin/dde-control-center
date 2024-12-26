@@ -263,17 +263,6 @@
     </message>
 </context>
 <context>
-    <name>AudioServerSetting</name>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation>不同音频框架各有优劣，可选择与你最匹配的框架使用</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation>音频框架</translation>
-    </message>
-</context>
-<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -473,10 +462,6 @@
         <translation>修改</translation>
     </message>
     <message>
-        <source>Length greater than or equal to 32</source>
-        <translation>长度大于或等于 32</translation>
-    </message>
-    <message>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>允许其他蓝牙设备找到该设备</translation>
     </message>
@@ -487,6 +472,10 @@
     <message>
         <source>Airplane Mode</source>
         <translation>飞行模式</translation>
+    </message>
+    <message>
+        <source>Length greater than or equal to 64</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2972,10 +2961,6 @@
 </context>
 <context>
     <name>DccWindow</name>
-    <message>
-        <source>%1 is released under %2</source>
-        <translation>%1在%2下发布</translation>
-    </message>
     <message>
         <source>Control Center provides the options for system settings.</source>
         <translation>控制中心提供操作系统的所有设置选项。</translation>
@@ -6675,6 +6660,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Color Temperature</source>
         <translation>色温</translation>
     </message>
+    <message>
+        <source>100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>当前屏幕仅支持1倍缩放</translation>
+    </message>
 </context>
 <context>
     <name>keyboard</name>
@@ -6913,14 +6938,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>系统音效</translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation>音频框架</translation>
-    </message>
-    <message>
-        <source>Choose the appropriate audio framework</source>
-        <translation>选择合适的音频框架</translation>
     </message>
     <message>
         <source>DevicesManger</source>

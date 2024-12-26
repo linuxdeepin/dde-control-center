@@ -7,21 +7,39 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 import org.deepin.dcc 1.0
-import org.deepin.dcc.defApp 1.0
 
 DccObject {
     id: root
     property var screen: dccData.virtualScreens[0]
+    property var scaleModelConst: [{
+            "text": qsTr("100%"),
+            "value": 1.0
+        }, {
+            "text": qsTr("125%"),
+            "value": 1.25
+        }, {
+            "text": qsTr("150%"),
+            "value": 1.50
+        }, {
+            "text": qsTr("175%"),
+            "value": 1.75
+        }, {
+            "text": qsTr("200%"),
+            "value": 2.0
+        }, {
+            "text": qsTr("225%"),
+            "value": 2.25
+        }, {
+            "text": qsTr("250%"),
+            "value": 2.50
+        }, {
+            "text": qsTr("275%"),
+            "value": 2.75
+        }, {
+            "text": qsTr("300%"),
+            "value": 3.0
+        }]
 
-    ListModel {
-        id: resolutionModel
-    }
-    ListModel {
-        id: rateModel
-    }
-    ListModel {
-        id: fillModel
-    }
     ListModel {
         id: modeModel
         ListElement {
@@ -33,112 +51,113 @@ DccObject {
             value: "EXTEND" // 2
         }
     }
-    function updateResolutionModel() {
-        resolutionModel.clear()
-        for (let resolution of screen.resolutionList) {
-            if (resolution.width === screen.bestResolution.width && resolution.height === screen.bestResolution.height) {
-                resolutionModel.insert(0, {
-                                           "text": resolution.width + "×" + resolution.height + qsTr(" (Recommended)"),
-                                           "value": resolution
-                                       })
-            } else {
-                resolutionModel.append({
-                                           "text": resolution.width + "×" + resolution.height,
-                                           "value": resolution
-                                       })
-            }
-        }
-    }
-    function updateRateModel() {
-        rateModel.clear()
-        for (let rate of screen.rateList) {
-            if (rate === screen.bestRate) {
-                rateModel.append({
-                                     "text": (Math.round(rate * 100) / 100) + qsTr("Hz") + qsTr(" (Recommended)"),
-                                     "value": rate
-                                 })
-            } else {
-                rateModel.append({
-                                     "text": (Math.round(rate * 100) / 100) + qsTr("Hz"),
-                                     "value": rate
-                                 })
-            }
-        }
-    }
-    function updateFillModel() {
-        fillModel.clear()
-        for (let fillmode of screen.availableFillModes) {
+    function getFillModel(availableFillModes) {
+        var fillModel = []
+        for (let fillmode of availableFillModes) {
             switch (fillmode) {
             case "None":
-                fillModel.append({
-                                     "text": qsTr("Default"),
-                                     "icon": "Default",
-                                     "value": fillmode
-                                 })
+                fillModel.push({
+                                   "text": qsTr("Default"),
+                                   "icon": "Default",
+                                   "value": fillmode
+                               })
                 break
             case "Full aspect":
-                fillModel.append({
-                                     "text": qsTr("Fit"),
-                                     "icon": "Fit",
-                                     "value": fillmode
-                                 })
+                fillModel.push({
+                                   "text": qsTr("Fit"),
+                                   "icon": "Fit",
+                                   "value": fillmode
+                               })
                 break
             case "Full":
-                fillModel.append({
-                                     "text": qsTr("Stretch"),
-                                     "icon": "Stretch",
-                                     "value": fillmode
-                                 })
+                fillModel.push({
+                                   "text": qsTr("Stretch"),
+                                   "icon": "Stretch",
+                                   "value": fillmode
+                               })
                 break
             case "Center":
-                fillModel.append({
-                                     "text": qsTr("Center"),
-                                     "icon": "Center",
-                                     "value": fillmode
-                                 })
+                fillModel.push({
+                                   "text": qsTr("Center"),
+                                   "icon": "Center",
+                                   "value": fillmode
+                               })
                 break
             }
         }
+        return fillModel
     }
-    function updateModeModel() {
+    function getModeModel(screens) {
         if (modeModel.count > 2) {
             modeModel.remove(2, modeModel.count - 2)
         }
-        for (let screen of dccData.screens) {
+        for (let screen of screens) {
             modeModel.append({
                                  "text": qsTr("Only on %1").arg(screen.name),
                                  "value": screen.name
                              })
         }
+        return modeModel
     }
-    Connections {
-        target: screen
-        function onResolutionListChanged() {
-            updateResolutionModel()
+    function getResolutionModel(resolutionList, bestResolution) {
+        var resolutionModel = []
+        for (let resolution of resolutionList) {
+            if (resolution.width === bestResolution.width && resolution.height === bestResolution.height) {
+                resolutionModel.unshift({
+                                            "text": resolution.width + "×" + resolution.height + qsTr(" (Recommended)"),
+                                            "value": resolution
+                                        })
+            } else {
+                resolutionModel.push({
+                                         "text": resolution.width + "×" + resolution.height,
+                                         "value": resolution
+                                     })
+            }
         }
-        function onRateListChanged() {
-            updateRateModel()
+        return resolutionModel
+    }
+    function getRateModel(rateList, bestRate) {
+        var rateModel = []
+        for (let rate of rateList) {
+            if (rate === bestRate) {
+                rateModel.push({
+                                   "text": (Math.round(rate * 100) / 100) + qsTr("Hz") + qsTr(" (Recommended)"),
+                                   "value": rate
+                               })
+            } else {
+                rateModel.push({
+                                   "text": (Math.round(rate * 100) / 100) + qsTr("Hz"),
+                                   "value": rate
+                               })
+            }
         }
-        function onAvailableFillModesChanged() {
-            updateFillModel()
+        return rateModel
+    }
+    function getScaleModel(maxScale, scale) {
+        var scaleModel = []
+        for (let scaleItem of scaleModelConst) {
+            if (scaleItem.value <= maxScale) {
+                scaleModel.push(scaleItem)
+            }
         }
+        return scaleModel
+    }
+    function indexOfScale(model, scale) {
+        for (var i = 0; i < model.length; i++) {
+            let v = model[i]
+            if (v.value === scale) {
+                return i
+            }
+        }
+        return model.length - 1
     }
     Connections {
         target: dccData
-        function onScreensChanged() {
-            updateModeModel()
+        function onVirtualScreensChanged() {
+            if (!dccData.virtualScreens.includes(screen)) {
+                screen = dccData.virtualScreens[0]
+            }
         }
-    }
-    onScreenChanged: {
-        updateResolutionModel()
-        updateRateModel()
-        updateFillModel()
-    }
-    Component.onCompleted: {
-        updateResolutionModel()
-        updateRateModel()
-        updateFillModel()
-        updateModeModel()
     }
 
     DccTitleObject {
@@ -186,9 +205,10 @@ DccObject {
             visible: dccData.screens.length > 1 && dccData.isX11
             pageType: DccObject.Editor
             page: ComboBox {
+                flat: true
                 textRole: "text"
                 valueRole: "value"
-                model: modeModel
+                model: getModeModel(dccData.screens)
                 function indexOfMode(mode) {
                     for (var i = 0; i < model.count; i++) {
                         if (model.get(i).value === mode) {
@@ -211,6 +231,7 @@ DccObject {
             pageType: DccObject.Editor
             visible: dccData.virtualScreens.length > 1
             page: ComboBox {
+                flat: true
                 textRole: "name"
                 model: dccData.virtualScreens
                 function indexOfScreen(primary) {
@@ -239,7 +260,7 @@ DccObject {
         name: "screenTab"
         parentName: "display"
         weight: 50
-        visible: dccData.virtualScreens.length > 1
+        visible: dccData.screens.length > 1
         pageType: DccObject.Item
         Component {
             id: indicator
@@ -307,12 +328,13 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: ComboBox {
-                model: resolutionModel
+                flat: true
+                model: root.getResolutionModel(screen.resolutionList, screen.bestResolution)
                 textRole: "text"
                 valueRole: "value"
-                function indexOfSize(currentSize) {
-                    for (var i = 0; i < model.count; i++) {
-                        let v = model.get(i)
+                function indexOfSize(model, currentSize) {
+                    for (var i = 0; i < model.length; i++) {
+                        let v = model[i]
                         if (v.value.width === currentSize.width && v.value.height === currentSize.height) {
                             return i
                         }
@@ -320,7 +342,7 @@ DccObject {
                     return -1
                 }
 
-                currentIndex: indexOfSize(screen.currentResolution)
+                currentIndex: indexOfSize(model, screen.currentResolution)
                 onActivated: {
                     screen.currentResolution = currentValue
                     if (dccData.isX11) {
@@ -343,13 +365,14 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 id: control
+                flat: true
                 textRole: "text"
                 valueRole: "value"
                 // iconNameRole: "icon"
-                model: fillModel
+                model: root.getFillModel(screen.availableFillModes)
                 function indexOfFill(currentFillMode) {
-                    for (var i = 0; i < model.count; i++) {
-                        let v = model.get(i)
+                    for (var i = 0; i < model.length; i++) {
+                        let v = model[i]
                         if (v.value === currentFillMode) {
                             return i
                         }
@@ -377,19 +400,20 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: ComboBox {
+                flat: true
                 textRole: "text"
                 valueRole: "value"
-                model: rateModel
-                function indexOfRate(currentRate) {
-                    for (var i = 0; i < model.count; i++) {
-                        let v = model.get(i)
+                model: root.getRateModel(screen.rateList, screen.bestRate)
+                function indexOfRate(model, currentRate) {
+                    for (var i = 0; i < model.length; i++) {
+                        let v = model[i]
                         if (v.value === currentRate) {
                             return i
                         }
                     }
                     return -1
                 }
-                currentIndex: indexOfRate(screen.currentRate)
+                currentIndex: indexOfRate(model, screen.currentRate)
                 onActivated: {
                     screen.currentRate = currentValue
                     if (dccData.isX11) {
@@ -411,6 +435,7 @@ DccObject {
             visible: dccData.isX11
             pageType: DccObject.Editor
             page: ComboBox {
+                flat: true
                 textRole: "text"
                 valueRole: "value"
                 model: [{
@@ -446,18 +471,48 @@ DccObject {
             name: "displayScaling"
             parentName: "display/screenGroup"
             displayName: qsTr("Display Scaling") //"缩放"
+            description: screen.maxScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
             weight: 60
-            visible: false
+            visible: !dccData.isX11
             pageType: DccObject.Editor
-            page: ComboBox {}
-            // qsTr("The monitor only supports 100% display scaling")
+            page: ComboBox {
+                flat: true
+                textRole: "text"
+                valueRole: "value"
+                model: root.getScaleModel(screen.maxScale, screen.scale)
+                currentIndex: root.indexOfScale(model, screen.scale)
+                onActivated: {
+                    screen.scale = currentValue
+                }
+            }
         }
     }
+    DccObject {
+        name: "displayScaling"
+        parentName: "display"
+        displayName: qsTr("Display Scaling") //"缩放"
+        description: dccData.maxGlobalScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
+        weight: 80
+        visible: dccData.isX11
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Editor
+        page: ComboBox {
+            flat: true
+            textRole: "text"
+            valueRole: "value"
+            model: root.getScaleModel(dccData.maxGlobalScale, dccData.globalScale)
+            currentIndex: root.indexOfScale(model, dccData.globalScale)
+            onActivated: {
+                dccData.globalScale = currentValue
+            }
+        }
+    }
+
     DccTitleObject {
         name: "displayColorTemperature"
         parentName: "display"
         displayName: qsTr("Eye Comfort")
-        weight: 80
+        weight: 90
         visible: false
     }
     DccObject {
@@ -465,7 +520,7 @@ DccObject {
         parentName: "display"
         displayName: qsTr("Eye Comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
-        weight: 90
+        weight: 100
         visible: false
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
@@ -474,7 +529,7 @@ DccObject {
     DccObject {
         name: "eyeComfortGroup"
         parentName: "display"
-        weight: 100
+        weight: 110
         visible: false
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -485,6 +540,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: ComboBox {
+                flat: true
                 model: [qsTr("All day"), qsTr("Sunset to Sunrise"), qsTr("Custom Time")]
             }
         }

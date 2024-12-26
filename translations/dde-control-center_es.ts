@@ -263,17 +263,6 @@
     </message>
 </context>
 <context>
-    <name>AudioServerSetting</name>
-    <message>
-        <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
@@ -473,10 +462,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Length greater than or equal to 32</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation type="unfinished"></translation>
     </message>
@@ -486,6 +471,10 @@
     </message>
     <message>
         <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length greater than or equal to 64</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2974,10 +2963,6 @@
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 is released under %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6674,6 +6659,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Color Temperature</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>keyboard</name>
@@ -6911,14 +6936,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio Framework</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose the appropriate audio framework</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

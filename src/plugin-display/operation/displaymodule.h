@@ -18,6 +18,8 @@ class DisplayModule : public QObject
     Q_PROPERTY(DccScreen * primaryScreen READ primaryScreen WRITE setPrimaryScreen NOTIFY primaryScreenChanged FINAL)
     Q_PROPERTY(QString  displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged FINAL)
     Q_PROPERTY(bool isX11 READ isX11 NOTIFY isX11Changed FINAL)
+    Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged FINAL)
+    Q_PROPERTY(qreal maxGlobalScale READ maxGlobalScale NOTIFY maxGlobalScaleChanged FINAL)
 public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule() override;
@@ -31,6 +33,9 @@ public:
     QString displayMode() const;
     void setDisplayMode(const QString &mode);
     bool isX11() const;
+    qreal globalScale() const;
+    void setGlobalScale(qreal scale);
+    qreal maxGlobalScale() const;
 
 public Q_SLOTS:
     void saveChanges();
@@ -42,6 +47,9 @@ Q_SIGNALS:
     void primaryScreenChanged();
     void displayModeChanged();
     void isX11Changed();
+    void globalScaleChanged();
+    void globalScaleEnabledChanged();
+    void maxGlobalScaleChanged();
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;
