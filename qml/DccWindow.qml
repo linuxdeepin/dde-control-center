@@ -144,4 +144,25 @@ D.ApplicationWindow {
         DccApp.root.page = rootLayout
         centralView.contentItem = DccApp.root.getSectionItem(centralView)
     }
+
+    D.MessageManager.layout: Column {
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
+    }
+    D.MessageManager.capacity: 3
+    D.MessageManager.delegate: D.FloatingMessage {
+        id: floatingMsg
+        contentItem: Label {
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+            text: floatingMsg.message.content
+            elide: Text.ElideRight
+            maximumLineCount: 1
+            wrapMode: Text.Wrap
+        }
+        duration: 1000
+    }
+
 }

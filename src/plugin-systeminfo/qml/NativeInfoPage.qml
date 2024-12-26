@@ -167,6 +167,38 @@ DccObject {
             page: Label {
                 horizontalAlignment: Text.AlignLeft
                 text: dccData.systemInfoMode().versionNumber
+                MouseArea {
+                    id: ma
+                    property int clickCount: 0
+                    anchors.fill: parent
+                    onClicked: {
+                        if (clickCount > 5) {
+                            return
+                        }
+
+                        clickCount +=1
+                        if (clickCount > 1 && clickCount < 5) {
+                            DTK.sendMessage(Window.window, "clicked" + (5 - clickCount) + "times to unlock developerMode", "warning")
+                        }
+
+                        if (clickCount >= 5) {
+                            let obj = DccApp.object("developerMode")
+                            obj.visible = true
+                            DccApp.showPage("developerMode")
+                            countTimer.stop()
+                        } else {
+                            countTimer.restart()
+                        }
+                    }
+
+                    Timer {
+                        id: countTimer
+                        interval: 2000
+                        onTriggered: {
+                            ma.clickCount = 0
+                        }
+                    }
+                }
             }
         }
         DccObject {
