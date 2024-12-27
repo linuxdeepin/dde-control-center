@@ -56,6 +56,7 @@ Rectangle {
                             flat: true
                             visible: showPlayBtn && itemCtl.hovered
                             implicitHeight: 20
+                            implicitWidth: 20
                             icon.width: 16
                             icon.height: 16
                             onClicked: {
@@ -65,10 +66,10 @@ Rectangle {
                         }
 
                         DccCheckIcon {
-                            checked: model.isChecked
+                            checked: model.isEnabled
                             size: 16
                             onClicked: {
-                                root.clicked(index, !model.isChecked)
+                                root.clicked(index, !model.isEnabled)
                             }
                         }
                     }

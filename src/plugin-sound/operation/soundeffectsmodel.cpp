@@ -55,7 +55,7 @@ void SoundEffectsModel::updateSoundEffectsData(int index, bool enable)
 
     m_soundEffectsData[index]->setChecked(enable);
     QModelIndex modelIndex = createIndex(index, 0);
-    emit dataChanged(modelIndex, modelIndex, { IsChecked });
+    emit dataChanged(modelIndex, modelIndex, { IsEnabled });
 }
 
 void SoundEffectsModel::updateSoundEffectsAniIcon(int index, QString path)
@@ -84,7 +84,7 @@ QVariant SoundEffectsModel::data(const QModelIndex &index, int role) const
         return soundEffectsData->name();
     else if (role == DisplayTextRole)
         return soundEffectsData->dispalyText();
-    else if (role == IsChecked)
+    else if (role == IsEnabled)
         return soundEffectsData->checked();
     else if (role == AniIconPath) {
         return soundEffectsData->aniIconPath();

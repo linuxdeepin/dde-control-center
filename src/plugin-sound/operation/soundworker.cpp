@@ -171,7 +171,7 @@ void SoundWorker::setActivePort(int index, int portType)
         m_waitInputReceiptTimer->start();
     }
 
-    Port* port = m_model->getPortForComboIndex(index, portType);
+    Port* port = m_model->getSoundDeviceData(index, portType);
     if (port) {
         setPort(port);
     }
@@ -256,9 +256,9 @@ void SoundWorker::enableAllSoundEffect(bool enable)
 
 void SoundWorker::setPortEnableIndex(int index, bool checked, int portType)
 {
-    SoundDeviceData* data = m_model->getSoundDeviceData(index, portType);
+    Port* data = m_model->getSoundDeviceData(index, portType);
     if (data) {
-        setPortEnabled(data->getCardId(), data->getPortId(), checked);
+        setPortEnabled(data->cardId(), data->id(), checked);
     }
 }
 
@@ -374,13 +374,14 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setEnabled(isEnabled);
                 port->setIsBluetoothPort(isBluetooth);
 
-                m_model->updateSoundDeviceModel(port);
-
                 const bool isActiveOuputPort = (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
                 const bool isActiveInputPort = (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
 
                 port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
+                if (port->isActive()) {
+                    m_model->setShowBluetoothMode(port->isBluetoothPort());
+                }
                 if (!include) { m_model->addPort(port); }
 
                 tmpPorts << portId;
@@ -400,6 +401,8 @@ void SoundWorker::cardsChanged(const QString &cards)
     }
 
     m_model->updatePortCombo();
+    m_model->updateAllDeviceModel();
+    m_model->updateActiveComboIndex();
 }
 
 void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
@@ -501,14 +504,13 @@ void SoundWorker::updatePortActivity()
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
-        if (isActiveOuputPort) {
-            m_model->setActiveOutPutPort(port);
-        }
+        m_model->updateSoundDeviceModel(port);
 
-        if (isActiveInputPort) {
-            m_model->setActiveinPutPort(port);
+        if (isActiveOuputPort) {
+            m_model->setShowBluetoothMode(port->isBluetoothPort());
         }
     }
+    m_model->updateActiveComboIndex();
 }
 
 void SoundWorker::initAudioServerData()

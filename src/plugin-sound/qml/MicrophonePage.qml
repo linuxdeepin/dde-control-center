@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
 
@@ -173,23 +174,30 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: ComboBox {
-                id: inPutCombo
+                id: control
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 currentIndex: dccData.model().inPutPortComboIndex
                 flat: true
-                model: dccData.model().inPutPortCombo
+                textRole: "name"
+                model: dccData.model().soundInputDeviceModel()
                 enabled: dccData.model().inPutPortComboEnable
-                property bool isInitialized: false
-                // 等待组件加载完成后，设置 isInitialized 为 true
-                Component.onCompleted: {
-                    console.log("outputDevice onCompleted:", isInitialized)
-                    isInitialized = true
-                }
-                onCurrentIndexChanged: {
-                    console.log("Selected index:", currentIndex, isInitialized)
-                    if (isInitialized && dccData.model().inPutPortCombo !== currentIndex) {
-                        dccData.worker().setActivePort(currentIndex, 2)
+
+                delegate: MenuItem {
+                    id: menuItem
+                    useIndicatorPadding: true
+                    width: control.width
+                    text: model.name
+                    visible: model.isEnabled
+                    icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
+                    highlighted: control.highlightedIndex === index
+                    hoverEnabled: control.hoverEnabled
+                    autoExclusive: true
+                    checked: control.currentIndex === index
+                    implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
+
+                    onClicked: {
+                        dccData.worker().setActivePort(index, 2)
                     }
                 }
             }
