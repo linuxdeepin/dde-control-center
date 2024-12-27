@@ -162,7 +162,8 @@ Rectangle {
                             spacing: 10
                             D.Button {
                                 id: connectBtn
-                                implicitWidth: 100
+                                implicitWidth: 56
+                                implicitHeight: 30
                                 background.visible: true
                                 text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
                                 enabled: model.connectStatus === 2 || model.connectStatus === 0
@@ -185,11 +186,11 @@ Rectangle {
                                 visible: showMoreBtn
                                 Layout.alignment: Qt.AlignRight
                                 icon.name: "bluetooth_option"
-                                icon.width: 24
-                                icon.height: 24
+                                icon.width: 20
+                                icon.height: 20
 
-                                implicitHeight: 30
-                                implicitWidth: 30
+                                implicitHeight: 24
+                                implicitWidth: 24
 
                                 flat: !hovered
 
