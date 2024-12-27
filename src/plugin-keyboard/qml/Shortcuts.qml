@@ -13,7 +13,7 @@ DccObject {
     parentName: "keyboard"
     displayName: qsTr("Shortcuts")
     description: qsTr("System shortcut, custom shortcut")
-    icon: "dcc_nav_keyboard" // TODO: shortcut icon required
+    icon: "keyboard_fn"
     weight: parent.weight // 300
     page: DccSettingsView {
     }

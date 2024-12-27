@@ -25,7 +25,7 @@ DccObject {
         name: "MouseAndTouchpadMouse"
         parentName: "MouseAndTouchpad"
         displayName: qsTr("Mouse")
-        icon: "dcc_nav_mouse"
+        icon: "mouse_trackpad_mouse"
         weight: 100
         page: DccRightView {
             spacing: 5
@@ -36,7 +36,7 @@ DccObject {
         name: "Touchpad"
         parentName: "MouseAndTouchpad"
         displayName: qsTr("Touchpad")
-        icon: "dcc_nav_mouse"
+        icon: "mouse_trackpad_trackpad"
         visible: dccData.tpadExist
         weight: 200
         page: DccRightView {

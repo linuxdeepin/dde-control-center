@@ -24,7 +24,7 @@ DccObject {
         parentName: "keyboard"
         displayName: qsTr("Keyboard layout")
         description: qsTr("Set system default keyboard layout")
-        icon: "dcc_nav_keyboard"
+        icon: "keyboard_layout"
         weight: 100
         page: DccRightView {
             spacing: 5
