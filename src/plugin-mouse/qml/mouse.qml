@@ -9,7 +9,7 @@ DccObject {
     parentName:"device"
     displayName: qsTr("Mouse and Touchpad")
     description: qsTr("Common、Mouse、Touchpad")
-    icon:"dcc_nav_mouse"
+    icon:"device_mouse"
     weight: 30
 
     visible: !DccApp.isTreeland()
