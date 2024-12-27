@@ -476,6 +476,7 @@ DccObject {
             Layout.fillWidth: true
             width: parent.width
             radius: 8
+            color: "transparent"
 
             Row {
                 id: aniRoot
@@ -497,6 +498,8 @@ DccObject {
                             border.color: "#6A005BFF"
                             radius: 8
 
+                            color: "transparent"
+
                             Rectangle {
                                 id: imgRect
                                 anchors.centerIn: parent
@@ -504,7 +507,7 @@ DccObject {
                                 height: 140
                                 border.width: 1
                                 border.color: "#1A000000"
-                                color: "#1A0065FF"
+                                color: "transparent"
                                 radius: 6
 
                                 Image {
@@ -527,7 +530,7 @@ DccObject {
                                     radius: 6 // 设置圆角半径
                                     visible: model.startAnimation
                                         && model.checkStatus
-                                    color: "#1A0065FF"
+                                    color: "transparent"
 
                                     // GaussianBlur 模糊效果
                                     ShaderEffectSource {
