@@ -30,6 +30,10 @@ Item {
         hovered: Qt.rgba(0, 0, 0, 0.1)
         hoveredDark: Qt.rgba(1, 1, 1, 0.1)
     }
+    property D.Palette shadowColor: D.Palette {
+        normal: Qt.rgba(0, 0, 0, 0.05)
+        normalDark: Qt.rgba(0, 0, 0, 0.3)
+    }
     // 阴影
     Loader {
         y: 1
@@ -38,7 +42,7 @@ Item {
         height: parent.height
         active: shadowVisible && (!control.checked) && (backgroundType & 0x01) && (control.corners & D.RoundRectangle.BottomCorner)
         sourceComponent: D.RoundRectangle {
-            color: palette.midlight
+            color: root.D.ColorSelector.shadowColor
             radius: root.radius
             corners: control.corners
         }
@@ -82,11 +86,11 @@ Item {
     // 分隔线
     Loader {
         active: separatorVisible && index !== 0
-        height: 2
+        height: 1
         z: 3
         anchors {
             bottom: parent.top
-            bottomMargin: control.ListView.view ? (control.ListView.view.spacing - 2) / 2 : -1
+            bottomMargin: control.ListView.view ? (control.ListView.view.spacing - 2) / 2 : -0.5
             // bottomMargin: (control.ListView.view.spacing - 1) / 2
             left: parent.left
             leftMargin: 10

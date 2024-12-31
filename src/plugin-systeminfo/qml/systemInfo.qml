@@ -7,19 +7,12 @@ import org.deepin.dtk 1.0 as D
 
 import org.deepin.dcc 1.0
 
-DccObject {
+DccTitleObject {
     id: root
     name: "auxiliaryInfo"
     parentName: "system"
     displayName: qsTr("Auxiliary Information")
     weight: 1000
-    pageType: DccObject.Item
-    page: Label {
-        font: DccUtils.copyFont(D.DTK.fontManager.t4, {
-                                    "bold": true
-                                })
-        text: dccObj.displayName
-    }
     onParentItemChanged: {
         if (parentItem) {
             parentItem.topPadding = 10

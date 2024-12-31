@@ -41,7 +41,7 @@ D.ItemDelegate {
             Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
-            spacing: 0
+            spacing: 2
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
@@ -49,7 +49,7 @@ D.ItemDelegate {
             DccLabel {
                 Layout.fillWidth: true
                 visible: text !== ""
-                font: D.DTK.fontManager.t8
+                font: D.DTK.fontManager.t10
                 text: model.item.description
                 opacity: 0.5
             }
