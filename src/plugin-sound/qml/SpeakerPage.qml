@@ -14,19 +14,11 @@ DccObject {
     function toPercent(value: string) {
         return Number(value * 100).toFixed(0) + "%"
     }
-    DccObject {
+    DccTitleObject {
         name: "output"
         parentName: "sound/outPut"
         displayName: qsTr("Output")
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -73,9 +65,11 @@ DccObject {
                 }
                 IconButton {
                     Layout.alignment: Qt.AlignVCenter
-                    icon.name: dccData.model().speakerOn ? "qrc:/icons/deepin/builtin/icons/sound_off.dci" : "qrc:/icons/deepin/builtin/icons/small_volume.dci"
-                    icon.width: 24
-                    icon.height: 24
+                    icon {
+                        name: dccData.model().speakerOn ? "sound_off" : "small_volume"
+                        width: 16
+                        height: 16
+                    }
                     implicitWidth: 24
                     flat: !hovered
 
@@ -98,9 +92,11 @@ DccObject {
                     }
                 }
                 IconButton {
-                    icon.name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
-                    icon.width: 24
-                    icon.height: 24
+                    icon {
+                        name: "big_volume"
+                        width: 16
+                        height: 16
+                    }
                     implicitWidth: 24
                     background: Rectangle {
                         color: "transparent" // 背景透明

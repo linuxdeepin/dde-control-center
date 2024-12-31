@@ -16,10 +16,12 @@ DccEditorItem {
     bottomPadding: bottomInset
 
     rightItem: D.IconLabel {
-        icon.name: "arrow_ordinary_right"
-        icon.palette: D.DTK.makeIconPalette(control.palette)
-        icon.mode: control.D.ColorSelector.controlState
-        icon.theme: control.D.ColorSelector.controlTheme
+        icon {
+            name: "arrow_ordinary_right"
+            palette: D.DTK.makeIconPalette(control.palette)
+            mode: control.D.ColorSelector.controlState
+            theme: control.D.ColorSelector.controlTheme
+        }
     }
     onClicked: {
         DccApp.showPage(model.item)

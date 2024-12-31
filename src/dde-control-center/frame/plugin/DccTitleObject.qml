@@ -8,7 +8,7 @@ import "DccUtils.js" as DccUtils
 DccObject {
     pageType: DccObject.Item
     page: Label {
-        font: DccUtils.copyFont(D.DTK.fontManager.t4, {
+        font: DccUtils.copyFont(D.DTK.fontManager.t5, {
                                     "bold": true
                                 })
         text: dccObj.displayName

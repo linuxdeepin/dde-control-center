@@ -20,10 +20,14 @@ DccEditorItem {
         }
 
         D.IconLabel {
-            icon.name: "arrow_ordinary_right"
-            icon.palette: D.DTK.makeIconPalette(control.palette)
-            icon.mode: control.D.ColorSelector.controlState
-            icon.theme: control.D.ColorSelector.controlTheme
+            icon {
+                width: 12
+                height: 12
+                name: "arrow_ordinary_right"
+                palette: D.DTK.makeIconPalette(control.palette)
+                mode: control.D.ColorSelector.controlState
+                theme: control.D.ColorSelector.controlTheme
+            }
         }
     }
     onClicked: {
