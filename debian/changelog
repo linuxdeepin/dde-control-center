@@ -1,3 +1,19 @@
+dde-control-center (6.1.5) unstable; urgency=medium
+
+  * fix: Modify the UI style of the list view
+  * fix: delete boot menu background color (#1987)
+  * fix: add mouse and keyboard icon (#1988)
+  * fix: the icon for sending system notifications is incorrect
+  * fix: Adjust bluetooth more button size
+  * chore: do not fullscreen on space key pressed
+  * feat: Add the function of modifying screen scale
+  * fix: Adjust sound combobox mode data (#1983)
+  * chore: hide edit button when item count < 2
+  * chore: dialog set fix size
+  * fix: Adjust the bluetooth module UI (#1980)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 02 Jan 2025 13:52:51 +0800
+
 dde-control-center (6.1.4) unstable; urgency=medium
 
   * fix: Adjust the audio module UI
