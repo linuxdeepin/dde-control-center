@@ -57,7 +57,7 @@ Rectangle {
 
                         D.DciIcon {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            name: "qrc:/icons/deepin/builtin/icons/system_update.png"
+                            name: "update_upgrade"
                             width: 36
                             height: 36
                             Layout.preferredWidth: 40
