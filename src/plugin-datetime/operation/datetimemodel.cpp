@@ -517,9 +517,14 @@ void DatetimeModel::setRegion(const QString &region)
 
     m_regionName = region;
     auto reg = m_langRegionsCache.value(region, region);
-    m_work->setConfigValue(country_key, reg);
-    Q_EMIT regionChanged(region);
-    Q_EMIT currentRegionIndexChanged(currentRegionIndex());
+    for (const auto &locale : m_regions) {
+        if (locale.territoryToCode(locale.territory()) == reg) {
+            QString country = locale.countryToString(locale.country());
+            m_work->setConfigValue(country_key, country);
+            Q_EMIT regionChanged(region);
+            Q_EMIT currentRegionIndexChanged(currentRegionIndex());
+        }
+    }
 }
 
 QStringList DatetimeModel::languagesAndRegions()
