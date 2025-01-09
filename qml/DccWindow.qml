@@ -23,6 +23,7 @@ D.ApplicationWindow {
 
     D.StyledBehindWindowBlur {
         anchors.fill: parent
+        control: root
     }
     Shortcut {
         context: Qt.ApplicationShortcut

@@ -492,7 +492,7 @@ DccObject {
         page: ListView {
             id: groupview
             property int lrMargin: DccUtils.getMargin(width)
-            spacing: 1
+            spacing: 0
             anchors {
                 left: parent ? parent.left : undefined
                 right: parent ? parent.right : undefined

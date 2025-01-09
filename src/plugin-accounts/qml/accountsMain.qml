@@ -61,6 +61,7 @@ DccObject {
                    property real iconRadius: 8
                    property real iconSize: 32
 
+                   corners: getCornersForBackground(index, accountView.count)
                    backgroundVisible: false
                    checkable: false
                    topPadding: topInset

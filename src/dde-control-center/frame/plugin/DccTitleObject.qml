@@ -13,4 +13,9 @@ DccObject {
                                 })
         text: dccObj.displayName
     }
+    onParentItemChanged: {
+        if (parentItem) {
+            parentItem.leftPadding = 10
+        }
+    }
 }

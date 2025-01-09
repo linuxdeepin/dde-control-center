@@ -19,16 +19,16 @@ Item {
 
     property real backgroundType: 0
     property D.Palette backgroundColor: D.Palette {
-        normal: root.palette.base
-        normalDark: root.palette.base
-        hovered: Qt.color("#E5E5E5")
-        hoveredDark: Qt.color("#323232")
-    }
-    property D.Palette onlyHoveredColor: D.Palette {
-        normal: root.palette.base
-        normalDark: root.palette.base
+        normal: Qt.rgba(1, 1, 1, 1)
+        normalDark: Qt.rgba(1, 1, 1, 0.05)
         hovered: Qt.rgba(0, 0, 0, 0.1)
         hoveredDark: Qt.rgba(1, 1, 1, 0.1)
+        pressed: Qt.rgba(0, 0, 0, 0.15)
+        pressedDark: Qt.rgba(1, 1, 1, 0.15)
+    }
+    property D.Palette bgColor: D.Palette {
+        normal: backgroundColor.normal
+        normalDark: backgroundColor.normalDark
     }
     property D.Palette shadowColor: D.Palette {
         normal: Qt.rgba(0, 0, 0, 0.05)
@@ -36,15 +36,50 @@ Item {
     }
     // 阴影
     Loader {
-        y: 1
-        z: 0
+        id: shadow
+        y: 0
+        z: 3
         width: parent.width
         height: parent.height
         active: shadowVisible && (!control.checked) && (backgroundType & 0x01) && (control.corners & D.RoundRectangle.BottomCorner)
-        sourceComponent: D.RoundRectangle {
-            color: root.D.ColorSelector.shadowColor
-            radius: root.radius
-            corners: control.corners
+        sourceComponent: Canvas {
+            id: canvas
+            property var color: root.D.ColorSelector.shadowColor
+            property real h: 1
+            anchors.fill: parent
+            renderTarget: Canvas.FramebufferObject
+            onPaint: {
+                var ctx = getContext("2d")
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                ctx.fillStyle = canvas.color
+                ctx.beginPath()
+                ctx.moveTo(0, canvas.height / 2)
+                ctx.lineTo(0, canvas.height - root.radius)
+                ctx.quadraticCurveTo(0, canvas.height, root.radius, canvas.height)
+                ctx.lineTo(canvas.width - root.radius, canvas.height)
+                ctx.quadraticCurveTo(canvas.width, canvas.height, canvas.width, canvas.height - root.radius)
+                ctx.lineTo(canvas.width, canvas.height / 2)
+                ctx.closePath()
+                ctx.fill()
+                ctx.globalCompositeOperation = "destination-out"
+                ctx.fillStyle = "black"
+                ctx.beginPath()
+                ctx.moveTo(0, canvas.height / 2 - canvas.h)
+                ctx.lineTo(0, canvas.height - root.radius - canvas.h)
+                ctx.quadraticCurveTo(0, canvas.height - canvas.h, root.radius, canvas.height - canvas.h)
+                ctx.lineTo(canvas.width - root.radius, canvas.height - canvas.h)
+                ctx.quadraticCurveTo(canvas.width, canvas.height - canvas.h, canvas.width, canvas.height - root.radius - canvas.h)
+                ctx.lineTo(canvas.width, canvas.height / 2 - canvas.h)
+                ctx.closePath()
+                ctx.fill()
+                ctx.globalCompositeOperation = "source-over"
+            }
+            Component.onCompleted: {
+                canvas.requestPaint()
+            }
+            onColorChanged: {
+                canvas.requestPaint()
+            }
         }
     }
     // 背景
@@ -53,11 +88,11 @@ Item {
         anchors.fill: parent
         active: (backgroundType & 0x01) || ((backgroundType & 0x02) && control.hovered)
         // active: backgroundType !== 0 // (backgroundType & 0xFF) && !(backgroundType & 0x08)
-        anchors.topMargin: ((backgroundType & 0x02) && control.hovered) && !(control.corners & D.RoundRectangle.TopCorner) ? 1 : 0
+        anchors.topMargin: 0
         anchors.bottomMargin: ((backgroundType & 0x02) && control.hovered) && !(control.corners & D.RoundRectangle.BottomCorner) ? 1 : 0
         sourceComponent: D.RoundRectangle {
             // 高亮时，hovered状态HighlightPanel有处理,无阴影时，hovered状态使用半透明
-            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0) ? palette.base : ((backgroundType & 0x01) ? root.D.ColorSelector.backgroundColor : root.D.ColorSelector.onlyHoveredColor)
+            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0) ? root.D.ColorSelector.bgColor : root.D.ColorSelector.backgroundColor
             radius: root.radius
             corners: control.corners
         }
@@ -85,12 +120,12 @@ Item {
     }
     // 分隔线
     Loader {
-        active: separatorVisible && index !== 0
+        active: separatorVisible && (!(control.corners & D.RoundRectangle.BottomCorner))
         height: 1
         z: 3
         anchors {
-            bottom: parent.top
-            bottomMargin: control.ListView.view ? (control.ListView.view.spacing - 2) / 2 : -0.5
+            bottom: parent.bottom
+            bottomMargin: 0
             // bottomMargin: (control.ListView.view.spacing - 1) / 2
             left: parent.left
             leftMargin: 10

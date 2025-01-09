@@ -13,7 +13,7 @@ DccEditorItem {
     rightPadding: 10
     topPadding: topInset
     bottomPadding: bottomInset
-    implicitHeight: 58
+    implicitHeight: 48 + topInset + bottomInset
     rightItem: RowLayout {
         Control {
             contentItem: editor ? editor : model.item.getSectionItem(this)

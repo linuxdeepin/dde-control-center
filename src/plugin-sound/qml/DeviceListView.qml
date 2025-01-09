@@ -38,6 +38,7 @@ Rectangle {
                 contentFlow: true
                 text: model.name
                 hoverEnabled: true
+                corners: getCornersForBackground(index, repeater.count)
                 content: RowLayout {
                     Layout.alignment: Qt.AlignVCenter
                     spacing: 0

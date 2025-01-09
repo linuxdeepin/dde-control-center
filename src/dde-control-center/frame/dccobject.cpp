@@ -78,8 +78,8 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
         }
         bool allDisabled = getFlagState(DCC_ALL_DISABLED);
         if (disabled != allDisabled) {
-            if (m_parentItem) {
-                m_parentItem->setEnabled(!allDisabled);
+            if (m_sectionItem) {
+                m_sectionItem->setEnabled(!allDisabled);
             }
             Q_EMIT q_ptr->enabledToAppChanged(disabled);
         }
@@ -472,6 +472,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
                 } else {
                     p_ptr->m_sectionItem->setParent(this);
                 }
+                p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
             }
             // sections are not controlled by FxListItemSG, so apply attached properties here
         } else {
@@ -483,6 +484,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
         p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
         if (p_ptr->m_sectionItem) {
             p_ptr->m_sectionItem->setParent(this);
+            p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
         } else {
             qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
             delete context;
@@ -501,9 +503,6 @@ void DccObject::setParentItem(QQuickItem *item)
 {
     if (item != p_ptr->m_parentItem.get()) {
         p_ptr->m_parentItem = item;
-        if (p_ptr->m_parentItem) {
-            p_ptr->m_parentItem->setEnabled(isEnabledToApp());
-        }
         Q_EMIT parentItemChanged(p_ptr->m_parentItem.get());
     }
 }
