@@ -31,7 +31,7 @@ D.LineEdit {
     D.ActionButton {
         id: editButton
         focusPolicy: Qt.NoFocus
-        icon.name: "edit"
+        icon.name: "dcc-edit"
         icon.width: DS.Style.edit.actionIconSize
         icon.height: DS.Style.edit.actionIconSize
         background: null

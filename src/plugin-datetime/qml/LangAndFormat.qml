@@ -234,8 +234,6 @@ DccObject {
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     icon.name: "arrow_ordinary_right"
                     icon.palette: DTK.makeIconPalette(regionLabel.palette)
-                    icon.mode: ColorSelector.controlState
-                    icon.theme: ColorSelector.controlTheme
                 }
             }
 
@@ -289,8 +287,6 @@ DccObject {
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     icon.name: "arrow_ordinary_right"
                     icon.palette: DTK.makeIconPalette(currentLabel.palette)
-                    icon.mode: ColorSelector.controlState
-                    icon.theme: ColorSelector.controlTheme
                 }
             }
 

@@ -433,7 +433,7 @@ DccObject {
             IconButton {
                 id: removeButton
                 visible: itemDelegate.hovered
-                icon.name: "user-trash-symbolic"
+                icon.name: "dcc-delete"
                 icon.width: 24
                 icon.height: 24
                 implicitWidth: 36

@@ -16,9 +16,9 @@ D.ItemDelegate {
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
 
     Layout.fillWidth: true
+    Layout.minimumHeight: model.item.description.length !== 0 ? 48 : 0
     backgroundVisible: false
     checkable: false
-    enabled: model.item.enabledToApp
     topPadding: topInset
     bottomPadding: bottomInset
     leftPadding: 10
@@ -58,6 +58,8 @@ D.ItemDelegate {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.topMargin: 5
             Layout.bottomMargin: 5
+            enabled: model.item.enabledToApp
+            opacity: enabled ? 1 : 0.4
             contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
         }
     }

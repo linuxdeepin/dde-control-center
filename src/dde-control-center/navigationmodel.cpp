@@ -26,7 +26,7 @@ void NavigationModel::setNavigationObject(const QVector<DccObject *> &objs)
     beginResetModel();
     m_data.clear();
     for (auto &&obj : objs) {
-        if (!obj->displayName().isEmpty()) {
+        if ((obj->pageType() & DccObject::PageType::Menu) && !obj->displayName().isEmpty()) {
             m_data.append(obj);
         }
     }

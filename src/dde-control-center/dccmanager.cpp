@@ -10,6 +10,7 @@
 #include "searchmodel.h"
 
 #include <DGuiApplicationHelper>
+#include <DIconTheme>
 
 #include <QCoreApplication>
 #include <QDBusConnection>
@@ -100,6 +101,9 @@ void DccManager::init()
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
     m_engine->setImportPathList(paths);
+    QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
+    dciPaths << QStringLiteral(DefaultModuleDirectory);
+    Dtk::Gui::DIconTheme::setDciThemeSearchPaths(dciPaths);
 }
 
 QQmlApplicationEngine *DccManager::engine()

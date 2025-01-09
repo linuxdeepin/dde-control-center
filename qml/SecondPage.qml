@@ -5,8 +5,8 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
-import org.deepin.dtk 1.0
-import org.deepin.dtk.style 1.0 as DStyle
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
 
@@ -22,6 +22,7 @@ Item {
             left: parent.left
             right: splitter.left
         }
+        visible: width > 20
         SearchBar {
             id: searchEdit
             anchors {
@@ -76,8 +77,15 @@ Item {
                 background: DccItemBackground {
                     separatorVisible: false
                     backgroundType: DccObject.Hover | DccObject.Clickable
+                    backgroundColor: D.Palette {
+                        normal: Qt.rgba(1, 1, 1, 1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.05)
+                        hovered: Qt.rgba(0, 0, 0, 0.1)
+                        hoveredDark: Qt.rgba(1, 1, 1, 0.1)
+                        pressed: Qt.rgba(0, 0, 0, 0.2)
+                        pressedDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
                 }
-
                 onClicked: {
                     DccApp.showPage(model.item)
                     console.log(model.item.name, model.display, model.item.icon)
@@ -86,13 +94,17 @@ Item {
         }
     }
     Rectangle {
+        property D.Palette bgColor: D.Palette {
+            normal: Qt.rgba(0.97, 0.97, 0.97, 0.95)
+            normalDark: Qt.rgba(0.09, 0.09, 0.09, 0.85)
+        }
         anchors {
             top: parent.top
             bottom: parent.bottom
             left: splitter.right
             right: parent.right
         }
-        color: palette.window
+        color: D.ColorSelector.bgColor
         RowLayout {
             id: header
             implicitHeight: 50
@@ -103,22 +115,39 @@ Item {
             Item {
                 implicitWidth: splitter.x < 110 ? 110 - splitter.x : 0
             }
-            ToolButton {
+            D.ActionButton {
                 id: breakBut
-                icon.name: "arrow_ordinary_left"
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                 Layout.margins: 10
-                implicitHeight: 16
-                implicitWidth: 16
+                implicitHeight: 30
+                implicitWidth: 30
+                hoverEnabled: enabled
                 enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
+                icon {
+                    name: "arrow_ordinary_left"
+                    height: 16
+                    width: 16
+                }
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                }
             }
 
             Crumb {
                 implicitHeight: parent.implicitHeight
                 implicitWidth: 160
                 Layout.fillWidth: true
-                Layout.leftMargin: 40
+                Layout.leftMargin: 0
                 Layout.rightMargin: 200
                 model: DccApp.navModel()
                 onClicked: function (model) {
@@ -140,13 +169,30 @@ Item {
     RowLayout {
         height: 50
         implicitWidth: 100
-        ToolButton {
+        D.ActionButton {
             property real oldSplitterX: 180
-            icon.name: "sidebar"
-            implicitHeight: 16
-            implicitWidth: 16
             Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
             Layout.leftMargin: 60
+            implicitHeight: 30
+            implicitWidth: 30
+            hoverEnabled: enabled
+            icon {
+                name: "sidebar"
+                height: 16
+                width: 16
+            }
+            background: Rectangle {
+                property D.Palette pressedColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.2)
+                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                }
+                property D.Palette hoveredColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.1)
+                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                }
+                radius: DS.Style.control.radius
+                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+            }
             onClicked: {
                 if (splitter.x < 110) {
                     var newX = oldSplitterX
@@ -172,10 +218,14 @@ Item {
     }
     Rectangle {
         id: splitter
+        property D.Palette bgColor: D.Palette {
+            normal: Qt.rgba(0, 0, 0, 0.05)
+            normalDark: Qt.rgba(0, 0, 0, 0.5)
+        }
         implicitWidth: 1
         x: 180
         height: root.height
-        color: palette.light // "#B9DEFB"
+        color: D.ColorSelector.bgColor
     }
     MouseArea {
         x: splitter.x - 2

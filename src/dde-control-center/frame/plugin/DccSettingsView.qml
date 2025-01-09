@@ -12,7 +12,7 @@ Flickable {
     property bool isGroup: false
     property real margin: DccUtils.getMargin(width)
 
-    contentHeight: centralItem.height + bottomItem.height + 10
+    contentHeight: centralItem.height + bottomItem.height
     ScrollBar.vertical: ScrollBar {
         width: 10
     }
@@ -27,42 +27,37 @@ Flickable {
         id: footer
         DccRowView {}
     }
+    Item {
+        y: root.contentY
+        height: root.height - bottomItem.height
+        width: parent.width
+        clip: true
+        Control {
+            id: centralItem
+            y: -root.contentY
+            focusPolicy: Qt.TabFocus
+            hoverEnabled: false
+            focus: true
+            anchors {
+                left: parent.left
+                right: parent.right
+                leftMargin: root.margin
+                rightMargin: root.margin
+            }
+        }
+    }
     Control {
-        id: centralItem
+        id: bottomItem
         focusPolicy: Qt.TabFocus
-        hoverEnabled: false
+        implicitHeight: contentItem.implicitHeight + 10
         focus: true
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: root.margin
-            rightMargin: root.margin
-        }
-    }
-    Rectangle {
-        color: this.palette.window
-        implicitHeight: bottomItem.implicitHeight + 10
-        anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: root.margin
-            rightMargin: root.margin
-        }
-        // 防止鼠标穿透
-        MouseArea {
-            anchors.fill: parent
-        }
-        Control {
-            id: bottomItem
-            focusPolicy: Qt.TabFocus
-            focus: true
-            anchors {
-                fill: parent
-                topMargin: 5
-                bottomMargin: 5
-                leftMargin: 10
-                rightMargin: 10
-            }
+            topMargin: 5
+            bottomMargin: 5
+            leftMargin: root.margin + 10
+            rightMargin: root.margin + 10
         }
         y: (root.contentHeight - root.contentY > root.height ? root.height - this.implicitHeight + root.contentY : root.contentHeight - this.implicitHeight)
     }
@@ -95,7 +90,7 @@ Flickable {
                 stop()
             } else {
                 let itemY = panel.item.mapToItem(root, 0, 0).y
-                let rHeight = root.height - (bottomItem.height + 10)
+                let rHeight = root.height - bottomItem.height
                 if ((itemY + panel.item.height) > rHeight) {
                     root.contentY = itemY + panel.item.height - rHeight + root.contentY
                 }

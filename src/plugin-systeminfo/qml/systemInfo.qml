@@ -16,7 +16,6 @@ DccTitleObject {
     onParentItemChanged: {
         if (parentItem) {
             parentItem.topPadding = 10
-            parentItem.leftPadding = 10
         }
     }
 }

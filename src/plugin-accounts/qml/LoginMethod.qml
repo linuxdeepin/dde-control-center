@@ -7,23 +7,13 @@ import QtQuick.Layouts
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0
 
-DccObject {
+DccTitleObject {
     id: loginMethodTitle
     property string userId
     name: "loginMethodTitle"
     // parentName: ""
     displayName: qsTr("Login method")
     weight: 38
-    pageType: DccObject.Item
-    page: Label {
-        leftPadding: 5
-        text: dccObj.displayName
-        font {
-            pointSize: 13
-            bold: true
-        }
-    }
-    onParentItemChanged: item => { if (item) item.topPadding = 10 }
 
     DccObject {
         name: loginMethodTitle.parentName + "loginMethod"
