@@ -41,11 +41,6 @@ void Category::clear()
 void Category::addUserItem(const App &value)
 {
     if (value.isUser) {
-        for (auto r : m_systemAppList) {
-            if (r.Exec == value.Exec) {
-                return;
-            }
-        }
         if (m_userAppList.contains(value)) return;
         m_userAppList << value;
     } else {
