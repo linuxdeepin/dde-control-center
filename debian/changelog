@@ -1,3 +1,13 @@
+dde-control-center (6.1.6) unstable; urgency=medium
+
+  * fix: Add default program functionality
+  * fix: Error in modifying the setting area
+  * fix: Adjust the UI style of the control center
+  * fix: update system update icon
+  * fix: update keyboard icon
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 10 Jan 2025 14:34:23 +0800
+
 dde-control-center (6.1.5) unstable; urgency=medium
 
   * fix: Modify the UI style of the list view
