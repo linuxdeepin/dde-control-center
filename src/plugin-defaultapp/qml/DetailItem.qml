@@ -37,30 +37,30 @@ DccObject {
                 }
             }
             // TODO: 添加删除默认程序暂不支持
-            // Button {
-            //     Layout.alignment: Qt.AlignRight
-            //     Layout.maximumWidth: 30
-            //     Layout.maximumHeight: 30
-            //     Layout.margins: 0
-            //     enabled: canDelete
-            //     icon.name: "action_reduce"
-            //     onClicked: {
-            //         console.log(root.name, "-")
-            //     }
-            // }
-            // Button {
-            //     Layout.alignment: Qt.AlignRight
-            //     Layout.maximumWidth: 30
-            //     Layout.maximumHeight: 30
-            //     Layout.margins: 0
-            //     icon.name: "action_add"
-            //     onClicked: {
-            //         fileDialog.open()
-            //     }
-            //     onVisibleChanged: {
-            //         fileDialog.close()
-            //     }
-            // }
+            D.AbstractButton {
+                Layout.alignment: Qt.AlignRight
+                Layout.maximumWidth: 30
+                Layout.maximumHeight: 30
+                Layout.margins: 0
+                enabled: canDelete
+                icon.name: "action_reduce"
+                onClicked: {
+                    console.log(root.name, "-")
+                }
+            }
+            Button {
+                Layout.alignment: Qt.AlignRight
+                Layout.maximumWidth: 30
+                Layout.maximumHeight: 30
+                Layout.margins: 0
+                icon.name: "action_add"
+                onClicked: {
+                    fileDialog.open()
+                }
+                onVisibleChanged: {
+                    fileDialog.close()
+                }
+            }
         }
     }
     DccRepeater {
@@ -73,9 +73,18 @@ DccObject {
             displayName: model.display
             backgroundType: DccObject.ClickStyle
             pageType: DccObject.Editor
-            page: DccCheckIcon {
-                visible: model.isDefault
-                mouseEnabled: false
+            page: RowLayout {
+                DccCheckIcon {
+                    visible: model.isDefault
+                    mouseEnabled: false
+                }
+                D.ActionButton {
+                    visible: !model.isDefault && model.canDelete
+                    icon.name: "dcc-delete"
+                    onClicked: {
+                        categoryModel.removeApp(model.id)
+                    }
+                }
             }
             onActive: {
                 if (!model.isDefault) {

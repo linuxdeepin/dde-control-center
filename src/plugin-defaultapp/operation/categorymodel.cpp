@@ -81,7 +81,7 @@ QVariant CategoryModel::data(const QModelIndex &index, int role) const
     case DefAppNameRole:
         return app.Name;
     case DefAppIconRole:
-        return app.Icon;
+        return app.Icon.trimmed().isEmpty() ? "application-default-icon" : app.Icon;
     case DefAppIsDefaultRole:
         return app.Id == m_category->getDefault().Id;
     default:

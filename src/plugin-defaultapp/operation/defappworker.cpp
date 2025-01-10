@@ -16,6 +16,7 @@
 #include <QList>
 #include <QLoggingCategory>
 #include <QStringList>
+#include <QTimer>
 
 Q_LOGGING_CATEGORY(DdcDefaultWorker, "dcc-default-worker")
 
@@ -36,6 +37,9 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     m_stringToCategory.insert("Terminal", Terminal);
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
+    connect(m_dbusManager, &MimeDBusProxy::Change, this, [this]() {
+        QTimer::singleShot(500, this, &DefAppWorker::onGetListApps);
+    });
 
     m_userLocalPath = QDir::homePath() + "/.local/share/applications/";
 
@@ -279,13 +283,87 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
 void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,
                                 [[maybe_unused]] const App &item)
 {
-    // TODO: later
+    m_dbusManager->DeleteUserApp(item.Id);
+    onGetListApps();
 }
 
-void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime,
-                                [[maybe_unused]] const QFileInfo &info)
+void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_unused]] const QFileInfo &info)
 {
-    // TODO: later
+    const bool isDesktop = info.suffix() == "desktop";
+    if (isDesktop) {
+        QFile file(info.filePath());
+        QString name = "deepin-custom-" + mime + "-" + info.completeBaseName() + ".desktop";
+        QVariantMap appInfo;
+        QMap<QString, QString> nameMap;
+        QMap<QString, QString> execMap;
+        QMap<QString, QString> iconMap;
+        const QStringList keys = { "Type", "Version", "Path", "Terminal", "Categories" };
+        if (file.open(QFile::ReadOnly)) {
+            QTextStream in(&file);
+            bool isEntry = false;
+            while (!in.atEnd()) {
+                QString line = in.readLine();
+                if (line.startsWith('[')) {
+                    isEntry = line == "[Desktop Entry]";
+                } else if (isEntry) {
+                    int index = line.indexOf('=');
+                    if (index > 0) {
+                        QString key = line.mid(0, index);
+                        QString value = line.mid(index + 1);
+                        if (key == "Icon" && !value.isEmpty()) {
+                            iconMap.insert("default", value);
+                            iconMap.insert("default-icon", value);
+                        } else if (key == "Exec") {
+                            execMap.insert("default", value);
+                        } else if (key.startsWith("Name")) {
+                            int nameIndex = key.indexOf('[');
+                            if (nameIndex < 0) {
+                                nameMap.insert("default", value);
+                            } else {
+                                nameMap.insert(key.mid(nameIndex + 1, key.length() - nameIndex - 2), value);
+                            }
+                        } else if (keys.contains(key)) {
+                            appInfo.insert(key, value);
+                        }
+                    }
+                }
+            }
+            file.close();
+        }
+        if (!appInfo.isEmpty() || !nameMap.isEmpty() || !iconMap.isEmpty() || !execMap.isEmpty()) {
+            appInfo.insert("MimeType", getTypeListByCategory(m_stringToCategory.value(mime)));
+            appInfo.insert("Name", QVariant::fromValue(nameMap));
+            appInfo.insert("Exec", QVariant::fromValue(execMap));
+            if (iconMap.isEmpty()) {
+                iconMap.insert("default-icon", "application-default-icon");
+            }
+            appInfo.insert("Icon", QVariant::fromValue(iconMap));
+            QDBusPendingReply<QString> reply = m_dbusManager->addUserApplication(appInfo, name);
+            reply.waitForFinished();
+        }
+    } else {
+        QVariantMap appInfo;
+        appInfo.insert("Type", "Application");
+        appInfo.insert("Version", 1);
+        QMap<QString, QString> nameMap;
+        nameMap.insert("default", info.completeBaseName());
+        appInfo.insert("Name", QVariant::fromValue(nameMap));
+        appInfo.insert("Path", info.path());
+        QMap<QString, QString> execMap;
+        execMap.insert("default", info.filePath());
+        appInfo.insert("Exec", QVariant::fromValue(execMap));
+        QMap<QString, QString> iconMap;
+        iconMap.insert("default-icon", "application-default-icon");
+        appInfo.insert("Icon", QVariant::fromValue(iconMap));
+        appInfo.insert("Terminal", false);
+        appInfo.insert("Categories", mime);
+        appInfo.insert("MimeType", getTypeListByCategory(m_stringToCategory.value(mime)));
+        QString name = "deepin-custom-" + mime + "-" + info.completeBaseName() + ".desktop";
+        QDBusPendingReply<QString> reply = m_dbusManager->addUserApplication(appInfo, name);
+        reply.waitForFinished();
+    }
+    // 刷新列表
+    onGetListApps();
 }
 
 void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &map)
@@ -351,7 +429,8 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
             app.Name = name;
             app.DisplayName = genericName != "" ? genericName : name;
             app.Icon = icon;
-            app.isUser = false;
+            app.isUser = mapInter.value("X_Deepin_CreateBy").toString() == "dde-application-manager";
+            app.CanDelete = app.isUser;
             list << app;
             break;
         }

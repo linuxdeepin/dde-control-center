@@ -19,6 +19,7 @@ const QString AMApplicationInterface =
 
 const QString ObjectManagerInterface = QStringLiteral("org.desktopspec.DBus.ObjectManager");
 const QString ApplicationManager1Path = QStringLiteral("/org/desktopspec/ApplicationManager1");
+const QString ApplicationManager1Interface = QStringLiteral("org.desktopspec.ApplicationManager1");
 
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)
@@ -41,6 +42,7 @@ MimeDBusProxy::MimeDBusProxy(QObject *parent)
     qDBusRegisterMetaType<QStringMap>();
     qRegisterMetaType<PropMap>();
     qDBusRegisterMetaType<PropMap>();
+    QDBusConnection::sessionBus().connect(ApplicationManagerServer, ApplicationManager1Path, "org.freedesktop.DBus.Properties", "PropertiesChanged", this, SIGNAL(Change()));
 }
 
 QDBusPendingReply<ObjectMap> MimeDBusProxy::GetManagedObjects()
@@ -66,12 +68,26 @@ void MimeDBusProxy::DeleteApp([[maybe_unused]] const QStringList &mimeTypes,
 void MimeDBusProxy::DeleteUserApp([[maybe_unused]] const QString &desktopId)
 {
     // QDBusPendingReply<QString>(m_mimeInter->asyncCall("DeleteUserApp", desktopId));
+    QDBusMessage msg = QDBusMessage::createMethodCall(ApplicationManagerServer, ApplicationManager1Path, ApplicationManager1Interface, QStringLiteral("deleteUserApplication"));
+    msg << desktopId;
+    QDBusPendingReply<> reply = QDBusConnection::sessionBus().asyncCall(msg);
+    if (reply.isError()) {
+        qWarning() << "deleteUserApplication" << reply.error();
+    }
 }
 
 void MimeDBusProxy::AddUserApp([[maybe_unused]] const QStringList &mimeTypes,
                                [[maybe_unused]] const QString &desktopId)
 {
     // QDBusPendingReply<QString>(m_mimeInter->asyncCall("AddUserApp", mimeTypes, desktopId));
+}
+
+QDBusPendingReply<QString> MimeDBusProxy::addUserApplication(const QVariantMap &desktopFile, const QString &name)
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(ApplicationManagerServer, ApplicationManager1Path, ApplicationManager1Interface, QStringLiteral("addUserApplication"));
+    msg << desktopFile << name;
+    QDBusPendingReply<QString> reply = QDBusConnection::sessionBus().asyncCall(msg);
+    return reply;
 }
 
 QString MimeDBusProxy::getAppId(const QDBusObjectPath &appPath)

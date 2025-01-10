@@ -30,6 +30,7 @@ public:
     void DeleteApp(const QStringList &mimeTypes, const QString &desktopId);
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);
+    QDBusPendingReply<QString> addUserApplication(const QVariantMap &desktopFile, const QString &name);
 
     QDBusPendingReply<ObjectMap> GetManagedObjects();
     QDBusPendingReply<QString, QDBusObjectPath> GetDefaultApp(const QString &mimeType);
