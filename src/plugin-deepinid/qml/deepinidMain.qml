@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -15,11 +15,11 @@ DccObject {
         contentItem: dccObj.children.length > 0 ? dccObj.children[0].getSectionItem(control) : null
     }
 
-    LoginPage {
+    DeepinIDLogin {
         visible: !dccData.model.loginState
     }
 
-    UserInfo {
+    DeepinIDUserInfo {
         visible: dccData.model.loginState
     }
 }

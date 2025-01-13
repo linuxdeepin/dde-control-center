@@ -6,6 +6,8 @@ file(GLOB_RECURSE deepinid_SRCS
     "operation/qrc/deepinid.qrc"
 )
 
+find_package(OpenSSL REQUIRED)
+
 add_library(${pluginName} MODULE
     ${deepinid_SRCS}
 )
@@ -19,6 +21,7 @@ set(deepinid_Libraries
 
 target_link_libraries(${pluginName} PRIVATE
     ${deepinid_Libraries}
+    libcrypto.so
 )
 
 dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName})

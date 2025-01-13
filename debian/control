@@ -42,6 +42,7 @@ Build-Depends:
  libgsettings-qt-dev,
  libicu-dev,
  libwayland-dev,
+ libssl-dev
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
