@@ -16,6 +16,7 @@ DccObject {
         parentName: "deepinid/userinfo/body"
         weight: 50
         pageType: DccObject.Item
+        visible: false
         page: DccGroupView {}
 
         DccObject {
@@ -112,7 +113,7 @@ DccObject {
         parentName: "deepinid/userinfo/body"
         weight: 60
         pageType: DccObject.Item
-        visible: true
+        visible: false
         page: DccGroupView {}
 
         DccObject {

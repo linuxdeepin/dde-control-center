@@ -149,6 +149,7 @@ DccObject {
             parentName: "deepinid/userinfo/body"
             displayName: qsTr("Account and Security")
             weight: 40
+            visible: false
         }
 
         DeepinIDAccountSecurity{}
