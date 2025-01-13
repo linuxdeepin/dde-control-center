@@ -63,3 +63,7 @@ License: GPL-3.0-or-later
 Files: dcc-old/src/plugin-display/wayland/*
 Copyright: Marcus Britanicus, Abrar, rahmanshaber
 License: MIT
+
+Files: toolGenerate/**/*
+Copyright: None
+License: CC0-1.0
