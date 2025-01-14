@@ -3219,6 +3219,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>add</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DevelopModePage</name>
@@ -3773,9 +3777,17 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>GestureGroup</name>
+    <name>GestureModel</name>
     <message>
-        <source>Scroll Page</source>
+        <source>Three-finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tap</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5528,51 +5540,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scroll Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

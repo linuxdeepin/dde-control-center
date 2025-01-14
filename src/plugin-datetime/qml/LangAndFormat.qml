@@ -232,7 +232,7 @@ DccObject {
                 }
                 IconLabel {
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
-                    icon.name: "arrow_ordinary_right"
+                    icon.name: "arrow_ordinary_down"
                     icon.palette: DTK.makeIconPalette(regionLabel.palette)
                 }
             }

@@ -294,7 +294,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
     }
     if (m_manager->hideModule().contains(plugin->name)) {
         // 跳过隐藏的模块,需要动态加载回来
-        updatePluginStatus(plugin, PluginEnd);
+        updatePluginStatus(plugin, PluginEnd | MetaDataEnd);
         return;
     }
     // metadata

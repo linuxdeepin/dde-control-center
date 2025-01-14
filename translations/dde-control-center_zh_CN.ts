@@ -3220,6 +3220,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Please choose the default program to open &apos;%1&apos;</source>
         <translation>选择打开“%1”的默认程序</translation>
     </message>
+    <message>
+        <source>add</source>
+        <translation>添加</translation>
+    </message>
 </context>
 <context>
     <name>DevelopModePage</name>
@@ -3774,10 +3778,18 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
-    <name>GestureGroup</name>
+    <name>GestureModel</name>
     <message>
-        <source>Scroll Page</source>
-        <translation>滚动页面</translation>
+        <source>Three-finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5529,51 +5541,11 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>快</translation>
     </message>
     <message>
-        <source>Scroll Page</source>
-        <translation>滚动页面</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
