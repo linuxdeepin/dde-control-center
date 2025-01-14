@@ -88,7 +88,7 @@ Rectangle {
                                 horizontalAlignment: Text.AlignLeft
                                 Layout.fillWidth: true
                                 font.pixelSize: 12
-                                text: qsTr("本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。")
+                                text: qsTr("This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.")
                                 wrapMode: Text.WordWrap
                             }
                             D.Label {

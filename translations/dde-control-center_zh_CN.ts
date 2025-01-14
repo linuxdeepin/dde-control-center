@@ -5506,10 +5506,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>UpdateList</name>
     <message>
-        <source>本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Updates：</source>
         <translation>更新：</translation>
     </message>
@@ -5520,6 +5516,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View Details</source>
         <translation>查看详细信息</translation>
+    </message>
+    <message>
+        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
+        <translation>本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。</translation>
     </message>
 </context>
 <context>
