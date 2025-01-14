@@ -1,9 +1,53 @@
 <RCC>
     <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dcc_nav_mouse_42px.svg</file>
-        <file>icons/dcc_nav_mouse_84px.svg</file>
-        <file>icons/dcc_nav_touchpad_1_42px.png</file>
-        <file>icons/dcc_nav_touchpad_2_42px.png</file>
+        <file>icons/dark/Four_finger_click_ani.webp</file>
+        <file>icons/dark/Four_finger_down_ani.webp</file>
+        <file>icons/dark/Four_finger_left_ani.webp</file>
+        <file>icons/dark/Four_finger_right_ani.webp</file>
+        <file>icons/dark/Four_finger_up_ani.webp</file>
+        <file>icons/dark/HideDesktop.webp</file>
+        <file>icons/dark/HideMultitask.webp</file>
+        <file>icons/dark/MaximizeWindow.webp</file>
+        <file>icons/dark/RestoreWindow.webp</file>
+        <file>icons/dark/ShowDesktop.webp</file>
+        <file>icons/dark/ShowMultiTask.webp</file>
+        <file>icons/dark/SplitWindowLeft.webp</file>
+        <file>icons/dark/SplitWindowRight.webp</file>
+        <file>icons/dark/SwitchToNextDesktop.webp</file>
+        <file>icons/dark/SwitchToPreDesktop.webp</file>
+        <file>icons/dark/Three_finger_down_ani.webp</file>
+        <file>icons/dark/Three_finger_left_ani.webp</file>
+        <file>icons/dark/Three_finger_right_ani.webp</file>
+        <file>icons/dark/ToggleClipboard.webp</file>
+        <file>icons/dark/ToggleGrandSearch.webp</file>
+        <file>icons/dark/ToggleLaunchPad.webp</file>
+        <file>icons/dark/ToggleNotifications.webp</file>
+        <file>icons/light/Four_finger_tap_ani.webp</file>
+        <file>icons/light/Four_finger_down_ani.webp</file>
+        <file>icons/light/Four_finger_left_ani.webp</file>
+        <file>icons/light/Four_finger_right_ani.webp</file>
+        <file>icons/light/Four_finger_up_ani.webp</file>
+        <file>icons/light/HideDesktop.webp</file>
+        <file>icons/light/HideMultitask.webp</file>
+        <file>icons/light/MaximizeWindow.webp</file>
+        <file>icons/light/RestoreWindow.webp</file>
+        <file>icons/light/ShowDesktop.webp</file>
+        <file>icons/light/ShowMultiTask.webp</file>
+        <file>icons/light/SplitWindowLeft.webp</file>
+        <file>icons/light/SplitWindowRight.webp</file>
+        <file>icons/light/SwitchToNextDesktop.webp</file>
+        <file>icons/light/SwitchToPreDesktop.webp</file>
+        <file>icons/light/Three_finger_tap_ani.webp</file>
+        <file>icons/light/Three_finger_down_ani.webp</file>
+        <file>icons/light/Three_finger_left_ani.webp</file>
+        <file>icons/light/Three_finger_right_ani.webp</file>
+        <file>icons/light/Three_finger_up_ani.webp</file>
+        <file>icons/light/ToggleClipboard.webp</file>
+        <file>icons/light/ToggleGrandSearch.webp</file>
+        <file>icons/light/ToggleLaunchPad.webp</file>
+        <file>icons/light/ToggleNotifications.webp</file>
+        <file>icons/dark/Three_finger_tap_ani.webp</file>
+        <file>icons/dark/Three_finger_up_ani.webp</file>
     </qresource>
     <qresource prefix="/mouse">
         <file>double_test/bow_head/bow_head_00001.png</file>
@@ -155,14 +199,6 @@
         <file>double_test/raise_head_ears/raise_head_ears_00008@2x.png</file>
         <file>double_test/raise_head_ears/raise_head_ears_00009@2x.png</file>
     </qresource>
-    <qresource prefix="/mouse/icons">
-        <file>icons/Four_finger_click.dci</file>
-        <file>icons/Three_fingers_left_and_right.dci</file>
-        <file>icons/Two_fingers_up_and_down.dci</file>
-    </qresource>
-    <qresource prefix="/dsg">
-        <file>icons/Four_finger_click.dci</file>
-        <file>icons/Three_fingers_left_and_right.dci</file>
-        <file>icons/Two_fingers_up_and_down.dci</file>
-    </qresource>
+    <qresource prefix="/mouse/icons"/>
+    <qresource prefix="/dsg"/>
 </RCC>

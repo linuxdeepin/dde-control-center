@@ -28,8 +28,18 @@ MouseModel::MouseModel(QObject *parent)
     , m_palmMinWidth(1)
     , m_palmMinz(100)
     , m_scrollSpeed(1)
+    , m_threeFingerGestureModel(new GestureModel(this))
+    , m_fourFigerGestureModel(new GestureModel(this))
+    , m_themeType(Dtk::Gui::DGuiApplicationHelper::instance()->themeType())
+    , m_gestureActionAniPath("")
+    , m_gestureFingerAniPath("")
     , m_worker(new MouseWorker(this, this))
 {
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, this, [ this ]() {
+        auto themeColorType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
+        updateFigerAniPath(themeColorType);
+        setThemeType(themeColorType);
+    });
 }
 
 MouseModel::~MouseModel()
@@ -235,9 +245,174 @@ void MouseModel::setScrollSpeed(int speed)
 
     m_scrollSpeed = speed;
 
-    QMetaObject::invokeMethod(m_worker,"onScrollSpeedChanged", Qt::QueuedConnection, Q_ARG(int, m_scrollSpeed));
+    QMetaObject::invokeMethod(m_worker,
+                              "onScrollSpeedChanged",
+                              Qt::QueuedConnection,
+                              Q_ARG(int, m_scrollSpeed));
     Q_EMIT scrollSpeedChanged(speed);
 }
+
+void MouseModel::updateGesturesData(const GestureData &gestureData)
+{
+    GestureModel* gestureModel = NULL;
+    if (gestureData.fingersNum() == 3) {
+
+        gestureModel = m_threeFingerGestureModel;
+    } else if (gestureData.fingersNum() == 4) {
+        gestureModel = m_fourFigerGestureModel;
+    } else {
+        return;
+    }
+
+    if (gestureModel->containsGestures(gestureData.direction(), gestureData.fingersNum())) {
+        gestureModel->updateGestureData(gestureData);
+    } else {
+        GestureData *data = new GestureData(this);
+        data->setActionType(gestureData.actionType());
+        data->setDirection(gestureData.direction());
+        data->setActionName(gestureData.actionName());
+        data->setFingersNum(gestureData.fingersNum());
+        data->setActionMaps(gestureData.actionMaps());
+        gestureModel->addGestureData(data);
+    }
+}
+
+GestureModel *MouseModel::threeFingerGestureModel() const
+{
+    return m_threeFingerGestureModel;
+}
+
+GestureModel *MouseModel::fourFigerGestureModel() const
+{
+    return m_fourFigerGestureModel;
+}
+
+void MouseModel::setGestures(int fingerNum, int index, QString acitonDec)
+{
+    GestureModel *gestureModel = NULL;
+    if (fingerNum == 4) {
+        gestureModel = m_fourFigerGestureModel;
+    } else if (fingerNum == 3) {
+        gestureModel = m_threeFingerGestureModel;
+    } else {
+        return;
+    }
+
+    GestureData *data = gestureModel->getGestureData(index);
+    if (data) {
+        QString actionName = data->getActionFromActionDec(acitonDec);
+        qDebug() << " setGestures action name : " << actionName << data->actionName();
+        if (actionName == data->actionName())
+            return;
+
+        updateFigerAniPath(actionName, data);
+        Q_EMIT m_worker->requestSetGesture(data->actionType(),
+                                           data->direction(),
+                                           data->fingersNum(),
+                                           actionName);
+    }
+}
+
+void MouseModel::updateFigerGestureAni(int fingerNum, int index, QString acitonDec)
+{
+    GestureModel *gestureModel = NULL;
+    if (fingerNum == 4) {
+        gestureModel = m_fourFigerGestureModel;
+    } else if (fingerNum == 3) {
+        gestureModel = m_threeFingerGestureModel;
+    } else {
+        return;
+    }
+    updateFigerAniPath(acitonDec, gestureModel->getGestureData(index));
+}
+
+QString MouseModel::getGestureFingerAniPath() const
+{
+    return m_gestureFingerAniPath;
+}
+
+void MouseModel::setGestureFingerAniPath(const QString &newGestureFingerAniPath)
+{
+    if (m_gestureFingerAniPath == newGestureFingerAniPath)
+        return;
+    qDebug() << "setGestureFingerAniPath : " << newGestureFingerAniPath;
+    m_gestureFingerAniPath = newGestureFingerAniPath;
+    emit gestureFingerAniPathChanged();
+}
+
+QString MouseModel::getGestureActionAniPath() const
+{
+    return m_gestureActionAniPath;
+}
+
+void MouseModel::setGestureActionAniPath(const QString &newGestureActionAniPath)
+{
+    if (m_gestureActionAniPath == newGestureActionAniPath)
+        return;
+
+    qDebug() << "setGestureActionAniPath : " << newGestureActionAniPath;
+    m_gestureActionAniPath = newGestureActionAniPath;
+    emit gestureActionAniPathChanged();
+}
+
+Dtk::Gui::DGuiApplicationHelper::ColorType MouseModel::themeType() const
+{
+    return m_themeType;
+}
+
+void MouseModel::updateFigerAniPath(QString actionName, GestureData *data)
+{
+    if (data == nullptr) {
+        data = m_threeFingerGestureModel->getGestureData(0);
+    }
+    if (actionName == "") {
+        actionName = data->actionName();
+    }
+    QString themeColor = "";
+    if (m_themeType == Dtk::Gui::DGuiApplicationHelper::ColorType::DarkType) {
+        themeColor = "dark";
+    } else if (m_themeType == Dtk::Gui::DGuiApplicationHelper::ColorType::LightType) {
+        themeColor = "light";
+    }
+
+    QString gestureDirection = data->actionType() == "tap" ? data->actionType() : data->direction();
+
+    QString fingerNum = "";
+    if (data->fingersNum() == 4) {
+        fingerNum = "Four";
+    } else if (data->fingersNum() == 3) {
+        fingerNum = "Three";
+    }
+
+    setGestureFingerAniPath(QString("qrc:/icons/deepin/builtin/icons/%1/%2_finger_%3_ani.webp")
+                                    .arg(themeColor)
+                                    .arg(fingerNum)
+                                    .arg(gestureDirection));
+    setGestureActionAniPath(QString("qrc:/icons/deepin/builtin/icons/%1/%2.webp").arg(themeColor).arg(actionName));
+}
+
+void MouseModel::updateFigerAniPath(const Dtk::Gui::DGuiApplicationHelper::ColorType &newThemeType)
+{
+    QString currentThemeColor = "";
+    QString changedThemeColor = "";
+
+
+    currentThemeColor = m_themeType == Dtk::Gui::DGuiApplicationHelper::ColorType::DarkType ? "dark" : "light";
+    changedThemeColor = newThemeType == Dtk::Gui::DGuiApplicationHelper::ColorType::DarkType ? "dark" : "light";
+
+    setGestureFingerAniPath(getGestureFingerAniPath().replace(currentThemeColor,changedThemeColor));
+    setGestureActionAniPath(getGestureActionAniPath().replace(currentThemeColor,changedThemeColor));
+}
+
+void MouseModel::setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &newThemeType)
+{
+    if (m_themeType == newThemeType)
+        return;
+    m_themeType = newThemeType;
+    emit themeTypeChanged();
+}
+
+
 DCC_FACTORY_CLASS(MouseModel)
 
 #include "mousemodel.moc"

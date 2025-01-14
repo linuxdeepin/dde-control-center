@@ -200,7 +200,6 @@ DccObject {
         displayName: qsTr("Gesture")
         weight: 50
         pageType: DccObject.Item
-        visible: false
 
         page: ColumnLayout {
             Label {
@@ -218,7 +217,6 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 60
         pageType: DccObject.Item
-        visible: false
 
         DccObject {
             name: "animation"
@@ -236,16 +234,15 @@ DccObject {
                     width: parent.width
                     anchors.centerIn: parent
 
-                    Image {
-                        source: "qrc:/icons/deepin/builtin/icons/dcc_nav_touchpad_1_42px.png"
-                        // fillMode: Image.PreserveAspectFit
+                    AnimatedImage {
+                        source: dccData.gestureFingerAniPath
                         Layout.alignment: Qt.AlignCenter
                         sourceSize.width: 204
                         sourceSize.height: 134
                     }
 
-                    Image {
-                        source: "qrc:/icons/deepin/builtin/icons/dcc_nav_touchpad_2_42px.png"
+                    AnimatedImage {
+                        source: dccData.gestureActionAniPath
                         Layout.alignment: Qt.AlignCenter
                         sourceSize.width: 204
                         sourceSize.height: 134
@@ -269,7 +266,6 @@ DccObject {
         weight: 70
         backgroundType: DccObject.AutoBg
         pageType: DccObject.Item
-        visible: false
 
         page: ColumnLayout {
             Label {
@@ -286,76 +282,20 @@ DccObject {
         name: "ThreeFingerGestureGroup"
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 80
-        backgroundType: DccObject.AutoBg
-        //hasBackground: false
-        visible: false
+        backgroundType: DccObject.Normal
         pageType: DccObject.Item
+        page: GestureGroup {
 
-        DccObject {
-            name: "ThreeFingersUp"
-            parentName: "MouseAndTouchpad/Touchpad/ThreeFingerGestureGroup"
-            displayName: qsTr("Three-finger up")
-            icon: "Two_fingers_up_and_down"
-            weight: 20
-            pageType: DccObject.Editor
+            model: dccData.threeFingerGestureModel()
 
-            page: D.ComboBox {
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [qsTr("Scroll Page")]
-                currentIndex: 0
+            onComboIndexChanged: function (index, actionDec){
+                dccData.setGestures(3, index, actionDec)
             }
 
-        }
-
-        DccObject {
-            name: "ThreeFingersDown"
-            parentName: "MouseAndTouchpad/Touchpad/ThreeFingerGestureGroup"
-            displayName: qsTr("Three-finger down")
-            icon: "Two_fingers_up_and_down"
-            weight: 30
-            pageType: DccObject.Editor
-
-            page: D.ComboBox {
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [qsTr("Scroll Page")]
-                currentIndex: 0
+            onHoveredChanged: function (index, actionDec) {
+                dccData.updateFigerGestureAni(3,index, actionDec)
             }
 
-        }
-
-        DccObject {
-            name: "ThreeFingersLeft"
-            parentName: "MouseAndTouchpad/Touchpad/ThreeFingerGestureGroup"
-            displayName: qsTr("Three-finger left")
-            icon: "Two_fingers_up_and_down"
-            weight: 40
-            pageType: DccObject.Editor
-
-            page: D.ComboBox {
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [qsTr("Scroll Page")]
-                currentIndex: 0
-            }
-
-        }
-
-        DccObject {
-            name: "ThreeFingersRight"
-            parentName: "MouseAndTouchpad/Touchpad/ThreeFingerGestureGroup"
-            displayName: qsTr("Three-finger right")
-            icon: "Two_fingers_up_and_down"
-            weight: 50
-            pageType: DccObject.Editor
-
-            page: D.ComboBox {
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                model: [qsTr("Scroll Page")]
-                currentIndex: 0
-            }
-
-        }
-
-        page: DccGroupView {
         }
 
     }
@@ -367,7 +307,6 @@ DccObject {
         weight: 90
         backgroundType: DccObject.AutoBg
         pageType: DccObject.Item
-        visible: false
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
@@ -385,37 +324,15 @@ DccObject {
         weight: 100
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
-        visible: false
         page: GestureGroup {
-
-            model: ListModel {
-                ListElement {
-                    name: qsTr("Four-finger up")
-                    iconName: "Two_fingers_up_and_down"
-                }
-
-                ListElement {
-                    name: qsTr("Four-finger down")
-                    iconName: "Two_fingers_up_and_down"
-                }
-
-                ListElement {
-                    name: qsTr("Four-finger left")
-                    iconName: "Two_fingers_up_and_down"
-                }
-
-                ListElement {
-                    name: qsTr("Four-finger right")
-                    iconName: "Two_fingers_up_and_down"
-                }
-
-                ListElement {
-                    name: qsTr("Four-finger tap")
-                    iconName: "Two_fingers_up_and_down"
-                }
-
+            model: dccData.fourFigerGestureModel()
+            onComboIndexChanged: function (index, actionDec){
+                dccData.setGestures(4, index, actionDec)
             }
 
+            onHoveredChanged: function (index, actionDec) {
+                dccData.updateFigerGestureAni(4,index, actionDec)
+            }
         }
 
     }

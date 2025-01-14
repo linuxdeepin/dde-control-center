@@ -16,6 +16,11 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     QMetaObject::invokeMethod(proxy, "active", Qt::QueuedConnection);
 }
 
+void MouseWorker::initFingerGestures()
+{
+    m_model->updateFigerAniPath();
+}
+
 void MouseWorker::setMouseExist(bool exist)
 {
     m_model->setMouseExist(exist);
@@ -111,6 +116,10 @@ void MouseWorker::setScrollSpeed(uint speed)
     m_model->setScrollSpeed(speed);
 }
 
+void MouseWorker::setGestureData(const GestureData &data)
+{
+    m_model->updateGesturesData(data);
+}
 
 void MouseWorker::onPalmDetectChanged(bool palmDetect)
 {

@@ -2,13 +2,17 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousedbusproxy.h"
+#include "gesturedata.h"
 
+#include <QJsonArray>
+#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
-#include <QDBusArgument>
 #include <QDBusReply>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 using namespace DCC_NAMESPACE;
 
@@ -22,6 +26,9 @@ const QString MouseInterface = "org.deepin.dde.InputDevice1.Mouse";
 const QString TouchpadInterface = "org.deepin.dde.InputDevice1.TouchPad";
 const QString TrackpointInterface = "org.deepin.dde.InputDevice1.TrackPoint";
 const QString InputDevicesInterface = "org.deepin.dde.InputDevices1";
+const QString GestureInterface = "org.deepin.dde.Gesture1";
+const QString GesturePath = "/org/deepin/dde/Gesture1";
+const QString GestureService = "org.deepin.dde.Gesture1";
 
 MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     : QObject(parent)
@@ -81,6 +88,10 @@ void MouseDBusProxy::active()
     uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
 
     m_worker->setScrollSpeed(wheelSpeed);
+
+    QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
+    parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
+    m_worker->initFingerGestures();
 }
 
 void MouseDBusProxy::deactive()
@@ -89,54 +100,188 @@ void MouseDBusProxy::deactive()
 
 void MouseDBusProxy::init()
 {
-    //监控dbus上的属性改变信号
-    QDBusConnection::sessionBus().connect(Service, MousePath, PropertiesInterface, "PropertiesChanged", "sa{sv}as",
-                                          this, SLOT(onMousePathPropertiesChanged(QDBusMessage)));
+    // 监控dbus上的属性改变信号
+    QDBusConnection::sessionBus().connect(Service,
+                                          MousePath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onMousePathPropertiesChanged(QDBusMessage)));
 
-    QDBusConnection::sessionBus().connect(Service, TouchpadPath, PropertiesInterface, "PropertiesChanged", "sa{sv}as",
-                                          this, SLOT(onTouchpadPathPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(Service,
+                                          TouchpadPath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onTouchpadPathPropertiesChanged(QDBusMessage)));
 
-    QDBusConnection::sessionBus().connect(Service, TrackpointPath, PropertiesInterface, "PropertiesChanged", "sa{sv}as",
-                                          this, SLOT(onTrackpointPathPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(Service,
+                                          TrackpointPath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onTrackpointPathPropertiesChanged(QDBusMessage)));
 
-    QDBusConnection::sessionBus().connect(Service, InputDevicesPath, PropertiesInterface, "PropertiesChanged", "sa{sv}as",
-                                          this, SLOT(onInputDevicesPathPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(Service,
+                                          InputDevicesPath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onInputDevicesPathPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(GestureService,
+                                          GesturePath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onGesturePropertiesChanged(QDBusMessage)));
 
-    //初始化dbus接口
-    m_dbusMouseProperties = new QDBusInterface(Service, MousePath, PropertiesInterface, QDBusConnection::sessionBus());
-    m_dbusTouchPadProperties = new QDBusInterface(Service, TouchpadPath, PropertiesInterface, QDBusConnection::sessionBus());
-    m_dbusTrackPointProperties = new QDBusInterface(Service, TrackpointPath, PropertiesInterface, QDBusConnection::sessionBus());
-    m_dbusDevicesProperties = new QDBusInterface(Service, InputDevicesPath, PropertiesInterface, QDBusConnection::sessionBus());
+    // 初始化dbus接口
+    m_dbusMouseProperties = new QDBusInterface(Service,
+                                               MousePath,
+                                               PropertiesInterface,
+                                               QDBusConnection::sessionBus());
+    m_dbusTouchPadProperties = new QDBusInterface(Service,
+                                                  TouchpadPath,
+                                                  PropertiesInterface,
+                                                  QDBusConnection::sessionBus());
+    m_dbusTrackPointProperties = new QDBusInterface(Service,
+                                                    TrackpointPath,
+                                                    PropertiesInterface,
+                                                    QDBusConnection::sessionBus());
+    m_dbusDevicesProperties = new QDBusInterface(Service,
+                                                 InputDevicesPath,
+                                                 PropertiesInterface,
+                                                 QDBusConnection::sessionBus());
+    m_dbusGestureProperties = new QDBusInterface(GestureService,
+                                                 GesturePath,
+                                                 PropertiesInterface,
+                                                 QDBusConnection::sessionBus());
 
     m_dbusMouse = new QDBusInterface(Service, MousePath, MouseInterface, QDBusConnection::sessionBus());
-    m_dbusTouchPad = new QDBusInterface(Service, TouchpadPath, TouchpadInterface, QDBusConnection::sessionBus());
-    m_dbusTrackPoint = new QDBusInterface(Service, TrackpointPath, TrackpointInterface, QDBusConnection::sessionBus());
-    m_dbusDevices = new QDBusInterface(Service, InputDevicesPath, InputDevicesInterface, QDBusConnection::sessionBus());
-
+    m_dbusTouchPad = new QDBusInterface(Service,
+                                        TouchpadPath,
+                                        TouchpadInterface,
+                                        QDBusConnection::sessionBus());
+    m_dbusTrackPoint = new QDBusInterface(Service,
+                                          TrackpointPath,
+                                          TrackpointInterface,
+                                          QDBusConnection::sessionBus());
+    m_dbusDevices = new QDBusInterface(Service,
+                                       InputDevicesPath,
+                                       InputDevicesInterface,
+                                       QDBusConnection::sessionBus());
+    m_dbusGesture = new QDBusInterface(GestureService,
+                                       GesturePath,
+                                       GestureInterface,
+                                       QDBusConnection::sessionBus());
 
     // set Mouse settings from dde-control-center
-    connect(m_worker, &MouseWorker::requestSetLeftHandState, this, &MouseDBusProxy::setLeftHandState);
-    connect(m_worker, &MouseWorker::requestSetMouseNaturalScrollState, this, &MouseDBusProxy::setMouseNaturalScrollState);
+    connect(m_worker,
+            &MouseWorker::requestSetLeftHandState,
+            this,
+            &MouseDBusProxy::setLeftHandState);
+    connect(m_worker,
+            &MouseWorker::requestSetMouseNaturalScrollState,
+            this,
+            &MouseDBusProxy::setMouseNaturalScrollState);
     connect(m_worker, &MouseWorker::requestSetDouClick, this, &MouseDBusProxy::setDouClick);
-    connect(m_worker, &MouseWorker::requestSetDisTouchPad, this, &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
+    connect(m_worker,
+            &MouseWorker::requestSetDisTouchPad,
+            this,
+            &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
     connect(m_worker, &MouseWorker::requestSetAccelProfile, this, &MouseDBusProxy::setAccelProfile);
-    connect(m_worker, &MouseWorker::requestSetMouseMotionAcceleration, this, &MouseDBusProxy::setMouseMotionAcceleration);
+    connect(m_worker,
+            &MouseWorker::requestSetMouseMotionAcceleration,
+            this,
+            &MouseDBusProxy::setMouseMotionAcceleration);
 
     // set Touchpad settings from dde-control-center
-    connect(m_worker, &MouseWorker::requestSetTouchNaturalScrollState, this, &MouseDBusProxy::setTouchNaturalScrollState);
+    connect(m_worker,
+            &MouseWorker::requestSetTouchNaturalScrollState,
+            this,
+            &MouseDBusProxy::setTouchNaturalScrollState);
     connect(m_worker, &MouseWorker::requestSetDisTyping, this, &MouseDBusProxy::setDisTyping);
-    connect(m_worker, &MouseWorker::requestSetTouchpadMotionAcceleration, this, &MouseDBusProxy::setTouchpadMotionAcceleration);
+    connect(m_worker,
+            &MouseWorker::requestSetTouchpadMotionAcceleration,
+            this,
+            &MouseDBusProxy::setTouchpadMotionAcceleration);
     connect(m_worker, &MouseWorker::requestSetTapClick, this, &MouseDBusProxy::setTapClick);
     connect(m_worker, &MouseWorker::requestSetPalmDetect, this, &MouseDBusProxy::setPalmDetect);
     connect(m_worker, &MouseWorker::requestSetPalmMinWidth, this, &MouseDBusProxy::setPalmMinWidth);
     connect(m_worker, &MouseWorker::requestSetPalmMinz, this, &MouseDBusProxy::setPalmMinz);
 
     // set Redpoint settings from dde-control-center
-    connect(m_worker, &MouseWorker::requestSetTrackPointMotionAcceleration, this, &MouseDBusProxy::setTrackPointMotionAcceleration);
+    connect(m_worker,
+            &MouseWorker::requestSetTrackPointMotionAcceleration,
+            this,
+            &MouseDBusProxy::setTrackPointMotionAcceleration);
 
     // set Device properties from dde-control-center
     connect(m_worker, &MouseWorker::requestSetScrollSpeed, this, &MouseDBusProxy::setScrollSpeed);
-    connect(m_worker, &MouseWorker::requestSetTouchpadEnabled, this, &MouseDBusProxy::setTouchpadEnabled);
+    connect(m_worker,
+            &MouseWorker::requestSetTouchpadEnabled,
+            this,
+            &MouseDBusProxy::setTouchpadEnabled);
+
+    connect(m_worker, &MouseWorker::requestSetGesture, this, &MouseDBusProxy::setGesture);
+}
+
+void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
+{
+    // 开始解析数组
+    argument.beginArray();
+    while (!argument.atEnd()) {
+
+        QString actionType, direction, actionName;
+        qint32 fingerNum;
+
+        // 开始解析 Struct of (String,String,Int32,String)
+        argument.beginStructure();
+
+        argument >> actionType ;
+        argument >> direction ;
+        argument >> fingerNum;
+        argument >> actionName;
+        argument.endStructure();
+
+        GestureData data;
+        data.setActionType(actionType);
+        data.setDirection(direction);
+        data.setActionName(actionName);
+        data.setFingersNum(fingerNum);
+
+        QDBusPendingReply<QString> reply = m_dbusGesture->callWithArgumentList(QDBus::BlockWithGui,"GetGestureAvaiableActions", {actionType, fingerNum});
+
+        if (!reply.isError()) {
+            QString actions = reply.value();
+            QJsonDocument document = QJsonDocument::fromJson(actions.toUtf8());
+
+            if (document.isArray()) {
+                QJsonArray array = document.array();
+                QStringList actionNameList;
+                QStringList actionDescriptionList;
+                for (int i = 0; i < array.size(); ++i) {
+                    QJsonValue value = array.at(i);
+                    if (value.isObject()) {
+                        QJsonObject object = value.toObject();
+
+                        QPair<QString, QString> actionPair;
+                        actionPair.first = object.value("Name").toString();;
+                        actionPair.second = object.value("Description").toString();
+                        data.addActiosPair(actionPair);
+                    }
+                }
+            }
+        }
+
+        m_worker->setGestureData(data);
+    }
+    argument.endArray();
 }
 
 void MouseDBusProxy::onDefaultReset()
@@ -245,6 +390,10 @@ void MouseDBusProxy::setScrollSpeed(uint speed)
     m_dbusDevicesProperties->call("Set", InputDevicesInterface, "WheelSpeed", speed);
 }
 
+void MouseDBusProxy::setGesture(const QString& name, const QString& direction, int fingers, const QString& action)
+{
+    m_dbusGesture->asyncCallWithArgumentList("SetGesture", { name, direction, fingers, action });
+}
 
 void MouseDBusProxy::onMousePathPropertiesChanged(QDBusMessage msg)
 {
@@ -345,6 +494,24 @@ void MouseDBusProxy::onInputDevicesPathPropertiesChanged(QDBusMessage msg)
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "WheelSpeed") {
                 m_worker->setScrollSpeed(changedProps.value(keys.at(i)).toUInt());
+            }
+        }
+    }
+}
+
+void MouseDBusProxy::onGesturePropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == GestureInterface) {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "Infos") {
+                parseGesturesData(qvariant_cast<QDBusArgument>(changedProps.value(keys.at(i))));
             }
         }
     }
