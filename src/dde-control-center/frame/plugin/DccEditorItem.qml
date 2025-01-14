@@ -27,6 +27,7 @@ D.ItemDelegate {
     hoverEnabled: true
     checked: backgroundType & 0x08
     cascadeSelected: !checked
+    font: D.DTK.fontManager.t6
 
     icon {
         name: model.item.icon
@@ -46,6 +47,7 @@ D.ItemDelegate {
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
+                font: root.font
             }
             DccLabel {
                 Layout.fillWidth: true

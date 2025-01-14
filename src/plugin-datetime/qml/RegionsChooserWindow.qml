@@ -45,6 +45,7 @@ Loader {
                 anchors.topMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
                 placeholder: qsTr("Search")
+                palette: DTK.palette
                 onTextChanged: {
                     viewModel.setFilterWildcard(text);
                 }
@@ -73,6 +74,7 @@ Loader {
                 delegate: CheckDelegate {
                     id: checkDelegate
                     implicitWidth: itemsView.width
+                    palette: DTK.palette
                     text: model.display
                     checked: text === loader.currentText
                     hoverEnabled: true

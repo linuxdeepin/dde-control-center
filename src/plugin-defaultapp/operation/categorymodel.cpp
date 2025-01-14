@@ -19,7 +19,9 @@ CategoryModel::CategoryModel(Category *parent)
     : QAbstractItemModel(parent)
     , m_category(parent)
 {
-    m_applist = m_category->getappItem();
+    for (auto &&item : m_category->getappItem()) {
+        onAddApp(item);
+    }
     connect(m_category, &Category::addedUserItem, this, &CategoryModel::onAddApp);
     connect(m_category, &Category::removedUserItem, this, &CategoryModel::onRemoveApp);
     connect(m_category, &Category::defaultChanged, this, &CategoryModel::onDefaultChanged);
@@ -121,9 +123,16 @@ void CategoryModel::setDefaultApp(const QString &id)
 void CategoryModel::onAddApp(const App &app)
 {
     const QList<App> &applist = m_category->getappItem();
-    int index = applist.indexOf(app);
-    if (index < 0)
+    if (!applist.contains(app))
         return;
+
+    int index = 0;
+    for (auto &&item : m_applist) {
+        if ((item.CanDelete && item.CanDelete != app.CanDelete) || item.Name > app.Name) {
+            break;
+        }
+        index++;
+    }
     beginInsertRows(QModelIndex(), index, index);
     m_applist.insert(index, app);
     endInsertRows();

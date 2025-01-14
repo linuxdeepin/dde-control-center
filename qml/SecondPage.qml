@@ -55,9 +55,11 @@ Item {
                 root: dccObj
             }
             delegate: ItemDelegate {
+                implicitHeight: 40
                 text: model.display
                 width: parent ? parent.width : 300
                 checked: dccObj.currentObject === model.item
+                font: D.DTK.fontManager.t6
                 icon {
                     name: model.item.icon
                     source: model.item.iconSource

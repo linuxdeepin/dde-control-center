@@ -25,7 +25,16 @@ DccObject {
         displayName: qsTr("Please choose the default program to open '%1'").arg(root.displayName)
         weight: 10
         pageType: DccObject.Editor
-        page: RowLayout {
+        page: Button {
+            implicitWidth: implicitContentWidth + 20
+            implicitHeight: 30
+            text: qsTr("add")
+            onClicked: {
+                fileDialog.open()
+            }
+            onVisibleChanged: {
+                fileDialog.close()
+            }
             FileDialog {
                 id: fileDialog
                 title: qsTr("Open Desktop file")
@@ -34,31 +43,6 @@ DccObject {
                 nameFilters: [qsTr("Apps (*.desktop)"), qsTr("All files (*)")]
                 onAccepted: {
                     categoryModel.addApp(fileDialog.currentFile)
-                }
-            }
-            // TODO: 添加删除默认程序暂不支持
-            D.AbstractButton {
-                Layout.alignment: Qt.AlignRight
-                Layout.maximumWidth: 30
-                Layout.maximumHeight: 30
-                Layout.margins: 0
-                enabled: canDelete
-                icon.name: "action_reduce"
-                onClicked: {
-                    console.log(root.name, "-")
-                }
-            }
-            Button {
-                Layout.alignment: Qt.AlignRight
-                Layout.maximumWidth: 30
-                Layout.maximumHeight: 30
-                Layout.margins: 0
-                icon.name: "action_add"
-                onClicked: {
-                    fileDialog.open()
-                }
-                onVisibleChanged: {
-                    fileDialog.close()
                 }
             }
         }
@@ -72,17 +56,35 @@ DccObject {
             icon: model.icon
             displayName: model.display
             backgroundType: DccObject.ClickStyle
-            pageType: DccObject.Editor
-            page: RowLayout {
-                DccCheckIcon {
-                    visible: model.isDefault
-                    mouseEnabled: false
-                }
-                D.ActionButton {
-                    visible: !model.isDefault && model.canDelete
-                    icon.name: "dcc-delete"
-                    onClicked: {
-                        categoryModel.removeApp(model.id)
+            pageType: DccObject.Item
+            page: D.ItemDelegate {
+                id: control
+                leftPadding: 10
+                rightPadding: 8
+                icon.name: dccObj.icon
+                text: dccObj.displayName
+                checked: false
+                hoverEnabled: true
+                cascadeSelected: false
+                checkable: false
+                content: RowLayout {
+                    width: 24
+                    DccCheckIcon {
+                        Layout.alignment: Qt.AlignCenter
+                        visible: model.isDefault
+                        mouseEnabled: false
+                    }
+                    D.ActionButton {
+                        Layout.alignment: Qt.AlignCenter
+                        visible: !model.isDefault && model.canDelete && control.hovered
+                        icon {
+                            name: "dcc-delete"
+                            width: 16
+                            height: 16
+                        }
+                        onClicked: {
+                            categoryModel.removeApp(model.id)
+                        }
                     }
                 }
             }
