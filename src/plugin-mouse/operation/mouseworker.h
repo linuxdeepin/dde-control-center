@@ -19,6 +19,8 @@ public:
     void deactive();
     void init();
 
+    void initFingerGestures();
+
 public Q_SLOTS:
     void setMouseExist(bool exist);
     void setTpadExist(bool exist);
@@ -39,6 +41,7 @@ public Q_SLOTS:
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
     void setScrollSpeed(uint speed);
+    void setGestureData(const GestureData &data);
 
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
@@ -74,6 +77,7 @@ Q_SIGNALS:
     void requestSetTouchpadMotionAcceleration(const double &value);
     void requestSetTrackPointMotionAcceleration(const double &value);
     void requestSetTouchpadEnabled(const bool state);
+    void requestSetGesture(const QString& name, const QString& direction, int fingers, const QString& action);
 
 private:
     int converToDouble(int value);

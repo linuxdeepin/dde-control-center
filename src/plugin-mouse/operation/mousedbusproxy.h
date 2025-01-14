@@ -6,8 +6,8 @@
 
 #include "mouseworker.h"
 
-#include <QObject>
 #include <QDBusMessage>
+#include <QObject>
 
 class QDBusInterface;
 
@@ -19,6 +19,8 @@ public:
     explicit MouseDBusProxy(MouseWorker *worker, QObject *parent = nullptr);
     void deactive();
     void init();
+
+    void parseGesturesData(const QDBusArgument &argument);
 
 public Q_SLOTS:
     void active();
@@ -48,10 +50,13 @@ public Q_SLOTS:
     // device properties
     void setScrollSpeed(uint speed);
 
+    void setGesture(const QString& name, const QString& direction, int fingers, const QString& action);
+
     void onMousePathPropertiesChanged(QDBusMessage msg);
     void onTouchpadPathPropertiesChanged(QDBusMessage msg);
     void onTrackpointPathPropertiesChanged(QDBusMessage msg);
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
+    void onGesturePropertiesChanged(QDBusMessage msg);
 
 private:
     MouseWorker  *m_worker;
@@ -59,11 +64,13 @@ private:
     QDBusInterface *m_dbusTouchPadProperties;
     QDBusInterface *m_dbusTrackPointProperties;
     QDBusInterface *m_dbusDevicesProperties;
+    QDBusInterface *m_dbusGestureProperties;
 
     QDBusInterface *m_dbusMouse;
     QDBusInterface *m_dbusTouchPad;
     QDBusInterface *m_dbusTrackPoint;
     QDBusInterface *m_dbusDevices;
+    QDBusInterface *m_dbusGesture;
 
 };
 }

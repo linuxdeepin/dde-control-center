@@ -24,7 +24,7 @@ Copyright: UnionTech Software Technology Co., Ltd.
 License: GPL-3.0-or-later
 
 # png svg
-Files: **/*.svg **/*.png **/*.dci **/*.gif
+Files: **/*.svg **/*.png **/*.dci **/*.gif **/*.webp
 Copyright: UnionTech Software Technology Co., Ltd.
 License: CC0-1.0
 

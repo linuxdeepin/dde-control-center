@@ -5,15 +5,17 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 Rectangle {
     id: root
     property alias model: repeater.model
     property bool backgroundVisible: true
-    property bool showPlayBtn: false
+    property bool showPlayBtn: true
     signal clicked(int index, bool checked)
-    signal playbtnClicked(int index)
+    signal comboIndexChanged(int index, var actionDec)
+    signal hoveredChanged(int index, var actionDec)
 
     color: "transparent"
     implicitHeight: layoutView.height
@@ -33,19 +35,32 @@ Rectangle {
                 implicitHeight: 45
                 cascadeSelected: true
                 backgroundVisible: root.backgroundVisible
-                text: model.name
-                icon.name: model.iconName
-
+                text: model.descriptionRole
+                icon.name: model.iconRole
                 hoverEnabled: true
+
+                property var comboMoel: model.actionListRole
+                property int comboIndex: model.actionsIndexRole
                 content: D.ComboBox {
+                    id: combo
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    model: [qsTr("Scroll Page")]
-                    currentIndex: 0
+                    model: comboMoel
+                    currentIndex: comboIndex
+                    editable: false
+                    flat: true
+                    onCurrentTextChanged: {
+                        root.comboIndexChanged(index, combo.currentText)
+                    }
                 }
                 background: DccItemBackground {
                     separatorVisible: true
-                   // highlightEnable: false
-                }              
+                }
+
+                onHoveredChanged: {
+                    if (hovered) {
+                       root.hoveredChanged(index, combo.currentText)
+                    }
+                }
 
                 onClicked: {
                     root.clicked(index, !model.isChecked)

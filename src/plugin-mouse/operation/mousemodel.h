@@ -4,10 +4,14 @@
 #ifndef MOUSEMODEL_H
 #define MOUSEMODEL_H
 
+#include "gesturedata.h"
+#include "gesturemodel.h"
 
+#include <QDBusArgument>
+#include <QDebug>
 #include <QObject>
 #include <QQmlEngine>
-#include <QDebug>
+#include <DGuiApplicationHelper>
 
 namespace DCC_NAMESPACE {
 class MouseWorker;
@@ -32,6 +36,8 @@ public:
     Q_PROPERTY(bool tpadNaturalScroll READ tpadNaturalScroll WRITE setTpadNaturalScroll NOTIFY tpadNaturalScrollChanged FINAL)
     Q_PROPERTY(bool disIfTyping READ disIfTyping WRITE setDisIfTyping NOTIFY disIfTypingChanged FINAL)
     Q_PROPERTY(bool tapEnabled READ tapEnabled WRITE setTapEnabled NOTIFY tapEnabledChanged FINAL)
+    Q_PROPERTY(QString gestureFingerAniPath READ getGestureFingerAniPath NOTIFY gestureFingerAniPathChanged FINAL)
+    Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -90,6 +96,29 @@ public:
     int scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(int speed);
 
+    void updateGesturesData(const GestureData &gestureData);
+
+    Q_INVOKABLE GestureModel *threeFingerGestureModel() const;
+
+    Q_INVOKABLE GestureModel *fourFigerGestureModel() const;
+
+    Q_INVOKABLE void setGestures(int fingerNum, int index, QString acitonDec);
+    Q_INVOKABLE void updateFigerGestureAni(int fingerNum, int index, QString acitonDec);
+
+    QString getGestureFingerAniPath() const;
+    void setGestureFingerAniPath(const QString &newGestureFingerAniPath);
+
+    QString getGestureActionAniPath() const;
+    void setGestureActionAniPath(const QString &newGestureActionAniPath);
+
+    Dtk::Gui::DGuiApplicationHelper::ColorType themeType() const;
+
+    void updateFigerAniPath(QString actionName = "", GestureData* data = nullptr);
+    void updateFigerAniPath(const Dtk::Gui::DGuiApplicationHelper::ColorType &newThemeType);
+
+    void setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &newThemeType);
+
+
 Q_SIGNALS:
     void leftHandStateChanged(bool state);
     void disIfTypingStateChanged(bool state);
@@ -112,6 +141,12 @@ Q_SIGNALS:
     void scrollSpeedChanged(int speed);
     void disIfTypingChanged(bool state);
 
+    void gestureFingerAniPathChanged();
+
+    void gestureActionAniPathChanged();
+
+    void themeTypeChanged();
+
 private:
     bool m_leftHandState;
     bool m_disIfTyping;
@@ -132,6 +167,14 @@ private:
     int  m_palmMinWidth;
     int  m_palmMinz;
     int  m_scrollSpeed;
+
+    QString m_gestureFingerAniPath;
+    QString m_gestureActionAniPath;
+    Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
+
+    // 手势ui数据
+    GestureModel* m_threeFingerGestureModel;
+    GestureModel* m_fourFigerGestureModel;
     MouseWorker* m_worker;
 };
 
