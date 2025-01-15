@@ -69,10 +69,8 @@ void DeepinWorker::initData()
     // 初始化用户登陆数据
     m_model->setUserinfo(m_deepinIDProxy->userInfo());
 
-    // 如果已经登陆，获取认证状态
-    if (m_model->getLoginState()) {
-        licenseStateChangeSlot();
-    }
+    // 获取认证状态
+    licenseStateChangeSlot();
 }
 
 void DeepinWorker::loginUser()
