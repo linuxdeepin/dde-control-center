@@ -11,6 +11,7 @@ add_library(${pluginName} MODULE
 )
 
 pkg_check_modules(DEEPIN_PW_CHECK REQUIRED libdeepin_pw_check)
+pkg_check_modules(DaReader REQUIRED dareader)
 
 find_package(PolkitQt6-1)
 set(accounts_Libraries
@@ -21,6 +22,7 @@ set(accounts_Libraries
      ${QT_NS}::Concurrent
      PolkitQt6-1::Agent
      ${DEEPIN_PW_CHECK_LIBRARIES}
+     ${DaReader_LIBRARIES}
 )
 
 target_link_libraries(${pluginName} PRIVATE
