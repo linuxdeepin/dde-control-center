@@ -22,6 +22,33 @@
 
 static installer::ZoneInfoList g_totalZones;
 
+static QString GetChinaTaiWanName()
+{
+    switch (QLocale::system().territory()) {
+    case QLocale::Territory::China:
+        return QStringLiteral("中国台湾");
+    case QLocale::Territory::HongKong:
+        return QStringLiteral("中國台灣");
+    case QLocale::Territory::Taiwan:
+        return QStringLiteral("中國臺灣");
+    case QLocale::Territory::Macau:
+        return QStringLiteral("中國台灣");
+    default:
+        return "Taiwan China";
+    }
+}
+
+static const QMap<QString, QMap<QLocale::Language, QString>> localeOverrides = {
+    {"zh_TW", {
+        {QLocale::Chinese, GetChinaTaiWanName()},
+        {QLocale::English, "Taiwan China"},
+    }},
+    {"trv_TW", {
+        {QLocale::Chinese, GetChinaTaiWanName()},
+        {QLocale::English, "Taiwan China"}
+    }},
+};
+
 static QString getDescription(const ZoneInfo &zoneInfo)
 {
     const QDateTime localTime(QDateTime::currentDateTime());
@@ -150,6 +177,13 @@ static QStringList translateLangAndCountry(const QString &localeName)
     std::string displayCountryIcu;
     IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
 
+    // override icu， e.g. 台湾 -> 中国台湾
+    if (localeOverrides.contains(localeName)) {
+        if (localeOverrides[localeName].contains(QLocale::system().language())) {
+            displayCountryIcu = localeOverrides[localeName][QLocale::system().language()].toStdString();
+        }
+    }
+
     return QStringList{ QString::fromStdString(displayLanguageIcu),
                         QString::fromStdString(displayCountryIcu) };
 }
@@ -166,12 +200,16 @@ static QString translate(const QString &localeName, const QString &langRegion)
         || langRegions[1] == QLocale::countryToString(QLocale::Macau)
         || langRegions[1] == QLocale::countryToString(QLocale::Taiwan)) {
 
-        QString langCountry =
-                QString("%1(%2)")
-                        .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                         langRegions.at(0).toUtf8().data()))
-                        .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                         langRegions.at(1).toUtf8().data()));
+        auto res = translateLangAndCountry(localeName);
+        QString lang = res.value(0);
+
+        // override icu， e.g. 台湾 -> 中国台湾
+        QString country = langRegions.at(1).toUtf8().data();
+        if (country == "Taiwan") {
+            country = GetChinaTaiWanName();
+        }
+
+        QString langCountry = QString("%1(%2)").arg(lang).arg(country);
         return langCountry;
     }
 
