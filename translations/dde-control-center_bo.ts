@@ -5761,6 +5761,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>An update has been detected.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System update completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Determine whether to restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWorker</name>

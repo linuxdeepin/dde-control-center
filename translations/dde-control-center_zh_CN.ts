@@ -5762,6 +5762,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>An update has been detected.</source>
         <translation>检测到更新。</translation>
     </message>
+    <message>
+        <source>Restart Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <source>Restart Later</source>
+        <translation>稍后重启</translation>
+    </message>
+    <message>
+        <source>System update completed</source>
+        <translation>系统更新完成</translation>
+    </message>
+    <message>
+        <source>Determine whether to restart.</source>
+        <translation>确定是否重启.</translation>
+    </message>
 </context>
 <context>
     <name>UpdateWorker</name>

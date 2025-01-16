@@ -5,6 +5,7 @@
 
 #include <qdbuspendingreply.h>
 #include <DDBusSender>
+#include <DGuiApplicationHelper>
 
 UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     : QObject{ parent }
@@ -43,12 +44,28 @@ void UpdateWork::onActionBtnClicked()
 {
     qInfo() << " onActionBtnClicked : " << m_model->getUpdateState();
     if (m_model->getUpdateState() == "success") {
-        DDBusSender()
-            .service("com.deepin.dde.shutdownFront")
-            .interface("com.deepin.dde.shutdownFront")
-            .path("/com/deepin/dde/shutdownFront")
-            .method("Restart")
-            .call();
+        if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+            QStringList notificationActions;
+            notificationActions.append("reboot");
+            notificationActions.append(tr("Restart Now"));
+            notificationActions.append("cancel");
+            notificationActions.append(tr("Restart Later"));
+            QVariantMap map;
+            map.insert("deepin-dde-shell-action-reboot", "{\"pluginId\":\"org.deepin.ds.dde-shutdown\",\"method\":\"requestShutdown\",\"arguments\":[\"Restart\" ]}");
+            QDBusMessage message = QDBusMessage::createMethodCall("org.deepin.dde.Notification1", "/org/deepin/dde/Notification1", "org.deepin.dde.Notification1", "Notify");
+            message << QString("dde-control-center") << static_cast<uint>(0)
+                    << QString("preferences-system") << QString(tr("System update completed"))
+                    << QString(tr("Determine whether to restart.")) << notificationActions
+                    << map << 0;
+            QDBusConnection::sessionBus().asyncCall(message);
+        } else {
+            DDBusSender()
+                    .service("com.deepin.dde.shutdownFront")
+                    .interface("com.deepin.dde.shutdownFront")
+                    .path("/com/deepin/dde/shutdownFront")
+                    .method("Restart")
+                    .call();
+        }
         return;
     }
 
