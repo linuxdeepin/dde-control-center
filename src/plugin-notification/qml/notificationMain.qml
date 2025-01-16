@@ -35,7 +35,6 @@ DccObject {
         // displayName: qsTr("Enable Do Not Disturb")
         // icon: "notification"
         weight: 20
-        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
@@ -126,7 +125,6 @@ DccObject {
         name: "applicationList"
         parentName: "notification"
         weight: 50
-        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {}
         DccRepeater {

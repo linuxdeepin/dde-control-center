@@ -5,7 +5,7 @@ import QtQuick
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
@@ -17,19 +17,11 @@ DccObject {
         return Number(value * 100).toFixed(0) + "%"
     }
 
-    DccObject {
+    DccTitleObject {
         name: "inPut"
         parentName: "sound/inPut"
         displayName: qsTr("Input")
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -75,10 +67,10 @@ DccObject {
                     text: root.toPercent(voiceTipsSlider1.value)
                 }
 
-                IconButton {
-                    icon.name: dccData.model().microphoneOn ? "qrc:/icons/deepin/builtin/icons/sound_off.dci" : "qrc:/icons/deepin/builtin/icons/small_volume.dci"
-                    icon.width: 24
-                    icon.height: 24
+                D.IconButton {
+                    icon.name: dccData.model().microphoneOn ? "sound_off" : "small_volume"
+                    icon.width: 16
+                    icon.height: 16
                     implicitWidth: 24
 
                     flat: !hovered
@@ -103,11 +95,11 @@ DccObject {
                         }
                     }
                 }
-                IconButton {
+                D.IconButton {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    icon.name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
-                    icon.width: 24
-                    icon.height: 24
+                    icon.name: "big_volume"
+                    icon.width: 16
+                    icon.height: 16
                     implicitWidth: 24
                     background: Rectangle {
                         color: "transparent" // 背景透明
@@ -127,9 +119,10 @@ DccObject {
             page: RowLayout {
                 Layout.alignment: Qt.AlignRight
 
-                DciIcon {
-                    name: "qrc:/icons/deepin/builtin/icons/small_volume.dci"
-                    sourceSize: Qt.size(24, 24)
+                D.DciIcon {
+                    name: "small_volume"
+                    palette: D.DTK.makeIconPalette(parent.palette)
+                    sourceSize: Qt.size(16, 16)
                     implicitWidth: 24
                     Layout.rightMargin: 4
                 }
@@ -141,9 +134,10 @@ DccObject {
                     implicitHeight: 24
                     value: dccData.model().microphoneFeedback
                 }
-                DciIcon {
-                    name: "qrc:/icons/deepin/builtin/icons/big_volume.dci"
-                    sourceSize: Qt.size(24, 24)
+                D.DciIcon {
+                    name: "big_volume"
+                    palette: D.DTK.makeIconPalette(parent.palette)
+                    sourceSize: Qt.size(16, 16)
                     implicitWidth: 24
                     Layout.rightMargin: 4
                     Layout.leftMargin: 4

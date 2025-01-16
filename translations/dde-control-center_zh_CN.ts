@@ -7148,6 +7148,10 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Enable/disable audio devices</source>
         <translation>启用/禁用音频设备</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
 </context>
 <context>
     <name>system</name>

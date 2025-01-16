@@ -34,6 +34,10 @@ Item {
         normal: Qt.rgba(0, 0, 0, 0.05)
         normalDark: Qt.rgba(0, 0, 0, 0.3)
     }
+    property D.Palette separatorColor: D.Palette {
+        normal: Qt.rgba(0, 0, 0, 0.05)
+        normalDark: Qt.rgba(1, 1, 1, 0.05)
+    }
     // 阴影
     Loader {
         id: shadow
@@ -133,7 +137,7 @@ Item {
             rightMargin: 10
         }
         sourceComponent: Rectangle {
-            color: palette.window
+            color: root.D.ColorSelector.separatorColor
         }
     }
 }

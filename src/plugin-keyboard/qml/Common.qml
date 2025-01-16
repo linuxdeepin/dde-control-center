@@ -97,10 +97,8 @@ DccObject {
         name: "RepeatRateGroup"
         parentName: "KeyboardCommon"
         weight: 30
-        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {
-            spacing: 5
             height: implicitHeight + 20
         }
     }
@@ -200,10 +198,8 @@ DccObject {
         parentName: "KeyboardCommon"
         displayName: qsTr("Numeric Keypad")
         weight: 40
-        backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {
-            spacing: 5
             height: implicitHeight + 20
         }
     }

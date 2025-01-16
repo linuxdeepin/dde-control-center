@@ -16,12 +16,11 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: DccGroupView {
-            spacing: 5
             isGroup: false
         }
         onParentItemChanged: {
             if (parentItem) {
-                parentItem.bottomPadding = 20
+                parentItem.bottomInset = 5
             }
         }
         SpeakerPage {}
@@ -34,23 +33,29 @@ DccObject {
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {
-            spacing: 5
             isGroup: false
         }
         onParentItemChanged: {
             if (parentItem) {
-                parentItem.bottomPadding = 20
+                parentItem.bottomInset = 10
             }
         }
         MicrophonePage {}
     }
+    DccTitleObject{
+        name: "soundSettings"
+        parentName: "sound"
+        displayName: qsTr("Settings")
+        weight: 30
+    }
+
     DccObject {
         name: "soundEffectsPage"
         parentName: "sound"
         displayName: qsTr("Sound Effects")
         description: qsTr("Enable/disable sound effects")
         icon: "system_sound"
-        weight: 30
+        weight: 40
         page: DccRightView {
             isGroup: true
         }
@@ -63,7 +68,7 @@ DccObject {
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
         visible: dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0
-        weight: 40
+        weight: 50
         SoundDevicemanagesPage {}
     }
 }
