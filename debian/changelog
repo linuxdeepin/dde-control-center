@@ -1,3 +1,10 @@
+dde-control-center (6.1.6.2) unstable; urgency=medium
+
+  * feat: override icu database
+  * chore(update-plugin): update translate
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 16 Jan 2025 10:36:41 +0800
+
 dde-control-center (6.1.6) unstable; urgency=medium
 
   * fix: Add default program functionality
