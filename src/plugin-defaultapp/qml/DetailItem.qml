@@ -67,6 +67,7 @@ DccObject {
                 hoverEnabled: true
                 cascadeSelected: false
                 checkable: false
+                onClicked: categoryModel.setDefaultApp(model.id)
                 content: RowLayout {
                     width: 24
                     DccCheckIcon {

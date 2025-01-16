@@ -7147,6 +7147,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Enable/disable audio devices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>system</name>

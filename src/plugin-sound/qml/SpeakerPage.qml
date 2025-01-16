@@ -48,10 +48,7 @@ DccObject {
         weight: 30
         visible: dccData.model().outPutPortCombo.length !== 0
         pageType: DccObject.Item
-        page: DccGroupView {
-            height: implicitHeight + 10
-            spacing: 0
-        }
+        page: DccGroupView { }
         DccObject {
             name: "outputVolume"
             parentName: "sound/outPut/outputGroup"

@@ -9,20 +9,12 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "powerPlansTitle"
         parentName: "power/general"
         displayName: qsTr("Power Plans")
         weight: 10
-        pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -35,20 +27,12 @@ DccObject {
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "powerSavingSettingsTitle"
         parentName: "power/general"
         displayName: qsTr("Power Saving Settings")
         weight: 200
-        pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -161,19 +145,11 @@ DccObject {
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "wakeupSettingsTitle"
         parentName: "power/general"
         displayName: qsTr("Wakeup Settings")
         weight: 500
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -215,21 +191,13 @@ DccObject {
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "shutdownSettingTitle"
         parentName: "power/general"
         displayName: qsTr("Shutdown Settings")
         weight: 700
         visible: dccData.model.enableScheduledShutdown !== "Hidden" && dccData.platformName() !== "wayland"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {

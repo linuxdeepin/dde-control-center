@@ -49,7 +49,7 @@ Rectangle {
                     }
 
                     RowLayout {
-                        spacing: 0
+                        spacing: 10
                         Layout.alignment: Qt.AlignRight
                         IconButton {
                             Layout.alignment: Qt.AlignLeft

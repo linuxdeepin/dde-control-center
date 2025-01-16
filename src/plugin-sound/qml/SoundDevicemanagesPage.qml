@@ -9,14 +9,13 @@ import org.deepin.dtk 1.0
 import org.deepin.dcc 1.0
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "outputDevice"
         parentName: "sound/deviceManger"
         displayName: qsTr("Output Devices")
         description: qsTr("Select whether to enable the devices")
         visible: dccData.model().outPutCount !== 0
         weight: 10
-        pageType: DccObject.Editor
     }
     DccObject {
         name: "outputDeviceList"
@@ -31,15 +30,19 @@ DccObject {
                 dccData.worker().setPortEnableIndex(index, checked, 1)
             }
         }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.bottomInset = 15
+            }
+        }
     }
-    DccObject {
+    DccTitleObject {
         name: "inputDevice"
         parentName: "sound/deviceManger"
         displayName: qsTr("Input Devices")
         description: qsTr("Select whether to enable the devices")
         visible: dccData.model().inPutPortCount !== 0
         weight: 30
-        pageType: DccObject.Editor
     }
     DccObject {
         name: "inputDeviceList"
