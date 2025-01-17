@@ -21,6 +21,7 @@ public:
     };
 
     explicit GestureModel(QObject *parent = nullptr);
+    ~GestureModel() override;
 
     bool containsGestures(QString direction, int fingersNum);
     void updateGestureData(const GestureData &data);

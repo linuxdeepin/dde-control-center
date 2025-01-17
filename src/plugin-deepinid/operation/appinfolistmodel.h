@@ -30,6 +30,7 @@ public:
     Q_ENUM(AppItemRoles)
 
     explicit AppInfoListModel(QObject *parent = nullptr);
+    ~AppInfoListModel() override;
 
     void addAppItem(AppItemData *item);
     void removeAppItem(AppItemData* item);

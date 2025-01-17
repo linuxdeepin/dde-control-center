@@ -404,7 +404,7 @@ QSortFilterProxyModel *DatetimeModel::regionSearchModel()
     }
 
     m_countrySearchModel = new QSortFilterProxyModel(this);
-    QStringListModel *sourceModel = new QStringListModel(m_langRegionsCache.keys());
+    QStringListModel *sourceModel = new QStringListModel(m_langRegionsCache.keys(), m_countrySearchModel);
     m_countrySearchModel->setSourceModel(sourceModel);
     m_countrySearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 

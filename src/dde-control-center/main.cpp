@@ -151,5 +151,6 @@ int main(int argc, char *argv[])
     }
     int exitCode = app->exec();
     delete dccManager;
+    delete app;
     return exitCode;
 }

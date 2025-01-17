@@ -106,7 +106,7 @@ void DccRepeater::setModel(const QVariant &m)
         d->model = vim;
     } else {
         if (!d->ownModel) {
-            d->model = new QQmlDelegateModel(qmlContext(this));
+            d->model = new QQmlDelegateModel(qmlContext(this), this);
             d->ownModel = true;
             // if (isComponentComplete())
             static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
@@ -146,7 +146,7 @@ void DccRepeater::setDelegate(QQmlComponent *delegate)
             return;
 
     if (!d->ownModel) {
-        QQmlDelegateModel *dataModel = new QQmlDelegateModel(qmlContext(this));
+        QQmlDelegateModel *dataModel = new QQmlDelegateModel(qmlContext(this), this);
         d->model = dataModel;
         d->ownModel = true;
         dataModel->componentComplete();

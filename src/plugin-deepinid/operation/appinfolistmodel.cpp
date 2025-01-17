@@ -10,6 +10,11 @@ AppInfoListModel::AppInfoListModel(QObject *parent)
 
 }
 
+AppInfoListModel::~AppInfoListModel()
+{
+    clearItem();
+}
+
 void AppInfoListModel::addAppItem(AppItemData *item)
 {
     beginInsertRows(QModelIndex(), m_appItemList.count(), m_appItemList.count());
