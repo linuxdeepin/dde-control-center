@@ -77,7 +77,7 @@ DccManager::~DccManager()
 
 bool DccManager::installTranslator(const QString &name)
 {
-    QTranslator *translator = new QTranslator();
+    QTranslator *translator = new QTranslator(qApp);
     if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR)) {
         qApp->installTranslator(translator);
 #if 1 // 兼容旧版位置
@@ -756,9 +756,19 @@ void DccManager::clearData()
     qCDebug(dccLog()) << "delete root end";
 
     qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
-    delete m_noAddObjects;
-    delete m_noParentObjects;
-    delete m_hideObjects;
+    QVector<DccObject *> deleteObjects;
+    deleteObjects.append(m_hideObjects);
+    deleteObjects.append(m_noAddObjects);
+    deleteObjects.append(m_noParentObjects);
+    while (!deleteObjects.isEmpty()) {
+        auto obj = deleteObjects.takeFirst();
+        QVector<DccObject *> children = obj->getChildren();
+        while (!children.isEmpty()) {
+            delete children.first();
+            children = obj->getChildren();
+        }
+        delete obj;
+    }
     qCDebug(dccLog()) << "delete dccobject";
     qCDebug(dccLog()) << "delete QmlEngine";
     delete m_engine;

@@ -452,7 +452,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
     p_ptr->deleteSectionItem();
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
-        QQmlContext *context = new QQmlContext(creationContext);
+        QQmlContext *context = new QQmlContext(creationContext, p_ptr->m_page);
         context->setContextProperty("dccObj", this);
 #if 0
         QObject *nobj = p_ptr->m_page->beginCreate(context);

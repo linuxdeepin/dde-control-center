@@ -9,6 +9,11 @@ GestureModel::GestureModel(QObject *parent)
 {
 }
 
+GestureModel::~GestureModel()
+{
+    qDeleteAll(m_gestures);
+}
+
 bool GestureModel::containsGestures(QString direction, int fingersNum)
 {
     for (auto data : m_gestures) {
@@ -136,6 +141,7 @@ bool GestureModel::removeRows(int row, int count, const QModelIndex &parent)
 void GestureModel::addGestureData(GestureData *data)
 {
     if (m_gestures.contains(data)) {
+        delete data;
         return;
     }
 
@@ -154,6 +160,7 @@ void GestureModel::removeGestureData(GestureData *data)
     beginRemoveRows(QModelIndex(), index, index);
     m_gestures.remove(index);
     endRemoveRows();
+    delete data;
 }
 
 void GestureModel::updateGestureData(GestureData *data)
