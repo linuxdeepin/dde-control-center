@@ -1,10 +1,11 @@
 <RCC>
     <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dcc_camera_32px.svg</file>
-        <file>icons/dcc_microphone_32px.svg</file>
-        <file>icons/dcc_nav_privacy_42px.svg</file>
-        <file>icons/dcc_nav_privacy_84px.svg</file>
-        <file>icons/dark/dcc_none_dark.svg</file>
-        <file>icons/light/dcc_none_light.svg</file>
+
+    </qresource>
+
+    <qresource prefix="/dsg">
+        <file>icons/arrow-down.dci</file>
+        <file>icons/security_folder.dci</file>
+        <file>icons/security_camera.dci</file>
     </qresource>
 </RCC>

@@ -1,47 +1,68 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
-#ifndef PRIVACYSECURITYWORKER_H
-#define PRIVACYSECURITYWORKER_H
+// SPDX-License-Identifier: GPL-3.0-or-later
 
-#include <QObject>
-#include "privacysecuritydbusproxy.h"
+#pragma once
+
 #include "privacysecuritymodel.h"
+#include "privacysecuritydataproxy.h"
+#include "applicationitem.h"
+#include <QMutex>
 
-class PrivacySecurityWorker : public QObject
-{
+class PrivacySecurityWorker : public QObject {
     Q_OBJECT
 public:
-    explicit PrivacySecurityWorker(PrivacySecurityModel *model, QObject *parent = nullptr);
+    explicit PrivacySecurityWorker(PrivacySecurityModel *appModel, QObject *parent = nullptr);
     ~PrivacySecurityWorker();
 
-    void activate();
-    void deactivate();
+public slots:
+    void setPremissionEnabled(int appItemIndex, int premission, bool enabled);
 
-public:
-    void permissionInfoLoadFinished(const QString &perInfo);
-    // 设置总开关
-    void getPermissionEnable(const QString& permissionGroup, const QString& permissionId);
-    void setPermissionEnable(const QString& permissionGroup, const QString& permissionId, bool enable);
+    void setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item);
+    void checkAuthorizationCancel();
+    void updateCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist);
 
-    // 设置App属性
-    void setPermissionInfo(const QString& appId, const QString& permissionGroup, const QString& permissionId, const QString& value);
-    const QString getIconPath(const QString& appName);
+private slots:
+    void updateAppPath(ApplicationItem *item);
+    ApplicationItem *addAppItem(int index);
+
+    void onModeChanged(const QString &mode, const QString &type);
+    void onEntityChanged(const QString &entity, const QString &type);
+    void onPolicyChanged(const QString &policy, const QString &type);
+
+    void setAppPermissionEnableByCheck(bool ok);
+
+signals:
+    void checkAuthorization(bool checking);
+    void serviceExistsChanged(bool exists);
+
+    void appAdded(const QString &appId);
+    void appRemoved(const QString &id);
 
 private:
-    void saveServiceApps(const QString &currentGroup, const QString &dameonDefineName, const QJsonArray& appInfoDate);
+    void updateAllPermission();
+    QString getAppPath(const QMap<QString, QString> &execs);
+    void updateCheckAuthorizationing(bool checking);
+    QString getEntityJson(const QString &name, bool isFile);
+    QString getAppEntityJson(const ApplicationItem *item);
+    QString getSubjectModeJson(const QString &name, bool isBlacklist);
+    QString getObjectPolicyJson(const ApplicationItem *item, int premission, bool enabled);
 
-public Q_SLOTS:
-    void refreshPermissionState(const QString& permissionGroup, const QString& permissionId, bool enable);
-    void resetPermissionState(const QString& permissionGroup, const QString& permissionId);
-    void resetPermissionInfo(const QString& permissionGroup, const QString& permissionId);
+    bool existsService() const;
+
+    void init();
+    void initApp();
 
 private:
-    PrivacySecurityModel *m_model;
-    PrivacySecurityDBusProxy *m_privacyDBusInter;
+    PrivacySecurityModel *m_model = nullptr;
+    QAbstractItemModel *m_ddeAmModel = nullptr;
+    PrivacySecurityDataProxy *m_dataProxy = nullptr;
+    QStringList m_pathList;
+    bool m_checkAuthorizationing = false;
+    QList<QPair<ApplicationItem *, QPair<int, bool>>> m_cacheAppPermission;
+    QList<QPair<int, int>> m_cachePermission;
+    QHash<QString, QSet<QString>> m_entityMap;         // entity信息,对包是 <包名,可执行文件列表>
+    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
 
-    // 记录AppsName 异步多线程获取 IconPath
-    QStringList m_appsName;
+    QMutex m_appItemsMutex;
 };
-
-#endif // PRIVACYSECURITYWORKER_H
