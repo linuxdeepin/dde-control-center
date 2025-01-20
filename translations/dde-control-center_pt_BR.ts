@@ -198,6 +198,29 @@
     </message>
 </context>
 <context>
+    <name>AddFaceinfoDialog</name>
+    <message>
+        <source>Enroll Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;test&quot;&gt;Disclaimer&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
@@ -584,6 +607,13 @@
     </message>
     <message>
         <source>Repeat password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Camera</name>
+    <message>
+        <source>Allow below apps to access your camera:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3455,6 +3485,33 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>EnrollFaceDialog</name>
+    <message>
+        <source>Enroll Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face enrolled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to enroll your face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -3500,6 +3557,41 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>FaceidDetailWidget</name>
     <message>
         <source>No supported devices found</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileAndFolder</name>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pictures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow below apps to access these files and folders:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4024,6 +4116,34 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Biometric authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FaceAuthenticationGroupView</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face Authentication Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to 5 face data entries can be recorded.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add New Faces</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4589,39 +4709,9 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>PrivacyModule</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PrivacySecurityModel</name>
-    <message>
-        <source>Camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Microphone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Folders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screen Capture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6527,6 +6617,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
@@ -7107,6 +7205,36 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>privacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
