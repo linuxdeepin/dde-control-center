@@ -1,6 +1,7 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "charamangermodel.h"
 
 #include <QJsonDocument>
@@ -347,6 +348,7 @@ void CharaMangerModel::onEnrollIrisStatusChanged(int code, const QString &msg)
 void CharaMangerModel::onRefreshEnrollDate(const int &charaType)
 {
     if (charaType & FACE_CHARA) {
+        qWarning()<< "=======2" << this->facesList();
         Q_EMIT facesListChanged(this->facesList());
     }
 

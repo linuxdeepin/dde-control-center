@@ -212,11 +212,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;test&quot;&gt;Disclaimer&lt;/a&gt;</source>
+        <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Next</source>
+        <source>Disclaimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face enrolled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to enroll your face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Agree</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -236,6 +274,42 @@
     </message>
     <message>
         <source>Scan Suspended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enroll Finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Agree</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3485,33 +3559,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>EnrollFaceDialog</name>
-    <message>
-        <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to enroll your face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -4089,61 +4136,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LoginMethod</name>
-    <message>
-        <source>Login method</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modify password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Validity days</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Always</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Biometric authentication</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FaceAuthenticationGroupView</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Face Authentication Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Up to 5 face data entries can be recorded.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add New Faces</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6527,6 +6519,48 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>authenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a new </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>blueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
@@ -6617,14 +6651,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Faceprint</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
@@ -6661,6 +6687,61 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Flat</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::BiometricAuthController</name>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan Suspended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

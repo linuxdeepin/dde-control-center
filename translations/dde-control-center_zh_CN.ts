@@ -198,6 +198,78 @@
     </message>
 </context>
 <context>
+    <name>AddFaceinfoDialog</name>
+    <message>
+        <source>Enroll Face</source>
+        <translation>添加人脸数据</translation>
+    </message>
+    <message>
+        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
+        <translation>请确保五官清晰可见，避免佩戴帽子、墨镜、口罩等物件，保证光线充足，避免阳光直射，以提高录入成功率</translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation>我已阅读并同意</translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation>《用户免责声明》</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <source>Face enrolled</source>
+        <translation>人脸录入完成</translation>
+    </message>
+    <message>
+        <source>Failed to enroll your face</source>
+        <translation>人脸录入失败</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation>重新录入</translation>
+    </message>
+    <message>
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
+        <translation>在使用人脸识别功能前，请注意以下事项：
+1.您的设备可能会被容貌、外形与您相近的人或物品解锁。
+2.人脸识别的安全性低于数字密码、混合密码。
+3.在暗光、强光、逆光或角度过大等场景下，人脸识别的解锁成功率会有所降低。
+4.请勿将设备随意交给他人使用，避免人脸识别功能被恶意利用。
+5.除以上场景外，您需注意其他可能影响人脸识别功能正常使用的情况。
+
+为更好使用人脸识别，录入面部数据时请注意以下事项：
+1.请保证光线充足，避免阳光直射并避免其他人出现在录入的画面中。
+2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
+3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
+        </translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation>同意</translation>
+    </message>
+</context>
+<context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
@@ -214,6 +286,45 @@
     <message>
         <source>Scan Suspended</source>
         <translation>录入中断</translation>
+    </message>
+    <message>
+        <source>Enroll Finger</source>
+        <translation>添加指纹数据</translation>
+    </message>
+    <message>
+        <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
+        <translation>将要录入的手指放入指纹录入器里面饼从下往上移动手指,完成动作后请抬起您的手指</translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation>我已阅读并同意</translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation>《用户免责声明》</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation>重新录入</translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
+        请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+        统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+        </translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation>同意</translation>
     </message>
 </context>
 <context>
@@ -6450,6 +6561,48 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生物认证</translation>
+    </message>
+</context>
+<context>
+    <name>authenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生物认证</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>最多可录入5个人脸数据</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>指纹</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>通过对指纹的扫描进行用户身份的识别</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>虹膜</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>通过扫描虹膜进行身份识别</translation>
+    </message>
+    <message>
+        <source>Add a new </source>
+        <translation>添加新的</translation>
+    </message>
+</context>
+<context>
     <name>blueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
@@ -6577,6 +6730,61 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Flat</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::BiometricAuthController</name>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation>使用人脸数据解锁您的设备，之后还可进行更多设置</translation>
+    </message>
+    <message>
+        <source>Faceprint</source>
+        <translation>面纹</translation>
+    </message>
+    <message>
+        <source>Place your finger</source>
+        <translation>放置手指</translation>
+    </message>
+    <message>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>请以手指压指纹收集器，然后根据提示抬起</translation>
+    </message>
+    <message>
+        <source>Lift your finger</source>
+        <translation>抬起手指</translation>
+    </message>
+    <message>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>请抬起手指，再次按压</translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>录入边缘指纹</translation>
+    </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>请调整按压区域，继续录入边缘指纹</translation>
+    </message>
+    <message>
+        <source>Lift your finger and do that again</source>
+        <translation>请抬起手指，再次按压</translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation>成功添加指纹</translation>
+    </message>
+    <message>
+        <source>Scan Suspended</source>
+        <translation>录入中断</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>虹膜</translation>
+    </message>
+    <message>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>请以手指边缘压指纹收集器，然后根据提示抬起</translation>
     </message>
 </context>
 <context>

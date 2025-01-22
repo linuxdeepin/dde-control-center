@@ -200,6 +200,7 @@ set(DCC_FRAME_Library dde-control-center_frame)
 add_subdirectory(src/dde-control-center)
 #--------------------------plugins--------------------------
 add_subdirectory(src/plugin-accounts)
+add_subdirectory(src/plugin-authentication)
 add_subdirectory(src/plugin-sound)
 add_subdirectory(src/plugin-defaultapp)
 add_subdirectory(src/plugin-power)
