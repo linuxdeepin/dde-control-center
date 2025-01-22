@@ -12,15 +12,6 @@
         <file>icons/dcc_user_human.dci</file>
         <file>icons/dcc_user_add_icon.dci</file>
         <file>icons/dcc_user_scenery.dci</file>
-        <file>icons/user_biometric_face.dci</file>
-        <file>icons/user_biometric_face_add.dci</file>
-        <file>icons/user_biometric_face_lose.dci</file>
-        <file>icons/user_biometric_face_success.dci</file>
-        <file>icons/user_biometric_fingerprint.dci</file>
-        <file>icons/user_biometric_fingerprint_add.dci</file>
-        <file>icons/user_biometric_fingerprint_lose.dci</file>
-        <file>icons/user_biometric_fingerprint_success.dci</file>
-        <file>icons/user_biometric_iris.dci</file>
     </qresource>
     <qresource prefix="/accounts">
         <file>icons/dcc_deepin_password_strength_high.svg</file>
@@ -28,7 +19,5 @@
         <file>icons/dcc_deepin_password_strength_middle.svg</file>
         <file>icons/dcc_deepin_password_strength_unactive_deep_mode.svg</file>
         <file>icons/dcc_deepin_password_strength_unactive_light_mode.svg</file>
-        <file>icons/long_progress_circle.svg</file>
-        <file>icons/short_progress_circle.svg</file>
     </qresource>
 </RCC>

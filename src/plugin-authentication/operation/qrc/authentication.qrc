@@ -113,4 +113,19 @@
         <file>icons/dark/icons/finger/fingerprint_animation_light_50.svg</file>
         <file>icons/dark/icons/finger/fingerprint_light.svg</file>
     </qresource>
+
+    <qresource prefix="/dsg">
+        <file>icons/user_biometric_face.dci</file>
+        <file>icons/user_biometric_face_add.dci</file>
+        <file>icons/user_biometric_face_lose.dci</file>
+        <file>icons/user_biometric_face_success.dci</file>
+        <file>icons/user_biometric_fingerprint.dci</file>
+        <file>icons/user_biometric_fingerprint_add.dci</file>
+        <file>icons/user_biometric_fingerprint_lose.dci</file>
+        <file>icons/user_biometric_fingerprint_success.dci</file>
+        <file>icons/user_biometric_iris.dci</file>
+        <file>icons/scan_loader.dci</file>
+        <file>icons/dcc_edit.dci</file>
+        <file>icons/dcc_delete.dci</file>
+    </qresource>
 </RCC>

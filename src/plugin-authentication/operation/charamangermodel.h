@@ -1,6 +1,7 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef CHARAMANGERMODEL_H
 #define CHARAMANGERMODEL_H
 #include <QObject>
@@ -12,8 +13,13 @@ class CharaMangerModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool faceDriverVaild READ faceDriverVaild WRITE setFaceDriverVaild NOTIFY vaildFaceDriverChanged)
+    Q_PROPERTY(bool fingerDriverVaild READ fingerVaild WRITE setFingerVaild NOTIFY vaildFingerChanged)
+    Q_PROPERTY(bool irisDriverVaild READ irisDriverVaild WRITE setIrisDriverVaild NOTIFY vaildIrisDriverChanged)
+
     Q_PROPERTY(QStringList facesList READ facesList WRITE setFacesList NOTIFY facesListChanged)
     Q_PROPERTY(bool charaVaild READ charaVaild WRITE setCharaVaild NOTIFY charaVaildChanged)
+
+    Q_PROPERTY(QStringList thumbsList READ thumbsList WRITE setThumbsList NOTIFY thumbsListChanged)
 
 public:
     /**
@@ -61,6 +67,8 @@ public:
         Processing,
     };
 
+    Q_ENUM(AddInfoState)
+
     /**
      * @brief The EnrollResult enum 指纹
      */
@@ -71,6 +79,8 @@ public:
         Enroll_Success,
         Count
     };
+
+    Q_ENUM(EnrollResult)
 
     enum EnrollStatusType {
         ET_Completed = 0,
@@ -97,6 +107,14 @@ public:
         RC_RemoveAndRetry,
         RC_CannotRecognize
     };
+
+    enum EnrollType {
+        Type_Face = 0,
+        Type_Finger,
+        Type_Iris
+    };
+
+    Q_ENUM(EnrollType)
 
 public:
     explicit CharaMangerModel(QObject *parent = nullptr);

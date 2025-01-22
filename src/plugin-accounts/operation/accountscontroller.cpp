@@ -40,8 +40,6 @@ static bool isUserGroupName(int gid, const QString &name)
 
 AccountsController::AccountsController(QObject *parent)
     : QObject{ parent }
-    , m_charaModel(new CharaMangerModel(this))
-    , m_charaWorker(new CharaMangerWorker(m_charaModel, this))
 {
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
@@ -75,25 +73,6 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_worker, &AccountsWorker::updateGroupFinished, this, [this]() {
         updateAllGroups();
         this->groupsUpdate();
-    });
-
-    connect(m_charaModel, &CharaMangerModel::tryStartInputFace, this, [this] (int fd){
-        qDebug() << "add updateFaceImgContent to fd:" << fd;
-        DA_read_frames(fd, this, updateFaceImgContent);
-    });
-    connect(m_charaModel, &CharaMangerModel::enrollStatusTips, this, [this] (const QString tips) {
-        m_enrollTips = tips;
-        emit enrollTipsChanged();
-    });
-    connect(m_charaModel, &CharaMangerModel::enrollInfoState, this, [this] (const CharaMangerModel::AddInfoState state, const QString &tips) {
-        m_enrollSuccess = state == CharaMangerModel::AddInfoState::Success;
-        m_enrollTips = m_enrollSuccess ? tr("Use your face to unlock the device and make settings later"): tips;
-        emit enrollSuccessChanged();
-        emit enrollTipsChanged();
-        emit enrollCompleted();
-        stopEnroll();
-        if (m_enrollSuccess)
-            m_charaWorker->refreshUserEnrollList(m_charaModel->faceDriverName(), m_charaModel->faceCharaType());
     });
 
     QMetaObject::invokeMethod(m_worker, "active", Qt::QueuedConnection);
@@ -770,83 +749,6 @@ QStringList AccountsController::userTypes(bool createUser /* = false*/) const
         types << tr("Customized");
     }
     return types;
-}
-
-void AccountsController::renameFace(const QString &oldName, const QString &newName) {
-    m_charaWorker->renameCharaItem(m_charaModel->faceCharaType(), oldName, newName);
-    m_charaWorker->refreshUserEnrollList(m_charaModel->faceDriverName(), m_charaModel->faceCharaType());
-}
-
-void AccountsController::removeFace(QString faceId) {
-    m_charaWorker->deleteCharaItem(m_charaModel->faceCharaType(), faceId);
-}
-
-void AccountsController::updateFaceImgContent(void* const context, const DA_img *const img) {
-    if (!context)
-        return;
-
-    AccountsController *controller = static_cast<AccountsController *>(context);
-    // Do not update after enroll completed.
-    if (!controller->m_enrollInProgress)
-        return;
-
-    QImage im((uchar *)img->data, img->width, img->height, QImage::Format_RGB888);
-    QPixmap pix(Faceimg_SIZE, Faceimg_SIZE);
-    pix.fill(Qt::transparent);
-    QPainter painter(&pix);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    QPainterPath path;
-    path.addEllipse(0, 0, Faceimg_SIZE, Faceimg_SIZE);
-    painter.setClipPath(path);
-    painter.drawPixmap(0, 0, Faceimg_SIZE, Faceimg_SIZE, QPixmap::fromImage(im));
-
-    QBuffer buffer;
-    buffer.open(QIODevice::WriteOnly);
-    pix.save(&buffer, "PNG");
-    QString encode = buffer.data().toBase64();
-    controller->m_faceImgContent = QString("%1,%2").arg("data:image/png;base64").arg(encode);
-    buffer.close();
-    emit controller->faceImgContentChanged();
-}
-
-void AccountsController::startFaceEnroll() {
-    // 找到最小的名称以便作为缺省名添加
-    for (int i = 0; i < FACEID_NUM; ++i) {
-        bool findNotUsedThumb = false;
-        QString newName(tr("Faceprint") + QString("%1").arg(i + 1));
-
-        for (int n = 0; n < FACEID_NUM && n < m_charaModel->facesList().size(); ++n) {
-            if (newName == m_charaModel->facesList().at(n)) {
-                findNotUsedThumb = true;
-                break;
-            }
-        }
-
-        if (!findNotUsedThumb) {
-            m_enrollTips = "";
-            emit enrollTipsChanged();
-            m_enrollInProgress = true;
-            m_charaWorker->entollStart(m_charaModel->faceDriverName(), m_charaModel->faceCharaType(), newName);
-            break;
-        }
-    }
-}
-
-void AccountsController::stopEnroll() {
-    m_enrollInProgress = false;
-    m_charaWorker->stopEnroll();
-}
-
-QString AccountsController::faceImgContent() {
-    return m_faceImgContent;
-}
-
-bool AccountsController::enrollSuccess() {
-    return m_enrollSuccess;
-}
-
-QString AccountsController::enrollTips() {
-    return m_enrollTips;
 }
 
 } // namespace dccV25
