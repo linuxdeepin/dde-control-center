@@ -114,6 +114,8 @@ QQmlApplicationEngine *DccManager::engine()
 void DccManager::setMainWindow(QWindow *window)
 {
     m_window = window;
+    connect(m_window, &QWindow::widthChanged, this, &DccManager::saveSize);
+    connect(m_window, &QWindow::heightChanged, this, &DccManager::saveSize);
 }
 
 void DccManager::loadModules(bool async, const QStringList &dirs)
@@ -430,6 +432,14 @@ DccObject *DccManager::findParent(const DccObject *obj)
     return findObject(path);
 }
 
+void DccManager::saveSize()
+{
+    if (m_dconfig->isValid()) {
+        m_dconfig->setValue(WidthConfig, m_window->width());
+        m_dconfig->setValue(HeightConfig, m_window->height());
+    }
+}
+
 void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
 {
     qCInfo(dccLog()) << "show page:" << url;
@@ -735,13 +745,7 @@ void DccManager::clearData()
     }
     m_plugins->beginDelete();
     clearShowParam();
-    int width_remember = m_window->width();
-    int height_remember = m_window->height();
 
-    if (m_dconfig->isValid()) {
-        m_dconfig->setValue(WidthConfig, width_remember);
-        m_dconfig->setValue(HeightConfig, height_remember);
-    }
     m_window->hide();
     m_window->close();
     // doShowPage(m_root, QString());

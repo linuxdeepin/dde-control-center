@@ -85,6 +85,7 @@ private:
     DccObject *findParent(const DccObject *obj);
 
 private Q_SLOTS:
+    void saveSize();
     void waitShowPage(const QString &url, const QDBusMessage message);
     void clearShowParam();
     void tryShow();
