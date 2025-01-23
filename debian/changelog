@@ -1,3 +1,13 @@
+dde-control-center (6.1.8) unstable; urgency=medium
+
+  * feat: override icu database
+  * fix: Modify the issue of dconfig saving crashing and freezing
+  * feat: impl privacy
+  * fix: Modify memory release issue
+  * feat: 初步实现生物认证-人脸识别
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 23 Jan 2025 17:21:20 +0800
+
 dde-control-center (6.1.7) unstable; urgency=medium
 
   * fix: Adjust default program UI style
