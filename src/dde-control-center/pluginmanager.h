@@ -31,13 +31,13 @@ public:
 
 public Q_SLOTS:
     void cancelLoad();
-    void updatePluginStatus(PluginData *plugin, uint status, const QString &log = QString());
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
     void loadAllFinished();
 
     void pluginEndStatusChanged(PluginData *plugin);
+    void updatePluginStatus(PluginData *plugin, uint status, const QString &log);
 
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
@@ -57,6 +57,7 @@ private Q_SLOTS:
 
     void onHideModuleChanged(const QSet<QString> &hideModule);
     void onVisibleToAppChanged(bool visibleToApp);
+    void onUpdatePluginStatus(PluginData *plugin, uint status, const QString &log);
 
 private:
     DccManager *m_manager;

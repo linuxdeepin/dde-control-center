@@ -108,7 +108,7 @@ void LoadPluginTask::run()
 
 void LoadPluginTask::doRun()
 {
-    m_pManager->updatePluginStatus(m_data, DataBegin, "load plugin begin");
+    Q_EMIT m_pManager->updatePluginStatus(m_data, DataBegin, "load plugin begin");
     // {main.qml}
     const QString soPath = m_data->path + "/" + m_data->name + ".so";
     QElapsedTimer timer;
@@ -120,29 +120,29 @@ void LoadPluginTask::doRun()
             return;
         }
         QPluginLoader loader(soPath);
-        m_pManager->updatePluginStatus(m_data, DataLoad);
+        Q_EMIT m_pManager->updatePluginStatus(m_data, DataLoad, QString());
         loader.load();
         if (m_pManager->isDeleting()) {
             return;
         }
         if (!loader.isLoaded()) {
-            m_pManager->updatePluginStatus(m_data, DataErr, "Load the plugin failed." + loader.errorString());
+            Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "Load the plugin failed." + loader.errorString());
         } else {
             const auto &meta = loader.metaData();
             do {
                 const auto iid = meta["IID"].toString();
                 if (iid.isEmpty() || iid != QString(qobject_interface_iid<DccFactory *>())) {
-                    m_pManager->updatePluginStatus(m_data, DataErr, "Error iid:" + iid);
+                    Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "Error iid:" + iid);
                     break;
                 }
 
                 if (!loader.instance()) {
-                    m_pManager->updatePluginStatus(m_data, DataErr, "instance() failed." + loader.errorString());
+                    Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "instance() failed." + loader.errorString());
                     break;
                 }
                 DccFactory *factory = qobject_cast<DccFactory *>(loader.instance());
                 if (!factory) {
-                    m_pManager->updatePluginStatus(m_data, DataErr, "The plugin isn't a DccFactory." + soPath);
+                    Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "The plugin isn't a DccFactory." + soPath);
                     loader.unload();
                     break;
                 }
@@ -157,7 +157,7 @@ void LoadPluginTask::doRun()
             } while (false);
         }
     } else {
-        m_pManager->updatePluginStatus(m_data, DataErr, "File does not exist:" + soPath);
+        Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "File does not exist:" + soPath);
     }
     if (dataObj) {
         m_data->data = dataObj;
@@ -173,7 +173,7 @@ void LoadPluginTask::doRun()
         m_data->soObj->moveToThread(m_pManager->thread());
         m_data->soObj->setParent(m_pManager->parent());
     }
-    m_pManager->updatePluginStatus(m_data, DataEnd, ": load plugin finished. elasped time :" + QString::number(timer.elapsed()));
+    Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": load plugin finished. elasped time :" + QString::number(timer.elapsed()));
 }
 
 PluginManager::PluginManager(DccManager *parent)
@@ -184,7 +184,8 @@ PluginManager::PluginManager(DccManager *parent)
     , m_isDeleting(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
-    connect(this, &PluginManager::pluginEndStatusChanged, this, &PluginManager::loadPlugin, Qt::QueuedConnection);
+    connect(this, &PluginManager::pluginEndStatusChanged, this, &PluginManager::loadPlugin);
+    connect(this, &PluginManager::updatePluginStatus, this, &PluginManager::onUpdatePluginStatus);
     connect(m_manager, &DccManager::hideModuleChanged, this, &PluginManager::onHideModuleChanged);
 }
 
@@ -247,7 +248,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
         }
     } else if (plugin->status & MainObjEnd) {
         addMainObject(plugin);
-        updatePluginStatus(plugin, PluginEnd);
+        Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
     } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
         loadMain(plugin);
     } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
@@ -257,7 +258,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
                 threadPool()->start(new LoadPluginTask(plugin, this));
             } else {
                 connect(plugin->module, &DccObject::visibleToAppChanged, this, &PluginManager::onVisibleToAppChanged);
-                updatePluginStatus(plugin, PluginEnd);
+                Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
             }
         } else {
             threadPool()->start(new LoadPluginTask(plugin, this));
@@ -270,7 +271,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
     }
 }
 
-void PluginManager::updatePluginStatus(PluginData *plugin, uint status, const QString &log)
+void PluginManager::onUpdatePluginStatus(PluginData *plugin, uint status, const QString &log)
 {
     if (isDeleting()) {
         return;
@@ -294,7 +295,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
     }
     if (m_manager->hideModule().contains(plugin->name)) {
         // 跳过隐藏的模块,需要动态加载回来
-        updatePluginStatus(plugin, PluginEnd | MetaDataEnd);
+        Q_EMIT updatePluginStatus(plugin, PluginEnd | MetaDataEnd, QString());
         return;
     }
     // metadata
@@ -302,22 +303,22 @@ void PluginManager::loadMetaData(PluginData *plugin)
     const QString metadataPath = plugin->path + "/metadata.json";
     QFile metadataFile(metadataPath);
     if (!metadataFile.open(QIODevice::ReadOnly)) {
-        updatePluginStatus(plugin, MetaDataErr | PluginEnd, "Couldn't open " + metadataFile.fileName());
+        Q_EMIT updatePluginStatus(plugin, MetaDataErr | PluginEnd, "Couldn't open " + metadataFile.fileName());
         return;
     }
     QJsonParseError error;
     const QJsonObject metaData = QJsonDocument::fromJson(metadataFile.readAll()).object();
     metadataFile.close();
     if (error.error) {
-        updatePluginStatus(plugin, MetaDataErr | PluginEnd, "error parsing json data:" + error.errorString());
+        Q_EMIT updatePluginStatus(plugin, MetaDataErr | PluginEnd, "error parsing json data:" + error.errorString());
         return;
     }
     if (!compareVersion(metaData.value("Version").toString(), "1.0")) {
-        updatePluginStatus(plugin, MetaDataErr | PluginEnd, "plugin's version is too low:" + metaData.value("Version").toString());
+        Q_EMIT updatePluginStatus(plugin, MetaDataErr | PluginEnd, "plugin's version is too low:" + metaData.value("Version").toString());
         return;
     }
 #endif
-    updatePluginStatus(plugin, MetaDataEnd);
+    Q_EMIT updatePluginStatus(plugin, MetaDataEnd, QString());
 }
 
 void PluginManager::loadModule(PluginData *plugin)
@@ -326,7 +327,7 @@ void PluginManager::loadModule(PluginData *plugin)
         return;
     }
     const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
-    updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
+    Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
     if (QFile::exists(qmlPath)) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));
@@ -336,7 +337,7 @@ void PluginManager::loadModule(PluginData *plugin)
         else
             createModule(component);
     } else {
-        updatePluginStatus(plugin, ModuleErr | ModuleEnd, "module qml not exists");
+        Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, "module qml not exists");
     }
 }
 
@@ -345,7 +346,7 @@ void PluginManager::loadMain(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
-    updatePluginStatus(plugin, MainObjLoad, "load Main");
+    Q_EMIT updatePluginStatus(plugin, MainObjLoad, "load Main");
     QString qmlPath = plugin->path + "/" + plugin->name + "Main.qml";
     if (!QFile::exists(qmlPath)) {
         qmlPath = plugin->path + "/main.qml";
@@ -363,7 +364,7 @@ void PluginManager::loadMain(PluginData *plugin)
             createMain(component);
         }
     } else {
-        updatePluginStatus(plugin, MainObjErr | MainObjEnd, "Main.qml not exists");
+        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, "Main.qml not exists");
     }
 }
 
@@ -373,17 +374,17 @@ void PluginManager::createModule(QQmlComponent *component)
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
-    updatePluginStatus(plugin, ModuleCreate, "create module");
+    Q_EMIT updatePluginStatus(plugin, ModuleCreate, "create module");
     if (component->isError()) {
-        updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object error:" + component->errorString());
+        Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object error:" + component->errorString());
     } else {
         QObject *object = component->create();
         if (!object) {
-            updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object is null:" + component->errorString());
+            Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object is null:" + component->errorString());
             return;
         }
         plugin->module = qobject_cast<DccObject *>(object);
-        updatePluginStatus(plugin, ModuleEnd, "create module finished");
+        Q_EMIT updatePluginStatus(plugin, ModuleEnd, "create module finished");
         m_manager->addObject(plugin->module);
     }
 }
@@ -394,22 +395,22 @@ void PluginManager::createMain(QQmlComponent *component)
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
-    updatePluginStatus(plugin, MainObjCreate, "create main");
+    Q_EMIT updatePluginStatus(plugin, MainObjCreate, "create main");
     if (component->isError()) {
-        updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
+        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
     } else {
         QQmlContext *context = new QQmlContext(component->engine(), component);
         context->setContextProperties({ { "dccData", QVariant::fromValue(plugin->data) }, { "dccModule", QVariant::fromValue(plugin->module) } });
         QObject *object = component->create(context);
         // component->createWithInitialProperties({}, context);
         if (!object) {
-            updatePluginStatus(plugin, MainObjErr, " component create main object is null:" + component->errorString());
+            Q_EMIT updatePluginStatus(plugin, MainObjErr, " component create main object is null:" + component->errorString());
             return;
         }
         plugin->mainObj = qobject_cast<DccObject *>(object);
-        updatePluginStatus(plugin, MainObjEnd, ": create main finished");
+        Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");
     }
-    updatePluginStatus(plugin, MainObjEnd);
+    Q_EMIT updatePluginStatus(plugin, MainObjEnd, QString());
 }
 
 void PluginManager::addMainObject(PluginData *plugin)
@@ -417,7 +418,7 @@ void PluginManager::addMainObject(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
-    updatePluginStatus(plugin, MainObjAdd, "add main object");
+    Q_EMIT updatePluginStatus(plugin, MainObjAdd, "add main object");
     if (!plugin->mainObj) {
         plugin->mainObj = plugin->soObj;
     }
@@ -441,9 +442,9 @@ void PluginManager::addMainObject(PluginData *plugin)
         } else {
         }
     } else {
-        updatePluginStatus(plugin, MainObjErr, "The plugin isn't main DccObject");
+        Q_EMIT updatePluginStatus(plugin, MainObjErr, "The plugin isn't main DccObject");
     }
-    updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
+    Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
     if (plugin->mainObj) {
         Q_EMIT addObject(plugin->mainObj);
     }
