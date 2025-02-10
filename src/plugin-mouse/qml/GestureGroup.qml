@@ -58,7 +58,7 @@ Rectangle {
 
                 onHoveredChanged: {
                     if (hovered) {
-                       root.hoveredChanged(index, combo.currentText)
+                       root.hoveredChanged(index, itemCtl.content.currentText)
                     }
                 }
 
