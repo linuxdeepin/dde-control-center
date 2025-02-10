@@ -22,6 +22,7 @@ BluetoothAdapter::BluetoothAdapter(BluetoothDBusProxy *proxy, QObject *parent)
     , m_bluetoothDBusProxy(proxy)
     , m_myDevices(new BluetoothDeviceModel(this))
     , m_otherDevices(new BluetoothDeviceModel(this))
+    , m_myDeviceVisible(false)
 {
 }
 
@@ -128,6 +129,7 @@ bool BluetoothAdapter::myDeviceVisible() const
 
 void BluetoothAdapter::setMyDeviceVisible(bool newMyDeviceVisible)
 {
+    qDebug() << "BluetoothAdapter setMyDeviceVisible :" << newMyDeviceVisible << m_myDeviceVisible;
     if (newMyDeviceVisible != m_myDeviceVisible) {
         m_myDeviceVisible = newMyDeviceVisible;
         Q_EMIT myDeviceVisibleChanged(m_id);
@@ -152,6 +154,8 @@ void BluetoothAdapter::updateDeviceData(BluetoothDevice *device)
             } else {
                 m_myDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
             }
+
+            setMyDeviceVisible(true);
         }
     } else {
         qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add other device " << device->name();
@@ -161,6 +165,7 @@ void BluetoothAdapter::updateDeviceData(BluetoothDevice *device)
         } else {
             m_otherDevices->insertItem(0, const_cast<BluetoothDevice*>(device));
         }
+        setMyDeviceVisible(m_myDevices->rowCount());
     }
 }
 
