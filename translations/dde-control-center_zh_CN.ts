@@ -270,6 +270,29 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>AddFaceinfoDialog</name>
+    <message>
+        <source>Enroll Face</source>
+        <translation type="unfinished">添加人脸数据</translation>
+    </message>
+    <message>
+        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
+        <translation type="unfinished">请确保五官清晰可见，避免佩戴帽子、墨镜、口罩等物件，保证光线充足，避免阳光直射，以提高录入成功率</translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished">我已阅读并同意</translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;test&quot;&gt;Disclaimer&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished">下一步</translation>
+    </message>
+</context>
+<context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
@@ -3574,6 +3597,33 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>EnrollFaceDialog</name>
+    <message>
+        <source>Enroll Face</source>
+        <translation type="unfinished">添加人脸数据</translation>
+    </message>
+    <message>
+        <source>Face enrolled</source>
+        <translation type="unfinished">人脸录入完成</translation>
+    </message>
+    <message>
+        <source>Failed to enroll your face</source>
+        <translation type="unfinished">人脸录入失败</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">完成</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -3934,15 +3984,31 @@ In order to better use of face recognition, please pay attention to the followin
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"></translation>
+        <translation>三指</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"></translation>
+        <translation>四指</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"></translation>
+        <translation>点击</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation>向上</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation>向下</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">向左</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">向右</translation>
     </message>
 </context>
 <context>
@@ -4179,6 +4245,34 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Always</source>
         <translation>长期有效</translation>
+    </message>
+    <message>
+        <source>Biometric authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished">生物认证</translation>
+    </message>
+    <message>
+        <source>FaceAuthenticationGroupView</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face Authentication Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to 5 face data entries can be recorded.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished">人脸</translation>
+    </message>
+    <message>
+        <source>Add New Faces</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6693,6 +6787,14 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Customized</source>
         <translation>自定义</translation>
     </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished">使用人脸数据解锁您的设备，之后还可进行更多设置</translation>
+    </message>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished">面纹</translation>
+    </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
@@ -7145,6 +7247,13 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>main</name>
+    <message>
+        <source>Control Center provides the options for system settings.</source>
+        <translation type="unfinished">控制中心提供操作系统的所有设置选项。</translation>
+    </message>
+</context>
+<context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
@@ -7337,10 +7446,6 @@ In order to better use of face recognition, please pay attention to the followin
 </context>
 <context>
     <name>privacyMain</name>
-    <message>
-        <source>Control Center provides the options for system settings.</source>
-        <translation>控制中心提供操作系统的所有设置选项。</translation>
-    </message>
     <message>
         <source>Camera</source>
         <translation>摄像头</translation>

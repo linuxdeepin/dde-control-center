@@ -84,7 +84,15 @@ QString GestureModel::getGesturesDec(GestureData *data) const
     }
 
     if (data->actionType() == "swipe") {
-        description += data->direction();
+        if (data->direction() == "up") {
+            description += tr("Up");
+        } else if (data->direction() == "down") {
+            description += tr("Down");
+        } else if (data->direction() == "left") {
+            description += tr("Left");
+        } else if (data->direction() == "right") {
+            description += tr("Right");
+        }
     } else if (data->actionType() == "tap") {
         description += tr("tap");
     }

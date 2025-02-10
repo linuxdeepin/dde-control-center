@@ -3929,6 +3929,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>tap</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HomePage</name>
