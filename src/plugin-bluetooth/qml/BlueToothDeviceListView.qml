@@ -160,15 +160,13 @@ Rectangle {
                             id: rowCtl
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             spacing: 10
-                            D.Button {
+                            D.ToolButton {
                                 id: connectBtn
-                                implicitWidth: 56
                                 implicitHeight: 30
                                 background.visible: true
                                 text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
                                 enabled: model.connectStatus === 2 || model.connectStatus === 0
                                 font: D.DTK.fontManager.t6
-                                flat: false
                                 visible: itemCtl.hovered
 
                                 Layout.alignment: Qt.AlignVCenter
