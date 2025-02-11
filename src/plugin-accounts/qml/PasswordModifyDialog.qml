@@ -52,6 +52,7 @@ D.DialogWindow {
         PasswordLayout {
             id: pwdLayout
             userId: dialog.userId
+            currentPwdVisible: dialog.isCurrent()
             Layout.leftMargin: 10
             onRequestClose: {
                 // no error, close dialog
