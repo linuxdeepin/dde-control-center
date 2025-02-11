@@ -49,7 +49,7 @@ DccObject{
                 flat: true
                 visible: !model.discovering
 
-                icon.name: "qrc:/icons/deepin/builtin/icons/bluetooth_redo.dci"
+                icon.name: "redo"
                 onClicked: {
                     dccData.work().setAdapterDiscoverable(model.id)
                 }
