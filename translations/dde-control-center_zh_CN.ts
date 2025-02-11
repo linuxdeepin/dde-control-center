@@ -544,11 +544,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>自动待机</translation>
+        <translation>自动休眠</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation>自动休眠</translation>
+        <translation>自动待机</translation>
     </message>
 </context>
 <context>
