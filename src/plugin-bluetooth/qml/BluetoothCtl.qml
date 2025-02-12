@@ -7,6 +7,7 @@ import QtQuick.Controls 2.0
 import org.deepin.dcc 1.0
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 DccObject{
     DccObject {
@@ -69,12 +70,10 @@ DccObject{
 
                         ToolButton {
                             id: editBtn
-                            flat: false
                             font.pointSize: 8
                             text: qsTr("Edit")
-                            checked: true
                             spacing: 0
-                            implicitHeight: 20
+                            textColor: DS.Style.highlightedButton.text
 
                             anchors.left: nameDetail.right
                             onClicked: {
@@ -125,6 +124,14 @@ DccObject{
                     devName.visible = true
                     dccData.work().setAdapterAlias(model.id, nameEdit.text)
                 }
+                onFocusChanged: {
+                    if (!focus) {
+                        nameEdit.visible = false
+                        devName.visible = true
+                        dccData.work().setAdapterAlias(model.id, nameEdit.text)
+                    }
+                }
+
                 Keys.onPressed: {
                     if (event.key === Qt.Key_Return) {
                         nameEdit.forceActiveFocus(false); // 结束编辑
