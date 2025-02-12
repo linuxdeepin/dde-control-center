@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 import Qt.labs.qmlmodels 1.2
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 DccObject {
@@ -42,10 +43,11 @@ DccObject {
             }
 
             D.Button {
+                id: actionBtn
                 Layout.alignment: Qt.AlignRight
                 text: dccData.model().actionBtnText
                 font.pixelSize: 14
-                implicitWidth: 120
+                implicitWidth: DS.Style.control.contentImplicitWidth(actionBtn) + 10
                 visible: dccData.model().updateState !== "upgrading"
                 onClicked: {
                     dccData.work().onActionBtnClicked();
