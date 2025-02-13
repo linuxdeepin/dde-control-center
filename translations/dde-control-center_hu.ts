@@ -4156,6 +4156,33 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>LoginMethod</name>
+    <message>
+        <source>Login method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password, wechat, biometric authentication, security key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Validity days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
@@ -7089,6 +7116,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
