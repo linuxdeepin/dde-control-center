@@ -162,6 +162,16 @@ bool DisplayModel::redshiftIsValid() const
     return m_redshiftIsValid;
 }
 
+void DisplayModel::setColorTemperatureEnabled(bool enabled)
+{
+    if (enabled == m_colorTemperatureEnabled)
+        return;
+
+    m_colorTemperatureEnabled = enabled;
+
+    Q_EMIT colorTemperatureEnabledChanged(m_colorTemperatureEnabled);
+}
+
 void DisplayModel::setAdjustCCTmode(int mode)
 {
     if (m_adjustCCTMode == mode)
@@ -178,8 +188,16 @@ void DisplayModel::setColorTemperature(int value)
         return;
 
     m_colorTemperature = value;
-
     Q_EMIT colorTemperatureChanged(value);
+}
+
+void DisplayModel::setCustomColorTempTimePeriod(const QString &timePeriod)
+{
+    if (m_customColorTempTimePeriod == timePeriod)
+        return;
+
+    m_customColorTempTimePeriod = timePeriod;
+    Q_EMIT customColorTempTimePeriodChanged(m_customColorTempTimePeriod);
 }
 
 void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)

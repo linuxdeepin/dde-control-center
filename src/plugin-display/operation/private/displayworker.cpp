@@ -50,6 +50,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
             onWlMonitorListChanged();
         });
     } else {
+        connect(m_displayInter, &DisplayDBusProxy::WallpaperURlsChanged, this, &DisplayWorker::updateWallpaper);
+        connect(m_displayInter, &DisplayDBusProxy::WorkspaceSwitched, this, &DisplayWorker::updateWallpaper);
         connect(m_displayInter, &DisplayDBusProxy::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
         connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
         connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
@@ -59,6 +61,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
         connect(m_displayInter, &DisplayDBusProxy::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
         connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
+        connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureEnabledChanged, model, &DisplayModel::setColorTemperatureEnabled);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
@@ -117,6 +120,7 @@ void DisplayWorker::active()
         m_model->setScreenHeight(m_displayInter->screenHeight());
         m_model->setScreenWidth(m_displayInter->screenWidth());
         m_model->setAdjustCCTmode(m_displayInter->colorTemperatureMode());
+        m_model->setColorTemperatureEnabled(m_displayInter->colorTemperatureEnabled());
         m_model->setColorTemperature(m_displayInter->colorTemperatureManual());
         m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
         m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
@@ -228,6 +232,18 @@ void DisplayWorker::onWlMonitorListChanged()
         if (isNew)
             wlMonitorAdded(head);
     }
+}
+
+void DisplayWorker::updateWallpaper()
+{
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
+        updateMonitorWallpaper(it.key());
+    }
+}
+
+void DisplayWorker::updateMonitorWallpaper(Monitor *mon)
+{
+    mon->setWallpaper(m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name()));
 }
 
 void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
@@ -378,6 +394,11 @@ void DisplayWorker::applyChanges()
     }
 }
 
+void DisplayWorker::setColorTemperatureEnabled(bool enabled)
+{
+    m_displayInter->setColorTemperatureEnabled(enabled);
+}
+
 void DisplayWorker::setColorTemperature(int value)
 {
     if (WQt::Utils::isTreeland()) {
@@ -395,6 +416,11 @@ void DisplayWorker::setColorTemperature(int value)
 void DisplayWorker::SetMethodAdjustCCT(int mode)
 {
     m_displayInter->SetMethodAdjustCCT(mode);
+}
+
+void DisplayWorker::setCustomColorTempTimePeriod(const QString &timePeriod)
+{
+    m_displayInter->SetCustomColorTempTimePeriod(timePeriod);
 }
 
 void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
@@ -677,7 +703,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     if (!m_model->brightnessMap().isEmpty()) {
         mon->setBrightness(m_model->brightnessMap()[mon->name()]);
     }
-
+    updateMonitorWallpaper(mon);
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
 }

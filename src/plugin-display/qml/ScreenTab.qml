@@ -8,6 +8,7 @@ Item {
     id: root
     property var screen
     property alias model: repeater.model
+    signal screenClicked(var screen)
 
     implicitHeight: 30
     RowLayout {
@@ -40,7 +41,7 @@ Item {
                     hoverEnabled: true
                     onClicked: {
                         if (!isSelect) {
-                            screen = model.modelData
+                            screenClicked(model.modelData)
                         }
                     }
                 }

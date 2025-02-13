@@ -11,6 +11,32 @@
 
 namespace dccV25 {
 class DccScreenPrivate;
+class DccScreenItemPrivate;
+
+class DccScreenItem : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(double brightness READ brightness WRITE setBrightness NOTIFY brightnessChanged FINAL)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged FINAL)
+public:
+    Q_INVOKABLE bool canBrightness() const;
+    double brightness() const;
+    void setBrightness(const double brightness);
+    QString name() const;
+
+Q_SIGNALS:
+    void brightnessChanged();
+    void nameChanged();
+
+protected:
+    explicit DccScreenItem(QObject *parent = nullptr);
+    ~DccScreenItem() override;
+
+    QScopedPointer<DccScreenItemPrivate> d_ptrDccScreenItem;
+    Q_DECLARE_PRIVATE_D(d_ptrDccScreenItem, DccScreenItem)
+    Q_DISABLE_COPY(DccScreenItem)
+    friend class DccScreenItemPrivate;
+};
 
 class DccScreen : public QObject
 {
@@ -19,6 +45,8 @@ class DccScreen : public QObject
     Q_PROPERTY(bool enable READ enable NOTIFY enableChanged FINAL)
     Q_PROPERTY(int x READ x NOTIFY xChanged FINAL)
     Q_PROPERTY(int y READ y NOTIFY yChanged FINAL)
+    Q_PROPERTY(int width READ width NOTIFY widthChanged FINAL)
+    Q_PROPERTY(int height READ height NOTIFY heightChanged FINAL)
     Q_PROPERTY(QSize bestResolution READ bestResolution NOTIFY bestResolutionChanged FINAL)
     Q_PROPERTY(QSize currentResolution READ currentResolution WRITE setCurrentResolution NOTIFY currentResolutionChanged FINAL)
     Q_PROPERTY(QList<QSize> resolutionList READ resolutionList NOTIFY resolutionListChanged FINAL)
@@ -32,11 +60,16 @@ class DccScreen : public QObject
     Q_PROPERTY(QScreen* screen READ screen NOTIFY screenChanged FINAL)
     Q_PROPERTY(qreal scale READ scale WRITE setScale NOTIFY scaleChanged FINAL)
     Q_PROPERTY(qreal maxScale READ maxScale NOTIFY maxScaleChanged FINAL)
+    Q_PROPERTY(QList<DccScreenItem *> screenItems READ screenItems NOTIFY screenItemsChanged FINAL)
+    Q_PROPERTY(QString wallpaper READ wallpaper NOTIFY wallpaperChanged FINAL)
+
 public:
     QString name() const;
     bool enable() const;
     int x() const;
     int y() const;
+    int width() const;
+    int height() const;
     QSize bestResolution() const;    // 推荐分辨率
     QSize currentResolution() const; // 分辨率
     void setCurrentResolution(const QSize &resolution);
@@ -55,12 +88,16 @@ public:
     qreal scale() const;
     void setScale(qreal scale);
     qreal maxScale() const;
+    QList<DccScreenItem *> screenItems() const;
+    QString wallpaper() const;
 
 Q_SIGNALS:
     void nameChanged();
     void enableChanged();
     void xChanged();
     void yChanged();
+    void widthChanged();
+    void heightChanged();
     void bestResolutionChanged();
     void currentResolutionChanged();
     void resolutionListChanged();
@@ -74,6 +111,8 @@ Q_SIGNALS:
     void screenChanged();
     void scaleChanged();
     void maxScaleChanged();
+    void screenItemsChanged();
+    void wallpaperChanged();
 
 protected:
     explicit DccScreen(QObject *parent = nullptr);

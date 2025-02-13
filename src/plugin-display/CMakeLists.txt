@@ -72,6 +72,7 @@ set(Display_Libraries
     ${DCC_FRAME_Library}
     ${QT_NS}::Gui
     ${QT_NS}::DBus
+    ${QT_NS}::Quick
     ${DTK_NS}::Core
 )
 

@@ -14,6 +14,21 @@ const float MinScreenHeight = 768.0f;
 
 class DisplayWorker;
 class DccScreen;
+class DccScreenItem;
+
+class DccScreenItemPrivate
+{
+public:
+    static DccScreenItem *New(Monitor * monitor, DccScreen *screen);
+    static DccScreenItemPrivate *Private(DccScreenItem *screenItem);
+
+    explicit DccScreenItemPrivate(DccScreenItem *screenItem);
+    virtual ~DccScreenItemPrivate();
+
+    Monitor * m_monitor;
+    DccScreenItem *q_ptr;
+    Q_DECLARE_PUBLIC(DccScreenItem)
+};
 
 class DccScreenPrivate
 {
@@ -26,6 +41,8 @@ public:
     void setMonitors(QList<Monitor *> monitors);
     Monitor *monitor();
     QList<Monitor *> monitors();
+
+    inline DisplayWorker *worker() { return m_worker; }
 
     void setMode(QSize resolution, double rate);
     void setRotate(uint rotate);
@@ -46,6 +63,7 @@ private:
     DisplayWorker *m_worker;
     QScreen *m_screen;
     qreal m_maxScale;
+    QList<DccScreenItem *> m_screenItems;
     Q_DECLARE_PUBLIC(DccScreen)
 };
 } // namespace dccV25

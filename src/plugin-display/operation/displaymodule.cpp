@@ -5,18 +5,25 @@
 
 #include "WayQtUtils.hpp"
 #include "dccfactory.h"
-#include "operation/dccscreen.h"
+#include "dccscreen.h"
+#include "private/concatscreen.h"
 #include "private/dccscreen_p.h"
 #include "private/displaymodel.h"
 #include "private/displaymodule_p.h"
 #include "private/displayworker.h"
 
+#include <QDateTime>
+#include <QJSValue>
 #include <QMetaObject>
 #include <QMetaType>
+#include <QQuickItem>
 #include <QRect>
+#include <QRegularExpression>
 #include <QThread>
 
 namespace dccV25 {
+static const QString DEFAULT_TIME_FORMAT = "hh:mm";
+
 class Rect : public QRect
 {
 public:
@@ -72,13 +79,15 @@ void DisplayModulePrivate::init()
     });
     q_ptr->connect(m_model, &DisplayModel::primaryScreenChanged, q_ptr, [this]() {
         updatePrimary();
-        Q_EMIT q_ptr->primaryScreenChanged();
     });
     q_ptr->connect(m_model, &DisplayModel::displayModeChanged, q_ptr, [this]() {
         updateDisplayMode();
         updateVirtualScreens();
         Q_EMIT q_ptr->displayModeChanged();
     });
+    q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
+    q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
+    q_ptr->connect(m_model, &DisplayModel::adjustCCTmodeChanged, q_ptr, &DisplayModule::colorTemperatureModeChanged);
     updateMonitorList();
     updatePrimary();
     updateDisplayMode();
@@ -128,7 +137,10 @@ void DisplayModulePrivate::updateVirtualScreens()
     }
     for (auto monitors : addScreenMap) {
         changed = true;
-        m_virtualScreens << DccScreenPrivate::New(monitors, m_worker, q_ptr);
+        DccScreen *screen = DccScreenPrivate::New(monitors, m_worker, q_ptr);
+        q_ptr->connect(screen, &DccScreen::rotateChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
+        q_ptr->connect(screen, &DccScreen::currentFillModeChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
+        m_virtualScreens << screen;
     }
     if (changed) {
         std::sort(m_virtualScreens.begin(), m_virtualScreens.end(), [](const DccScreen *screen1, const DccScreen *screen2) {
@@ -254,6 +266,33 @@ QString DisplayModulePrivate::displayMode() const
     return m_displayMode;
 }
 
+void DisplayModulePrivate::setScreenPosition(QList<ScreenData *> screensData)
+{
+    qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
+    QHash<Monitor *, QPair<int, int>> monitorPosition;
+    int lstX = 1000000, lstY = 1000000;
+    for (auto item : screensData) {
+        if (lstX > qRound(item->rect().x())) {
+            lstX = qRound(item->rect().x());
+        }
+        if (lstY > qRound(item->rect().y())) {
+            lstY = qRound(item->rect().y());
+        }
+        DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(item->screen());
+        for (auto monitor : screenPrivate->monitors()) {
+            monitorPosition.insert(monitor, QPair<int, int>(qRound(item->rect().x()), qRound(item->rect().y())));
+        }
+    }
+
+    for (auto &&pos : monitorPosition) {
+        pos = QPair<int, int>(pos.first - lstX, pos.second - lstY);
+    }
+    for (auto it = monitorPosition.cbegin(); it != monitorPosition.cend(); ++it) {
+        qDebug() << "applySettings 处理之后:" << it.key()->name() << it.value() << it.key()->w() << it.key()->h();
+    }
+    m_worker->setMonitorPosition(monitorPosition);
+}
+
 DisplayModule::DisplayModule(QObject *parent)
     : QObject(parent)
     , d_ptrDisplayModule(new DisplayModulePrivate(this))
@@ -331,6 +370,96 @@ qreal DisplayModule::maxGlobalScale() const
     return d->m_maxGlobalScale;
 }
 
+bool DisplayModule::colorTemperatureEnabled() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->colorTemperatureEnabled();
+}
+
+void DisplayModule::setColorTemperatureEnabled(bool enabled)
+{
+    Q_D(DisplayModule);
+    if (colorTemperatureEnabled() != enabled)
+        d->m_worker->setColorTemperatureEnabled(enabled);
+}
+
+int DisplayModule::colorTemperatureMode() const
+{
+    Q_D(const DisplayModule);
+    switch (d->m_model->adjustCCTMode()) {
+    case 1:
+        return 1; // 日落到日出
+    case 3:
+        return 2; // 自定义
+    default:
+        break;
+    }
+    return 0; // 全天
+}
+
+void DisplayModule::setColorTemperatureMode(int mode)
+{
+    int ccMode = 0;
+    switch (mode) {
+    case 1:
+        ccMode = 1;
+        break;
+    case 2:
+        ccMode = 3;
+    default:
+        break;
+    }
+    Q_D(DisplayModule);
+    d->m_worker->SetMethodAdjustCCT(ccMode);
+}
+
+int DisplayModule::colorTemperature() const
+{
+    Q_D(const DisplayModule);
+    int kelvin = d->m_model->colorTemperature();
+
+    if (kelvin >= 6500)
+        return 50 - (kelvin - 6500) / 300;
+    else if (kelvin < 6500 && kelvin >= 1000)
+        return 50 - (kelvin - 6500) / 100;
+    else
+        return 0;
+}
+
+void DisplayModule::setColorTemperature(int pos)
+{
+    int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
+    Q_D(DisplayModule);
+    if (d->m_model->colorTemperature() != kelvin) {
+        d->m_worker->setColorTemperature(kelvin);
+    }
+}
+
+QString DisplayModule::customColorTempTimePeriod() const
+{
+    Q_D(const DisplayModule);
+    QString timePeriod = d->m_model->customColorTempTimePeriod();
+
+    QRegularExpression re("^((2[0-3]|[01][0-9]):[0-5][0-9])-((2[0-3]|[01][0-9]):[0-5][0-9])$");
+    if (!re.match(timePeriod).hasMatch()) {
+        timePeriod = "22:00-07:00";
+    }
+    return timePeriod;
+}
+
+void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
+{
+    QRegularExpression re("^((2[0-3]|[01][0-9]):[0-5][0-9])-((2[0-3]|[01][0-9]):[0-5][0-9])$");
+    QRegularExpressionMatch match = re.match(timePeriod);
+    if (!match.hasMatch()) {
+        return;
+    }
+    QTime startTime = QTime::fromString(match.captured(1), "hh:mm");
+    QTime endTime = QTime::fromString(match.captured(3), "hh:mm");
+    Q_D(DisplayModule);
+    d->m_worker->setCustomColorTempTimePeriod(startTime.toString(DEFAULT_TIME_FORMAT) + "-" + endTime.toString(DEFAULT_TIME_FORMAT));
+}
+
 void DisplayModule::saveChanges()
 {
     Q_D(DisplayModule);
@@ -342,6 +471,104 @@ void DisplayModule::resetBackup()
     Q_D(DisplayModule);
     d->m_worker->resetBackup();
 }
+
+void DisplayModule::adsorptionScreen(QList<QObject *> listItems, QObject *pw, qreal scale)
+{
+    QQuickItem *tmpPw = dynamic_cast<QQuickItem *>(pw);
+    if (!tmpPw) {
+        return;
+    }
+    QList<ScreenData *> tmpListItems;
+    ScreenData *pwItem = nullptr;
+    for (auto obj : listItems) {
+        QQuickItem *tmpObj = dynamic_cast<QQuickItem *>(obj);
+        if (tmpObj) {
+            ScreenData *item = new ScreenData(tmpObj, scale);
+            tmpListItems.append(item);
+            if (tmpObj == pw) {
+                pwItem = item;
+            }
+        }
+    }
+    if (tmpListItems.isEmpty()) {
+        return;
+    }
+    ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
+    concatScreen->adsorption();
+    delete concatScreen;
+    qDeleteAll(tmpListItems);
+}
+
+void DisplayModule::executemultiScreenAlgo(QList<QObject *> listItems, QObject *pw, qreal scale)
+{
+    QQuickItem *tmpPw = dynamic_cast<QQuickItem *>(pw);
+    if (!tmpPw) {
+        return;
+    }
+    QList<ScreenData *> tmpListItems;
+    ScreenData *pwItem = nullptr;
+    for (auto obj : listItems) {
+        QQuickItem *tmpObj = dynamic_cast<QQuickItem *>(obj);
+        if (tmpObj) {
+            ScreenData *item = new ScreenData(tmpObj, scale);
+            tmpListItems.append(item);
+            if (tmpObj == pw) {
+                pwItem = item;
+            }
+        }
+    }
+    if (tmpListItems.size() < 2 || !pwItem) {
+        return;
+    }
+    ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
+    concatScreen->executemultiScreenAlgo(true);
+    delete concatScreen;
+    qDeleteAll(tmpListItems);
+}
+
+void DisplayModule::applySettings(QList<QObject *> listItems, qreal scale)
+{
+    QList<ScreenData *> tmpListItems;
+    for (auto obj : listItems) {
+        QQuickItem *tmpObj = dynamic_cast<QQuickItem *>(obj);
+        if (tmpObj) {
+            ScreenData *item = new ScreenData(tmpObj, scale);
+            tmpListItems.append(item);
+        }
+    }
+    Q_D(DisplayModule);
+    d->setScreenPosition(tmpListItems);
+    qDeleteAll(tmpListItems);
+}
+
+void DisplayModule::applyChanged()
+{
+    DccScreen *tmpPw = qobject_cast<DccScreen *>(sender());
+    if (!tmpPw) {
+        return;
+    }
+    QList<ScreenData *> tmpListItems;
+    ScreenData *pwItem = nullptr;
+    for (auto obj : virtualScreens()) {
+        if (obj) {
+            ScreenData *item = new ScreenData(obj);
+            tmpListItems.append(item);
+            if (obj == tmpPw) {
+                pwItem = item;
+            }
+        }
+    }
+    if (tmpListItems.size() < 2 || !pwItem) {
+        return;
+    }
+    ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
+    concatScreen->executemultiScreenAlgo(false);
+    Q_D(DisplayModule);
+    d->setScreenPosition(tmpListItems);
+    delete concatScreen;
+    qDeleteAll(tmpListItems);
+}
+
 DCC_FACTORY_CLASS(DisplayModule)
 
 } // namespace dccV25

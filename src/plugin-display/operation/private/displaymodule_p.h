@@ -11,6 +11,7 @@ class DisplayWorker;
 class DisplayModel;
 class DisplayModule;
 class DccScreen;
+class ScreenData;
 
 class DisplayModulePrivate
 {
@@ -28,6 +29,7 @@ public:
     void updateMaxGlobalScale();
     DccScreen *primary() const;
     QString displayMode() const;
+    void setScreenPosition(QList<ScreenData *> screensData);
 
 public:
     DisplayModule *q_ptr;
