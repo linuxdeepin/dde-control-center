@@ -1,11 +1,11 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "displaydbusproxy.h"
 
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 
 const static QString DisplayService = "org.deepin.dde.Display1";
 const static QString DisplayPath = "/org/deepin/dde/Display1";
@@ -39,9 +39,10 @@ void DisplayDBusProxy::init()
     m_dBusDisplayInter = new DDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
+    QDBusConnection::sessionBus().connect("com.deepin.wm", "/com/deepin/wm", "com.deepin.wm", "WorkspaceSwitched", this, SIGNAL(WorkspaceSwitched(int, int)));
 }
 
-//power
+// power
 bool DisplayDBusProxy::ambientLightAdjustBrightness()
 {
     return qvariant_cast<bool>(m_dBusPowerInter->property("AmbientLightAdjustBrightness"));
@@ -57,10 +58,25 @@ bool DisplayDBusProxy::hasAmbientLightSensor()
     return qvariant_cast<bool>(m_dBusPowerInter->property("HasAmbientLightSensor"));
 }
 
-//display
+QString DisplayDBusProxy::wallpaperURls() const
+{
+    return qvariant_cast<QString>(m_dBusAppearanceInter->property("WallpaperURls"));
+}
+
+// display
 BrightnessMap DisplayDBusProxy::brightness()
 {
     return qvariant_cast<BrightnessMap>(m_dBusDisplayInter->property("Brightness"));
+}
+
+bool DisplayDBusProxy::colorTemperatureEnabled() const
+{
+    return qvariant_cast<bool>(m_dBusDisplayInter->property("ColorTemperatureEnabled"));
+}
+
+void DisplayDBusProxy::setColorTemperatureEnabled(bool enabled)
+{
+    m_dBusDisplayInter->setProperty("ColorTemperatureEnabled", enabled);
 }
 
 int DisplayDBusProxy::colorTemperatureManual()
@@ -71,6 +87,11 @@ int DisplayDBusProxy::colorTemperatureManual()
 int DisplayDBusProxy::colorTemperatureMode()
 {
     return qvariant_cast<int>(m_dBusDisplayInter->property("ColorTemperatureMode"));
+}
+
+const QString DisplayDBusProxy::customColorTempTimePeriod()
+{
+    return qvariant_cast<QString>(m_dBusDisplayInter->property("CustomColorTempTimePeriod"));
 }
 
 QString DisplayDBusProxy::currentCustomId()
@@ -87,6 +108,7 @@ uchar DisplayDBusProxy::displayMode()
 {
     return qvariant_cast<uchar>(m_dBusDisplayInter->property("DisplayMode"));
 }
+
 bool DisplayDBusProxy::hasChanged()
 {
     return qvariant_cast<bool>(m_dBusDisplayInter->property("HasChanged"));
@@ -137,14 +159,13 @@ TouchscreenInfoList_V2 DisplayDBusProxy::touchscreensV2()
     return qvariant_cast<TouchscreenInfoList_V2>(m_dBusDisplayInter->property("TouchscreensV2"));
 }
 
-
 QDBusPendingReply<double> DisplayDBusProxy::GetScaleFactor()
 {
     QList<QVariant> argumentList;
     return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("GetScaleFactor"), argumentList);
 }
 
-QDBusPendingReply<QMap<QString,double> > DisplayDBusProxy::GetScreenScaleFactors()
+QDBusPendingReply<QMap<QString, double>> DisplayDBusProxy::GetScreenScaleFactors()
 {
     QList<QVariant> argumentList;
     return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("GetScreenScaleFactors"), argumentList);
@@ -157,11 +178,18 @@ QDBusPendingReply<> DisplayDBusProxy::SetScaleFactor(double in0)
     return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("SetScaleFactor"), argumentList);
 }
 
-QDBusPendingReply<> DisplayDBusProxy::SetScreenScaleFactors(const QMap<QString,double> &scaleFactors)
+QDBusPendingReply<> DisplayDBusProxy::SetScreenScaleFactors(const QMap<QString, double> &scaleFactors)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(scaleFactors);
     return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("SetScreenScaleFactors"), argumentList);
+}
+
+QDBusPendingReply<QString> DisplayDBusProxy::GetCurrentWorkspaceBackgroundForMonitor(const QString &strMonitorName)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(strMonitorName);
+    return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), argumentList);
 }
 
 QString DisplayDBusProxy::GetConfig()
@@ -281,6 +309,13 @@ QDBusPendingReply<> DisplayDBusProxy::SetColorTemperature(int in0)
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetColorTemperature"), argumentList);
 }
 
+QDBusPendingReply<> DisplayDBusProxy::SetCustomColorTempTimePeriod(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetCustomColorTempTimePeriod"), argumentList);
+}
+
 QDBusPendingReply<> DisplayDBusProxy::SetMethodAdjustCCT(int in0)
 {
     QList<QVariant> argumentList;
@@ -294,7 +329,6 @@ QDBusPendingReply<> DisplayDBusProxy::SetPrimary(const QString &in0)
     argumentList << QVariant::fromValue(in0);
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetPrimary"), argumentList);
 }
-
 
 QDBusPendingReply<> DisplayDBusProxy::SwitchMode(uchar in0, const QString &in1)
 {

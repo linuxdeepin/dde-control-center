@@ -67,6 +67,7 @@ public:
     inline QString currentFillMode() const { return m_currentFillMode; }
     inline const Resolution bestMode() const { return m_bestMode; }
     inline RotateMode currentRotateMode() const { return m_screenSensingMode; }
+    inline QString wallpaper() const { return m_wallpaper; }
 
 Q_SIGNALS:
     void geometryChanged() const;
@@ -85,6 +86,7 @@ Q_SIGNALS:
     // TODO: 重力旋转
     void currentRotateModeChanged() const;
     void currentFillModeChanged(QString currentFillMode) const;
+    void wallpaperChanged() const;
 
 public:
     static bool isSameResolution(const Resolution &r1, const Resolution &r2);
@@ -119,6 +121,7 @@ private Q_SLOTS:
     void setAvailableFillModes(const QStringList &fillModeList);
     void setCurrentFillMode(const QString currentFillMode);
     std::optional<Resolution> getResolutionById(quint32 id);
+    void setWallpaper(const QString &wallpaper);
 
 private:
     int m_x;
@@ -144,6 +147,7 @@ private:
     RotateMode m_screenSensingMode;
     QStringList m_fillModeList;
     QString m_currentFillMode;
+    QString m_wallpaper;
 };
 }
 

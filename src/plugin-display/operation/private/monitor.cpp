@@ -292,3 +292,12 @@ std::optional<Resolution> Monitor::getResolutionById(quint32 id)
     }
     return std::nullopt;
 }
+
+void Monitor::setWallpaper(const QString &wallpaper)
+{
+    if (m_wallpaper == wallpaper)
+        return;
+    m_wallpaper = wallpaper;
+
+    Q_EMIT wallpaperChanged();
+}

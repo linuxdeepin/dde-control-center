@@ -48,11 +48,17 @@ public:
 
     bool redshiftIsValid() const;
 
+    inline bool colorTemperatureEnabled() const { return m_colorTemperatureEnabled; }
+    void setColorTemperatureEnabled(bool enabled);
+
     inline int adjustCCTMode() const { return m_adjustCCTMode; }
     void setAdjustCCTmode(int mode);
 
     inline int colorTemperature() const { return m_colorTemperature; }
     void setColorTemperature(int value);
+
+    inline QString customColorTempTimePeriod() const { return m_customColorTempTimePeriod; }
+    void setCustomColorTempTimePeriod(const QString &timePeriod);
 
     inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid; }
 
@@ -103,6 +109,7 @@ Q_SIGNALS:
     void touchscreenMapChanged() const;
     void maxBacklightBrightnessChanged(uint value);
     void adjustCCTmodeChanged(int mode);
+    void colorTemperatureEnabledChanged(const bool enabled);
     void colorTemperatureChanged(int value);
     void resolutionRefreshEnableChanged(const bool enable);
     void brightnessEnableChanged(const bool enable);
@@ -110,6 +117,7 @@ Q_SIGNALS:
     void sharedClipboardChanged(bool on) const;
     void sharedDevicesChanged(bool on) const;
     void filesStoragePathChanged(const QString& path) const;
+    void customColorTempTimePeriodChanged(const QString& timePeriod);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -133,7 +141,9 @@ private:
     double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
+    QString m_customColorTempTimePeriod;
     QList<Monitor *> m_monitors;
+    bool m_colorTemperatureEnabled;
     bool m_redshiftIsValid;
     bool m_RefreshRateEnable {false};
     bool m_isAutoLightAdjust {false};

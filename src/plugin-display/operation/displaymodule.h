@@ -5,6 +5,9 @@
 #define DISPLAYMODULE_H
 
 #include <QObject>
+QT_BEGIN_NAMESPACE
+class QQuickItem;
+QT_END_NAMESPACE
 
 namespace dccV25 {
 class DccScreen;
@@ -20,6 +23,10 @@ class DisplayModule : public QObject
     Q_PROPERTY(bool isX11 READ isX11 NOTIFY isX11Changed FINAL)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged FINAL)
     Q_PROPERTY(qreal maxGlobalScale READ maxGlobalScale NOTIFY maxGlobalScaleChanged FINAL)
+    Q_PROPERTY(bool colorTemperatureEnabled READ colorTemperatureEnabled WRITE setColorTemperatureEnabled NOTIFY colorTemperatureEnabledChanged FINAL)
+    Q_PROPERTY(int colorTemperatureMode READ colorTemperatureMode WRITE setColorTemperatureMode NOTIFY colorTemperatureModeChanged FINAL)
+    Q_PROPERTY(int colorTemperature READ colorTemperature WRITE setColorTemperature NOTIFY colorTemperatureChanged FINAL)
+    Q_PROPERTY(QString customColorTempTimePeriod READ customColorTempTimePeriod WRITE setCustomColorTempTimePeriod NOTIFY customColorTempTimePeriodChanged FINAL)
 public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule() override;
@@ -36,10 +43,23 @@ public:
     qreal globalScale() const;
     void setGlobalScale(qreal scale);
     qreal maxGlobalScale() const;
+    bool colorTemperatureEnabled() const;
+    void setColorTemperatureEnabled(bool enabled);
+    int colorTemperatureMode() const;
+    void setColorTemperatureMode(int mode);
+    int colorTemperature() const;
+    void setColorTemperature(int pos);
+    QString customColorTempTimePeriod() const;
+    void setCustomColorTempTimePeriod(const QString &timePeriod);
 
 public Q_SLOTS:
     void saveChanges();
     void resetBackup();
+
+    void adsorptionScreen(QList<QObject *> listItems, QObject *pw, qreal scale);
+    void executemultiScreenAlgo(QList<QObject *> listItems, QObject *pw, qreal scale);
+    void applySettings(QList<QObject *> listItems, qreal scale);
+    void applyChanged(); // 修改分辨率、方向时，要重新处理下拼接
 
 Q_SIGNALS:
     void virtualScreensChanged();
@@ -50,6 +70,10 @@ Q_SIGNALS:
     void globalScaleChanged();
     void globalScaleEnabledChanged();
     void maxGlobalScaleChanged();
+    void colorTemperatureEnabledChanged();
+    void colorTemperatureModeChanged();
+    void colorTemperatureChanged();
+    void customColorTempTimePeriodChanged();
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;

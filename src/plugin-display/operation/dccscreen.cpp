@@ -9,6 +9,60 @@
 #include <QGuiApplication>
 
 namespace dccV25 {
+
+DccScreenItem *DccScreenItemPrivate::New(Monitor *monitor, DccScreen *screen)
+{
+    DccScreenItem *item = new DccScreenItem(screen);
+    item->d_ptrDccScreenItem->m_monitor = monitor;
+    QObject::connect(monitor, &Monitor::brightnessChanged, item, &DccScreenItem::brightnessChanged);
+    return item;
+}
+
+DccScreenItemPrivate *DccScreenItemPrivate::Private(DccScreenItem *screenItem)
+{
+    return screenItem->d_ptrDccScreenItem.get();
+}
+
+DccScreenItemPrivate::DccScreenItemPrivate(DccScreenItem *screenItem)
+    : q_ptr(screenItem)
+{
+}
+
+DccScreenItemPrivate::~DccScreenItemPrivate() { }
+
+bool DccScreenItem::canBrightness() const
+{
+    return d_ptrDccScreenItem->m_monitor->canBrightness();
+}
+
+double DccScreenItem::brightness() const
+{
+    return d_ptrDccScreenItem->m_monitor->brightness();
+}
+
+void DccScreenItem::setBrightness(const double brightness)
+{
+    if (this->brightness() == brightness) {
+        return;
+    }
+    DccScreen *screen = static_cast<DccScreen *>(parent());
+    DccScreenPrivate *ptr = DccScreenPrivate::Private(screen);
+    ptr->worker()->setMonitorBrightness(d_ptrDccScreenItem->m_monitor, brightness);
+}
+
+QString DccScreenItem::name() const
+{
+    return d_ptrDccScreenItem->m_monitor->name();
+}
+
+DccScreenItem::DccScreenItem(QObject *parent)
+    : QObject(parent)
+    , d_ptrDccScreenItem(new DccScreenItemPrivate(this))
+{
+}
+
+DccScreenItem::~DccScreenItem() { }
+
 DccScreen *DccScreenPrivate::New(QList<Monitor *> monitors, DisplayWorker *worker, QObject *parent)
 {
     DccScreen *screen = new DccScreen(parent);
@@ -45,7 +99,9 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
         name << monitor->name();
         q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxScaleFun);
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxScaleFun);
+        m_screenItems.append(DccScreenItemPrivate::New(monitor, q_ptr));
     }
+    Q_EMIT q_ptr->screenItemsChanged();
     m_name = name.join(" = ");
     updateResolutionList();
     updateRateList();
@@ -60,10 +116,17 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
         updateRateList();
         q_ptr->currentResolutionChanged();
         q_ptr->currentRateChanged();
+        q_ptr->availableFillModesChanged();
     });
     q_ptr->connect(monitor(), &Monitor::availableFillModesChanged, q_ptr, &DccScreen::availableFillModesChanged);
     q_ptr->connect(monitor(), &Monitor::currentFillModeChanged, q_ptr, &DccScreen::currentFillModeChanged);
     q_ptr->connect(monitor(), &Monitor::enableChanged, q_ptr, &DccScreen::enableChanged);
+    q_ptr->connect(monitor(), &Monitor::rotateChanged, q_ptr, &DccScreen::rotateChanged);
+    q_ptr->connect(monitor(), &Monitor::xChanged, q_ptr, &DccScreen::xChanged);
+    q_ptr->connect(monitor(), &Monitor::yChanged, q_ptr, &DccScreen::yChanged);
+    q_ptr->connect(monitor(), &Monitor::wChanged, q_ptr, &DccScreen::widthChanged);
+    q_ptr->connect(monitor(), &Monitor::hChanged, q_ptr, &DccScreen::heightChanged);
+    q_ptr->connect(monitor(), &Monitor::wallpaperChanged, q_ptr, &DccScreen::wallpaperChanged);
     auto updateScreenFun = [this]() {
         updateScreen();
     };
@@ -73,6 +136,11 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
 
 Monitor *DccScreenPrivate::monitor()
 {
+    for (auto mon : m_monitors) {
+        if (mon->isPrimary()) {
+            return mon;
+        }
+    }
     return m_monitors.first();
 }
 
@@ -246,6 +314,16 @@ int DccScreen::y() const
     return d_ptrDccScreen->monitor()->y();
 }
 
+int DccScreen::width() const
+{
+    return d_ptrDccScreen->monitor()->w();
+}
+
+int DccScreen::height() const
+{
+    return d_ptrDccScreen->monitor()->h();
+}
+
 QSize DccScreen::bestResolution() const
 {
     Resolution resolution = d_ptrDccScreen->monitor()->bestMode();
@@ -316,7 +394,7 @@ void DccScreen::setCurrentFillMode(const QString &fill)
 
 QStringList DccScreen::availableFillModes() const
 {
-    return d_ptrDccScreen->monitor()->availableFillModes();
+    return currentResolution() == bestResolution() ? QStringList() : d_ptrDccScreen->monitor()->availableFillModes();
 }
 
 QScreen *DccScreen::screen() const
@@ -337,6 +415,16 @@ void DccScreen::setScale(qreal scale)
 qreal DccScreen::maxScale() const
 {
     return d_ptrDccScreen->m_maxScale;
+}
+
+QList<DccScreenItem *> DccScreen::screenItems() const
+{
+    return d_ptrDccScreen->m_screenItems;
+}
+
+QString DccScreen::wallpaper() const
+{
+    return d_ptrDccScreen->monitor()->wallpaper();
 }
 
 } // namespace dccV25

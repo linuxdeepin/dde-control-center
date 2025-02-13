@@ -48,8 +48,10 @@ public Q_SLOTS:
     void setPrimary(const QString &name);
     void setMonitorEnable(Monitor *monitor, const bool enable);
     void applyChanges();
+    void setColorTemperatureEnabled(bool enabled);
     void setColorTemperature(int value);
     void SetMethodAdjustCCT(int mode);
+    void setCustomColorTempTimePeriod(const QString &timePeriod);
 #ifndef DCC_DISABLE_ROTATE
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
 #endif
@@ -76,6 +78,8 @@ private Q_SLOTS:
 
     // for wlroots-based compositors
     void onWlMonitorListChanged();
+    void updateWallpaper();
+    void updateMonitorWallpaper(Monitor *mon);
 
 private:
     void monitorAdded(const QString &path);

@@ -1,21 +1,21 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYDBUSPROXY_H
 #define DISPLAYDBUSPROXY_H
 
+#include "types/brightnessmap.h"
+#include "types/resolutionlist.h"
+#include "types/screenrect.h"
+#include "types/touchscreeninfolist.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
-#include "types/resolutionlist.h"
-#include "types/brightnessmap.h"
-#include "types/touchscreeninfolist.h"
-#include "types/screenrect.h"
 
 #include <DDBusInterface>
 
-#include <QObject>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QObject>
 
 using Dtk::Core::DDBusInterface;
 class QDBusMessage;
@@ -28,11 +28,18 @@ public:
     Q_PROPERTY(BrightnessMap Brightness READ brightness NOTIFY BrightnessChanged)
     BrightnessMap brightness();
 
+    Q_PROPERTY(bool ColorTemperatureEnabled READ colorTemperatureEnabled WRITE setColorTemperatureEnabled NOTIFY ColorTemperatureEnabledChanged FINAL)
+    bool colorTemperatureEnabled() const;
+    void setColorTemperatureEnabled(bool enabled);
+
     Q_PROPERTY(int ColorTemperatureManual READ colorTemperatureManual NOTIFY ColorTemperatureManualChanged)
     int colorTemperatureManual();
 
     Q_PROPERTY(int ColorTemperatureMode READ colorTemperatureMode NOTIFY ColorTemperatureModeChanged)
     int colorTemperatureMode();
+
+    Q_PROPERTY(QString CustomColorTempTimePeriod READ customColorTempTimePeriod NOTIFY customColorTempTimePeriodChanged FINAL)
+    const QString customColorTempTimePeriod();
 
     Q_PROPERTY(QString CurrentCustomId READ currentCustomId NOTIFY CurrentCustomIdChanged)
     QString currentCustomId();
@@ -73,7 +80,7 @@ public:
     Q_PROPERTY(TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
     TouchscreenInfoList_V2 touchscreensV2();
 
-    //power
+    // power
     Q_PROPERTY(bool AmbientLightAdjustBrightness READ ambientLightAdjustBrightness WRITE setAmbientLightAdjustBrightness NOTIFY AmbientLightAdjustBrightnessChanged)
     bool ambientLightAdjustBrightness();
     void setAmbientLightAdjustBrightness(bool value);
@@ -81,12 +88,14 @@ public:
     Q_PROPERTY(bool HasAmbientLightSensor READ hasAmbientLightSensor NOTIFY HasAmbientLightSensorChanged)
     bool hasAmbientLightSensor();
 
+    Q_PROPERTY(QString WallpaperURls READ wallpaperURls NOTIFY WallpaperURlsChanged FINAL)
+    QString wallpaperURls() const;
 
 private:
     void init();
 
 public Q_SLOTS: // METHODS
-    //Display
+    // Display
     QDBusPendingReply<> ApplyChanges();
     QDBusPendingReply<> AssociateTouch(const QString &in0, const QString &in1);
     QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
@@ -103,42 +112,48 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SetAndSaveBrightness(const QString &in0, double in1);
     QDBusPendingReply<> SetBrightness(const QString &in0, double in1);
     QDBusPendingReply<> SetColorTemperature(int in0);
+    QDBusPendingReply<> SetCustomColorTempTimePeriod(const QString &in0);
     QDBusPendingReply<> SetMethodAdjustCCT(int in0);
     QDBusPendingReply<> SetPrimary(const QString &in0);
     QDBusPendingReply<> SwitchMode(uchar in0, const QString &in1);
     QDBusReply<bool> CanSetBrightnessSync(const QString &name);
     QDBusReply<bool> SupportSetColorTemperatureSync();
-    //Appearance
+    // Appearance
     QDBusPendingReply<double> GetScaleFactor();
-    QDBusPendingReply<QMap<QString,double> > GetScreenScaleFactors();
+    QDBusPendingReply<QMap<QString, double> > GetScreenScaleFactors();
     QDBusPendingReply<> SetScaleFactor(double in0);
-    QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString,double> &scaleFactors);
+    QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString, double> &scaleFactors);
+    QDBusPendingReply<QString> GetCurrentWorkspaceBackgroundForMonitor(const QString &strMonitorName);
     // SystemDisplay
     QString GetConfig();
     void SetConfig(QString cfgStr);
 
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
-    void BrightnessChanged(BrightnessMap  value) const;
-    void ColorTemperatureManualChanged(int  value) const;
-    void ColorTemperatureModeChanged(int  value) const;
-    void CurrentCustomIdChanged(const QString & value) const;
-    void CustomIdListChanged(const QStringList & value) const;
-    void DisplayModeChanged(uchar  value) const;
-    void HasChangedChanged(bool  value) const;
-    void MaxBacklightBrightnessChanged(uint  value) const;
-    void MonitorsChanged(const QList<QDBusObjectPath> & value) const;
-    void PrimaryChanged(const QString & value) const;
-    void PrimaryRectChanged(ScreenRect  value) const;
-    void ScreenHeightChanged(ushort  value) const;
-    void ScreenWidthChanged(ushort  value) const;
-    void TouchMapChanged(TouchscreenMap  value) const;
-    void TouchscreensChanged(TouchscreenInfoList  value) const;
-    void TouchscreensV2Changed(TouchscreenInfoList_V2  value) const;
+    void BrightnessChanged(BrightnessMap value) const;
+    void ColorTemperatureEnabledChanged(bool value) const;
+    void ColorTemperatureManualChanged(int value) const;
+    void ColorTemperatureModeChanged(int value) const;
+    void customColorTempTimePeriodChanged(const QString &value) const;
+    void CurrentCustomIdChanged(const QString &value) const;
+    void CustomIdListChanged(const QStringList &value) const;
+    void DisplayModeChanged(uchar value) const;
+    void HasChangedChanged(bool value) const;
+    void MaxBacklightBrightnessChanged(uint value) const;
+    void MonitorsChanged(const QList<QDBusObjectPath> &value) const;
+    void PrimaryChanged(const QString &value) const;
+    void PrimaryRectChanged(ScreenRect value) const;
+    void ScreenHeightChanged(ushort value) const;
+    void ScreenWidthChanged(ushort value) const;
+    void TouchMapChanged(TouchscreenMap value) const;
+    void TouchscreensChanged(TouchscreenInfoList value) const;
+    void TouchscreensV2Changed(TouchscreenInfoList_V2 value) const;
 
-    //power
-    void AmbientLightAdjustBrightnessChanged(bool  value) const;
-    void HasAmbientLightSensorChanged(bool  value) const;
+    // power
+    void AmbientLightAdjustBrightnessChanged(bool value) const;
+    void HasAmbientLightSensorChanged(bool value) const;
+    void WallpaperURlsChanged(const QString &value) const;
+    void WorkspaceSwitched(int oldIndex,int newIndex);
 
 private:
     Dtk::Core::DDBusInterface *m_dBusDisplayInter;
