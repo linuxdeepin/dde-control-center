@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QIcon>
+#include <QtQml>
 #include <DGuiApplicationHelper>
 
 #include "operation/imagehelper.h"
@@ -120,6 +121,7 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
 , m_iconThemeViewModel(new ThemeVieweModel(this))
 , m_cursorThemeViewModel(new ThemeVieweModel(this))
 {
+    qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationData");
     if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
         m_work = new TreeLandWorker(m_model, this);
     } else {
@@ -173,6 +175,61 @@ void PersonalizationInterface::initAppearanceSwitchModel()
 QString PersonalizationInterface::platformName()
 {
     return qApp->platformName();
+}
+
+void PersonalizationInterface::handleCmdParam(PersonalizationExport::ModuleType type, const QString &cmdParam)
+{
+    // parse cmd param
+    QMap<QString, QString> paramMap;
+    QStringList paramPairs = cmdParam.split('&');
+
+    for (const auto &paramPair : paramPairs) {
+        QStringList keyValue = paramPair.split('=');
+
+        if (keyValue.size() == 2) {
+            QString key = keyValue[0].trimmed();
+            QString value = keyValue[1].trimmed();
+            paramMap.insert(key, value);
+        }
+    }
+
+    // handle cmd param
+    if (type == PersonalizationExport::Theme) {
+        QString operatorType;
+        QString value;
+        operatorType = paramMap.value("type");
+        value = paramMap.value("value");
+
+        if (operatorType == "themeType") {
+            bool keepAuto = paramMap.value("keepAuto") == "true";
+            if (value == "light") {
+                m_work->setAppearanceTheme(".light", keepAuto);
+            } else if (value == "dark") {
+                m_work->setAppearanceTheme(".dark", keepAuto);
+            } else if (value == "auto") {
+                m_work->setAppearanceTheme("", keepAuto);
+            }
+        }
+    } else if (type == PersonalizationExport::Wallpaper) {
+        QString url;
+        QString type;
+        url = paramMap.value("url");
+        if (!isURI(url) && QFile::exists(url)) {
+            url = QUrl::fromLocalFile(url).toString();
+        }
+        type = paramMap.value("type");
+        if (url.isEmpty()) {
+            return;
+        }
+        if (type == "lock") {
+            m_work->setLockBackForMonitor(m_model->getCurrentSelectScreen(), url, true);
+        } else if (type == "desktop") {
+            m_work->setBackgroundForMonitor(m_model->getCurrentSelectScreen(), url, true);
+        } else if (type.isEmpty()) {
+            m_work->setLockBackForMonitor(m_model->getCurrentSelectScreen(), url, true);
+            m_work->setBackgroundForMonitor(m_model->getCurrentSelectScreen(), url, true);
+        }
+    }
 }
 
 DCC_FACTORY_CLASS(PersonalizationInterface)

@@ -10,6 +10,20 @@
 #include "personalizationmodel.h"
 #include "imagehelper.h"
 
+class PersonalizationExport : public QObject
+{
+    Q_OBJECT
+public:
+    enum ModuleType {
+        Root = 0,
+        Theme,
+        Wallpaper,
+        ScreenSaver
+    };
+
+    Q_ENUM(ModuleType)
+};
+
 class ThemeVieweModel : public QAbstractItemModel
 {
 public:
@@ -57,9 +71,9 @@ class PersonalizationInterface : public QObject
 public:
     explicit PersonalizationInterface(QObject *parent = nullptr);
 
-    void setCurrentAppearance(const QString &appearance);
     QString getCurrentAppearance() const { return m_currentAppearance; };
     Q_INVOKABLE QString platformName();
+    Q_INVOKABLE void handleCmdParam(PersonalizationExport::ModuleType type, const QString &cmdParam);
 
 private:
     void initAppearanceSwitchModel();

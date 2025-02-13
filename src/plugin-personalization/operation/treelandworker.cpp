@@ -81,10 +81,12 @@ void TreeLandWorker::setDefault(const QJsonObject &value)
     PersonalizationWorker::setDefault(value);
 }
 
-void TreeLandWorker::setAppearanceTheme(const QString &id)
+void TreeLandWorker::setAppearanceTheme(const QString &id, bool keepAuto)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setAppearanceTheme:" << id;
-    PersonalizationWorker::setAppearanceTheme(id);
+    if (!keepAuto) {
+        PersonalizationWorker::setAppearanceTheme(id);
+    }
     if (id == ".light" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_light) {
         m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_light;
         m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_light);
@@ -558,7 +560,7 @@ void PersonalizationAppearanceContext::treeland_personalization_appearance_conte
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_theme_type(uint32_t)
 {
-
+    // Using the value of the appearance module, this is an invalid value
 }
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height)
