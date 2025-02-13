@@ -7,18 +7,23 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
+import org.deepin.dcc.personalization 1.0
 
 DccObject {
     DccObject {
-        name: "themeGroup"
+        name: "themeRoot"
         parentName: "personalization"
         weight: 10
         pageType: DccObject.Item
         page: DccGroupView {}
 
+        onActive: function (cmdParam) {
+            dccData.handleCmdParam(PersonalizationData.Theme, cmdParam)
+        }
+
         DccObject {
             name: "themeTitle"
-            parentName: "personalization/themeGroup"
+            parentName: "personalization/themeRoot"
             displayName: qsTr("Theme")
             weight: 1
             pageType: DccObject.Item
@@ -79,7 +84,7 @@ DccObject {
 
         DccObject {
             name: "appearance"
-            parentName: "personalization/themeGroup"
+            parentName: "personalization/themeRoot"
             displayName: qsTr("Appearance")
             description: qsTr("Select light, dark, or automatic theme appearance")
             weight: 2
@@ -101,7 +106,9 @@ DccObject {
 
                 enabled: model.length > 1
                 onCurrentIndexChanged: {
-                    dccData.worker.setAppearanceTheme(model[currentIndex].value)
+                    if (dccData.currentAppearance !== model[currentIndex].value) {
+                        dccData.worker.setAppearanceTheme(model[currentIndex].value)
+                    }
                 }
             }
         }
@@ -123,6 +130,9 @@ DccObject {
         description: qsTr("Personalize your wallpaper and screensaver")
         icon: "wallpaper"
         weight: 300
+        onActive: function (cmdParam) {
+            dccData.handleCmdParam(PersonalizationData.Wallpaper, cmdParam)
+        }
         WallpaperPage {}
     }
     DccObject {

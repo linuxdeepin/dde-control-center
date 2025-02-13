@@ -49,7 +49,7 @@ public Q_SLOTS:
     virtual void setWindowRadius(int radius);
     virtual void setTitleBarHeight(int value);
     virtual void setGlobalTheme(const QString &themeId);
-    virtual void setAppearanceTheme(const QString &id);
+    virtual void setAppearanceTheme(const QString &id, bool keepAuto = false);
     virtual void setIconTheme(const QString &id);
     virtual void setCursorTheme(const QString &id);
     virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark);

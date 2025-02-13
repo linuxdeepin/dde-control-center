@@ -47,7 +47,7 @@ public:
 
     void setDefault(const QJsonObject &value) override;
 
-    void setAppearanceTheme(const QString &id) override;
+    void setAppearanceTheme(const QString &id, bool keepAuto = false) override;
     uint32_t appearanceTheme() const { return m_appearanceTheme; }
 
     void setFontName(const QString& fontName);

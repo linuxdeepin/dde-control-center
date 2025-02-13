@@ -447,8 +447,9 @@ void PersonalizationWorker::setGlobalTheme(const QString &themeId)
         setDefaultByType(itemList.value(themeId)["type"].toString(), themeId + mode);
 }
 
-void PersonalizationWorker::setAppearanceTheme(const QString &id)
+void PersonalizationWorker::setAppearanceTheme(const QString &id, bool keepAuto)
 {
+    Q_UNUSED(keepAuto)
     ThemeModel *globalTheme = m_model->getGlobalThemeModel();
     QString mode;
     QString themeId = getGlobalThemeId(globalTheme->getDefault(), mode);
