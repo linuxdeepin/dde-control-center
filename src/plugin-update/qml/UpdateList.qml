@@ -43,7 +43,6 @@ Rectangle {
                     Layout.fillWidth: true
                     leftPadding: 10
                     rightPadding: 10
-                    implicitHeight: 80
                     cascadeSelected: true
                     backgroundVisible: true
                     contentFlow: true
