@@ -8,6 +8,8 @@
 #include "operation/charamangermodel.h"
 #include <dareader/reader.h>
 
+#include <QVariantAnimation>
+
 namespace dccV25 {
 
 class BiometricAuthController : public QObject
@@ -54,6 +56,7 @@ public slots:
     void onFingerEnrollDisconnected();
 
     void onFingerLiftTimerTimeout();
+    void onFingerAniValueChanged(const QVariant &pro);
 
     // iris
     void requestStartIrisEnroll();
@@ -79,6 +82,7 @@ private:
     CharaMangerModel *m_charaModel = nullptr;
     CharaMangerWorker *m_charaWorker = nullptr;
     CharaMangerModel::AddInfoState      m_addStage = CharaMangerModel::AddInfoState::StartState;
+    QString m_themeType;
 
     // face
     QString         m_faceImgContent;
@@ -92,6 +96,7 @@ private:
     QString         m_fingerTipMessage;
     int             m_fingerPro;
     bool            m_isStageOne;
-    QTimer*         m_fingerLiftTimer;
+    QTimer*         m_fingerLiftTimer = nullptr;
+    QVariantAnimation*  m_fingerAni = nullptr;
 };
 }

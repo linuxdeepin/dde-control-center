@@ -26,6 +26,7 @@ BiometricAuthController::BiometricAuthController(QObject *parent)
     , m_charaModel(new CharaMangerModel(this))
     , m_charaWorker(new CharaMangerWorker(m_charaModel, this))
     , m_fingerLiftTimer(new QTimer(this))
+    , m_fingerAni(new QVariantAnimation(this))
 {
     qmlRegisterType<CharaMangerModel>("org.deepin.dcc.account.biometric", 1, 0, "CharaMangerModel");
     connect(m_charaModel, &CharaMangerModel::tryStartInputFace, this, [this] (int fd){
@@ -51,6 +52,21 @@ BiometricAuthController::BiometricAuthController(QObject *parent)
         }
     });
 
+    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
+    if (type == DGuiApplicationHelper::LightType) {
+        m_themeType = "light";
+    } else if (type == DGuiApplicationHelper::DarkType) {
+        m_themeType = "dark";
+    }
+
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [this](DGuiApplicationHelper::ColorType type) {
+        if (type == DGuiApplicationHelper::LightType) {
+            m_themeType = "light";
+        } else if (type == DGuiApplicationHelper::DarkType) {
+            m_themeType = "dark";
+        }
+    });
+
 
     connect(m_charaModel, &CharaMangerModel::thumbsListChanged, this, &BiometricAuthController::onThumbsListChanged);
     onThumbsListChanged(m_charaModel->thumbsList());
@@ -58,12 +74,16 @@ BiometricAuthController::BiometricAuthController(QObject *parent)
     m_fingerLiftTimer->setSingleShot(true);
     m_fingerLiftTimer->setInterval(1000);
 
+    m_fingerAni->setDuration(1000);
+    m_fingerAni->setEasingCurve(QEasingCurve::OutCubic);
+
     connect(m_charaModel, &CharaMangerModel::enrollCompleted, this, &BiometricAuthController::onFingerEnrollCompleted);
     connect(m_charaModel, &CharaMangerModel::enrollStagePass, this, &BiometricAuthController::onFingerEnrollStagePass);
     connect(m_charaModel, &CharaMangerModel::enrollFailed, this, &BiometricAuthController::onFingerEnrollFailed);
     connect(m_charaModel, &CharaMangerModel::enrollDisconnected, this, &BiometricAuthController::onFingerEnrollDisconnected);
     connect(m_charaModel, &CharaMangerModel::enrollRetry, this, &BiometricAuthController::onFingerEnrollRetry);
     connect(m_fingerLiftTimer, &QTimer::timeout, this, &BiometricAuthController::onFingerLiftTimerTimeout);
+    connect(m_fingerAni,&QVariantAnimation::valueChanged, this, &BiometricAuthController::onFingerAniValueChanged);
 
     setAddStage(CharaMangerModel::StartState);
 }
@@ -208,28 +228,26 @@ void BiometricAuthController::onFingerEnrollRetry(const QString &title, const QS
 void BiometricAuthController::onFingerEnrollStagePass(int pro)
 {
     QString themeStr;
-    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
-    switch (type) {
-    case DGuiApplicationHelper::UnknownType:
-        break;
-    case DGuiApplicationHelper::LightType:
-        themeStr = QString("light");
-        break;
-    case DGuiApplicationHelper::DarkType:
-        themeStr = QString("dark");
-        break;
+
+    int startValue = m_fingerPro * 1.5;
+    int endValue = pro * 1.5;
+
+    if (m_fingerAni->state() == QVariantAnimation::Running) {
+        m_fingerAni->stop();
     }
+    m_fingerAni->setStartValue(startValue);
+    m_fingerAni->setEndValue(endValue);
+    QMetaObject::invokeMethod(m_fingerAni, "start", Qt::QueuedConnection);
+    
     m_fingerPro = pro;
     if (m_fingerPro == 0) {
         m_isStageOne = true;
-        m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg").arg(themeStr);
+        m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_%1_%2.png").arg(m_themeType).arg(0, 5, 10, QChar('0'));
         m_fingerTipTitle = tr("Place your finger");
         m_fingerTipMessage = tr("Place your finger firmly on the sensor until you're asked to lift it");
     } else {
         int idx = m_fingerPro / 2;
         idx = idx > 50 ? 50 : idx;
-        m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_light_%2.svg")
-                                   .arg(themeStr).arg(idx);
         if (m_fingerPro > 0 && m_fingerPro < 35) {
             m_fingerTipTitle = tr("Lift your finger");
             m_fingerTipMessage = tr("Lift your finger and place it on the sensor again");
@@ -295,6 +313,16 @@ void BiometricAuthController::onFingerLiftTimerTimeout()
 
     m_fingerTipTitle = m_defTitle;
     m_fingerTipMessage = m_defTip;
+    Q_EMIT fingerTipsChanged();
+}
+
+void BiometricAuthController::onFingerAniValueChanged(const QVariant &index)
+{
+    if (index == 150) {
+        m_fingertipImagePath = "user_biometric_fingerprint_success";
+    } else {
+        m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_%1_%2.png").arg(m_themeType).arg(index.toInt(), 5, 10, QChar('0'));
+    }
     Q_EMIT fingerTipsChanged();
 }
 
