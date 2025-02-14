@@ -1,3 +1,26 @@
+dde-control-center (6.1.9) unstable; urgency=medium
+
+  * fix(privacy): some applications that have been abnormally excluded
+  * feat(BiometricAuth): Add fingerprint registration animation and Reasonably hide modules
+  * feat: Provide interfaces for setting wallpapers and themeType
+  * feat: Update icon
+  * feat: Update display module translation
+  * feat: Display module screen splicing function
+  * fix: delete update moudel list item implicitHeight
+  * fix: modify Bluetooth moudle edit button style
+  * fix: Plugin status updates are processed in the main thread through signaling
+  * fix: modify update actionBtn width
+  * fix: modify bluetooth moudel redo icon path
+  * fix: Incorrect setting of suspend mode to hibernate mode
+  * fix: Incorrect password modification function for other accounts
+  * fix: bluetooth moudle change button to toolbutton
+  * fix: add bluetooth device not update model
+  * fix: update touchpad translation
+  * fix: touchpad finger animation not update
+  * feat: add biometric authentication module
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 14 Feb 2025 10:38:44 +0800
+
 dde-control-center (6.1.8) unstable; urgency=medium
 
   * feat: override icu database
