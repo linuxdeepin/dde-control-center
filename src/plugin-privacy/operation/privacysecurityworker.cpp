@@ -116,18 +116,32 @@ QString PrivacySecurityWorker::getAppPath(const QMap<QString, QString> &execs)
         if (it.key() != DESKTOP_ENTRY_ICON_KEY) {
             continue;
         }
-        const QString exec = it.value().split(' ').first();
+        QString exec = it.value();
         if (s_excludeBin.contains(exec)) {
             continue;
         }
-        if (QFile::exists(exec)) {
-            appPath = exec;
+
+        QRegularExpression regex(R"(^\s*("|')([^"]+)\1|^(\S+))");
+        QRegularExpressionMatch match = regex.match(exec);
+
+        QString cleanedString;
+
+        if (match.hasMatch()) {
+            if (match.captured(2).isEmpty()) {
+                cleanedString =  match.captured(3); // 没有引号的命令
+            } else {
+                cleanedString =  match.captured(2); // 引号包裹的命令
+            }
+        }
+
+        if (QFile::exists(cleanedString)) {
+            appPath = cleanedString;
             break;
         } else {
             for (const auto &binDir : m_pathList) {
                 QDir bin(binDir);
-                if (bin.exists(exec)) {
-                    appPath = bin.absolutePath() + "/" + exec;
+                if (bin.exists(cleanedString)) {
+                    appPath = bin.absolutePath() + "/" + cleanedString;
                     break;
                 }
             }
@@ -284,6 +298,7 @@ void PrivacySecurityWorker::updateAppPath(ApplicationItem *item)
 
     QString path = getAppPath(item->execs());
     if (path.isEmpty()) {
+        qCInfo(DCC_PRIVACY) << "Exclude app id: " << item->id() << ", name: " << item->name() << "because it appPath is empty";
         QMetaObject::invokeMethod(m_model, "removeApplictionItem", Qt::QueuedConnection, Q_ARG(QString, item->id()));
     } else {
         item->onAppPathChanged(path);
