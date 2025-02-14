@@ -171,11 +171,12 @@ bool PrivacySecurityModel::addApplictionItem(ApplicationItem *item)
 
 void PrivacySecurityModel::removeApplictionItem(const QString &id)
 {
-    auto it = std::find_if(m_appModel->appList().begin(), m_appModel->appList().end(), [id](ApplicationItem *appItem) {
+    const auto list = m_appModel->appList();
+    auto it = std::find_if(list.cbegin(), list.cend(), [id](ApplicationItem *appItem) {
         return appItem->id() == id;
     }); 
-    if (it != m_appModel->appList().end()) {
-        Q_EMIT itemAboutToBeRemoved(it - m_appModel->appList().begin());
+    if (it != list.end()) {
+        Q_EMIT itemAboutToBeRemoved(it - list.begin());
         m_appModel->removeItem(*it);
         delete *it;
         Q_EMIT itemRemoved();
