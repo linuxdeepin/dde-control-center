@@ -742,6 +742,15 @@ QString AccountsController::currentUserId() const
     return QString();
 }
 
+bool AccountsController::curUserIsSysAdmin() const
+{
+    User *curUser = m_model->currentUser();
+    if (curUser)
+        return isSystemAdmin(curUser);
+
+    return false;
+}
+
 QStringList AccountsController::userTypes(bool createUser /* = false*/) const
 {
     QStringList types{ tr("Standard User"), tr("Administrator") };
