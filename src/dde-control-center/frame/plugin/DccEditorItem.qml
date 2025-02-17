@@ -24,7 +24,7 @@ D.ItemDelegate {
     bottomPadding: bottomInset
     leftPadding: root.leftPaddingSize
     rightPadding: 8
-    hoverEnabled: true
+    hoverEnabled: model.item.enabledToApp
     checked: backgroundType & 0x08
     cascadeSelected: !checked
     font: D.DTK.fontManager.t6
@@ -89,7 +89,7 @@ D.ItemDelegate {
         separatorVisible: false
     }
     onClicked: {
-        if (backgroundType & 0x04) {
+        if ((backgroundType & 0x04) && model.item.enabledToApp) {
             model.item.active("")
         }
     }

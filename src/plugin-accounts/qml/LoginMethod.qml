@@ -74,51 +74,32 @@ DccTitleObject {
                 name: loginMethodTitle.parentName + "PasswordModify"
                 parentName: passwordGroupView.name
                 displayName: qsTr("Modify password")
+                backgroundType: DccObject.ClickStyle
                 weight: 12
-                pageType: DccObject.Item
-                enabled: dccData.currentUserId() === loginMethodTitle.userId || !dccData.isOnline(loginMethodTitle.userId)
-                page: Item {
-                    implicitHeight: 40
-                    RowLayout {
-                        anchors.fill: parent
-                        D.Label {
-                            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                            Layout.leftMargin: 15
-                            text: dccObj.displayName
-                        }
+                enabled: dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId))
+                pageType: DccObject.Editor
+                page: D.IconLabel {
+                    icon.name: "arrow_ordinary_right"
+                    icon.palette: DTK.makeIconPalette(control.palette)
+                    icon.mode: control.ColorSelector.controlState
+                    icon.theme: control.ColorSelector.controlTheme
+                    opacity: enabled ? 1 : 0.4
+                }
+                onActive: {
+                    pmdLoader.active = true
+                }
 
-                        Control {
-                            id: control
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                            Layout.rightMargin: 10
-                            contentItem: D.IconLabel {
-                                icon.name: "arrow_ordinary_right"
-                                icon.palette: DTK.makeIconPalette(control.palette)
-                                icon.mode: control.ColorSelector.controlState
-                                icon.theme: control.ColorSelector.controlTheme
-                                opacity: enabled ? 1 : 0.4
-                            }
+                Loader {
+                    id: pmdLoader
+                    active: false
+                    sourceComponent: PasswordModifyDialog {
+                        userId: loginMethodTitle.userId
+                        onClosing: function (close) {
+                            pmdLoader.active = false
                         }
                     }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            pmdLoader.active = true
-                        }
-                        Loader {
-                            id: pmdLoader
-                            active: false
-                            sourceComponent: PasswordModifyDialog {
-                                userId: loginMethodTitle.userId
-                                onClosing: function
-                                (close) {
-                                    pmdLoader.active = false
-                                }
-                            }
-                            onLoaded: function () {
-                                pmdLoader.item.show()
-                            }
-                        }
+                    onLoaded: function () {
+                        pmdLoader.item.show()
                     }
                 }
             }

@@ -30,6 +30,7 @@ public:
 
 public slots:
     QString currentUserId() const;
+    bool curUserIsSysAdmin() const;
 
     QString avatar(const QString &id) const;
     void setAvatar(const QString &id, const QString &url);

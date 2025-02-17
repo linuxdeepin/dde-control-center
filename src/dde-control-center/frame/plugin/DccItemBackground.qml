@@ -96,7 +96,7 @@ Item {
         anchors.bottomMargin: ((backgroundType & 0x02) && control.hovered) && !(control.corners & D.RoundRectangle.BottomCorner) ? 1 : 0
         sourceComponent: D.RoundRectangle {
             // 高亮时，hovered状态HighlightPanel有处理,无阴影时，hovered状态使用半透明
-            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0) ? root.D.ColorSelector.bgColor : root.D.ColorSelector.backgroundColor
+            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0 || !control.hoverEnabled) ? root.D.ColorSelector.bgColor : root.D.ColorSelector.backgroundColor
             radius: root.radius
             corners: control.corners
         }
