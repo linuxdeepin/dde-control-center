@@ -12,11 +12,9 @@ import org.deepin.dtk.style 1.0 as DS
 D.DialogWindow {
     id: ddialog
     width: 400
-    height: 360
     minimumWidth: 400
     minimumHeight: 360
     maximumWidth: minimumWidth
-    maximumHeight: minimumHeight
     visible: true
     icon: "preferences-system"
     modality: Qt.WindowModal
@@ -38,6 +36,7 @@ D.DialogWindow {
 
         Label {
             Layout.alignment: Qt.AlignLeft
+            Layout.leftMargin: 4
             text: qsTr("Name:")
         }
 
@@ -50,6 +49,7 @@ D.DialogWindow {
 
         Label {
             Layout.alignment: Qt.AlignLeft
+            Layout.leftMargin: 4
             text: qsTr("Command:")
         }
 
@@ -88,6 +88,7 @@ D.DialogWindow {
             property string accels
             text: qsTr("Shortcut")
             keys: [qsTr("None")]
+            Layout.topMargin: 10
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
             placeholderText: qsTr("Please enter a new shortcut")
@@ -119,14 +120,18 @@ D.DialogWindow {
             Layout.topMargin: 20
             spacing: 10
             Button {
-                Layout.bottomMargin: 10
+                Layout.bottomMargin: 14
+                Layout.fillWidth: true
+                Layout.leftMargin: 4
                 text: qsTr("Cancel")
                 onClicked: {
                     ddialog.close()
                 }
             }
             Button {
-                Layout.bottomMargin: 10
+                Layout.bottomMargin: 14
+                Layout.fillWidth: true
+                Layout.rightMargin: 24
                 text: qsTr("Add")
                 enabled: commandEdit.text.length > 0 && nameEdit.text.length >0
                 onClicked: {
