@@ -366,7 +366,30 @@ DccObject {
                     if (settings.autoLoginChecked != checked)
                         settings.autoLoginChecked = checked
 
+                    if (checked) {
+                        var userName = dccData.getOtherUserAutoLogin()
+                        if (userName.length > 0) {
+                            awdLoader.active = true
+                            awdLoader.item.userName = userName
+                            return
+                        }
+                    }
+
                     dccData.setAutoLogin(settings.userId, checked)
+                }
+
+                Loader {
+                    id: awdLoader
+                    active: false
+                    sourceComponent: AutoLoginWarningDialog {
+                        onClosing: function (close) {
+                            awdLoader.active = false
+                            settings.autoLoginChecked = false
+                        }
+                    }
+                    onLoaded: function () {
+                        awdLoader.item.show()
+                    }
                 }
             }
         }

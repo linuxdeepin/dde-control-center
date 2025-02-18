@@ -232,6 +232,16 @@ void AccountsController::setAutoLogin(const QString &id, const bool enable)
             m_worker->setAutoLogin(user, enable);
 }
 
+QString AccountsController::getOtherUserAutoLogin() const
+{
+    for (auto user : m_model->userList()) {
+        if (user->name() != currentUserName() && user->autoLogin()) {
+            return user->name();
+        }
+    }
+    return "";
+}
+
 bool AccountsController::isNoPassWordLoginVisable() const
 {
     return m_model->isNoPassWordLoginVisable();
