@@ -47,6 +47,7 @@ public slots:
     bool isAutoLoginVisable() const;
     bool autoLogin(const QString &id) const;
     void setAutoLogin(const QString &id, const bool enable);
+    QString getOtherUserAutoLogin() const;
     bool isNoPassWordLoginVisable() const;
     bool nopasswdLogin(const QString &id);
     void setNopasswdLogin(const QString &id, const bool enable);

@@ -397,6 +397,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>AutoLoginWarningDialog</name>
+    <message>
+        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
