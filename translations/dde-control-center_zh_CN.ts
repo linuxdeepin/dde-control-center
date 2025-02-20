@@ -4360,6 +4360,13 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>NoActive</name>
+    <message>
+        <source>The current system is not activated, unable to start the update service</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -5692,11 +5699,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>三指手势</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>四指手势</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -5739,16 +5746,16 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>UpdateControl</name>
     <message>
-        <source>预计安装时间：30min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Installing</source>
         <translation>安装更新中</translation>
     </message>
     <message>
-        <source>Feature Updates</source>
-        <translation>功能更新</translation>
+        <source>Expected installation time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>30min</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5851,6 +5858,25 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
 </context>
 <context>
+    <name>UpdateHistory</name>
+    <message>
+        <source>Settings will be reverted in %1s.</source>
+        <translation type="unfinished">如无任何操作将在%1秒后还原。</translation>
+    </message>
+    <message>
+        <source>Save the display settings?</source>
+        <translation type="unfinished">是否要保存显示设置？</translation>
+    </message>
+    <message>
+        <source>Revert</source>
+        <translation type="unfinished">还原</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">保存</translation>
+    </message>
+</context>
+<context>
     <name>UpdateList</name>
     <message>
         <source>Updates：</source>
@@ -5867,6 +5893,14 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
         <translation>本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。</translation>
+    </message>
+    <message>
+        <source>2025.1.20</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>收起</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5907,6 +5941,14 @@ In order to better use of face recognition, please pay attention to the followin
         <source>retry</source>
         <translation>重试</translation>
     </message>
+    <message>
+        <source>An update has been detected.</source>
+        <translation>检测到更新。</translation>
+    </message>
+    <message>
+        <source>Your system is up to date, please restart now</source>
+        <translation>您的系统已经是最新的,请立即重启</translation>
+    </message>
 </context>
 <context>
     <name>UpdateModule</name>
@@ -5920,6 +5962,33 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Check for Updates</source>
         <translation>检测到有更新可用</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateSetting</name>
+    <message>
+        <source>update type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Function update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quality Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provide system quality patches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished">智能镜像源</translation>
     </message>
 </context>
 <context>
@@ -6001,7 +6070,7 @@ In order to better use of face recognition, please pay attention to the followin
     <name>UpdateSettingsModule</name>
     <message>
         <source>Update Settings</source>
-        <translation>更新</translation>
+        <translation>更新设置</translation>
     </message>
     <message>
         <source>System</source>
@@ -6101,13 +6170,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Current Edition</source>
         <translation>当前版本</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateWork</name>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>检测到更新。</translation>
     </message>
 </context>
 <context>
@@ -7554,24 +7616,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>updateMain</name>
     <message>
-        <source>check update</source>
-        <translation>检查更新</translation>
-    </message>
-    <message>
-        <source>Your system is already the latest version</source>
-        <translation>您的系统已经是最新版本</translation>
-    </message>
-    <message>
-        <source>You have a new system update, please check and update</source>
-        <translation>您有新的系统更新，请检查并更新</translation>
-    </message>
-    <message>
         <source>Update Settings</source>
-        <translation>更新</translation>
+        <translation>更新设置</translation>
     </message>
     <message>
-        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
-        <translation>您可以设置系统更新、安全更新、空闲更新、更新提醒等。</translation>
+        <source>Feature Updates</source>
+        <translation>功能更新</translation>
     </message>
 </context>
 <context>
