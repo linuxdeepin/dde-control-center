@@ -51,6 +51,7 @@ Rectangle {
                 hoverEnabled: true
 
                 background: DccItemBackground {
+                    backgroundType: DccObject.Normal
                     separatorVisible: true
                 }
 
