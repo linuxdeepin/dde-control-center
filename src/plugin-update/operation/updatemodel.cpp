@@ -5,18 +5,25 @@
 #include <qdebug.h>
 
 UpdateModel::UpdateModel(QObject *parent)
-    : QObject{ parent }
-    , m_upgradable(false)
-    , m_updateState("")
-    , m_updateStateTips("")
-    , m_showUpdateCtl(false)
-    , m_checkUpdateState(CheckUpdateState::NoState)
-    , m_checkProcessRunning(false)
-    , m_checkUpdateStateTips("")
-    , m_checkUpdateIcon("")
-    , m_lastCheckUpdateErrorMsg("")
-    , m_actionBtnText(tr("Installing Update"))
+    : QObject(parent),
+      m_upgradable(false),
+      m_updateState(""),
+      m_updateStateTips(""),
+      m_showUpdateCtl(false),
+      m_checkUpdateState(CheckUpdateState::NoState),
+      m_distUpgradeState(job_init),
+      m_checkUpdateStateTips(""),
+      m_checkUpdateIcon(""),
+      m_checkProcessRunning(false),
+      m_lastCheckUpdateErrorMsg(""),
+      m_actionBtnText(""),
+      m_updateStatus(nullptr)
 {
+}
+
+UpdateModel::~UpdateModel()
+{
+    delete m_updateStatus;
 }
 
 bool UpdateModel::upgradable() const
@@ -26,10 +33,28 @@ bool UpdateModel::upgradable() const
 
 void UpdateModel::setUpgradable(bool newUpgradable)
 {
+    qDebug() << "UpdateModel setUpgradable" << newUpgradable << m_upgradable;
     if (m_upgradable == newUpgradable)
         return;
     m_upgradable = newUpgradable;
     emit upgradableChanged();
+}
+
+void UpdateModel::updateUpgradble()
+{
+    UpdateStatusData* status = m_updateStatus->statusData();
+    if (!status) {
+        setUpgradable(false);
+        return;
+    }
+
+    qDebug() << " updateUpgradble status:" << status->securityUpgrade() << status->systemUpgrade() << status->unknowUpgrade() ;
+
+    auto hasUpdate = [](QString state)->bool {
+        return state != "noUpdate" && state != "needReboot";
+    };
+
+    setUpgradable(hasUpdate(status->systemUpgrade()) || hasUpdate(status->securityUpgrade()) || hasUpdate(status->unknowUpgrade()));
 }
 
 QString UpdateModel::getUpdateState() const
@@ -45,7 +70,7 @@ void UpdateModel::setUpdateState(const QString &newUpdateState)
     m_updateState = newUpdateState;
     emit updateStateChanged();
 
-    if (newUpdateState == "idle" && m_upgradable) {
+    if (newUpdateState == "noUpdate" && m_upgradable) {
         setUpdateStateTips(tr("Updates Available"));
         setActionBtnText(tr("Installing Update"));
         return;
@@ -56,13 +81,13 @@ void UpdateModel::setUpdateState(const QString &newUpdateState)
         return;
     }
 
-    if (newUpdateState == "success" ) {
+    if (newUpdateState == "needReboot" ) {
         setUpdateStateTips(tr("Update installed successfully"));
         setActionBtnText(tr("Restart Now"));
         return;
     }
 
-    if (newUpdateState == "failed") {
+    if (newUpdateState == "upgradeFailed") {
         setUpdateStateTips(tr("Update download failed"));
         setActionBtnText(tr("retry"));
     }
@@ -118,9 +143,7 @@ void UpdateModel::setCheckProcessRunning(bool newCheckProcessRunning)
     if (m_checkProcessRunning == newCheckProcessRunning)
         return;
     m_checkProcessRunning = newCheckProcessRunning;
-    emit checkProcessRunningChanged();
     updateCheckUpdateData();
-    setShowUpdateCtl(m_upgradable && !newCheckProcessRunning);
 }
 
 QString UpdateModel::checkUpdateStateTips() const
@@ -156,22 +179,24 @@ void UpdateModel::updateCheckUpdateData()
     case CheckUpdateState::NoState:
         break;
     case CheckUpdateState::checking:
-        if (checkProcessRunning()) {
-            setCheckUpdateStateTips(tr("Checking for updates, please wait…"));
-            setCheckUpdateIcon("qrc:/icons/deepin/builtin/icons/dcc_updating.png");
-        }
+        setCheckUpdateStateTips(tr("Checking for updates, please wait…"));
+        setCheckUpdateIcon("updating");
         break;
     case CheckUpdateState::checked:
-        if (!upgradable() && !checkProcessRunning()) {
-            setCheckUpdateStateTips(tr("Your system is up to date"));
-            setCheckUpdateIcon("qrc:/icons/deepin/builtin/icons/dcc_update_success.png");
+        if (!upgradable()) {
+            UpdateStatusData* status = m_updateStatus->statusData();
+            if (status->systemUpgrade() == "needReboot" || status->securityUpgrade() == "needReboot" || status->unknowUpgrade() == "needReboot") {
+                setCheckUpdateStateTips(tr("Your system is up to date, please restart now"));
+            } else {
+                setCheckUpdateStateTips(tr("Your system is up to date"));
+            }
+
+            setCheckUpdateIcon("update_abreast_of_time");
         }
         break;
     case CheckUpdateState::checkFailed:
-        if (!checkProcessRunning()) {
-            setCheckUpdateStateTips(lastCheckUpdateErrorMsg());
-            setCheckUpdateIcon("qrc:/icons/deepin/builtin/icons/check_update_failed.png");
-        }
+        setCheckUpdateStateTips(lastCheckUpdateErrorMsg());
+        setCheckUpdateIcon("update_failure");
         break;
     }
 }
@@ -198,3 +223,102 @@ void UpdateModel::setActionBtnText(const QString &newActionBtnText)
     m_actionBtnText = newActionBtnText;
     emit actionBtnTextChanged();
 }
+
+UpdateStatus* UpdateModel::updateStatus() const
+{
+    return m_updateStatus;
+}
+
+void UpdateModel::setUpdateStatus(UpdateStatus* status)
+{
+    if (m_updateStatus != status) {
+        delete m_updateStatus;
+        m_updateStatus = status;
+        updateUpgradble();
+        emit updateStatusChanged(m_updateStatus);
+    }
+}
+
+void UpdateModel::clearUpdateStatus()
+{
+    delete m_updateStatus;
+    m_updateStatus = nullptr;
+}
+
+double UpdateModel::checkUpdateProgress() const
+{
+    return m_checkUpdateProgress;
+}
+
+void UpdateModel::setCheckUpdateProgress(double newCheckUpdateProgress)
+{
+    if (qFuzzyCompare(m_checkUpdateProgress, newCheckUpdateProgress))
+        return;
+    m_checkUpdateProgress = newCheckUpdateProgress;
+    emit checkUpdateProgressChanged();
+}
+
+double UpdateModel::distUpgradeProgress() const
+{
+    return m_distUpgradeProgress;
+}
+
+void UpdateModel::setDistUpgradeProgress(double newDistUpgradeProgress)
+{
+    newDistUpgradeProgress = newDistUpgradeProgress * 100.00;
+    if (qFuzzyCompare(m_distUpgradeProgress, newDistUpgradeProgress))
+        return;
+    m_distUpgradeProgress = newDistUpgradeProgress;
+    emit distUpgradeProgressChanged();
+}
+
+bool UpdateModel::smartMirrorSwitch() const
+{
+    return m_smartMirrorSwitch;
+}
+
+void UpdateModel::setSmartMirrorSwitch(bool newSmartMirrorSwitch)
+{
+    if (m_smartMirrorSwitch == newSmartMirrorSwitch)
+        return;
+    m_smartMirrorSwitch = newSmartMirrorSwitch;
+    emit smartMirrorSwitchChanged();
+}
+
+int UpdateModel::distUpgradeState() const
+{
+    return m_distUpgradeState;
+}
+
+void UpdateModel::setDistUpgradeState(int newDistUpgradeState)
+{
+    if (m_distUpgradeState == newDistUpgradeState)
+        return;
+    m_distUpgradeState = newDistUpgradeState;
+    updateDistUpgraedUI();
+    emit distUpgradeStateChanged();
+}
+
+void UpdateModel::updateDistUpgraedUI()
+{
+    switch (m_distUpgradeState) {
+        case job_init:
+            setUpdateStateTips(tr("An update has been detected."));
+            setActionBtnText(tr("Installing Update"));
+            break;
+        case job_ready :
+        case job_running:
+            setUpdateStateTips(tr("Installing updates…"));
+            break;
+        case job_failed:
+            setUpdateStateTips(tr("Update download failed"));
+            setActionBtnText(tr("retry"));
+            break;
+        case job_successd:
+            setUpdateStateTips(tr("Update installed successfully"));
+            setActionBtnText(tr("Restart Now"));
+            break;
+    }
+}
+
+

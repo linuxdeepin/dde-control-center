@@ -52,6 +52,12 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
                                               AtomicUpdaterJobInterface,
                                               QDBusConnection::systemBus(),
                                               this))
+    , m_smartMirrorInter(new DDBusInterface("org.deepin.dde.Lastore1.Smartmirror",
+                                        "/org/deepin/dde/Lastore1/Smartmirror",
+                                          "org.deepin.dde.Lastore1.Smartmirror",
+                                          QDBusConnection::systemBus(),
+                                          this))
+
 
 {
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");
@@ -183,6 +189,11 @@ QList<QDBusObjectPath> UpdateDBusProxy::jobList()
     return qvariant_cast<QList<QDBusObjectPath>>(m_managerInter->property("JobList"));
 }
 
+QString UpdateDBusProxy::updateStatus()
+{
+    return qvariant_cast<QString>(m_managerInter->property("UpdateStatus"));
+}
+
 QString UpdateDBusProxy::hardwareId()
 {
     return qvariant_cast<QString>(m_managerInter->property("HardwareId"));
@@ -262,6 +273,11 @@ QDBusPendingReply<bool> UpdateDBusProxy::PackageExists(const QString &pkgid)
     return m_managerInter->asyncCallWithArgumentList(QStringLiteral("PackageExists"), argumentList);
 }
 
+QDBusPendingReply<QDBusObjectPath> UpdateDBusProxy::DistUpgrade()
+{
+    return m_managerInter->asyncCall(QStringLiteral("DistUpgrade"));
+}
+
 bool UpdateDBusProxy::onBattery()
 {
     return qvariant_cast<bool>(m_powerInter->property("OnBattery"));
@@ -293,4 +309,16 @@ void UpdateDBusProxy::commit(const QString &commitDate)
 bool UpdateDBusProxy::atomBackupIsRunning()
 {
     return qvariant_cast<bool>(m_atomicUpgradeInter->property("Running"));
+}
+
+bool UpdateDBusProxy::enable() const
+{
+    return qvariant_cast<bool>(m_smartMirrorInter->property("Enable"));
+}
+
+void UpdateDBusProxy::SetEnable(bool enable)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enable);
+    m_smartMirrorInter->asyncCallWithArgumentList(QStringLiteral("SetEnable"), argumentList);
 }

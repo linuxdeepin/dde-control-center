@@ -9,74 +9,70 @@ import org.deepin.dtk 1.0 as D
 
 import org.deepin.dcc 1.0
 
-Rectangle {
+ColumnLayout {
     width: parent.width
-    height: parent.height
-    color: "transparent"
-    clip: true
-    property int processVal: 0
-    ColumnLayout {
+
+    Rectangle {
+        id: checkRoot
         width: parent.width
-     //   Layout.fillHeight: true
-        spacing: 10
+        height: 438
+        color: "transparent"
+        clip: true
+        property int processVal: 0
+        visible: true
+        ColumnLayout {
+            width: parent.width
+            spacing: 10
 
-        anchors.centerIn: parent
-        Image {
-            Layout.alignment: Qt.AlignHCenter
-            visible: true
-            source: dccData.model().checkUpdateIcon
-        }
-
-        D.ProgressBar {
-            Layout.alignment: Qt.AlignHCenter
-            id: process
-            from: 0
-            to: 100
-            value: processVal
-            implicitHeight: 8
-            implicitWidth: 160
-            visible:dccData.model().checkProcessRunning
-        }
-
-        D.Label {
-            Layout.alignment: Qt.AlignHCenter
-            width: implicitWidth
-            text: dccData.model().checkUpdateStateTips
-            font.pixelSize: 12
-        }
-
-        D.Button {
-            Layout.alignment: Qt.AlignHCenter
-            implicitWidth: 200
-            font.pixelSize: 14
-            visible:!dccData.model().checkProcessRunning
-            text: (dccData.model().checkUpdateState === 1 && !dccData.model().checkProcessRunning) ? qsTr("Check Again") : qsTr("Check for Updates")
-            onClicked: {
-                dccData.work().checkUpgrade();
+            anchors.centerIn: parent
+            Image {
+                Layout.alignment: Qt.AlignHCenter
+                visible: true
+                source: dccData.model().checkUpdateIcon
             }
-        }
 
-        D.Label {
-            visible: false
-            Layout.alignment: Qt.AlignHCenter
-            text: qsTr("Last checking time")
-            font.pixelSize: 10
-        }
+            D.ProgressBar {
+                Layout.alignment: Qt.AlignHCenter
+                id: process
+                from: 0
+                to: 1
+                value: dccData.model().checkUpdateProgress
+                implicitHeight: 8
+                implicitWidth: 160
+                visible: dccData.model().checkUpdateState == 0
+            }
 
-        Timer {
-            id: timer
-            interval: 50
-            repeat: true    // 设置为重复
-            running: dccData.model().checkProcessRunning
-            onTriggered: {
-                processVal++
-                if (processVal > 100) {
-                    dccData.work().checkProcessStop();
-                    processVal = 0
+            D.Label {
+                Layout.alignment: Qt.AlignHCenter
+                width: implicitWidth
+                text: dccData.model().checkUpdateStateTips
+                font.pixelSize: 12
+            }
+
+            D.Button {
+                Layout.alignment: Qt.AlignHCenter
+                implicitWidth: 200
+                font.pixelSize: 14
+                visible: dccData.model().checkUpdateState != 0
+                text: dccData.model().checkUpdateState === 1 ? qsTr("Check Again") : qsTr("Check for Updates")
+                onClicked: {
+                    dccData.work().checkUpgrade();
                 }
             }
-        }
-    }
-}
 
+            D.Label {
+                visible: false
+                Layout.alignment: Qt.AlignHCenter
+                text: qsTr("Last checking time")
+                font.pixelSize: 10
+            }
+        }
+
+        Component.onCompleted: {
+            console.log(" checkUpdate :", dccData.model().upgradable)
+            dccData.work().checkUpgrade();
+        }
+   }
+
+}
 

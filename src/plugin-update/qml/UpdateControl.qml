@@ -8,115 +8,128 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
-DccObject {
-    DccObject {
-        name: "updateCtl"
-        parentName: "checkUpdate"
-        backgroundType: DccObject.AutoBg
-        weight: 10
-        visible: dccData.model().showUpdateCtl
-        pageType: DccObject.Item
+ColumnLayout {
+    id: rootLayout
+    property alias updateListModels: updatelistModel.model;
 
-        page: RowLayout {
-            ColumnLayout {
-                RowLayout {
-                    spacing: 0
-                    DccCheckIcon {
-                        visible: dccData.model().updateState === "success"
-                        checked: true
-                        size: 18
-                    }
-
-                    D.Label {
-                        Layout.leftMargin: 10
-                        font.pixelSize: 18
-                        font.bold: true
-                        text: dccData.model().updateStateTips
-                    }
+    width: parent.width
+    RowLayout {
+        Layout.preferredWidth: parent.width
+        ColumnLayout {
+            Layout.leftMargin: 22
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
+            spacing: 5
+            RowLayout {
+                spacing: 5
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                DccCheckIcon {
+                    visible: dccData.model().distUpgradeState === 3
+                    checked: true
+                    size: 18
                 }
 
                 D.Label {
-                    visible: false
-                    text: qsTr("预计安装时间：30min")
-                    font.pixelSize: 12
+                    font.pixelSize: 16
+                    font.bold: true
+                    text: dccData.model().updateStateTips
                 }
             }
 
-            D.Button {
-                id: actionBtn
-                Layout.alignment: Qt.AlignRight
-                text: dccData.model().actionBtnText
-                font.pixelSize: 14
-                implicitWidth: DS.Style.control.contentImplicitWidth(actionBtn) + 10
-                visible: dccData.model().updateState !== "upgrading"
-                onClicked: {
-                    dccData.work().onActionBtnClicked();
-                }
-            }
-
-            D.BusyIndicator {
-                id: scanAnimation
-
-                Layout.alignment: Qt.AlignRight
-                running: dccData.model().updateState === "upgrading"
-                visible: dccData.model().updateState === "upgrading"
-                implicitWidth: 32
-                implicitHeight: 32
-            }
-
-            ColumnLayout {
+            RowLayout {
+                spacing: 5
                 visible: false
-                Layout.alignment: Qt.AlignRight
-
-                RowLayout {
-                    spacing: 10
-                    D.ProgressBar {
-                        id: process
-
-                        Layout.alignment: Qt.AlignHCenter
-                        from: 0
-                        to: 100
-                        value: 45
-                        implicitHeight: 8
-                        implicitWidth: 240
-                    }
-
-                    D.DciIcon {
-                        name: "qrc:/icons/deepin/builtin/icons/update_stop.png"
-                        width: 16
-                        height: 16
-                    }
-
-                    D.DciIcon {
-                        name: "qrc:/icons/deepin/builtin/icons/update_close.png"
-                        width: 16
-                        height: 16
-                    }
-                }
-
-                Label {
-                    text: qsTr("Installing") + process.value + "%"
+                D.Label {
+                    text: qsTr("Expected installation time:")
                     font.pixelSize: 12
                 }
+
+                D.Label {
+                    text: qsTr("30min")
+                    font.pixelSize: 12
+                }
+            }
+        }
+
+        D.Button {
+            Layout.rightMargin: 12
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            text: dccData.model().actionBtnText
+            font.pixelSize: 14
+            implicitWidth: 120
+            implicitHeight: 30
+            visible: dccData.model().distUpgradeState !== 1
+            onClicked: {
+                dccData.work().onActionBtnClicked();
+            }
+        }
+
+        D.BusyIndicator {
+            id: scanAnimation
+
+            Layout.alignment: Qt.AlignRight
+            running: dccData.model().distUpgradeState === 1
+            visible: dccData.model().distUpgradeState === 1
+            implicitWidth: 32
+            implicitHeight: 32
+        }
+
+        ColumnLayout {
+            visible: false
+           // visible: dccData.model().distUpgradeState === 1
+            Layout.rightMargin: 12
+            Layout.alignment: Qt.AlignRight
+
+            RowLayout {
+                id: progressCtl
+                spacing: 10
+                Layout.alignment: Qt.AlignRight
+                D.ProgressBar {
+                    id: process
+                    Layout.alignment: Qt.AlignHCenter
+                    from: 0
+                    to: 100
+                    value: 45
+                    implicitHeight: 8
+                    implicitWidth: 240
+                }
+
+                D.DciIcon {
+                    id: stratIcon
+                    name: "qrc:/icons/deepin/builtin/icons/update_stop.png"
+                    width: 16
+                    height: 16
+                }
+
+                D.DciIcon {
+                    id: stopIcon
+                    name: "qrc:/icons/deepin/builtin/icons/update_close.png"
+                    width: 16
+                    height: 16
+                }
+            }
+
+            Label {
+                Layout.alignment: Qt.AlignRight
+                Layout.rightMargin: stratIcon.width + stopIcon.width + progressCtl.spacing * 2
+                width: parent.width
+                text: qsTr("Installing") + process.value + "%"
+                font.pixelSize: 12
             }
         }
     }
 
-    DccObject {
-        name: "updateList"
-        parentName: "checkUpdate"
-        backgroundType: DccObject.Normal
-        weight: 20
-        visible: dccData.model().showUpdateCtl
-        pageType: DccObject.Item
+    Rectangle {
+        height: 1
+        color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+            Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+        Layout.leftMargin: 10
+        Layout.rightMargin: 10
+        Layout.fillWidth: true
+    }
 
-        page: UpdateList {
-            model: ListModel {
-                ListElement {
-                    name: qsTr("Feature Updates")
-                    checked: true
-                }
-            }
-        }
+    UpdateList {
+        id: updatelistModel
+
     }
 }
