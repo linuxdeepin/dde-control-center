@@ -4901,6 +4901,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
@@ -5070,6 +5074,69 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Failed to update</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScreenSaverPage</name>
+    <message>
+        <source>Personalized screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idle time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password required for recovery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Picture slideshow screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>setting</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6450,55 +6517,83 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>wave of the blue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>auto change wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>每周推荐</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>炫彩</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>屏保</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>照片</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>闲置时间</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Wallapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My pictures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid color wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customizable wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fill style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic wallpaper change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3 second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>30 second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wake up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Live Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7351,10 +7446,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7372,6 +7463,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Change system font and size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

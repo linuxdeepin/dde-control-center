@@ -4916,6 +4916,10 @@ In order to better use of face recognition, please pay attention to the followin
         <source>, </source>
         <translation>、</translation>
     </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
+        <translation>当前系统壁纸已被锁定，请联系管理员</translation>
+    </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
@@ -5086,6 +5090,69 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Failed to update</source>
         <translation>更新失败</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenSaverPage</name>
+    <message>
+        <source>Personalized screensaver</source>
+        <translation>个性化屏保</translation>
+    </message>
+    <message>
+        <source>idle time</source>
+        <translation>闲置时间</translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation>1分钟</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation>5分钟</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation>10分钟</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation>15分钟</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation>30分钟</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1小时</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>从不</translation>
+    </message>
+    <message>
+        <source>Password required for recovery</source>
+        <translation>恢复时需要密码</translation>
+    </message>
+    <message>
+        <source>Picture slideshow screensaver</source>
+        <translation>图片轮播屏保</translation>
+    </message>
+    <message>
+        <source>System screensaver</source>
+        <translation>系统屏保</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>屏幕保护</translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation>全屏预览</translation>
+    </message>
+    <message>
+        <source>setting</source>
+        <translation>设置</translation>
     </message>
 </context>
 <context>
@@ -6465,56 +6532,84 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>窗口圆角</translation>
     </message>
     <message>
-        <source>Select Screen</source>
-        <translation>选择屏幕</translation>
-    </message>
-    <message>
-        <source>wave of the blue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>auto change wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>每周推荐</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>炫彩</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>屏保</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>照片</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-    <message>
-        <source>闲置时间</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
         <source>System Wallapers</source>
         <translation>系统壁纸</translation>
+    </message>
+    <message>
+        <source>My pictures</source>
+        <translation>我的图片</translation>
+    </message>
+    <message>
+        <source>System Wallpaper</source>
+        <translation>系统壁纸</translation>
+    </message>
+    <message>
+        <source>Solid color wallpaper</source>
+        <translation>纯色壁纸</translation>
+    </message>
+    <message>
+        <source>Customizable wallpapers</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>fill style</source>
+        <translation>填充方式</translation>
+    </message>
+    <message>
+        <source>Automatic wallpaper change</source>
+        <translation>自动切换壁纸</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>从不</translation>
+    </message>
+    <message>
+        <source>3 second</source>
+        <translation>3秒</translation>
+    </message>
+    <message>
+        <source>30 second</source>
+        <translation>30秒</translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation>1分钟</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation>5分钟</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation>10分钟</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation>15分钟红</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation>30分钟</translation>
+    </message>
+    <message>
+        <source>1 hover</source>
+        <translation>1小时</translation>
+    </message>
+    <message>
+        <source>login</source>
+        <translation>登录时</translation>
+    </message>
+    <message>
+        <source>wake up</source>
+        <translation>唤醒时</translation>
+    </message>
+    <message>
+        <source>Live Wallpaper</source>
+        <translation>动态壁纸</translation>
     </message>
 </context>
 <context>
@@ -7366,10 +7461,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>界面和效果、窗口圆角、紧凑模式</translation>
     </message>
     <message>
-        <source>Wallpaper and screensaver</source>
-        <translation>壁纸和屏保</translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation>个性化您的壁纸和屏保</translation>
     </message>
@@ -7388,6 +7479,14 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Change system font and size</source>
         <translation>修改系统字体与字号</translation>
+    </message>
+    <message>
+        <source>wallpaper</source>
+        <translation>壁纸</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>屏幕保护</translation>
     </message>
 </context>
 <context>
