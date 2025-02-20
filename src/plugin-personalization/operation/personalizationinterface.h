@@ -1,6 +1,7 @@
 //SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef PERSIONALIZATIONINTERFACE_H
 #define PERSIONALIZATIONINTERFACE_H
 
@@ -9,20 +10,6 @@
 #include "personalizationworker.h"
 #include "personalizationmodel.h"
 #include "imagehelper.h"
-
-class PersonalizationExport : public QObject
-{
-    Q_OBJECT
-public:
-    enum ModuleType {
-        Root = 0,
-        Theme,
-        Wallpaper,
-        ScreenSaver
-    };
-
-    Q_ENUM(ModuleType)
-};
 
 class ThemeVieweModel : public QAbstractItemModel
 {

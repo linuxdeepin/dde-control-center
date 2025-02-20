@@ -23,6 +23,8 @@
     <qresource prefix="/">
         <file>icons/download_more_light.png</file>
         <file>icons/download_more_dark.png</file>
+        <file>icons/slideshow_default_preview.webp</file>
+        <file>icons/slideshow_default.dci</file>
     </qresource>
 
     <qresource prefix="/dsg">
@@ -34,6 +36,7 @@
         <file>icons/icon_cursor.dci</file>
         <file>icons/taskbar.dci</file>
         <file>icons/wallpaper.dci</file>
+        <file>icons/screensaver.dci</file>
         <file>icons/window_effect.dci</file>
         <file>icons/theme_icon.dci</file>
         <file>icons/topic_cursor.dci</file>
@@ -41,5 +44,7 @@
 	    <file>icons/close.dci</file>
         <file>icons/arrow_left.dci</file>
         <file>icons/arrow_right.dci</file>
+        <file>icons/wallpaper_add.dci</file>
+        <file>icons/wallpaper_addcolor.dci</file>
     </qresource>
 </RCC>

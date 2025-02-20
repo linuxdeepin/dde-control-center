@@ -21,6 +21,18 @@ const QString EffectsService = QStringLiteral("org.kde.KWin");
 const QString EffectsPath = QStringLiteral("/Effects");
 const QString EffectsInterface = QStringLiteral("org.kde.kwin.Effects");
 
+const QString DaemonService = QStringLiteral("org.deepin.dde.Daemon1");
+const QString DaemonPath = QStringLiteral("/org/deepin/dde/Daemon1");
+const QString DaemonInterface = QStringLiteral("org.deepin.dde.Daemon1");
+
+const QString ScreenSaverServive = QStringLiteral("com.deepin.ScreenSaver");
+const QString ScreenSaverPath = QStringLiteral("/com/deepin/ScreenSaver");
+const QString ScreenSaverInterface = QStringLiteral("com.deepin.ScreenSaver");
+
+const QString WallpaperSlideshowService = QStringLiteral("org.deepin.dde.WallpaperSlideshow");
+const QString WallpaperSlideshowPath = QStringLiteral("/org/deepin/dde/WallpaperSlideshow");
+const QString WallpaperSlideshowInterface = QStringLiteral("org.deepin.dde.WallpaperSlideshow");
+
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
@@ -30,6 +42,9 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     : QObject(parent)
 {
     m_AppearanceInter = new QDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
+    m_DaemonInter = new QDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
+    m_screenSaverInter = new QDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
+    m_wallpaperSlideshowInter = new QDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
@@ -38,6 +53,8 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     }
     
     QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(ScreenSaverServive, ScreenSaverPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
     connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
@@ -144,12 +161,22 @@ void PersonalizationDBusProxy::setStandardFont(const QString &value)
 
 QString PersonalizationDBusProxy::wallpaperSlideShow()
 {
-    return qvariant_cast<QString>(m_AppearanceInter->property("WallpaperSlideShow"));
+    return qvariant_cast<QString>(m_wallpaperSlideshowInter->property("WallpaperSlideShow"));
 }
 
-void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &value)
+QString PersonalizationDBusProxy::wallpaperSlideShow(const QString &monitorName)
 {
-    m_AppearanceInter->setProperty("WallpaperSlideShow", QVariant::fromValue(value));
+    return QDBusPendingReply<QString>(m_wallpaperSlideshowInter->asyncCall(QStringLiteral("GetWallpaperSlideShow"), QVariant::fromValue(monitorName)));
+}
+
+void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &monitorName, const QString &slideShow)
+{
+    m_wallpaperSlideshowInter->asyncCall("SetWallpaperSlideShow", QVariant::fromValue(monitorName), QVariant::fromValue(slideShow));
+}
+
+void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &wallpaperSlideShow)
+{
+    m_wallpaperSlideshowInter->setProperty("WallpaperSlideShow", QVariant::fromValue(wallpaperSlideShow));
 }
 
 int PersonalizationDBusProxy::windowRadius()
@@ -237,6 +264,93 @@ void PersonalizationDBusProxy::SetGreeterBackground(const QString &url)
 QString PersonalizationDBusProxy::getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName)
 {
     return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), screenName));
+}
+
+// Daemon
+void PersonalizationDBusProxy::deleteCustomWallpaper(const QString &userName, const QString &url)
+{
+    m_DaemonInter->asyncCall(QStringLiteral("DeleteCustomWallPaper"), QVariant::fromValue(userName), QVariant::fromValue(url));
+}
+
+QString PersonalizationDBusProxy::saveCustomWallpaper(const QString &userName, const QString &url)
+{
+    return QDBusPendingReply<QString>(m_DaemonInter->asyncCall(QStringLiteral("SaveCustomWallPaper"), QVariant::fromValue(userName), QVariant::fromValue(url)));
+}
+
+QStringList PersonalizationDBusProxy::getCustomWallpaper(const QString &userName)
+{
+    return QDBusPendingReply<QStringList>(m_DaemonInter->asyncCall(QStringLiteral("GetCustomWallPapers"), QVariant::fromValue(userName)));
+}
+
+// screenSaver
+QStringList PersonalizationDBusProxy::getAllscreensaver()
+{
+    return qvariant_cast<QStringList>(m_screenSaverInter->property("allScreenSaver"));
+}
+
+QString PersonalizationDBusProxy::GetScreenSaverCover(const QString &name)
+{
+    return QDBusPendingReply<QString>(m_screenSaverInter->asyncCall(QStringLiteral("GetScreenSaverCover"), QVariant::fromValue(name)));
+}
+
+QStringList PersonalizationDBusProxy::ConfigurableItems()
+{
+    return QDBusPendingReply<QStringList>(m_screenSaverInter->asyncCall(QStringLiteral("ConfigurableItems")));
+}
+
+void PersonalizationDBusProxy::setCurrentScreenSaver(const QString &value)
+{
+    m_screenSaverInter->setProperty("currentScreenSaver", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::getCurrentScreenSaver()
+{
+    return qvariant_cast<QString>(m_screenSaverInter->property("currentScreenSaver"));
+}
+
+void PersonalizationDBusProxy::startScreenSaver()
+{
+    m_screenSaverInter->asyncCall(QStringLiteral("Start"));
+}
+
+void PersonalizationDBusProxy::stopScreenSaver()
+{
+    m_screenSaverInter->asyncCall(QStringLiteral("Stop"));
+}
+
+void PersonalizationDBusProxy::setLinePowerScreenSaverTimeout(int value)
+{
+    m_screenSaverInter->setProperty("linePowerScreenSaverTimeout", QVariant::fromValue(value));
+}
+
+void PersonalizationDBusProxy::setBatteryScreenSaverTimeout(int value)
+{
+    m_screenSaverInter->setProperty("batteryScreenSaverTimeout", QVariant::fromValue(value));
+}
+
+int PersonalizationDBusProxy::getLinePowerScreenSaverTimeout()
+{
+    return qvariant_cast<int>(m_screenSaverInter->property("linePowerScreenSaverTimeout"));
+}
+
+int PersonalizationDBusProxy::getBatteryScreenSaverTimeout()
+{
+    return qvariant_cast<int>(m_screenSaverInter->property("batteryScreenSaverTimeout"));
+}
+
+void PersonalizationDBusProxy::requestScreenSaverConfig(const QString& name)
+{
+    m_screenSaverInter->asyncCall(QStringLiteral("StartCustomConfig"), QVariant::fromValue(name));
+}
+
+bool PersonalizationDBusProxy::getLockScreenAtAwake()
+{
+    return qvariant_cast<bool>(m_screenSaverInter->property("lockScreenAtAwake"));
+}
+
+void PersonalizationDBusProxy::setLockScreenAtAwake(bool value)
+{
+    m_screenSaverInter->setProperty("lockScreenAtAwake", QVariant::fromValue(value));
 }
 
 // WM

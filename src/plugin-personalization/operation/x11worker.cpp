@@ -112,6 +112,22 @@ void X11Worker::setMiniEffect(int effect)
     }
 }
 
+void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
+{
+    if (checkWallpaperLockStatus()) {
+        return;
+    }
+
+    if (option == PersonalizationExport::Option_Desktop) {
+        setBackgroundForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_Lock) {
+        setLockBackForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_All) {
+        setBackgroundForMonitor(screen, url, isDark);
+        setLockBackForMonitor(screen, url, isDark);
+    }
+}
+
 void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark)
 {
     Q_UNUSED(isDark)

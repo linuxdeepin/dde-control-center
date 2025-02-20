@@ -1,14 +1,15 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtQuick.Dialogs
 import Qt5Compat.GraphicalEffects
 
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
+import org.deepin.dcc.personalization 1.0
 
 DccObject {
     DccTitleObject {
@@ -17,6 +18,46 @@ DccObject {
         parentName: "personalization/wallpaper"
         displayName: qsTr("wallpaper")
     }
+
+
+    DccObject {
+        name: "screenTab"
+        parentName: "personalization/wallpaper"
+        weight: 50
+        pageType: DccObject.Item
+        visible: dccData.model.screens.length > 1
+        page: ScreenTab {
+            id: screemTab
+            model: dccData.model.screens
+            screen: dccData.model.currentSelectScreen
+            onScreenChanged: {
+                if (screen !== dccData.model.currentSelectScreen) {
+                    dccData.model.currentSelectScreen = screen
+                    if (true) {
+                        indicator.createObject(this, {
+                                                "screen": getQtScreen(screemTab.screen)
+                                            }).show()
+                    }
+                }
+            }
+
+            Component {
+                id: indicator
+                ScreenIndicator {}
+            }
+
+            function getQtScreen(s) {
+                var screen = dccData.worker.getScreen(s)
+                for (var s of Qt.application.screens) {
+                    if (screen.name === s.name) {
+                        return s
+                    }
+                }
+                return null
+            }
+        }
+    }
+
     DccObject {
         name: "wallpaperStatusGroup"
         parentName: "personalization/wallpaper"
@@ -43,6 +84,7 @@ DccObject {
                     visible: false
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
+                    retainWhileLoading: true
                 }
 
                 OpacityMask {
@@ -75,102 +117,114 @@ DccObject {
             DccObject {
                 name: "whenTheLidIsClosed"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: qsTr("Select Screen")
-                weight: 10
-                pageType: DccObject.Editor
-                page: D.ComboBox {
-                    flat: true
-                    implicitWidth: 150
-                    implicitHeight: 30
-                    model: dccData.model.screens
-                    onCurrentTextChanged: {
-                        dccData.model.currentSelectScreen = currentText
+                displayName: {
+                    let cutUrl = dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+                    if (dccData.model.customWallpaperModel.hasWallpaper(cutUrl)) {
+                        return qsTr("My pictures")
+                    } else if (dccData.model.sysWallpaperModel.hasWallpaper(cutUrl)) {
+                        return qsTr("System Wallpaper")
+                    } else if (dccData.model.solidWallpaperModel.hasWallpaper(cutUrl)) {
+                        return qsTr("Solid color wallpaper")
+                    } else {
+                        return qsTr("Customizable wallpapers")
                     }
                 }
+                pageType: DccObject.Editor
+                weight: 10
             }
             DccObject {
                 name: "whenTheLidIsClosed"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: qsTr("wave of the blue")
+                displayName: qsTr("fill style")
                 visible: false
                 weight: 100
                 pageType: DccObject.Editor
                 page: D.ComboBox {
                     width: 100
                     flat: true
-                    model: ["full screen"]
+                    model: ["adapt"]
                 }
             }
             DccObject {
                 name: "whenTheLidIsClosed"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: qsTr("auto change wallpaper")
-                visible: false
+                displayName: qsTr("Automatic wallpaper change")
                 weight: 200
                 pageType: DccObject.Editor
-                page: D.ComboBox {
-                    width: 100
+                page: CustomComboBox {
+                    implicitWidth: 170
                     flat: true
-                    model: ["none"]
-                }
-            }
-        }
-
-        DccObject {
-            name: "wallpaperSetButtonGroup"
-            parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
-            weight: 300
-            pageType: DccObject.Item
-            page: DccGroupView {
-                isGroup: false
-            }
-
-            DccObject {
-                name: "wallpaperSetButton"
-                parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetButtonGroup"
-                weight: 2
-                pageType: DccObject.Item
-                page: RowLayout {
-                    Item {
-                        Layout.fillWidth: true
+                    textRole: "text"
+                    currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])
+                    model: ListModel {
+                        ListElement { text: qsTr("never"); value: "" }
+                        ListElement { text: qsTr("3 second"); value: "3" }
+                        ListElement { text: qsTr("30 second"); value: "30" }
+                        ListElement { text: qsTr("1 minute"); value: "60" }
+                        ListElement { text: qsTr("5 minute"); value: "300" }
+                        ListElement { text: qsTr("10 minute"); value: "600" }
+                        ListElement { text: qsTr("15 minute"); value: "900" }
+                        ListElement { text: qsTr("30 minute"); value: "1800" }
+                        ListElement { text: qsTr("1 hover"); value: "3600" }
+                        ListElement { text: qsTr("login"); value: "login" }
+                        ListElement { text: qsTr("wake up"); value: "wakeup" }
                     }
-                    D.Button {
-                        visible: false
-                        text: "Add Image"
-                    }
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    D.Button {
-                        visible: false
-                        text: "Add Folder"
-                    }
-                    Item {
-                        Layout.fillWidth: true
+                    onCurrentIndexChanged: {
+                        if (indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen]) !== currentIndex) {
+                            dccData.worker.setWallpaperSlideShow(dccData.model.currentSelectScreen, model.get(currentIndex).value)
+                        }
                     }
                 }
             }
-
         }
     }
+
     DccObject {
         name: "screenAndSuspendTitle"
         parentName: "personalization/wallpaper"
-        // displayName: qsTr("你的图片")
-        displayName: qsTr("System Wallapers")
-        weight: 300
+        displayName: qsTr("My pictures")
+        weight: 400
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
-            model: dccData.model.wallpaperModel
+            firstItemImgSource: "wallpaper_add"
+            model: dccData.model.customWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-            onWallpaperSelected: (url, isDark, isLock) => {
-                                     if (isLock) {
-                                         dccData.worker.setLockBackForMonitor(dccData.model.currentSelectScreen, url, isDark)
-                                     } else {
-                                         dccData.worker.setBackgroundForMonitor(dccData.model.currentSelectScreen, url, isDark)
-                                     }
+            onFirstItemClicked: {
+                customWallpaperFileDialog.open()
+            }
+            onWallpaperSelected: (url, isDark, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
+                                 }
+            
+            onWallpaperDeleteClicked: (url) => {
+                dccData.worker.deleteWallpaper(url)
+            }
+
+            FileDialog {
+                id: customWallpaperFileDialog
+                title: "Choose an Image File"
+                nameFilters: ["Image files (*.png *.jpg *.jpeg *.bmp *.gif *.svg)", "All files (*)"]
+                fileMode: FileDialog.OpenFile
+                onSelectedFilesChanged: {
+                    dccData.worker.addCustomWallpaper(customWallpaperFileDialog.selectedFile)
+                }
+            }
+        }
+    }
+
+    DccObject {
+        name: "screenAndSuspendTitle"
+        parentName: "personalization/wallpaper"
+        displayName: qsTr("System Wallapers")
+        weight: 500
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: WallpaperSelectView {
+            model: dccData.model.sysWallpaperModel
+            currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+            onWallpaperSelected: (url, isDark, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
                                  }
         }
     }
@@ -178,196 +232,46 @@ DccObject {
     DccObject {
         name: "screenAndSuspendTitle"
         parentName: "personalization/wallpaper"
-        displayName: qsTr("每周推荐")
-        weight: 300
         visible: false
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Item
-        page: WallpaperSelectView {
-            model: 10
-        }
-    }
-
-    DccObject {
-        name: "screenAndSuspendTitle"
-        parentName: "personalization/wallpaper"
-        displayName: qsTr("炫彩")
-        weight: 300
-        visible: false
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Item
-        page: WallpaperSelectView {
-            model: 34
-        }
-    }
-
-    DccObject {
-        name: "screenAndSuspendTitle"
-        parentName: "personalization/wallpaper"
-        displayName: qsTr("颜色")
-        visible: false
-        weight: 300
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Item
-        page: WallpaperSelectView {
-            model: 20
-        }
-    }
-
-    DccTitleObject {
-        name: "sreenSaverTitle"
-        weight: 400
-        visible: false
-        parentName: "personalization/wallpaper"
-        displayName: qsTr("屏保")
-    }
-    DccObject {
-        name: "sreenSaverStatusGroup"
-        parentName: "personalization/wallpaper"
-        weight: 500
-        visible: false
-        pageType: DccObject.Item
-        page: DccRowView { }
-    }
-
-    DccObject {
-        name: "sreenSaverDisplayArea"
-        parentName: "personalization/wallpaper/sreenSaverStatusGroup"
+        displayName: qsTr("Live Wallpaper")
         weight: 600
-        visible: false
-        pageType: DccObject.Item
-        page: RowLayout {
-            Item {
-                width: 270
-                height: 180
-
-                Image {
-                    anchors.fill: parent
-                    id: screenSaverimage
-                    source: "file:///usr/share/wallpapers/deepin/cristina-gottardi-wndpWTiDuT0-unsplash.jpg"
-                    visible: false
-                    fillMode: Image.PreserveAspectCrop
-                }
-
-                OpacityMask {
-                    anchors.fill: parent
-                    source: screenSaverimage
-                    maskSource: Rectangle {
-                        implicitWidth: screenSaverimage.width
-                        implicitHeight: screenSaverimage.height
-                        radius: 6
-                    }
-                }
-            }
-        }
-    }
-    DccObject {
-        name: "sreenSaverSetGroup"
-        parentName: "personalization/wallpaper/sreenSaverStatusGroup"
-        weight: 700
-        visible: false
-        pageType: DccObject.Item
-        page: DccGroupView {  }
-
-        DccObject {
-            name: "whenTheLidIsClosed"
-            parentName: "personalization/wallpaper/sreenSaverStatusGroup/sreenSaverSetGroup"
-            displayName: qsTr("照片")
-            weight: 10
-            pageType: DccObject.Editor
-            page: D.Button {
-                text: "设置"
-                onClicked: {
-                    screenSaverDialog.show()
-                }
-
-                D.DialogWindow {
-                    id: screenSaverDialog
-                    minimumWidth: 400
-                    minimumHeight: 220
-                    title: "照片设置"
-
-                    ColumnLayout {
-                        anchors.fill: parent
-                        anchors.topMargin: 10
-                        GridLayout {
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            rows:3
-                            columns: 2
-                            Label {
-                                text: "来源:"
-                            }
-
-                            D.TextField {
-                                Layout.fillWidth: true
-                            }
-                            Label {
-                                text: "来源:"
-                            }
-
-                            D.TextField {
-                                Layout.fillWidth: true
-                            }
-                            Item {}
-                            D.CheckBox {
-                                text: "随机排列图片的顺序"
-                            }
-                        }
-
-                        D.DialogButtonBox {
-                            Layout.fillWidth: true
-                            alignment: Qt.AlignCenter
-                            standardButtons: DialogButtonBox.NoButton
-                            Button {
-                                text: qsTr("Cancel")
-                                DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
-                            }
-                            Button {
-                                text: qsTr("Save")
-                                highlighted: true
-                                DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        DccObject {
-            name: "whenTheLidIsClosed"
-            parentName: "personalization/wallpaper/sreenSaverStatusGroup/sreenSaverSetGroup"
-            displayName: qsTr("闲置时间")
-            weight: 100
-            pageType: DccObject.Editor
-            page: D.ComboBox {
-                width: 100
-                flat: true
-                model: ["闲置时间"]
-            }
-        }
-        DccObject {
-            name: "whenTheLidIsClosed"
-            parentName: "personalization/wallpaper/sreenSaverStatusGroup/sreenSaverSetGroup"
-            displayName: qsTr("auto change wallpaper")
-            weight: 200
-            pageType: DccObject.Editor
-            page: D.ComboBox {
-                width: 100
-                flat: true
-                model: ["30分钟"]
-            }
-        }
-    }
-    DccObject {
-        name: "screenAndSuspendTitle"
-        parentName: "personalization/wallpaper"
-        displayName: qsTr("炫彩")
-        visible: false
-        weight: 800
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
-            model: 9
+            // model: dccData.model.wallpaperModel
+        }
+    }
+
+    DccObject {
+        name: "screenAndSuspendTitle"
+        parentName: "personalization/wallpaper"
+        displayName: qsTr("Solid color wallpaper")
+        weight: 600
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: WallpaperSelectView {
+            firstItemImgSource: "wallpaper_addcolor"
+            model: dccData.model.solidWallpaperModel
+            currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+            onWallpaperSelected: (url, isDark, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
+                                 }
+            onFirstItemClicked: {
+                colorDialog.open()
+            }
+            onWallpaperDeleteClicked: (url) => {
+                dccData.worker.deleteWallpaper(url)
+            }
+            DccColorDialog {
+                id: colorDialog
+                anchors.centerIn: Overlay.overlay
+                popupType: Popup.Item
+                width: 300
+                height: 300
+                onAccepted: {
+                    dccData.worker.addSolidWallpaper(colorDialog.color)
+                }
+            }
         }
     }
 }

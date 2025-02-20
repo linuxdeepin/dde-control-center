@@ -45,9 +45,14 @@ public:
     Q_PROPERTY(QString StandardFont READ standardFont WRITE setStandardFont NOTIFY StandardFontChanged)
     QString standardFont();
     void setStandardFont(const QString &value);
-    Q_PROPERTY(QString WallpaperSlideShow READ wallpaperSlideShow WRITE setWallpaperSlideShow NOTIFY WallpaperSlideShowChanged)
+
+    // wallpaperSlideshow
+    Q_PROPERTY(QString WallpaperSlideShow WRITE setWallpaperSlideShow READ wallpaperSlideShow NOTIFY WallpaperSlideShowChanged)
     QString wallpaperSlideShow();
-    void setWallpaperSlideShow(const QString &value);
+    QString wallpaperSlideShow(const QString &monitorName);
+    void setWallpaperSlideShow(const QString &monitorName, const QString &sliderShow);
+    void setWallpaperSlideShow(const QString &wallpaperSlideShow);
+
     Q_PROPERTY(int WindowRadius READ windowRadius WRITE setWindowRadius NOTIFY WindowRadiusChanged)
     int windowRadius();
     void setWindowRadius(int value);
@@ -82,6 +87,35 @@ public:
     QString getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName);
 
     void SetGreeterBackground(const QString &url);
+    
+    // daemon
+    QString saveCustomWallpaper(const QString &userName, const QString &url);
+    void deleteCustomWallpaper(const QString &userName, const QString &url);
+    QStringList getCustomWallpaper(const QString &userName);
+
+    // screenSaver
+    QStringList getAllscreensaver();
+
+    void setCurrentScreenSaver(const QString &value);
+    QString getCurrentScreenSaver();
+
+    void setLockScreenAtAwake(bool value);
+    bool getLockScreenAtAwake();
+
+    void startScreenSaver();
+    void stopScreenSaver();
+
+    void setLinePowerScreenSaverTimeout(int value);
+    void setBatteryScreenSaverTimeout(int value);
+
+    int getLinePowerScreenSaverTimeout();
+    int getBatteryScreenSaverTimeout();
+
+    void requestScreenSaverConfig(const QString& name);
+
+    QStringList ConfigurableItems();
+
+    QString GetScreenSaverCover(const QString &name);
 
 signals:
     // Appearance
@@ -113,6 +147,12 @@ signals:
     void DTKSizeModeChanged(int value) const;
     void scrollBarPolicyChanged(int value) const;
     void WallpaperURlsChanged(QString) const;
+    // screenSaver
+    void allscreensaverChanged(const QStringList &value);
+    void currentScreenSaverChanged(const QString &value);
+    void lockScreenAtAwakeChanged(bool value);
+    void linePowerScreenSaverTimeoutChanged(int value);
+    void batteryScreenSaverTimeoutChanged(int value);
 
 public slots:
     // Appearance
@@ -123,13 +163,13 @@ public slots:
     bool Show(const QString &ty, const QStringList &names, QObject *receiver, const char *member);
     QString Thumbnail(const QString &ty, const QString &name);
     bool Thumbnail(const QString &ty, const QString &name, QObject *receiver, const char *member, const char *errorSlot);
+    QString activeColors();
+    void setActiveColors(const QString &activeColors);
     // Effects
     bool loadEffect(const QString &name);
     void unloadEffect(const QString &name);
     bool isEffectLoaded(const QString &name);
     bool isEffectLoaded(const QString &name, QObject *receiver, const char *member);
-    QString activeColors();
-    void setActiveColors(const QString &activeColors);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);
@@ -138,6 +178,9 @@ private:
     QDBusInterface *m_AppearanceInter = nullptr;
     QDBusInterface *m_WMInter = nullptr;
     QDBusInterface *m_EffectsInter = nullptr;
+    QDBusInterface *m_DaemonInter = nullptr;
+    QDBusInterface *m_screenSaverInter = nullptr;
+    QDBusInterface *m_wallpaperSlideshowInter = nullptr;
 };
 
 #endif // PERSONALIZATIONDBUSPROXY_H

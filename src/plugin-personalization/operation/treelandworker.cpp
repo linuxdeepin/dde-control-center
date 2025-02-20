@@ -43,6 +43,22 @@ TreeLandWorker::TreeLandWorker(PersonalizationModel *model, QObject *parent)
 
 #ifdef Enable_Treeland
 
+void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
+{
+    if (checkWallpaperLockStatus()) {
+        return;
+    }
+
+    if (option == PersonalizationExport::Option_Desktop) {
+        setBackgroundForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_Lock) {
+        setLockBackForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_All) {
+        setBackgroundForMonitor(screen, url, isDark);
+        setLockBackForMonitor(screen, url, isDark);
+    }
+}
+
 void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark)
 {
     setWallpaper(monitorName, url, isDark, PersonalizationWallpaperContext::options_background);
@@ -275,6 +291,11 @@ void TreeLandWorker::wallpaperMetaDataChanged(const QString &data)
 void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t option)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "isDark:" << isDark << "option:" << option;
+
+    if (checkWallpaperLockStatus()) {
+        return;
+    }
+
     if (!m_wallpaperContext)
         return;
 

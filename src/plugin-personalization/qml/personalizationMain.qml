@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
@@ -126,7 +127,7 @@ DccObject {
     DccObject {
         name: "wallpaper"
         parentName: "personalization"
-        displayName: qsTr("Wallpaper and screensaver")
+        displayName: qsTr("wallpaper")
         description: qsTr("Personalize your wallpaper and screensaver")
         icon: "wallpaper"
         weight: 300
@@ -136,12 +137,21 @@ DccObject {
         WallpaperPage {}
     }
     DccObject {
+        name: "screenSaver"
+        parentName: "personalization"
+        displayName: qsTr("Screensaver")
+        description: qsTr("Personalize your wallpaper and screensaver")
+        icon: "screensaver"
+        weight: 400
+        ScreenSaverPage {}
+    }
+    DccObject {
         name: "colorAndIcons"
         parentName: "personalization"
         displayName: qsTr("Colors and icons")
         description: qsTr("Adjust accent color and theme icons")
         icon: "icon_cursor"
-        weight: 400
+        weight: 500
         ColorAndIcons {}
     }
     DccObject {
@@ -150,7 +160,7 @@ DccObject {
         displayName: qsTr("Font and font size")
         description: qsTr("Change system font and size")
         icon: "font_size"
-        weight: 500
+        weight: 600
         FontSizePage {}
     }
 }

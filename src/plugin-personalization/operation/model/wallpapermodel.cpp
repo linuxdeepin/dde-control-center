@@ -45,7 +45,25 @@ QVariant WallpaperModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case Item_Url_Role:
-        ret = node->item;
+        ret = node->url;
+        break;
+    case Item_PicPath_Role:
+        ret = node->picPath;
+        break;
+    case Item_Thumbnail_Role:
+        ret = node->thumbnail;
+        if (ret.toString().isEmpty()) {
+            ret = node->url;
+        }
+        break;
+    case Item_deleteAble_Role:
+        ret = node->deleteAble;
+        break;
+    case Item_lastModifiedTime_Role:
+        ret = node->lastModifiedTime;
+        break;
+    case Item_configurable_Role:
+        ret = node->configurable;
         break;
     default:
         break;
@@ -58,14 +76,12 @@ Qt::ItemFlags WallpaperModel::flags(const QModelIndex &index) const
     Qt::ItemFlags flg = Qt::NoItemFlags;
     if (auto node = itemNode(index)) {
         flg |= Qt::ItemIsEnabled;
-        if (node->selectable)
-            flg |= Qt::ItemIsSelectable;
     }
 
     return flg;
 }
 
-void WallpaperModel::insertItem(int pos, ItemNodePtr it)
+void WallpaperModel::insertItem(int pos, WallpaperItemPtr it)
 {
     if (pos < 0 || pos > rowCount() || it.isNull())
         pos = rowCount();
@@ -86,7 +102,7 @@ void WallpaperModel::removeItem(const QString &item)
     endRemoveRows();
 }
 
-ItemNodePtr WallpaperModel::itemNode(const QModelIndex &idx) const
+WallpaperItemPtr WallpaperModel::itemNode(const QModelIndex &idx) const
 {
     auto row = idx.row();
     if (row < 0 || row > rowCount())
@@ -97,8 +113,8 @@ ItemNodePtr WallpaperModel::itemNode(const QModelIndex &idx) const
 
 QModelIndex WallpaperModel::itemIndex(const QString &item) const
 {
-    auto it = std::find_if(items.begin(), items.end(), [item](const ItemNodePtr &ptr) {
-        return ptr->item == item;
+    auto it = std::find_if(items.begin(), items.end(), [item](const WallpaperItemPtr &ptr) {
+        return ptr->url == item;
     });
 
     if (it == items.end())
@@ -107,16 +123,43 @@ QModelIndex WallpaperModel::itemIndex(const QString &item) const
     return index(row, 0);
 }
 
-void WallpaperModel::resetData(const QList<ItemNodePtr> &list)
+void WallpaperModel::resetData(const QList<WallpaperItemPtr> &list)
 {
     beginResetModel();
     items = list;
     endResetModel();
 }
 
+QString WallpaperSortModel::getPicPathByUrl(const QString &url) const
+{
+    for(int i = 0; i < sourceModel()->rowCount(); i++) {
+        auto cutIndex = sourceModel()->index(i, 0);
+        if (url == sourceModel()->data(cutIndex, Item_Url_Role).toString()) {
+            return sourceModel()->data(cutIndex, Item_PicPath_Role).toString();
+        }
+    }
+    return {};
+}
+
+bool WallpaperSortModel::getConfigAbleByUrl(const QString &url) const
+{
+    for(int i = 0; i < sourceModel()->rowCount(); i++) {
+        auto cutIndex = sourceModel()->index(i, 0);
+        if (url == sourceModel()->data(cutIndex, Item_Url_Role).toString()) {
+            return sourceModel()->data(cutIndex, Item_configurable_Role).toBool();
+        }
+    }
+    return false;
+}
+
 QHash<int, QByteArray> WallpaperModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();;
     roles[Item_Url_Role] = "url";
+    roles[Item_Thumbnail_Role] = "picPath";
+    roles[Item_Thumbnail_Role] = "thumbnail";
+    roles[Item_deleteAble_Role] = "deleteAble";
+    roles[Item_lastModifiedTime_Role] = "lastModifiedTime";
+    roles[Item_configurable_Role] = "configurable";
     return roles;
 }

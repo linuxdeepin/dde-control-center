@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
@@ -116,7 +117,6 @@ DccObject {
                 width: 300
                 height: 300
                 onAccepted: {
-                    console.warn(colorDialog.color)
                     dccData.worker.setActiveColors(colorDialog.color + "," + colorDialog.color)
                     dccData.worker.setActiveColor(colorDialog.color)
                 }

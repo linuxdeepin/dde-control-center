@@ -2,18 +2,19 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-#include <QIcon>
-#include <QtQml>
-#include <DGuiApplicationHelper>
-
+#include "personalizationinterface.h"
 #include "operation/imagehelper.h"
+#include "operation/personalizationexport.hpp"
 #include "operation/treelandworker.h"
 #include "operation/x11worker.h"
-#include "personalizationinterface.h"
 #include "dccfactory.h"
 #include "model/thememodel.h"
 #include "utils.hpp"
 
+
+#include <QIcon>
+#include <QtQml>
+#include <DGuiApplicationHelper>
 ThemeVieweModel::ThemeVieweModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_themeModel(nullptr)
@@ -127,6 +128,8 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
     } else {
         m_work = new X11Worker(m_model, this);
     }
+
+    qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationExport");
 
     m_globalThemeViewModel->setThemeModel(m_model->getGlobalThemeModel());
     m_iconThemeViewModel->setThemeModel(m_model->getIconModel());
