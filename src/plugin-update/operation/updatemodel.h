@@ -3,19 +3,37 @@
 #ifndef UPDATEMODEL_H
 #define UPDATEMODEL_H
 
+#include "updatestatus.h"
+
 #include <QObject>
 
 class UpdateModel : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool upgradable READ upgradable NOTIFY upgradableChanged FINAL)
+    Q_PROPERTY(QString updateState READ getUpdateState NOTIFY updateStateChanged FINAL)
+    Q_PROPERTY(QString updateStateTips READ getUpdateStateTips NOTIFY updateStateTipsChanged FINAL)
+    Q_PROPERTY(bool showUpdateCtl READ showUpdateCtl  NOTIFY showUpdateCtlChanged FINAL)
+    Q_PROPERTY(int checkUpdateState READ checkUpdateState NOTIFY checkUpdateStateChanged FINAL)
+    Q_PROPERTY(bool checkProcessRunning READ checkProcessRunning NOTIFY checkProcessRunningChanged FINAL)
+    Q_PROPERTY(QString checkUpdateStateTips READ checkUpdateStateTips NOTIFY checkUpdateStateTipsChanged FINAL)
+    Q_PROPERTY(QString checkUpdateIcon READ checkUpdateIcon NOTIFY checkUpdateIconChanged FINAL)
+    Q_PROPERTY(QString actionBtnText READ actionBtnText NOTIFY actionBtnTextChanged FINAL)
+    Q_PROPERTY(double checkUpdateProgress READ checkUpdateProgress NOTIFY checkUpdateProgressChanged FINAL)
+    Q_PROPERTY(double distUpgradeProgress READ distUpgradeProgress NOTIFY distUpgradeProgressChanged FINAL)
+    Q_PROPERTY(int distUpgradeState READ distUpgradeState NOTIFY distUpgradeStateChanged FINAL)
+    Q_PROPERTY(bool smartMirrorSwitch READ smartMirrorSwitch NOTIFY smartMirrorSwitchChanged FINAL)
+
+
 public:
     enum updateState
     {
         invalied = -1,
-        idle,
+        noUpdate,
         upgrading,
-        failed
+        failed,
+        needReboot
     };
 
     enum CheckUpdateState
@@ -26,10 +44,21 @@ public:
         checked
     };
 
+    enum UpdateJobState
+    {
+        job_init = -1,
+        job_ready,
+        job_running,
+        job_failed,
+        job_successd,
+    };
+
     explicit UpdateModel(QObject *parent = nullptr);
+    ~UpdateModel();
 
     bool upgradable() const;
     void setUpgradable(bool newUpgradable);
+    void updateUpgradble();
 
     QString getUpdateState() const;
     void setUpdateState(const QString &newUpdateState);
@@ -60,6 +89,22 @@ public:
     QString actionBtnText() const;
     void setActionBtnText(const QString &newActionBtnText);
 
+    UpdateStatus* updateStatus() const;
+    void setUpdateStatus(UpdateStatus* status);
+
+    double checkUpdateProgress() const;
+
+    double distUpgradeProgress() const;
+
+    int distUpgradeState() const;
+    void setDistUpgradeState(int newDistUpgradeState);
+    void updateDistUpgraedUI();
+
+    bool smartMirrorSwitch() const;
+    void setSmartMirrorSwitch(bool newSmartMirrorSwitch);
+
+    void clearUpdateStatus();
+
 signals:
     void upgradableChanged();
     void updateStateChanged();
@@ -71,6 +116,20 @@ signals:
     void checkUpdateIconChanged();
 
     void actionBtnTextChanged();
+    void updateStatusChanged(const UpdateStatus* status);
+
+    void checkUpdateProgressChanged();
+
+    void distUpgradeProgressChanged();
+
+    void distUpgradeStateChanged();
+
+
+    void smartMirrorSwitchChanged();
+
+public Q_SLOTS:
+    void setCheckUpdateProgress(double newCheckUpdateProgress);
+    void setDistUpgradeProgress(double newDistUpgradeProgress);
 
 private:
     bool m_upgradable;
@@ -78,6 +137,7 @@ private:
     QString m_updateStateTips;
     bool m_showUpdateCtl;
     int m_checkUpdateState;
+    int m_distUpgradeState;
     QString m_checkUpdateStateTips;
     QString m_checkUpdateIcon;
     bool m_checkProcessRunning;
@@ -85,15 +145,13 @@ private:
 
     QString m_actionBtnText;
 
-    Q_PROPERTY(bool upgradable READ upgradable NOTIFY upgradableChanged FINAL)
-    Q_PROPERTY(QString updateState READ getUpdateState NOTIFY updateStateChanged FINAL)
-    Q_PROPERTY(QString updateStateTips READ getUpdateStateTips NOTIFY updateStateTipsChanged FINAL)
-    Q_PROPERTY(bool showUpdateCtl READ showUpdateCtl  NOTIFY showUpdateCtlChanged FINAL)
-    Q_PROPERTY(int checkUpdateState READ checkUpdateState NOTIFY checkUpdateStateChanged FINAL)
-    Q_PROPERTY(bool checkProcessRunning READ checkProcessRunning NOTIFY checkProcessRunningChanged FINAL)
-    Q_PROPERTY(QString checkUpdateStateTips READ checkUpdateStateTips NOTIFY checkUpdateStateTipsChanged FINAL)
-    Q_PROPERTY(QString checkUpdateIcon READ checkUpdateIcon NOTIFY checkUpdateIconChanged FINAL)
-    Q_PROPERTY(QString actionBtnText READ actionBtnText NOTIFY actionBtnTextChanged FINAL)
+    UpdateStatus* m_updateStatus = nullptr;
+
+    bool m_smartMirrorSwitch;
+
+
+    double m_checkUpdateProgress;
+    double m_distUpgradeProgress;
 };
 
 #endif // UPDATEMODEL_H

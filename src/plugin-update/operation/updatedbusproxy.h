@@ -63,6 +63,9 @@ public:
     Q_PROPERTY(QList<QDBusObjectPath> JobList READ jobList NOTIFY JobListChanged)
     QList<QDBusObjectPath> jobList();
 
+    Q_PROPERTY(QString updateStatus  READ updateStatus NOTIFY UpdateStatusChanged)
+    QString updateStatus();
+
     QString hardwareId();
 
     QDBusPendingReply<QDBusObjectPath> UpdateSource();
@@ -77,6 +80,8 @@ public:
     QDBusPendingReply<QList<QDBusObjectPath> > ClassifiedUpgrade(qulonglong in0);
     QDBusPendingReply<qlonglong> PackagesDownloadSize(const QStringList &in0);
     QDBusPendingReply<bool> PackageExists(const QString &pkgid);
+    QDBusPendingReply<QDBusObjectPath> DistUpgrade();
+
 
     // Power
     bool onBattery();
@@ -86,7 +91,10 @@ public:
     void commit(const QString &commitDate);
 
     bool atomBackupIsRunning();
-
+    // Smart Mirror
+    Q_PROPERTY(bool Enable READ enable NOTIFY EnableChanged)
+    bool enable() const;
+    void SetEnable(bool enable);
 signals:
     // updater
     void UpdateNotifyChanged(bool value) const;
@@ -101,6 +109,7 @@ signals:
     void JobListChanged(const QList<QDBusObjectPath> &value) const;
     void AutoCleanChanged(bool value) const;
     void UpdateModeChanged(qulonglong value) const;
+    void UpdateStatusChanged(QString value) const;
 
     // Power
     void OnBatteryChanged(bool value) const;
@@ -109,6 +118,8 @@ signals:
     // Atomic Upgrade
     void StateChanged(int operate, int state, QString version, QString message);
     void RunningChanged(bool value) const;
+    // Smart Mirror
+    void EnableChanged(bool enable);
 
 private:
     DDBusInterface *m_hostname1Inter;
@@ -116,6 +127,7 @@ private:
     DDBusInterface *m_managerInter;
     DDBusInterface *m_powerInter;
     DDBusInterface *m_atomicUpgradeInter;
+    DDBusInterface *m_smartMirrorInter;
 };
 
 #endif // UPDATEDBUSPROXY_H

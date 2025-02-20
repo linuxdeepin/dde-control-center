@@ -9,49 +9,126 @@ import QtQuick.Layouts 1.15
 
 DccObject {
     DccObject {
-        name: "checkUpdate"
+        name: "noActive11"
         parentName: "update"
-        backgroundType: DccObject.AutoBg
-        displayName: qsTr("check update")
-        description: dccData.model().upgradable ? qsTr("Your system is already the latest version") : qsTr("You have a new system update, please check and update")
-        pageType: DccObject.Menu
+        pageType: DccObject.Item
+        backgroundType: DccObject.Audobg
         weight: 10
-        visible: true
-        page: DccGroupView {
-            isGroup: false
-            anchors {
-                left: parent.left
-                right: parent.right
-                leftMargin: 60
-                rightMargin: 60
-            }
-
-            CheckUpdate {
-                id: checkUpdate
-                visible: !dccData.model().showUpdateCtl
-            }
-
-            Component.onCompleted: {
-                console.log(" checkUpdate : ", dccData.model().upgradable)
-                dccData.work().checkUpgrade();
-            }
-
-        }
-
-        UpdateControl {
-        }
-
+        visible: false
+        page: NoActive{}
     }
 
     DccObject {
-        visible: false
+        name: "checkUpdatePage"
+        parentName: "update"
+        //displayName: qsTr("check update")
+        //description: dccData.model().upgradable ? qsTr("Your system is already the latest version") : qsTr("You have a new system update, please check and update")
+        pageType: DccObject.Item
+        backgroundType: DccObject.Audobg
+        visible: !dccData.model().showUpdateCtl
+        weight: 20
 
-        name: "updateSettings"
+        page: CheckUpdate{}
+    }
+
+    DccObject {
+        name: "installCompleteList"
+        parentName: "update"
+        backgroundType: DccObject.Normal
+        weight: 30
+        visible: dccData.model().showUpdateCtl
+        pageType: DccObject.Item
+
+        page: UpdateControl{
+
+            updateListModels: ListModel {
+                    ListElement {
+                        name: qsTr("Feature Updates")
+                        checked: true
+                    }
+                }
+        }
+    }
+
+
+    DccObject {
+        name: "installingCompleteList"
+        parentName: "update"
+        backgroundType: DccObject.Normal
+        weight: 40
+        visible: false
+        //    visible: dccData.model().showUpdateCtl
+        pageType: DccObject.Item
+        page: UpdateControl{
+
+            updateListModels: ListModel {
+                ListElement {
+                    name: qsTr("Feature Updates")
+                    checked: true
+                }
+                ListElement {
+                    name: qsTr("Feature Updates")
+                    checked: true
+                }
+                ListElement {
+                    name: qsTr("Feature Updates")
+                    checked: true
+                }
+            }
+        }
+    }
+
+    DccObject {
+        name: "preInstallList"
+        parentName: "update"
+        backgroundType: DccObject.Normal
+        weight: 50
+        pageType: DccObject.Item
+        visible: false
+        page:  UpdateControl{
+
+        }
+    }
+
+
+    DccObject {
+        name: "downloadingList"
+        parentName: "update"
+        backgroundType: DccObject.Normal
+        weight: 60
+        pageType: DccObject.Item
+        visible: false
+        page:  UpdateControl{}
+    }
+
+    DccObject {
+        name: "preUpdateList"
+        parentName: "update"
+        backgroundType: DccObject.Normal
+        weight: 70
+        pageType: DccObject.Item
+        visible: false
+        page: UpdateList {
+            model: ListModel {
+                ListElement {
+                    name: qsTr("Feature Updates")
+                    checked: true
+                }
+            }
+        }
+    }
+
+    DccObject {
+        name: "updateSettingsPage"
         parentName: "update"
         displayName: qsTr("Update Settings")
         description: qsTr("You can set system updates, security updates, idle updates, update reminders, etc.")
         icon: "update"
-        weight: 40
+        weight: 100
+
+        visible: DccApp.uosEdition() === DccApp.UosCommunity
+
+        UpdateSetting{}
     }
 
 }
