@@ -4345,6 +4345,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>NoActive</name>
+    <message>
+        <source>The current system is not activated, unable to start the update service</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -5724,15 +5731,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>UpdateControl</name>
     <message>
-        <source>预计安装时间：30min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Installing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Feature Updates</source>
+        <source>Expected installation time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>30min</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5836,6 +5843,25 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>UpdateHistory</name>
+    <message>
+        <source>Settings will be reverted in %1s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save the display settings?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Revert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateList</name>
     <message>
         <source>Updates：</source>
@@ -5851,6 +5877,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2025.1.20</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>收起</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5892,6 +5926,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>retry</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>An update has been detected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is up to date, please restart now</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateModule</name>
@@ -5904,6 +5946,33 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateSetting</name>
+    <message>
+        <source>update type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Function update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quality Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provide system quality patches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6085,13 +6154,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateWidget</name>
     <message>
         <source>Current Edition</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateWork</name>
-    <message>
-        <source>An update has been detected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7539,23 +7601,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>updateMain</name>
     <message>
-        <source>check update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your system is already the latest version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You have a new system update, please check and update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You can set system updates, security updates, idle updates, update reminders, etc.</source>
+        <source>Feature Updates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -122,7 +122,7 @@ DccObject {
         name: "updateSettingsPage"
         parentName: "update"
         displayName: qsTr("Update Settings")
-        description: qsTr("You can set system updates, security updates, idle updates, update reminders, etc.")
+      //  description: qsTr("You can set system updates, security updates, idle updates, update reminders, etc.")
         icon: "update"
         weight: 100
 
