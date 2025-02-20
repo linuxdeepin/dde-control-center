@@ -54,11 +54,11 @@ DccObject{
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     RowLayout {
-                        spacing: 5
+                        spacing: 0
                         Layout.fillWidth: true
                         Label {
                             id: nameDetail
-                            Layout.alignment: Qt.AlignLeft
+                            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                             width: Math.min(implicitWidth, nameDetaillay.width - editBtn.width - 10)
 
                             text: model.nameDetail
@@ -72,8 +72,11 @@ DccObject{
                             id: editBtn
                             font.pointSize: 8
                             text: qsTr("Edit")
+
+                            implicitHeight: 20
                             spacing: 0
                             textColor: DS.Style.highlightedButton.text
+                            Layout.alignment: Qt.AlignTop
 
                             anchors.left: nameDetail.right
                             onClicked: {
