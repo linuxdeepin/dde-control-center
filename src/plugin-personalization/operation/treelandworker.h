@@ -39,6 +39,7 @@ public:
     TreeLandWorker(PersonalizationModel *model, QObject *parent = nullptr);
 
 #ifdef Enable_Treeland
+    void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option) override;
     void setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark) override;
     QString getBackgroundForMonitor(const QString &monitorName);
 

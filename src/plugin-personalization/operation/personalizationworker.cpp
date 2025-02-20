@@ -2,6 +2,9 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationworker.h"
+#include "operation/personalizationexport.hpp"
+#include "operation/screensaverprovider.h"
+#include "operation/wallpaperworker.h"
 #include "personalizationdbusproxy.h"
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
@@ -18,12 +21,16 @@
 #include <QDBusError>
 #include <QLoggingCategory>
 #include <QTimer>
+#include <QDir>
+#include <QTemporaryFile>
 
 #include <DConfig>
 #include <DDBusSender>
 
 DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
+
+#define SOLID_PREFIX "solid::"
 
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
@@ -42,7 +49,8 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     : QObject(parent)
     , m_model(model)
     , m_personalizationDBusProxy(new PersonalizationDBusProxy(this))
-    , m_wallpaperWorker(new WallpaperWorker(m_personalizationDBusProxy, m_model->getWallpaperModel(), this))
+    , m_wallpaperWorker(new WallpaperWorker(m_personalizationDBusProxy, m_model, this))
+    , m_screenSaverProvider(new ScreensaverProvider(m_personalizationDBusProxy, m_model, this))
     , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
     , m_dtkConfig(DConfig::createGeneric(DTK_PREFERENCE_NAME, "", this))
 {
@@ -66,6 +74,11 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::QtActiveColorChanged, this, &PersonalizationWorker::refreshActiveColor);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperURlsChanged, this, &PersonalizationWorker::onWallpaperUrlsChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::currentScreenSaverChanged, this, &PersonalizationWorker::onCurrentScreenSaverChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::lockScreenAtAwakeChanged, this, &PersonalizationWorker::onLockScreenAtAwakeChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::linePowerScreenSaverTimeoutChanged, this, &PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperSlideShowChanged, this, &PersonalizationWorker::onWallpaperSlideShowChanged);
+
     connect(qApp, &QGuiApplication::screenAdded, this, &PersonalizationWorker::onScreensChanged);
     connect(qApp, &QGuiApplication::screenRemoved, this, &PersonalizationWorker::onScreensChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
@@ -86,6 +99,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     m_fontModels["monospacefont"] = fontMono;
 
     m_wallpaperWorker->fetchData();
+    m_screenSaverProvider->fecthData();
 }
 
 void PersonalizationWorker::active()
@@ -96,6 +110,7 @@ void PersonalizationWorker::active()
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());
     onWallpaperUrlsChanged();
     onScreensChanged();
+    onWallpaperSlideShowChanged();
 
     m_model->setCurrentSelectScreen(qApp->primaryScreen()->name());
     m_model->getWindowModel()->setDefault(m_personalizationDBusProxy->gtkTheme());
@@ -110,6 +125,10 @@ void PersonalizationWorker::active()
 
     m_model->setScrollBarPolicy(m_dtkConfig->value(SCROLLBAR_POLICY_KEY).toInt());
     m_model->setCompactDisplay(m_dtkConfig->value(SIZE_MODE_KEY).toInt());
+
+    m_model->setCurrentScreenSaver(m_personalizationDBusProxy->getCurrentScreenSaver());
+    m_model->setLockScreenAtAwake(m_personalizationDBusProxy->getLockScreenAtAwake());
+    m_model->setScreenSaverIdleTime(m_personalizationDBusProxy->getLinePowerScreenSaverTimeout());
 
     QString scrollbarConfig = m_personalizationConfig->value(SCROLLBAR_POLICY_CONFIG_KEY).toString();
     m_model->setScrollBarPolicyConfig(scrollbarConfig);
@@ -219,11 +238,60 @@ void PersonalizationWorker::onWindowEffectChanged(int value)
 
 void PersonalizationWorker::onScreensChanged()
 {
-    QStringList screenNameList{};
-    for (const auto &screen : qApp->screens()) {
-        screenNameList << screen->name();
-    } 
-    m_model->setScreens(screenNameList);
+    bool isMirror = true;
+    QRect geometry = qApp->primaryScreen()->availableGeometry();
+    for (const auto screen : qApp->screens()) {
+        qWarning() << screen->availableGeometry() << screen->availableGeometry();
+        if (geometry != screen->availableGeometry()) {
+            isMirror = false;
+            break;
+        }
+    }
+
+    for (const auto screen : qApp->screens()) {
+        connect(screen, &QScreen::geometryChanged, this, &PersonalizationWorker::onScreensChanged, Qt::UniqueConnection);
+    }
+
+    if (isMirror) {
+        m_model->setScreens({qApp->primaryScreen()->name()});
+        m_model->setCurrentSelectScreen(qApp->primaryScreen()->name());
+        return;
+    } else {
+        QStringList screenNameList{};
+        for (const auto &screen : qApp->screens()) {
+            screenNameList << screen->name();
+        }
+        m_model->setScreens(screenNameList);
+    };
+}
+
+void PersonalizationWorker::onCurrentScreenSaverChanged(const QString &value)
+{
+    m_model->setCurrentScreenSaver(value);
+}
+
+void PersonalizationWorker::onLockScreenAtAwakeChanged(bool value)
+{
+    m_model->setLockScreenAtAwake(value);
+}
+
+void PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged(int value)
+{
+    m_model->setScreenSaverIdleTime(value);
+}
+
+void PersonalizationWorker::onWallpaperSlideShowChanged()
+{
+    QVariantMap wallpaperSlideShowMap;
+    for (auto &screen : qApp->screens()) {
+        QString slideShow = m_personalizationDBusProxy->wallpaperSlideShow(screen->name());
+        if (!slideShow.isEmpty()) {
+            wallpaperSlideShowMap.insert(screen->name(), slideShow);
+        }
+    }
+    if (!wallpaperSlideShowMap.isEmpty()) {
+        m_model->setWallpaperSlideShowMap(wallpaperSlideShowMap);
+    }
 }
 
 void PersonalizationWorker::onWallpaperUrlsChanged()
@@ -289,6 +357,22 @@ void PersonalizationWorker::refreshFont()
     }
 
     FontSizeChanged(m_personalizationDBusProxy->fontSize());
+}
+
+bool PersonalizationWorker::checkWallpaperLockStatus()
+{
+    if (QFileInfo::exists("/var/lib/deepin/permission-manager/wallpaper_locked")) {
+        QDBusInterface notify("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
+        notify.asyncCall(QString("Notify"),
+                         QString("dde-control-center"),   // title
+                         static_cast<uint>(0),
+                         QString("preferences-system"),   // icon
+                         QObject::tr("This system wallpaper is locked. Please contact your admin."),
+                         QString(), QStringList(), QVariantMap(), 5000);
+        qCInfo(DdcPersonalWorker) << "wallpaper is locked..";
+        return true;
+    }
+    return false;
 }
 
 void PersonalizationWorker::refreshFontByType(const QString &type)
@@ -361,6 +445,97 @@ void PersonalizationWorker::setActiveColors(const QString &activeColors)
     m_personalizationDBusProxy->setActiveColors(activeColors);
 }
 
+void PersonalizationWorker::addCustomWallpaper(const QString &url)
+{
+    QString lastHashPath;
+    if (isURI(url)) {
+        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), QUrl(url).toLocalFile());
+    } else {
+        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url);
+    }
+    m_wallpaperWorker->fetchData(Wallpaper_Custom);
+    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, false, PersonalizationExport::Option_All);
+}
+
+void PersonalizationWorker::addSolidWallpaper(const QColor &color)
+{
+    QString path = QDir::tempPath() + QString("/XXXXXX-solid-color-%0%1%2.jpg").arg(QString::number(color.red(), 16))
+                                                          .arg(QString::number(color.green(), 16))
+                                                          .arg(QString::number(color.blue(), 16));
+    // create img
+    QImage img(1920, 1080, QImage::Format_ARGB32);
+    img.fill(color);
+    QTemporaryFile file(path);
+    file.setAutoRemove(false); // 将临时文件设置为不自动删除
+    if (!file.open()) {
+        qCWarning(DdcPersonalWorker) << "fail to save image" << file.fileName();
+        return;
+    }
+
+    img.save(&file, "JPG");
+
+    //set to dde, and prefix solid:: to tell dde this is a solid color wallpaper.
+    const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), SOLID_PREFIX + file.fileName());
+    m_wallpaperWorker->fetchData(Wallpaper_Solid);
+    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, false, PersonalizationExport::Option_All);
+}
+
+void PersonalizationWorker::deleteWallpaper(const QString &str)
+{
+    qCWarning(DdcPersonalWorker) << "delete wallpaper" << str;
+    if (isURI(str)) {
+        m_personalizationDBusProxy->deleteCustomWallpaper(currentUserName(), QUrl(str).toLocalFile());
+    } else {
+        m_personalizationDBusProxy->deleteCustomWallpaper(currentUserName(), str);
+    }
+    m_wallpaperWorker->fetchData();
+}
+
+void PersonalizationWorker::setScreenSaver(const QString &value)
+{
+    m_personalizationDBusProxy->setCurrentScreenSaver(value);
+    onCurrentScreenSaverChanged(value);
+}
+
+void PersonalizationWorker::setWallpaperSlideShow(const QString &monitorName, const QString &sliderShow)
+{
+    m_personalizationDBusProxy->setWallpaperSlideShow(monitorName, sliderShow);
+}
+
+void PersonalizationWorker::setCurrentScreenSaverPicMode(const QString &mode)
+{
+    m_model->setCurrentScreenSaverPicMode(mode);
+}
+
+void PersonalizationWorker::requestScreenSaverConfig(const QString &name)
+{
+    m_personalizationDBusProxy->requestScreenSaverConfig(name);
+}
+
+void PersonalizationWorker::startScreenSaverPreview()
+{
+    // Directly use start for preview, which can automatically release the screensaver state after moving the mouse
+    m_personalizationDBusProxy->startScreenSaver();
+}
+
+void PersonalizationWorker::stopScreenSaverPreview()
+{
+    m_personalizationDBusProxy->stopScreenSaver();
+}
+
+void PersonalizationWorker::setLockScreenAtAwake(bool value)
+{
+    m_model->setLockScreenAtAwake(value);
+    m_personalizationDBusProxy->setLockScreenAtAwake(value);
+}
+
+void PersonalizationWorker::setScreenSaverIdleTime(int value)
+{
+    m_model->setScreenSaverIdleTime(value);
+    m_personalizationDBusProxy->setLinePowerScreenSaverTimeout(value);
+    m_personalizationDBusProxy->setBatteryScreenSaverTimeout(value);
+}
+
 void PersonalizationWorker::setWindowRadius(int radius)
 {
     m_personalizationDBusProxy->setWindowRadius(radius);
@@ -402,6 +577,16 @@ void PersonalizationWorker::goDownloadTheme()
     .arg(QString("searchApp?keyword=theme")).call();
 }
 
+QScreen *PersonalizationWorker::getScreen(const QString &screenName)
+{
+    for (const auto &screen : qApp->screens()) {
+        if (screen->name() == screenName) {
+            return screen;
+        }
+    }
+    return qApp->primaryScreen();
+}
+
 template<typename T>
 T PersonalizationWorker::toSliderValue(std::vector<T> list, T value)
 {
@@ -427,7 +612,7 @@ void PersonalizationWorker::onPersonalizationConfigChanged(const QString &key)
 
 void PersonalizationWorker::onDTKConfigChanged(const QString &key)
 {
-    qWarning() << "PersonalizationWorker::onDTKConfigChanged" << key << m_dtkConfig->value(key);
+    qCWarning(DdcPersonalWorker) << "PersonalizationWorker::onDTKConfigChanged" << key << m_dtkConfig->value(key);
     if (key == SIZE_MODE_KEY) {
         m_model->setCompactDisplay(m_dtkConfig->value(key).toBool());
     } else if (key == SCROLLBAR_POLICY_KEY) {
@@ -479,21 +664,26 @@ void PersonalizationWorker::setCursorTheme(const QString &id)
     }
 }
 
-void PersonalizationWorker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark)
+void PersonalizationWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
 {
-    Q_UNUSED(isDark)
-    qInfo() << "Appearance SetMonitorBackground " << screenName << url;
-    if (screenName.isEmpty() || url.isEmpty())
-        return;
-
-    m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
+    if (option == PersonalizationExport::Option_Desktop) {
+        setBackgroundForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_Lock) {
+        setLockBackForMonitor(screen, url, isDark);
+    } else if (option == PersonalizationExport::Option_All) {
+        setBackgroundForMonitor(screen, url, isDark);
+        setLockBackForMonitor(screen, url, isDark);
+    }
 }
 
-void PersonalizationWorker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool )
 {
-    Q_UNUSED(screenName)
-    Q_UNUSED(url)
-    Q_UNUSED(isDark)
+
+}
+
+void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool)
+{
+
 }
 
 PersonalizationWatcher::PersonalizationWatcher(PersonalizationWorker *work)

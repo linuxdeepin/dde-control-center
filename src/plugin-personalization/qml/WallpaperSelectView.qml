@@ -1,8 +1,9 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.15
+
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtQuick.Dialogs
 import Qt5Compat.GraphicalEffects
 
@@ -10,10 +11,10 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dtk.private as P
+import org.deepin.dcc.personalization 1.0
 
 ColumnLayout {
     id: root
-    property var model
     readonly property int imageRectW: 84
     readonly property int imageRectH: 54
     readonly property int imageBorder: 2
@@ -22,10 +23,16 @@ ColumnLayout {
     readonly property int itemWidth: imageRectW + imageBorder * 2 + 1
     readonly property int itemHeight: imageRectH + imageBorder * 2 + 1
     readonly property int imageSpacing: 5
+
+    property var model
     property bool isExpand: false
     property var currentItem
+    property string firstItemImgSource: ""
+    property bool firstItemVisible: firstItemImgSource !== ""
 
-    signal wallpaperSelected(var url, bool isDark, bool isLock)
+    signal wallpaperSelected(var url, bool isDark, var option)
+    signal firstItemClicked()
+    signal wallpaperDeleteClicked(var url)
 
     onIsExpandChanged: {
         sortedModel.update()
@@ -44,6 +51,7 @@ ColumnLayout {
             Layout.fillWidth: true
         }
         D.ToolButton {
+            visible: layout.lineCount * 2 < root.model.rowCount() + root.firstItemVisible ? 1 : 0
             textColor: D.Palette {
                 normal {
                     common: D.DTK.makeColor(D.Color.Highlight)
@@ -91,6 +99,42 @@ ColumnLayout {
             move: Transition {
             }
 
+            Loader {
+                active: root.firstItemVisible
+                sourceComponent: Item {
+                    width: root.itemWidth
+                    height: root.itemHeight
+                    D.DciIcon {
+                        id: firstItemImage
+                        anchors.fill: parent
+                        visible: false
+                        sourceSize: Qt.size(width, height)
+                        name: root.firstItemImgSource
+                        asynchronous: true
+                    }
+
+                    OpacityMask {
+                        anchors.fill: parent
+                        anchors.margins: root.imageMargin
+                        source: firstItemImage
+                        maskSource: Rectangle {
+                            anchors.fill: parent
+                            implicitWidth: firstItemImage.width
+                            implicitHeight: firstItemImage.height
+                            radius: 6
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            console.warn("firstItemClicked")
+                            root.firstItemClicked()
+                        }
+                    }
+                }
+            }
+
             Repeater {
                 model: sortedModel
             }
@@ -99,7 +143,7 @@ ColumnLayout {
         D.SortFilterModel {
             id: sortedModel
             model: root.model
-            property int maxCount: layout.lineCount * 2
+            property int maxCount: layout.lineCount * 2 - (root.firstItemVisible ? 1 : 0)
             lessThan: function(left, right) {
                 return left.index < right.index
             }
@@ -118,10 +162,10 @@ ColumnLayout {
 
                 contentItem: Item {
                     id: wallpaperItem
-                    function requestSetWallpaper(isLock) {
+                    function requestSetWallpaper(option) {
                         img2x2.grabToImage(function(result) {
                             const isDarkType = dccData.imageHelper.isDarkType(result.image)
-                            root.wallpaperSelected(model.url, isDarkType, isLock)
+                            root.wallpaperSelected(model.url, isDarkType, option)
                         }, Qt.size(2, 2))
                     }
 
@@ -131,7 +175,7 @@ ColumnLayout {
                         anchors.centerIn : parent
                         width: 2
                         height: 2
-                        source: model.url
+                        source: model.thumbnail
                         fillMode: Image.Stretch
                         asynchronous: true
                     }
@@ -142,14 +186,16 @@ ColumnLayout {
                         width: root.imageRectW
                         height: root.imageRectH
                         sourceSize: Qt.size(width, height)
-                        source: model.url
+                        source: model.thumbnail
                         mipmap: true
                         visible: false
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
+                        retainWhileLoading: true
                     }
 
                     Rectangle {
+                        id: borderRect
                         anchors.fill: parent
                         visible: model.url === root.currentItem && model.url !== undefined
                         color: "transparent"
@@ -169,6 +215,22 @@ ColumnLayout {
                             radius: 6
                         }
                     }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton
+                        onClicked: {
+                            if (mouse.button === Qt.LeftButton) {
+                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
+                            } else if (mouse.button === Qt.RightButton) {
+                                contextMenu.x = mouse.x
+                                contextMenu.y = mouse.y
+                                contextMenu.open()
+                            }
+                        }
+                    }
+
                     Control {
                         implicitHeight: 24
                         implicitWidth: 24
@@ -177,16 +239,18 @@ ColumnLayout {
                         anchors.topMargin: - height / 2 + root.imageMargin
                         anchors.rightMargin: - width / 2 + root.imageMargin
                         hoverEnabled: true
+                        z: 999
                         contentItem: D.IconButton {
                             icon.name: "close"
-                            // visible: control.hovered || parent.hovered
-                            // FIXME: force false
-                            visible: false
+                            visible: (control.hovered || parent.hovered) && model.deleteAble && !borderRect.visible
                             background: P.ButtonPanel {
                                 implicitWidth: DS.Style.iconButton.backgroundSize
                                 implicitHeight: DS.Style.iconButton.backgroundSize
                                 radius: width / 2
                                 button: control
+                            }
+                            onClicked: {
+                                root.wallpaperDeleteClicked(model.url)
                             }
                             scale: visible ? 1 : 0
                             Behavior on scale {
@@ -198,35 +262,18 @@ ColumnLayout {
                         }
                     }
 
-
-                    MouseArea {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton
-                        onClicked: {
-                            if (mouse.button === Qt.LeftButton) {
-                                wallpaperItem.requestSetWallpaper(false)
-                                wallpaperItem.requestSetWallpaper(true)
-                            } else if (mouse.button === Qt.RightButton) {
-                                contextMenu.x = mouse.x
-                                contextMenu.y = mouse.y
-                                contextMenu.open()
-                            }
-                        }
-                    }
-
                     D.Menu {
                         id: contextMenu
                         MenuItem {
                             text: qsTr("Set lock screen")
                             onTriggered: {
-                                wallpaperItem.requestSetWallpaper(true)
+                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_Lock)
                             }
                         }
                         MenuItem {
                             text: qsTr("Set desktop")
                             onTriggered: {
-                                wallpaperItem.requestSetWallpaper(false)
+                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_Desktop)
                             }
                         }
                     }
