@@ -349,7 +349,7 @@ DccObject {
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
-        visible: autoLongin.visible || noPassword.visible
+        visible: (autoLongin.visible || noPassword.visible) && !DccApp.isTreeland()
 
         DccObject {
             id: autoLongin
