@@ -216,21 +216,26 @@ void PersonalizationInterface::handleCmdParam(PersonalizationExport::ModuleType 
     } else if (type == PersonalizationExport::Wallpaper) {
         QString url;
         QString type;
+        QString monitor;
         url = paramMap.value("url");
         if (!isURI(url) && QFile::exists(url)) {
             url = QUrl::fromLocalFile(url).toString();
         }
         type = paramMap.value("type");
+        monitor = paramMap.value("monitor");
+        if (monitor.isEmpty()) {
+            monitor = m_model->getCurrentSelectScreen();
+        }
         if (url.isEmpty()) {
             return;
         }
         if (type == "lock") {
-            m_work->setLockBackForMonitor(m_model->getCurrentSelectScreen(), url, true);
+            m_work->setLockBackForMonitor(monitor, url, true);
         } else if (type == "desktop") {
-            m_work->setBackgroundForMonitor(m_model->getCurrentSelectScreen(), url, true);
+            m_work->setBackgroundForMonitor(monitor, url, true);
         } else if (type.isEmpty()) {
-            m_work->setLockBackForMonitor(m_model->getCurrentSelectScreen(), url, true);
-            m_work->setBackgroundForMonitor(m_model->getCurrentSelectScreen(), url, true);
+            m_work->setLockBackForMonitor(monitor, url, true);
+            m_work->setBackgroundForMonitor(monitor, url, true);
         }
     }
 }
