@@ -1,3 +1,21 @@
+dde-control-center (6.1.10) unstable; urgency=medium
+
+  * feat: Support selecting monitor when setting wallpaper
+  * fix: can not click setting button when setting picture screensaver
+  * fix: the opacity has abnormally reached its maximum value in treeland
+  * feat: Add tab key navigation interaction function
+  * chore: update custom solidwallpapers path
+  * chore(personalization): update translate
+  * feat: add wallpaper and screensaver
+  * fix: update Bluetooth list ui
+  * feat: update moudle translation
+  * feat: update moudle adapter Lastore daemon
+  * fix: multiple accounts can be enabled for automatic login
+  * fix: standardUser can change other account passwords
+  * fix: The bottom button is not fully displayed
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 21 Feb 2025 15:49:34 +0800
+
 dde-control-center (6.1.9) unstable; urgency=medium
 
   * fix(privacy): some applications that have been abnormally excluded
