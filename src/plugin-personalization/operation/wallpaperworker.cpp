@@ -20,8 +20,8 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 
 #define SYS_WALLPAPER_DIR "/usr/share/wallpapers/deepin"
 #define SYS_SOLIDE_WALLPAPER_DIR "/usr/share/wallpapers/deepin-solidwallpapers"
-#define CUSTOM_SOLIDE_WALLPAPER_DIR "/usr/share/wallpapers/custom-solidwallpapers"
-#define CUSTOM_WALLPAPER_DIR "/usr/share/wallpapers/custom-wallpapers"
+#define CUSTOM_SOLIDE_WALLPAPER_DIR "/var/cache/wallpapers/custom-solidwallpapers"
+#define CUSTOM_WALLPAPER_DIR "/var/cache/wallpapers/custom-wallpapers"
 
 WallpaperWorker::WallpaperWorker(PersonalizationDBusProxy *PersonalizationDBusProxy, PersonalizationModel *model, QObject *parent) : QObject(parent)
 {
