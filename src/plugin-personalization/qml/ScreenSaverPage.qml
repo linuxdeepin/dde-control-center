@@ -110,7 +110,7 @@ DccObject {
                 displayName: qsTr("Personalized screensaver")
                 weight: 10
                 pageType: DccObject.Editor
-                enabled: dccData.model.screenSaverModel.getConfigAbleByUrl(dccData.model.currentScreenSaver)
+                enabled: dccData.model.screenSaverModel.getConfigAbleByUrl(dccData.model.currentScreenSaver) || dccData.model.currentScreenSaver === "deepin-custom-screensaver"
                 page: D.Button {
                     implicitWidth: 80
                     text: qsTr("setting")

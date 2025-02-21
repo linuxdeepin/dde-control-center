@@ -158,7 +158,6 @@ DccObject {
                     currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])
                     model: ListModel {
                         ListElement { text: qsTr("never"); value: "" }
-                        ListElement { text: qsTr("3 second"); value: "3" }
                         ListElement { text: qsTr("30 second"); value: "30" }
                         ListElement { text: qsTr("1 minute"); value: "60" }
                         ListElement { text: qsTr("5 minute"); value: "300" }

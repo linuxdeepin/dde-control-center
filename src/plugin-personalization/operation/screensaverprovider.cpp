@@ -37,7 +37,7 @@ void ScreensaverWorker::list()
     int deepin = 0;
     for (const QString &name : saverNameList) {
         // The screensaver with the parameter configuration is placed first
-        if (name.startsWith("deepin")) {
+        if (name == DEEPIN_CUSTOM_SCREENSAVER) {
             saverNameList.move(saverNameList.indexOf(name), deepin);
             deepin++;
         }
@@ -51,7 +51,7 @@ void ScreensaverWorker::list()
 
     for (const QString &name : saverNameList) {
         // remove
-        if ("flurry" == name || name.startsWith("deepin"))
+        if ("flurry" == name || DEEPIN_CUSTOM_SCREENSAVER == name)
             continue;
 
         if (!running)
