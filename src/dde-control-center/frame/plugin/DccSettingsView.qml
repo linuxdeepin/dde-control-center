@@ -35,7 +35,6 @@ Flickable {
         Control {
             id: centralItem
             y: -root.contentY
-            focusPolicy: Qt.TabFocus
             hoverEnabled: false
             focus: true
             anchors {
@@ -48,7 +47,6 @@ Flickable {
     }
     Control {
         id: bottomItem
-        focusPolicy: Qt.TabFocus
         implicitHeight: contentItem.implicitHeight + 10
         focus: true
         anchors {
@@ -93,10 +91,8 @@ Flickable {
                 let rHeight = root.height - bottomItem.height
                 if ((itemY + panel.item.height) > rHeight) {
                     root.contentY = itemY + panel.item.height - rHeight + root.contentY
-                }
-                itemY = panel.item.mapToItem(root, 0, 0).y
-                if (itemY < 0) {
-                    root.contentY = -itemY
+                } else if (itemY < 0) {
+                    root.contentY = panel.item.mapToItem(groupView, 0, 0).y
                 }
 
                 panel.y = panel.item.mapToItem(root, 0, 0).y + root.contentY
@@ -110,6 +106,27 @@ Flickable {
         target: DccApp
         function onActiveItemChanged(item) {
             panel.item = item
+        }
+    }
+    Connections {
+        target: DccApp.mainWindow()
+        function onActiveFocusItemChanged() {
+            var focusItem = target.activeFocusItem
+            var parentItem = focusItem
+            while (parentItem && parentItem !== centralItem.contentItem) {
+                parentItem = parentItem.parent
+            }
+            if (!parentItem || parentItem !== centralItem.contentItem) {
+                return
+            }
+
+            let itemY = focusItem.mapToItem(root, 0, 0).y
+            let rHeight = root.height - bottomItem.height
+            if ((itemY + focusItem.height) > rHeight) {
+                root.contentY = itemY + focusItem.height - rHeight + root.contentY
+            } else if (itemY < 0) {
+                root.contentY = focusItem.mapToItem(centralItem.contentItem, 0, 0).y
+            }
         }
     }
     Component.onCompleted: {

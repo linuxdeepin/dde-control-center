@@ -9,6 +9,7 @@ import org.deepin.dtk.style 1.0 as DS
 Rectangle {
     id: root
     property alias model: view.model
+    property alias edit: searchEdit
     signal clicked(var model)
 
     implicitHeight: 32

@@ -77,4 +77,24 @@ Flickable {
             panel.item = item
         }
     }
+    Connections {
+        target: DccApp.mainWindow()
+        function onActiveFocusItemChanged() {
+            var focusItem = target.activeFocusItem
+            var parentItem = focusItem
+            while (parentItem && parentItem !== groupView) {
+                parentItem = parentItem.parent
+            }
+            if (!parentItem || parentItem !== groupView) {
+                return
+            }
+
+            let itemY = focusItem.mapToItem(root, 0, 0).y
+            if ((itemY + focusItem.height) > root.height) {
+                root.contentY = itemY + focusItem.height - root.height + root.contentY
+            } else if (itemY < 0) {
+                root.contentY = focusItem.mapToItem(groupView, 0, 0).y
+            }
+        }
+    }
 }

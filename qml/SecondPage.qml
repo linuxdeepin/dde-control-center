@@ -13,7 +13,7 @@ import org.deepin.dcc 1.0
 Item {
     id: root
     property real oldX: 180
-
+    activeFocusOnTab: false
     Item {
         id: leftView
         anchors {
@@ -48,8 +48,6 @@ Item {
             anchors.margins: 10
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
-            clip: true
-            focus: true
             model: DccModel {
                 id: dccModel
                 root: dccObj
@@ -124,6 +122,7 @@ Item {
                 implicitHeight: 30
                 implicitWidth: 30
                 hoverEnabled: enabled
+                activeFocusOnTab: true
                 enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
                 icon {
@@ -142,6 +141,10 @@ Item {
                     }
                     radius: DS.Style.control.radius
                     color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
                 }
             }
 
@@ -178,6 +181,8 @@ Item {
             implicitHeight: 30
             implicitWidth: 30
             hoverEnabled: enabled
+            activeFocusOnTab: true
+            KeyNavigation.tab: splitter.x < 110 ? (breakBut.enabled ? breakBut : breakBut.nextItemInFocusChain()) : searchEdit.edit
             icon {
                 name: "sidebar"
                 height: 16
@@ -194,6 +199,10 @@ Item {
                 }
                 radius: DS.Style.control.radius
                 color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                border {
+                    color: parent.palette.highlight
+                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                }
             }
             onClicked: {
                 if (splitter.x < 110) {

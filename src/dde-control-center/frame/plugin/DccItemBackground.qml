@@ -101,12 +101,31 @@ Item {
             corners: control.corners
         }
     }
+    Loader {
+        z: 2
+        anchors {
+            fill: parent
+            topMargin: 3
+            bottomMargin: 3
+            leftMargin: 3
+            rightMargin: 3
+        }
+        active: control.activeFocus || control.visualFocus
+        sourceComponent: D.FocusBoxBorder {
+            radius: root.radius
+            color: control.palette.highlight
+        }
+    }
     // 高亮
     Loader {
         z: 2
-        anchors.fill: parent
-        anchors.topMargin: 1
-        anchors.bottomMargin: 1
+        anchors {
+            fill: parent
+            topMargin: 3
+            bottomMargin: 3
+            leftMargin: 3
+            rightMargin: 3
+        }
         active: control.checked && !control.cascadeSelected
         sourceComponent: D.HighlightPanel {}
     }
