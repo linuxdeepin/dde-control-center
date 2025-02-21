@@ -127,6 +127,12 @@ void PersonalizationWorker::active()
     m_model->setCompactDisplay(m_dtkConfig->value(SIZE_MODE_KEY).toInt());
 
     m_model->setCurrentScreenSaver(m_personalizationDBusProxy->getCurrentScreenSaver());
+    if (m_model->getCurrentScreenSaver() == DEEPIN_CUSTOM_SCREENSAVER) {
+        m_model->setCurrentScreenSaverPicMode("default");
+    } else {
+        m_model->setCurrentScreenSaverPicMode("");
+    }
+
     m_model->setLockScreenAtAwake(m_personalizationDBusProxy->getLockScreenAtAwake());
     m_model->setScreenSaverIdleTime(m_personalizationDBusProxy->getLinePowerScreenSaverTimeout());
 

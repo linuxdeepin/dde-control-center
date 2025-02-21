@@ -16,6 +16,8 @@ const double DPI = 96;
 const int THUMBNAIL_ICON_WIDTH = 84;
 const int THUMBNAIL_ICON_HEIGHT = 54;
 
+#define DEEPIN_CUSTOM_SCREENSAVER "deepin-custom-screensaver"
+
 inline QString getGlobalThemeId(const QString &themeId, QString &mode)
 {
     QString id = themeId;
