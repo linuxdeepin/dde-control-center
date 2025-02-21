@@ -18,7 +18,7 @@ DccObject {
         interval: 100
         repeat: false
         onTriggered: {
-            authentication.visible = true
+            authentication.visible = !DccApp.isTreeland()
         }
     }
 
