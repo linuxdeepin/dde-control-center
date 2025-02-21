@@ -14,6 +14,7 @@ DccEditorItem {
     topPadding: topInset
     bottomPadding: bottomInset
     implicitHeight: 48 + topInset + bottomInset
+    activeFocusOnTab: true
     rightItem: RowLayout {
         Control {
             contentItem: editor ? editor : model.item.getSectionItem(this)

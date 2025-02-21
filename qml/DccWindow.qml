@@ -66,7 +66,6 @@ D.ApplicationWindow {
 
     Control {
         id: centralView
-        focusPolicy: Qt.TabFocus
         hoverEnabled: false
         anchors.fill: parent
     }
@@ -96,6 +95,40 @@ D.ApplicationWindow {
         }
     }
 
+    /*  焦点切换调试，暂不删
+    onActiveFocusItemChanged: {
+        console.log("root onActiveFocusItemChanged:  ", root.activeFocusItem, root.activeFocusControl)
+        console.log("root activeFocusOnTab:  ", root.activeFocusItem.activeFocusOnTab, root.activeFocusControl.activeFocusOnTab)
+    }
+    D.FocusBoxBorder {
+        id: focusIn
+        z: 98
+        x: {
+            if (visible) {
+                var p1 = root.activeFocusItem.parent.mapToGlobal(root.activeFocusItem.x, root.activeFocusItem.y)
+                console.log("p1:", p1)
+                var p2 = mapFromItem(root.activeFocusItem, root.activeFocusItem.x, root.activeFocusItem.y)
+                console.log("p2:", p2)
+                var p3 = parent.mapFromGlobal(p1.x, p1.y)
+                console.log("p3:", p3)
+                return p3.x
+                // mapFromGlobal(root, root.activeFocusItem.mapToGlobal(
+                //                   root.activeFocusItem.x,
+                //                   root.activeFocusItem.y)).x
+            } else {
+                return 0
+            }
+        }
+        y: visible ? parent.mapFromGlobal(root.activeFocusItem.parent.mapToGlobal(root.activeFocusItem.x, root.activeFocusItem.y)).y : 0
+        width: visible ? root.activeFocusItem.width : 0
+        height: visible ? root.activeFocusItem.height : 0
+        // anchors.topMargin:
+        visible: root.activeFocusItem
+
+        radius: DS.Style.control.radius
+        color: "#80FF0000"
+    }
+    */
     Component {
         id: rootLayout
         SwipeView {
