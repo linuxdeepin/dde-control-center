@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "dde-control-center/dccfactory.h"
+#include "dccfactory.h"
 #include "operation/dockpluginmodel.h"
 
 #include "dccdockexport.h"
