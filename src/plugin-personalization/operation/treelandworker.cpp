@@ -576,7 +576,8 @@ void PersonalizationAppearanceContext::treeland_personalization_appearance_conte
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_opacity(uint32_t opacity)
 {
-    m_model->setOpacity(opacity);
+    // Using the value of the appearance module, this is an invalid value
+    // m_model->setOpacity(opacity / 100.0);
 }
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_theme_type(uint32_t)
