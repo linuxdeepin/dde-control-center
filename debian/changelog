@@ -1,3 +1,9 @@
+dde-control-center (6.1.11) unstable; urgency=medium
+
+  * feat: add dock plugin
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 21 Feb 2025 17:18:53 +0800
+
 dde-control-center (6.1.10) unstable; urgency=medium
 
   * feat: Support selecting monitor when setting wallpaper
