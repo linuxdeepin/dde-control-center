@@ -143,6 +143,11 @@ DccApp::UosEdition DccManager::uosEdition() const
     return DccApp::UosEdition(edition);
 }
 
+Q_INVOKABLE Dtk::Core::DSysInfo::ProductType DccManager::productType() const
+{
+    return DSysInfo::productType();
+}
+
 bool DccManager::isTreeland() const
 {
     return Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform);
