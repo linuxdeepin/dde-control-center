@@ -7,20 +7,14 @@ import QtQuick.Controls 2.15
 
 DccObject {
     id: authentication
+    property bool hasFingerprint: false
+    property bool hasChara: false
     name: "authentication"
     parentName: "accountsloginMethod"
     displayName: qsTr("Biometric Authentication")
     weight: 30
-    visible: false
+    visible: (hasFingerprint || hasChara) && !DccApp.isTreeland()
 
-    Timer {
-        id: showTimer
-        interval: 100
-        repeat: false
-        onTriggered: {
-            authentication.visible = !DccApp.isTreeland()
-        }
-    }
 
     DccDBusInterface {
         property var driverInfo
@@ -30,12 +24,14 @@ DccObject {
         connection: DccDBusInterface.SystemBus
         onDriverInfoChanged: {
             let jsonData = JSON.parse(driverInfo)
+            let found = false
             for (var i = 0; i < jsonData.length; i++) {
                 if (jsonData[i].CharaType !== 0) {
-                    showTimer.start()
+                    authentication.hasChara = true
                     return
                 }
             }
+            authentication.hasChara = found
         }
     }
 
@@ -46,9 +42,7 @@ DccObject {
         inter: "org.deepin.dde.Authenticate1.Fingerprint"
         connection: DccDBusInterface.SystemBus
         onDefaultDeviceChanged: {
-            if (defaultDevice !== "") {
-                showTimer.start()
-            }
+            authentication.hasFingerprint = defaultDevice !== ""
         }
     }
 }

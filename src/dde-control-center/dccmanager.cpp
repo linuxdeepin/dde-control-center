@@ -657,7 +657,9 @@ void DccManager::onVisible(bool visible)
             }
         }
         DccObject::Private::FromObject(m_hideObjects)->removeChild(obj);
-        addObjectToParent(obj);
+        if (!addObjectToParent(obj)) {
+            DccObject::Private::FromObject(m_noAddObjects)->addChild(obj, false);
+        }
     } else {
         removeObjectFromParent(obj);
         DccObject::Private::FromObject(m_hideObjects)->addChild(obj, false);
