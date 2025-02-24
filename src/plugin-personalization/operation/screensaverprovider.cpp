@@ -105,7 +105,7 @@ ScreensaverProvider::ScreensaverProvider(PersonalizationDBusProxy *proxy, Person
 
     m_model->getPicScreenSaverModel()->resetData(items);
 
-    connect(worker, &ScreensaverWorker::pushScreensaver, this, &ScreensaverProvider::setScreensaver, Qt::DirectConnection);
+    connect(worker, &ScreensaverWorker::pushScreensaver, this, &ScreensaverProvider::setScreensaver, Qt::QueuedConnection);
 }
 
 ScreensaverProvider::~ScreensaverProvider()

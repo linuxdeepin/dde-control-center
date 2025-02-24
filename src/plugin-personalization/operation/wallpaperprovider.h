@@ -42,14 +42,13 @@ private:
     volatile bool m_running = false;
 };
 
-class WallpaperWorker : public QObject
+class WallpaperProvider : public QObject
 {
     Q_OBJECT
 public:
-    explicit WallpaperWorker(PersonalizationDBusProxy *personalizationProxy, PersonalizationModel *model, QObject *parent = nullptr);
-    ~WallpaperWorker();
+    explicit WallpaperProvider(PersonalizationDBusProxy *personalizationProxy, PersonalizationModel *model, QObject *parent = nullptr);
+    ~WallpaperProvider();
     void fetchData(WallpaperType type = WallpaperType::Wallpaper_all);
-    bool waitWallpaper(int ms = 0) const;
     static bool isColor(const QString &path);
     static WallpaperItemPtr createItem(const QString &path, bool del);
 private slots:
@@ -60,8 +59,6 @@ private:
     InterfaceWorker *m_worker = nullptr;
     PersonalizationModel *m_model = nullptr;
     PersonalizationDBusProxy *m_personalizationProxy = nullptr;
-    mutable QMutex m_wallpaperMtx;
-    bool fecthing = true;
 
     QList<WallpaperItemPtr> m_wallpaperList;
     QList<WallpaperItemPtr> m_solidWallpaperList;

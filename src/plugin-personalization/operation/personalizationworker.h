@@ -6,7 +6,7 @@
 
 #include "operation/personalizationexport.hpp"
 #include "operation/screensaverprovider.h"
-#include "operation/wallpaperworker.h"
+#include "operation/wallpaperprovider.h"
 #include "personalizationmodel.h"
 
 #include <QObject>
@@ -114,7 +114,7 @@ protected:
     PersonalizationDBusProxy *m_personalizationDBusProxy;
 
 private:
-    WallpaperWorker *m_wallpaperWorker;
+    WallpaperProvider *m_wallpaperWorker;
     ScreensaverProvider *m_screenSaverProvider;
     Dtk::Core::DConfig *m_personalizationConfig;
     Dtk::Core::DConfig *m_dtkConfig;

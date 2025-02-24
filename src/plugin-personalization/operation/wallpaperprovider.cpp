@@ -12,7 +12,7 @@
 #include <QUrl>
 #include <QDir>
 
-#include "wallpaperworker.h"
+#include "wallpaperprovider.h"
 #include "operation/personalizationdbusproxy.h"
 #include "utils.hpp"
 
@@ -23,7 +23,7 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 #define CUSTOM_SOLIDE_WALLPAPER_DIR "/var/cache/wallpapers/custom-solidwallpapers"
 #define CUSTOM_WALLPAPER_DIR "/var/cache/wallpapers/custom-wallpapers"
 
-WallpaperWorker::WallpaperWorker(PersonalizationDBusProxy *PersonalizationDBusProxy, PersonalizationModel *model, QObject *parent) : QObject(parent)
+WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDBusProxy, PersonalizationModel *model, QObject *parent) : QObject(parent)
 {
     m_workThread = new QThread(this);
 
@@ -33,11 +33,10 @@ WallpaperWorker::WallpaperWorker(PersonalizationDBusProxy *PersonalizationDBusPr
     m_worker->moveToThread(m_workThread);
     m_workThread->start();
 
-    // DirectConnection to set datas
-    connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperWorker::setWallpaper, Qt::DirectConnection);
+    connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
 }
 
-WallpaperWorker::~WallpaperWorker()
+WallpaperProvider::~WallpaperProvider()
 {
     m_worker->terminate();
     m_workThread->quit();
@@ -51,35 +50,22 @@ WallpaperWorker::~WallpaperWorker()
     m_worker = nullptr;
 }
 
-void WallpaperWorker::fetchData(WallpaperType type)
+void WallpaperProvider::fetchData(WallpaperType type)
 {
-    // get picture
-    if (m_wallpaperMtx.tryLock(1)) {
-        fecthing = true;
-        QMetaObject::invokeMethod(m_worker, "startListBackground", Qt::QueuedConnection, Q_ARG(WallpaperType, type));
-    } else {
-        qWarning() << "wallpaper is locked...";
-    }
+
+    QMetaObject::invokeMethod(m_worker, "startListBackground", Qt::QueuedConnection, Q_ARG(WallpaperType, type));
 }
 
-bool WallpaperWorker::waitWallpaper(int ms) const
-{
-    bool ret = m_wallpaperMtx.tryLock(ms);
-    if (ret)
-        m_wallpaperMtx.unlock();
-    return ret;
-}
-
-bool WallpaperWorker::isColor(const QString &path)
+bool WallpaperProvider::isColor(const QString &path)
 {
     // these dirs save solid color wallpapers.
     return path.startsWith(CUSTOM_SOLIDE_WALLPAPER_DIR)
             || path.startsWith(SYS_SOLIDE_WALLPAPER_DIR);
 }
 
-void WallpaperWorker::setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type)
+void WallpaperProvider::setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type)
 {
-    qCDebug(DdcPersonalizationWallpaperWorker) << "get wallpaper list" << items.size() << "current thread" << QThread::currentThread() << "main:" << qApp->thread() << "type:" << type;
+    qCDebug(DdcPersonalizationWallpaperWorker) << "get wallpaper list" << items.size() << "type:" << type;
 
     switch (type) {
         case WallpaperType::Wallpaper_Sys:
@@ -94,12 +80,9 @@ void WallpaperWorker::setWallpaper(const QList<WallpaperItemPtr> &items, Wallpap
         default:
             break;
     }
-
-    m_wallpaperMtx.unlock();
-    fecthing = false;
 }
 
-WallpaperItemPtr WallpaperWorker::createItem(const QString &path, bool del)
+WallpaperItemPtr WallpaperProvider::createItem(const QString &path, bool del)
 {
     if (path.isEmpty())
         return {};
@@ -160,7 +143,7 @@ void InterfaceWorker::getSysBackground()
     QList<WallpaperItemPtr> wallpapers;
     auto list = fetchWallpaper(SYS_WALLPAPER_DIR);
     for (const auto &path : list) {
-        WallpaperItemPtr ptr = WallpaperWorker::createItem(path, false);
+        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, false);
         if (ptr)
             wallpapers.append(ptr);
     }
@@ -172,11 +155,11 @@ void InterfaceWorker::getCustomBackground()
     QList<WallpaperItemPtr> wallpapers;
     auto customList = m_proxy->getCustomWallpaper(currentUserName());
     for (const auto &path : customList) {
-        if (WallpaperWorker::isColor(path)) {
+        if (WallpaperProvider::isColor(path)) {
             continue;
         }
 
-        WallpaperItemPtr ptr = WallpaperWorker::createItem(path, true);
+        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, true);
         if (ptr)
             wallpapers.append(ptr);
     }
@@ -188,17 +171,17 @@ void InterfaceWorker::getSolodBackground()
     QList<WallpaperItemPtr> wallpapers;
     auto customList = m_proxy->getCustomWallpaper(currentUserName());
     for (const auto &path : customList) {
-        if (!WallpaperWorker::isColor(path)) {
+        if (!WallpaperProvider::isColor(path)) {
             continue;
         }
 
-        WallpaperItemPtr ptr = WallpaperWorker::createItem(path, true);
+        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, true);
         if (ptr)
             wallpapers.append(ptr);
     }
     auto list = fetchWallpaper(SYS_SOLIDE_WALLPAPER_DIR);
     for (const auto &path : list) {
-        WallpaperItemPtr ptr = WallpaperWorker::createItem(path, false);
+        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, false);
         if (ptr)
             wallpapers.append(ptr);
     }
