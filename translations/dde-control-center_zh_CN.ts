@@ -6596,7 +6596,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15分钟红</translation>
+        <translation>15分钟</translation>
     </message>
     <message>
         <source>30 minute</source>
