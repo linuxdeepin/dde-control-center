@@ -47,6 +47,7 @@ public:
     Q_INVOKABLE inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
 
     Q_INVOKABLE DccApp::UosEdition uosEdition() const;
+    Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
 
     Q_INVOKABLE bool isTreeland() const;
 

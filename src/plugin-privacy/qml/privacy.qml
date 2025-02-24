@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import org.deepin.dcc 1.0
+import org.deepin.dtk 1.0 as D
 
 DccObject {
     name: "privacy"
@@ -11,4 +12,5 @@ DccObject {
     description: qsTr("Camera, folder permissions")
     icon: "privacy"
     weight: 70
+    visible: typeof D.SysInfo !== 'undefined' && DccApp.productType() === D.SysInfo.Uos
 }
