@@ -4,7 +4,7 @@
 #include "personalizationworker.h"
 #include "operation/personalizationexport.hpp"
 #include "operation/screensaverprovider.h"
-#include "operation/wallpaperworker.h"
+#include "operation/wallpaperprovider.h"
 #include "personalizationdbusproxy.h"
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
@@ -49,7 +49,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     : QObject(parent)
     , m_model(model)
     , m_personalizationDBusProxy(new PersonalizationDBusProxy(this))
-    , m_wallpaperWorker(new WallpaperWorker(m_personalizationDBusProxy, m_model, this))
+    , m_wallpaperWorker(new WallpaperProvider(m_personalizationDBusProxy, m_model, this))
     , m_screenSaverProvider(new ScreensaverProvider(m_personalizationDBusProxy, m_model, this))
     , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
     , m_dtkConfig(DConfig::createGeneric(DTK_PREFERENCE_NAME, "", this))
