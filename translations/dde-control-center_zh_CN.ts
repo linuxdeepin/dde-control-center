@@ -3440,6 +3440,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Debug</source>
         <translation>调试</translation>
     </message>
+    <message>
+        <source>3.Import Certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
@@ -6791,6 +6795,18 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Add a new </source>
         <translation>添加新的</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>只能由字母、数字、中文、下划线组成</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>不得超过15个字符</translation>
     </message>
 </context>
 <context>

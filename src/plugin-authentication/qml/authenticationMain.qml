@@ -154,6 +154,10 @@ DccObject {
                             focusPolicy: Qt.NoFocus
                             color: palette.text
                             onEditingFinished: {
+                                if (!checkInputInvalid()) {
+                                    text = modelData;
+                                    return;
+                                }
                                 focus = false;
                                 if (modelData !== textInputItem.text) {
                                     layout.requestRename(modelData, text);
@@ -166,7 +170,37 @@ DccObject {
                             Keys.onEnterPressed: {
                                 focus = false;
                             }
+
+                            function checkInputInvalid() {
+                                var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
+                                var isValid = reg.test(textInputItem.text);
+                                var isOverLength = textInputItem.text.length > 15;
+
+                                if (!isValid && isOverLength) {
+                                    alert.show(qsTr("Use letters, numbers and underscores only, and no more than 15 characters"));
+                                } else if (!isValid) {
+                                    alert.show(qsTr("Use letters, numbers and underscores only"));
+                                } else if (isOverLength) {
+                                    alert.show(qsTr("No more than 15 characters"));
+                                } else {
+                                    return true;
+                                }
+                                return false;
+                            }
                         }
+
+                        D.AlertToolTip {
+                            id: alert
+                            target: layout
+                            timeout: 3000
+                            visible: false
+
+                            function show(msg) {
+                                text = msg;
+                                visible = true;                                
+                            }
+                        }
+
                         Item {
                             Layout.fillWidth: true
                         }
