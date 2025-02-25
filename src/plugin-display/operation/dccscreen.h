@@ -106,6 +106,7 @@ Q_SIGNALS:
     void rateListChanged();
     void rotateChanged();
     void brightnessChanged();
+    void currentModeChanged();
     void currentFillModeChanged();
     void availableFillModesChanged();
     void screenChanged();

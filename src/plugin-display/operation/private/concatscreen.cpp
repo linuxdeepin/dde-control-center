@@ -55,6 +55,15 @@ void ScreenData::moveBy(qreal dx, qreal dy)
     }
 }
 
+void ScreenData::rebound()
+{
+    m_rect = QRectF(m_screen->x(), m_screen->y(), m_screen->width(), m_screen->height());
+    if (m_item) {
+        m_item->setX(m_rect.x() * m_scale);
+        m_item->setY(m_rect.y() * m_scale);
+    }
+}
+
 // 自动吸附实现
 ConcatScreen::ConcatScreen(QList<ScreenData *> listItems, ScreenData *pw)
     : m_listItems(listItems)
@@ -829,8 +838,7 @@ bool ConcatScreen::updateConnectedState(bool isInit)
         listItemsTemp.clear();
 
         for (int j = 0; j < m_listItems.size(); j++) {
-            if (j != i && m_listItems[i]->rectEx().intersects(m_listItems[j]->rect()) && !listItemsTemp.contains(m_listItems[j])
-                && !m_listItems[i]->justIntersectRect().intersects(m_listItems[j]->rect())) {
+            if (j != i && m_listItems[i]->rectEx().intersects(m_listItems[j]->rect()) && !listItemsTemp.contains(m_listItems[j]) && !m_listItems[i]->justIntersectRect().intersects(m_listItems[j]->rect())) {
                 listItemsTemp.append(m_listItems[j]);
             }
             if (j != i && m_listItems[i]->justIntersectRect().intersects(m_listItems[j]->rect())) {
@@ -890,7 +898,9 @@ QList<ScreenData *> ConcatScreen::getConnectedDomain(ScreenData *item)
 
 void ConcatScreen::autoRebound()
 {
-    // todo: 还原，看逻辑不需要处理，待测
+    for (auto &&item : m_listItems) {
+        item->rebound();
+    }
 }
 
 } // namespace dccV25

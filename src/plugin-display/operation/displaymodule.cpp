@@ -139,7 +139,7 @@ void DisplayModulePrivate::updateVirtualScreens()
         changed = true;
         DccScreen *screen = DccScreenPrivate::New(monitors, m_worker, q_ptr);
         q_ptr->connect(screen, &DccScreen::rotateChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
-        q_ptr->connect(screen, &DccScreen::currentFillModeChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
+        q_ptr->connect(screen, &DccScreen::currentModeChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
         m_virtualScreens << screen;
     }
     if (changed) {

@@ -15,6 +15,7 @@ QT_END_NAMESPACE
 
 namespace dccV25 {
 class DccScreen;
+
 class ScreenData
 {
 public:
@@ -25,6 +26,7 @@ public:
     QRectF justIntersectRect() const;
     DccScreen *screen() const;
     void moveBy(qreal dx, qreal dy);
+    void rebound();
 
 private:
     QQuickItem *m_item;
