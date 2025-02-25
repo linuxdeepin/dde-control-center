@@ -22,7 +22,7 @@ DccObject {
             bottomPadding: 5
             text: qsTr("Root Access")
             font.bold: true
-            color: "black"
+          //  color: "black"
             font.pixelSize: 14
         }
     }
@@ -56,7 +56,7 @@ DccObject {
                     Label {
                         text: qsTr("Request Root Access")
                         font.pixelSize: 16
-                        color:"#7A000000"
+                       // color:"#7A000000"
                     }
 
                     Label {
@@ -65,14 +65,15 @@ DccObject {
                         wrapMode: Text.WordWrap
                         text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
                         font.pixelSize: 12
-                        color:"#5A000000"
+                        opacity: 0.7
+                       // color:"#5A000000"
                     }
                 }
 
                 Label {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
-                    visible: dccData.mode().developerModeState || dccData.mode().isActivate
+                    visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
                     text: qsTr("Allowed")
                     font.pixelSize: 12
                 }
@@ -81,7 +82,7 @@ DccObject {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
                     implicitWidth: 50
-                    visible: !(dccData.mode().developerModeState || dccData.mode().isActivate)
+                    visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
                     text: qsTr("Enter")
 
                     onClicked: {
@@ -273,7 +274,8 @@ DccObject {
                                 Rectangle {
                                     width: 340
                                     height: 50
-                                    color: "#1A000000"
+                                   // color: "#1A000000"
+                                    color: "transparent"
                                     radius: 6
                                     RowLayout {
                                         height: parent.height
@@ -300,7 +302,8 @@ DccObject {
                                 Rectangle {
                                     width: 340
                                     height: 50
-                                    color: "#1A000000"
+                                  //  color: "#1A000000"
+                                    color: "transparent"
                                     radius: 6
                                     Label {
                                         anchors.centerIn: parent
@@ -320,13 +323,14 @@ DccObject {
                                 Rectangle {
                                     width: 340
                                     height: 40
-                                    color: "#1A000000"
+                                  //  color: "#1A000000"
+                                    color: "transparent"
                                     radius: 6
                                     Label {
                                         height: parent.height
                                         verticalAlignment: Text.AlignVCenter
                                         leftPadding: 10
-                                        text: qsTr("Import Certificate")
+                                        text: qsTr("3.Import Certificate")
                                         font: DTK.fontManager.t6
                                         // 超链接点击事件
                                         onLinkActivated: function(url) {
@@ -354,8 +358,9 @@ DccObject {
                 bottomPadding: 5
                 text: qsTr("To install and run unsigned apps, please go to <a href=\"Security Center\">Security Center</a> to change the settings.")
                 font.pixelSize: 12
-                //opacity: 0.5
-                color:"#5A000000"
+                opacity: 0.7
+               // color: "transparent"
+               // color:"#5A000000"
                 // 超链接点击事件
                 onLinkActivated: function(url) {
                     console.log("点击的链接是: " + url)
@@ -399,7 +404,9 @@ DccObject {
                 currentIndex: dccData.mode().debugLogCurrentIndex
                 onCurrentIndexChanged: {
                     console.log("Selected index:", currentIndex)
-                    dccData.work().setLogDebug(currentIndex)
+                    if (currentIndex !== dccData.mode().debugLogCurrentIndex) {
+                       dccData.work().setLogDebug(currentIndex)
+                    }
                 }
             }
         }

@@ -63,10 +63,15 @@ public:
     // groubScale
     QDBusPendingCall SetScalePlymouth(int scale);
 
+    Q_PROPERTY(bool DeveloperMode READ DeveloperMode NOTIFY DeveloperModeChanged)
+    bool DeveloperMode();
+
+
 Q_SIGNALS: // SIGNALS
     // deepin id
     void IsLoginChanged(const bool value);
     void DeviceUnlockedChanged(const bool value);
+    void DeveloperModeChanged(const bool value);
     // grub2
     void EnableThemeChanged(const bool value);
     void UpdatingChanged(const bool value);
@@ -76,6 +81,7 @@ Q_SIGNALS: // SIGNALS
     void EnabledUsersChanged(const QStringList &users);
     // grub2.Theme
     void BackgroundChanged();
+
 
     // license
     void AuthorizationStateChanged(const int code);
@@ -96,4 +102,5 @@ private:
     DDBusInterface *m_userexperienceInter;
     DDBusInterface *m_notificationInter;
     DDBusInterface *m_grubScaleInter;
+    DDBusInterface *m_syncHelperInter;
 };

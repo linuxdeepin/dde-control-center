@@ -150,6 +150,20 @@ void CommonInfoModel::setPlymouthTheme(const QString &themeName)
     Q_EMIT plymouthThemeChanged(themeName);
 }
 
+bool CommonInfoModel::isDeveloperMode() const
+{
+    return m_isDeveloperMode;
+}
+
+void CommonInfoModel::setIsDeveloperMode(bool newIsDeveloperMode)
+{
+    if (m_isDeveloperMode == newIsDeveloperMode)
+        return;
+    m_isDeveloperMode = newIsDeveloperMode;
+    emit isDeveloperModeChanged();
+}
+
+
 bool CommonInfoModel::needShowModalDialog() const
 {
     return m_needShowModalDialog;

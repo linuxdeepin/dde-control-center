@@ -39,6 +39,10 @@ const QString &PlyMouthScaleService = QStringLiteral("org.deepin.dde.Daemon1");
 const QString &PlyMouthScalePath = QStringLiteral("/org/deepin/dde/Daemon1");
 const QString &PlyMouthScaleInterface = QStringLiteral("org.deepin.dde.Daemon1");
 
+const QString &SyncHelperService = QStringLiteral("com.deepin.sync.Helper");
+const QString &SyncHelperPath = QStringLiteral("/com/deepin/sync/Helper");
+const QString &SyncHelperInterface = QStringLiteral("com.deepin.sync.Helper");
+
 CommonInfoProxy::CommonInfoProxy(QObject *parent)
     : QObject(parent)
     , m_grubInter(new DDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
@@ -49,6 +53,7 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
     , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
     , m_notificationInter(new DDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
     , m_grubScaleInter(new DDBusInterface(PlyMouthScaleService, PlyMouthScalePath, PlyMouthScaleInterface, QDBusConnection::systemBus(), this))
+    , m_syncHelperInter(new DDBusInterface(SyncHelperService, SyncHelperPath, SyncHelperInterface, QDBusConnection::systemBus(), this))
 {
     // in this function, it will wait for 50 seconds finall return
     m_grubScaleInter->setTimeout(50000);
@@ -156,6 +161,11 @@ void CommonInfoProxy::EnableUser(const QString &username, const QString &passwor
 QDBusPendingCall CommonInfoProxy::SetScalePlymouth(int scale)
 {
     return m_grubScaleInter->asyncCallWithArgumentList("ScalePlymouth", { scale });
+}
+
+bool CommonInfoProxy::DeveloperMode()
+{
+    return qvariant_cast<bool>(m_syncHelperInter->property("DeveloperMode"));
 }
 
 QString CommonInfoProxy::Background()
