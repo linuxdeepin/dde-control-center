@@ -373,6 +373,7 @@ DccObject {
             parentName: "monitorControl"
             displayName: qsTr("Identify")
             weight: 20
+            visible: dccData.virtualScreens.length > 1 || (dccData.virtualScreens.length === 1 && dccData.virtualScreens[0].screenItems.length > 1)
             pageType: DccObject.Item
             page: Item {
                 implicitHeight: identifyBut.implicitHeight + 10
