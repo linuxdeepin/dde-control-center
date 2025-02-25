@@ -42,7 +42,6 @@ DccObject {
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Label {
-                    id: speedText
                     Layout.topMargin: 10
                     font: D.DTK.fontManager.t7
                     text: dccObj.displayName
@@ -81,7 +80,6 @@ DccObject {
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Label {
-                    id: speedText
                     Layout.topMargin: 10
                     font: D.DTK.fontManager.t7
                     text: dccObj.displayName
@@ -120,7 +118,6 @@ DccObject {
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Label {
-                    id: speedText
                     Layout.topMargin: 10
                     font: D.DTK.fontManager.t7
                     text: dccObj.displayName

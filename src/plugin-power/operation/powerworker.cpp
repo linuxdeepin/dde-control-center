@@ -128,8 +128,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
 
     // init base property
     m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
-
-    active();
 }
 
 QVariantList PowerWorker::converToDataMap(const QStringList& conf)
