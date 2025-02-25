@@ -26,6 +26,8 @@ class CommonInfoModel : public QObject
     Q_PROPERTY(bool isActivate READ isActivate NOTIFY LicenseStateChanged FINAL)
     Q_PROPERTY(QString grubThemePath READ grubThemePath NOTIFY grubThemePathChanged FINAL)
     Q_PROPERTY(bool needShowModalDialog READ needShowModalDialog NOTIFY needShowModalDialogChanged FINAL)
+    Q_PROPERTY(bool isDeveloperMode READ isDeveloperMode NOTIFY isDeveloperModeChanged FINAL)
+
 
 public:
     explicit CommonInfoModel(QObject *parent = nullptr);
@@ -61,6 +63,9 @@ public:
     bool needShowModalDialog() const;
     void setNeedShowModalDialog(bool newNeedShowModalDialog);
 
+
+    bool isDeveloperMode() const;
+
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
     void themeEnabledChanged(const bool enabled) const;
@@ -84,6 +89,8 @@ Q_SIGNALS:
 
     void needShowModalDialogChanged();
 
+    void isDeveloperModeChanged();
+
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
@@ -96,6 +103,8 @@ public Q_SLOTS:
     void setIsLogin(const bool log);
     void setPlymouthScale(int scale);
     void setPlymouthTheme(const QString &themeName);
+    void setIsDeveloperMode(bool newIsDeveloperMode);
+
 
 private:
     bool m_bootDelay;
@@ -119,5 +128,7 @@ private:
 
     int m_debugLogCurrentIndex;
     bool m_needShowModalDialog;
+
+    bool m_isDeveloperMode;
 
 };

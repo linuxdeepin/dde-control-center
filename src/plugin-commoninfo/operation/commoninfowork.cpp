@@ -193,6 +193,8 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     });
 
     connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, &CommonInfoWork::resetEditAuthEnabled);
+
+    connect(m_commonInfoProxy, &CommonInfoProxy::DeveloperModeChanged, m_commomModel, &CommonInfoModel::setIsDeveloperMode);
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -210,6 +212,7 @@ void CommonInfoWork::active()
     m_commomModel->setShowGrubEditAuth(true);
     m_commomModel->setIsLogin(m_commonInfoProxy->IsLogin());
     m_commomModel->setDeveloperModeState(m_commonInfoProxy->DeviceUnlocked());
+    m_commomModel->setIsDeveloperMode(m_commonInfoProxy->DeveloperMode());
     m_commomModel->setThemeEnabled(m_commonInfoProxy->EnableTheme());
     m_commomModel->setBootDelay(m_commonInfoProxy->Timeout() > 1);
     m_commomModel->setGrubEditAuthEnabled(m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
