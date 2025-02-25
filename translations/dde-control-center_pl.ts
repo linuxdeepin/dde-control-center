@@ -3425,6 +3425,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Debug</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>3.Import Certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
@@ -6775,6 +6779,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add a new </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
