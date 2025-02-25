@@ -120,6 +120,7 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
     });
     q_ptr->connect(monitor(), &Monitor::availableFillModesChanged, q_ptr, &DccScreen::availableFillModesChanged);
     q_ptr->connect(monitor(), &Monitor::currentFillModeChanged, q_ptr, &DccScreen::currentFillModeChanged);
+    q_ptr->connect(monitor(), &Monitor::currentModeChanged, q_ptr, &DccScreen::currentModeChanged);
     q_ptr->connect(monitor(), &Monitor::enableChanged, q_ptr, &DccScreen::enableChanged);
     q_ptr->connect(monitor(), &Monitor::rotateChanged, q_ptr, &DccScreen::rotateChanged);
     q_ptr->connect(monitor(), &Monitor::xChanged, q_ptr, &DccScreen::xChanged);

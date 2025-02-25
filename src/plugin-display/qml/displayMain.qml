@@ -192,6 +192,7 @@ DccObject {
         name: "monitorControl"
         parentName: "display"
         weight: 20
+        visible: dccData.screens.length > 1
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: DccGroupView {
@@ -201,7 +202,6 @@ DccObject {
             name: "monitorsGround"
             parentName: "monitorControl"
             weight: 10
-            visible: dccData.screens.length > 1
             enabled: dccData.virtualScreens.length > 1
             pageType: DccObject.Item
             page: Item {
