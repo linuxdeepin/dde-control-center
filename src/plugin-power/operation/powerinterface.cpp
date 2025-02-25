@@ -36,6 +36,7 @@ PowerInterface::PowerInterface(QObject *parent)
         m_powerPressedOperatorModel->setVisible(POT_ShutDown, value);
         m_batteryPressedOperatorModel->setVisible(POT_ShutDown, value);
     });
+    m_worker->active();
 }
 
 int PowerInterface::indexByValueOnModel(QAbstractListModel *model, int targetValue)
