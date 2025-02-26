@@ -23,7 +23,6 @@ DccObject {
             bottomPadding: 5
             text: qsTr("Root Access")
             font.bold: true
-          //  color: "black"
             font.pixelSize: 14
         }
     }
@@ -71,8 +70,7 @@ DccObject {
                 Label {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
-                    visible: false
-                   // visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
+                    visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
                     text: qsTr("Allowed")
                     font.pixelSize: 12
                 }
@@ -82,7 +80,7 @@ DccObject {
                     Layout.rightMargin: 10
                     implicitWidth: 50
 
-                  //  visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
+                    visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
                     text: qsTr("Enter")
 
                     onClicked: {
