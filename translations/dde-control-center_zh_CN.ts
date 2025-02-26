@@ -597,7 +597,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"></translation>
+        <translation>长度大于或等于64</translation>
     </message>
 </context>
 <context>
@@ -3442,7 +3442,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>3.导入证书</translation>
+    </message>
+    <message>
+        <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
+        <translation>更改选项处理可能需要一分钟，收到设置成功提示后，请重启设备方可生效。</translation>
     </message>
 </context>
 <context>
@@ -3969,11 +3973,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">向左</translation>
+        <translation>向左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">向右</translation>
+        <translation>向右</translation>
     </message>
 </context>
 <context>
@@ -6070,7 +6074,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished">智能镜像源</translation>
+        <translation>智能镜像源</translation>
     </message>
 </context>
 <context>
@@ -6832,7 +6836,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation>开发者模式</translation>
+        <translation>开发者选项</translation>
     </message>
     <message>
         <source>Developer root permission management</source>

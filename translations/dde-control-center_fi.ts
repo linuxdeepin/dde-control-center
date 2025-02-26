@@ -3429,6 +3429,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>3.Import Certificate</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
