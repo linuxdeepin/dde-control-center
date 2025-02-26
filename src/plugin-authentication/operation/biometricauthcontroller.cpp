@@ -131,28 +131,20 @@ void BiometricAuthController::updateFaceImgContent(void* const context, const DA
     emit controller->faceImgContentChanged();
 }
 
-void BiometricAuthController::startFaceEnroll() {
-    // 找到最小的名称以便作为缺省名添加
+void BiometricAuthController::startFaceEnroll()
+{
+    QString newName;
     for (int i = 0; i < FACEID_NUM; ++i) {
-        bool findNotUsedThumb = false;
-        QString newName(tr("Faceprint") + QString("%1").arg(i + 1));
-
-        for (int n = 0; n < FACEID_NUM && n < m_charaModel->facesList().size(); ++n) {
-            if (newName == m_charaModel->facesList().at(n)) {
-                findNotUsedThumb = true;
-                break;
-            }
-        }
-
-        if (!findNotUsedThumb) {
-            m_enrollFaceTips = "";
-            emit enrollFaceTipsChanged();
-            m_enrollFaceInProgress = true;
-            m_charaWorker->entollStart(m_charaModel->faceDriverName(), m_charaModel->faceCharaType(), newName);
+        newName = tr("Faceprint") + QString("%1").arg(i + 1);
+        if (!m_charaModel->facesList().contains(newName)) {
             break;
         }
     }
     setAddStage(CharaMangerModel::Processing);
+    m_enrollFaceTips = "";
+    emit enrollFaceTipsChanged();
+    m_enrollFaceInProgress = true;
+    m_charaWorker->entollStart(m_charaModel->faceDriverName(), m_charaModel->faceCharaType(), newName);
 }
 
 void BiometricAuthController::stopFaceEnroll() {
@@ -178,18 +170,9 @@ void BiometricAuthController::requestStartFingerEnroll()
 {
     QString newFingerName;
     auto thumbList = m_charaModel->thumbsList();
-    // 找到最小的指纹名以便作为缺省名添加
-    for (int i = 0; i < thumbList.size(); ++i) {
-        bool findNotUsedThumb = false;
-        newFingerName = m_charaModel->getPredefineThumbsName().at(i);
-        for (int n = 0; n < 10 && n < thumbList.size(); ++n) {
-            if (newFingerName == thumbList.at(n)) {
-                findNotUsedThumb = true;
-                break;
-            }
-        }
-        if (!findNotUsedThumb) {
-            // finded
+    for (const auto &predefineName : m_charaModel->getPredefineThumbsName()) {
+        if (!thumbList.contains(predefineName)) {
+            newFingerName = predefineName;
             break;
         }
     }
