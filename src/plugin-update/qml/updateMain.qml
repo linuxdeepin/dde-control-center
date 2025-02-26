@@ -123,7 +123,7 @@ DccObject {
         parentName: "update"
         displayName: qsTr("Update Settings")
       //  description: qsTr("You can set system updates, security updates, idle updates, update reminders, etc.")
-        icon: "update"
+        icon: "update_set"
         weight: 100
 
         visible: DccApp.uosEdition() === DccApp.UosCommunity
