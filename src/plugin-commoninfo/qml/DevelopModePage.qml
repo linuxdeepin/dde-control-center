@@ -2,13 +2,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
-import QtQuick.Controls 2.0
-import org.deepin.dtk 1.0
+import QtQuick.Controls 2.15
+import org.deepin.dtk 1.0 as D
 
 import org.deepin.dcc 1.0
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
-import Qt.labs.platform
+import Qt.labs.platform 1.1
+import org.deepin.dtk.style 1.0 as DS
 
 
 DccObject {
@@ -45,35 +46,33 @@ DccObject {
             weight: 20
             page: RowLayout {
                 id: root
-                width: parent.width
                 Layout.topMargin: 5
                 ColumnLayout {
                     spacing: 2
-                    width: parent.width - 70
                     Layout.leftMargin: 15
                     Layout.topMargin: 5
                     Layout.bottomMargin: 5
                     Label {
                         text: qsTr("Request Root Access")
                         font.pixelSize: 16
-                       // color:"#7A000000"
                     }
 
                     Label {
-                        Layout.preferredWidth: parent.width
                         horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
                         text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
                         font.pixelSize: 12
                         opacity: 0.7
-                       // color:"#5A000000"
+
+                        Layout.fillWidth: true
                     }
                 }
 
                 Label {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
-                    visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
+                    visible: false
+                   // visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
                     text: qsTr("Allowed")
                     font.pixelSize: 12
                 }
@@ -82,7 +81,8 @@ DccObject {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
                     implicitWidth: 50
-                    visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
+
+                  //  visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
                     text: qsTr("Enter")
 
                     onClicked: {
@@ -105,10 +105,15 @@ DccObject {
                     }
                 }
 
-                DialogWindow {
+                D.DialogWindow {
                     id: developDlg
                     width: 360
-                    height: 350
+                    height: 360
+
+                    minimumWidth: 360
+                    minimumHeight: 360
+                    maximumWidth: 360
+                    maximumHeight: 360
 
                     icon: "preferences-system"
                     flags: Qt.Dialog | Qt.WindowCloseButtonHint
@@ -121,25 +126,20 @@ DccObject {
                     }
 
                     ColumnLayout {
-                        width: parent.width
-                        spacing: 10
                         Label {
-                            height: 20
-                            font: DTK.fontManager.t5
+                            font: D.DTK.fontManager.t5
                             Layout.alignment: Qt.AlignHCenter
                             text: qsTr("Root Access")
                         }
 
                         // 单选按钮用于切换页面
-                        Row {
-                            width: 340
+                        RowLayout {
                             spacing: 20
-                            height: 20
                             Layout.alignment: Qt.AlignHCenter
                             RadioButton {
                                 id: radio1
                                 text: qsTr("Online")
-                                font: DTK.fontManager.t6
+                                font: D.DTK.fontManager.t6
                                 checked: true
                                 onClicked: {
                                     if (developDlg.currentStackIndex === 0) {
@@ -154,7 +154,7 @@ DccObject {
                             RadioButton {
                                 id: radio2
                                 text: qsTr("Offline")
-                                font: DTK.fontManager.t6
+                                font: D.DTK.fontManager.t6
                                 onClicked: {
                                     if (developDlg.currentStackIndex === 1) {
                                         return
@@ -171,16 +171,17 @@ DccObject {
                         StackView {
                             id: stackView
                             width: 340
-                            height: 160
+                            height: 180
                             initialItem: page1Component
                         }
 
-                        RecommandButton {
+                        D.RecommandButton {
                             id: confirmBtn
                             text: dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID")
-                            width: parent.width
-                            font: DTK.fontManager.t7
-                            height: 20
+                            font: D.DTK.fontManager.t7
+
+                            Layout.fillWidth: true
+                            Layout.bottomMargin: 10
 
                             onClicked: {
                                 if (developDlg.currentStackIndex === 1) {
@@ -222,14 +223,14 @@ DccObject {
                         // 页面1
                         Component {
                             id: page1Component
-                            ColumnLayout{
+                            ColumnLayout {
                                 Rectangle {
                                     color: "transparent"
-                                    width: 340
+                                    width: parent.width
                                     height: 128
                                     Image {
                                         id: tikc
-                                        source: dccData.mode().isLogin ? "common_tick" : "qrc:/icons/deepin/builtin/icons/develop_bind.dci"
+                                        source: dccData.mode().isLogin ? "common_tick" : "develop_bind"
                                         width: 128
                                         height: 128
                                         z: 2
@@ -256,10 +257,16 @@ DccObject {
                                     }
                                 }
 
+                                Item {
+                                    Layout.fillHeight: true
+                                }
                                 Label {
-                                    height: 20
-                                    font: DTK.fontManager.t8
-                                    Layout.alignment: Qt.AlignHCenter
+                                    wrapMode: Text.WordWrap
+
+                                    horizontalAlignment: Qt.AlignHCenter
+                                    Layout.fillWidth: true
+                                    font.pixelSize: 12
+                                    Layout.bottomMargin: 10
                                     text: dccData.mode().isLogin ? qsTr("Your UOS ID has been logged in, click to enter developer mode") : qsTr("Please sign in to your UOS ID first and continue")
                                 }
                             }
@@ -268,27 +275,33 @@ DccObject {
                         // 页面2
                         Component {
                             id: page2Component
-
-                            Column {
+                            ColumnLayout {
                                 spacing: 2
                                 Rectangle {
-                                    width: 340
-                                    height: 50
-                                   // color: "#1A000000"
-                                    color: "transparent"
+                                    width: parent.width
+                                    height: 40
+                                    color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                                        Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
                                     radius: 6
+
+                                    Layout.fillWidth: true
+
                                     RowLayout {
                                         height: parent.height
                                         width: parent.width
+
                                         Label {
                                             leftPadding: 10
                                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                             text: qsTr("1.Export PC Info")
+                                            Layout.fillWidth: true
                                         }
 
                                         Button {
+                                            id: exportBtn
                                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                             implicitWidth: 40
+                                            implicitHeight: 30
                                             Layout.rightMargin: 10
                                             text: qsTr("Export")
 
@@ -299,44 +312,50 @@ DccObject {
                                     }
                                 }
 
-                                Rectangle {
-                                    width: 340
-                                    height: 50
-                                  //  color: "#1A000000"
-                                    color: "transparent"
-                                    radius: 6
-                                    Label {
-                                        anchors.centerIn: parent
-                                        height: 30
-                                        width: 340
-                                        leftPadding: 10
-                                        text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
-                                        wrapMode: Text.WordWrap
-                                        // 超链接点击事件
-                                        onLinkActivated: function(url) {
-                                            console.log("点击的链接是: " + url)
-                                            Qt.openUrlExternally(url) // 使用默认浏览器打开链接
-                                        }
+                                Label {
+                                    leftPadding: 10
+                                    text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
+                                    wrapMode: Text.WordWrap
+                                    topPadding: 5
+                                    bottomPadding: 5
+                                    // 超链接点击事件
+                                    onLinkActivated: function (url) {
+                                        console.log("点击的链接是: " + url)
+                                        Qt.openUrlExternally(url) // 使用默认浏览器打开链接
+                                    }
+
+                                    Layout.fillWidth: true
+
+                                    background: Rectangle {
+                                        color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                                            Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+                                        radius: 6
                                     }
                                 }
 
-                                Rectangle {
-                                    width: 340
-                                    height: 40
-                                  //  color: "#1A000000"
-                                    color: "transparent"
-                                    radius: 6
-                                    Label {
-                                        height: parent.height
-                                        verticalAlignment: Text.AlignVCenter
-                                        leftPadding: 10
-                                        text: qsTr("3.Import Certificate")
-                                        font: DTK.fontManager.t6
-                                        // 超链接点击事件
-                                        onLinkActivated: function(url) {
-                                            Qt.openUrlExternally(url) // 使用默认浏览器打开链接
-                                        }
+                                Label {
+                                    verticalAlignment: Text.AlignVCenter
+                                    leftPadding: 10
+                                    topPadding: 5
+                                    bottomPadding: 5
+                                    text: qsTr("3.Import Certificate")
+                                    font: D.DTK.fontManager.t6
+                                    // 超链接点击事件
+                                    onLinkActivated: function (url) {
+                                        Qt.openUrlExternally(url) // 使用默认浏览器打开链接
                                     }
+
+                                    Layout.fillWidth: true
+
+                                    background: Rectangle {
+                                        color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                                            Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+                                        radius: 6 // 可选：设置圆角
+                                    }
+                                }
+
+                                Item {
+                                    Layout.fillHeight: true
                                 }
                             }
                         }
@@ -370,8 +389,6 @@ DccObject {
         }
     }
 
-
-
     DccObject {
         name: "developDebugTitle"
         parentName: "developerMode"
@@ -388,27 +405,58 @@ DccObject {
     }
 
     DccObject {
-        name: "developDebug"
+        name: "developDebugGrp"
         parentName: "developerMode"
-        displayName: qsTr("System logging level")
-        description: qsTr("Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.")
         weight: 60
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page:  Row{
-            ComboBox {
-                id: debugLogCombo
-                width: 180
-                model: [ qsTr("Off"), qsTr("Debug") ]
-                flat: true
-                currentIndex: dccData.mode().debugLogCurrentIndex
-                onCurrentIndexChanged: {
-                    console.log("Selected index:", currentIndex)
-                    if (currentIndex !== dccData.mode().debugLogCurrentIndex) {
-                       dccData.work().setLogDebug(currentIndex)
+        pageType: DccObject.Item
+
+        page: DccGroupView {
+
+            Layout.topMargin: 10
+        }
+
+        DccObject {
+            name: "developDebug"
+            parentName: "developDebugGrp"
+            displayName: qsTr("System logging level")
+            description: qsTr("Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.")
+            weight: 10
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            page:  Row{
+                ComboBox {
+                    id: debugLogCombo
+                    width: 180
+                    model: [ qsTr("Off"), qsTr("Debug") ]
+                    flat: true
+                    currentIndex: dccData.mode().debugLogCurrentIndex
+                    onCurrentIndexChanged: {
+                        console.log("Selected index:", currentIndex)
+                        if (currentIndex !== dccData.mode().debugLogCurrentIndex) {
+                            dccData.work().setLogDebug(currentIndex)
+                        }
                     }
                 }
             }
         }
+
+        DccObject {
+            name: "developDebugTips"
+            parentName: "developDebugGrp"
+            weight: 20
+            pageType: DccObject.Item
+            page: Label {
+                leftPadding: 15
+                bottomPadding: 5
+                topPadding: 5
+                rightPadding: 10
+                text: qsTr("Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.")
+                font.pixelSize: 12
+                opacity: 0.7
+                wrapMode: Text.WordWrap
+            }
+        }
+
+
     }
 }
