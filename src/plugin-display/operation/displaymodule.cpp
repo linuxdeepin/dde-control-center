@@ -544,7 +544,7 @@ void DisplayModule::applySettings(QList<QObject *> listItems, qreal scale)
 void DisplayModule::applyChanged()
 {
     DccScreen *tmpPw = qobject_cast<DccScreen *>(sender());
-    if (!tmpPw) {
+    if (!tmpPw || d_ptrDisplayModule->m_model->displayMode() != EXTEND_MODE) {
         return;
     }
     QList<ScreenData *> tmpListItems;
