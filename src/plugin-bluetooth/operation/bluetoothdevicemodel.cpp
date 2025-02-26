@@ -93,7 +93,7 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
     case Visiable:
         return displaySwitch() ? true : !bluetoothDeviceData->name().isEmpty();
     case IconName:
-        return "qrc:/icons/deepin/builtin/icons/"+ bluetoothDeviceData->deviceType() + "_16px.svg";
+        return bluetoothDeviceData->deviceType();
     case ConnectStatusText:
         return getConnectStatusText((int)bluetoothDeviceData->state(), bluetoothDeviceData->connectState());
     case ConnectStatus:
