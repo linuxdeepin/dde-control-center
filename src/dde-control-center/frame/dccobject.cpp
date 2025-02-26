@@ -134,6 +134,9 @@ void DccObject::Private::removeChild(int index)
     Q_EMIT q_ptr->childAboutToBeRemoved(q_ptr, index);
     m_children.erase(m_children.cbegin() + index);
     DccObject::Private::FromObject(child)->SetParent(nullptr);
+    if (child == m_currentObject) {
+        q_ptr->setCurrentObject(nullptr);
+    }
     Q_EMIT q_ptr->childRemoved(child);
     Q_EMIT q_ptr->childrenChanged(m_children);
 }
