@@ -196,7 +196,7 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Shutdown Settings")
         weight: 700
-        visible: dccData.model.enableScheduledShutdown !== "Hidden" && dccData.platformName() !== "wayland"
+        visible: dccData.model.enableScheduledShutdown !== "Hidden"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
     }
 
@@ -205,7 +205,7 @@ DccObject {
         parentName: "power/general"
         weight: 800
         pageType: DccObject.Item
-        visible: dccData.model.enableScheduledShutdown !== "Hidden" && dccData.platformName() !== "wayland"
+        visible: dccData.model.enableScheduledShutdown !== "Hidden"
         enabled: dccData.model.enableScheduledShutdown !== "Disabled"
         page: DccGroupView {}
 
