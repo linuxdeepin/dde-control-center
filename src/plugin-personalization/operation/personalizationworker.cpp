@@ -291,9 +291,7 @@ void PersonalizationWorker::onWallpaperSlideShowChanged()
     QVariantMap wallpaperSlideShowMap;
     for (auto &screen : qApp->screens()) {
         QString slideShow = m_personalizationDBusProxy->wallpaperSlideShow(screen->name());
-        if (!slideShow.isEmpty()) {
-            wallpaperSlideShowMap.insert(screen->name(), slideShow);
-        }
+        wallpaperSlideShowMap.insert(screen->name(), slideShow);
     }
     if (!wallpaperSlideShowMap.isEmpty()) {
         m_model->setWallpaperSlideShowMap(wallpaperSlideShowMap);
