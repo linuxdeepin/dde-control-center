@@ -8,6 +8,7 @@ D.ComboBox {
     id: control
     flat: true
     property string visibleRole
+    implicitWidth: Math.max(DS.Style.control.implicitWidth(control), 300)
 
     displayText: {
         if (currentIndex < 0 || currentIndex >= model.count) {
