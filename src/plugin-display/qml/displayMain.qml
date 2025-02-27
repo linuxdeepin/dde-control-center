@@ -482,7 +482,7 @@ DccObject {
         name: "screenTab"
         parentName: "display"
         weight: 50
-        visible: dccData.screens.length > 1
+        visible: dccData.virtualScreens.length > 1
         pageType: DccObject.Item
         Component {
             id: itmeoutDialog
@@ -736,16 +736,20 @@ DccObject {
             displayName: qsTr("Display Scaling") //"缩放"
             description: screen.maxScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
             weight: 60
-            visible: !dccData.isX11
+            visible: !dccData.isX11 || dccData.virtualScreens.length === 1
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true
                 textRole: "text"
                 valueRole: "value"
-                model: root.getScaleModel(screen.maxScale, screen.scale)
-                currentIndex: root.indexOfScale(model, screen.scale)
+                model: dccData.isX11 ? root.getScaleModel(dccData.maxGlobalScale, dccData.globalScale) : root.getScaleModel(screen.maxScale, screen.scale)
+                currentIndex: dccData.isX11 ? root.indexOfScale(model, dccData.globalScale) : root.indexOfScale(model, screen.scale)
                 onActivated: {
-                    screen.scale = currentValue
+                    if (dccData.isX11) {
+                        dccData.globalScale = currentValue
+                    } else {
+                        screen.scale = currentValue
+                    }
                 }
             }
         }
@@ -756,7 +760,7 @@ DccObject {
         displayName: qsTr("Display Scaling") //"缩放"
         description: dccData.maxGlobalScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
         weight: 80
-        visible: dccData.isX11
+        visible: dccData.isX11 && dccData.virtualScreens.length > 1
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: ComboBox {
