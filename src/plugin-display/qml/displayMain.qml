@@ -349,6 +349,9 @@ DccObject {
                                 itemMaxH = oy2 - oy
                             }
                         }
+                        if (gx2 === gx || gy2 === gy) {
+                            return
+                        }
                         var xScale = (monitorsGround.width) / ((gx2 - gx) * 1.2)
                         var yScale = (monitorsGround.height) / ((gy2 - gy) * 1.2)
                         var gScale = xScale < yScale ? xScale : yScale
