@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include <QMutex>
 #include <QMap>
+#include <atomic>
 
 #include "operation/personalizationdbusproxy.h"
 #include "personalizationmodel.h"
@@ -39,7 +40,7 @@ public slots:
     void startListBackground(WallpaperType type = WallpaperType::Wallpaper_all);
 private:
     PersonalizationDBusProxy *m_proxy = nullptr;
-    volatile bool m_running = false;
+    std::atomic_bool m_running = false;
 };
 
 class WallpaperProvider : public QObject
@@ -51,6 +52,7 @@ public:
     void fetchData(WallpaperType type = WallpaperType::Wallpaper_all);
     static bool isColor(const QString &path);
     static WallpaperItemPtr createItem(const QString &path, bool del);
+    static WallpaperType getWallpaperType(const QString &path);
 private slots:
     void setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
 

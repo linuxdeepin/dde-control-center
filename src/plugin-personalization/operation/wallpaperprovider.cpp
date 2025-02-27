@@ -11,6 +11,7 @@
 #include <QLoggingCategory>
 #include <QUrl>
 #include <QDir>
+#include <QHash>
 
 #include "wallpaperprovider.h"
 #include "operation/personalizationdbusproxy.h"
@@ -22,6 +23,10 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 #define SYS_SOLIDE_WALLPAPER_DIR "/usr/share/wallpapers/deepin-solidwallpapers"
 #define CUSTOM_SOLIDE_WALLPAPER_DIR "/var/cache/wallpapers/custom-solidwallpapers"
 #define CUSTOM_WALLPAPER_DIR "/var/cache/wallpapers/custom-wallpapers"
+
+#define CHECK_RETURN_RUNNING \
+    if (Q_UNLIKELY(!m_running.load(std::memory_order_acquire))) \
+        return;
 
 WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDBusProxy, PersonalizationModel *model, QObject *parent) : QObject(parent)
 {
@@ -40,7 +45,7 @@ WallpaperProvider::~WallpaperProvider()
 {
     m_worker->terminate();
     m_workThread->quit();
-    m_workThread->wait(1000);
+    m_workThread->wait(5000);
 
     if (m_workThread->isRunning()) {
         m_workThread->terminate();
@@ -97,27 +102,36 @@ WallpaperItemPtr WallpaperProvider::createItem(const QString &path, bool del)
         url = QUrl::fromLocalFile(path);
         fileInfo = QFileInfo(path);
     }
+
+    static QHash<QString, QString> g_thumbnailMap;
+    auto iter = g_thumbnailMap.find(url.toString());
+    if (iter == g_thumbnailMap.end()) {
+        const auto &thumbnail = generateThumbnail(fileInfo.filePath(), QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT));
+        iter = g_thumbnailMap.insert(url.toString(), thumbnail);
+    }
+    const QString &thumbnail = iter.value();
+
     return WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
-        , generateThumbnail(fileInfo.filePath(), QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT)), 
-            del, fileInfo.lastModified().toMSecsSinceEpoch()});
+        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch()});
 }
 
 InterfaceWorker::InterfaceWorker(PersonalizationDBusProxy *proxy, QObject *parent)
     : QObject(parent)
     , m_proxy(proxy)
+    , m_running(true)
 {
 
 }
 
 void InterfaceWorker::terminate()
 {
-    m_running = false;
+    m_running.store(false, std::memory_order_release);
 }
 
 void InterfaceWorker::startListBackground(WallpaperType type)
 {
-    m_running = true;
-
+    m_running.store(true, std::memory_order_release);
+    CHECK_RETURN_RUNNING
     switch (type) {
         case WallpaperType::Wallpaper_all:
             getSysBackground();
@@ -134,15 +148,15 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             getSolodBackground();
             break;
     }
-
-    m_running = false;
 }
 
 void InterfaceWorker::getSysBackground()
 {
+    CHECK_RETURN_RUNNING
     QList<WallpaperItemPtr> wallpapers;
     auto list = fetchWallpaper(SYS_WALLPAPER_DIR);
     for (const auto &path : list) {
+        CHECK_RETURN_RUNNING
         WallpaperItemPtr ptr = WallpaperProvider::createItem(path, false);
         if (ptr)
             wallpapers.append(ptr);
@@ -152,13 +166,14 @@ void InterfaceWorker::getSysBackground()
 
 void InterfaceWorker::getCustomBackground()
 {
+    CHECK_RETURN_RUNNING
     QList<WallpaperItemPtr> wallpapers;
     auto customList = m_proxy->getCustomWallpaper(currentUserName());
     for (const auto &path : customList) {
+        CHECK_RETURN_RUNNING
         if (WallpaperProvider::isColor(path)) {
             continue;
         }
-
         WallpaperItemPtr ptr = WallpaperProvider::createItem(path, true);
         if (ptr)
             wallpapers.append(ptr);
@@ -168,9 +183,11 @@ void InterfaceWorker::getCustomBackground()
 
 void InterfaceWorker::getSolodBackground()
 {
+    CHECK_RETURN_RUNNING
     QList<WallpaperItemPtr> wallpapers;
     auto customList = m_proxy->getCustomWallpaper(currentUserName());
     for (const auto &path : customList) {
+        CHECK_RETURN_RUNNING
         if (!WallpaperProvider::isColor(path)) {
             continue;
         }
