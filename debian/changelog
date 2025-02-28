@@ -1,3 +1,35 @@
+dde-control-center (6.1.12) unstable; urgency=medium
+
+  * fix: update moudle add reday state
+  * fix: update User Experience Program text
+  * chore(personalization): Custom images are prohibited from selecting GIF and svg images
+  * fix: combobox for slideShow wallpaper  will not select 'never'
+  * fix: Occasionally crash when exiting
+  * fit: Modify the display logic of the monitor title
+  * fix: font combobox displays incomplete font names
+  * chore(power): Unhide the auto shutdown module on treeland
+  * fit: No response after switching to only the secondary screen
+  * chore(update): update icon
+  * fit: Modifying the unplugged network card caused a crash issue
+  * fit: When merge mode, masking should not be re spliced
+  * fix: update bluetooth icon
+  * fix: update commonInfo translation
+  * fix: first thumb name is empty
+  * fix: fix develop mode status issue
+  * fit: Modify the display rules of the Identify button
+  * fix: the configuration of hide combobox options does not take effect
+  * feat: hide privacy on non uos
+  * fit: No character rule verification
+  * fit: Modify screen stitching overlap issue
+  * fix: fix develop mode status issue
+  * fix: unlock when not locked
+  * fix: biometric authentication sometimes not displaying
+  * chore(wallpaper): update translate
+  * chore(dock): update include
+  * feat: add dock plugin
+
+ -- shenwenqi <shenwenqi@uniontech.com>  Fri, 28 Feb 2025 14:40:53 +0800
+
 dde-control-center (6.1.11) unstable; urgency=medium
 
   * feat: add dock plugin
