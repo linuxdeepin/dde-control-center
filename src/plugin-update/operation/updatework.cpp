@@ -170,8 +170,7 @@ void UpdateWork::upgrade()
             createDistUpgradeJob(jobPath);
         } else {
             qDebug() << "upgrade dbus error :"<< watcher->error().message();
-            m_model->setLastCheckUpdateErrorMsg(watcher->error().message());
-            m_model->setCheckUpdateState(UpdateModel::CheckUpdateState::checkFailed);
+            m_model->setDistUpgradeState(UpdateModel::job_failed);
         }
     });
 }

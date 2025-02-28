@@ -58,7 +58,7 @@ ColumnLayout {
             font.pixelSize: 14
             implicitWidth: 120
             implicitHeight: 30
-            visible: dccData.model().distUpgradeState !== 1
+            visible: dccData.model().distUpgradeState !== 1 && dccData.model().distUpgradeState !== 0
             onClicked: {
                 dccData.work().onActionBtnClicked();
             }
@@ -68,8 +68,8 @@ ColumnLayout {
             id: scanAnimation
 
             Layout.alignment: Qt.AlignRight
-            running: dccData.model().distUpgradeState === 1
-            visible: dccData.model().distUpgradeState === 1
+            running: dccData.model().distUpgradeState === 1 || dccData.model().distUpgradeState === 0
+            visible: dccData.model().distUpgradeState === 1 || dccData.model().distUpgradeState === 0
             implicitWidth: 32
             implicitHeight: 32
         }
