@@ -125,7 +125,7 @@ void SystemInfoWork::activate()
     // 用户体验计划内容
     m_model->setJoinUeProgram(isUeProgramEnabled());
 
-    http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
+    http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/experience-en");
     if (IS_COMMUNITY_SYSTEM) {
         text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                   "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
@@ -133,8 +133,7 @@ void SystemInfoWork::activate()
                .arg(http);
     } else {
         text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                  "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                  "To know more about the management of your data, please refer to UnionTech OS Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
+                  "If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit <a href=\"%1\"> %1</a>.</p>")
                .arg(http);
     }
     m_model->setUserExperienceProgramText(text);
