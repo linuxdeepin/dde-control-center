@@ -175,6 +175,7 @@ DccObject {
         page: WallpaperSelectView {
             model: dccData.model.picScreenSaverModel
             currentItem: dccData.model.currentScreenSaverPicMode
+            enableContextMenu: false
             onWallpaperSelected: (url, isDark, isLock) => {
                                     // 防止调用两次
                                     if (isLock) {
@@ -195,6 +196,7 @@ DccObject {
         page: WallpaperSelectView {
             model: dccData.model.screenSaverModel
             currentItem: dccData.model.currentScreenSaver
+            enableContextMenu: false
             onWallpaperSelected: (url, isDark, isLock) => {
                                     // 防止调用两次
                                     if (isLock) {

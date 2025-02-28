@@ -29,6 +29,7 @@ ColumnLayout {
     property var currentItem
     property string firstItemImgSource: ""
     property bool firstItemVisible: firstItemImgSource !== ""
+    property bool enableContextMenu: true
 
     signal wallpaperSelected(var url, bool isDark, var option)
     signal firstItemClicked()
@@ -223,7 +224,7 @@ ColumnLayout {
                         onClicked: {
                             if (mouse.button === Qt.LeftButton) {
                                 wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
-                            } else if (mouse.button === Qt.RightButton) {
+                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
                                 contextMenu.x = mouse.x
                                 contextMenu.y = mouse.y
                                 contextMenu.open()
