@@ -584,7 +584,7 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         m_activeObject = m_currentObjects.last();
         Q_EMIT activeObjectChanged(m_activeObject);
     }
-    m_activeObject->setCurrentObject(nullptr);
+
     m_navModel->setNavigationObject(m_currentObjects);
     qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << (void *)(triggeredObj->parentItem());
     if (!(triggeredObj->pageType() & DccObject::Menu) && triggeredObj->parentItem()) {
