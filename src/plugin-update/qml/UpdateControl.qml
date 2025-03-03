@@ -56,8 +56,8 @@ ColumnLayout {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             text: dccData.model().actionBtnText
             font.pixelSize: 14
-            implicitWidth: 120
-            implicitHeight: 30
+            textColor: DS.Style.highlightedButton.background1
+
             visible: dccData.model().distUpgradeState !== 1 && dccData.model().distUpgradeState !== 0
             onClicked: {
                 dccData.work().onActionBtnClicked();
