@@ -145,7 +145,7 @@ void UpdateWork::deleteJob(UpdateJobDBusProxy* dbusJob)
 void UpdateWork::onActionBtnClicked()
 {
     qInfo() << " onActionBtnClicked : " << m_model->getUpdateState();
-    if (m_model->getUpdateState() == "success") {
+    if (m_model->distUpgradeState() == UpdateModel::UpdateJobState::job_successd) {
         DDBusSender()
             .service("com.deepin.dde.shutdownFront")
             .interface("com.deepin.dde.shutdownFront")
