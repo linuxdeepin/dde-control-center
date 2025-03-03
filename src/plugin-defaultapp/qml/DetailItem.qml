@@ -7,7 +7,7 @@ import Qt.labs.platform 1.1
 import Qt.labs.qmlmodels 1.2
 
 import org.deepin.dtk 1.0 as D
-
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 import org.deepin.dcc.defApp 1.0
 
@@ -69,7 +69,7 @@ DccObject {
                 checkable: false
                 onClicked: categoryModel.setDefaultApp(model.id)
                 content: RowLayout {
-                    width: 24
+                    width: 38
                     DccCheckIcon {
                         Layout.alignment: Qt.AlignCenter
                         visible: model.isDefault
@@ -77,6 +77,8 @@ DccObject {
                     }
                     D.ActionButton {
                         Layout.alignment: Qt.AlignCenter
+                        implicitHeight: 30
+                        implicitWidth: 30
                         visible: !model.isDefault && model.canDelete && control.hovered
                         icon {
                             name: "dcc-delete"
@@ -85,6 +87,22 @@ DccObject {
                         }
                         onClicked: {
                             categoryModel.removeApp(model.id)
+                        }
+                        background: Rectangle {
+                            property D.Palette pressedColor: D.Palette {
+                                normal: Qt.rgba(0, 0, 0, 0.2)
+                                normalDark: Qt.rgba(1, 1, 1, 0.25)
+                            }
+                            property D.Palette hoveredColor: D.Palette {
+                                normal: Qt.rgba(0, 0, 0, 0.1)
+                                normalDark: Qt.rgba(1, 1, 1, 0.1)
+                            }
+                            radius: DS.Style.control.radius
+                            color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                            border {
+                                color: parent.palette.highlight
+                                width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                            }
                         }
                     }
                 }

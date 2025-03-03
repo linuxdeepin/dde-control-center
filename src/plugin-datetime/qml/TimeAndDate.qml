@@ -5,8 +5,9 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 import QtQml.Models 2.11
 import org.deepin.dcc 1.0
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.private 1.0 as P
+import org.deepin.dtk.style 1.0 as DS
 
 // 时间和日期
 DccObject {
@@ -178,7 +179,7 @@ DccObject {
                 id: item
                 implicitHeight: 40
                 implicitWidth: 300
-                LineEdit {
+                D.LineEdit {
                     id: addr
                     implicitWidth: 200
                     text: dateAndTimeSettings.customAddr
@@ -206,7 +207,7 @@ DccObject {
                         addr.readOnly = text.length > 0
                     }
                 }
-                IconButton {
+                D.IconButton {
                     id: editBtn
                     enabled: addr.text.length > 0
                     anchors.right: parent.right
@@ -409,7 +410,7 @@ DccObject {
                         id: description
                         Layout.maximumWidth: 160
                         visible: text !== ""
-                        font: DTK.fontManager.t10
+                        font: D.DTK.fontManager.t10
                         text: dccObj.description
                         opacity: 0.5
                         elide: Text.ElideRight
@@ -430,20 +431,35 @@ DccObject {
                 }
             }
 
-            IconButton {
+            D.IconButton {
                 id: removeButton
                 visible: itemDelegate.hovered
                 icon.name: "dcc-delete"
-                icon.width: 24
-                icon.height: 24
-                implicitWidth: 36
-                implicitHeight: 36
+                icon.width: 16
+                icon.height: 16
+                implicitWidth: 32
+                implicitHeight: 32
                 anchors {
                     right: itemDelegate.right
                     rightMargin: 10
                     verticalCenter: itemDelegate.verticalCenter
                 }
-                background: null
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
+                }
                 onClicked: {
                     console.log("need remove timezone", dccObj.displayName)
                     dccData.removeUserTimeZoneById(dccObj.zoneId)
