@@ -163,8 +163,7 @@ void PersonalizationInterface::initAppearanceSwitchModel()
         Q_EMIT appearanceSwitchModelChanged(m_appearanceSwitchModel);
         if (mode != m_currentAppearance) {
             m_currentAppearance = mode;
-            // FIXME: 可能导致外观主题循环绑定
-            // Q_EMIT currentAppearanceChanged(m_currentAppearance);
+            Q_EMIT currentAppearanceChanged(m_currentAppearance);
         }
     };
 
