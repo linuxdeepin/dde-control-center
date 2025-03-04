@@ -76,7 +76,7 @@ public:
         Enroll_AuthFailed,
         Enroll_ClaimFailed,
         Enroll_Failed,
-        Enroll_Success,
+        Enroll_AuthSuccess,
         Count
     };
 
