@@ -237,8 +237,10 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
         if (m_movingItem != item) {
             QRectF rect = moveItemIntersect.intersected(mapToSceneBoundingRect(item));
             intersectedArea += rect.width() * rect.height();
-            // 移动块完全覆盖一个块
-            if (moveItemRect.contains(mapToSceneBoundingRect(item))) {
+            // 移动块完全覆盖一个块 2、移动块与另外一个块十字相交时 执行自动回弹操作
+            if (moveItemRect.contains(mapToSceneBoundingRect(item))
+                || (rect.top() < moveItemIntersect.top() && rect.bottom() > moveItemIntersect.bottom() && qFuzzyCompare(rect.left(), moveItemIntersect.left()) && qFuzzyCompare(rect.right(), moveItemIntersect.right()))
+                || (rect.right() < moveItemIntersect.right() && rect.left() > moveItemIntersect.left() && qFuzzyCompare(rect.top(), moveItemIntersect.top()) && qFuzzyCompare(rect.bottom(), moveItemIntersect.bottom()))) {
                 lstShelterItems.append(item);
             }
 
