@@ -21,6 +21,12 @@ D.DialogWindow {
     modality: Qt.WindowModal
     title: qsTr("Enroll Finger")
 
+    onVisibleChanged: function() {
+        if (listview.currentIndex != 0 && !visible) {
+            dccData.requestStopFingerEnroll()
+        }
+    }
+
     D.ListView {
         id: listview
         implicitWidth: dialog.width - DS.Style.dialogWindow.contentHMargin * 2
@@ -115,6 +121,7 @@ D.DialogWindow {
                     enabled: agreeCheckbox.checked
                     onClicked: {
                         dccData.requestStartFingerEnroll();
+                        dialog.hide()
                     }
                 }
             }
@@ -286,8 +293,9 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
             target: dccData.model
             function onEnrollResult(res) {
                 switch(res) {
-                    case CharaMangerModel.Enroll_Success:
+                    case CharaMangerModel.Enroll_AuthSuccess:
                         listview.currentIndex = 1
+                        dialog.show()
                 }
             }
         }

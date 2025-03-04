@@ -346,7 +346,7 @@ void CharaMangerWorker::tryEnroll(const QString &name, const QString &thumb)
                 m_model->refreshEnrollResult(CharaMangerModel::EnrollResult::Enroll_Failed);
             } else {
                 Q_EMIT requestMainWindowEnabled(true);
-                m_model->refreshEnrollResult(CharaMangerModel::EnrollResult::Enroll_Success);
+                m_model->refreshEnrollResult(CharaMangerModel::EnrollResult::Enroll_AuthSuccess);
             }
             Q_EMIT requestMainWindowEnabled(true);
             watcher->deleteLater();

@@ -21,6 +21,12 @@ D.DialogWindow {
     modality: Qt.WindowModal
     title: qsTr("Enroll Face")
 
+    onVisibleChanged: function() {
+        if (listview.currentIndex != 0 && !visible) {
+            dccData.stopFaceEnroll()
+        }
+    }
+
     D.ListView {
         id: listview
         implicitWidth: dialog.width - DS.Style.dialogWindow.contentHMargin * 2
@@ -116,6 +122,7 @@ D.DialogWindow {
                     enabled: agreeCheckbox.checked
                     onClicked: {
                         dccData.startFaceEnroll();
+                        dialog.hide()
                     }
                 }
             }
@@ -278,6 +285,7 @@ D.DialogWindow {
                     target: dccData.model
                     function onTryStartInputFace(res) {
                         listview.currentIndex = 1
+                        dialog.show()
                     }
                 }
             }
