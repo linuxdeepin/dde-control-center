@@ -95,14 +95,20 @@ void SystemInfoWork::activate()
     QString version;
     if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion(), DSysInfo::uosEditionName());
+        m_model->setVersion(version);
     } else if (DSysInfo::isDeepin()) {
-        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName(), DSysInfo::minorVersion());
+        QDBusConnection::systemBus().connect("com.deepin.license",
+                                     "/com/deepin/license/Info",
+                                     "com.deepin.license.Info",
+                                     "LicenseStateChange",
+                                     this, SLOT(onLicenseAuthorizationProperty()));
+
+        onLicenseAuthorizationProperty();
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion(), DSysInfo::productTypeString());
+        m_model->setVersion(version);
     }
 
-
-    m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
     m_model->setKernel(QSysInfo::kernelVersion());
     m_model->setProcessor(DSysInfo::cpuModelName());
@@ -449,6 +455,40 @@ void SystemInfoWork::setUeProgramEnabled(bool enabled)
     }
 
     m_dBusUeProgram->asyncCall("Enable", enabled);
+}
+
+void SystemInfoWork::onLicenseAuthorizationProperty()
+{
+    // 从授权服务器获取授权类型
+    QString authorizationProperty = getLicenseAuthorizationPropertyString();
+    QString version = "";
+    if (authorizationProperty != "") {
+        version = QString("%1 (%2) (%3)").arg(DSysInfo::uosEditionName())
+                .arg(authorizationProperty)
+                .arg(DSysInfo::minorVersion());
+    } else {
+        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
+                .arg(DSysInfo::minorVersion());
+    }
+
+    if (m_model) {
+        m_model->setVersion(version);
+    }
+}
+
+QString SystemInfoWork::getLicenseAuthorizationPropertyString()
+{
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
+    if (!licenseInfo.isValid()) {
+        qWarning() << "Servie: com.deepin.license error: " << licenseInfo.lastError().name();
+        return "";
+    }
+
+    return licenseInfo.property("AuthorizationPropertyString").toString();
 }
 
 }

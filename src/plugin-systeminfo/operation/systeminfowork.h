@@ -41,6 +41,7 @@ public:
 
     bool isUeProgramEnabled();
     void setUeProgramEnabled(bool enabled);
+    QString getLicenseAuthorizationPropertyString();
 
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
@@ -51,6 +52,7 @@ public Q_SLOTS:
     void onSetHostnameFinish();
     void onTimezoneChanged(const QString timezone);
     void onShortDateFormatChanged(const int shortDateFormate);
+    void onLicenseAuthorizationProperty();
 
 private:
     void getLicenseState();
