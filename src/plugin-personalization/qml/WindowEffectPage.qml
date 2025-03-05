@@ -237,7 +237,7 @@ DccObject {
         parentName: "personalization/windowEffect"
         displayName: qsTr("Compact Display")
         description: qsTr("If enabled, more content is displayed in the window.")
-        visible: dccData.model.compactDisplayConfig !== "Hidden"
+        visible: false && dccData.model.compactDisplayConfig !== "Hidden"
         weight: 700
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
