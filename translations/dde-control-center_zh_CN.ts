@@ -6847,12 +6847,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>管理您的开机启动菜单</translation>
     </message>
     <message>
-        <source>Developer Mode</source>
-        <translation>开发者选项</translation>
-    </message>
-    <message>
         <source>Developer root permission management</source>
         <translation>开发者Root权限管理</translation>
+    </message>
+    <message>
+        <source>Developer Optilons</source>
+        <translation>开发者选项</translation>
     </message>
 </context>
 <context>
