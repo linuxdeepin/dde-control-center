@@ -27,19 +27,6 @@ Control {
             left: parent.left
             right: parent.right
         }
-
-        SearchBar {
-            anchors {
-                top: parent.top
-                horizontalCenter: parent.horizontalCenter
-                margins: 10
-            }
-            visible: contentVisible
-            model: DccApp.searchModel()
-            onClicked: function (model) {
-                DccApp.showPage(model.url)
-            }
-        }
         Rectangle {
             id: separator
             visible: contentVisible

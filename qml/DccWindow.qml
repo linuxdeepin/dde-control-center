@@ -3,7 +3,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
-
+import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
@@ -13,6 +13,8 @@ D.ApplicationWindow {
     id: root
     property string appProductName: Qt.application.displayName
     property string appLicense: "GPL-3.0-or-later"
+    property real currentIndex: 1
+    property var sidebarPage: null
 
     minimumWidth: 520
     minimumHeight: 400
@@ -36,8 +38,6 @@ D.ApplicationWindow {
     D.TitleBar {
         id: titleBar
         icon.name: "preferences-system"
-        focusPolicy: Qt.TabFocus
-        activeFocusOnTab: true
         implicitHeight: 40
         menu: Menu {
             D.ThemeMenu {}
@@ -62,6 +62,108 @@ D.ApplicationWindow {
         embedMode: false
         autoHideOnFullscreen: true
         focus: true
+        leftContent: D.ActionButton {
+            anchors {
+                verticalCenter: parent.verticalCenter
+                leftMargin: 30
+                left: parent.left
+            }
+            implicitHeight: 30
+            implicitWidth: 30
+            hoverEnabled: enabled
+            activeFocusOnTab: true
+            visible: root.currentIndex === 1
+            icon {
+                name: "sidebar"
+                height: 16
+                width: 16
+            }
+            background: Rectangle {
+                property D.Palette pressedColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.2)
+                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                }
+                property D.Palette hoveredColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.1)
+                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                }
+                radius: DS.Style.control.radius
+                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                border {
+                    color: parent.palette.highlight
+                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                }
+            }
+            onClicked: {
+                if (root.sidebarPage) {
+                    root.sidebarPage.targetSidebar()
+                }
+            }
+        }
+        content: Item {
+            anchors {
+                fill: parent
+                leftMargin: root.currentIndex === 0 ? 0 : -200
+            }
+            SearchBar {
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
+                visible: root.currentIndex === 0
+                model: DccApp.searchModel()
+                onClicked: function (model) {
+                    DccApp.showPage(model.url)
+                }
+            }
+            D.ActionButton {
+                id: breakBut
+                implicitHeight: 30
+                implicitWidth: 30
+                x: ((root.sidebarPage && root.sidebarPage.splitterX > 110) ? root.sidebarPage.splitterX : 110)
+                anchors.verticalCenter: parent.verticalCenter
+                visible: root.currentIndex === 1
+                hoverEnabled: enabled
+                activeFocusOnTab: true
+                enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
+                onClicked: DccApp.toBack()
+                icon {
+                    name: "arrow_ordinary_left"
+                    height: 16
+                    width: 16
+                }
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
+                }
+            }
+            Crumb {
+                implicitHeight: parent.implicitHeight
+                width: parent.width - x
+                anchors {
+                    left: breakBut.right
+                    leftMargin: 30
+                    verticalCenter: parent.verticalCenter
+                }
+                visible: root.currentIndex === 1
+                model: DccApp.navModel()
+                onClicked: function (model) {
+                    DccApp.showPage(model.url)
+                }
+            }
+        }
     }
 
     Control {
@@ -85,20 +187,18 @@ D.ApplicationWindow {
             let pt = mapToItem(root.activeFocusItem, mouse.x, mouse.y)
             // clear focus if click out of activeFocusItem
             if (!root.activeFocusItem.contains(pt)) {
-                root.activeFocusItem.focus = false
-
-                // if focus = false not work (e.g. password spinbox edit, focus scope, flags with ItemIsFocusScope)
-                // parent focus set false
-                if (root.activeFocusItem.parent)
-                    root.activeFocusItem.parent.focus = false
+                centralView.forceActiveFocus()
             }
         }
     }
 
+
     /*  焦点切换调试，暂不删
     onActiveFocusItemChanged: {
         console.log("root onActiveFocusItemChanged:  ", root.activeFocusItem, root.activeFocusControl)
-        console.log("root activeFocusOnTab:  ", root.activeFocusItem.activeFocusOnTab, root.activeFocusControl.activeFocusOnTab)
+        if (root.activeFocusItem && root.activeFocusControl) {
+            console.log("root activeFocusOnTab:  ", root.activeFocusItem.activeFocusOnTab, root.activeFocusControl.activeFocusOnTab)
+        }
     }
     D.FocusBoxBorder {
         id: focusIn
@@ -135,6 +235,7 @@ D.ApplicationWindow {
             id: stackView
             currentIndex: 1
             interactive: false
+            activeFocusOnTab: false
             HomePage {
                 id: homePage
                 visible: false
@@ -142,6 +243,7 @@ D.ApplicationWindow {
             SecondPage {
                 id: secondPage
                 // visible: false
+                Component.onCompleted: root.sidebarPage = this
             }
             Timer {
                 id: hideTimer
@@ -158,12 +260,16 @@ D.ApplicationWindow {
                     if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
+                        root.sidebarPage = null
                         stackView.currentIndex = 0
+                        root.currentIndex = 0
                         hideTimer.restart()
                     } else if (stackView.currentIndex !== 1 && DccApp.root !== DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
+                        root.sidebarPage = secondPage
                         stackView.currentIndex = 1
+                        root.currentIndex = 1
                         hideTimer.restart()
                     }
                 }

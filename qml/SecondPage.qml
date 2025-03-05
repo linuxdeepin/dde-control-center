@@ -12,8 +12,34 @@ import org.deepin.dcc 1.0
 
 Item {
     id: root
-    property real oldX: 180
+    property real oldX: 180 // 用于调整宽度时，自动调整侧边栏宽度
+    property real oldSplitterX: 180 // 记录上次位置，用于恢复
+    property alias splitterX: splitter.x
+
+    function targetSidebar() {
+        if (splitter.x < 110) {
+            var newX = root.oldSplitterX
+            if (root.width - newX > 520) {
+                splitter.x = newX
+            } else if (root.width - 180 > 520) {
+                splitter.x = 180
+            } else if (root.width - 110 > 520) {
+                splitter.x = 110
+            } else {
+                let dx = 630 - root.width
+                DccApp.mainWindow().x -= dx
+                DccApp.mainWindow().width = 630
+                splitter.x = 110
+            }
+        } else {
+            root.oldSplitterX = splitter.x
+            splitter.x = 0
+            root.oldX = 0
+        }
+    }
+
     activeFocusOnTab: false
+
     Item {
         id: leftView
         anchors {
@@ -105,125 +131,12 @@ Item {
             right: parent.right
         }
         color: D.ColorSelector.bgColor
-        RowLayout {
-            id: header
-            implicitHeight: 50
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
-            Item {
-                implicitWidth: splitter.x < 110 ? 110 - splitter.x : 0
-            }
-            D.ActionButton {
-                id: breakBut
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                Layout.margins: 10
-                implicitHeight: 30
-                implicitWidth: 30
-                hoverEnabled: enabled
-                activeFocusOnTab: true
-                enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
-                onClicked: DccApp.toBack()
-                icon {
-                    name: "arrow_ordinary_left"
-                    height: 16
-                    width: 16
-                }
-                background: Rectangle {
-                    property D.Palette pressedColor: D.Palette {
-                        normal: Qt.rgba(0, 0, 0, 0.2)
-                        normalDark: Qt.rgba(1, 1, 1, 0.25)
-                    }
-                    property D.Palette hoveredColor: D.Palette {
-                        normal: Qt.rgba(0, 0, 0, 0.1)
-                        normalDark: Qt.rgba(1, 1, 1, 0.1)
-                    }
-                    radius: DS.Style.control.radius
-                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                    border {
-                        color: parent.palette.highlight
-                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                    }
-                }
-            }
-
-            Crumb {
-                implicitHeight: parent.implicitHeight
-                implicitWidth: 160
-                Layout.fillWidth: true
-                Layout.leftMargin: 0
-                Layout.rightMargin: 200
-                model: DccApp.navModel()
-                onClicked: function (model) {
-                    DccApp.showPage(model.url)
-                }
-            }
-        }
         StackView {
             id: rightView
             clip: true
             anchors {
-                top: header.bottom
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-            }
-        }
-    }
-    RowLayout {
-        height: 50
-        implicitWidth: 100
-        D.ActionButton {
-            property real oldSplitterX: 180
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-            Layout.leftMargin: 60
-            implicitHeight: 30
-            implicitWidth: 30
-            hoverEnabled: enabled
-            activeFocusOnTab: true
-            KeyNavigation.tab: splitter.x < 110 ? (breakBut.enabled ? breakBut : breakBut.nextItemInFocusChain()) : searchEdit.edit
-            icon {
-                name: "sidebar"
-                height: 16
-                width: 16
-            }
-            background: Rectangle {
-                property D.Palette pressedColor: D.Palette {
-                    normal: Qt.rgba(0, 0, 0, 0.2)
-                    normalDark: Qt.rgba(1, 1, 1, 0.25)
-                }
-                property D.Palette hoveredColor: D.Palette {
-                    normal: Qt.rgba(0, 0, 0, 0.1)
-                    normalDark: Qt.rgba(1, 1, 1, 0.1)
-                }
-                radius: DS.Style.control.radius
-                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                border {
-                    color: parent.palette.highlight
-                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                }
-            }
-            onClicked: {
-                if (splitter.x < 110) {
-                    var newX = oldSplitterX
-                    if (root.width - newX > 520) {
-                        splitter.x = newX
-                    } else if (root.width - 180 > 520) {
-                        splitter.x = 180
-                    } else if (root.width - 110 > 520) {
-                        splitter.x = 110
-                    } else {
-                        let dx = 630 - root.width
-                        DccApp.mainWindow().x -= dx
-                        DccApp.mainWindow().width = 630
-                        splitter.x = 110
-                    }
-                } else {
-                    oldSplitterX = splitter.x
-                    splitter.x = 0
-                    root.oldX = 0
-                }
+                fill: parent
+                topMargin: 50
             }
         }
     }
@@ -271,7 +184,6 @@ Item {
             }
             splitter.x = newX
         } else if (splitter.x < oldX) {
-
             newX = width - 510
             if (newX < 0) {
                 return
@@ -282,7 +194,6 @@ Item {
             if (newX > oldX) {
                 newX = oldX
             }
-
             splitter.x = newX
         }
     }
