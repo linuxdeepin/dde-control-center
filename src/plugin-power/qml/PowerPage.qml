@@ -9,20 +9,12 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "screenAndSuspendTitle"
         parentName: "power/onPower"
         displayName: qsTr("Screen and Suspend")
         visible: dccData.platformName() !== "wayland"
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -41,14 +33,27 @@ DccObject {
             pageType: DccObject.Item
             page: ColumnLayout {
                 Layout.fillHeight: true
-                Label {
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
+
+                RowLayout {
                     Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: offMonitorSlider.dataMap[offMonitorSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
                 }
+                
 
                 CustomTipsSlider {
+                    id: offMonitorSlider
                     dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
@@ -64,47 +69,9 @@ DccObject {
     }
 
     DccObject {
-        name: "computerSuspendsAfterGroup"
-        parentName: "power/onPower"
-        weight: 200
-        pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
-        page: DccGroupView {}
-
-        DccObject {
-            name: "computerSuspendsAfter"
-            parentName: "power/onPower/computerSuspendsAfterGroup"
-            displayName: qsTr("Computer suspends after")
-            weight: 1
-            pageType: DccObject.Item
-            page: ColumnLayout {
-                Layout.fillHeight: true
-                Label {
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
-                    Layout.leftMargin: 10
-                }
-
-                CustomTipsSlider {
-                    dataMap: dccData.model.linePowerSleepDelayModel
-                    Layout.preferredHeight: 80
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
-                    Layout.fillWidth: true
-                    slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.sleepDelayOnPower)
-                    slider.onValueChanged: {
-                        dccData.worker.setSleepDelayOnPower(dataMap[slider.value].value)
-                    }
-                }
-            }
-        }
-    }
-
-    DccObject {
         name: "lockScreenAfterGroup"
         parentName: "power/onPower"
-        weight: 300
+        weight: 200
         pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
@@ -117,13 +84,26 @@ DccObject {
             pageType: DccObject.Item
             page: ColumnLayout {
                 Layout.fillHeight: true
-                Label {
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
+                
+                RowLayout {
                     Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: lockScreenSlider.dataMap[lockScreenSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
                 }
+    
                 CustomTipsSlider {
+                    id: lockScreenSlider
                     dataMap: dccData.model.linePowerLockDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
@@ -132,6 +112,56 @@ DccObject {
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.powerLockScreenDelay)
                     slider.onValueChanged: {
                         dccData.worker.setLockScreenDelayOnPower(dataMap[slider.value].value)
+                    }
+                }
+            }
+        }
+    }
+
+    DccObject {
+        name: "computerSuspendsAfterGroup"
+        parentName: "power/onPower"
+        weight: 300
+        pageType: DccObject.Item
+        visible: dccData.platformName() !== "wayland"
+        page: DccGroupView {}
+
+        DccObject {
+            name: "computerSuspendsAfter"
+            parentName: "power/onPower/computerSuspendsAfterGroup"
+            displayName: qsTr("Computer suspends after")
+            weight: 1
+            pageType: DccObject.Item
+            page: ColumnLayout {
+                Layout.fillHeight: true
+                
+                RowLayout {
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: suspendsSlider.dataMap[suspendsSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
+                }
+
+                CustomTipsSlider {
+                    id: suspendsSlider
+                    dataMap: dccData.model.linePowerSleepDelayModel
+                    Layout.preferredHeight: 80
+                    Layout.alignment: Qt.AlignCenter
+                    Layout.margins: 10
+                    Layout.fillWidth: true
+                    slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.sleepDelayOnPower)
+                    slider.onValueChanged: {
+                        dccData.worker.setSleepDelayOnPower(dataMap[slider.value].value)
                     }
                 }
             }

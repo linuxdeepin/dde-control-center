@@ -4798,6 +4798,14 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Never</source>
         <translation>从不</translation>
     </message>
+    <message>
+        <source>Minutes</source>
+        <translation>分钟</translation>
+    </message>
+    <message>
+        <source>Hour</source>
+        <translation>小时</translation>
+    </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>

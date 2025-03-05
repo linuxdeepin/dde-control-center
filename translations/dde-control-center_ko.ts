@@ -4783,6 +4783,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hour</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
