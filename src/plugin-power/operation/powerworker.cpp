@@ -145,17 +145,22 @@ QVariantList PowerWorker::converToDataMap(const QStringList& conf)
             qWarning() << "Convert to num failed, can't change num to int";
             num = 0;
         }
+
+        QVariantMap map;
         if (numStr.contains("m")) {
             num = num * 60;
+            map["trText"] = numStr.chopped(1) + " " + tr("Minutes");
         } else if (numStr.contains("h")) {
             num = num * 3600;
+            map["trText"] = numStr.chopped(1) + " " + tr("Hour");
         }
-        QVariantMap map;
+
         map["text"] = numStr;
         map["value"] = num;
         dataMap.push_back(map);
     }
     QVariantMap map;
+    map["trText"] = tr("Never");
     map["text"] = tr("Never");
     map["value"] = 0;
     dataMap.push_back(map);

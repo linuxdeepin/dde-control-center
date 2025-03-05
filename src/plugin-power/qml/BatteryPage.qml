@@ -9,20 +9,12 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "screenAndSuspendTitle"
         parentName: "power/onBattery"
         displayName: qsTr("Screen and Suspend")
         visible: dccData.platformName() !== "wayland"
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -41,15 +33,26 @@ DccObject {
             pageType: DccObject.Item
             page: ColumnLayout {
                 Layout.fillHeight: true
-                Label {
-                    id: speedText
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
+
+                RowLayout {
                     Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: offMonitorSlider.dataMap[offMonitorSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
                 }
 
                 CustomTipsSlider {
+                    id: offMonitorSlider
                     dataMap: dccData.model.batteryScreenBlackDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
@@ -80,14 +83,26 @@ DccObject {
             pageType: DccObject.Item
             page: ColumnLayout {
                 Layout.fillHeight: true
-                Label {
-                    id: speedText
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
+
+                RowLayout {
                     Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: lockScreenSlider.dataMap[lockScreenSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
                 }
+
                 CustomTipsSlider {
+                    id: lockScreenSlider
                     dataMap: dccData.model.batteryLockDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
@@ -118,14 +133,26 @@ DccObject {
             pageType: DccObject.Item
             page: ColumnLayout {
                 Layout.fillHeight: true
-                Label {
-                    id: speedText
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
+
+                RowLayout {
                     Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    Layout.topMargin: 10
+                    Label {
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Label {
+                        text: suspendsSlider.dataMap[suspendsSlider.slider.value].trText
+                        horizontalAlignment: Text.AlignRight
+                    }
                 }
+
                 CustomTipsSlider {
+                    id: suspendsSlider
                     dataMap: dccData.model.batterySleepDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
@@ -189,19 +216,11 @@ DccObject {
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "lowBatteryTitle"
         parentName: "power/onBattery"
         displayName: qsTr("Low Battery")
         weight: 500
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -304,19 +323,11 @@ DccObject {
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "batteryManagementTitle"
         parentName: "power/onBattery"
         displayName: qsTr("Battery Management")
         weight: 800
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
