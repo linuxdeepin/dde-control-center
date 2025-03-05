@@ -6832,11 +6832,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer Mode</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Optilons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
