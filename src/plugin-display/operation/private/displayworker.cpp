@@ -64,6 +64,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureEnabledChanged, model, &DisplayModel::setColorTemperatureEnabled);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
+        connect(m_displayInter, &DisplayDBusProxy::CustomColorTempTimePeriodChanged, model, &DisplayModel::setCustomColorTempTimePeriod);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
         //display redSfit/autoLight

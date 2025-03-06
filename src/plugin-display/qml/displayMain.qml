@@ -780,7 +780,6 @@ DccObject {
         parentName: "display"
         displayName: qsTr("Eye Comfort")
         weight: 90
-        visible: false
     }
     DccObject {
         name: "eyeComfort"
@@ -788,7 +787,6 @@ DccObject {
         displayName: qsTr("Eye Comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
         weight: 100
-        visible: false
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Switch {
@@ -800,7 +798,7 @@ DccObject {
         name: "eyeComfortGroup"
         parentName: "display"
         weight: 110
-        visible: false
+        visible: dccData.colorTemperatureEnabled
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
@@ -827,17 +825,19 @@ DccObject {
                     text: qsTr("from")
                 }
                 DccTimeRange {
+                    id: startTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[0].split(":")[0]
                     minute: dccData.customColorTempTimePeriod.split("-")[0].split(":")[1]
-                    onTimeChanged: dccData.customColorTempTimePeriod = timeString + dccData.customColorTempTimePeriod.substring(5, 11)
+                    onTimeChanged: dccData.customColorTempTimePeriod = startTimeRange.timeString + "-" + endTimeRange.timeString
                 }
                 Label {
                     text: qsTr("to")
                 }
                 DccTimeRange {
+                    id: endTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[1].split(":")[0]
                     minute: dccData.customColorTempTimePeriod.split("-")[1].split(":")[1]
-                    onTimeChanged: dccData.customColorTempTimePeriod = dccData.customColorTempTimePeriod.substring(0, 6) + timeString
+                    onTimeChanged: dccData.customColorTempTimePeriod = startTimeRange.timeString + "-" + endTimeRange.timeString
                 }
             }
         }

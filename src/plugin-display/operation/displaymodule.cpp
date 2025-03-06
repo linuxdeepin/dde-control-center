@@ -386,7 +386,7 @@ void DisplayModule::setColorTemperatureEnabled(bool enabled)
 int DisplayModule::colorTemperatureMode() const
 {
     Q_D(const DisplayModule);
-    switch (d->m_model->adjustCCTMode()) {
+    switch (d->m_model->adjustCCTMode()) { // 0 禁用 1 日落到日出 2 全天 3 自定义
     case 1:
         return 1; // 日落到日出
     case 3:
@@ -399,7 +399,7 @@ int DisplayModule::colorTemperatureMode() const
 
 void DisplayModule::setColorTemperatureMode(int mode)
 {
-    int ccMode = 0;
+    int ccMode = 2;
     switch (mode) {
     case 1:
         ccMode = 1;
