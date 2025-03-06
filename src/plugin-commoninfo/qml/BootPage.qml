@@ -477,107 +477,136 @@ DccObject {
             width: parent.width
             radius: 8
             color: "transparent"
+            property color baseColor: "#0065FF"
 
-            Row {
+            RowLayout {
                 id: aniRoot
-                width: parent.width
-                topPadding: 20
-                spacing: 15
-                leftPadding: 5
-                bottomPadding: 20
-
+                spacing: 0
                 Repeater {
+                    id: repeater
                     model: dccData.mode().grubAnimationModel()
-                    delegate: Column {
-                        spacing: 5
-                        Rectangle {
-                            id: externalRect
-                            width: 228
-                            height: 148
-                            border.width: model.checkStatus ? 2 : 0
-                            border.color: "#6A005BFF"
-                            radius: 8
+                    delegate: ItemDelegate {
 
-                            color: "transparent"
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        leftPadding: 10
+                        rightPadding: 0
+                        topPadding: 20
+                        bottomPadding: 0
+                        spacing: 0
+                        contentFlow: true
+                        hoverEnabled: true
+                        cascadeSelected: true
 
-                            Rectangle {
-                                id: imgRect
-                                anchors.centerIn: parent
-                                width: 220
-                                height: 140
-                                border.width: 1
-                                border.color: "#1A000000"
-                                color: "transparent"
-                                radius: 6
-
-                                Image {
-                                    id: backgroundImage
-                                    anchors.centerIn: parent
-                                    source: model.imagePath
-                                    width: 300 * model.scale
-                                    height: 100 * model.scale
-                                    visible: !(model.startAnimation
-                                        && model.checkStatus)
-                                    fillMode: Image.PreserveAspectCrop
-                                    opacity: model.startAnimation ? 0.4 : 1
-                                }
-
-                                //模糊效果容器
-                                Rectangle {
-                                    width: 220
-                                    height: 140
-                                    anchors.centerIn: parent
-                                    radius: 6 // 设置圆角半径
-                                    visible: model.startAnimation
-                                        && model.checkStatus
-                                    color: "transparent"
-
-                                    // GaussianBlur 模糊效果
-                                    ShaderEffectSource {
-                                        id: blurSource
-                                        sourceItem: backgroundImage
-                                        sourceRect: Qt.rect(0, 0, width,
-                                            height) // 将背景图作为模糊源
-                                    }
-
-                                    GaussianBlur {
-                                        anchors.fill: parent
-                                        source: blurSource
-                                        radius: 20 // 模糊半径，值越大，模糊越强
-                                        samples: 16
-                                    }
-
-                                    BusyIndicator {
-                                        anchors.centerIn: parent
-                                        running: model.startAnimation
-                                            && model.checkStatus
-                                        visible: model.startAnimation
-                                            && model.checkStatus
-                                        implicitWidth: 32
-                                        implicitHeight: 32
-                                    }
-                                }
-                            }
-
-                            // 使用 MouseArea 来捕捉点击事件
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    dccData.work().setPlymouthFactor(
-                                        model.plymouthScale)
-                                }
-                            }
+                        background: DccItemBackground {
+                            backgroundType: DccObject.AutoBg
+                           // separatorVisible: true
                         }
 
-                        RadioButton {
-                            height: 18
-                            autoExclusive: false
-                            text: model.text
-                            checked: model.checkStatus
-                            enabled: !model.startAnimation
-                            onClicked: {
-                                dccData.work().setPlymouthFactor(
-                                    model.plymouthScale)
+                        content: ColumnLayout {
+                            spacing: 0
+                            Rectangle {
+                                id: externalRect
+                                width: 228
+                                height: 148
+                                border.width: model.checkStatus ? 2 : 0
+                                border.color: "#6A005BFF"
+                                radius: 8
+
+                                color: "transparent"
+
+                                Rectangle {
+                                    id: imgRect
+                                    anchors.centerIn: parent
+                                    width: 220
+                                    height: 140
+                                    border.width: 0
+                                    color: DTK.themeType === ApplicationHelper.LightType ?
+                                               Qt.rgba(baseColor.r, baseColor.g, baseColor.a, 0.10) : Qt.rgba(baseColor.r, baseColor.g, baseColor.a, 0.15)
+
+                                    radius: 6
+
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        anchors.margins: 1  // 内描边的宽度
+                                        color: "transparent"
+                                        border.color: "#1A000000"
+                                        radius: 6
+                                        border.width: 1
+
+                                        Image {
+                                            id: backgroundImage
+                                            anchors.centerIn: parent
+                                            source: model.imagePath
+                                            width: 130 * model.scale
+                                            height: 130 * model.scale
+                                            visible: !(model.startAnimation
+                                                       && model.checkStatus)
+                                            fillMode: Image.PreserveAspectCrop
+                                            opacity: model.startAnimation ? 0.4 : 1
+                                        }
+
+                                        //模糊效果容器
+                                        Rectangle {
+                                            width: 220
+                                            height: 140
+                                            anchors.centerIn: parent
+                                            radius: 6 // 设置圆角半径
+                                            visible: model.startAnimation
+                                                     && model.checkStatus
+                                            color: "transparent"
+
+                                            // GaussianBlur 模糊效果
+                                            ShaderEffectSource {
+                                                id: blurSource
+                                                sourceItem: backgroundImage
+                                                sourceRect: Qt.rect(0, 0, width,
+                                                                    height) // 将背景图作为模糊源
+                                            }
+
+                                            GaussianBlur {
+                                                anchors.fill: parent
+                                                source: blurSource
+                                                radius: 20 // 模糊半径，值越大，模糊越强
+                                                samples: 16
+                                            }
+
+                                            BusyIndicator {
+                                                anchors.centerIn: parent
+                                                running: model.startAnimation
+                                                         && model.checkStatus
+                                                visible: model.startAnimation
+                                                         && model.checkStatus
+                                                implicitWidth: 32
+                                                implicitHeight: 32
+                                            }
+                                        }
+                                    }
+
+                                    // 使用 MouseArea 来捕捉点击事件
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            dccData.work().setPlymouthFactor(
+                                                        model.plymouthScale)
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            RadioButton {
+                                autoExclusive: false
+                                text: model.text
+                                checked: model.checkStatus
+                                enabled: !model.startAnimation
+                                padding: 0
+                                icon.width: 0
+                                icon.height: 0
+                                onClicked: {
+                                    dccData.work().setPlymouthFactor(
+                                                model.plymouthScale)
+                                }
                             }
                         }
                     }
