@@ -34,7 +34,6 @@ void UpdateWork::checkUpgrade()
             setCheckUpdatesJob(jobPath);
         } else {
             qDebug() << "checkUpgrade dbus error :"<< watcher->error().message();
-            m_model->setLastCheckUpdateErrorMsg(watcher->error().message());
             m_model->setCheckUpdateState(UpdateModel::CheckUpdateState::checkFailed);
         }
     });
