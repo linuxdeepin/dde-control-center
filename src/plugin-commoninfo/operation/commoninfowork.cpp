@@ -237,30 +237,29 @@ void CommonInfoWork::initGrubAnimationModel()
 {
     QList<QPair<int, QString>> scaleThemeList;
     if (IS_COMMUNITY_SYSTEM) {
-        scaleThemeList.append(QPair<int, QString>(2, "deepin-hidpi-ssd-logo"));
-        scaleThemeList.append(QPair<int, QString>(1, "deepin-ssd-logo"));
+        scaleThemeList.append(QPair<int, QString>(2, "boot_deepin"));
+        scaleThemeList.append(QPair<int, QString>(1, "boot_deepin"));
     } else {
-        scaleThemeList.append(QPair<int, QString>(2, "uos-hidpi-ssd-logo"));
-        scaleThemeList.append(QPair<int, QString>(1, "uos-ssd-logo"));
+        scaleThemeList.append(QPair<int, QString>(2, "boot_uos"));
+        scaleThemeList.append(QPair<int, QString>(1, "boot_uos"));
     }
 
     auto [factor, themeName] = getPlyMouthInformation();
     m_commomModel->setPlymouthScale(factor);
     m_commomModel->setPlymouthTheme(themeName);
 
-    static QString ThemePath = "/usr/share/plymouth/themes";
     QList<GrubAnimationData> list;
     for (auto item : scaleThemeList) {
         GrubAnimationData tempData;
         tempData.startAnimation = false;
-        tempData.imagePath = ThemePath + QDir::separator() + item.second + QDir::separator() + "logo.png";
+        tempData.imagePath = item.second;
         tempData.text = item.first == 2 ? tr("Large size") : tr("Small size");
         tempData.plymouthScale = item.first;
         tempData.checkStatus = factor == item.first;
         if (item.first == 2) {
-            tempData.scale = 0.5;
+            tempData.scale = 1;
         } else if (item.first == 1) {
-            tempData.scale = 0.3;
+            tempData.scale = 0.65;
         } else {
             tempData.scale = 1;
         }
