@@ -35,7 +35,7 @@
         <file>icons/font_size.dci</file>
         <file>icons/icon_cursor.dci</file>
         <file>icons/taskbar.dci</file>
-        <file>icons/wallpaper.dci</file>
+        <file>icons/dcc_wallpaper.dci</file>
         <file>icons/screensaver.dci</file>
         <file>icons/window_effect.dci</file>
         <file>icons/theme_icon.dci</file>

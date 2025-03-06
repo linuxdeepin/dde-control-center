@@ -129,7 +129,7 @@ DccObject {
         parentName: "personalization"
         displayName: qsTr("wallpaper")
         description: qsTr("Personalize your wallpaper and screensaver")
-        icon: "wallpaper"
+        icon: "dcc_wallpaper"
         weight: 300
         onActive: function (cmdParam) {
             dccData.handleCmdParam(PersonalizationData.Wallpaper, cmdParam)
