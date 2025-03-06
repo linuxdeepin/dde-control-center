@@ -1,3 +1,25 @@
+dde-control-center (6.1.14) unstable; urgency=medium
+
+  * fix: Add eye protection mode
+  * fix: Change the image of the startup menu
+  * fix: appearance theme can not change by property changed
+  * chore: update icons
+  * fix: update developerMode translation
+  * chore(bluetooth): update icon
+  * feat(power): Adjust and optimize the UI
+  * fix: Modify the button hierarchy of the title bar
+  * fix: change system version info to Authorization Property data
+  * chore: hide compact mode
+  * chore(power): update icon
+  * fix: Continuous calls to the enroll interface may not initiate enroll
+  * typo: Correct the interface of the PropertiesChanged signal
+  * fix: Fix overlapping issue in the control center display schematic adjustment
+  * fix: update status is incorrect
+  * fix: Modify the disappearance issue of the network interface
+  * fix: Abnormal display of modify delete button
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 06 Mar 2025 19:30:52 +0800
+
 dde-control-center (6.1.13) unstable; urgency=medium
 
   * chore: add dde-control-center-dock conflict
