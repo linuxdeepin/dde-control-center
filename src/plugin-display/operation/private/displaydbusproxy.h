@@ -38,7 +38,7 @@ public:
     Q_PROPERTY(int ColorTemperatureMode READ colorTemperatureMode NOTIFY ColorTemperatureModeChanged)
     int colorTemperatureMode();
 
-    Q_PROPERTY(QString CustomColorTempTimePeriod READ customColorTempTimePeriod NOTIFY customColorTempTimePeriodChanged FINAL)
+    Q_PROPERTY(QString CustomColorTempTimePeriod READ customColorTempTimePeriod NOTIFY CustomColorTempTimePeriodChanged FINAL)
     const QString customColorTempTimePeriod();
 
     Q_PROPERTY(QString CurrentCustomId READ currentCustomId NOTIFY CurrentCustomIdChanged)
@@ -134,7 +134,7 @@ Q_SIGNALS: // SIGNALS
     void ColorTemperatureEnabledChanged(bool value) const;
     void ColorTemperatureManualChanged(int value) const;
     void ColorTemperatureModeChanged(int value) const;
-    void customColorTempTimePeriodChanged(const QString &value) const;
+    void CustomColorTempTimePeriodChanged(const QString &value) const;
     void CurrentCustomIdChanged(const QString &value) const;
     void CustomIdListChanged(const QStringList &value) const;
     void DisplayModeChanged(uchar value) const;
