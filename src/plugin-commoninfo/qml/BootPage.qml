@@ -299,7 +299,7 @@ DccObject {
 
                         LineEdit {
                             id: userEdit
-                            text: qsTr("roots")
+                            text: qsTr("root")
                             readOnly: true
                             clearButton.visible: false
                             Layout.preferredWidth: parent.width
