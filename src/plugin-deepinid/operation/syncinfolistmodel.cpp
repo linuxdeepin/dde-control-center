@@ -14,9 +14,11 @@ SyncInfoListModel::SyncInfoListModel(QObject *parent)
         { Network, "dcc_cloud_net", tr("Network"), QStringList() << "network", false },
         { Mouse, "dcc_cloud_mouse", tr("Mouse"), QStringList() << "peripherals", false },
         { Update, "dcc_cloud_update", tr("Update"), QStringList() << "updater", false },
-        { Dock, "dcc_cloud_taskbar", tr("Dock"), QStringList() << "dock", false },
-        { Launcher, "dcc_cloud_luncher", tr("Launcher"), QStringList() << "launcher", false },
-        { Wallpaper, "dcc_cloud_wallpaper", tr("Wallpaper"), QStringList() << "background" << "screensaver", false },
+
+        // TODO：由于以下配置项未适配v25，暂时屏蔽
+        // { Dock, "dcc_cloud_taskbar", tr("Dock"), QStringList() << "dock", false },
+        // { Launcher, "dcc_cloud_luncher", tr("Launcher"), QStringList() << "launcher", false },
+        // { Wallpaper, "dcc_cloud_wallpaper", tr("Wallpaper"), QStringList() << "background" << "screensaver", false },
     };
 }
 
