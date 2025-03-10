@@ -14,20 +14,11 @@ import org.deepin.dcc 1.0
 DccObject {
     id: root
     property var appList: dccData.appItemModels
-    DccObject {
+    DccTitleObject {
         name: "doNotDisturbNotification"
         parentName: "notification"
         displayName: qsTr("Do Not Disturb Settings")
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                height: contentHeight
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
     DccObject {
         name: "enableDoNotDisturb"
@@ -118,6 +109,13 @@ DccObject {
                 }
             }
         }
+    }
+
+    DccTitleObject {
+        name: "appNotify"
+        parentName: "notification"
+        displayName: qsTr("App Notifications")
+        weight: 40
     }
 
     DccObject {

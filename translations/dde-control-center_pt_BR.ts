@@ -7553,6 +7553,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Play a sound</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>App Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>personalization</name>

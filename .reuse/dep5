@@ -19,7 +19,7 @@ Copyright: None
 License: CC0-1.0
 
 # translation
-Files: translations/* **/*.ts
+Files: translations/* **/*.ts .tx/config
 Copyright: UnionTech Software Technology Co., Ltd.
 License: GPL-3.0-or-later
 
@@ -29,7 +29,7 @@ Copyright: UnionTech Software Technology Co., Ltd.
 License: CC0-1.0
 
 # xml toml json conf yaml ...
-Files: **/*.json **/*.service **/*.txt **/*.sh **/*.html **/conf .gitignore **/*.desktop **/*.css **/*.ttf *.conf
+Files: **/*.json **/*.service **/*.txt **/*.sh **/*.html **/conf .gitignore **/*.desktop **/*.css **/*.ttf *.conf *.xml
 Copyright: None
 License: CC0-1.0
 
