@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -7551,6 +7551,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Play a sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -7568,6 +7568,10 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Play a sound</source>
         <translation>通知时提示声音</translation>
     </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>应用通知</translation>
+    </message>
 </context>
 <context>
     <name>personalization</name>
