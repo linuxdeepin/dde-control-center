@@ -14,7 +14,7 @@ DccObject {
     DccObject {
         id: dateTimeContent
         name: "dateTimeContent"
-        parentName: "timeAndLang"
+        parentName: "datetime"
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -50,7 +50,7 @@ DccObject {
     // 时间同步
     DccObject {
         name: "dateTimeGroup"
-        parentName: "timeAndLang"
+        parentName: "datetime"
         weight: 12
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -255,7 +255,7 @@ DccObject {
     DccObject {
         id: timezoneGroup
         name: "timezoneGroup"
-        parentName: "timeAndLang"
+        parentName: "datetime"
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {

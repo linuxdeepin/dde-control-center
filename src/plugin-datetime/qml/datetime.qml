@@ -7,7 +7,7 @@ DccObject {
     id: datetime
     // 时间和日期
     DccObject {
-        name: "timeAndLang"
+        name: "datetime"
         parentName: "system"
         displayName: qsTr("Time and date")
         description: qsTr("Time and date, time zone settings")
