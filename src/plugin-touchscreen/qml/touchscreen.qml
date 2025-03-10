@@ -8,7 +8,7 @@ DccObject {
     parentName: "device"
     displayName: qsTr("Touchscreen")
     description: qsTr("Configuring Touchscreen")
-    icon: "dcc_nav_touchscreen"
+    icon: "device_touchscreen"
     visible: false
     weight: 60
     DccDBusInterface {
