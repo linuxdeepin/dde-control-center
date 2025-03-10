@@ -174,7 +174,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
-                implicitWidth: fm.advanceWidth(text) + 12
+                implicitWidth: fm.advanceWidth(text) + fm.averageCharacterWidth * 2
                 implicitHeight: 30
                 text: qsTr("add")
                 LangsChooserDialog {
