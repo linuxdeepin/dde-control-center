@@ -1,3 +1,14 @@
+dde-control-center (6.1.15) unstable; urgency=medium
+
+  * fix: Missing application notification title
+  * fix: langAndFormat moudle Reset button width
+  * fix: Change username to root
+  * fix: update touchscreen icon
+  * fix: No response to jump datetime module
+  * feat: comment unadapted system configuration items
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Tue, 11 Mar 2025 16:22:22 +0800
+
 dde-control-center (6.1.14) unstable; urgency=medium
 
   * fix: Add eye protection mode
