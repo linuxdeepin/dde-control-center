@@ -23,10 +23,9 @@ DccObject{
             id: root
             DciIcon {
                 id: deviceIcon
-                Layout.leftMargin: 10
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                name: "qrc:/icons/deepin/builtin/icons/bluetoothNomal"
-                sourceSize: Qt.size(36, 36)
+                name: "bluetoothNomal"
+                sourceSize: Qt.size(24, 24)
                 Layout.preferredHeight: 50
                 Layout.preferredWidth: 40
             }
@@ -73,12 +72,12 @@ DccObject{
                             font.pointSize: 8
                             text: qsTr("Edit")
 
+                            hoverEnabled: false
                             implicitHeight: 20
                             spacing: 0
                             textColor: DS.Style.highlightedButton.text
                             Layout.alignment: Qt.AlignTop
-
-                            anchors.left: nameDetail.right
+                            
                             onClicked: {
                                 nameEdit.visible = true
                                 devName.visible =false
@@ -198,7 +197,7 @@ DccObject{
 
         page: CheckBox {
             checked: model.discoverabled
-            leftPadding: 15
+            leftPadding: 10
             text: qsTr("Allow other Bluetooth devices to find this device")
             
             onCheckedChanged: {
