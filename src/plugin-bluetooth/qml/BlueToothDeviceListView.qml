@@ -36,13 +36,10 @@ Rectangle {
                 id: itemCtl
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                leftPadding: 10
 
                 topPadding: 0
                 bottomPadding: 0
-                spacing: 0
 
-                implicitHeight: 50
                 cascadeSelected: true
                 visible: model.visiable
                 backgroundVisible: root.backgroundVisible
@@ -50,8 +47,9 @@ Rectangle {
                 contentFlow: true
                 hoverEnabled: true
 
+                corners: getCornersForBackground(index, repeater.count)
+
                 background: DccItemBackground {
-                    backgroundType: DccObject.Normal
                     separatorVisible: true
                 }
 
@@ -80,6 +78,7 @@ Rectangle {
                             id: status
                             Layout.fillHeight: true
                             spacing: 0
+                            Layout.leftMargin: 10
                             Label {
                                 id: myDeviceName
                                 text: model.name
