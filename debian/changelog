@@ -1,3 +1,10 @@
+dde-control-center (6.1.16) unstable; urgency=medium
+
+  * chore: update icon
+  * fix: add Bluetooth name and icon margin
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Wed, 12 Mar 2025 13:31:20 +0800
+
 dde-control-center (6.1.15) unstable; urgency=medium
 
   * fix: Missing application notification title
