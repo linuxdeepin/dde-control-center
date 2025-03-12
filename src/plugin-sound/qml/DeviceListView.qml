@@ -80,7 +80,7 @@ Rectangle {
                 }
 
                 onClicked: {
-                    root.clicked(index, !model.isChecked)
+                    root.clicked(index, !model.isEnabled)
                 }
             }
         }
