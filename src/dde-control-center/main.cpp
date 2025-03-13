@@ -150,6 +150,7 @@ int main(int argc, char *argv[])
 #endif
     }
     int exitCode = app->exec();
+    conn.unregisterService(DccDBusService);
     delete dccManager;
     delete app;
     return exitCode;
