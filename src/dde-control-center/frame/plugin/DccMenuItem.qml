@@ -11,7 +11,6 @@ DccEditorItem {
     leftPadding: 12
     rightPadding: 10
     bottomInset: 5
-    implicitHeight: 48 + topInset + bottomInset
     topPadding: topInset
     bottomPadding: bottomInset
     activeFocusOnTab: true

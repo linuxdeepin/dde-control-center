@@ -13,7 +13,6 @@ DccEditorItem {
     rightPadding: 10
     topPadding: topInset
     bottomPadding: bottomInset
-    implicitHeight: 48 + topInset + bottomInset
     activeFocusOnTab: true
     rightItem: RowLayout {
         Control {

@@ -74,13 +74,13 @@ Item {
             anchors.margins: 10
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
+            clip: true
             model: DccModel {
                 id: dccModel
                 root: dccObj
             }
             delegate: ItemDelegate {
                 implicitHeight: 40
-                text: model.display
                 width: parent ? parent.width : 300
                 checked: dccObj.currentObject === model.item
                 font: D.DTK.fontManager.t6
@@ -90,14 +90,22 @@ Item {
                     width: 24
                     height: 24
                 }
-                content: Rectangle {
-                    anchors.right: parent.right
-                    anchors.rightMargin: 10
-                    visible: model.item.badge !== 0
-                    height: 16
-                    width: 16
-                    radius: 8
-                    color: "red"
+                contentFlow: true
+                content: RowLayout {
+                    DccLabel {
+                        Layout.fillWidth: true
+                        text: model.display
+                        font: root.font
+                    }
+                    Rectangle {
+                        Layout.alignment: Qt.AlignRight
+                        Layout.rightMargin: 10
+                        visible: model.item.badge !== 0
+                        height: 16
+                        width: 16
+                        radius: 8
+                        color: "red"
+                    }
                 }
                 hoverEnabled: true
                 background: DccItemBackground {
