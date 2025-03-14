@@ -172,26 +172,6 @@ D.ApplicationWindow {
         anchors.fill: parent
     }
 
-    // FIXME：any better way ?
-    MouseArea {
-        z: 99
-        anchors.fill: parent
-        acceptedButtons: Qt.LeftButton
-
-        onPressed: function (mouse) {
-            mouse.accepted = false
-
-            if (!root.activeFocusItem)
-                return
-
-            let pt = mapToItem(root.activeFocusItem, mouse.x, mouse.y)
-            // clear focus if click out of activeFocusItem
-            if (!root.activeFocusItem.contains(pt)) {
-                centralView.forceActiveFocus()
-            }
-        }
-    }
-
 
     /*  焦点切换调试，暂不删
     onActiveFocusItemChanged: {

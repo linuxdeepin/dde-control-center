@@ -99,6 +99,7 @@ DccObject {
                         hostNameEdit.visible = true
                         hostNameEdit.text = dccData.systemInfoMode().hostName
                         hostNameEdit.selectAll()
+                        hostNameEdit.forceActiveFocus()
                     }
                 }
 

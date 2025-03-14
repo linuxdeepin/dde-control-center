@@ -18,6 +18,7 @@ D.ItemDelegate {
 
     Layout.fillWidth: true
     Layout.minimumHeight: model.item.description.length !== 0 ? 48 : 0
+    implicitHeight: (implicitContentHeight < 48 ? 48 : implicitContentHeight) + topInset + bottomInset
     backgroundVisible: false
     checkable: false
     topPadding: topInset
@@ -35,10 +36,18 @@ D.ItemDelegate {
         width: root.iconSize > 0 ? root.iconSize : DS.Style.itemDelegate.iconSize
         height: root.iconSize > 0 ? root.iconSize : DS.Style.itemDelegate.iconSize
     }
-    contentFlow: true
-    content: RowLayout {
+    contentItem: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
+        D.IconLabel {
+            spacing: root.spacing
+            mirrored: root.mirrored
+            display: root.display
+            alignment: root.display === D.IconLabel.IconOnly || root.display === D.IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft | Qt.AlignVCenter
+            font: root.font
+            color: root.palette.windowText
+            icon: D.DTK.makeIcon(root.icon, root.D.DciIcon)
+        }
         ColumnLayout {
             Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
             Layout.fillWidth: true

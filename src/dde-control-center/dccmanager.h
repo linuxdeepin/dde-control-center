@@ -84,6 +84,7 @@ private:
     bool isEqual(const QString &url, const DccObject *obj);
     DccObject *findObject(const QString &url, bool onlyRoot = false);
     DccObject *findParent(const DccObject *obj);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
     void saveSize();
