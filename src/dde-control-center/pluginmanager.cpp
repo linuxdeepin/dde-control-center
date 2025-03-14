@@ -191,6 +191,13 @@ PluginManager::PluginManager(DccManager *parent)
 
 PluginManager::~PluginManager()
 {
+    for (auto &&data : m_plugins) {
+        if (data->data && !data->thread) {
+            qCDebug(dccLog()) << "delete so" << data->name;
+            delete data->data;
+            data->data = nullptr;
+        }
+    }
     cancelLoad();
     for (auto &&data : m_plugins) {
         if (data->data) {
@@ -528,17 +535,13 @@ void PluginManager::cancelLoad()
     if (m_threadPool) {
         m_threadPool->clear();
         for (auto &&plugin : m_plugins) {
-            if (plugin->thread && plugin->thread->isRunning()) {
-                plugin->thread->wait(50);
-                if (plugin->thread->isRunning()) {
-                    qCWarning(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << plugin->thread << "thread exit timeout";
-                    plugin->thread->terminate();
-                    plugin->thread->wait(50);
-                    plugin->thread = nullptr;
-                }
+            if (plugin->thread) {
+                qCWarning(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << "thread exit timeout";
             }
         }
+        qCWarning(dccLog()) << "delete threadPool";
         delete m_threadPool;
+        qCWarning(dccLog()) << "delete threadPool finish";
         m_threadPool = nullptr;
     }
 }
@@ -556,7 +559,6 @@ bool PluginManager::loadFinished() const
 void PluginManager::beginDelete()
 {
     m_isDeleting = true;
-    cancelLoad();
 }
 }; // namespace dccV25
 Q_DECLARE_METATYPE(dccV25::PluginData *)
