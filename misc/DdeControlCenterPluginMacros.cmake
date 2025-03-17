@@ -50,7 +50,8 @@ function(dcc_handle_plugin_translation)
     endif()
 
     set(TRANSLATION_FILES
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_en.ts
+        ${_config_SOURCE_DIR}/translations/${_config_NAME}_en_US.ts
         ${_config_SOURCE_DIR}/translations/${_config_NAME}_az.ts
         ${_config_SOURCE_DIR}/translations/${_config_NAME}_bo.ts
         ${_config_SOURCE_DIR}/translations/${_config_NAME}_ca.ts

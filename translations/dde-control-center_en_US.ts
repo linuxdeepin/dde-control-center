@@ -212,11 +212,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Next</source>
+        <source>Disclaimer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disclaimer</source>
+        <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -422,6 +422,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Scenery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Illustration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -431,6 +435,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cartoon style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -447,14 +455,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Scenery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cartoon style</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -505,6 +505,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Auto Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Low battery threshold</source>
         <translation type="unfinished"></translation>
     </message>
@@ -518,10 +522,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -547,19 +547,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rename</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Send Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -567,6 +567,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length greater than or equal to 64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -579,10 +583,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Length greater than or equal to 64</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -639,7 +639,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Change Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Change boot menu verification password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the boot menu authentication password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Password :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -652,6 +672,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Passwords do not match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -668,30 +692,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Name :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Password :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repeat password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>root</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1284,6 +1284,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Scenery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Illustration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1303,23 +1307,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Scenery</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
+    <message>
+        <source>Cartoon Style</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Dimensional Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cartoon Style</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2729,11 +2729,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Agree and Join User Experience Program</source>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2741,7 +2741,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>https://www.uniontech.com/agreement/experience-en</source>
+        <source>Agree and Join User Experience Program</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2946,18 +2946,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Year</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2967,6 +2955,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3123,6 +3123,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Let me think it over</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3152,10 +3156,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3189,6 +3189,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>DeepinIDSyncService</name>
     <message>
+        <source>Auto Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3202,10 +3206,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto Sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3232,15 +3232,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Account and Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sign out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account and Security</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3327,6 +3327,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Desktop file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3336,10 +3340,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>add</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3406,6 +3406,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>3.Import Certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3427,10 +3431,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3.Import Certificate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3633,6 +3633,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>FileAndFolder</name>
     <message>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Documents</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3658,10 +3662,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow below apps to access these files and folders:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3898,18 +3898,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Monday</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3937,6 +3925,18 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Sunday</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GestureModel</name>
@@ -3946,10 +3946,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3966,6 +3962,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tap</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3994,14 +3994,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>InterfaceEffectListview</name>
     <message>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Best Visuals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Optimal Performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4010,7 +4002,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Visuals</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4077,6 +4077,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>KeyboardLayout</name>
     <message>
+        <source>Keyboard layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4085,20 +4089,20 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add new keyboard layout...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keyboard layout</source>
+        <source>Add new keyboard layout...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>done</source>
         <translation type="unfinished"></translation>
@@ -4116,11 +4120,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Region and format</source>
+        <source>Region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Region</source>
+        <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4128,15 +4132,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Region and format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4239,11 +4239,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Input Devices</source>
+        <source>No input device for sound found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No input device for sound found</source>
+        <source>Input Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4340,6 +4340,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Kernel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Graphics Platform</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4349,10 +4353,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Kernel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4726,11 +4726,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Computer suspends after</source>
+        <source>Lock screen after</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lock screen after</source>
+        <source>Computer suspends after</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4780,15 +4780,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>PowerWorker</name>
     <message>
-        <source>Never</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5073,19 +5073,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>8-64 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat the password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5111,7 +5111,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>ScreenSaverPage</name>
     <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Personalized screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5156,18 +5168,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>setting</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5235,6 +5235,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5278,10 +5282,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Add custom shortcut</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
@@ -5290,11 +5290,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Input Devices</source>
+        <source>Select whether to enable the devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select whether to enable the devices</source>
+        <source>Input Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5445,7 +5445,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No output device for sound found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Left Right Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mono audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5458,18 +5470,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mono audio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5514,6 +5514,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Ntp server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5543,14 +5551,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ntp server</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5741,6 +5741,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Touchpad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5774,10 +5778,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5817,15 +5817,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>UpdateControl</name>
     <message>
-        <source>Installing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Expected installation time:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>30min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5950,6 +5950,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>UpdateList</name>
     <message>
+        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Updates：</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5958,15 +5962,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>View Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>2025.1.20</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5981,6 +5981,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installing Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Installing updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5989,23 +5993,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update download failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Restart Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update download failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6013,11 +6005,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>An update has been detected.</source>
+        <source>Checking for updates, please wait…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An update has been detected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6482,19 +6482,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>8-64 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Forgot Password?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6532,15 +6532,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>WallpaperPage</name>
     <message>
-        <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>System Wallapers</source>
+        <source>Window rounded corners</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6605,6 +6601,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>wake up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Wallapers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6782,10 +6782,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6797,15 +6793,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>No more than 15 characters</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add a new </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
-        <source>Bluetooth settings, devices</source>
+        <source>bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>bluetooth</source>
+        <source>Bluetooth settings, devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6820,11 +6820,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Optilons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6975,11 +6975,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Iris</source>
+        <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Place the edges of your fingerprint on the sensor</source>
+        <source>Iris</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7071,15 +7071,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>deepinid</name>
     <message>
+        <source>deepin ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>UOS ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>deepin ID</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7146,19 +7146,47 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>displayMain</name>
     <message>
+        <source>100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duplicate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7182,7 +7210,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source> (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Multiple Displays Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7238,7 +7282,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Eye Comfort</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7271,58 +7323,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7518,6 +7518,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>App Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Allow Notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7543,10 +7547,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7584,6 +7584,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Colors and icons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7597,10 +7601,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7698,11 +7698,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sound Effects</source>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DevicesManger</source>
+        <source>Sound Effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7710,11 +7710,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable/disable audio devices</source>
+        <source>DevicesManger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Settings</source>
+        <source>Enable/disable audio devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7743,6 +7743,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>System version, device information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Source Software Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7752,6 +7756,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>User Experience Program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7768,14 +7776,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7834,11 +7834,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>updateMain</name>
     <message>
-        <source>Update Settings</source>
+        <source>Feature Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Feature Updates</source>
+        <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

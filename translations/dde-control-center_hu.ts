@@ -643,10 +643,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>roots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
@@ -692,6 +688,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Repeat password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>root</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5499,18 +5499,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Dock</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Launcher</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
@@ -7140,7 +7128,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>device</name>
     <message>
-        <source>device</source>
+        <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7333,6 +7321,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <source>Screen rearrangement will take effect in %1s after changes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dock</name>
@@ -7495,11 +7487,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>notification</name>
     <message>
-        <source>notification</source>
+        <source>DND mode, app notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DND mode, app notifications</source>
+        <source>Notification</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7608,22 +7600,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>wallpaper</source>
+        <source>Screensaver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Screensaver</source>
+        <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
-        <source>power</source>
+        <source>Power saving settings, screen and suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Power saving settings, screen and suspend</source>
+        <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7687,11 +7679,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>sound</name>
     <message>
-        <source>sound</source>
+        <source>Output,input sound efects,devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Output,input sound efects,devices</source>
+        <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7729,11 +7721,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>system</name>
     <message>
-        <source>system</source>
+        <source>Common settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Common settings</source>
+        <source>System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

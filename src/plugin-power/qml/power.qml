@@ -6,7 +6,7 @@ DccObject {
     id: power
     name: "power"
     parentName: "root"
-    displayName: qsTr("power")
+    displayName: qsTr("Power")
     description: qsTr("Power saving settings, screen and suspend")
     icon: "power"
     weight: 50
