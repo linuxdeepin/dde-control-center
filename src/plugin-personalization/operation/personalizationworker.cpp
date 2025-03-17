@@ -28,7 +28,7 @@
 #include <DDBusSender>
 
 DCORE_USE_NAMESPACE
-Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-workder")
+Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-worker")
 
 #define SOLID_PREFIX "solid::"
 
@@ -79,6 +79,8 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::linePowerScreenSaverTimeoutChanged, this, &PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperSlideShowChanged, this, &PersonalizationWorker::onWallpaperSlideShowChanged);
 
+    connect(m_wallpaperWorker, &WallpaperProvider::fetchFinish, this, &PersonalizationWorker::updateWallpaperSelected);
+
     connect(qApp, &QGuiApplication::screenAdded, this, &PersonalizationWorker::onScreensChanged);
     connect(qApp, &QGuiApplication::screenRemoved, this, &PersonalizationWorker::onScreensChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Changed, this, [this](const QString &propertyName, const QString &value) {
@@ -97,14 +99,14 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     m_themeModels["globaltheme"] = globalTheme;
     m_fontModels["standardfont"] = fontStand;
     m_fontModels["monospacefont"] = fontMono;
-
-    m_wallpaperWorker->fetchData();
-    m_screenSaverProvider->fecthData();
 }
 
 void PersonalizationWorker::active()
 {
     m_personalizationDBusProxy->blockSignals(false);
+
+    m_wallpaperWorker->fetchData();
+    m_screenSaverProvider->fecthData();
 
     refreshOpacity(m_personalizationDBusProxy->opacity());
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());
@@ -289,28 +291,51 @@ void PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged(int value)
 void PersonalizationWorker::onWallpaperSlideShowChanged()
 {
     QVariantMap wallpaperSlideShowMap;
-    for (auto &screen : qApp->screens()) {
-        QString slideShow = m_personalizationDBusProxy->wallpaperSlideShow(screen->name());
-        wallpaperSlideShowMap.insert(screen->name(), slideShow);
+    QStringList screenNameList;
+    for (const auto screen : qApp->screens()) {
+        screenNameList << screen->name();
+    }
+    for (const auto &screenName : screenNameList) {
+        QString slideShow = m_personalizationDBusProxy->wallpaperSlideShow(screenName);
+        wallpaperSlideShowMap.insert(screenName, slideShow);
     }
     if (!wallpaperSlideShowMap.isEmpty()) {
         m_model->setWallpaperSlideShowMap(wallpaperSlideShowMap);
     }
 }
 
+void PersonalizationWorker::updateWallpaperSelected()
+{
+    QStringList wallpaperList;
+    auto wallpaperMap = m_model->getWallpaperMap();
+    for (auto it = wallpaperMap.cbegin(); it != wallpaperMap.cend(); ++it) {
+        wallpaperList << it.value().toString();
+    }
+
+    m_model->getSysWallpaperModel()->updateSelected(wallpaperList);
+    m_model->getSolidWallpaperModel()->updateSelected(wallpaperList);
+    m_model->getCustomWallpaperModel()->updateSelected(wallpaperList);
+}
+
 void PersonalizationWorker::onWallpaperUrlsChanged()
 {
     // wallpaperUrls 存储着每个工作区和每个屏幕的壁纸, 若其改变, 需要刷新当前屏幕壁纸
     QVariantMap wallpaperMap;
-    for (auto &screen : qApp->screens()) {
-        QString url = m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screen->name());
+    QStringList screenNameList;
+    for (const auto screen : qApp->screens()) {
+        screenNameList << screen->name();
+    }
+    for (const auto &screenName : screenNameList) {
+        QString url = m_personalizationDBusProxy->getCurrentWorkSpaceBackgroundForMonitor(screenName);
         if (!url.isEmpty()) {
-            wallpaperMap.insert(screen->name(), url);
+            wallpaperMap.insert(screenName, url);
         }
     }
     if (!wallpaperMap.isEmpty()) {
         m_model->setWallpaperMap(wallpaperMap);
     }
+
+    updateWallpaperSelected();
 }
 
 void PersonalizationWorker::setFontList(FontModel *model, const QString &type, const QString &list)
@@ -579,16 +604,6 @@ void PersonalizationWorker::goDownloadTheme()
     .service("com.home.appstore.client")
     .method("openBusinessUri")
     .arg(QString("searchApp?keyword=theme")).call();
-}
-
-QScreen *PersonalizationWorker::getScreen(const QString &screenName)
-{
-    for (const auto &screen : qApp->screens()) {
-        if (screen->name() == screenName) {
-            return screen;
-        }
-    }
-    return qApp->primaryScreen();
 }
 
 template<typename T>

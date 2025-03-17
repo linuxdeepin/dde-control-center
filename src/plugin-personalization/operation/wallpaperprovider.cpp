@@ -39,6 +39,7 @@ WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDB
     m_workThread->start();
 
     connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
+    connect(m_worker, &InterfaceWorker::listFinished, this, &WallpaperProvider::fetchFinish);
 }
 
 WallpaperProvider::~WallpaperProvider()
@@ -112,7 +113,7 @@ WallpaperItemPtr WallpaperProvider::createItem(const QString &path, bool del)
     const QString &thumbnail = iter.value();
 
     return WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
-        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch()});
+        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
 }
 
 InterfaceWorker::InterfaceWorker(PersonalizationDBusProxy *proxy, QObject *parent)
@@ -148,6 +149,7 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             getSolodBackground();
             break;
     }
+    Q_EMIT listFinished();
 }
 
 void InterfaceWorker::getSysBackground()
