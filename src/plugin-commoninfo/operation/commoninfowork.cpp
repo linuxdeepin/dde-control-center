@@ -333,10 +333,12 @@ void CommonInfoWork::setLogDebug(int index)
     argList << arg;
     QDBusPendingCall reply = m_debugConfigInter->asyncCall("SetDebug", QVariant::fromValue(argList));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [watcher, reply] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [watcher, reply, this] {
         if (reply.isError()) {
                 qWarning() << "SetDebug failed:" << reply.error();
         }
+        // Todo 由于org.deepin.DebugConfig后端AllDebugLevel属性变化后没有发送信号，当前临时手动取数据，后端加上信号后改成监听信号
+        initDebugLogLevel();
         watcher->deleteLater();
     });
 }
