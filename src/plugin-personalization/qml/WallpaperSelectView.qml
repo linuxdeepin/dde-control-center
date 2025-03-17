@@ -243,7 +243,7 @@ ColumnLayout {
                         z: 999
                         contentItem: D.IconButton {
                             icon.name: "close"
-                            visible: (control.hovered || parent.hovered) && model.deleteAble && !borderRect.visible
+                            visible: (control.hovered || parent.hovered) && model.deleteAble && !model.selected
                             background: P.ButtonPanel {
                                 implicitWidth: DS.Style.iconButton.backgroundSize
                                 implicitHeight: DS.Style.iconButton.backgroundSize

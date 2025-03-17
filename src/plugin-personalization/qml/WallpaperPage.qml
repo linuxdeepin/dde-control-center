@@ -46,10 +46,9 @@ DccObject {
                 ScreenIndicator {}
             }
 
-            function getQtScreen(s) {
-                var screen = dccData.worker.getScreen(s)
+            function getQtScreen(screenName) {
                 for (var s of Qt.application.screens) {
-                    if (screen.name === s.name) {
+                    if (screenName === s.name) {
                         return s
                     }
                 }

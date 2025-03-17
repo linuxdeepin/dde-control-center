@@ -36,6 +36,7 @@ public:
 
 signals:
     void pushBackground(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
+    void listFinished();
 public slots:
     void startListBackground(WallpaperType type = WallpaperType::Wallpaper_all);
 private:
@@ -53,6 +54,10 @@ public:
     static bool isColor(const QString &path);
     static WallpaperItemPtr createItem(const QString &path, bool del);
     static WallpaperType getWallpaperType(const QString &path);
+
+signals:
+    void fetchFinish();
+
 private slots:
     void setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
 

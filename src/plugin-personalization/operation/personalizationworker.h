@@ -38,7 +38,6 @@ public Q_SLOTS:
     void setScrollBarPolicy(int policy);
     void setCompactDisplay(bool value);
     void goDownloadTheme();
-    QScreen *getScreen(const QString &screenName);
 
     // 设置给Appearance分别在深色和浅色下的活动色
     void setActiveColors(const QString &activeColors);
@@ -91,6 +90,7 @@ private Q_SLOTS:
     void onLockScreenAtAwakeChanged(bool value);
     void onLinePowerScreenSaverTimeoutChanged(int value);
     void onWallpaperSlideShowChanged();
+    void updateWallpaperSelected();
 
 protected:
     virtual void onWallpaperUrlsChanged();
