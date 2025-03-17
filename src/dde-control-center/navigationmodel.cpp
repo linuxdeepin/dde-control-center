@@ -58,7 +58,7 @@ int NavigationModel::rowCount(const QModelIndex &) const
 {
     if (m_data.isEmpty())
         return 0;
-    return m_data.size() * 2 - 1;
+    return m_data.size();
 }
 
 int NavigationModel::columnCount(const QModelIndex &) const
@@ -71,31 +71,20 @@ QVariant NavigationModel::data(const QModelIndex &index, int role) const
     if (!index.isValid()) {
         return QVariant();
     }
-    if (index.row() & 1) {
-        switch (role) {
-        case Qt::DisplayRole:
-            return " / ";
-        case NavTypeRole:
-            return Separator;
-        default:
-            break;
-        }
-    } else {
-        int i = index.row() / 2;
-        if (i < 0 || i >= m_data.size()) {
-            return QVariant();
-        }
-        const DccObject *item = m_data.at(i);
-        switch (role) {
-        case Qt::DisplayRole:
-            return item->displayName();
-        case NavTypeRole:
-            return (i == (m_data.size() - 1)) ? End : Middle;
-        case NavUrlRole:
-            return item->parentName() + "/" + item->name();
-        default:
-            break;
-        }
+    int i = index.row();
+    if (i < 0 || i >= m_data.size()) {
+        return QVariant();
+    }
+    const DccObject *item = m_data.at(i);
+    switch (role) {
+    case Qt::DisplayRole:
+        return item->displayName();
+    case NavTypeRole:
+        return (i == (m_data.size() - 1)) ? End : Middle;
+    case NavUrlRole:
+        return item->parentName() + "/" + item->name();
+    default:
+        break;
     }
     return QVariant();
 }
