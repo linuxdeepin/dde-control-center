@@ -12,8 +12,6 @@ FocusScope {
     property alias model: repeater.model
     signal clicked(var model)
 
-    activeFocusOnTab: repeater.count > 2
-
     function updateLayout() {
         let totalWidth = width
         let i
@@ -43,6 +41,7 @@ FocusScope {
             }
         }
     }
+    activeFocusOnTab: repeater.count > 1
     onWidthChanged: updateLayout()
 
     Repeater {
@@ -57,7 +56,7 @@ FocusScope {
                     break
                 }
             }
-            focusIndex = forward ? focusIndex - 2 : focusIndex + 2
+            focusIndex = forward ? focusIndex - 1 : focusIndex + 1
             if (focusIndex >= 0 && focusIndex < repeater.count - 1) {
                 repeater.itemAt(focusIndex).forceActiveFocus()
             }
@@ -76,17 +75,40 @@ FocusScope {
             }
             DelegateChoice {
                 roleValue: 1
-                delegate: DccLabel {
-                    text: model.display
-                    color: hovered ? palette.link : palette.text
-                    elide: Text.ElideLeft
+                delegate: Control {
+                    property alias pressed: ma.pressed
+                    property D.Palette textColor: DS.Style.button.text
+                    palette.windowText: D.ColorSelector.textColor
+
+                    padding: 2
                     focus: true
-                    Loader {
-                        anchors.fill: parent
-                        active: parent.activeFocus
-                        sourceComponent: D.FocusBoxBorder {
-                            radius: DS.Style.control.radius
+                    hoverEnabled: enabled
+                    contentItem: Row {
+                        spacing: 4
+                        DccLabel {
+                            text: model.display
+                            elide: Text.ElideLeft
+                            color: parent.palette.windowText
+                        }
+                        Label {
+                            text: "/"
+                            color: parent.palette.windowText
+                        }
+                    }
+                    background: Rectangle {
+                        property D.Palette backgroundColor: D.Palette {
+                            normal: Qt.rgba(0, 0, 0, 0)
+                            normalDark: Qt.rgba(0, 0, 0, 0)
+                            hovered: Qt.rgba(0, 0, 0, 0.1)
+                            hoveredDark: Qt.rgba(1, 1, 1, 0.1)
+                            pressed: Qt.rgba(0, 0, 0, 0.06)
+                            pressedDark: Qt.rgba(1, 1, 1, 0.06)
+                        }
+                        radius: DS.Style.control.radius
+                        color: D.ColorSelector.backgroundColor
+                        border {
                             color: parent.palette.highlight
+                            width: parent.activeFocus ? DS.Style.control.focusBorderWidth : 0
                         }
                     }
                     Keys.onPressed: event => {
@@ -108,6 +130,7 @@ FocusScope {
                                     }
 
                     MouseArea {
+                        id: ma
                         anchors.fill: parent
                         onClicked: {
                             root.clicked(model)
@@ -117,13 +140,17 @@ FocusScope {
             }
             DelegateChoice {
                 roleValue: 2
-                delegate: DccLabel {
-                    text: model.display
-                    clip: true
-                    elide: Text.ElideLeft
-                    color: "#78A6EB" // #78A6EB  "#0058DE"  "steelblue" "deepskyblue" darkturquoise
-                    onImplicitWidthChanged: root.updateLayout()
-                    onImplicitHeightChanged: root.updateLayout()
+                delegate: Control {
+                    padding: 2
+                    contentItem: DccLabel {
+                        anchors.leftMargin: 4
+                        text: model.display
+                        clip: true
+                        elide: Text.ElideLeft
+                        color: parent.palette.highlight
+                        onImplicitWidthChanged: root.updateLayout()
+                        onImplicitHeightChanged: root.updateLayout()
+                    }
                 }
             }
         }

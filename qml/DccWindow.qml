@@ -63,6 +63,8 @@ D.ApplicationWindow {
         autoHideOnFullscreen: true
         focus: true
         leftContent: D.ActionButton {
+            property D.Palette textColor: parent.textColor
+            palette.windowText: D.ColorSelector.textColor
             anchors {
                 verticalCenter: parent.verticalCenter
                 leftMargin: 30
@@ -118,13 +120,15 @@ D.ApplicationWindow {
             }
             D.ActionButton {
                 id: breakBut
+                property D.Palette textColor: parent.textColor
+                palette.windowText: D.ColorSelector.textColor
                 implicitHeight: 30
                 implicitWidth: 30
                 x: ((root.sidebarPage && root.sidebarPage.splitterX > 110) ? root.sidebarPage.splitterX : 110)
                 anchors.verticalCenter: parent.verticalCenter
                 visible: root.currentIndex === 1
                 hoverEnabled: enabled
-                activeFocusOnTab: true
+                activeFocusOnTab: enabled
                 enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
                 icon {
@@ -154,13 +158,14 @@ D.ApplicationWindow {
                 width: parent.width - x
                 anchors {
                     left: breakBut.right
-                    leftMargin: 30
+                    leftMargin: 5
                     verticalCenter: parent.verticalCenter
                 }
                 visible: root.currentIndex === 1
                 model: DccApp.navModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
+                    centralView.forceActiveFocus()
                 }
             }
         }
