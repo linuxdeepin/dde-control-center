@@ -669,10 +669,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>用户名：</translation>
     </message>
     <message>
-        <source>roots</source>
-        <translation>roots</translation>
-    </message>
-    <message>
         <source>New Password :</source>
         <translation>新密码：</translation>
     </message>
@@ -707,6 +703,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>调整系统启动界面的logo动画尺寸大小</translation>
+    </message>
+    <message>
+        <source>root</source>
+        <translation type="unfinished">root</translation>
     </message>
 </context>
 <context>
@@ -5514,18 +5514,6 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Update</source>
         <translation>更新</translation>
     </message>
-    <message>
-        <source>Dock</source>
-        <translation>任务栏</translation>
-    </message>
-    <message>
-        <source>Launcher</source>
-        <translation>启动器</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>壁纸</translation>
-    </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
@@ -7155,7 +7143,7 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>device</name>
     <message>
-        <source>device</source>
+        <source>Device</source>
         <translation>设备</translation>
     </message>
 </context>
@@ -7348,6 +7336,10 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Screen rearrangement will take effect in %1s after changes</source>
         <translation>屏幕拼接将在修改完成%1s后生效</translation>
     </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>开启护眼模式</translation>
+    </message>
 </context>
 <context>
     <name>dock</name>
@@ -7510,12 +7502,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>notification</name>
     <message>
-        <source>notification</source>
-        <translation>通知</translation>
-    </message>
-    <message>
         <source>DND mode, app notifications</source>
         <translation>勿扰模式、应用通知</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>通知</translation>
     </message>
 </context>
 <context>
@@ -7623,23 +7615,23 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>修改系统字体与字号</translation>
     </message>
     <message>
-        <source>wallpaper</source>
-        <translation>壁纸</translation>
-    </message>
-    <message>
         <source>Screensaver</source>
         <translation>屏幕保护</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>壁纸</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
-        <source>power</source>
-        <translation>电源管理</translation>
-    </message>
-    <message>
         <source>Power saving settings, screen and suspend</source>
         <translation>节能设置、屏幕和待机管理</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>电源管理</translation>
     </message>
 </context>
 <context>
@@ -7702,12 +7694,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>sound</name>
     <message>
-        <source>sound</source>
-        <translation>声音</translation>
-    </message>
-    <message>
         <source>Output,input sound efects,devices</source>
         <translation>输入、输出、系统音效、设备管理</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation>声音</translation>
     </message>
 </context>
 <context>
@@ -7744,12 +7736,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>system</name>
     <message>
-        <source>system</source>
-        <translation>系统</translation>
-    </message>
-    <message>
         <source>Common settings</source>
         <translation>常用设置</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>系统</translation>
     </message>
 </context>
 <context>

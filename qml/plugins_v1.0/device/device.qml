@@ -6,7 +6,7 @@ import org.deepin.dcc 1.0
 DccObject {
     name: "device"
     parentName: "root"
-    displayName: qsTr("device")
+    displayName: qsTr("Device")
     icon: "hardware"
     weight: 40
 }

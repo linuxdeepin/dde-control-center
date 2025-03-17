@@ -784,7 +784,7 @@ DccObject {
     DccObject {
         name: "eyeComfort"
         parentName: "display"
-        displayName: qsTr("Eye Comfort")
+        displayName: qsTr("Enable eye comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
         weight: 100
         backgroundType: DccObject.Normal
