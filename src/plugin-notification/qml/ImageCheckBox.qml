@@ -23,12 +23,15 @@ T.Control {
 
     ColumnLayout {
         id: contentItem
-        D.DciIcon {
+        Image {
             Layout.alignment: Qt.AlignCenter
-            sourceSize: Qt.size(98, 67)
-            name: control.imageName
+            sourceSize: Qt.size(96, 65)
+            mipmap: true
+            source: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                "qrc:/icons/deepin/builtin/light/icons/" + imageName +"_84px.png" : "qrc:/icons/deepin/builtin/dark/icons/" + imageName +"_84px.png"
         }
         RowLayout {
+            Layout.alignment: Qt.AlignCenter
             D.DciIcon {
                 Layout.alignment: Qt.AlignCenter
                 palette: control.D.DTK.makeIconPalette(control.palette)
