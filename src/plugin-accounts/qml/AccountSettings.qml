@@ -465,6 +465,7 @@ DccObject {
         pageType: DccObject.Item
         page: RowLayout {
             Button {
+                id: deleteBtn
                 Layout.alignment: groupSettingsBtn.visible ? Qt.AlignLeft : Qt.AlignRight
                 text: qsTr("Delete current account")
                 enabled: dccData.isDeleteAble(settings.userId)
@@ -487,6 +488,12 @@ DccObject {
                 }
                 onClicked: {
                     cfdLoader.active = true
+                }
+                Connections {
+                    target: dccData
+                    function onOnlineUserListChanged() {
+                        deleteBtn.enabled = dccData.isDeleteAble(settings.userId)
+                    }
                 }
             }
 
