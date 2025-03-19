@@ -33,12 +33,36 @@ typedef QSharedPointer<WallpaperItem> WallpaperItemPtr;
 class WallpaperSortModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-
+    Q_PROPERTY(int count READ rowCount NOTIFY countChanged)
 public:
     explicit WallpaperSortModel(QObject *parent = nullptr)
         : QSortFilterProxyModel(parent) {
             sort(0);
         }
+
+    void setSourceModel(QAbstractItemModel *sourceModel) override {
+        if (this->sourceModel()) {
+            // 断开旧源模型的信号
+            disconnect(this->sourceModel(), &QAbstractItemModel::rowsInserted,
+                       this, &WallpaperSortModel::countChanged);
+            disconnect(this->sourceModel(), &QAbstractItemModel::rowsRemoved,
+                       this, &WallpaperSortModel::countChanged);
+            disconnect(this->sourceModel(), &QAbstractItemModel::modelReset,
+                       this, &WallpaperSortModel::countChanged);
+        }
+
+        QSortFilterProxyModel::setSourceModel(sourceModel);
+
+        if (sourceModel) {
+            // 连接新源模型的信号
+            connect(sourceModel, &QAbstractItemModel::rowsInserted,
+                    this, &WallpaperSortModel::countChanged);
+            connect(sourceModel, &QAbstractItemModel::rowsRemoved,
+                    this, &WallpaperSortModel::countChanged);
+            connect(sourceModel, &QAbstractItemModel::modelReset,
+                    this, &WallpaperSortModel::countChanged);
+        }
+    }
 
     Q_INVOKABLE bool hasWallpaper(const QString &url) const {
         for (size_t i = 0; i < sourceModel()->rowCount(); i++) {
@@ -51,6 +75,13 @@ public:
 
     Q_INVOKABLE QString getPicPathByUrl(const QString &url) const;
     Q_INVOKABLE bool getConfigAbleByUrl(const QString &url) const;
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override {
+        return sourceModel() ? sourceModel()->rowCount(parent) : 0;
+    }
+
+signals:
+    void countChanged();
 
 protected:
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override

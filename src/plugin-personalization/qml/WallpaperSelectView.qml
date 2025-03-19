@@ -52,7 +52,7 @@ ColumnLayout {
             Layout.fillWidth: true
         }
         D.ToolButton {
-            visible: layout.lineCount * 2 < root.model.rowCount() + root.firstItemVisible ? 1 : 0
+            visible: layout.lineCount * 2 < root.model.count + root.firstItemVisible ? 1 : 0
             textColor: D.Palette {
                 normal {
                     common: D.DTK.makeColor(D.Color.Highlight)
@@ -63,7 +63,7 @@ ColumnLayout {
                 }
                 hoveredDark: hovered
             }
-            text: root.isExpand ? qsTr("unfold") : qsTr("show all") + `-${root.model.rowCount()}` + qsTr("items")
+            text: root.isExpand ? qsTr("unfold") : qsTr("show all") + `-${root.model.count}` + qsTr("items")
             onClicked: {
                 root.isExpand = !root.isExpand
             }
@@ -129,7 +129,6 @@ ColumnLayout {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            console.warn("firstItemClicked")
                             root.firstItemClicked()
                         }
                     }
