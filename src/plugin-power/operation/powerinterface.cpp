@@ -19,6 +19,8 @@ PowerInterface::PowerInterface(QObject *parent)
 {
     m_powerLidClosedOperatorModel->setVisible(POT_ShutDown, false);
     m_batteryLidClosedOperatorModel->setVisible(POT_ShutDown, false);
+    m_batteryLidClosedOperatorModel->setVisible(POT_ShowShutDownInter, false);
+    m_powerLidClosedOperatorModel->setVisible(POT_ShowShutDownInter, false);
 
     connect(m_model, &PowerModel::hibernateChanged, this, [this](bool value){
         m_powerLidClosedOperatorModel->setVisible(POT_Hibernate, value);
