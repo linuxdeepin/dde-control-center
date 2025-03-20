@@ -274,7 +274,7 @@ DccObject {
         DccObject {
             name: "lowBatteryOperator"
             parentName: "power/onBattery/lowBatteryOperatorGroup"
-            displayName: qsTr("Low battery operation")
+            displayName: qsTr("Low battery level")
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {

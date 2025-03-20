@@ -97,7 +97,7 @@ DccObject {
     DccObject {
         name: "decreaseBrightness"
         parentName: "power/general"
-        displayName: qsTr("Auto reduce screen brightness during power saving")
+        displayName: qsTr("Decrease screen brightness on power saver")
         weight: 450
         visible: dccData.platformName() !== "wayland"
         backgroundType: DccObject.Normal
