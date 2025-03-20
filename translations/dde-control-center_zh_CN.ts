@@ -504,15 +504,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation>低电量通知</translation>
+        <translation>低电量提醒</translation>
     </message>
     <message>
         <source>Disbale</source>
         <translation>从不</translation>
-    </message>
-    <message>
-        <source>Low battery operation</source>
-        <translation>低电量时</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -537,6 +533,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Auto suspend</source>
         <translation>自动待机</translation>
+    </message>
+    <message>
+        <source>Low battery level</source>
+        <translation>低电量时</translation>
     </message>
 </context>
 <context>
@@ -3865,10 +3865,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
-        <source>Auto reduce screen brightness during power saving</source>
-        <translation>节能模式时降低屏幕亮度</translation>
-    </message>
-    <message>
         <source>Wakeup Settings</source>
         <translation>唤醒设置</translation>
     </message>
@@ -3951,6 +3947,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Sunday</source>
         <translation>周日</translation>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
+        <translation>节能模式时降低屏幕亮度</translation>
     </message>
 </context>
 <context>
@@ -4764,10 +4764,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>高性能模式</translation>
     </message>
     <message>
-        <source>Performance priority will significantly improve power consumption and heat generation</source>
-        <translation>性能优先，会显著提升功耗和发热</translation>
-    </message>
-    <message>
         <source>Balance Performance</source>
         <translation>性能模式</translation>
     </message>
@@ -4780,15 +4776,19 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>平衡模式</translation>
     </message>
     <message>
-        <source>Balancing performance and battery life, automatically adjusting according to usage conditions</source>
-        <translation>兼顾性能和续航，根据使用情况自动调节</translation>
-    </message>
-    <message>
         <source>Power Saver</source>
         <translation>节能模式</translation>
     </message>
     <message>
-        <source>Prioritizing battery life, the system sacrifices some performance to reduce power consumption</source>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation>性能优先，会显著提升功耗和发热</translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <translation>兼顾性能和续航，根据使用情况自动调节</translation>
+    </message>
+    <message>
+        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
         <translation>续航优先，系统会牺牲一些性能表现来降低功耗</translation>
     </message>
 </context>
@@ -6381,7 +6381,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation>低电量通知</translation>
+        <translation>低电量提醒</translation>
     </message>
     <message>
         <source>Low battery level</source>

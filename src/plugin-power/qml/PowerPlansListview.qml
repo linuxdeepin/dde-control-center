@@ -91,7 +91,7 @@ Rectangle {
             mode: "performance"
             title: qsTr("High Performance")
             icon: "high_performance"
-            description: qsTr("Performance priority will significantly improve power consumption and heat generation")
+            description: qsTr("Prioritize performance, which will significantly increase power consumption and heat generation")
         }
 
         ListElement {
@@ -105,14 +105,14 @@ Rectangle {
             mode: "balance"
             title: qsTr("Balanced")
             icon: "balanced"
-            description: qsTr("Balancing performance and battery life, automatically adjusting according to usage conditions")
+            description: qsTr("Balancing performance and battery life, automatically adjusted according to usage")
         }
 
         ListElement {
             mode: "powersave"
             title: qsTr("Power Saver")
             icon: "power_performance"
-            description: qsTr("Prioritizing battery life, the system sacrifices some performance to reduce power consumption")
+            description: qsTr("Prioritize battery life,which the system will sacrifice some performance to reduce power consumption")
         }
     }
 }

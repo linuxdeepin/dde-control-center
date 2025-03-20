@@ -497,10 +497,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Low battery operation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -522,6 +518,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Low battery level</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3850,10 +3850,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto reduce screen brightness during power saving</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Wakeup Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3935,6 +3931,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4749,10 +4749,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Performance priority will significantly improve power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Balance Performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4765,15 +4761,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Balancing performance and battery life, automatically adjusting according to usage conditions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Power Saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prioritizing battery life, the system sacrifices some performance to reduce power consumption</source>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
