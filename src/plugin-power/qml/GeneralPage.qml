@@ -79,67 +79,61 @@ DccObject {
     }
 
     DccObject {
-        name: "savePowerGroup"
+        name: "autoPowerSavingOnBattery"
         parentName: "power/general"
+        displayName: qsTr("Auto power saving on battery")
         weight: 400
-        pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
-        page: DccGroupView {}
-
-        DccObject {
-            name: "autoPowerSavingOnBattery"
-            parentName: "power/general/savePowerGroup"
-            displayName: qsTr("Auto power saving on battery")
-            weight: 1
-            visible: dccData.model.haveBettary
-            pageType: DccObject.Editor
-            page: D.Switch {
-                checked: dccData.model.autoPowerSaveMode
-                onCheckedChanged: {
-                    dccData.worker.setPowerSavingModeAuto(checked)
-                }
+        backgroundType: DccObject.Normal
+        visible: dccData.model.haveBettary && dccData.platformName() !== "wayland"
+        pageType: DccObject.Editor
+        page: D.Switch {
+            checked: dccData.model.autoPowerSaveMode
+            onCheckedChanged: {
+                dccData.worker.setPowerSavingModeAuto(checked)
             }
         }
+    }
 
-        DccObject {
-            name: "decreaseBrightness"
-            parentName: "power/general/savePowerGroup"
-            displayName: qsTr("Auto reduce screen brightness during power saving")
-            weight: 2
-            pageType: DccObject.Item
-            page: ColumnLayout {
-                Layout.fillHeight: true
-                Label {
-                    id: speedText
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
-                    text: dccObj.displayName
-                    Layout.leftMargin: 10
-                }
-                D.TipsSlider {
-                    id: scrollSlider
-                    readonly property var tips: [("10%"), ("20%"), ("30%"), ("40%")]
-                    Layout.preferredHeight: 80
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
-                    Layout.fillWidth: true
-                    slider.handleType: Slider.HandleType.ArrowBottom
-                    slider.from: 10
-                    slider.to: ticks.length * 10
-                    slider.live: true
-                    slider.stepSize: 10
-                    slider.snapMode: Slider.SnapAlways
-                    slider.value: dccData.model.powerSavingModeLowerBrightnessThreshold
-                    ticks: [
-                        D.SliderTipItem { text: scrollSlider.tips[0]; highlight: scrollSlider.slider.value === 10 },
-                        D.SliderTipItem { text: scrollSlider.tips[1]; highlight: scrollSlider.slider.value === 20 },
-                        D.SliderTipItem { text: scrollSlider.tips[2]; highlight: scrollSlider.slider.value === 30 },
-                        D.SliderTipItem { text: scrollSlider.tips[3]; highlight: scrollSlider.slider.value === 40 }
-                    ]
+    DccObject {
+        name: "decreaseBrightness"
+        parentName: "power/general"
+        displayName: qsTr("Auto reduce screen brightness during power saving")
+        weight: 450
+        visible: dccData.platformName() !== "wayland"
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: ColumnLayout {
+            Layout.fillHeight: true
+            Label {
+                Layout.topMargin: 10
+                Layout.leftMargin: 15
+                font: D.DTK.fontManager.t6
+                text: dccObj.displayName
+            }
+        
+            D.TipsSlider {
+                id: scrollSlider
+                readonly property var tips: [("10%"), ("20%"), ("30%"), ("40%")]
+                Layout.preferredHeight: 80
+                Layout.alignment: Qt.AlignCenter
+                Layout.margins: 10
+                Layout.fillWidth: true
+                slider.handleType: Slider.HandleType.ArrowBottom
+                slider.from: 10
+                slider.to: ticks.length * 10
+                slider.live: true
+                slider.stepSize: 10
+                slider.snapMode: Slider.SnapAlways
+                slider.value: dccData.model.powerSavingModeLowerBrightnessThreshold
+                ticks: [
+                    D.SliderTipItem { text: scrollSlider.tips[0]; highlight: scrollSlider.slider.value === 10 },
+                    D.SliderTipItem { text: scrollSlider.tips[1]; highlight: scrollSlider.slider.value === 20 },
+                    D.SliderTipItem { text: scrollSlider.tips[2]; highlight: scrollSlider.slider.value === 30 },
+                    D.SliderTipItem { text: scrollSlider.tips[3]; highlight: scrollSlider.slider.value === 40 }
+                ]
 
-                    slider.onValueChanged: {
-                        dccData.worker.setPowerSavingModeLowerBrightnessThreshold(slider.value)
-                    }
+                slider.onValueChanged: {
+                    dccData.worker.setPowerSavingModeLowerBrightnessThreshold(slider.value)
                 }
             }
         }
@@ -256,18 +250,28 @@ DccObject {
                 flat: true
                 currentIndex: dccData.model.shutdownRepetition
                 onCurrentIndexChanged: {
+                    if (currentIndex === dccData.model.shutdownRepetition) {
+                        return
+                    }
+
                     dccData.worker.setShutdownRepetition(currentIndex)
                     if (currentIndex === model.length - 1 && dccData.model.customShutdownWeekDays.length === 0) {
-                        repeatDaysEditObject.requestShowSelectDialog()
+                        repeatDaysEditObject.forceShow = true
+                        Qt.callLater(function() {
+                            repeatDaysEditObject.requestShowSelectDialog()
+                        })
+                    } else {
+                        repeatDaysEditObject.forceShow = false
                     }
                 }
             }
         }
         DccObject {
             id: repeatDaysEditObject
+            property bool forceShow: false
             name: "repeatDaysEdit"
             parentName: "power/general/shutdownGroup"
-            visible: dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3
+            visible: (dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3) || forceShow
             weight: 4
             pageType: DccObject.Editor
             signal requestShowSelectDialog()
@@ -310,6 +314,7 @@ DccObject {
                 }
                 D.DialogWindow {
                     id: selectDayDialog
+                    modality: Qt.ApplicationModal
                     width: 330
                     height: 420
 
@@ -391,10 +396,12 @@ DccObject {
                                 text: qsTr("Cancel")
                                 onClicked: {
                                     selectDayDialog.close()
+                                    selectDayDialog.selectedDays = dccData.model.customShutdownWeekDays.slice()
                                 }
                             }
                             D.Button {
                                 text: qsTr("Save")
+                                enabled: selectDayDialog.selectedDays.length > 0
                                 onClicked: {
                                     var days = selectDayDialog.selectedDays.sort()
                                     console.log("Selected days: " + days);
