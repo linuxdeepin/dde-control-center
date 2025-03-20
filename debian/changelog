@@ -1,3 +1,22 @@
+dde-control-center (6.1.18) unstable; urgency=medium
+
+  * fix: The issue of intercepting mouse events while modifying the ComboBox
+  * fix: Adjust the ListView UI
+  * chore(power): update translate
+  * fix(power): ui optimization
+  * fix: Modify Crumb style
+  * fix: add transifex config
+  * fix: the number of wallpapers displayed has not been updated
+  * fix: no hide 'Show the shutdown Interface' option on lid close
+  * fix: Modifying cursor style issues
+  * fix: Modify Control Center Exit Deadlock Issue
+  * fix: Notification preview image without dark mode
+  * fix: develop moudel add get debug level
+  * fix: change sound list model enabled
+  * fix: Can delete logged-in users
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 20 Mar 2025 17:52:20 +0800
+
 dde-control-center (6.1.17) unstable; urgency=medium
 
   * fix: occasionally crashes when switching wallpapers on multiple screens
