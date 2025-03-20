@@ -447,10 +447,13 @@ bool DccManager::eventFilter(QObject *watched, QEvent *event)
             QQuickWindow *w = static_cast<QQuickWindow *>(m_window);
             QQuickItem *focusItem = w->activeFocusItem();
             if (focusItem) {
-                QPointF point = focusItem->mapFromGlobal(e->globalPosition());
-                QRectF rect(0, 0, focusItem->width(), focusItem->height());
-                if (!rect.contains(point)) {
-                    focusItem->setFocus(false);
+                QObject *popup = focusItem->property("popup").value<QObject *>();
+                if (!popup || !popup->property("visible").toBool()) {
+                    QPointF point = focusItem->mapFromGlobal(e->globalPosition());
+                    QRectF rect(0, 0, focusItem->width(), focusItem->height());
+                    if (!rect.contains(point)) {
+                        focusItem->setFocus(false);
+                    }
                 }
             }
         }
