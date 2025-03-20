@@ -50,12 +50,13 @@ Rectangle {
                         Layout.fillWidth: true
                         DccLabel {
                             Layout.fillWidth: true
+                            font: D.DTK.fontManager.t6
                             text: model.title
                         }
                         DccLabel {
                             Layout.fillWidth: true
                             visible: text !== ""
-                            font: D.DTK.fontManager.t8
+                            font: D.DTK.fontManager.t10
                             text: model.description
                             opacity: 0.5
                         }
