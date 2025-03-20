@@ -71,7 +71,11 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.margins: 10
+            anchors.topMargin: 3
+            leftMargin : 10
+            rightMargin: 10
+            topMargin: 6
+            bottomMargin: 10
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
             clip: true
@@ -79,6 +83,7 @@ Item {
                 id: dccModel
                 root: dccObj
             }
+
             delegate: ItemDelegate {
                 implicitHeight: 40
                 width: parent ? parent.width : 300
@@ -110,6 +115,7 @@ Item {
                 hoverEnabled: true
                 background: DccItemBackground {
                     separatorVisible: false
+                    bgMargins: 0
                     backgroundType: DccObject.Hover | DccObject.Clickable
                     backgroundColor: D.Palette {
                         normal: Qt.rgba(1, 1, 1, 1)

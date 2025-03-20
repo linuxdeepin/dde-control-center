@@ -9,6 +9,7 @@
 #include <DPinyin>
 
 #include <QIcon>
+#include <QTextDocument>
 
 namespace dccV25 {
 
@@ -118,7 +119,7 @@ void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QSt
     if (!obj || !obj->canSearch()) {
         return;
     }
-    const QString &sText = text.isEmpty() ? obj->displayName() : text;
+    const QString &sText = text.isEmpty() ? Qt::convertFromPlainText(obj->displayName()) : Qt::convertFromPlainText(text);
     if (sText.isEmpty()) {
         return;
     }

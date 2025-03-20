@@ -16,6 +16,7 @@ Item {
     property bool shadowVisible: true // 阴影
     property alias control: root.parent
     property real radius: DS.Style.control.radius
+    property real bgMargins: 3
 
     property real backgroundType: 0
     property D.Palette backgroundColor: D.Palette {
@@ -105,10 +106,10 @@ Item {
         z: 2
         anchors {
             fill: parent
-            topMargin: 3
-            bottomMargin: 3
-            leftMargin: 3
-            rightMargin: 3
+            topMargin: bgMargins
+            bottomMargin: bgMargins
+            leftMargin: bgMargins
+            rightMargin: bgMargins
         }
         active: control.activeFocus || control.visualFocus
         sourceComponent: D.FocusBoxBorder {
@@ -121,10 +122,10 @@ Item {
         z: 2
         anchors {
             fill: parent
-            topMargin: 3
-            bottomMargin: 3
-            leftMargin: 3
-            rightMargin: 3
+            topMargin: bgMargins
+            bottomMargin: bgMargins
+            leftMargin: bgMargins
+            rightMargin: bgMargins
         }
         active: control.checked && !control.cascadeSelected
         sourceComponent: D.HighlightPanel {}

@@ -158,7 +158,7 @@ D.ApplicationWindow {
                 width: parent.width - x
                 anchors {
                     left: breakBut.right
-                    leftMargin: 5
+                    leftMargin: 8
                     verticalCenter: parent.verticalCenter
                 }
                 visible: root.currentIndex === 1
