@@ -291,7 +291,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Розташуйте палець, відбиток якого слід зареєструвати на сенсорі і проведіть ним знизу вгору. Після завершення дії, підніміть палець із сенсора.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -540,11 +540,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth увімкнено, і показана назва — «%1»</translation>
     </message>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth вимкнено, і показана назва — «%1»</translation>
     </message>
 </context>
 <context>
@@ -590,7 +590,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Щоб скористатися Bluetooth, будь ласка, вимкніть</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -627,11 +627,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Ви можете натиснути пункт меню для зміни типових пунктів запуску або перетягнути зображення до вікна, щоб змінити фонове зображення.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>затримка запуску GRUB</translation>
     </message>
     <message>
         <source>theme</source>
@@ -639,15 +639,15 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Після вмикання теми ви зможете побачити фонове зображення теми при вмиканні комп&apos;ютера</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Перевірка меню завантаження</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Після відкриття для входу до меню редагування доведеться ввести пароль</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -655,11 +655,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Змінити пароль перевірки меню завантаження</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Встановити пароль розпізнавання меню завантаження</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -703,14 +703,14 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Скоригувати розмір анімації логотипа в інтерфейсі запуску системи</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити наведеним нижче програмам доступ до камери:</translation>
     </message>
 </context>
 <context>
