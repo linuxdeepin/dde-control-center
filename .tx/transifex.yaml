@@ -24,5 +24,5 @@ filters:
     file_format: QT
     source_language: en_US
     translation_files_expression: translations/datetime_country_<lang>.ts
-  settings:
+settings:
     pr_branch_name: transifex_update_<br_unique_id>
