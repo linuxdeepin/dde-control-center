@@ -4266,7 +4266,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Не знайдено пристрою введення для звуку</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -4293,7 +4293,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Розмір вказівника</translation>
     </message>
     <message>
         <source>Short</source>
@@ -4363,7 +4363,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>Час встановлення системи</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -4386,7 +4386,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>Поточну систему не активовано — неможливо запустити службу оновлення</translation>
     </message>
 </context>
 <context>
@@ -4745,11 +4745,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Екран та призупинення</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Вимкнути монітор після</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -4757,7 +4757,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Призупинити комп&apos;ютер після</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -4765,7 +4765,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Якщо натиснуто кнопку живлення</translation>
     </message>
 </context>
 <context>
@@ -4776,11 +4776,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Збалансована швидкодія</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Агресивно коригувати частоту роботи процесора на основі умов навантаження на процесор</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -4932,7 +4932,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -4960,14 +4960,14 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Фонове зображення у цій системі заблоковано від змін. Будь ласка, зв&apos;яжіться з адміністратором вашої системи.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Регіони і формати</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4975,7 +4975,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Типові формати</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -5026,7 +5026,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Country or Region</source>
-        <translation type="unfinished"/>
+        <translation>Країна або регіон</translation>
     </message>
     <message>
         <source>Format</source>
@@ -5034,7 +5034,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation type="unfinished"/>
+        <translation>Операційна система та програми можуть надавати вам локалізовані дані на основі вказаних країни і регіону.</translation>
     </message>
     <message>
         <source>Area</source>
@@ -5042,7 +5042,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation type="unfinished"/>
+        <translation>Операційна система та програми можуть встановлювати формати дати і часу на основі регіональних форматів.</translation>
     </message>
     <message>
         <source>Region format</source>
@@ -7173,39 +7173,39 @@ UnionTech Software працює над вивченням і удосконал�
     <name>displayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"/>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"/>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"/>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"/>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"/>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -7217,7 +7217,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Типове</translation>
     </message>
     <message>
         <source>Fit</source>
@@ -7245,7 +7245,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Параметри для декількох дисплеїв</translation>
     </message>
     <message>
         <source>Identify</source>
@@ -7265,7 +7265,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Дисплей і компонування</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -7293,15 +7293,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
@@ -7313,15 +7313,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Комфорт для очей</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути комфорт для очей</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Зробити кольори теплішими, зменшуючи вплив синього компонента світла</translation>
     </message>
     <message>
         <source>Time</source>
@@ -7341,7 +7341,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>від</translation>
     </message>
     <message>
         <source>to</source>
@@ -7371,7 +7371,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Загальні параметри, розкладка клавіатури, спосіб введення, скорочення</translation>
     </message>
 </context>
 <context>
