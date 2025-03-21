@@ -3367,7 +3367,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Після переходу у режим розробника ви зможете отримувати права доступу root, але це може призвести до порушення цілісності вашої системи, тому, будь ласка, будьте обережні.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -3375,7 +3375,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>Увійти</translation>
     </message>
     <message>
         <source>Online</source>
@@ -3383,7 +3383,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Увійти до ідентифікатора UOS</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -3399,7 +3399,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Ви увійшли до вашого ідентифікатора UOS, натисніть, щоб перейти у режим розробника</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
@@ -3415,7 +3415,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Перейдіть на &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;https://www.chinauos.com/developMode&lt;/a&gt;, щоб отримати автономний сертифікат</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
@@ -3423,19 +3423,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Для встановлення і запуску непідписаних програм, будь ласка, відкрийте &lt;a href=&quot;Security Center&quot;&gt;Центр безпеки&lt;/a&gt; для внесення змін до параметрів.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Параметри для розробки і діагностики</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Рівень журналювання у системі</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Зміна параметрів може призвести до докладнішого ведення журналу, що може призвести до зниження швидкодії системи або виникнення потреби у збільшення місця для зберігання даних журналу.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -3447,7 +3447,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Зміна параметра може тривати до хвилини з моменту отримання успішного запиту на встановлення, будь ласка, перезавантажте пристрій, щоб зміни набули чинності.</translation>
     </message>
 </context>
 <context>
@@ -3660,7 +3660,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити вказаним нижче програмам доступ до цих файлів і тек:</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -3869,7 +3869,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Рівень низького заряду</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -3893,7 +3893,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Заплановане вимикання</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3949,7 +3949,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Нетиповий час повторення</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3961,18 +3961,18 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>Зменшувати яскравість екран при заощадженні живлення</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>Трьома пальцями</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>Чотирма пальцями</translation>
     </message>
     <message>
         <source>Up</source>
