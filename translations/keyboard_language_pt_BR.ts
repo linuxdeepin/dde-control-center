@@ -99,11 +99,11 @@
     </message>
     <message>
         <source>British English</source>
-        <translation>British English</translation>
+        <translation>Inglês britânico</translation>
     </message>
     <message>
         <source>American English</source>
-        <translation>American English</translation>
+        <translation>Inglês americano</translation>
     </message>
     <message>
         <source>Español</source>
@@ -239,7 +239,7 @@
     </message>
     <message>
         <source>कश्मीरी - (كشميري)</source>
-        <translation type="unfinished"/>
+        <translation>कश्मीरी - (كشميري)</translation>
     </message>
     <message>
         <source>Kurdî</source>
