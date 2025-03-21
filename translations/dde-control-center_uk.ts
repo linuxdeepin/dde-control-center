@@ -7386,7 +7386,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Встановити типову для системи розкладку клавіатури</translation>
     </message>
 </context>
 <context>
@@ -7492,7 +7492,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Загальне, миша, сенсорна панель</translation>
     </message>
 </context>
 <context>
@@ -7514,7 +7514,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Режим «Не турбувати», сповіщення програм</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -7525,7 +7525,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Параметри режиму «Не турбувати»</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
@@ -7533,7 +7533,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути «Не турбувати»</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -7541,7 +7541,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Кількість сповіщень, які буде показано на стільниці</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -7565,7 +7565,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Центр сповіщень</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -7615,19 +7615,19 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Кольори і піктограми</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Скоригувати кольори акценту та піктограми теми</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Шрифт і розмір шрифту</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Змінити загальносистемний шрифт і його розмір</translation>
     </message>
     <message>
         <source>Wallpaper</source>
@@ -7638,7 +7638,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Параметри заощадження енергії, екрана та призупинення роботи</translation>
     </message>
     <message>
         <source>Power</source>
@@ -7661,7 +7661,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Екран та призупинення</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -7778,7 +7778,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Переглянути зауваження щодо вільного програмного забезпечення</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -7802,7 +7802,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Переглянути відомості щодо правил конфіденційності</translation>
     </message>
 </context>
 <context>
@@ -7813,7 +7813,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Налаштовування сенсорної панелі</translation>
     </message>
 </context>
 <context>
@@ -7827,11 +7827,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення системи</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення пакунків та самої системи</translation>
     </message>
 </context>
 <context>
@@ -7861,7 +7861,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення можливостей</translation>
     </message>
     <message>
         <source>Update Settings</source>
@@ -7876,7 +7876,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Налаштовування wacom</translation>
     </message>
 </context>
 <context>
@@ -7887,11 +7887,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"/>
+        <translation>Режим Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Режим пера</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
