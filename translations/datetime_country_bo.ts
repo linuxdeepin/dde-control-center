@@ -731,7 +731,7 @@
     </message>
     <message>
         <source>Armenia</source>
-        <translation type="unfinished"/>
+        <translation>ཡ་མེ་ནི་ཡ།</translation>
     </message>
     <message>
         <source>Azerbaijan</source>
@@ -951,7 +951,7 @@
     </message>
     <message>
         <source>Christmas Island</source>
-        <translation type="unfinished"/>
+        <translation>ཧྲེང་ཏན་གླིང་ཕྲན།</translation>
     </message>
     <message>
         <source>Heard </source>
@@ -1147,7 +1147,7 @@
     </message>
     <message>
         <source>United States Minor Outlying Islands</source>
-        <translation type="unfinished"/>
+        <translation>ཨ་རིའི་ཁོངས་མིན་པའི་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>United States Virgin Islands</source>
@@ -1195,7 +1195,7 @@
     </message>
     <message>
         <source>Svalbard And Jan Mayen Islands</source>
-        <translation type="unfinished"/>
+        <translation>སི་ཝར་པ་ཐེ་དང་དབྱང་མ་ཡན་གླིང་ཚོམ།</translation>
     </message>
     <message>
         <source>East Timor</source>
@@ -1215,7 +1215,7 @@
     </message>
     <message>
         <source>Ceuta And Melilla</source>
-        <translation type="unfinished"/>
+        <translation>ཞུའེ་ཏ་དང་མེ་ལི་ལི་ཡ།</translation>
     </message>
     <message>
         <source>Aland Islands</source>
