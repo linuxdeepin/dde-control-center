@@ -5700,7 +5700,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Найближче місто:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5757,7 +5757,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Налаштуйте умови з&apos;єднання з сенсорним екраном</translation>
     </message>
 </context>
 <context>
@@ -5784,7 +5784,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Вимикати сенсорну панель при введенні</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -5800,11 +5800,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Жести трьома пальцями</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Жести чотирма пальцями</translation>
     </message>
 </context>
 <context>
@@ -5844,7 +5844,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Очікуваний час встановлення:</translation>
     </message>
     <message>
         <source>30min</source>
@@ -5958,11 +5958,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Система повернеться до початкових налаштувань за %1 с.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Зберегти налаштування дисплея?</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -6008,7 +6008,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"/>
+        <translation>Встановлення оновлення</translation>
     </message>
     <message>
         <source>Installing updates…</source>
@@ -6016,7 +6016,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення успішно встановлено</translation>
     </message>
     <message>
         <source>Restart Now</source>
@@ -6024,7 +6024,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося отримати оновлення</translation>
     </message>
     <message>
         <source>retry</source>
@@ -6036,7 +6036,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>Вашу систему оновлено. Будь ласка, перезавантажте її</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
@@ -6044,7 +6044,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Виявлено оновлення.</translation>
     </message>
 </context>
 <context>
@@ -6069,7 +6069,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Функціональне оновленн</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
@@ -6665,7 +6665,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Інтерфейс і ефекти</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -6673,7 +6673,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Заокруглені кути вікон</translation>
     </message>
     <message>
         <source>None</source>
