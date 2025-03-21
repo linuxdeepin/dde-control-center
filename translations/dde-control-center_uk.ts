@@ -3999,11 +3999,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -4021,11 +4021,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Оптимальна швидкодія</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Оптимальна швидкодія: вимкнути усі ефекти інтерфейсу та вікон для ефективної швидкодії системи.</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -4033,15 +4033,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Баланс: обмежити деякі ефекти вікон для забезпечення ідеальних візуальних ефектів, але з підтримкою належної швидкодії системи.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Найкращі візуальні ефекти</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Найкращі візуальні ефекти: усі ефекти інтерфейсу та вікон з найкращою візуальною складовою.</translation>
     </message>
 </context>
 <context>
@@ -4116,11 +4116,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Додайте відповідний спосіб введення на сторінці &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Керування способами введення&lt;/a&gt;, щоб переконатися, що розкладка клавіатури працює після додавання або перемикання.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Додати нову розкладку клавіатури…</translation>
     </message>
 </context>
 <context>
@@ -4155,15 +4155,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>Операційна система та програми можуть надавати вам локалізовані дані на основі вказаних країни і регіону</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Регіон і формат</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Операційна система та програми можуть встановлювати формати дати і часу на основі регіональних форматів</translation>
     </message>
 </context>
 <context>
@@ -4208,11 +4208,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Спосіб входу</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Пароль, wechat, біометричне розпізнавання, ключ захисту</translation>
     </message>
     <message>
         <source>Password</source>
