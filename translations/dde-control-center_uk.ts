@@ -3131,39 +3131,39 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Ви справді хочете відв&apos;язати ваш WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Після відв&apos;язування WeChat ви не зможете скористатися WeChat для сканування QR-коду для входу до ідентифікатора %1 або локального облікового запису.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Дайте подумати</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Прив&apos;язка локального облікового запису</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Після прив&apos;язки вашого локального облікового запису ви зможете скористатися такими функціями:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Система входу за сканованими кодами WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Скористатися WeChat, який прив&apos;язано до вашого ідентифікатора %1 ID, для сканування коду для входу до вашого локального облікового запису.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Скидання пароля за ідентифікатором %1</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Скинути ваш локальний пароль, якщо ви його забули, за допомогою ідентифікатора %1.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
@@ -3195,7 +3195,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Увійти до облікового запису %1</translation>
     </message>
 </context>
 <context>
@@ -3206,7 +3206,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Безпечно збережіть параметри системи і особисті дані у «хмарі» і підтримуйте синхронізацію цих даних між пристроями.</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -3214,19 +3214,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Остання синхронізація: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити дані «хмари»</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Ви справді хочете вилучити ваші системні параметри і особисті дані, які збережено у «хмарі»?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Щойно дані буде вилучено, їх вже не можна буде відновити!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3241,11 +3241,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Служба синхронізації</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Обліковий запис і безпека</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -3253,33 +3253,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Перейти до параметрів мережі</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>не вдалося скористатися паролем шифрування</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Помилковий пароль, лишилося %1 спроб</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>На сьогодні перевищено обмеження на невдалі спроби увійти. Ви можете скинути пароль і повторити спробу.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Дію успішно виконано</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Материковий Китай</translation>
     </message>
     <message>
         <source>Other regions</source>
@@ -3291,7 +3291,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Через вимоги місцевого законодавства у вашому регіоні доступу до цих даних немає.</translation>
     </message>
 </context>
 <context>
@@ -3336,7 +3336,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, виберіть типову програму для відкриття «%1»</translation>
     </message>
     <message>
         <source>add</source>
@@ -3359,7 +3359,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Доступ root</translation>
     </message>
     <message>
         <source>Request Root Access</source>
