@@ -124,7 +124,7 @@ D.ApplicationWindow {
                 palette.windowText: D.ColorSelector.textColor
                 implicitHeight: 30
                 implicitWidth: 30
-                x: ((root.sidebarPage && root.sidebarPage.splitterX > 110) ? root.sidebarPage.splitterX : 110)
+                x: ((root.sidebarPage && root.sidebarPage.splitterX > 110) ? root.sidebarPage.splitterX : 110) - 1
                 anchors.verticalCenter: parent.verticalCenter
                 visible: root.currentIndex === 1
                 hoverEnabled: enabled
@@ -133,8 +133,8 @@ D.ApplicationWindow {
                 onClicked: DccApp.toBack()
                 icon {
                     name: "arrow_ordinary_left"
-                    height: 16
-                    width: 16
+                    height: 12
+                    width: 12
                 }
                 background: Rectangle {
                     property D.Palette pressedColor: D.Palette {
