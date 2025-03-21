@@ -3,551 +3,551 @@
     <name>dcc::keyboard::Language</name>
     <message>
         <source>Afar</source>
-        <translation>アフリカーンス語</translation>
+        <translation>Afar</translation>
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation>アフリカーンス語</translation>
+        <translation>Afrikaans</translation>
     </message>
     <message>
         <source>አማርኛ</source>
-        <translation type="unfinished"/>
+        <translation>አማርኛ</translation>
     </message>
     <message>
         <source>عربية</source>
-        <translation type="unfinished"/>
+        <translation>عربية</translation>
     </message>
     <message>
         <source>অসমীয়া</source>
-        <translation type="unfinished"/>
+        <translation>অসমীয়া</translation>
     </message>
     <message>
         <source>Asturianu</source>
-        <translation type="unfinished"/>
+        <translation>Asturianu</translation>
     </message>
     <message>
         <source>Беларуская</source>
-        <translation type="unfinished"/>
+        <translation>Беларуская</translation>
     </message>
     <message>
         <source>Biełaruskaja łacinka</source>
-        <translation type="unfinished"/>
+        <translation>Biełaruskaja łacinka</translation>
     </message>
     <message>
         <source>Български</source>
-        <translation type="unfinished"/>
+        <translation>Български</translation>
     </message>
     <message>
         <source>বাংলা</source>
-        <translation type="unfinished"/>
+        <translation>বাংলা</translation>
     </message>
     <message>
         <source>বাংলা (ভারত)</source>
-        <translation type="unfinished"/>
+        <translation>বাংলা (ভারত)</translation>
     </message>
     <message>
         <source>བོད་སྐད།</source>
-        <translation type="unfinished"/>
+        <translation>བོད་སྐད།</translation>
     </message>
     <message>
         <source>Brezhoneg</source>
-        <translation type="unfinished"/>
+        <translation>Brezhoneg</translation>
     </message>
     <message>
         <source>Bosanski</source>
-        <translation type="unfinished"/>
+        <translation>Bosanski</translation>
     </message>
     <message>
         <source>Català</source>
-        <translation type="unfinished"/>
+        <translation>Català</translation>
     </message>
     <message>
         <source>Qırımtatarca</source>
-        <translation type="unfinished"/>
+        <translation>Qırımtatarca</translation>
     </message>
     <message>
         <source>Český</source>
-        <translation type="unfinished"/>
+        <translation>Český</translation>
     </message>
     <message>
         <source>Kaszëbsczi</source>
-        <translation type="unfinished"/>
+        <translation>Kaszëbsczi</translation>
     </message>
     <message>
         <source>Чăвашла</source>
-        <translation type="unfinished"/>
+        <translation>Чăвашла</translation>
     </message>
     <message>
         <source>Cymraeg</source>
-        <translation type="unfinished"/>
+        <translation>Cymraeg</translation>
     </message>
     <message>
         <source>Dansk</source>
-        <translation type="unfinished"/>
+        <translation>Dansk</translation>
     </message>
     <message>
         <source>Deutsch</source>
-        <translation type="unfinished"/>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <source>ཇོང་ཁ</source>
-        <translation type="unfinished"/>
+        <translation>ཇོང་ཁ</translation>
     </message>
     <message>
         <source>Ελληνικά</source>
-        <translation type="unfinished"/>
+        <translation>Ελληνικά</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"/>
+        <translation>British English</translation>
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"/>
+        <translation>American English</translation>
     </message>
     <message>
         <source>Español</source>
-        <translation type="unfinished"/>
+        <translation>Español</translation>
     </message>
     <message>
         <source>Eesti</source>
-        <translation type="unfinished"/>
+        <translation>Eesti</translation>
     </message>
     <message>
         <source>Euskara</source>
-        <translation type="unfinished"/>
+        <translation>Euskara</translation>
     </message>
     <message>
         <source>فارسی</source>
-        <translation type="unfinished"/>
+        <translation>فارسی</translation>
     </message>
     <message>
         <source>Suomi</source>
-        <translation type="unfinished"/>
+        <translation>Suomi</translation>
     </message>
     <message>
         <source>Føroyskt</source>
-        <translation type="unfinished"/>
+        <translation>Føroyskt</translation>
     </message>
     <message>
         <source>Français</source>
-        <translation type="unfinished"/>
+        <translation>Français</translation>
     </message>
     <message>
         <source>Frysk</source>
-        <translation type="unfinished"/>
+        <translation>Frysk</translation>
     </message>
     <message>
         <source>Gaeilge</source>
-        <translation type="unfinished"/>
+        <translation>Gaeilge</translation>
     </message>
     <message>
         <source>Gàidhlig</source>
-        <translation type="unfinished"/>
+        <translation>Gàidhlig</translation>
     </message>
     <message>
         <source>Galego</source>
-        <translation type="unfinished"/>
+        <translation>Galego</translation>
     </message>
     <message>
         <source>ગુજરાતી </source>
-        <translation type="unfinished"/>
+        <translation>ગુજરાતી </translation>
     </message>
     <message>
         <source>Gaelg</source>
-        <translation type="unfinished"/>
+        <translation>Gaelg</translation>
     </message>
     <message>
         <source>هَوُسَ</source>
-        <translation type="unfinished"/>
+        <translation>هَوُسَ</translation>
     </message>
     <message>
         <source>עברית</source>
-        <translation type="unfinished"/>
+        <translation>עברית</translation>
     </message>
     <message>
         <source>हिन्दी</source>
-        <translation type="unfinished"/>
+        <translation>हिन्दी</translation>
     </message>
     <message>
         <source>Chhattisgarhi</source>
-        <translation type="unfinished"/>
+        <translation>Chhattisgarhi</translation>
     </message>
     <message>
         <source>Hrvatski</source>
-        <translation type="unfinished"/>
+        <translation>Hrvatski</translation>
     </message>
     <message>
         <source>Hornjoserbsce</source>
-        <translation type="unfinished"/>
+        <translation>Hornjoserbsce</translation>
     </message>
     <message>
         <source>Magyar</source>
-        <translation type="unfinished"/>
+        <translation>Magyar</translation>
     </message>
     <message>
         <source>Հայերեն</source>
-        <translation type="unfinished"/>
+        <translation>Հայերեն</translation>
     </message>
     <message>
         <source>Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>Indonesia</translation>
     </message>
     <message>
         <source>Iñupiak</source>
-        <translation type="unfinished"/>
+        <translation>Iñupiak</translation>
     </message>
     <message>
         <source>Íslenska</source>
-        <translation type="unfinished"/>
+        <translation>Íslenska</translation>
     </message>
     <message>
         <source>Italiano</source>
-        <translation type="unfinished"/>
+        <translation>Italiano</translation>
     </message>
     <message>
         <source>ᐃᓄᒃᑎᑐᑦ</source>
-        <translation type="unfinished"/>
+        <translation>ᐃᓄᒃᑎᑐᑦ</translation>
     </message>
     <message>
         <source>日本語</source>
-        <translation type="unfinished"/>
+        <translation>日本語</translation>
     </message>
     <message>
         <source>ქართული</source>
-        <translation type="unfinished"/>
+        <translation>ქართული</translation>
     </message>
     <message>
         <source>Қазақша</source>
-        <translation type="unfinished"/>
+        <translation>Қазақша</translation>
     </message>
     <message>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>Kalaallisut</translation>
     </message>
     <message>
         <source>ខ្មែរ</source>
-        <translation type="unfinished"/>
+        <translation>ខ្មែរ</translation>
     </message>
     <message>
         <source>ಕನ್ನಡ</source>
-        <translation type="unfinished"/>
+        <translation>ಕನ್ನಡ</translation>
     </message>
     <message>
         <source>한국어</source>
-        <translation type="unfinished"/>
+        <translation>한국어</translation>
     </message>
     <message>
         <source>कश्मीरी - (كشميري)</source>
-        <translation type="unfinished"/>
+        <translation>कश्मीरी - (كشميري)</translation>
     </message>
     <message>
         <source>Kurdî</source>
-        <translation type="unfinished"/>
+        <translation>Kurdî</translation>
     </message>
     <message>
         <source>Kernewek</source>
-        <translation type="unfinished"/>
+        <translation>Kernewek</translation>
     </message>
     <message>
         <source>Кыргызча</source>
-        <translation type="unfinished"/>
+        <translation>Кыргызча</translation>
     </message>
     <message>
         <source>Lëtzebuergesch</source>
-        <translation type="unfinished"/>
+        <translation>Lëtzebuergesch</translation>
     </message>
     <message>
         <source>Limburgs</source>
-        <translation type="unfinished"/>
+        <translation>Limburgs</translation>
     </message>
     <message>
         <source>ລາວ</source>
-        <translation type="unfinished"/>
+        <translation>ລາວ</translation>
     </message>
     <message>
         <source>Lietuvių</source>
-        <translation type="unfinished"/>
+        <translation>Lietuvių</translation>
     </message>
     <message>
         <source>Latviešu</source>
-        <translation type="unfinished"/>
+        <translation>Latviešu</translation>
     </message>
     <message>
         <source>Maithili</source>
-        <translation type="unfinished"/>
+        <translation>Maithili</translation>
     </message>
     <message>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation>Malagasy</translation>
     </message>
     <message>
         <source>Ebon</source>
-        <translation type="unfinished"/>
+        <translation>Ebon</translation>
     </message>
     <message>
         <source>Māori</source>
-        <translation type="unfinished"/>
+        <translation>Māori</translation>
     </message>
     <message>
         <source>Македонски</source>
-        <translation type="unfinished"/>
+        <translation>Македонски</translation>
     </message>
     <message>
         <source>മലയാളം</source>
-        <translation type="unfinished"/>
+        <translation>മലയാളം</translation>
     </message>
     <message>
         <source>Монгол</source>
-        <translation type="unfinished"/>
+        <translation>Монгол</translation>
     </message>
     <message>
         <source>मराठी</source>
-        <translation type="unfinished"/>
+        <translation>मराठी</translation>
     </message>
     <message>
         <source>Bahasa Melayu</source>
-        <translation type="unfinished"/>
+        <translation>Bahasa Melayu</translation>
     </message>
     <message>
         <source>Malti</source>
-        <translation type="unfinished"/>
+        <translation>Malti</translation>
     </message>
     <message>
         <source>Myanmasa</source>
-        <translation type="unfinished"/>
+        <translation>Myanmasa</translation>
     </message>
     <message>
         <source>Ekakairũ Naoero</source>
-        <translation type="unfinished"/>
+        <translation>Ekakairũ Naoero</translation>
     </message>
     <message>
         <source>Norsk (bokmål)</source>
-        <translation type="unfinished"/>
+        <translation>Norsk (bokmål)</translation>
     </message>
     <message>
         <source>Plattdüütsch</source>
-        <translation type="unfinished"/>
+        <translation>Plattdüütsch</translation>
     </message>
     <message>
         <source>नेपाली</source>
-        <translation type="unfinished"/>
+        <translation>नेपाली</translation>
     </message>
     <message>
         <source>Nederlands</source>
-        <translation type="unfinished"/>
+        <translation>Nederlands</translation>
     </message>
     <message>
         <source>Norsk (nynorsk)</source>
-        <translation type="unfinished"/>
+        <translation>Norsk (nynorsk)</translation>
     </message>
     <message>
         <source>IsiNdebele</source>
-        <translation type="unfinished"/>
+        <translation>IsiNdebele</translation>
     </message>
     <message>
         <source>Sesotho sa Leboa</source>
-        <translation type="unfinished"/>
+        <translation>Sesotho sa Leboa</translation>
     </message>
     <message>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>Occitan</translation>
     </message>
     <message>
         <source>Oromoo</source>
-        <translation type="unfinished"/>
+        <translation>Oromoo</translation>
     </message>
     <message>
         <source>ଓଡ଼ିଆ</source>
-        <translation type="unfinished"/>
+        <translation>ଓଡ଼ିଆ</translation>
     </message>
     <message>
         <source>Иронау</source>
-        <translation type="unfinished"/>
+        <translation>Иронау</translation>
     </message>
     <message>
         <source>ਪੰਜਾਬੀ</source>
-        <translation type="unfinished"/>
+        <translation>ਪੰਜਾਬੀ</translation>
     </message>
     <message>
         <source>Polski</source>
-        <translation type="unfinished"/>
+        <translation>Polski</translation>
     </message>
     <message>
         <source>پښتو</source>
-        <translation type="unfinished"/>
+        <translation>پښتو</translation>
     </message>
     <message>
         <source>Português</source>
-        <translation type="unfinished"/>
+        <translation>Português</translation>
     </message>
     <message>
         <source>Português do Brasil</source>
-        <translation type="unfinished"/>
+        <translation>Português do Brasil</translation>
     </message>
     <message>
         <source>Română</source>
-        <translation type="unfinished"/>
+        <translation>Română</translation>
     </message>
     <message>
         <source>Русский</source>
-        <translation type="unfinished"/>
+        <translation>Русский</translation>
     </message>
     <message>
         <source>Kinyarwanda</source>
-        <translation type="unfinished"/>
+        <translation>Kinyarwanda</translation>
     </message>
     <message>
         <source>संस्कृत</source>
-        <translation type="unfinished"/>
+        <translation>संस्कृत</translation>
     </message>
     <message>
         <source>Sardu</source>
-        <translation type="unfinished"/>
+        <translation>Sardu</translation>
     </message>
     <message>
         <source>سنڌي</source>
-        <translation type="unfinished"/>
+        <translation>سنڌي</translation>
     </message>
     <message>
         <source>Sámegiella</source>
-        <translation type="unfinished"/>
+        <translation>Sámegiella</translation>
     </message>
     <message>
         <source>සිංහල</source>
-        <translation type="unfinished"/>
+        <translation>සිංහල</translation>
     </message>
     <message>
         <source>Slovenčina</source>
-        <translation type="unfinished"/>
+        <translation>Slovenčina</translation>
     </message>
     <message>
         <source>Slovenščina</source>
-        <translation type="unfinished"/>
+        <translation>Slovenščina</translation>
     </message>
     <message>
         <source>Soomaaliga</source>
-        <translation type="unfinished"/>
+        <translation>Soomaaliga</translation>
     </message>
     <message>
         <source>Shqip</source>
-        <translation type="unfinished"/>
+        <translation>Shqip</translation>
     </message>
     <message>
         <source>Српски</source>
-        <translation type="unfinished"/>
+        <translation>Српски</translation>
     </message>
     <message>
         <source>srpski (latinica)</source>
-        <translation type="unfinished"/>
+        <translation>srpski (latinica)</translation>
     </message>
     <message>
         <source>SiSwati</source>
-        <translation type="unfinished"/>
+        <translation>SiSwati</translation>
     </message>
     <message>
         <source>Sesotho</source>
-        <translation type="unfinished"/>
+        <translation>Sesotho</translation>
     </message>
     <message>
         <source>Svenska</source>
-        <translation type="unfinished"/>
+        <translation>Svenska</translation>
     </message>
     <message>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Swahili</translation>
     </message>
     <message>
         <source>தமிழ்</source>
-        <translation type="unfinished"/>
+        <translation>தமிழ்</translation>
     </message>
     <message>
         <source>తెలుగు</source>
-        <translation type="unfinished"/>
+        <translation>తెలుగు</translation>
     </message>
     <message>
         <source>Тоҷикӣ</source>
-        <translation type="unfinished"/>
+        <translation>Тоҷикӣ</translation>
     </message>
     <message>
         <source>ภาษาไทย</source>
-        <translation type="unfinished"/>
+        <translation>ภาษาไทย</translation>
     </message>
     <message>
         <source>ትግርኛ</source>
-        <translation type="unfinished"/>
+        <translation>ትግርኛ</translation>
     </message>
     <message>
         <source>Türkmen</source>
-        <translation type="unfinished"/>
+        <translation>Türkmen</translation>
     </message>
     <message>
         <source>Setswana</source>
-        <translation type="unfinished"/>
+        <translation>Setswana</translation>
     </message>
     <message>
         <source>Türkçe</source>
-        <translation type="unfinished"/>
+        <translation>Türkçe</translation>
     </message>
     <message>
         <source>Xitsonga</source>
-        <translation type="unfinished"/>
+        <translation>Xitsonga</translation>
     </message>
     <message>
         <source>Татарский</source>
-        <translation type="unfinished"/>
+        <translation>Татарский</translation>
     </message>
     <message>
         <source>ئۇيغۇرچە</source>
-        <translation type="unfinished"/>
+        <translation>ئۇيغۇرچە</translation>
     </message>
     <message>
         <source>Українська</source>
-        <translation type="unfinished"/>
+        <translation>Українська</translation>
     </message>
     <message>
         <source>اردو</source>
-        <translation type="unfinished"/>
+        <translation>اردو</translation>
     </message>
     <message>
         <source>Oʻzbekcha</source>
-        <translation type="unfinished"/>
+        <translation>Oʻzbekcha</translation>
     </message>
     <message>
         <source>Uzbek (Cyrillic)</source>
-        <translation type="unfinished"/>
+        <translation>Uzbek (Cyrillic)</translation>
     </message>
     <message>
         <source>Venda</source>
-        <translation type="unfinished"/>
+        <translation>Venda</translation>
     </message>
     <message>
         <source>Tiếng Việt</source>
-        <translation type="unfinished"/>
+        <translation>Tiếng Việt</translation>
     </message>
     <message>
         <source>Walon</source>
-        <translation type="unfinished"/>
+        <translation>Walon</translation>
     </message>
     <message>
         <source>Wolof</source>
-        <translation type="unfinished"/>
+        <translation>Wolof</translation>
     </message>
     <message>
         <source>isixhosa</source>
-        <translation type="unfinished"/>
+        <translation>isixhosa</translation>
     </message>
     <message>
         <source>ייִדיש</source>
-        <translation type="unfinished"/>
+        <translation>ייִדיש</translation>
     </message>
     <message>
         <source>Yorùbá</source>
-        <translation type="unfinished"/>
+        <translation>Yorùbá</translation>
     </message>
     <message>
         <source>简体中文</source>
-        <translation type="unfinished"/>
+        <translation>简体中文</translation>
     </message>
     <message>
         <source>繁體中文（中國香港）</source>
@@ -559,7 +559,7 @@
     </message>
     <message>
         <source>isiZulu</source>
-        <translation type="unfinished"/>
+        <translation>isiZulu</translation>
     </message>
 </context>
 </TS>

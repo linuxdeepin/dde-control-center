@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Slovenščina</source>
-        <translation type="unfinished"/>
+        <translation>Slovinčina</translation>
     </message>
     <message>
         <source>Soomaaliga</source>
@@ -455,7 +455,7 @@
     </message>
     <message>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Swahili</translation>
     </message>
     <message>
         <source>தமிழ்</source>

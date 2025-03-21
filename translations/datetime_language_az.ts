@@ -611,11 +611,11 @@
     </message>
     <message>
         <source>French</source>
-        <translation>Fransız</translation>
+        <translation>Fransızca</translation>
     </message>
     <message>
         <source>Canadian French</source>
-        <translation>Kanada Fransızca</translation>
+        <translation>Kanada Fransızcası</translation>
     </message>
     <message>
         <source>Swiss French</source>
@@ -703,7 +703,7 @@
     </message>
     <message>
         <source>Greek</source>
-        <translation>Yunan</translation>
+        <translation>Yunanca</translation>
     </message>
     <message>
         <source>Guarani</source>
@@ -799,7 +799,7 @@
     </message>
     <message>
         <source>Icelandic</source>
-        <translation>İslandaca</translation>
+        <translation>İslandca</translation>
     </message>
     <message>
         <source>Ido</source>
@@ -963,7 +963,7 @@
     </message>
     <message>
         <source>Khmer</source>
-        <translation>Kxmer</translation>
+        <translation>Kxmercə</translation>
     </message>
     <message>
         <source>Khotanese</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
         <source>Korean</source>
-        <translation>Korecə</translation>
+        <translation>Koreya</translation>
     </message>
     <message>
         <source>Koro</source>
@@ -1035,7 +1035,7 @@
     </message>
     <message>
         <source>Kumyk</source>
-        <translation>Qumux</translation>
+        <translation>Qumuxca</translation>
     </message>
     <message>
         <source>Kurdish</source>
@@ -1055,15 +1055,15 @@
     </message>
     <message>
         <source>Kwasio</source>
-        <translation>Kuvasiyo</translation>
+        <translation>Kwasio</translation>
     </message>
     <message>
         <source>Kyrgyz</source>
-        <translation>Qirğız</translation>
+        <translation>Qirğızca</translation>
     </message>
     <message>
         <source>Kʼicheʼ</source>
-        <translation>Kiçe</translation>
+        <translation>Kʼicheʼ</translation>
     </message>
     <message>
         <source>Ladino</source>
@@ -1139,7 +1139,7 @@
     </message>
     <message>
         <source>Lozi</source>
-        <translation>Lozu</translation>
+        <translation>Lozi</translation>
     </message>
     <message>
         <source>Luba-Katanga</source>
@@ -1339,7 +1339,7 @@
     </message>
     <message>
         <source>Mirandese</source>
-        <translation>Mirandese</translation>
+        <translation>Mirande</translation>
     </message>
     <message>
         <source>Mizo</source>
@@ -1375,7 +1375,7 @@
     </message>
     <message>
         <source>Multiple languages</source>
-        <translation>Çoxsaylı sillər</translation>
+        <translation>Çoxsaylı dillər</translation>
     </message>
     <message>
         <source>Mundang</source>
@@ -1419,7 +1419,7 @@
     </message>
     <message>
         <source>Neapolitan</source>
-        <translation>Neapolitan</translation>
+        <translation>Neapolca</translation>
     </message>
     <message>
         <source>Nepali</source>
@@ -1467,7 +1467,7 @@
     </message>
     <message>
         <source>North Ndebele</source>
-        <translation>North Ndebele</translation>
+        <translation>Şimali Ndebele</translation>
     </message>
     <message>
         <source>Northern East Cree</source>
@@ -1475,11 +1475,11 @@
     </message>
     <message>
         <source>Northern Frisian</source>
-        <translation>Şimali Friscə</translation>
+        <translation>Şimali friscə</translation>
     </message>
     <message>
         <source>Northern Luri</source>
-        <translation>Şimali luri</translation>
+        <translation>Şimali Luri</translation>
     </message>
     <message>
         <source>Northern Sami</source>
@@ -1563,7 +1563,7 @@
     </message>
     <message>
         <source>Old English</source>
-        <translation>Köhnə ingiliscə</translation>
+        <translation>Əski ingiliscə</translation>
     </message>
     <message>
         <source>Old French</source>
@@ -1643,7 +1643,7 @@
     </message>
     <message>
         <source>Phoenician</source>
-        <translation>Finikiyalı</translation>
+        <translation>Finikiya</translation>
     </message>
     <message>
         <source>Pijin</source>
@@ -1659,7 +1659,7 @@
     </message>
     <message>
         <source>Polish</source>
-        <translation>polyakca</translation>
+        <translation>Polyakca</translation>
     </message>
     <message>
         <source>Portuguese</source>
@@ -1891,7 +1891,7 @@
     </message>
     <message>
         <source>Southern Altai</source>
-        <translation>Cənubi Latay</translation>
+        <translation>Cənubi Altay</translation>
     </message>
     <message>
         <source>Southern East Cree</source>
@@ -2003,7 +2003,7 @@
     </message>
     <message>
         <source>Tagish</source>
-        <translation>Taqiş</translation>
+        <translation>Taq</translation>
     </message>
     <message>
         <source>Tahitian</source>
@@ -2211,11 +2211,11 @@
     </message>
     <message>
         <source>Walloon</source>
-        <translation>Walloon</translation>
+        <translation>Vallun</translation>
     </message>
     <message>
         <source>Walser</source>
-        <translation>Walser</translation>
+        <translation>Valser</translation>
     </message>
     <message>
         <source>Waray</source>
