@@ -1039,22 +1039,22 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Починаємо встановлення нової анімації завантаження, будь ласка, зачекайте</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Встановлення нової анімації завантаження завершено</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Параметри буде застосовано після перезавантаження системи</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>Пароль має містити цифри і літери</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
@@ -1137,7 +1137,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>Вами ще не вивантажено аватар. Для вивантаження зображення перетягніть і скиньте його сюди.</translation>
     </message>
 </context>
 <context>
@@ -1227,7 +1227,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Гаразд</translation>
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
@@ -1520,7 +1520,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Починаємо встановлення нової анімації завантаження, будь ласка, зачекайте</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
@@ -1634,7 +1634,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Вами не завантажено зображення. Для завантаження зображення можете клацнути кнопкою миші і перетягти зображення</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -2204,7 +2204,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Сповіщення програм</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -2659,7 +2659,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>дані щодо системи</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -2699,7 +2699,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Угоди і правила конфіденційності</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -2811,7 +2811,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Від</translation>
     </message>
     <message>
         <source>To</source>
