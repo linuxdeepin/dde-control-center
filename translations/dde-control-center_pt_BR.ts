@@ -2512,27 +2512,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Mantenha a resposta com menos de 30 caracteres</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>Não escolha uma pergunta duplicada, por favor</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>Selecione uma pergunta</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Qual é o nome da cidade onde você nasceu?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
@@ -2540,7 +2540,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Quem você mais ama neste mundo</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
@@ -2552,11 +2552,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Qual é o seu apelido?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Não pode estar vazio</translation>
     </message>
 </context>
 <context>
@@ -2598,18 +2598,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atalho</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, redefina o atalho</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -2698,41 +2698,41 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>política de Privacidade</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Informações do sistema</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Estamos profundamente cientes da importância de suas informações pessoais para você. Por isso, temos a Política de Privacidade que abrange como coletamos, usamos, compartilhamos, transferimos, divulgamos publicamente e armazenamos suas informações. Você pode clicar aqui para ver nossa política de privacidade mais recente e/ou visualizá-la on-line visitando %1. Leia com atenção e entenda completamente nossas práticas sobre privacidade do cliente. Se tiver alguma dúvida, entre em contato conosco em: support@uniontech.com.</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
