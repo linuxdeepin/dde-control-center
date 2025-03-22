@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Acount name, acount fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Emër llogarie, emër i plotë llogarie, lloj llogarie</translation>
     </message>
     <message>
         <source>Acount name</source>
@@ -199,7 +199,7 @@
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Regjistroni Fytyrë</translation>
+        <translation>Jepni Fytyrë</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
@@ -235,7 +235,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Riprovoni Regjistrim</translation>
+        <translation>Riprovoni Dhënie</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -286,11 +286,11 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Regjistroni Gisht</translation>
+        <translation>Jepni Gisht</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Vendosni te ndijuesi i shenjave të gishtave gishtin që duhet dhënë dhe lëvizeni nga poshtë lart. Pas plotësimit të veprimit, ju lutemi, hiqeni gishtin.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -298,7 +298,7 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Klauzolë</translation>
+        <translation>Klauzolën</translation>
     </message>
     <message>
         <source>Next</source>
@@ -306,7 +306,7 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Riprovoni Regjistrimin</translation>
+        <translation>Riprovoni Dhënien</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -408,7 +408,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>“Hyre e Automatizuar” mund të aktivizohet vetëm për një llogari, ju lutemi, së pari çaktivizojeni për llogarinë “%1”</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -431,7 +431,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Peizazh</translation>
     </message>
     <message>
         <source>Illustration</source>
@@ -447,15 +447,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation>Stil “film vizatimor”</translation>
+        <translation>Në stil “film vizatimor”</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation>Stil përmasor</translation>
+        <translation>Në stil përmasor</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation>Stil i sheshtë</translation>
+        <translation>Në stil të sheshtë</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -537,11 +537,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-i është i aktivizuar dhe emri është shfaqur si “%1”</translation>
     </message>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-i është i çaktivizuar dhe emri është shfaqur si “%1”</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Që të përdorni funksionin Bluetooth, ju lutemi, çaktivizojeni</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -602,7 +602,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Jo e lidhur</translation>
+        <translation>Jo i lidhur</translation>
     </message>
 </context>
 <context>
@@ -624,7 +624,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Mund të klikoni menunë, që të ndryshoni objekte parazgjedhje nisjeje, ose të tërhiqni figurën te dritarja për të ndryshuar figurën sfond.</translation>
     </message>
     <message>
         <source>grub start delay</source>
@@ -636,7 +636,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Pas aktivizimit të temës, mund të shihni sfondin e temës, kur ndizni kompjuterin</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
@@ -644,7 +644,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Pas hapjes, hyrja në përpunim menuje lyp fjalëkalim.</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -656,7 +656,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Caktoni fjalëkalimin e verifikimit të menusë së nisjes</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -700,14 +700,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Përimtoni madhësinë e animacionit të stemës te ndërfaqja e nisjes së sistemit</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Lejoji aplikacionet më poshtë të përdorin kamerën tuaj:</translation>
     </message>
 </context>
 <context>
@@ -941,11 +941,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -953,11 +953,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
@@ -985,7 +985,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Mënyra “Dorë e Majtë”</translation>
+        <translation>Mënyra “Mëngjarash”</translation>
     </message>
 </context>
 <context>
@@ -1004,11 +1004,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>S’lexohen dot hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1016,15 +1016,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Ngarkimi i dëshmisë dështoi. s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Verifikimi i nënshkrimit dështoi. s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
@@ -1036,15 +1036,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Fillojani duke ujdisur animacion të ri nisjeje, ju lutemi, prisni një minutë</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Përfundoi ujdisja e animacionit të ri të nisjes</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Rregullimet do të aplikohen pas rinisjes së sistemit</translation>
     </message>
 </context>
 <context>
@@ -1111,15 +1111,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Required</source>
-        <translation>E domosdoshme</translation>
+        <translation>I domosdoshëm</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Emër i plotë</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Opsionale</translation>
+        <translation>Opsional</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1180,7 +1180,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Login Without Password</source>
-        <translation>Hyni Pa Fjalëkalim</translation>
+        <translation>Hyrje Pa Fjalëkalim</translation>
     </message>
     <message>
         <source>Validity Days</source>
@@ -1228,7 +1228,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>“Hyre e Automatizuar” mund të aktivizohet vetëm për një llogari, ju lutemi, së pari çaktivizojeni për llogarinë “%1”</translation>
     </message>
 </context>
 <context>
@@ -1262,7 +1262,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq njoftime nga %1 në desktop dhe te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>Play a sound</source>
@@ -1293,7 +1293,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Peizazh</translation>
     </message>
     <message>
         <source>Illustration</source>
@@ -1305,7 +1305,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation>Figurë vizatim</translation>
+        <translation>Foto Vetjake</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1320,15 +1320,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Cartoon Style</source>
-        <translation>Stil “film vizatimor”</translation>
+        <translation>Në Stil “Film Vizatimor”</translation>
     </message>
     <message>
         <source>Dimensional Style</source>
-        <translation>Stil Përmasor</translation>
+        <translation>Në Stil Përmasor</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>Stil i Sheshtë</translation>
+        <translation>Në Stil të Sheshtë</translation>
     </message>
 </context>
 <context>
@@ -1354,15 +1354,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
+        <translation>Klikoni mundësinë te menu nisjeje, që ta caktoni si të parën që niset dhe tërhiqni një figurë për të ndryshuar sfondin</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation type="unfinished"/>
+        <translation>Klikoni mundësinë te menu nisjeje, që ta caktoni si të parën që niset</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Që ta shihni te menu nisjeje, aktivizojeni temën</translation>
     </message>
     <message>
         <source>GRUB Authentication</source>
@@ -1370,7 +1370,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>Që të përpuoni formësimin e tij, është i domosdoshëm fjalëkalimi për GRUB-in</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -1443,7 +1443,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Ngjyrimi i ekranit do të përimtohet automatikisht sipas vendndodhjes tuaj</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
@@ -1474,14 +1474,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>“User Experience Program”</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
@@ -1497,11 +1497,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>S’lexohen dot hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1509,23 +1509,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Dështoi ngarkim dëshmie, s’arrihet të përfitohet hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Verifikimi i nënshkrimit dështoi. s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Fillojani duke ujdisur animacionin e ri të nisjes, ju lutemi, prisni një minutë</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Përfundoi ujdisja e animacionit të ri të nisjes</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Rregullimet do të aplikohen pas rinisjes së sistemit</translation>
     </message>
 </context>
 <context>
@@ -1600,7 +1600,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
     <message>
         <source>Policykit authentication failed</source>
@@ -1631,7 +1631,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>S’keni ngarkuar ndonjë foto. që të ngarkoni një figurë, klikoni ose tërhiqni një të tillë</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
@@ -1670,7 +1670,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Shtoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
@@ -1701,7 +1701,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Shtoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
@@ -1785,7 +1785,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj dhe vazhdoni</translation>
     </message>
     <message>
         <source>Next</source>
@@ -1897,11 +1897,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
@@ -1909,11 +1909,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Test here</source>
@@ -1932,7 +1932,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Mëngjarash</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
@@ -1948,11 +1948,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
@@ -2039,7 +2039,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <source>Current Password</source>
@@ -2087,7 +2087,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -2118,7 +2118,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimesh</translation>
     </message>
 </context>
 <context>
@@ -2152,7 +2152,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2160,11 +2160,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Slow</source>
-        <translation>I ngadaltë</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>I shpejtë</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
@@ -2423,11 +2423,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Tërhiqe</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Vëre Në Qendër</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2462,7 +2462,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Monitori mbulon vetëm përshkallëzim 100% të ekranit</translation>
     </message>
     <message>
         <source>Display Scaling</source>
@@ -2506,7 +2506,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Këto pyetje do të përdoren për t’ju ndihmuar të ricaktoni fjalëkalimin tuaj, në rast se e harroni.</translation>
     </message>
     <message>
         <source>Security question 1</source>
@@ -2542,15 +2542,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Cili është emri i qytetit ku u lindët?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Cili është emri i shkollës së parë që ndoqët?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Kë doni më shumë në këtë botë?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
@@ -2627,7 +2627,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Zëvendësoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
@@ -2750,7 +2750,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
 </context>
 <context>
@@ -2797,7 +2797,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Njoftimet nga aplikacionet s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund t’i shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -2808,11 +2808,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Nga</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Deri Më</translation>
     </message>
 </context>
 <context>
@@ -2823,7 +2823,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidheni ekranin tuaj me prekje, kur lidhet, ose ujdiseni këtu.</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -2869,11 +2869,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Slow</source>
-        <translation>I ngadaltë</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>I shpejtë</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
@@ -3202,7 +3202,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Depozitoni në re në mënyrë të parrezik rregullime sistemi dhe të dhëna personale dhe mbajini të njëkohësuara nëpër pajisje</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -3218,11 +3218,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Jeni i sigurt se doni të spastrohen rregullimet e sistemit tuaj dhe të dhëna personale të ruajtura në re?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Pasi të spastrohen të dhënat, s’mund të rikthehen!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3260,11 +3260,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim i gabuar, edhe %1 prova</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>U mbërrit në kufi gabimesh hyrjeje për sot. Mund të ricaktoni fjalëkalimin dhe të riprovoni.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
@@ -3283,11 +3283,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Veçoria s’mund të kihet tani për tani, ju lutemi, aktivizoni së pari sistemin tuaj</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Subjekt i ligjeve dhe rregulloreve tuaja vendore, aktualisht i papërdorshëm në rajonin tuaj.</translation>
     </message>
 </context>
 <context>
@@ -3332,7 +3332,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, zgjidhni programin parazgjedhje për hapjen e &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
@@ -3399,19 +3399,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj dhe vazhdoni</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Eksportoni Hollësi PC-je</translation>
+        <translation>1. Eksportoni Hollësi PC-je</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Eksportoje</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. ju lutemi, shkoni te &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; që të Shkarkoni dëshmi për përdorim “offline”.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
@@ -3485,7 +3485,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
 </source>
         <translation>“Mirëfilltësimi biometrik” është një funksion për mirëfilltësim identiteti përdoruesi, i furnizuar nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara te pajisja dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e dalë nga krahasimi.
 Ju lutemi, mbani parasysh se UnionTech Software s’do të grumbullojë ose hyjë në të dhënat tuaja biometrike, të cilat do të depozitohen në pajisjen tuaj vendore. Ju lutemi, mirëfilltësimin biometrik aktivizojeni vetëm te pajisja juaj personale dhe përdorini të dhënat tuaja biometrike për veprime përkatëse dhe çaktivizojeni menjëherë ose fshini të dhëna biometrike personash të tjerë në atë pajisje, përndryshe jeni përgjegjës për rrezikun e lindur prej kësaj. 
-UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të sigurisë, përpikërisë dhe qëndrueshmërisë së mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjesh, teknikë dhe të tjerë, si dhe kontroll rreziqesh, s’ka garanci se do ta kaloni mirëfilltësimin biometrik me sukses. Ndaj, ju lutemi, mos e mbani mirëfilltësimin biometrik si të vetmen mënyrë për bërjen e hyrjes në UnionTech OS. Nëse keni ndonjë pyetje apo sugjerim lidhur me përdorimin e mirëfilltësimit biometrik, mund të na i jepni përmes “Shërbim dhe Asistencë” te UnionTech OS.
+UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të sigurisë, përpikërisë dhe qëndrueshmërisë së mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjesh, teknikë dhe të tjerë, si dhe kontroll rreziqesh, s’ka garanci se do ta kaloni mirëfilltësimin biometrik me sukses. Ndaj, ju lutemi, mos e mbani mirëfilltësimin biometrik si të vetmen mënyrë për bërjen e hyrjes në UnionTech OS. Nëse keni ndonjë pyetje apo sugjerim lidhur me përdorimin e mirëfilltësimit biometrik, mund të na i jepni përmes “Shërbim dhe Asistencë” te UnionTech OS. 
 </translation>
     </message>
     <message>
@@ -3656,7 +3656,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Lejoji aplikacionet më poshtë të përdorin këto kartela dhe dosje:</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -3889,7 +3889,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Fikje e Planifikuar</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3964,19 +3964,19 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>Tre-gishta</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>Katër-gishta</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Sipër</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Poshtë</translation>
     </message>
     <message>
         <source>Left</source>
@@ -3988,7 +3988,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>prekeni</translation>
     </message>
 </context>
 <context>
@@ -4151,7 +4151,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi operativ dhe aplikacionet mund t’ju japin lëndë vendore bazuar në formate rajonalë</translation>
     </message>
     <message>
         <source>Region and format</source>
@@ -4159,7 +4159,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi operativ dhe aplikacionet mund të caktojnë formate datash dhe kohe bazuar në formate rajonalë</translation>
     </message>
 </context>
 <context>
@@ -4208,7 +4208,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim, wechat, mirëfilltësim biometrik, kyç sigurie</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4305,7 +4305,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -4382,7 +4382,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi aktual s’është i aktivizuar, s’arrihet të niset shërbimi i përditësimeve</translation>
     </message>
 </context>
 <context>
@@ -4404,7 +4404,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Required</source>
-        <translation>E domosdoshme</translation>
+        <translation>I domosdoshme</translation>
     </message>
     <message>
         <source>Weak</source>
@@ -4448,7 +4448,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
 </context>
 <context>
@@ -4467,7 +4467,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4494,11 +4494,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompaktëso Shfaqjen</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Në u aktivizoftë, te dritarja shfaqet më tepër lëndë.</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -4956,7 +4956,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Ky sfond sistemi është i kyçur. Ju lutemi, lidhuni me përgjegjësin tuaj.</translation>
     </message>
 </context>
 <context>
@@ -5030,7 +5030,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi operativ dhe aplikacionet mund t’ju japin lëndë vendore bazuar në vendin dhe rajonin tuaj.</translation>
     </message>
     <message>
         <source>Area</source>
@@ -5038,7 +5038,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi operativ dhe aplikacionet mund të caktojnë formate datash dhe kohe bazuar në formate rajonalë.</translation>
     </message>
     <message>
         <source>Region format</source>
@@ -5480,7 +5480,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Përzje në një kanal të vetëm kanalet majtas dhe djathtas</translation>
     </message>
     <message>
         <source>Auto pause</source>
@@ -5533,7 +5533,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Vetënjëkohësohë kohën</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -5584,7 +5584,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>në</translation>
     </message>
 </context>
 <context>
@@ -5654,7 +5654,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Add</source>
-        <translation>Shtoni</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <source>Change Timezone</source>
@@ -5840,7 +5840,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation>Kohë e pritshme instalimi</translation>
+        <translation>Kohë e pritshme instalimi:</translation>
     </message>
     <message>
         <source>30min</source>
@@ -6709,11 +6709,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>E ulët</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>E lartë</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
@@ -6729,11 +6729,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompaktëso Shfaqjen</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Në u aktivizoftë, te dritarja shfaqet më tepër lëndë.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
@@ -6741,11 +6741,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>E përshtatshme vetëm për shtylla titujsh dritaresh aplikacionesh të vizatuara nga përgjegjësi i dritareve.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Tejet e vockël</translation>
     </message>
 </context>
 <context>
@@ -6847,7 +6847,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Administrim lejesh rrënjë për zhvillues</translation>
     </message>
 </context>
 <context>
@@ -6943,7 +6943,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Përmasor</translation>
     </message>
     <message>
         <source>Flat</source>
@@ -7113,7 +7113,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Caktoni aplikacioni parazgjedhje për hapje llojesh të ndryshëm kartelash</translation>
     </message>
 </context>
 <context>
@@ -7221,11 +7221,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Tërhiqe</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Vëre Në Qendër</translation>
     </message>
     <message>
         <source>Only on %1</source>
@@ -7249,7 +7249,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimesh</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -7341,7 +7341,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>në</translation>
     </message>
     <message>
         <source>Color Temperature</source>
@@ -7367,7 +7367,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të Përgjithshme, skemë tastiere, metodë dhëniesh, shkurtore</translation>
     </message>
 </context>
 <context>
@@ -7525,7 +7525,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Njoftimet nga aplikacionet s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund t’i shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -7549,7 +7549,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq njoftim në desktop, ose shfaq mesazhe të palexuar te qendra e njoftimeve</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -7778,7 +7778,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>“User Experience Program”</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -7899,7 +7899,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Butë</translation>
     </message>
 </context>
 </TS>
