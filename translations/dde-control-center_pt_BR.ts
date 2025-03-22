@@ -1887,92 +1887,92 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Curto</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Longo</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="unfinished"/>
+        <translation>Taxa de repetição</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Teste aqui</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Teclado Numérico</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Prompt de Caps Lock</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Mão esquerda</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Desativar touchpad durante a digitação</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade de rolagem</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do clique duplo</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout do teclado</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar layout do teclado</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Feito</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
@@ -2033,19 +2033,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Senha atual</translation>
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation type="unfinished"/>
+        <translation>Esqueceu sua senha?</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation type="unfinished"/>
+        <translation>Nova Senha</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Repita a senha</translation>
     </message>
     <message>
         <source>Password Hint</source>
