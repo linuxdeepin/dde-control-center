@@ -5527,54 +5527,54 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor NTP</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Sistema data e hora</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Endereço do servidor</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Obrigatório</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>O endereço do servidor NTP não pode estar vazio</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Usar formato 24 horas</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Fuso horário do sistema</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Lista de fusos horários</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>A partir</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>Até</translation>
     </message>
 </context>
 <context>
@@ -5682,19 +5682,19 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Fuso horário:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Cidade mais próxima:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -5739,7 +5739,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>Tela sensível ao toque</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
