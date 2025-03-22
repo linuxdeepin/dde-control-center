@@ -3843,23 +3843,23 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Planos de energia</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de economia de energia</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Economia automática de energia em caso de bateria fraca</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Limitador de bateria fraca </translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Economia automática de energia na bateria</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -4011,7 +4011,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Desempenho ideal: desative todos os efeitos de interface e janela para obter um desempenho eficiente do sistema.</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -4019,7 +4019,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Balanceado: Limite alguns efeitos de janela para obter excelentes visuais, mantendo o desempenho suave do sistema</translation>
     </message>
     <message>
         <source>Best Visuals</source>
@@ -4027,7 +4027,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Melhores recursos visuais: ative todos os efeitos de interface e janela para obter a melhor experiência visual.</translation>
     </message>
 </context>
 <context>
