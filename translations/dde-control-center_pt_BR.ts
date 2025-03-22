@@ -2049,27 +2049,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Dica de senha</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>As senhas não coincidem</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Obrigatória</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -2127,7 +2127,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Ponto de Rastreamento</translation>
     </message>
 </context>
 <context>
@@ -2263,19 +2263,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>A senha deve ter pelo menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>A senha não deve ter mais que %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>A senha pode conter apenas letras (maiúsculas e minúsculas), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Não mais que %1 caracteres palíndromos, por favor</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
