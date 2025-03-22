@@ -7467,7 +7467,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Selecione quais ícones devem aparecer no dock</translation>
+        <translation>Selecione quais ícones devem aparecer na dock</translation>
     </message>
 </context>
 <context>
@@ -7489,11 +7489,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mouse</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
 </context>
 <context>
@@ -7573,39 +7573,39 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparência</translation>
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Selecione a aparência do tema claro, escuro ou automático</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efeito da janela</translation>
     </message>
     <message>
         <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"/>
+        <translation>Interface e efeitos、cantos arredondados、tela compacta</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalize seu papel de parede e protetor de tela</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de tela</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Cores e ícones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a cor de destaque e os ícones do tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
