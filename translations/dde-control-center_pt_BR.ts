@@ -3365,11 +3365,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Entrar com UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -3377,11 +3377,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Importar Certificado </translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar arquivo</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
@@ -3389,15 +3389,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, primeiro faça login no seu Union ID para continuar</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1.Exportar informações do PC</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Exportar</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
@@ -3425,7 +3425,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Off</source>
-        <translation>Off</translation>
+        <translation>Desativado</translation>
     </message>
     <message>
         <source>Debug</source>
@@ -3658,23 +3658,23 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Fotos</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Vídeos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Downloads</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>Pasta</translation>
     </message>
 </context>
 <context>
@@ -3879,27 +3879,27 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Desligamento programado</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Repetir</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>Uma vez</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>Diariamente</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>Dias úteis</translation>
     </message>
     <message>
         <source>Custom Time</source>
