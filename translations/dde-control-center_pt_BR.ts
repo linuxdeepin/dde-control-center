@@ -3322,15 +3322,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, escolha o programa padrão para abrir &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Abrir arquivo na área de trabalho</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -3646,15 +3646,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que os aplicativos abaixo acessem esses arquivos e pastas:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Documentos</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Área de trabalho</translation>
     </message>
     <message>
         <source>Pictures</source>
@@ -3769,15 +3769,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Fonte Padrão</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Fonte Monoespaçada</translation>
     </message>
 </context>
 <context>
