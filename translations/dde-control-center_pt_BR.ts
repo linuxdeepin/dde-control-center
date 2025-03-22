@@ -2252,7 +2252,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Estamos profundamente cientes da importância de suas informações pessoais para você. Por isso, temos a Política de Privacidade que abrange como coletamos, usamos, compartilhamos, transferimos, divulgamos publicamente e armazenamos suas informações. Você pode clicar aqui para ver nossa política de privacidade mais recente e/ou visualizá-la on-line visitando %1. Leia com atenção e entenda completamente nossas práticas sobre privacidade do cliente. Se tiver alguma dúvida, entre em contato conosco em: support@uniontech.com.</translation>
     </message>
 </context>
 <context>
@@ -3177,7 +3177,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Gerencie seu %1 ID e sincronize seus dados pessoais em todos os dispositivos.Faça login no %1 ID para obter recursos e serviços personalizados do navegador, App Store e muito mais.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
@@ -3192,11 +3192,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Armazene com segurança as configurações do sistema e os dados pessoais na nuvem e mantenha-os sincronizados em todos os dispositivos</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do sistema</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
@@ -3208,11 +3208,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Tem certeza de que deseja limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Depois que os dados forem apagados, eles não poderão ser recuperados!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3349,11 +3349,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Solicitar acesso root</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Após entrar no modo de desenvolvedor, você pode obter permissões de root, mas isso também pode danificar a integridade do sistema, portanto, use-o com cautela.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -3385,7 +3385,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Seu ID UOS foi conectado, clique para entrar no modo de desenvolvedor</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
