@@ -5977,7 +5977,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Це оновлення-латка в основному удосконалює швидкодію стільничного середовища та типових програм і виправляє деякі відомі вади системи, роблячи якість продукту вищою.</translation>
     </message>
     <message>
         <source>Updates：</source>
