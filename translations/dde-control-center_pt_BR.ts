@@ -6628,7 +6628,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>Desdobrar</translation>
     </message>
     <message>
         <source>show all</source>
@@ -6640,7 +6640,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Definir tela de bloqueio</translation>
     </message>
     <message>
         <source>Set desktop</source>
