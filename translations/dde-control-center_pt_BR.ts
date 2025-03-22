@@ -4198,7 +4198,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Senha, wechat, autenticação biométrica, senha de segurança</translation>
     </message>
     <message>
         <source>Password</source>
@@ -5674,11 +5674,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar fuso horário</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Determinar o fuso horário com base na localização atual</translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -5743,7 +5743,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Configure aqui ao conectar a tela sensível ao toque</translation>
     </message>
 </context>
 <context>
@@ -6044,7 +6044,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation>Status de atualização</translation>
+        <translation>Verificar atualizações</translation>
     </message>
 </context>
 <context>
