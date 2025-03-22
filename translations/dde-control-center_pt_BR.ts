@@ -7681,94 +7681,94 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos e Pastas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Escolha se o aplicativo tem acesso a arquivos e pastas</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Output,input sound efects,devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, efeitos de som de entrada, dispositivos</translation>
     </message>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Som</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Saída</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efeitos sonoros</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Ativar/desativar efeitos sonoros</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciador de dispositivos</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar/desabilitar dispositivos de áudio</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações comuns</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Informações Auxiliares</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Sobre este PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versão do sistema, informações do dispositivo</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrição do software de código aberto</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Ver aviso de software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de experiência do usuário</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
