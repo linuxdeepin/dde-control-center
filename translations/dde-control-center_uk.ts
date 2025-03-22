@@ -7607,7 +7607,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Персоналізація фонового зображення і зберігача екрана</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -7653,7 +7653,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Плани живлення, параметри заощадження енергії, параметри пробудження, параметри вимикання</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -7669,18 +7669,18 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>екран і призупинення, низький рівень заряду акумулятора, керування акумулятором</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Конфіденційність та безпека</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Камера, доступ до тек</translation>
     </message>
 </context>
 <context>
@@ -7691,7 +7691,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть, чи матиме програма доступ до камери</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -7699,14 +7699,14 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть, чи матиме програма доступ до файлів і тек</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Output,input sound efects,devices</source>
-        <translation type="unfinished"/>
+        <translation>Виведення,введення,звукові ефекти,пристрої</translation>
     </message>
     <message>
         <source>Sound</source>
@@ -7737,11 +7737,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Керування пристроями</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути/Вимкнути звукові пристрої</translation>
     </message>
 </context>
 <context>
@@ -7759,7 +7759,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Допоміжні відомості</translation>
     </message>
 </context>
 <context>
@@ -7770,11 +7770,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Версія системи, відомості щодо пристроїв</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Опис програмного забезпечення з відкритим кодом</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
@@ -7786,7 +7786,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Долучайтеся до програми вражень користувачів, щоб допомогти у поліпшення продукту</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -7794,7 +7794,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Переглянути ліцензійну угоду з кінцевим користувачем</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
