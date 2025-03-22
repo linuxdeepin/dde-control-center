@@ -2590,11 +2590,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atalhos personalizados</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar padrões</translation>
     </message>
     <message>
         <source>Shortcut</source>
@@ -2690,7 +2690,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Edition License</source>
-        <translation>Edição de licença</translation>
+        <translation>Licença de edição</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -2740,58 +2740,58 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Concordar e aderir ao Programa de Experiência do Usuário</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar idioma do sistema</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Lista de idiomas</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar idioma</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Feito</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Não perturbe</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificações do aplicativo não serão exibidas na área de trabalho e os sons serão silenciados, mas você poderá visualizar todas as mensagens na central de notificações.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quando a tela estiver bloqueada </translation>
     </message>
 </context>
 <context>
@@ -2813,7 +2813,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Selecione sua tela sensível ao toque quando conectado ou defina-a aqui.</translation>
     </message>
     <message>
         <source>Confirm</source>
