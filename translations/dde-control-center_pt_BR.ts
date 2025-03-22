@@ -5975,62 +5975,62 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Ver detalhes</translation>
     </message>
     <message>
         <source>收起</source>
-        <translation type="unfinished"/>
+        <translation>Fechar</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações disponíveis</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"/>
+        <translation>Instalando atualização</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation type="unfinished"/>
+        <translation>Instalando atualizações…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Atualização instalada com sucesso</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar agora</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Falha no download da atualização</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>Tentar novamente</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"/>
+        <translation>Verificando atualizações, aguarde…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>Seu sistema está atualizado, por favor reinicie agora</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Seu sistema está atualizado</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Uma atualização foi encontrada.</translation>
     </message>
 </context>
 <context>
@@ -6051,11 +6051,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de atualização</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Atualização de função</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
@@ -6063,11 +6063,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Atualização de qualidade</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Fornece patches de qualidade do sistema</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
