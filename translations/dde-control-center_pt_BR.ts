@@ -2999,11 +2999,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas antes do horário local</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas depois do horário local</translation>
     </message>
     <message>
         <source>Space</source>
@@ -3142,7 +3142,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Use o WeChat, que está vinculado ao seu ID %1, para escanear o código e fazer login na sua conta local.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
@@ -3150,18 +3150,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Redefina sua senha local via %1 ID caso você a esqueça.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Para usar os recursos acima, acesse o Centro de Controle - Contas e ative as opções correspondentes</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>Deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -3172,7 +3172,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronização na nuvem</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -3254,7 +3254,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>O erro de login atingiu o limite hoje. Você pode redefinir a senha e tentar novamente.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
@@ -3265,19 +3265,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>China continental</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Outras regiões</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>O recurso não está disponível no momento, ative seu sistema primeiro</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Sujeito às leis e regulamentações locais, ele não está disponível em sua região no momento.</translation>
     </message>
 </context>
 <context>
