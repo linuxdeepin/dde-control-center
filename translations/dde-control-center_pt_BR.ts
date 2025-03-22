@@ -4430,38 +4430,38 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>As senhas não coincidem</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>A nova senha deve ser diferente da atual</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>A dica é visível para todos os usuários. Não inclua a senha aqui</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Alterar senha</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir senha</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>O comprimento da senha deve ter pelo menos 8 caracteres, e a senha deve conter uma combinação de pelo menos 3 dos seguintes: letras maiúsculas, letras minúsculas, números e símbolos. Este tipo de senha é mais seguro.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir a senha apagará os dados armazenados no chaveiro.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -4484,11 +4484,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Tela compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, mais conteúdo será exibido na janela.</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -4527,15 +4527,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Escuro</translation>
     </message>
 </context>
 <context>
@@ -4584,11 +4584,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Accent Color</source>
-        <translation>Cor em destaque</translation>
+        <translation>Cor de destaque</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Configurações de ícone</translation>
+        <translation>Configurações dos ícones</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -4704,15 +4704,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Desligar</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspender</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
