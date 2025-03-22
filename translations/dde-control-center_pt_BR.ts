@@ -7042,75 +7042,75 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>Não use palavras e combinações comuns como senha</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Crie uma senha forte, por favor</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Não atende às regras de segurança de senha</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Janela</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Espaço de trabalho</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Ferramentas Assistivas</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Serviços em nuvem</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicativo padrão</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Defina o aplicativo padrão para abrir vários tipos de arquivos</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Página Web</translation>
     </message>
     <message>
         <source>Mail</source>
@@ -7364,15 +7364,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout do teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Definir layout de teclado padrão do sistema</translation>
     </message>
 </context>
 <context>
