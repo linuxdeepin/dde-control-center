@@ -4102,30 +4102,30 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Adicione o método de entrada correspondente em &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;IGerenciamento de Método de Entrada&lt;/a&gt; para garantir que o layout do teclado funcione quando for adicionado ou trocado.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar novo layout de teclado...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Linguagem</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Feito</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>Outras idiomas</translation>
     </message>
     <message>
         <source>add</source>
@@ -5082,27 +5082,27 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>Definir uma senha</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Repita a senha</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>As senhas não coincidem</translation>
     </message>
 </context>
 <context>
@@ -6209,7 +6209,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Troca inteligente de espelho</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
@@ -6217,7 +6217,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Lista de Mirrors</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
@@ -7353,7 +7353,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
