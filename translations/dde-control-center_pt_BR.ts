@@ -610,7 +610,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de inicialização</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
@@ -1879,11 +1879,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do teclado</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation type="unfinished"/>
+        <translation>Repetir atraso</translation>
     </message>
     <message>
         <source>Short</source>
@@ -2578,7 +2578,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Janela</translation>
     </message>
     <message>
         <source>Workspace</source>
@@ -2613,48 +2613,48 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Substituir</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Este atalho está em conflito com %1, clique em Substituir para tornar este atalho efetivo imediatamente</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Insira um novo atalho</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>Disponível</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Sobre este PC</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do computador</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>Informações do sistema</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do OS</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Edition</source>
