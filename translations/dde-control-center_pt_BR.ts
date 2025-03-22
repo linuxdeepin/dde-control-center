@@ -3011,55 +3011,55 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>Semana</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Primeiro dia da semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data abreviada</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data completa</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora abreviada</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora completa</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo da moeda</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moeda positivo</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moeda negativo</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo decimal</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupamento de dígitos</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Agrupamento de dígitos</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho da página</translation>
     </message>
 </context>
 <context>
@@ -3080,29 +3080,29 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>O Centro de Controle fornece opções para configurações do sistema.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>Vincular WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>Ao vincular o WeChat, você pode efetuar login com segurança e rapidez em sua ID %1 e contas locais.</translation>
     </message>
     <message>
         <source>Unlinked</source>
