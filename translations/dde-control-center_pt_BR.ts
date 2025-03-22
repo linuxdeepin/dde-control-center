@@ -5750,47 +5750,47 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações básicas</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do ponteiro</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Desativar touchpad durante a digitação</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Toque para clicar</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rolagem natural</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Gestos</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de três dedos</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de quatro dedos</translation>
     </message>
 </context>
 <context>
@@ -5830,15 +5830,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Tempo previsto de instalação:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>Instalando</translation>
     </message>
 </context>
 <context>
@@ -5944,19 +5944,19 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>As configurações serão revertidas em %1s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Salvar as configurações de exibição?</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Reverter</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -5967,11 +5967,11 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Updates：</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações：</translation>
     </message>
     <message>
         <source>Release time：</source>
-        <translation type="unfinished"/>
+        <translation>Data de lançamento:</translation>
     </message>
     <message>
         <source>2025.1.20</source>
