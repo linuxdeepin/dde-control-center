@@ -7463,7 +7463,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Área do plugin</translation>
+        <translation>Área de plugins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
