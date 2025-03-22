@@ -7130,72 +7130,72 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Foto</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>Tela</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Brilho, resolução, escala</translation>
     </message>
 </context>
 <context>
     <name>displayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"/>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"/>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"/>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"/>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"/>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Extend</source>
