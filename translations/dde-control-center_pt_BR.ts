@@ -6715,75 +6715,75 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Manter mostrado</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Exibição compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, mais conteúdo será exibido na janela.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Altura da barra do título</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Adequado somente para barras de título de janelas de aplicativos desenhadas pelo gerenciador de janelas.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Extremamente pequeno</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Conta</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de conta</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Outras contas</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação Biométrica</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação Biométrica</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Rosto</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Podem ser inseridos até 5 metódos faciais</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão Digital</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificar a identidade do usuário por meio da biometria da impressão digital</translation>
     </message>
     <message>
         <source>Iris</source>
