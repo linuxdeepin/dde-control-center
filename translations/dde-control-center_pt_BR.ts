@@ -3338,14 +3338,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os arquivos (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Acesso root</translation>
     </message>
     <message>
         <source>Request Root Access</source>
@@ -3373,7 +3373,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Import Certificate</source>
@@ -4027,7 +4027,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Melhores recursos visuais: ative todos os efeitos de interface e janela para obter a melhor experiência visual.</translation>
+        <translation>Recursos visuais: ative todos os efeitos de interface e janela para obter a melhor experiência visual.</translation>
     </message>
 </context>
 <context>
@@ -4141,7 +4141,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>O sistema operacional e os aplicativos podem fornecer conteúdo local com base em seu país e região</translation>
     </message>
     <message>
         <source>Region and format</source>
@@ -4149,7 +4149,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>O sistema operacional e os aplicativos podem definir formatos de data e hora com base em formatos regionais</translation>
     </message>
 </context>
 <context>
