@@ -4467,7 +4467,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Пароль має складатися з принаймні 8 символів і поєднувати у собі принаймні три з таких елементів: літери верхнього регістру, літери нижнього регістру, цифри та символи пунктуації. Паролі такого типу є безпечнішими.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -4792,15 +4792,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Перевага швидкодії, що значно збільшить споживання енергії та вивільнення тепла</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Баланс між швидкодією та часом роботи від акумулятора, автоматичне коригування, залежно від режиму користування</translation>
     </message>
     <message>
         <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Перевага часу роботи від акумулятора, певне уповільнення системи для зниження споживання енергії</translation>
     </message>
 </context>
 <context>
