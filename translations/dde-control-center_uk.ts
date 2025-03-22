@@ -6797,7 +6797,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Розпізнавання користувача за сканованими відбитками пальців</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -6805,7 +6805,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Розпізнавання користувача за скануванням райдужки</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -6821,7 +6821,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"/>
+        <translation>Додати новий</translation>
     </message>
 </context>
 <context>
@@ -6832,7 +6832,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Параметри Bluetooth, пристрої</translation>
     </message>
 </context>
 <context>
@@ -6843,15 +6843,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Керування меню завантаження</translation>
     </message>
     <message>
         <source>Developer Optilons</source>
-        <translation type="unfinished"/>
+        <translation>Параметри для розробників</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Керування правами доступу root для розробника</translation>
     </message>
 </context>
 <context>
@@ -6862,15 +6862,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Час і дата, параметри часового поясу</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Мова і регіон</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Мова системи, формат регіону</translation>
     </message>
 </context>
 <context>
@@ -6947,7 +6947,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Просторовий</translation>
     </message>
     <message>
         <source>Flat</source>
@@ -7013,7 +7013,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Це клавіатурне скорочення конфліктує із [%1]</translation>
     </message>
 </context>
 <context>
@@ -7083,7 +7083,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Допоміжні інструменти</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -7106,7 +7106,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>«Хмарні» служби</translation>
     </message>
 </context>
 <context>
@@ -7117,7 +7117,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Встановлення типових програм для відкриття файлів різних типів</translation>
     </message>
 </context>
 <context>
@@ -7166,7 +7166,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Яскравість,роздільність,масштабування</translation>
     </message>
 </context>
 <context>
@@ -7553,7 +7553,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Показ сповіщення на стільниці або показ кількості непрочитаних повідомлень у центрі сповіщень</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -7595,7 +7595,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
     </message>
     <message>
         <source>Window effect</source>
@@ -7603,7 +7603,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"/>
+        <translation>Інтерфейс і ефекти, заокруглені краї, компактний показ</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
