@@ -5963,7 +5963,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Esta atualização de patch melhora principalmente a experiência de desempenho operacional do ambiente de desktop e dos aplicativos mais usados, além de corrigir alguns problemas conhecidos do sistema, melhorando ainda mais a qualidade do produto.</translation>
     </message>
     <message>
         <source>Updates：</source>
@@ -6059,7 +6059,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Fornece novos recursos, patches de qualidade, correções de vulnerabilidades de segurança e conteúdo totalmente atualizado</translation>
     </message>
     <message>
         <source>Quality Update</source>
@@ -6213,7 +6213,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Ligue-o para conectar-se automaticamente ao site espelho mais rápido</translation>
     </message>
     <message>
         <source>Mirror List</source>
@@ -6545,7 +6545,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>papel de parede</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -6553,19 +6553,19 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Minhas fotos</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Papéis de parede do sistema</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Papel de parede de cor sólida</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Papéis de parede personalizáveis</translation>
     </message>
     <message>
         <source>fill style</source>
