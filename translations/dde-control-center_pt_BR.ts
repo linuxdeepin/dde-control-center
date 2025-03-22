@@ -2081,7 +2081,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Senha errada</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2214,41 +2214,41 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Valor mínimo de pressão</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Desabilitar a opção se o touchpad não funcionar após habilitado</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation type="unfinished"/>
+        <translation>Animação de inicialização </translation>
     </message>
     <message>
         <source>Small Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho pequeno</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho grande</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidade</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
@@ -2259,7 +2259,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A senha não pode estar vazia</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
@@ -2492,11 +2492,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Perguntas de segurança</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Essas perguntas serão usadas para ajudar a redefinir sua senha caso você a esqueça.</translation>
     </message>
     <message>
         <source>Security question 1</source>
