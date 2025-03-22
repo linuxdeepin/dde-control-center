@@ -2544,11 +2544,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Qual é seu animal favorito?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Qual é sua música favorita?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
@@ -2563,11 +2563,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Feito</translation>
     </message>
 </context>
 <context>
@@ -2937,35 +2937,35 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de data e hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mês</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
@@ -2987,15 +2987,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Amanhã</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Ontem</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoje</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
