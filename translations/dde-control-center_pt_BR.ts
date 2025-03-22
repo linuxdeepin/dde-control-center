@@ -2736,7 +2736,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Aderir ao Programa de Experiência do Usuário significa que você concorda e nos autoriza a coletar e usar as informações do seu dispositivo, sistema e aplicativos. Para maiores informações, consulte %1.&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -2798,18 +2798,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>A partir</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Até</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Tela sensível ao toque</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
@@ -2817,78 +2817,78 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do ponteiro</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Ativar touchpad</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Toque para clicar</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rolagem natural</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lenta</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápida</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do ponteiro</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Participar do Programa de Experiência do Usuário</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -3007,7 +3007,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Espaço</translation>
     </message>
     <message>
         <source>Week</source>
