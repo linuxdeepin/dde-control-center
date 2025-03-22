@@ -7307,35 +7307,35 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a tela para cores mais quentes, reduzindo a luz azul da tela</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Todos os dias </translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Do pôr do sol ao nascer do sol</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora personalizada</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>A partir</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>Até</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperatura da cor</translation>
     </message>
 </context>
 <context>
@@ -7357,7 +7357,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Configurações gerais, layout do teclado, método de entrada, atalhos</translation>
     </message>
 </context>
 <context>
@@ -7515,15 +7515,15 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificações do aplicativo não serão exibidas na área de trabalho e os sons serão silenciados, mas você poderá visualizar todas as mensagens na central de notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar Não Perturbe</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quando a tela estiver bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
