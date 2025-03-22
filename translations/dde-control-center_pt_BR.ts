@@ -2093,7 +2093,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede</translation>
     </message>
 </context>
 <context>
@@ -2104,26 +2104,26 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Reunir janelas</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>A reorganização da tela entrará em vigor em %1s após as alterações</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mouse</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <source>TrackPoint</source>
@@ -2134,15 +2134,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do ponteiro</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Aceleração do mouse</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Desativar touchpad quando um mouse estiver conectado</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2176,7 +2176,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicado</translation>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Extend</source>
@@ -2199,7 +2199,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Notificações do sistema</translation>
     </message>
 </context>
 <context>
@@ -2210,7 +2210,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Superfície de contato mínimo</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
