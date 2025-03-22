@@ -2325,11 +2325,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato da região </translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Formato padrão</translation>
     </message>
     <message>
         <source>First of day</source>
