@@ -5488,11 +5488,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Автопауза</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Визначає, чи буде відтворення звуку автоматично призупинено, якщо поточний звуковий пристрій від&apos;єднано від комп&apos;ютера</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -5523,7 +5523,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення</translation>
     </message>
 </context>
 <context>
@@ -5537,7 +5537,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Час автосинхронізації</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -5565,11 +5565,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Адреса сервера NTP не може бути порожньою</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Використовувати 24-годинний формат</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -5584,7 +5584,7 @@ UnionTech Software працює над вивченням і удосконал�
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>від</translation>
     </message>
     <message>
         <source>to</source>
@@ -5692,7 +5692,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Визначити часовий пояс на основі даних про поточне місце перебування</translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -5989,7 +5989,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
@@ -5997,7 +5997,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>收起</source>
-        <translation type="unfinished"/>
+        <translation>Закрити</translation>
     </message>
 </context>
 <context>
@@ -6073,15 +6073,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Реалізація нових можливостей, латки якості, виправлення вразливостей захисту та повністю оновлені дані</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення якості</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Реалізація латок якості системи</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
@@ -6501,11 +6501,11 @@ UnionTech Software працює над вивченням і удосконал�
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Перевірка захисту</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>Дія є критичною, будь ласка, спочатку введіть пароль до облікового запису</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -6563,11 +6563,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Заокруглені кути вікон</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Ваші зображення</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
