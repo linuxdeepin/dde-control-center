@@ -7772,52 +7772,52 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Participe do programa de experiência do usuário para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de licença do usuário final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Ver o contrato de licença do usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidade</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Ver informações sobre a política de privacidade</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Tela sensível ao toque</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Configurando a tela sensível ao toque</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
 </context>
 <context>
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações do Sistema</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation type="unfinished"/>
+        <translation>Atualização do sistema e melhorias</translation>
     </message>
 </context>
 <context>
@@ -7847,33 +7847,33 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações de recursos</translation>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de atualização</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Configurando o wacom</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
