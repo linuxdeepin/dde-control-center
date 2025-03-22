@@ -4349,84 +4349,84 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>Data de instalação do sistema</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Núcleo</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma gráfica</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Processador</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Memória</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>O sistema atual não está ativado, não é possível iniciar o serviço de atualização</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Outros dispositivos</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar dispositivos Bluetooth sem nomes</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"/>
+        <translation>Senha atual</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Obrigatória</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Fraca</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Forte</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Senha</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Repita a sua senha</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"/>
+        <translation>Dica de senha</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A senha não pode estar vazia</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
