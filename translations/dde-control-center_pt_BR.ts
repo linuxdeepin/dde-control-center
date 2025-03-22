@@ -3106,39 +3106,39 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>Desvinculado</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Desvinculando</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Vincular</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Tem certeza de que deseja desvincular do WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Após desvincular o WeChat, você não poderá usá-lo para escanear o código QR para fazer login no ID %1 ou na conta local.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Deixe-me pensar sobre isso</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Vinculação de conta local</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Depois de vincular sua conta local, você pode usar as seguintes funções:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema de login no WeChat por escaneamento de código</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
@@ -3146,7 +3146,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir senha via %1 ID</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
@@ -3165,7 +3165,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
@@ -3181,14 +3181,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Entrar em %1 ID</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronização automática</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
@@ -3200,11 +3200,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Última vez sincronizado: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Limpar dados da nuvem</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
@@ -3216,18 +3216,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Limpar</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Serviço de Sincronização</translation>
     </message>
     <message>
         <source>Account and Security</source>
