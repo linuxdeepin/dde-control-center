@@ -6571,15 +6571,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Загальносистемне фонове зображення</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Фонове залиття кольором</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Власні фонові зображення</translation>
     </message>
     <message>
         <source>fill style</source>
@@ -6587,7 +6587,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Автоматична зміна фонового зображення</translation>
     </message>
     <message>
         <source>never</source>
@@ -6631,18 +6631,18 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation>Загальносистемні фонові зображення</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>інтерактивне фонове зображення</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>розгорнути</translation>
     </message>
     <message>
         <source>show all</source>
@@ -6658,7 +6658,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>Встановити стільницю</translation>
     </message>
 </context>
 <context>
@@ -6693,7 +6693,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути ефекти прозорості при пересуванні вікон</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -6741,15 +6741,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Висота смужки заголовка</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Стосується лише смужок заголовка вікон програм, які намальовано засобом керування вікнами.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Надзвичайно мала</translation>
     </message>
 </context>
 <context>
@@ -6760,7 +6760,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Керування обліковими записами</translation>
     </message>
 </context>
 <context>
@@ -6789,7 +6789,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Можна реєструвати до 5 записів облич</translation>
     </message>
     <message>
         <source>Fingerprint</source>
