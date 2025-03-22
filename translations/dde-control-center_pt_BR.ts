@@ -3231,26 +3231,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Conta e Segurança</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Ir para as configurações da web</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>Falha na criptografia da senha</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Senha errada, %1 chances restantes</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
@@ -3258,7 +3258,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Operação bem-sucedida</translation>
     </message>
 </context>
 <context>
@@ -3334,7 +3334,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Aplicativos (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -3357,7 +3357,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Permitido</translation>
     </message>
     <message>
         <source>Enter</source>
@@ -3413,27 +3413,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opções do desenvolvedor e depuração</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Nível de registro do sistema</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Alterar as opções resulta em registros mais detalhados que podem degradar o desempenho do sistema e/ou ocupar mais espaço de armazenamento.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Off</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>Depurar</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>A alteração da opção pode levar até um minuto para ser processada. Após receber um prompt de configuração bem-sucedida, reinicie o dispositivo para que a configuração tenha efeito.</translation>
     </message>
 </context>
 <context>
