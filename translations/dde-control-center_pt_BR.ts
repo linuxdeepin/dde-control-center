@@ -6071,7 +6071,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Troca inteligente de espelho</translation>
     </message>
 </context>
 <context>
@@ -6465,7 +6465,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar monitor</translation>
+        <translation>Desligar tela</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
@@ -6480,34 +6480,34 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Participar do Programa de Experiência do Usuário</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificação de segurança</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>A ação é sensível, digite primeiro a senha de login</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>Esqueceu sua senha?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
@@ -6522,7 +6522,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidade à Pressão</translation>
+        <translation>Sensibilidade ao pressionar</translation>
     </message>
     <message>
         <source>Pen</source>
