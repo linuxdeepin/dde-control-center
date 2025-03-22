@@ -7431,7 +7431,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Status</source>
-        <translation>Exibição</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Keep shown</source>
@@ -7474,18 +7474,18 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Mouse e touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Comum、Mouse、Touchpad</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -7500,18 +7500,18 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo DND, notificações de aplicativos</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do Não Perturbe</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
@@ -7527,7 +7527,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificações mostradas na área de trabalho</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -7535,7 +7535,7 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permitir notificações</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
