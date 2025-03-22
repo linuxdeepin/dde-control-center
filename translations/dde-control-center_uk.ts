@@ -5146,11 +5146,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Персоналізований зберігач екрана</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>встановлення</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -5186,15 +5186,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Для відновлення слід вказати пароль</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Зберігач екрана з показу слайдів</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Загальносистемний зберігач екрана</translation>
     </message>
 </context>
 <context>
@@ -5239,7 +5239,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, введіть нове скорочення</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5251,7 +5251,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Натисніть «Додати», щоб замінити</translation>
     </message>
 </context>
 <context>
@@ -5262,7 +5262,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Загальносистемні скорочення, нетипові скорочення</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
@@ -5282,11 +5282,11 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, введіть нове скорочення</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Клацання</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5317,7 +5317,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть, чи слід вмикати пристрої</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -5472,7 +5472,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Не знайдено пристрою для відтворення звуку</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
@@ -5484,7 +5484,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Об&apos;єднати лівий і правий канали в єдиний канал</translation>
     </message>
     <message>
         <source>Auto pause</source>
