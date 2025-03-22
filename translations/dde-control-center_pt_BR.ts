@@ -4770,23 +4770,23 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Balanceado</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Economia de energia</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Prioriza o desempenho, o que aumentará significativamente o consumo de energia e a geração de calor</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Balanceia o desempenho e a duração da bateria, é ajustado automaticamente de acordo com o uso</translation>
     </message>
     <message>
         <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Prioriza a duração da bateria, pois o sistema sacrificará parte do desempenho para reduzir o consumo de energia</translation>
     </message>
 </context>
 <context>
