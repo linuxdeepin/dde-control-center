@@ -7605,41 +7605,41 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>Ajuste a cor de destaque e os ícones do tema</translation>
+        <translation>Ajuste a cor de destaque e o tema dos ícones</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fonte e tamanho da fonte</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a fonte do sistema e o tamanho</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Papel de Parede</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de economia de energia, tela e suspensão</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energia</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planos de energia, configurações de economia de energia, configurações de ligar o sistema, configurações de desligamento</translation>
     </message>
     <message>
         <source>Plugged In</source>
