@@ -314,9 +314,9 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>“Mirëfilltësimi biometri” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
+        <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
 
-Ju lutemi, kini parasysh se UnionTech Software Technology Co., Ltd. s’do të grumbullojë apo përdorë informacion biometrik tuajin,, i cili do të depozitohet në pajisjen tuaj vendore. Ju lutemi, aktivizojeni mirëfilltësimin biometrik në pajisjen tuaj personale dhe përdorni të dhëna tuajat bioemtrike vetëm për veprimet përkatëse dhe çaktivizojeni pa humbur kohë, ose fshini në atë pajisje të dhëna biometrike personash të tjerë, ndryshme do të jeni përballë rrezikut të rrjedhur prej tyre.
+Ju lutemi, kini parasysh se UnionTech Software Technology Co., Ltd. s’do të grumbullojë apo përdorë informacion biometrik tuajin,, i cili do të depozitohet në pajisjen tuaj vendore. Ju lutemi, aktivizojeni mirëfilltësimin biometrik në pajisjen tuaj personale dhe përdorni të dhëna tuajat biometrike vetëm për veprimet përkatëse dhe çaktivizojeni pa humbur kohë, ose fshini në atë pajisje të dhëna biometrike personash të tjerë, ndryshme do të jeni përballë rrezikut të rrjedhur prej tyre.
 
 UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe përmirësojë sigurinë, përpikërinë dhe qëndrueshmërinë e mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjeje, teknikë dhe të tjerë, si dhe kontrolli rreziku, s’ka garanci se do të kaloni mirëfilltësimin biometrik përkohësisht. Ndaj, ju lutemi, mos e merrni mirëfilltësimin biometrik si të vetmen rrugë për të bërë hyrjen në UOS. Nëse keni pyetje apo sugjerime, kur përdorni mirëfilltësimin biometrik, mund të jepni idetë tuaja përmes “Shërbim dhe Asistencë” te UOS.</translation>
     </message>
@@ -632,7 +632,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>vonëse nisjeje grub-i</translation>
+        <translation>vonesë nisjeje grub-i</translation>
     </message>
     <message>
         <source>theme</source>
@@ -1374,7 +1374,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
-        <translation>Që të përpuoni formësimin e tij, është i domosdoshëm fjalëkalimi për GRUB-in</translation>
+        <translation>Që të përpuponi formësimin e tij, është i domosdoshëm fjalëkalimi për GRUB-in</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -2266,7 +2266,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm mbi rëndësinë që ka për ju informacioni juaj personal. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, ndajmë me të tjerët, shpërngulim, zbulojmë publikisht dhe depozitojmë informacion tuajin.&lt;/p&gt;&lt;p&gt;Që të shihni rregulat tona më të reja të privatësisë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose t’i shihni në internet duk vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona rreth privatësisë së klientëve. Nëse keni ndonjë pyetje, ju lutemi, lidhuni me ne përmes: support@uniontech.com.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm mbi rëndësinë që ka për ju informacioni juaj personal. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, ndajmë me të tjerët, shpërngulim, zbulojmë publikisht dhe depozitojmë informacion tuajin.&lt;/p&gt;&lt;p&gt;Që të shihni rregullat tona më të reja të privatësisë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose t’i shihni në internet duk vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona rreth privatësisë së klientëve. Nëse keni ndonjë pyetje, ju lutemi, lidhuni me ne përmes: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2293,7 +2293,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -3475,7 +3475,7 @@ In order to better use of face recognition, please pay attention to the followin
 2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
 3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
 4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
-5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normak të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normal të njohjes së fytyrave.
 
 Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
 1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
@@ -4026,7 +4026,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Funksionim optimal: Çaktivizo krejt efektet e ndërfaqes dhe dritarve, për funksionim efikas të sistemit.</translation>
+        <translation>Funksionim optimal: Çaktivizo krejt efektet e ndërfaqes dhe dritareve, për funksionim efikas të sistemit.</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -4499,7 +4499,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Kompaktëso Shfaqjen</translation>
+        <translation>Shfaqje Kompakte</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -4619,7 +4619,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Font Size</source>
-        <translation>Madhësi Gërmash</translation>
+        <translation>Madhësi Shkronjash</translation>
     </message>
     <message>
         <source>Standard Font</source>
@@ -4801,7 +4801,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Jepi përparësi jetëgjatësisë së baterisë, prej kësaj sistemi do të sakrifikojë në shkallë funksionimi, për të reduktuar kosumin e energjisë</translation>
+        <translation>Jepi përparësi jetëgjatësisë së baterisë, prej kësaj sistemi do të sakrifikojë në shkallë funksionimi, për të reduktuar harxhimin e energjisë</translation>
     </message>
 </context>
 <context>
@@ -4850,7 +4850,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -6078,11 +6078,11 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Quality Update</source>
-        <translation>Përditësi Cilësie</translation>
+        <translation>Përditësim Cilësie</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation>Sil arnime cilësore sistemi</translation>
+        <translation>Sill arnime cilësore sistemi</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
@@ -6734,7 +6734,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Kompaktëso Shfaqjen</translation>
+        <translation>Shfaqje Kompakte</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -7041,7 +7041,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
