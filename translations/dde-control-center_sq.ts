@@ -2293,7 +2293,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -4850,7 +4850,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -7041,7 +7041,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
