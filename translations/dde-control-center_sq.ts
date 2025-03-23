@@ -6694,7 +6694,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizo efekte tejdukshmërie, kur lëvizet një dritare</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -7596,7 +7596,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidhni dukje të çelët, të errët, ose automatike teme</translation>
     </message>
     <message>
         <source>Window effect</source>
