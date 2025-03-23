@@ -4468,7 +4468,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Gjatësia e fjalëkalimeve duhet të jetë e pakta 8 shenja dhe fjalëkalimi duhet të përmbajë një ndërthurje e të paktën 3 nga shkronjat e mëdha, shkronjat e vogla, numrat dhe simbolet vijuese. Ky lloj fjalëkalimesh është më i siguruar.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
