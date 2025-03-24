@@ -2532,43 +2532,43 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Pidä vastaus alle 30 merkin pituisena</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>Älä valitse päällekkäistä kysymystä</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kysymys</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Missä kaupungissa sinä synnyit?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Mikä on sinun ensimmäisen koulun nimi?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Ketä rakastat eniten tässä maailmassa?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Mikä on sinun lempieläin?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Mikä on sinun lempikappale?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Mikä on sinun lempinimesi?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi olla tyhjä</translation>
     </message>
 </context>
 <context>
@@ -2586,7 +2586,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System Management</source>
-        <translation type="unfinished"/>
+        <translation>Hallinta</translation>
     </message>
     <message>
         <source>Window</source>
