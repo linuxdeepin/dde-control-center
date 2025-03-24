@@ -1,241 +1,241 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sq">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>përpunoni</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Adicionar novo usuário</translation>
+        <translation>Shtoni përdorues të ri</translation>
     </message>
     <message>
         <source>Acount information</source>
-        <translation>Informações da conta</translation>
+        <translation>Hollësi llogarie</translation>
     </message>
     <message>
         <source>Acount Information</source>
-        <translation>Informações da conta</translation>
+        <translation>Hollësi Llogarie</translation>
     </message>
     <message>
         <source>Acount name, acount fullname, account type</source>
-        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
+        <translation>Emër llogarie, emër i plotë llogarie, lloj llogarie</translation>
     </message>
     <message>
         <source>Acount name</source>
-        <translation>Nome da conta</translation>
+        <translation>Emër llogarie</translation>
     </message>
     <message>
         <source>Acount fullname</source>
-        <translation>Nome completo da conta</translation>
+        <translation>Emër i plotë për llogarinë</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation>Definir nome completo</translation>
+        <translation>Caktoni emër të plotë</translation>
     </message>
     <message>
         <source>Acount type</source>
-        <translation>Tipo de conta</translation>
+        <translation>Lloj llogarie</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation>Configurações de login</translation>
+        <translation>Rregullime hyrjeje</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation>Configurações de login</translation>
+        <translation>Rregullime Hyrjeje</translation>
     </message>
     <message>
         <source>Auto longin, login without password</source>
-        <translation>Login automático, login sem senha</translation>
+        <translation>Hyrje vetvetiu, hyni pa fjalëkalim</translation>
     </message>
     <message>
         <source>Auto longin</source>
-        <translation>Login automático</translation>
+        <translation>Hyrje e automatizuar</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Entrar sem senha</translation>
+        <translation>Hyni pa fjalëkalim</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Excluir conta</translation>
+        <translation>Fshije llogarinë e tanishme</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>Configuração de grupo</translation>
+        <translation>Rregullim grupi</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation>Grupos de contas</translation>
+        <translation>Grupe llogarish</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>Feito</translation>
+        <translation>u bë</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation>Nome do grupo</translation>
+        <translation>Emër grupi</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation>Adicionar grupo</translation>
+        <translation>Shto grup</translation>
     </message>
 </context>
 <context>
     <name>AdapterModule</name>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Permitir que outros dispositivos Bluetooth encontrem este dispositivo</translation>
+        <translation>Lejoji pajisjet e tjera Bluetooth të gjejnë këtë pajisje</translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Ative o Bluetooth para localizar dispositivos próximos (alto-falantes, teclado, mouse, etc.)</translation>
+        <translation>Që të gjenden pajisje atypari (altoparlantë, tastierë, mi), aktivizoni Bluetooth-in</translation>
     </message>
     <message>
         <source>My Devices</source>
-        <translation>Dispositivos pareados</translation>
+        <translation>Pajisjet e Mia</translation>
     </message>
     <message>
         <source>Other Devices</source>
-        <translation>Outros dispositivos</translation>
+        <translation>Pajisje të Tjera</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Exibir dispositivos Bluetooth sem nome</translation>
+        <translation>Shfaq pajisje Bluetooth pa emra</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Conectar</translation>
+        <translation>Lidhu</translation>
     </message>
     <message>
         <source>Disconnect</source>
-        <translation>Desconectar</translation>
+        <translation>Shkëputu</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Renomear</translation>
+        <translation>Riemërtojeni</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation>Enviar Arquivos</translation>
+        <translation>Dërgoni Kartela</translation>
     </message>
     <message>
         <source>Ignore this device</source>
-        <translation>Ignorar este dispositivo</translation>
+        <translation>Shpërfille këtë pajisje</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Conectando</translation>
+        <translation>Po bëhet lidhja</translation>
     </message>
     <message>
         <source>Disconnecting</source>
-        <translation>Desconectando</translation>
+        <translation>Po shkëputet</translation>
     </message>
 </context>
 <context>
     <name>AddButtonWidget</name>
     <message>
         <source>Add Application</source>
-        <translation>Acrescentar Aplicativo</translation>
+        <translation>Shtoni Aplikacion</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Abrir o arquivo da Área de Trabalho</translation>
+        <translation>Hap kartelë Desktopi</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Aplicativos (*.desktop)</translation>
+        <translation>Aplikacione (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Todos os arquivos (*)</translation>
+        <translation>Krejt kartelat (*)</translation>
     </message>
 </context>
 <context>
     <name>AddFaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Cadastrar rosto</translation>
+        <translation>Jepni Fytyrë</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Certifique-se de que todas as partes do seu rosto não estejam cobertas por objetos e estejam claramente visíveis. Seu rosto também deve estar bem iluminado.</translation>
+        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht.Fytyra juaj duhet të jetë gjithashtu e ndriçuar mirë.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Rosto cadastrado</translation>
+        <translation>Fytyra u dha</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Use seu rosto para desbloquear o dispositivo e faça as configurações depois</translation>
+        <translation>Përdorni fytyrën tuaj që të shkyçni pajisjen dhe për të bërë ujdisjen më vonë</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Falha ao cadastrar seu rosto</translation>
+        <translation>S’u arrit të merrej fytyra juaj</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation>Tente novamente</translation>
+        <translation>Riprovoni</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Fechar</translation>
+        <translation>Mbylle</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Cadastrar rosto</translation>
+        <translation>Jepni Fytyrë</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Certifique-se de que todas as partes do seu rosto não estejam cobertas por objetos e estejam claramente visíveis. Seu rosto também deve estar bem iluminado.</translation>
+        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht.Fytyra juaj duhet të jetë gjithashtu e ndriçuar mirë.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Li e concordo com os termos</translation>
+        <translation>I kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Isenção de responsabilidade</translation>
+        <translation>Klauzolë</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Rosto cadastrado</translation>
+        <translation>Fytyra u dha</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Falha ao cadastrar seu rosto</translation>
+        <translation>S’u arrit të merrej fytyra juaj</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Feito</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Tentar cadastrar seu rosto novamente</translation>
+        <translation>Riprovoni Dhënie</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -249,54 +249,64 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation>Antes de usar o reconhecimento facial, observe que: 1. Seu dispositivo pode ser desbloqueado por pessoas ou objetos que se parecem ou parecem semelhantes a você.2. O reconhecimento facial é menos seguro do que senhas digitais e senhas mistas.3. A taxa de sucesso do desbloqueio do seu dispositivo por meio do reconhecimento facial será reduzida em cenários de pouca luz, muita luz, luz de fundo, ângulo grande e outros cenários.4. Não dê seu dispositivo a outras pessoas aleatoriamente, para evitar o uso malicioso do reconhecimento facial.5. Além dos cenários acima, você deve prestar atenção a outras situações que podem afetar o uso normal do reconhecimento facial.Para melhor uso do reconhecimento facial, preste atenção aos seguintes assuntos ao inserir os dados faciais:1. Fique em um ambiente bem iluminado, evite luz solar direta e outras pessoas aparecendo na tela gravada.2. Preste atenção ao estado facial ao inserir dados e não deixe seus chapéus, cabelos, óculos de sol,  máscaras, maquiagem pesada e outros fatores para cobrir suas características faciais.3. Evite inclinar ou abaixar a cabeça, fechar os olhos ou mostrar apenas um lado do rosto e certifique-se de que sua face frontal apareça clara e completamente na caixa de prompt.</translation>
+        <translation>Para se të përdorni njohje fytyrash, ju lutemi, kini parasysh se: 
+1. Pajisja juaj mund të shkyçet nga persona ose objekte që duken ose shfaqen të ngjashëm me ju.
+2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
+3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
+4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normal të njohjes së fytyrave.
+
+Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
+1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
+2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
+3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation>Concordar</translation>
+        <translation>Pajtohem</translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Scan Again</source>
-        <translation>Verificar novamente</translation>
+        <translation>Riskanoje</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Verificação suspensa</translation>
+        <translation>Skanimi u Pezullua</translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Cadastrar biometria</translation>
+        <translation>Jepni Gisht</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation>Coloque o dedo que será usado no sensor de impressão digital e mova-o de baixo para cima. Após concluir a ação, levante o dedo.</translation>
+        <translation>Vendosni te ndijuesi i shenjave të gishtave gishtin që duhet dhënë dhe lëvizeni nga poshtë lart. Pas plotësimit të veprimit, ju lutemi, hiqeni gishtin.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Li e concordo com os termos</translation>
+        <translation>I kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Isenção de responsabilidade</translation>
+        <translation>Klauzolën</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Tentar cadastrar biometria novamente</translation>
+        <translation>Riprovoni Dhënien</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -304,101 +314,105 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
+        <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
+
+Ju lutemi, kini parasysh se UnionTech Software Technology Co., Ltd. s’do të grumbullojë apo përdorë informacion biometrik tuajin,, i cili do të depozitohet në pajisjen tuaj vendore. Ju lutemi, aktivizojeni mirëfilltësimin biometrik në pajisjen tuaj personale dhe përdorni të dhëna tuajat biometrike vetëm për veprimet përkatëse dhe çaktivizojeni pa humbur kohë, ose fshini në atë pajisje të dhëna biometrike personash të tjerë, ndryshme do të jeni përballë rrezikut të rrjedhur prej tyre.
+
+UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe përmirësojë sigurinë, përpikërinë dhe qëndrueshmërinë e mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjeje, teknikë dhe të tjerë, si dhe kontrolli rreziku, s’ka garanci se do të kaloni mirëfilltësimin biometrik përkohësisht. Ndaj, ju lutemi, mos e merrni mirëfilltësimin biometrik si të vetmen rrugë për të bërë hyrjen në UOS. Nëse keni pyetje apo sugjerime, kur përdorni mirëfilltësimin biometrik, mund të jepni idetë tuaja përmes “Shërbim dhe Asistencë” te UOS.</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation>Aceitar</translation>
+        <translation>Pajtohem</translation>
     </message>
 </context>
 <context>
     <name>AddIrisInfoDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation>Cadastrar íris</translation>
+        <translation>Jepni Bebe Syri</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation>Íris cadastrada</translation>
+        <translation>U dha bebe syri</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation>Falha ao cadastrar a íris</translation>
+        <translation>S’u arrit të merrej bebe syri</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation>Tente novamente</translation>
+        <translation>Riprovoni</translation>
     </message>
 </context>
 <context>
     <name>AdvancedSettingModule</name>
     <message>
         <source>Advanced Setting</source>
-        <translation>Configurações Avançadas</translation>
+        <translation>Rregullime të Mëtejshme</translation>
     </message>
     <message>
         <source>Audio Framework</source>
-        <translation>Servidor de áudio</translation>
+        <translation>Platformë Audio</translation>
     </message>
     <message>
         <source>Different audio frameworks have their own advantages and disadvantages, and you can choose the one that best matches you to use</source>
-        <translation>Selecione o servidor de áudio que melhor se adapta às suas necessidades</translation>
+        <translation>Platforma të ndryshme audio kanë përparësitë dhe mangësitë e tyre, zgjidhni atë që i përputhet më mirë përdorimit tuaj</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationInfoItem</name>
     <message>
         <source>No more than 15 characters</source>
-        <translation>Não mais do que 15 caracteres</translation>
+        <translation>Jo më shumë se 15 shenja</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Use apenas letras, números e underlines; não mais do que 15 caracteres</translation>
+        <translation>Përdorni vetëm shkronja, numra dhe nënvija, si dhe jo më shumë se 15 shenja</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Use apenas letras, números e underlines</translation>
+        <translation>Përdorni vetëm shkronja, numra dhe nënvija</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationModule</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticação Biométrica</translation>
+        <translation>Mirëfilltësim Biometrik</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationPlugin</name>
     <message>
         <source>Fingerprint</source>
-        <translation>Impressão Digital</translation>
+        <translation>Shenja gishtash</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Rosto</translation>
+        <translation>Fytyrë</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Íris</translation>
+        <translation>Bebe Syri</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>&quot;Auto Logon&quot; só pode ser habilitado apenas para uma conta, desabilite-o primeiro para a conta &quot;%1&quot;</translation>
+        <translation>“Hyre e Automatizuar” mund të aktivizohet vetëm për një llogari, ju lutemi, së pari çaktivizojeni për llogarinë “%1”</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -409,190 +423,190 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation>Imagens</translation>
+        <translation>Figura</translation>
     </message>
     <message>
         <source>Human</source>
-        <translation>Humano</translation>
+        <translation>Njeri</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation>Animal</translation>
+        <translation>Kafshë</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Cenário</translation>
+        <translation>Peizazh</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation>Ilustração</translation>
+        <translation>Ilustrim</translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation>Emoji</translation>
+        <translation>Emoxhi</translation>
     </message>
     <message>
         <source>custom</source>
-        <translation>personalizada</translation>
+        <translation>vetjake</translation>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation>Estilo desenho animado</translation>
+        <translation>Në stil “film vizatimor”</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation>Estilo dimensional</translation>
+        <translation>Në stil përmasor</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation>Estilo plano</translation>
+        <translation>Në stil të sheshtë</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar o monitor após</translation>
+        <translation>Fike ekranin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>A atividade do computador será suspensa após </translation>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Quando a tampa estiver fechada</translation>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation>Bateria fraca</translation>
+        <translation>Bateri e Pakët</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation>Notificação de bateria fraca</translation>
+        <translation>Njoftim për bateri të pakët</translation>
     </message>
     <message>
         <source>Disbale</source>
-        <translation>Desativar</translation>
+        <translation>Çaktivizoje</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation>Suspensão automática</translation>
+        <translation>Vetëpezulloje</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>Hibernação automática</translation>
+        <translation>Vetëplogështoje</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Limitador de bateria fraca</translation>
+        <translation>Prag për bateri të ulët</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Gerenciamento de bateria</translation>
+        <translation>Administrim Baterie</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Exibir tempo restante de uso e carregamento</translation>
+        <translation>Shfaq kohën e mbetur për përdorimin dhe atë për ngarkimin</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation>Capacidade máxima</translation>
+        <translation>Kapacitet maksimum</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>Nível de bateria fraca</translation>
+        <translation>Nivel i ulët baterie</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation>O Bluetooth está ligado e o nome é exibido como &quot;%1&quot;</translation>
+        <translation>Bluetooth-i është i aktivizuar dhe emri është shfaqur si “%1”</translation>
     </message>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation>O Bluetooth está desligado e o nome é exibido como &quot;%1&quot;</translation>
+        <translation>Bluetooth-i është i çaktivizuar dhe emri është shfaqur si “%1”</translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation>Desconectar</translation>
+        <translation>Shkëpute</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Conectar</translation>
+        <translation>Lidhe</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation>Enviar arquivos</translation>
+        <translation>Dërgoni Kartela</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Renomear</translation>
+        <translation>Riemërtojeni</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation>Renomear dispositivo</translation>
+        <translation>Hiqe Pajisjen</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Selecionar arquivo</translation>
+        <translation>Përzgjidhni kartelë</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation>Comprimento maior ou igual a 64</translation>
+        <translation>Gjatësi më e madhe ose baras me 64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Permitir que outros dispositivos Bluetooth encontrem este dispositivo</translation>
+        <translation>Lejoji pajisjet e tjera Bluetooth të gjejnë këtë pajisje</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation>Para usar a função Bluetooth, desligue</translation>
+        <translation>Që të përdorni funksionin Bluetooth, ju lutemi, çaktivizojeni</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Modo avião</translation>
+        <translation>Mënyra Aeroplan</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation>Conectado</translation>
+        <translation>I lidhur</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Desconectado</translation>
+        <translation>Jo i lidhur</translation>
     </message>
 </context>
 <context>
@@ -603,614 +617,614 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth device manager</source>
-        <translation>Gerenciador de dispositivos Bluetooth</translation>
+        <translation>Përgjegjës pajisjesh Bluetooth</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation>Configurações de inicialização</translation>
+        <translation>Rregullime Nisjeje</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation>Você pode clicar no menu para alterar os itens de inicialização padrão ou arrastar a imagem para a janela para alterar a imagem de fundo.</translation>
+        <translation>Mund të klikoni menunë, që të ndryshoni objekte parazgjedhje nisjeje, ose të tërhiqni figurën te dritarja për të ndryshuar figurën sfond.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>atraso no início do grub</translation>
+        <translation>vonesë nisjeje grub-i</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation>Tema</translation>
+        <translation>temë</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation>Depois de ativar o tema, você pode ver o plano de fundo do tema ao ligar o computador</translation>
+        <translation>Pas aktivizimit të temës, mund të shihni sfondin e temës, kur ndizni kompjuterin</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation>Verificação do menu de inicialização</translation>
+        <translation>Verifikim menuje nisjesh</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation>Após a abertura, é necessário digitar uma senha para entrar no menu de edição.</translation>
+        <translation>Pas hapjes, hyrja në përpunim menuje lyp fjalëkalim.</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Alterar a senha</translation>
+        <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation>Alterar senha de verificação do menu de inicialização</translation>
+        <translation>Ndryshoni fjalëkalim verifikimi menuje nisjeje</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation>Defina a senha de autenticação do menu de inicialização</translation>
+        <translation>Caktoni fjalëkalimin e verifikimit të menusë së nisjes</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Nome de usuário</translation>
+        <translation>Emër Përdoruesi:</translation>
     </message>
     <message>
         <source>root</source>
-        <translation>root</translation>
+        <translation>rrënjë</translation>
     </message>
     <message>
         <source>New Password :</source>
-        <translation>Nova senha:</translation>
+        <translation>Fjalëkalim i Ri:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatória</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode estar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>As senhas não correspondem</translation>
+        <translation>Fjalëkalimet s’përputhen</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Repita a senha:</translation>
+        <translation>Rijepeni fjalëkalimin:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation>Certeza</translation>
+        <translation>Patjetër</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation>Animação de inicialização</translation>
+        <translation>Fillo animacionin</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation>Ajuste o tamanho do logotipo na interface de inicialização do sistema</translation>
+        <translation>Përimtoni madhësinë e animacionit të stemës te ndërfaqja e nisjes së sistemit</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation>Permita que os aplicativos abaixo acessem sua câmera:</translation>
+        <translation>Lejoji aplikacionet më poshtë të përdorin kamerën tuaj:</translation>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>Impressão digital 1</translation>
+        <translation>Shenjëgishti1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>Impressão digital 2</translation>
+        <translation>Shenjëgishti2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>Impressão digital 3</translation>
+        <translation>Shenjëgishti3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>Impressão digital 4</translation>
+        <translation>Shenjëgishti4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>Impressão digital 5</translation>
+        <translation>Shenjëgishti5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>Impressão digital 6</translation>
+        <translation>Shenjëgishti6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>Impressão digital 7</translation>
+        <translation>Shenjëgishti7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>Impressão digital 8</translation>
+        <translation>Shenjëgishti8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>Impressão digital 9</translation>
+        <translation>Shenjëgishti9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>Impressão digital 10</translation>
+        <translation>Shenjëgishti10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>A leitura falhou</translation>
+        <translation>Skanimi dështoi</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation>A impressão digital já existe</translation>
+        <translation>Shenja e gishtit ekziston tashmë</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Digitalize os outros dedos</translation>
+        <translation>Ju lutemi, skanoni gishta të tjerë</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Erro desconhecido</translation>
+        <translation>Gabim i panjohur</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Leitura suspensa</translation>
+        <translation>Skanimi u pezullua</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>Não reconhecida</translation>
+        <translation>S’bëhet dot njohja</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation>Moveu-se muito rápido</translation>
+        <translation>U lëviz shumë shpejt</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>O dedo se moveu muito rápido; não levante até que seja solicitado</translation>
+        <translation>Gishti u lëviz shumë shpejt, ju lutemi, mos e ngrini para se t’ju kërkohet</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Impressão digital pouco nítida</translation>
+        <translation>Shenjë gishti e paqartë</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Limpe o dedo ou ajuste a posição do mesmo, e tente novamente</translation>
+        <translation>Pastroni gishtin, ose rregulloni pozicion gishti dhe riprovoni</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation>Já digitalizado</translation>
+        <translation>Skanuar tashmë</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Ajuste a posição do dedo para digitalizar totalmente a impressão digital</translation>
+        <translation>Rregullojeni pozicionin e gishtit që të skanohet plotësisht shenja e gishtit</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>O dedo se moveu muito rápido; não levante até que seja solicitado</translation>
+        <translation>Gishti u lëviz shumë shpejt. Ju lutemi, mos e ngrini, pa jua kërkuar</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Levante o dedo e posicione-o sobre o sensor</translation>
+        <translation>Ngrijeni gishtin dhe rivendoseni te ndijuesi</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation>Posicione seu rosto dentro da moldura</translation>
+        <translation>Vendoseni fytyrën tuaj brenda kuadrit</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Rosto cadastrado</translation>
+        <translation>Fytyra u dha</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation>Posicione um rosto humano</translation>
+        <translation>Ju lutemi, vendosni një fytyrë njeriu</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation>Afaste-se da câmera</translation>
+        <translation>Mbajeni kamerën larg vetes</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation>Aproxime-se da câmera</translation>
+        <translation>Afrojuni kamerës</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation>Não posicione vários rostos dentro da moldura</translation>
+        <translation>Mos vendosni brenda kuadrit disa fytyra</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation>Certifique-se que a lente da câmera está limpa</translation>
+        <translation>Sigurohuni se thjerrat e kamerës janë të pastra</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>Não cadastre-se em ambientes escuros, claros ou com luz de fundo</translation>
+        <translation>Mos bëni dhënie fytyre në mjedise të errët, të ndritshëm, apo të ndriçuar nga pas</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation>Mantenha seu rosto descoberto</translation>
+        <translation>Mbajeni zbuluar fytyrën tuaj</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation>O tempo limite da varredura expirou</translation>
+        <translation>Skanimit i mbaroi koha</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation>O dispositivo travou, verifique novamente!</translation>
+        <translation>Pajisja u vithis, ju lutemi, ribëni skanimin!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation>Verificar novamente</translation>
+        <translation>Rikontrollo</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Verificar atualizações</translation>
+        <translation>Kontrollo për Përditësime</translation>
     </message>
     <message>
         <source>Last checking time</source>
-        <translation>Hora da última verificação</translation>
+        <translation>Koha e kontrollit të fundit</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation>Cor de destaque</translation>
+        <translation>Ngjyrë Theksimi</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Configurações dos ícones</translation>
+        <translation>Rregullime Ikonash</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Tema dos ícones</translation>
+        <translation>Temë Ikonash</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation>Personalizar o tema do ícone</translation>
+        <translation>Përshtatni ikonën e temës tuaj</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>Tema do cursor</translation>
+        <translation>Temë Kursori</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation>Personalizar o tema do cursor </translation>
+        <translation>Përshtatni kursorin e temës tuaj</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Tem certeza de que deseja excluir esta conta?</translation>
+        <translation>Jeni i sigurt se doni të fshihet kjo llogari?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Excluir diretório de contas</translation>
+        <translation>Fshi drejtori llogarie</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Deletar</translation>
+        <translation>Fshije</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Ir para as configurações </translation>
+        <translation>Kaloni te rregullimet</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Vonesë përsëritjeje</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Curto</translation>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Longo</translation>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation>Taxa de repetição</translation>
+        <translation>Shpejtësi përsëritjeje</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Teclado Numérico</translation>
+        <translation>Pjesa Numerike</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation>teste aqui</translation>
+        <translation>provojeni këtu</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation>Prompt do Caps Lock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation>Velocidade de rolagem</translation>
+        <translation>Shpejtësi Rrëshqitjeje</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation>Velocidade do clique duplo</translation>
+        <translation>Shpejtësi Dyklikimi</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Teste de clique duplo</translation>
+        <translation>Provë Dyklikimi</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Modo Mão Esquerda</translation>
+        <translation>Mënyra “Mëngjarash”</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Tamanho grande</translation>
+        <translation>Madhësi e madhe</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Tamanho pequeno</translation>
+        <translation>Madhësi e vogël</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Falha ao obter acesso root</translation>
+        <translation>S’u arrit të përfitohet hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Por favor, primeiro faça login no seu Union ID</translation>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Não é possível ler as informações do seu PC</translation>
+        <translation>S’lexohen dot hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Sem conexão de rede</translation>
+        <translation>S’ka lidhje rrjeti</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Falha no carregamento do certificado, não é possível obter acesso root</translation>
+        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Falha na verificação da assinatura, não é possível obter acesso root</translation>
+        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Concordar e aderir ao Programa de Experiência do Usuário</translation>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Isenção de responsabilidade do modo de desenvolvedor</translation>
+        <translation>Klauzola Mënyre Zhvillues</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Concordar e solicitar acesso root</translation>
+        <translation>Pajtohuni dhe Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation>Começando a definir a nova animação de inicialização, aguarde um minuto</translation>
+        <translation>Fillojani duke ujdisur animacion të ri nisjeje, ju lutemi, prisni një minutë</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation>A configuração da nova animação de inicialização foi concluída</translation>
+        <translation>Përfundoi ujdisja e animacionit të ri të nisjes</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation>As configurações serão aplicadas após a reinicialização do sistema</translation>
+        <translation>Rregullimet do të aplikohen pas rinisjes së sistemit</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation>A senha deve conter números e letras</translation>
+        <translation>Fjalëkalimi duhet të përmbajë numra dhe shkronja</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation>A senha deve ter entre 8 e 64 caracteres</translation>
+        <translation>Fjalëkalimi duhet të jetë mes 8 dhe 6e pakta 8 shenja</translation>
     </message>
 </context>
 <context>
     <name>CooperationSettingsDialog</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation>Configurações de colaboração</translation>
+        <translation>Rregullime Bashkëpunimi</translation>
     </message>
     <message>
         <source>Share mouse and keyboard</source>
-        <translation>Compartilhar mouse e teclado</translation>
+        <translation>Nda mi dhe tastierë</translation>
     </message>
     <message>
         <source>Share your mouse and keyboard across devices</source>
-        <translation>Compartilhar mouse e teclado entre dispositivos</translation>
+        <translation>Përdorni miun dhe tastierën tuaj nëpër pajisje</translation>
     </message>
     <message>
         <source>Share clipboard</source>
-        <translation>Compartilhar área de transferência</translation>
+        <translation>Nda të papastrën</translation>
     </message>
     <message>
         <source>Storage path for shared files</source>
-        <translation>Caminho de armazenamento para os arquivos compartilhados</translation>
+        <translation>Shteg depozitimi për kartela të ndara</translation>
     </message>
     <message>
         <source>Share the copied content across devices</source>
-        <translation>Compartilhe o conteúdo copiado entre dispositivos</translation>
+        <translation>Përdoreni nëpër pajisje lëndën e kopjuar</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation>Criar uma nova conta</translation>
+        <translation>Krijoni llogari të re</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Tipo de conta</translation>
+        <translation>Lloj llogarie</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation>Nome de usuário</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>I domosdoshëm</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation>Nome completo</translation>
+        <translation>Emër i plotë</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation>Opsional</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation>Criar conta</translation>
+        <translation>Krijo llogari</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Você ainda não carregou um avatar. Clique ou arraste e solte para carregar uma imagem</translation>
+        <translation>S’keni ngarkuar ende ndonjë avatar. Që të ngarkoni një figurë, klikoni ose tërhiqni një të tillë.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
-        <translation>Sempre</translation>
+        <translation>Përherë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation>Usuários</translation>
+        <translation>Përdorues</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation>Gerenciamento de usuários</translation>
+        <translation>Administrim përdoruesish</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation>Criar usuário</translation>
+        <translation>Krijoni Përdorues</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nome de usuário</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Alterar senha</translation>
+        <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Delete User</source>
-        <translation>Excluir usuário</translation>
+        <translation>Fshini Përdorues</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation>Tipo de usuário</translation>
+        <translation>Lloj Përdoruesi</translation>
     </message>
     <message>
         <source>Auto Login</source>
-        <translation>Login automático </translation>
+        <translation>Hyrje e Automatizuar</translation>
     </message>
     <message>
         <source>Login Without Password</source>
-        <translation>Entrar sem senha</translation>
+        <translation>Hyrje Pa Fjalëkalim</translation>
     </message>
     <message>
         <source>Validity Days</source>
-        <translation>Dias de validade</translation>
+        <translation>Ditë Vlefshmërie</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation>Grupo</translation>
+        <translation>Grup</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>O nome completo é muito longo</translation>
+        <translation>Emri është shumë i gjatë</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Usuário Padrão</translation>
+        <translation>Përdorues Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Përgjegjës</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>Redefinir senha</translation>
+        <translation>Ricaktoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>O nome completo foi usado por outras contas de usuário</translation>
+        <translation>Emri i plotë është përdorur nga të tjera llogari përdoruesish</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation>Nome completo</translation>
+        <translation>Emër i Plotë</translation>
     </message>
     <message>
         <source>Go to Settings</source>
-        <translation>Ir para configurações</translation>
+        <translation>Kalo te Rregullimet</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>OK</source>
@@ -1218,1029 +1232,1029 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>O &quot;login automático&quot; pode ser habilitado apenas para uma conta, desabilite-o primeiro para a conta &quot;%1&quot;</translation>
+        <translation>“Hyre e Automatizuar” mund të aktivizohet vetëm për një llogari, ju lutemi, së pari çaktivizojeni për llogarinë “%1”</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Seu host foi removido do servidor de domínio com sucesso</translation>
+        <translation>Streha juaj u hoq me sukses nga shërbyesi i përkatësive</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Seu host se conectou ao servidor de domínio com sucesso</translation>
+        <translation>Streha juaj u bë me sukses pjesë e shërbyesit të përkatësive</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Seu host não conseguiu sair do servidor de domínio</translation>
+        <translation>S’u arrit të braktisej shërbyesi i përkatësive nga streha juaj</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Seu host falhou ao ingressar no servidor de domínio</translation>
+        <translation>S’u arrit që streha juaj të bëhej pjesë e shërbyesit të përkatësive</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Configurações de domínio do AD</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>A senha não corresponde</translation>
+        <translation>Fjalëkalimi juaj s’përputhet</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation>Mostrar notificações de %1 na área de trabalho e no centro de notificações.</translation>
+        <translation>Shfaq njoftime nga %1 në desktop dhe te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Reproduzir um som</translation>
+        <translation>Luaj një tingull</translation>
     </message>
     <message>
         <source>Show messages on lockscreen</source>
-        <translation>Mostrar mensagens na tela de bloqueio</translation>
+        <translation>Shfaq mesazhe gjatë kyçjeje ekrani</translation>
     </message>
     <message>
         <source>Show in notification center</source>
-        <translation>Mostrar no centro de notificações</translation>
+        <translation>Shfaqe në qendër njoftimesh</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Mostrar pré-visualização da mensagem</translation>
+        <translation>Shfaq paraparje mesazhi</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation>Pessoa</translation>
+        <translation>Person</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation>Animal</translation>
+        <translation>Kafshë</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Cenário</translation>
+        <translation>Peizazh</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation>Ilustração</translation>
+        <translation>Ilustrim</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation>Expressão</translation>
+        <translation>Shprehje</translation>
     </message>
     <message>
         <source>Custom Picture</source>
-        <translation>Imagem personalizada</translation>
+        <translation>Foto Vetjake</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Cartoon Style</source>
-        <translation>Estilo desenho animado</translation>
+        <translation>Në Stil “Film Vizatimor”</translation>
     </message>
     <message>
         <source>Dimensional Style</source>
-        <translation>Estilo dimensional</translation>
+        <translation>Në Stil Përmasor</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>Estilo plano</translation>
+        <translation>Në Stil të Sheshtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListView</name>
     <message>
         <source>Images</source>
-        <translation>Imagens</translation>
+        <translation>Figura</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::BootWidget</name>
     <message>
         <source>Updating...</source>
-        <translation>Atualizando...</translation>
+        <translation>Po përditësohet…</translation>
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation>Atraso na nicialização</translation>
+        <translation>Vonesë Nisjeje</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Temë</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Clique na opção no menu de inicialização para defini-la como a primeira inicialização e arraste e solte uma imagem para alterar o plano de fundo</translation>
+        <translation>Klikoni mundësinë te menu nisjeje, që ta caktoni si të parën që niset dhe tërhiqni një figurë për të ndryshuar sfondin</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation>Clique na opção no menu de inicialização para defini-la como a primeira inicialização</translation>
+        <translation>Klikoni mundësinë te menu nisjeje, që ta caktoni si të parën që niset</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Ative o tema para visualizá-lo no menu de inicialização</translation>
+        <translation>Që ta shihni te menu nisjeje, aktivizojeni temën</translation>
     </message>
     <message>
         <source>GRUB Authentication</source>
-        <translation>Autenticação GRUB</translation>
+        <translation>Mirëfilltësim GRUB</translation>
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
-        <translation>A senha do GRUB é necessária para editar sua configuração</translation>
+        <translation>Që të përpuponi formësimin e tij, është i domosdoshëm fjalëkalimi për GRUB-in</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Alterar senha</translation>
+        <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de inicialização</translation>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
-        <translation>Alterar senha do GRUB</translation>
+        <translation>Ndryshoni fjalëkalim GRUB-i</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Nome de usuário:</translation>
+        <translation>Emër përdoruesi:</translation>
     </message>
     <message>
         <source>root</source>
-        <translation>root</translation>
+        <translation>rrënjë</translation>
     </message>
     <message>
         <source>New password:</source>
-        <translation>Nova senha:</translation>
+        <translation>Fjalëkalimi i ri:</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Repita a senha:</translation>
+        <translation>Rijepeni fjalëkalimin:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode estar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>As senhas não correspondem</translation>
+        <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::BrightnessWidget</name>
     <message>
         <source>Brightness</source>
-        <translation>Brilho</translation>
+        <translation>Ndriçim</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Temperatura da cor</translation>
+        <translation>Temperaturë Ngjyre</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation>Brilho automático</translation>
+        <translation>Ndriçim i Automatizuar</translation>
     </message>
     <message>
         <source>Night Shift</source>
-        <translation>Modo noturno</translation>
+        <translation>Turn Nate</translation>
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>A matiz da tela será ajustada automaticamente de acordo com a sua localização</translation>
+        <translation>Ngjyrimi i ekranit do të përimtohet automatikisht sipas vendndodhjes tuaj</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation>Alterar temperatura da cor</translation>
+        <translation>Ndryshoni Temperaturë Ngjyre</translation>
     </message>
     <message>
         <source>Cool</source>
-        <translation>Fria</translation>
+        <translation>E ftohtë</translation>
     </message>
     <message>
         <source>Warm</source>
-        <translation>Quente</translation>
+        <translation>E ngrohtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
-        <translation>Configurações gerais</translation>
+        <translation>Rregullime të Përgjithshme</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de inicialização</translation>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation>Modo desenvolvedor </translation>
+        <translation>Mënyra Zhvillues</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Programa de experiência do usuário</translation>
+        <translation>“User Experience Program”</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Concordar e aderir ao Programa de Experiência do Usuário</translation>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Isenção de responsabilidade do modo de desenvolvedor</translation>
+        <translation>Klauzola Mënyre Zhvillues</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Concordar e solicitar acesso root</translation>
+        <translation>Pajtohuni dhe Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Falha ao obter acesso root</translation>
+        <translation>S’u arrit të përfitohet hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Por favor, primeiro faça login no seu Union ID</translation>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Não é possível ler as informações do seu PC</translation>
+        <translation>S’lexohen dot hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Sem conexão de rede</translation>
+        <translation>S’ka lidhje rrjeti</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Falha no carregamento do certificado, não é possível obter acesso root</translation>
+        <translation>Dështoi ngarkim dëshmie, s’arrihet të përfitohet hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Falha na verificação da assinatura, não é possível obter acesso root</translation>
+        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation>Começando a definir a nova animação de inicialização, aguarde um minuto</translation>
+        <translation>Fillojani duke ujdisur animacionin e ri të nisjes, ju lutemi, prisni një minutë</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation>A configuração da nova animação de inicialização foi concluída</translation>
+        <translation>Përfundoi ujdisja e animacionit të ri të nisjes</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation>As configurações serão aplicadas após a reinicialização do sistema</translation>
+        <translation>Rregullimet do të aplikohen pas rinisjes së sistemit</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CreateAccountPage</name>
     <message>
         <source>Group</source>
-        <translation>Grupo</translation>
+        <translation>Grup</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation>Criar</translation>
+        <translation>Krijoni</translation>
     </message>
     <message>
         <source>New User</source>
-        <translation>Novo usuário</translation>
+        <translation>Përdorues i Ri</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation>Tipo de usuário</translation>
+        <translation>Lloj Përdoruesi</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nome de usuário</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation>Nome completo</translation>
+        <translation>Emër i Plotë</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Repita a sua senha</translation>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation>Dica de senha</translation>
+        <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>O nome completo é muito longo</translation>
+        <translation>Emri i plotë është shumë i gjatë</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>As senhas não correspondem</translation>
+        <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Usuário padrão</translation>
+        <translation>Përdorues Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Përgjegjës</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Personalizado</translation>
+        <translation>E përshtatur</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>optional</source>
-        <translation>Opcional</translation>
+        <translation>opsionale</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>A dica é visível para todos os usuários. Não inclua a senha aqui</translation>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation>Falha na autenticação do Policykit</translation>
+        <translation>Mirëfilltësimi me Policykit dështoi</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>O nome de usuário deve ter entre 3 e 32 caracteres</translation>
+        <translation>Emri i përdoruesit duhet të jetë nga 3 deri në 32 shenja</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>O primeiro caractere deve ser uma letra ou número</translation>
+        <translation>Shenja e parë duhet të jetë shkronjë ose numër</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>Seu nome de usuário não deve ter apenas números</translation>
+        <translation>Emri juaj i përdoruesit s’duhet të përmbajë vetëm numra</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>O nome de usuário foi usado por outra conta de usuário</translation>
+        <translation>Emri i përdoruesit është përdorur nga të tjera llogari përdoruesish</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>O nome completo foi usado por outra conta de usuário</translation>
+        <translation>Emri i plotë është përdorur nga të tjera llogari përdoruesish</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation>Você não carregou uma imagem, você pode clicar ou arrastar para carregar uma imagem</translation>
+        <translation>S’keni ngarkuar ndonjë foto. që të ngarkoni një figurë, klikoni ose tërhiqni një të tillë</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation>O tipo de arquivo enviado está incorreto, envie novamente</translation>
+        <translation>Lloji i kartelës së ngarkuar është i pasaktë, ju lutemi, ringarkoni</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Imagens</translation>
+        <translation>Figura</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomContentDialog</name>
     <message>
         <source>Add Custom Shortcut</source>
-        <translation>Adicionar atalho personalizado</translation>
+        <translation>Shtoni Shkurtore Vetjake</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nome</translation>
+        <translation>Emër</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation>Comando</translation>
+        <translation>Urdhër</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho está em conflito com %1, clique em Adicionar para tornar este atalho efetivo imediatamente</translation>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Shtoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomEdit</name>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Atalho</translation>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nome</translation>
+        <translation>Emër</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation>Comando</translation>
+        <translation>Urdhër</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho está em conflito com %1, clique em Adicionar para tornar este atalho efetivo imediatamente</translation>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Shtoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomItem</name>
     <message>
         <source>Shortcut</source>
-        <translation>Atalho</translation>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>Please enter a shortcut</source>
-        <translation>Por favor, insira um atalho</translation>
+        <translation>Ju lutemi, jepni një shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::CustomRegionFormatDialog</name>
     <message>
         <source>Custom Format</source>
-        <translation>Formato personalizado</translation>
+        <translation>Format Vetjak</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Primeiro dia da semana</translation>
+        <translation>Dita e parë e javës</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Data pequena </translation>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Data grande</translation>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Hora pequena</translation>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Hora grande</translation>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation>Números</translation>
+        <translation>Numra</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>Papel</translation>
+        <translation>Letër</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation>Para mais detalhes, visite: </translation>
+        <translation>Për më tepër hollësi, vizitoni:</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
-        <translation>Solicitar acesso root</translation>
+        <translation>Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>Online</translation>
+        <translation>Në linjë</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Offline</translation>
+        <translation>Jo në linjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation>Por favor, primeiro faça login no seu Union ID e continue</translation>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj dhe vazhdoni</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation>Exportar informações do PC</translation>
+        <translation>Eksportoni Hollësi PC-je</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>Importar Certificado </translation>
+        <translation>Importoni Dëshmi</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
-        <translation>1. Exporte as informações do seu PC</translation>
+        <translation>1. Eksportoni Hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation>2. Acesse https://www.chinauos.com/developMode para baixar um certificado offline</translation>
+        <translation>2. Që të shkarkoni një dëshmi &lt;em&gt;offline&lt;/em&gt;, kaloni te https://www.chinauos.com/developMode</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation>3. Importe o certificado</translation>
+        <translation>3. Importoni dëshminë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
-        <translation>Solicitar acesso root</translation>
+        <translation>Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>O modo de desenvolvedor permite que você obtenha privilégios de root, instale e execute aplicativos não assinados não listados na loja de aplicativos, mas a integridade do seu sistema também pode ser danificada, use-o com cuidado</translation>
+        <translation>Mënyra zhvillues ju lejon të përfitoni privilegje rrënje, të instaloni dhe të xhironi aplikacione të panënshkruar jo të pranishëm te shitorja e aplikacioneve, por kështu mundet edhe të dëmtohet integriteti i sistemit tuaj, ju lutemi, përdoreni me kujdes.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>O recurso não está disponível no momento, ative seu sistema primeiro</translation>
+        <translation>Veçoria s’është e pranishme tani për tani, ju lutemi, së pari aktivizoni sistemin tuaj</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Falha ao obter acesso root</translation>
+        <translation>S’u arrit të përfitohet hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Por favor, primeiro faça login no seu Union ID</translation>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Não é possível ler as informações do seu PC</translation>
+        <translation>S’lexohen dot hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Sem conexão de rede</translation>
+        <translation>S’ka lidhje rrjeti</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Falha no carregamento do certificado, não é possível obter acesso root</translation>
+        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Falha na verificação da assinatura, não é possível obter acesso root</translation>
+        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Para tornar alguns recursos efetivos, é necessário reiniciar. Reiniciar agora?</translation>
+        <translation>Për t’i bërë efektive disa veçori, lypset një rinisje. Të riniset tani?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Reiniciar agora</translation>
+        <translation>Rinise Tani</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation>Acesso root permitido</translation>
+        <translation>Hyrje Si Rrënjë e Lejuar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DisplayPlugin</name>
     <message>
         <source>Display</source>
-        <translation>Exibição</translation>
+        <translation>Shfaqje</translation>
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation>Luz, resolução, escala e etc.</translation>
+        <translation>Ndriçim, qartësi, ripërmasim, etj</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation>Teste de clique duplo</translation>
+        <translation>Testim Dyklikimi</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configurações do teclado</translation>
+        <translation>Rregullime Tastiere</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Vonesë Përsëritjeje</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Curto</translation>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Longo</translation>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation>Taxa de repetição</translation>
+        <translation>Shpejtësi Përsëritjeje</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation>Teste aqui</translation>
+        <translation>Provojeni këtu</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Teclado Numérico</translation>
+        <translation>Pjesa Numerike</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation>Prompt de Caps Lock</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation>Mão esquerda</translation>
+        <translation>Mëngjarash</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation>Desativar touchpad durante a digitação</translation>
+        <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation>Velocidade de rolagem</translation>
+        <translation>Shpejtësi Rrëshqitjeje</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation>Velocidade do clique duplo</translation>
+        <translation>Shpejtësi Dyklikimi</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Skemë Tastiere</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation>Adicionar layout do teclado</translation>
+        <translation>Shtoni Skemë Tastiere</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Feito</translation>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shto</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation>Adicionar layout de teclado</translation>
+        <translation>Shtoni Skemë Tastiere</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::KeyboardPlugin</name>
     <message>
         <source>Keyboard and Language</source>
-        <translation>Teclado e idioma</translation>
+        <translation>Tastierë dhe gjuhë</translation>
     </message>
     <message>
         <source>Keyboard</source>
-        <translation>Teclado</translation>
+        <translation>Tastierë</translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configurações do teclado</translation>
+        <translation>Rregullime Tastiere</translation>
     </message>
     <message>
         <source>keyboard Layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Skemë tastiere</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Skemë Tastiere</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Gjuhë</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation>Atalhos</translation>
+        <translation>Shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MainWindow</name>
     <message>
         <source>Help</source>
-        <translation>Ajuda</translation>
+        <translation>Ndihmë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
-        <translation>Alterar senha</translation>
+        <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation>Redefinir senha</translation>
+        <translation>Ricaktoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Redefinir a senha apagará os dados armazenados no chaveiro.</translation>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <source>Current Password</source>
-        <translation>Senha atual</translation>
+        <translation>Fjalëkalimi i Tanishëm</translation>
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation>Esqueceu sua senha?</translation>
+        <translation>Harruat fjalëkalimin?</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation>Nova Senha</translation>
+        <translation>Fjalëkalim i Ri</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Repita a senha</translation>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation>Dica de senha</translation>
+        <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>As senhas não coincidem</translation>
+        <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatória</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation>Opsionale</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode estar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>A dica é visível para todos os usuários. Não inclua a senha aqui.</translation>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Senha errada</translation>
+        <translation>Fjalëkalim i gabuar</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>A nova senha deve ser diferente da atual</translation>
+        <translation>Fjalëkalimi i ri duhet të jetë i ndryshëm nga i tanishmi</translation>
     </message>
     <message>
         <source>System error</source>
-        <translation>Erro do sistema</translation>
+        <translation>Gabim sistemi</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation>Erro de rede</translation>
+        <translation>Gabim rrjeti</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation>Identificar</translation>
+        <translation>Identifikoje</translation>
     </message>
     <message>
         <source>Gather Windows</source>
-        <translation>Reunir janelas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>A reorganização da tela entrará em vigor em %1s após as alterações</translation>
+        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimesh</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Geral</translation>
+        <translation>Të përgjithshme</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation>Ponto de Rastreamento</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Shpejtësi Treguesi</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Aceleração do mouse</translation>
+        <translation>Përshpejtim Miu</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Desativar touchpad quando um mouse estiver conectado</translation>
+        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem natural</translation>
+        <translation>Rrëshqitje e Natyrshme</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation>Múltiplas telas</translation>
+        <translation>Ekrane të Shumtë</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation>Mënyrë</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Tela principal</translation>
+        <translation>Skena Kryesore</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicar</translation>
+        <translation>Përsëdyte</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Estender</translation>
+        <translation>Zgjeroje</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Somente em %1</translation>
+        <translation>Vetëm në %1</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation>Notificação de aplicativo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Notificação</translation>
+        <translation>Njoftim</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation>Notificações do sistema</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation>Detecção de mão</translation>
+        <translation>Pikasje Shpute</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation>Superfície de contato mínimo</translation>
+        <translation>Minimum Sipërfaqeje Kontakti</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation>Valor mínimo de pressão</translation>
+        <translation>Minimum Vlere Trysnie</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Desabilitar a opção se o touchpad não funcionar após habilitado</translation>
+        <translation>Çaktivizojeni mundësinë, nëse touchpad-i s’funksionon pas aktivizimit</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation>Animação de inicialização </translation>
+        <translation>Animacion Nisjeje</translation>
     </message>
     <message>
         <source>Small Size</source>
-        <translation>Tamanho pequeno</translation>
+        <translation>Madhësi e Vogël</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation>Tamanho grande</translation>
+        <translation>Madhësi e Madhe</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>Política de privacidade</translation>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
@@ -2252,65 +2266,65 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>Estamos profundamente cientes da importância de suas informações pessoais para você. Por isso, temos a Política de Privacidade que abrange como coletamos, usamos, compartilhamos, transferimos, divulgamos publicamente e armazenamos suas informações. Você pode clicar aqui para ver nossa política de privacidade mais recente e/ou visualizá-la on-line visitando %1. Leia com atenção e entenda completamente nossas práticas sobre privacidade do cliente. Se tiver alguma dúvida, entre em contato conosco em: support@uniontech.com.</translation>
+        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm mbi rëndësinë që ka për ju informacioni juaj personal. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, ndajmë me të tjerët, shpërngulim, zbulojmë publikisht dhe depozitojmë informacion tuajin.&lt;/p&gt;&lt;p&gt;Që të shihni rregullat tona më të reja të privatësisë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose t’i shihni në internet duk vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona rreth privatësisë së klientëve. Nëse keni ndonjë pyetje, ju lutemi, lidhuni me ne përmes: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode estar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>A senha deve ter pelo menos %1 caracteres</translation>
+        <translation>Fjalëkalimi duhet të ketë e pakta %1 shenja</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>A senha não deve ter mais que %1 caracteres</translation>
+        <translation>Fjalëkalimi s’duhet të jetë më tepër se %1 shenja</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha pode conter apenas letras (maiúsculas e minúsculas), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi mund të përmbajë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Não mais que %1 caracteres palíndromos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja palindromike</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Não mais que %1 caracteres monótonos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Não mais que %1 caracteres repetidos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha deve conter letras maiúsculas, letras minúsculas, números e símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi duhet të përmbajë vetëm shkronja të mëdha, shkronja të vogla, numra dhe simbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A senha não deve conter mais de 4 caracteres palíndromos</translation>
+        <translation>Fjalëkalimi s’duhet të përmbajë më shumë se 4 shenja palindromike</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Não use palavras e combinações comuns como senha</translation>
+        <translation>Mos përdorni si fjalëkalim fjalë dhe kombinime të zakonshme</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Crie uma senha forte, por favor</translation>
+        <translation>Ju lutemi, krijoni një fjalëkalim më të fortë</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Não atende às regras de senha</translation>
+        <translation>S’plotëson rregullat e fjalëkalimeve</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation>Taxa de atualização</translation>
+        <translation>Shpeshti Rifreskimi</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -2318,122 +2332,122 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Recommended</source>
-        <translation>Recomendado</translation>
+        <translation>E këshilluar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation>Formato da região </translation>
+        <translation>Format Rajoni</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation>Formato padrão</translation>
+        <translation>Format parazgjedhje</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation>O dia primeiro</translation>
+        <translation>Dita e parë</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Data abreviada</translation>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Data completa</translation>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Hora abreviada</translation>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Hora completa</translation>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation>Números</translation>
+        <translation>Numra</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>Papel</translation>
+        <translation>Letër</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Tem certeza de que deseja excluir esta conta?</translation>
+        <translation>Jeni i sigurt se doni të fshihet kjo llogari?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Excluir diretório de contas</translation>
+        <translation>Fshini drejtori llogarie</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Excluir</translation>
+        <translation>Fshije</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation>Resolução</translation>
+        <translation>Qartësi</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Redimensionar área de trabalho</translation>
+        <translation>Ripërmasoni Desktopin</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation>Parazgjedhje</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Ajustar</translation>
+        <translation>Sa Ta Nxërë</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Estender</translation>
+        <translation>Tërhiqe</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Centralizar</translation>
+        <translation>Vëre Në Qendër</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation>Recomendado</translation>
+        <translation>E rekomanduar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation>Rotação</translation>
+        <translation>Rrotullim</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Padrão</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>90°</source>
@@ -2452,253 +2466,253 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>O monitor suporta apenas 100% de escala de exibição</translation>
+        <translation>Monitori mbulon vetëm përshkallëzim 100% të ekranit</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>Escala de exibição</translation>
+        <translation>Përshkallëzim Ekrani</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
-        <translation>Brilho</translation>
+        <translation>Ndriçim</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation>Minímo</translation>
+        <translation>E dobët</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Mesatare</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Alto</translation>
+        <translation>E fortë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation>Perguntas de segurança</translation>
+        <translation>Pyetje Sigurie</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation>Essas perguntas serão usadas para ajudar a redefinir sua senha caso você a esqueça.</translation>
+        <translation>Këto pyetje do të përdoren për t’ju ndihmuar të ricaktoni fjalëkalimin tuaj, në rast se e harroni.</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation>Pergunta de segurança 1</translation>
+        <translation>Pyetje 1 sigurie</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation>Pergunta de segurança 2</translation>
+        <translation>Pyetje 2 sigurie</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation>Pergunta de segurança 3</translation>
+        <translation>Pyetje 3 sigurie</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation>Mantenha a resposta com menos de 30 caracteres</translation>
+        <translation>Mbajeni përgjigjen nën 30 shenja</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation>Não escolha uma pergunta duplicada, por favor</translation>
+        <translation>Ju lutemi, mos zgjidhni një pyetje të përsëdytur</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation>Selecione uma pergunta</translation>
+        <translation>Ju lutemi, përzgjidhni një pyetje</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation>Qual é o nome da cidade onde você nasceu?</translation>
+        <translation>Cili është emri i qytetit ku u lindët?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation>Qual o nome da primeira escola que você estudou?</translation>
+        <translation>Cili është emri i shkollës së parë që ndoqët?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation>Quem você mais ama neste mundo</translation>
+        <translation>Kë doni më shumë në këtë botë?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation>Qual é seu animal favorito?</translation>
+        <translation>Cila është kafsha juaj e parapëlqyer?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation>Qual é sua música favorita?</translation>
+        <translation>Cila është kënga juaj e parapëlqyer?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation>Qual é o seu apelido?</translation>
+        <translation>Cila është nofka juaj?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation>Não pode estar vazio</translation>
+        <translation>S’mund të jetë e zbrazët</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Feito</translation>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System Management</source>
-        <translation>Gerenciamento do sistema</translation>
+        <translation>Administrim Sistemi</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Janela</translation>
+        <translation>Dritare</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Espaço de trabalho</translation>
+        <translation>Hapësirë pune</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation>Ferramentas de assistência</translation>
+        <translation>Mjete Ndihmuese</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation>Atalhos personalizados</translation>
+        <translation>Shkurtore Vetjake</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation>Restaurar padrões</translation>
+        <translation>Rikthe Parazgjedhjet</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Atalho</translation>
+        <translation>Shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation>Por favor, redefina o atalho</translation>
+        <translation>Ju lutemi, Ricaktoni Shkurtoren</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>Substituir</translation>
+        <translation>Zëvendësoje</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Este atalho está em conflito com %1, clique em Substituir para tornar este atalho efetivo imediatamente</translation>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi “Zëvendësoje” që ta bëni të hyjë në fuqi menjëherë këtë shkurtore</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation>Insira um novo atalho</translation>
+        <translation>Jepni shkurtore të re</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>Disponível</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este PC</translation>
+        <translation>Mbi Këtë PC</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation>Nome do computador</translation>
+        <translation>Emër Kompjuteri</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation>Informações do sistema</translation>
+        <translation>Hollësi sistemi</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do OS</translation>
+        <translation>Emër OS-i</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versão</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation>Edição</translation>
+        <translation>Edicion</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Lloj</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation>Autorização</translation>
+        <translation>Autorizim</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation>Processador</translation>
+        <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>Memória</translation>
+        <translation>Kujtesë</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Plataforma gráfica</translation>
+        <translation>Platformë Grafike</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Núcleo</translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation>Acordos e Política de Privacidade</translation>
+        <translation>Marrëveshje dhe Rregulla Privatësie</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation>Licença de edição</translation>
+        <translation>Licencë Edicioni</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Contrato de licença do usuário final</translation>
+        <translation>Marrëveshje Licence Përdoruesi</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>política de Privacidade</translation>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>%1-bit</source>
@@ -2709,7 +2723,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation>Informações do sistema</translation>
+        <translation>Hollësi Sistemi</translation>
     </message>
 </context>
 <context>
@@ -2724,7 +2738,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>Estamos profundamente cientes da importância de suas informações pessoais para você. Por isso, temos a Política de Privacidade que abrange como coletamos, usamos, compartilhamos, transferimos, divulgamos publicamente e armazenamos suas informações. Você pode clicar aqui para ver nossa política de privacidade mais recente e/ou visualizá-la on-line visitando %1. Leia com atenção e entenda completamente nossas práticas sobre privacidade do cliente. Se tiver alguma dúvida, entre em contato conosco em: support@uniontech.com.</translation>
+        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm mbi rëndësinë që ka për ju informacioni juaj personal. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, ndajmë me të tjerët, shpërngulim, zbulojmë publikisht dhe depozitojmë informacion tuajin.&lt;/p&gt;&lt;p&gt;Që të shihni rregulat tona më të reja të privatësisë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose t’i shihni në internet duk vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona rreth privatësisë së klientëve. Nëse keni ndonjë pyetje, ju lutemi, lidhuni me ne përmes: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -2732,145 +2746,145 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te “User Experience Program” do të thotë se na akordoni leje dhe autorizoni të grumbullojmë dhe përdorim informacion të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse s’pranoni grumbullimin dhe përdorim prej nesh të informacioneve të përmendura më sipër, mos merrni pjesë te “Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë së Deepin-it (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Aderir ao Programa de Experiência do Usuário significa que você concorda e nos autoriza a coletar e usar as informações do seu dispositivo, sistema e aplicativos. Para maiores informações, consulte %1.&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni leje dhe autorizoni grumbullimin dhe përdorimin e hollësive mbi pajisjen, sistemin dhe aplikacionet tuaja. Nëse s’pranoni grumbullimin dhe përdorimin  e të dhënave të përmendura më sipër, mos merrni pjesë. Për hollësi të “User Experience Program” , ju lutemi, vizitoni &lt;a href=&quot;%1&quot;&gt;( %1)&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Concordar e aderir ao Programa de Experiência do Usuário</translation>
+        <translation>Pajtohuni dhe Merrni Pjesë te “User Experience Program”</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation>Adicionar idioma do sistema</translation>
+        <translation>Shtoni Gjuhë Sistemi</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation>Lista de idiomas</translation>
+        <translation>Listë Gjuhësh</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation>Adicionar idioma</translation>
+        <translation>Shtoni Gjuhë</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Feito</translation>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation>Não perturbe</translation>
+        <translation>Mos Më Bezdisni</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>As notificações do aplicativo não serão exibidas na área de trabalho e os sons serão silenciados, mas você poderá visualizar todas as mensagens na central de notificações.</translation>
+        <translation>Njoftimet nga aplikacionet s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund t’i shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Quando a tela estiver bloqueada </translation>
+        <translation>Kur ekrani është i kyçur</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation>A partir</translation>
+        <translation>Nga</translation>
     </message>
     <message>
         <source>To</source>
-        <translation>Até</translation>
+        <translation>Deri Më</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation>Tela sensível ao toque</translation>
+        <translation>Ekran Me Prekje</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation>Selecione sua tela sensível ao toque quando conectado ou defina-a aqui.</translation>
+        <translation>Përzgjidheni ekranin tuaj me prekje, kur lidhet, ose ujdiseni këtu.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Shpejtësi Treguesi</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation>Ativar touchpad</translation>
+        <translation>Aktivizo Touchpad-in</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Toque para clicar</translation>
+        <translation>Prekeni që të Klikohet</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem natural</translation>
+        <translation>Rrëshqitje e Natyrshme</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lenta</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápida</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Shpejtësi Treguesi</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Participar do Programa de Experiência do Usuário</translation>
+        <translation>Merrni Pjesë te “User Experience Program”</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
@@ -2884,284 +2898,284 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te “User Experience Program” do të thotë se na akordoni leje dhe autorizoni të grumbullojmë dhe përdorim informacion të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse s’pranoni grumbullimin dhe përdorim prej nesh të informacioneve të përmendura më sipër, mos merrni pjesë te “Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë së Deepin-it (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Juntar-se ao Programa de Experiência do Usuário significa que você concorda e autoriza-nos a coletar e usar as informações de seu dispositivo, sistema e aplicativos. Se você rejeita nossas condições supracitadas e o uso das informações, não junte-se ao Programa de Experiência do Usuário. Para ver detalhes, por favor consulte a Política de Privacidade Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te “User Experience Program” do të thotë se na akordoni leje dhe autorizoni të grumbullojmë dhe përdorim informacion të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse s’pranoni grumbullimin dhe përdorim prej nesh të informacioneve të përmendura më sipër, mos merrni pjesë te “Experience Program”. Për të ditur më tepër rreth administrimit të të dhënave tuaja, ju lutemi, referojuni Rregullave të Privatësisë prej UnionTech OS (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::MirrorSourceItem</name>
     <message>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>E patestuar</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation>Tempo excedido</translation>
+        <translation>Mbarim kohe</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Çka</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
         <source>Mirror List</source>
-        <translation>Lista de Mirrors</translation>
+        <translation>Listë Pasqyrash</translation>
     </message>
     <message>
         <source>Test Speed</source>
-        <translation>Teste de Velocidade</translation>
+        <translation>Testoni Shpejtësinë</translation>
     </message>
     <message>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>E patestuar</translation>
     </message>
     <message>
         <source>Retest</source>
-        <translation>Testar Novamente</translation>
+        <translation>Ritestoje</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation>Configuração de data e hora</translation>
+        <translation>Rregullim date dhe kohe</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Data</translation>
+        <translation>Datë</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation>Ano</translation>
+        <translation>Vit</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Mês</translation>
+        <translation>Muaj</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Dia</translation>
+        <translation>Ditë</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Hora</translation>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
     <name>DateWidget</name>
     <message>
         <source>Year</source>
-        <translation>Ano</translation>
+        <translation>Vit</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Mês</translation>
+        <translation>Muaj</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Dia</translation>
+        <translation>Ditë</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation>Amanhã</translation>
+        <translation>Nesër</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation>Ontem</translation>
+        <translation>Dje</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Hoje</translation>
+        <translation>Sot</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>%1 horas antes do horário local</translation>
+        <translation>%1 orë më herët se vendorja</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>%1 horas depois do horário local</translation>
+        <translation>%1 orë më vonë se vendorja</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation>Espaço</translation>
+        <translation>Hapësirë</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation>Semana</translation>
+        <translation>Javë</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Primeiro dia da semana</translation>
+        <translation>Dita e parë e javës</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Data abreviada</translation>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Data completa</translation>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Hora abreviada</translation>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Hora completa</translation>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation>Formato de moeda positivo</translation>
+        <translation>Monedhë pozitive</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation>Formato de moeda negativo</translation>
+        <translation>Monedhë negative</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation>Símbolo decimal</translation>
+        <translation>Simbol dhjetor</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation>Símbolo de agrupamento de dígitos</translation>
+        <translation>Simbol grupimi shifrash</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation>Agrupamento de dígitos</translation>
+        <translation>Grupim shifrash</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Madhësi faqeje</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModule</name>
     <message>
         <source>Time and Format</source>
-        <translation>Data e hora</translation>
+        <translation>Kohë dhe Format</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>A autenticação é necessária para alterar o servidor NTP</translation>
+        <translation>Që të ndryshoni shërbyes NTP, lypset mirëfilltësim</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>O Centro de Controle fornece opções para configurações do sistema.</translation>
+        <translation>Qendra e Kontrollit furnizon mundësitë për rregullime sistemi.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation>Vincular WeChat</translation>
+        <translation>Lidhe WeChat-in</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation>Ao vincular o WeChat, você pode efetuar login com segurança e rapidez em sua ID %1 e contas locais.</translation>
+        <translation>Duke përshoqëruar WeChat-in, mundeni të hyni në mënyrë të parrezik dhe shpejt e shpejt në llogaritë tuaja %1 ID dhe vendore.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation>Desvinculado</translation>
+        <translation>E palidhur</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation>Desvinculando</translation>
+        <translation>Po hiqet lidhja</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation>Vincular</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation>Tem certeza de que deseja desvincular do WeChat?</translation>
+        <translation>Jeni i sigurt se doni të hiqet përshoqërimi me WeChat-in?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation>Após desvincular o WeChat, você não poderá usá-lo para escanear o código QR para fazer login no ID %1 ou na conta local.</translation>
+        <translation>Pas heqjes së lidhjes me WeChat-in, s’do të jeni në gjendje të përdorni WeChat-in për të skanuar kodin QR që të bëni hyrjen në llogari %1 ID apo vendore.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation>Deixe-me pensar sobre isso</translation>
+        <translation>Lermëni ta mendoj</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation>Vinculação de conta local</translation>
+        <translation>Lidhje Llogarie Vendore</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation>Depois de vincular sua conta local, você pode usar as seguintes funções:</translation>
+        <translation>Pas lidhjes së llogarisë tuaj vendore, mund të përdorni funksionet vijuese:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation>Sistema de login no WeChat por escaneamento de código</translation>
+        <translation>Sistem Hyrjesh Me Skanim Kodi WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation>Use o WeChat, que está vinculado ao seu ID %1, para escanear o código e fazer login na sua conta local.</translation>
+        <translation>Përdorim WeChat-i, i cili është i lidhur me ID-në tuaj %1 ID, që të skanoni kod për hyrje te llogaria juaj vendore.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation>Redefinir senha via %1 ID</translation>
+        <translation>Ricaktojeni fjalëkalimin përmes ID-je %1</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation>Redefina sua senha local via %1 ID caso você a esqueça.</translation>
+        <translation>Ricaktoni fjalëkalimin tuaj vendor përmes ID-së %1, në rast se e harroni.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation>Para usar os recursos acima, acesse o Centro de Controle - Contas e ative as opções correspondentes</translation>
+        <translation>Që të përdorni veçoritë më sipër, ju lutemi, kaloni te Qendra e Kontrollit - Llogari dhe aktivizoni mundësitë përkatëse.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>Deepin</translation>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -3172,146 +3186,147 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Sincronização na nuvem</translation>
+        <translation>Njëkohësim Me Renë</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation>Gerencie seu %1 ID e sincronize seus dados pessoais em todos os dispositivos.Faça login no %1 ID para obter recursos e serviços personalizados do navegador, App Store e muito mais.</translation>
+        <translation>Administroni %1 ID tuaj dhe njëkohësoni të dhëna tuajat personale nëpër pajisje.
+Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara Shfletuesi, Shitoreje Aplikacionesh, etj.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation>Entrar em %1 ID</translation>
+        <translation>Bëni hyrjen te %1 ID</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Sincronização automática</translation>
+        <translation>Vetë-njëkohësohu</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation>Armazene com segurança as configurações do sistema e os dados pessoais na nuvem e mantenha-os sincronizados em todos os dispositivos</translation>
+        <translation>Depozitoni në re në mënyrë të parrezik rregullime sistemi dhe të dhëna personale dhe mbajini të njëkohësuara nëpër pajisje</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation>Configurações do sistema</translation>
+        <translation>Rregullime Sistemi</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation>Última vez sincronizado: %1</translation>
+        <translation>Kohë njëkohësimi të fundit: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation>Limpar dados da nuvem</translation>
+        <translation>Spastro të dhëna reje</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Tem certeza de que deseja limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
+        <translation>Jeni i sigurt se doni të spastrohen rregullimet e sistemit tuaj dhe të dhëna personale të ruajtura në re?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Depois que os dados forem apagados, eles não poderão ser recuperados!</translation>
+        <translation>Pasi të spastrohen të dhënat, s’mund të rikthehen!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Limpar</translation>
+        <translation>Spastroji</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Serviço de Sincronização</translation>
+        <translation>Shërbim Njëkohësimi</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation>Conta e Segurança</translation>
+        <translation>Llogari dhe Siguri</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Sair</translation>
+        <translation>Dilni</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Ir para as configurações da web</translation>
+        <translation>Kaloni te rregullime web</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation>Falha na criptografia da senha</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Senha errada, %1 chances restantes</translation>
+        <translation>Fjalëkalim i gabuar, edhe %1 prova</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation>O erro de login atingiu o limite hoje. Você pode redefinir a senha e tentar novamente.</translation>
+        <translation>U mbërrit në kufi gabimesh hyrjeje për sot. Mund të ricaktoni fjalëkalimin dhe të riprovoni.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation>Operação bem-sucedida</translation>
+        <translation>Veprim i Suksesshëm</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation>China continental</translation>
+        <translation>Kina Kontinentale</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation>Outras regiões</translation>
+        <translation>Rajone të tjera</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>O recurso não está disponível no momento, ative seu sistema primeiro</translation>
+        <translation>Veçoria s’mund të kihet tani për tani, ju lutemi, aktivizoni së pari sistemin tuaj</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Sujeito às leis e regulamentações locais, ele não está disponível em sua região no momento.</translation>
+        <translation>Subjekt i ligjeve dhe rregulloreve tuaja vendore, aktualisht i papërdorshëm në rajonin tuaj.</translation>
     </message>
 </context>
 <context>
     <name>DefAppModule</name>
     <message>
         <source>Default Applications</source>
-        <translation>Programas padrão</translation>
+        <translation>Aplikacione Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>DefAppPlugin</name>
     <message>
         <source>Webpage</source>
-        <translation>Navegador web</translation>
+        <translation>Sajt</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Cliente de e-mail</translation>
+        <translation>Postë</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Editor de texto</translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Player de música</translation>
+        <translation>Muzikë</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Player de vídeo</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Visualizador de imagem</translation>
+        <translation>Foto</translation>
     </message>
     <message>
         <source>Terminal</source>
@@ -3322,125 +3337,125 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Por favor, escolha o programa padrão para abrir &apos;%1&apos;</translation>
+        <translation>Ju lutemi, zgjidhni programin parazgjedhje për hapjen e &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation>Adicionar</translation>
+        <translation>shtoje</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Abrir arquivo na área de trabalho</translation>
+        <translation>Hapni kartelë Desktop</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Aplicativos (*.desktop)</translation>
+        <translation>Aplikacione (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Todos os arquivos (*)</translation>
+        <translation>Krejt kartelat (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Acesso root</translation>
+        <translation>Hyrje si Rrënjë</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Solicitar acesso root</translation>
+        <translation>Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>Após entrar no modo de desenvolvedor, você pode obter permissões de root, mas isso também pode danificar a integridade do sistema, portanto, use-o com cautela.</translation>
+        <translation>Pas kalimit nën mënyrën zhvillues, mund të përfitoni leje rrënje, por prej kësaj mundet edhe të cenohet integriteti i sistemit, ndaj, ju lutemi, përdoreni me kujdes.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation>Permitido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enter</source>
-        <translation>Entrar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Online</source>
-        <translation>Online</translation>
+        <translation>Në linjë</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation>Entrar com UOS ID</translation>
+        <translation>Bëni hyrjen te ID UOS</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Offline</translation>
+        <translation>Jo në linjë</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>Importar Certificado </translation>
+        <translation>Importo Dëshmi</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Selecionar arquivo</translation>
+        <translation>Përzgjidhni kartelë</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation>Seu ID UOS foi conectado, clique para entrar no modo de desenvolvedor</translation>
+        <translation>Është bërë hyrja në ID-në tuaj UOS, klikoni që të kalohet nën mënyrën zhvillues</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Por favor, primeiro faça login no seu Union ID para continuar</translation>
+        <translation>Ju lutemi, së pari, bëni hyrjen te Union ID juaj dhe vazhdoni</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Exportar informações do PC</translation>
+        <translation>1. Eksportoni Hollësi PC-je</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>Exportar</translation>
+        <translation>Eksportoje</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation>2.por favor vá para &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; para baixar o certificado offline.</translation>
+        <translation>2. ju lutemi, shkoni te &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; që të Shkarkoni dëshmi për përdorim “offline”.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3.Importar certificado</translation>
+        <translation>3. Importoni Dëshmi</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Para instalar e executar aplicativos não assinados, acesse &lt;a href=&quot;Security Center&quot;&gt;Central de Segurança&lt;/a&gt; para alterar as configurações.</translation>
+        <translation>Që të instaloni dhe xhironi aplikacione të panënshkruar, ju lutemi, kaloni te &lt;a href=&quot;Security Center&quot;&gt;Qendër Sigurie&lt;/a&gt;, që të ndryshoni rregullime.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation>Opções do desenvolvedor e depuração</translation>
+        <translation>Mundësi zhvillimi dhe diagnostikimi</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation>Nível de registro do sistema</translation>
+        <translation>Shkallë regjistrimi sistemi</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation>Alterar as opções resulta em registros mais detalhados que podem degradar o desempenho do sistema e/ou ocupar mais espaço de armazenamento.</translation>
+        <translation>Ndryshimi i mundësive shpie në regjistrim më të hollësishëm, që mund të ulë funksionimin e sistemit dhe/ose të zërë më tepër hapësirë depozitimi.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation>Desativado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Depurar</translation>
+        <translation>Diagnostiko</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation>A alteração da opção pode levar até um minuto para ser processada. Após receber um prompt de configuração bem-sucedida, reinicie o dispositivo para que a configuração tenha efeito.</translation>
+        <translation>Ndryshimi i mundësisë mund të dojë deri në një minutë që të kryhet, pas marrjes së pohimit për rregullim të suksesshëm, ju lutemi, rinisni pajisjen, që të hyjë në fuqi.</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
     <message>
         <source>Disclaimer</source>
-        <translation>Aviso Legal</translation>
+        <translation>Klauzolë</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -3455,17 +3470,17 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Antes de usar o reconhecimento facial, observe que: 
-1. Seu dispositivo pode ser desbloqueado por pessoas ou objetos que se pareçam com você.
-2. O reconhecimento facial é menos seguro do que as senhas digitais e as senhas mistas.
-3. A taxa de sucesso do desbloqueio do seu dispositivo por meio do reconhecimento facial será reduzida em cenários de pouca luz, luz alta, luz de fundo, grande angular e outros cenários.
-4. Não forneça seu dispositivo a outras pessoas aleatoriamente, para evitar o uso malicioso do reconhecimento facial.
-5. Além dos cenários acima, você deve prestar atenção a outras situações que podem afetar o uso normal do reconhecimento facial.
+        <translation>Para se të përdorni njohje fytyrash, ju lutemi, kini parasysh se: 
+1. Pajisja juaj mund të shkyçet nga persona ose objekte që duken ose shfaqen të ngjashëm me ju.
+2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
+3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
+4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normal të njohjes së fytyrave.
 
-Para usar melhor o reconhecimento facial, preste atenção aos seguintes aspectos ao inserir os dados faciais:
-1. Fique em um ambiente bem iluminado, evite a luz solar direta e a aparição de outras pessoas na tela gravada.
-2. Preste atenção ao estado do rosto ao inserir dados e não deixe que chapéus, cabelos, óculos escuros, máscaras, maquiagem pesada e outros fatores cubram suas características faciais.
-3. Evite inclinar ou abaixar a cabeça, fechar os olhos ou mostrar apenas um lado do rosto, e certifique-se de que o rosto frontal apareça clara e completamente na caixa de prompt.
+Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
+1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
+2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
+3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.
 </translation>
     </message>
     <message>
@@ -3473,512 +3488,512 @@ Para usar melhor o reconhecimento facial, preste atenção aos seguintes aspecto
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation>&quot;Autenticação biométrica&quot; é uma função para autenticação da identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.
-Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Ative apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas e desative ou exclua imediatamente as informações biométricas de outras pessoas nesse dispositivo; caso contrário, você arcará com os riscos decorrentes disso. 
-A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamentos, técnicos e outros e ao controle de riscos, não há garantia de que você será aprovado temporariamente na autenticação biométrica. Portanto, não considere a autenticação biométrica como a única maneira de fazer login no UOS. Se tiver alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode dar feedback por meio de &quot;Serviço e Suporte&quot; no UOS.
+        <translation>“Mirëfilltësimi biometrik” është një funksion për mirëfilltësim identiteti përdoruesi, i furnizuar nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara te pajisja dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e dalë nga krahasimi.
+Ju lutemi, mbani parasysh se UnionTech Software s’do të grumbullojë ose hyjë në të dhënat tuaja biometrike, të cilat do të depozitohen në pajisjen tuaj vendore. Ju lutemi, mirëfilltësimin biometrik aktivizojeni vetëm te pajisja juaj personale dhe përdorini të dhënat tuaja biometrike për veprime përkatëse dhe çaktivizojeni menjëherë ose fshini të dhëna biometrike personash të tjerë në atë pajisje, përndryshe jeni përgjegjës për rrezikun e lindur prej kësaj. 
+UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të sigurisë, përpikërisë dhe qëndrueshmërisë së mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjesh, teknikë dhe të tjerë, si dhe kontroll rreziqesh, s’ka garanci se do ta kaloni mirëfilltësimin biometrik me sukses. Ndaj, ju lutemi, mos e mbani mirëfilltësimin biometrik si të vetmen mënyrë për bërjen e hyrjes në UnionTech OS. Nëse keni ndonjë pyetje apo sugjerim lidhur me përdorimin e mirëfilltësimit biometrik, mund të na i jepni përmes “Shërbim dhe Asistencë” te UnionTech OS. 
 </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersItem</name>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Li e concordo com a</translation>
+        <translation>E kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Aviso Legal</translation>
+        <translation>Klauzolë</translation>
     </message>
 </context>
 <context>
     <name>DockModuleObject</name>
     <message>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Várias telas</translation>
+        <translation>Disa Ekrane</translation>
     </message>
     <message>
         <source>Show Dock</source>
-        <translation>Exibir dock</translation>
+        <translation>Shfaq Panel</translation>
     </message>
     <message>
         <source>Alignment</source>
-        <translation>Alinhamento</translation>
+        <translation>Vendosje</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Posição</translation>
+        <translation>Vendndodhje</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Exibição</translation>
+        <translation>Gjendje</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Tamanho</translation>
+        <translation>Madhësi</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Área de plug-ins</translation>
+        <translation>Zonë Shtojcash</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Selecione quais ícones devem aparecer no dock</translation>
+        <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
     </message>
     <message>
         <source>Align center</source>
-        <translation>Centralizado</translation>
+        <translation>Vendose në qendër</translation>
     </message>
     <message>
         <source>Align left</source>
-        <translation>Esquerda</translation>
+        <translation>Vendose majtas</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Superior</translation>
+        <translation>Në Krye</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Inferior</translation>
+        <translation>Në Fund</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Posição</translation>
+        <translation>Vendndodhje</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Sempre exibir</translation>
+        <translation>Mbaje të shfaqur</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Sempre ocultar</translation>
+        <translation>Mbaje të fshehur</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultar automaticamente</translation>
+        <translation>Fshehje e Mençur</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pequeno</translation>
+        <translation>I vogël</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grande</translation>
+        <translation>I madh</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>On screen where the cursor is</translation>
+        <translation>Në ekranin ku gjendet kursori</translation>
     </message>
     <message>
         <source>Only on main screen</source>
-        <translation>Only on main screen</translation>
+        <translation>Vetëm te ekrani kryesor</translation>
     </message>
 </context>
 <context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Cadastrar rosto</translation>
+        <translation>Jepni Fytyrë</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation>Posicione seu rosto dentro da moldura</translation>
+        <translation>Vendoseni fytyrën tuaj brenda kornizës</translation>
     </message>
 </context>
 <context>
     <name>FaceWidget</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Manage Faces</source>
-        <translation>Gerenciar rostos</translation>
+        <translation>Administroni Fytyra</translation>
     </message>
     <message>
         <source>You can add up to 5 faces</source>
-        <translation>Você pode adicionar até 5 rostos</translation>
+        <translation>Mund të shtoni deri në 5 fytyra</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Add Face</source>
-        <translation>Adicionar rosto</translation>
+        <translation>Shtoni Fytyrë</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation>O nome já existe</translation>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation>Biometria facial</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FaceidDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation>Não foram encontrados dispositivos compatíveis</translation>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Permitir que os aplicativos abaixo acessem esses arquivos e pastas:</translation>
+        <translation>Lejoji aplikacionet më poshtë të përdorin këto kartela dhe dosje:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Documentos</translation>
+        <translation>Dokumente</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Área de trabalho</translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Fotos</translation>
+        <translation>Foto</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation>Vídeos</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Música</translation>
+        <translation>Muzikë</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation>Downloads</translation>
+        <translation>Shkarkime</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation>Pasta</translation>
+        <translation>dosje</translation>
     </message>
 </context>
 <context>
     <name>FingerDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation>Não foram encontrados dispositivos compatíveis</translation>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>FingerDisclaimer</name>
     <message>
         <source>Add Fingerprint</source>
-        <translation>Adicionar Impressão Digital</translation>
+        <translation>Shtoni Shenja Gishtash</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
     <name>FingerInfoWidget</name>
     <message>
         <source>Place your finger</source>
-        <translation>Posicione o dedo</translation>
+        <translation>Vendosni gishtin tuaj</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Posicione o dedo firmemente sobre o sensor, até que lhe seja solicitado a levantá-lo</translation>
+        <translation>Vendoseni gishtin tuaj te ndijuesi pa e lëvizur, deri sa t’ju kërkohet ta hiqni</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Digitalize as laterais da sua impressão digital</translation>
+        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Posicione as laterais da impressão digital sobre o sensor</translation>
+        <translation>Vendosni te ndijuesi skajet e mollëzës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation>Levante o dedo</translation>
+        <translation>Hiqeni gishtin</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Levante o dedo e posicione-o sobre o sensor</translation>
+        <translation>Ngrijeni gishtin dhe rivendoseni te ndijuesi</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Posicione corretamente o dedo para digitalizar as laterais da sua impressão digital</translation>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>Levante o dedo e digitalize novamente</translation>
+        <translation>Ngrijeni gishtin dhe ribëjeni</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation>Impressão digital adicionada</translation>
+        <translation>U shtuan shenja gishtash</translation>
     </message>
 </context>
 <context>
     <name>FingerWidget</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Fingerprint Password</source>
-        <translation>Senha por Impressão Digital</translation>
+        <translation>Fjalëkalim Shenjash Gishtash</translation>
     </message>
     <message>
         <source>You can add up to 10 fingerprints</source>
-        <translation>Você pode adicionar até 10 impressões digitais</translation>
+        <translation>Mund të shtoni deri në 10 shenja gishtash</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation>O nome já existe</translation>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Add Fingerprint</source>
-        <translation>Adicionar Impressão Digital</translation>
+        <translation>Shtoni Shenja Gishtash</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation>Tamanho</translation>
+        <translation>Madhësi</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Fonte Padrão</translation>
+        <translation>Shkronja Standarde</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Fonte Monoespaçada</translation>
+        <translation>Shkronja Monospace</translation>
     </message>
 </context>
 <context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
-        <translation>Geral</translation>
+        <translation>Të Përgjithshme</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Equilibrado</translation>
+        <translation>E drejtpeshuar</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Desempenho equilibrado</translation>
+        <translation>Baraspesho Funksionimin</translation>
     </message>
     <message>
         <source>High Performance</source>
-        <translation>Alto Desempenho</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation>Economia de energia</translation>
+        <translation>Kursyes Energjie</translation>
     </message>
     <message>
         <source>Power Plans</source>
-        <translation>Planos de energia</translation>
+        <translation>Plane Energjie</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation>Configurações de economia de energia</translation>
+        <translation>Rregullime Kursimi Energjie</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation>Economia de energia automática com bateria fraca</translation>
+        <translation>Kursim i automatizuar energjie, kur bateria është e pakët</translation>
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation>Reduzir brilho</translation>
+        <translation>Ule Ndriçimin</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Limite de bateria fraca</translation>
+        <translation>Kufi baterie të pakët</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Economia de energia automática na bateria</translation>
+        <translation>Kursim i automatizuar energjie, kur është nën bateri</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Configurações de acordar</translation>
+        <translation>Rregullime Zgjimi</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the computer</source>
-        <translation>Solicitar desbloqueio ao acordar o computador</translation>
+        <translation>Që të zgjohet kompjuteri, është e domosdoshme shkyçja</translation>
     </message>
     <message>
         <source>Unlocking is required to wake up the monitor</source>
-        <translation>Solicitar desbloqueio ao acordar o monitor</translation>
+        <translation>Që të zgjohet monitori, është e domosdoshme shkyçja</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation>Planos de energia</translation>
+        <translation>Plane Energjie</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation>Configurações de economia de energia</translation>
+        <translation>Rregullime Kursimi Energjie</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation>Economia automática de energia em caso de bateria fraca</translation>
+        <translation>Kursim i automatizuar energjie, kur bateria është e pakët</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Limitador de bateria fraca </translation>
+        <translation>Prag për bateri të ulët</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Economia automática de energia na bateria</translation>
+        <translation>Kursim i automatizuar energjie, kur është nën bateri</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Configurações de ligar a tela</translation>
+        <translation>Rregullime Zgjimi</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>A senha é necessária para acessar o computador</translation>
+        <translation>Që të zgjohet kompjuteri, është i domosdoshëm fjalëkalim</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>A senha é necessária para ligar o monitor</translation>
+        <translation>Që të zgjohet monitori, është i domosdoshëm fjalëkalim</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation>Configurações de desligamento</translation>
+        <translation>Rregullime Fikjeje</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation>Desligamento programado</translation>
+        <translation>Fikje e Planifikuar</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Hora</translation>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>Repetir</translation>
+        <translation>Përsëritje</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation>Uma vez</translation>
+        <translation>Një herë</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation>Diariamente</translation>
+        <translation>Çdo ditë</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation>Dias úteis</translation>
+        <translation>Ditë pune</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Hora personalizada</translation>
+        <translation>Kohë Vetjake</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation>Segunda-feira</translation>
+        <translation>E hënë</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation>Terça-feira</translation>
+        <translation>E martë</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation>Quarta-feira</translation>
+        <translation>E mërkurë</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation>Quinta-feira</translation>
+        <translation>E enjte</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation>Sexta-feira</translation>
+        <translation>E premte</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation>Sábado</translation>
+        <translation>E shtunë</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation>Domingo</translation>
+        <translation>E diel</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation>Tempo de repetição personalizado</translation>
+        <translation>Përshtatni kohë përsëritjesh</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Diminuir o brilho da tela no modo de economia de energia</translation>
+        <translation>Ule ndriçimin e ekranit nën kursyes energjie</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation>Três dedos</translation>
+        <translation>Tre-gishta</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation>Quatro dedos</translation>
+        <translation>Katër-gishta</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Para cima</translation>
+        <translation>Sipër</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Para baixo</translation>
+        <translation>Poshtë</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation>Tocar</translation>
+        <translation>prekeni</translation>
     </message>
 </context>
 <context>
@@ -3989,324 +4004,324 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
 </context>
 <context>
     <name>HostNameItem</name>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>It cannot start or end with dashes</translation>
+        <translation>S’mund të fillojë, ose përfundojë me vija ndarëse në mes</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation>1~63 caracteres</translation>
+        <translation>Ju lutemi, 1~63 shenja</translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Desempenho ideal</translation>
+        <translation>Funksionim Optimal</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Desempenho ideal: desative todos os efeitos de interface e janela para obter um desempenho eficiente do sistema.</translation>
+        <translation>Funksionim optimal: Çaktivizo krejt efektet e ndërfaqes dhe dritareve, për funksionim efikas të sistemit.</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balanceado</translation>
+        <translation>Baraspeshim</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Balanceado: Limite alguns efeitos de janela para obter excelentes visuais, mantendo o desempenho suave do sistema</translation>
+        <translation>Baraspeshim: Kufizo disa efekte dritaresh, për anë pamore të shkëlqyera, teksa mirëmbahet funksionim i rrjedhshëm i sistemit.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Melhores visuais</translation>
+        <translation>Anë Pamore Më të Mirat</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Recursos visuais: ative todos os efeitos de interface e janela para obter a melhor experiência visual.</translation>
+        <translation>Anë pamore më të mirat: Aktivizo krejt efektet e ndërfaqes dhe dritareve, për më të mirat e anëve pamore.</translation>
     </message>
 </context>
 <context>
     <name>InternalButtonItem</name>
     <message>
         <source>Internal testing channel</source>
-        <translation>Canal de testes interno</translation>
+        <translation>Kanal i brendshëm testimesh</translation>
     </message>
     <message>
         <source>click here open the link</source>
-        <translation>Clique aqui para registrar o dispositivo e ativar</translation>
+        <translation>që të hapet lidhja, klikoni këtu</translation>
     </message>
 </context>
 <context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation>Não foram encontrados dispositivos compatíveis</translation>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>IrisWidget</name>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Manage Irises</source>
-        <translation>Gerenciar írises</translation>
+        <translation>Administroni Bebe Sysh</translation>
     </message>
     <message>
         <source>You can add up to 5 irises</source>
-        <translation>Você pode adicionar até 5 íris</translation>
+        <translation>Mund të shtoni deri në 5 bebe sysh</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Add Iris</source>
-        <translation>Adicionar íris</translation>
+        <translation>Shtoni Bebe Sysh</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation>O nome já existe</translation>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Íris</translation>
+        <translation>Bebe Syri</translation>
     </message>
 </context>
 <context>
     <name>KeyLabel</name>
     <message>
         <source>None</source>
-        <translation>Nenhum</translation>
+        <translation>Asnjë</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Skemë tastiere</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>Feito</translation>
+        <translation>u bë</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>përpunoni</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>Adicione o método de entrada correspondente em &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;IGerenciamento de Método de Entrada&lt;/a&gt; para garantir que o layout do teclado funcione quando for adicionado ou trocado.</translation>
+        <translation>Për të garantuar se skema e tastierës funksionon, kur shtohet, ose kur kalohet në të, shtoni te &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Administrim Metodash Dhënieje&lt;/a&gt; metodën përkatëse të dhënies.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation>Adicionar novo layout de teclado...</translation>
+        <translation>Shtoni skemë të re tastiere…</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Gjuhë</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>Feito</translation>
+        <translation>u bë</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>përpunoni</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation>Outras idiomas</translation>
+        <translation>Gjuhë të tjera</translation>
     </message>
     <message>
         <source>add</source>
-        <translation>Adicionar</translation>
+        <translation>shtoje</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation>Região</translation>
+        <translation>Rajon</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation>Zonë</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation>O sistema operacional e os aplicativos podem fornecer conteúdo local com base em seu país e região</translation>
+        <translation>Sistemi operativ dhe aplikacionet mund t’ju japin lëndë vendore bazuar në formate rajonalë</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation>Região e formato</translation>
+        <translation>Rajon dhe format</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation>O sistema operacional e os aplicativos podem definir formatos de data e hora com base em formatos regionais</translation>
+        <translation>Sistemi operativ dhe aplikacionet mund të caktojnë formate datash dhe kohe bazuar në formate rajonalë</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation>Adicionar idioma</translation>
+        <translation>Shtoni gjuhë</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shtoje</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation>Adicionar idioma</translation>
+        <translation>Shtoni gjuhë</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shto</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation>Método de login</translation>
+        <translation>Metodë hyrjeje</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation>Senha, wechat, autenticação biométrica, senha de segurança</translation>
+        <translation>Fjalëkalim, wechat, mirëfilltësim biometrik, kyç sigurie</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation>Modificar senha</translation>
+        <translation>Ndryshoni fjalëkalim</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation>Dias de validade</translation>
+        <translation>Ditë vlefshmërie</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation>Sempre</translation>
+        <translation>Përherë</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Comunidade deepin</translation>
+        <translation>Të drejta kopjimi© 2011-%1 Bashkësia Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
+        <translation>Të drejta kopjimi© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Input Device</source>
-        <translation>Dispositivo de entrada</translation>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Cancelamento Automático de Ruído</translation>
+        <translation>Mbytje e Automatizuar Zhurmash</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation>Volume de entrada</translation>
+        <translation>Volum Në Hyrje</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation>Nível de entrada</translation>
+        <translation>Nivel Në Hyrje</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Entrada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation>Nenhum dispositivo de entrada de som encontrado</translation>
+        <translation>S’u gjet pajisje në hyrje për zërin</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Dispositivos de entrada</translation>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Shpejtësi Treguesi</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>Tamanho do ponteiro</translation>
+        <translation>Madhësi Treguesi</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Pequeno</translation>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Grande</translation>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Aceleração do mouse</translation>
+        <translation>Përshpejtim Miu</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Desativar touchpad quando um mouse estiver conectado</translation>
+        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem Natural</translation>
+        <translation>Rrëshqitje e Natyrshme</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Meus Dispositivos</translation>
+        <translation>Pajisjet e Mia</translation>
     </message>
 </context>
 <context>
@@ -4317,27 +4332,27 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Nome do computador</translation>
+        <translation>Emër kompjuteri</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Não pode começar ou terminar com traços</translation>
+        <translation>S’mund të fillojë, ose përfundojë me vija ndarëse në mes</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do OS</translation>
+        <translation>Emër OS-i</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versão</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation>Edição</translation>
+        <translation>Edicion</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Lloj</translation>
     </message>
     <message>
         <source>bit</source>
@@ -4345,521 +4360,521 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Authorization</source>
-        <translation>Autorização</translation>
+        <translation>Autorizim</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation>Data de instalação do sistema</translation>
+        <translation>Kohë instalimi sistemi</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Núcleo</translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Plataforma gráfica</translation>
+        <translation>Platformë Grafike</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation>Processador</translation>
+        <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>Memória</translation>
+        <translation>Kujtesë</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation>O sistema atual não está ativado, não é possível iniciar o serviço de atualização</translation>
+        <translation>Sistemi aktual s’është i aktivizuar, s’arrihet të niset shërbimi i përditësimeve</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation>Outros dispositivos</translation>
+        <translation>Pajisje të Tjera</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Mostrar dispositivos Bluetooth sem nomes</translation>
+        <translation>Shfaq pajisje Bluetooth pa emra</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation>Senha atual</translation>
+        <translation>Fjalëkalimi i tanishëm</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatória</translation>
+        <translation>I domosdoshme</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Fraca</translation>
+        <translation>I dobët</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Média</translation>
+        <translation>Çka</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Forte</translation>
+        <translation>I fortë</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Repita a sua senha</translation>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Dica de senha</translation>
+        <translation>Ndihmëz fjalëkalimi</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation>Opsionale</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode estar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>As senhas não coincidem</translation>
+        <translation>Fjalëkalimet s’përputhen</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>A nova senha deve ser diferente da atual</translation>
+        <translation>Fjalëkalimi i ri duhet të jetë i ndryshëm nga i tanishmi</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>A dica é visível para todos os usuários. Não inclua a senha aqui</translation>
+        <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation>Alterar senha</translation>
+        <translation>Ndryshoni fjalëkalim</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation>Redefinir senha</translation>
+        <translation>Ricaktoni fjalëkalimin</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>O comprimento da senha deve ter pelo menos 8 caracteres, e a senha deve conter uma combinação de pelo menos 3 dos seguintes: letras maiúsculas, letras minúsculas, números e símbolos. Este tipo de senha é mais seguro.</translation>
+        <translation>Gjatësia e fjalëkalimeve duhet të jetë e pakta 8 shenja dhe fjalëkalimi duhet të përmbajë një ndërthurje e të paktën 3 nga shkronjat e mëdha, shkronjat e vogla, numrat dhe simbolet vijuese. Ky lloj fjalëkalimesh është më i siguruar.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Redefinir a senha apagará os dados armazenados no chaveiro.</translation>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation>Área de trabalho</translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Janela</translation>
+        <translation>Dritare</translation>
     </message>
     <message>
         <source>Window Effect</source>
-        <translation>Efeitos visuais</translation>
+        <translation>Efekt Dritaresh</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Efeitos ao minimizar janelas</translation>
+        <translation>Efekt Minimizimi Dritaresh</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Tela compacta</translation>
+        <translation>Shfaqje Kompakte</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Se ativado, mais conteúdo será exibido na janela.</translation>
+        <translation>Në u aktivizoftë, te dritarja shfaqet më tepër lëndë.</translation>
     </message>
     <message>
         <source>Transparency</source>
-        <translation>Transparência</translation>
+        <translation>Tejdukshmëri</translation>
     </message>
     <message>
         <source>Rounded Corner</source>
-        <translation>Canto curvo</translation>
+        <translation>Cep i Rrumbullakosur</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Opacidade</translation>
+        <translation>Patejdukshmëri</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Escala</translation>
+        <translation>Ripërmasojeni</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation>Lâmpada mágica</translation>
+        <translation>Llambë Magjike</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pequeno</translation>
+        <translation>I vogël</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Médio</translation>
+        <translation>Mesatar</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grande</translation>
+        <translation>I madh</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Automático</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>E errët</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
     <message>
         <source>Personalization</source>
-        <translation>Personalização</translation>
+        <translation>Personalizim</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeList</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>E errët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Automático</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation>Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeModule</name>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Temë</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Aparência</translation>
+        <translation>Dukje</translation>
     </message>
     <message>
         <source>Accent Color</source>
-        <translation>Cor de destaque</translation>
+        <translation>Ngjyrë Theksimi</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Configurações dos ícones</translation>
+        <translation>Rregullime Ikonash</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Tema de ícone</translation>
+        <translation>Temë Ikonash</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>Tema de cursor</translation>
+        <translation>Temë Kursori</translation>
     </message>
     <message>
         <source>Text Settings</source>
-        <translation>Configurações de texto</translation>
+        <translation>Rregullime Teksti</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation>Tamanho da Fonte</translation>
+        <translation>Madhësi Shkronjash</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Fonte padrão</translation>
+        <translation>Shkronja Standarde</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Fonte monoespaçada</translation>
+        <translation>Shkronja Monospace</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Automático</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>E errët</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeWidget</name>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>E çelët</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>E errët</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Automático</translation>
+        <translation>Auto</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation>Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation>Personalizar</translation>
+        <translation>Vetjake</translation>
     </message>
 </context>
 <context>
     <name>PinCodeDialog</name>
     <message>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>O PIN para conectar-se ao dispositivo Bluetooth é:</translation>
+        <translation>PIN-i për lidhje me pajisjen Bluetooth është:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anulojeni</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Área do plugin</translation>
+        <translation>Zonë Shtojcash</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Selecione quais ícones devem aparecer no dock</translation>
+        <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
     </message>
 </context>
 <context>
     <name>PowerModule</name>
     <message>
         <source>Power</source>
-        <translation>Energia</translation>
+        <translation>Energji</translation>
     </message>
     <message>
         <source>Battery low, please plug in</source>
-        <translation>A bateria está com pouca carga; conecte o carregador</translation>
+        <translation>Bateri e pakët, ju lutemi, vëreni në prizë</translation>
     </message>
     <message>
         <source>Battery critically low</source>
-        <translation>Bateria criticamente fraca</translation>
+        <translation>Bateri e pakët në nivel kritik</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation>Desligar</translation>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Suspender</translation>
+        <translation>Pezulloje</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Hibernar</translation>
+        <translation>Plogështoje</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar tela</translation>
+        <translation>Fike monitorin</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Mostrar interface de desligamento</translation>
+        <translation>Shfaq Ndërfaqen e fikjes</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Não fazer nada</translation>
+        <translation>Mos bëj gjë</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar a tela após</translation>
+        <translation>Fike ekranin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Após o computador entrar em modo de suspensão</translation>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Quando a tampa estiver fechada</translation>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation>Alto desempenho</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Modo balanceado</translation>
+        <translation>Baraspesho Funksionimin</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Ajustar agressivamente a frequência operacional da CPU com base na condição de carga da CPU</translation>
+        <translation>Rregullo në mënyrë agresive frekuencën e punës së CPU-së bazuar në kushte ngarkese të CPU-së</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Balanceado</translation>
+        <translation>E baraspeshuar</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation>Economia de energia</translation>
+        <translation>Kursyes Energjie</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Prioriza o desempenho, o que aumentará significativamente o consumo de energia e a geração de calor</translation>
+        <translation>Jepi përparësi funksionimit, çka do të rrisë në mënyrë të dukshme konsumin e energjisë dhe prodhimin e nxehtësisë</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Balanceia o desempenho e a duração da bateria, é ajustado automaticamente de acordo com o uso</translation>
+        <translation>Baraspeshim funksionimi dhe jetëgjatësie baterie, e përshtatur automatikisht sipas përdorimit</translation>
     </message>
     <message>
         <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Prioriza a duração da bateria, pois o sistema sacrificará parte do desempenho para reduzir o consumo de energia</translation>
+        <translation>Jepi përparësi jetëgjatësisë së baterisë, prej kësaj sistemi do të sakrifikojë në shkallë funksionimi, për të reduktuar harxhimin e energjisë</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutos</translation>
+        <translation>Minuta</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Hora</translation>
+        <translation>Orë</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Nunca</translation>
+        <translation>Kurrë</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>Política de privacidade</translation>
+        <translation>Rregulla Privatësie</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode ficar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>A senha deve ter pelo menos %1 caracteres</translation>
+        <translation>Fjalëkalimi duhet të ketë të paktën %1 shenja</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>A senha não deve ter mais do que %1 caracteres</translation>
+        <translation>Fjalëkalimi s’duhet të jetë më i madh se %1 shenja</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha pode conter apenas letras em Inglês (sensível a maiúsculas e minúsculas), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi mund të përmbajë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Não mais do que %1 caracteres palíndromos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja palindromike</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Não mais que %1 caracteres monotônicos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Não mais do que %1 caracteres repetidos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja që përsëriten</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha deve conter letras maiúsculas, letras minúsculas, números e símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi duhet të përmbajë vetëm shkronja të mëdha, shkronja të vogla, numra dhe simbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A senha não deve conter mais do que 4 caracteres palíndromos</translation>
+        <translation>Fjalëkalimi s’duhet të përmbajë më shumë se 4 shenja palindromike</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Não utilize palavras comuns e combinações como senha</translation>
+        <translation>Mos përdorni si fjalëkalim fjalë dhe kombinime të zakonshme</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Crie uma senha forte</translation>
+        <translation>Ju lutemi, krijoni një fjalëkalim të fortë</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Não atende às regras de senha</translation>
+        <translation>S’plotëson rregullat për fjalëkalime</translation>
     </message>
 </context>
 <context>
@@ -4870,887 +4885,887 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Control Center</source>
-        <translation>Central de Controle</translation>
+        <translation>Qendër Kontrolli</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation>Ativado</translation>
+        <translation>E aktivizuar</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Visualizar</translation>
+        <translation>Shiheni</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation>Para ser ativado</translation>
+        <translation>Për t’u aktivizuar</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation>Ativar</translation>
+        <translation>Aktivizoje</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation>Expirado</translation>
+        <translation>Ka skaduar</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation>Em período de avaliação</translation>
+        <translation>Në periudhë prove</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation>A avaliação expirou</translation>
+        <translation>Prova skadoi</translation>
     </message>
     <message>
         <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Ajustar automaticamente a frequência de operação da CPU com base na condição de carga da CPU</translation>
+        <translation>Rregullo automatikisht frekuencën e punës së CPU-së bazuar në kushte ngarkese të CPU-së</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Ajustar agressivamente a frequência operacional da CPU com base na condição de carga da CPU</translation>
+        <translation>Rregullo në mënyrë agresive frekuencën e punës së CPU-së bazuar në kushte ngarkese të CPU-së</translation>
     </message>
     <message>
         <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation>Pode ser bom para melhorar o desempenho, mas o consumo de energia e a geração de calor aumentará</translation>
+        <translation>Sillu mirë me përmirësimin e funksionimit, por do të shtohen harxhimi i energjisë dhe prodhimi i nxehtësisë</translation>
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation>A CPU sempre funcionará em baixa frequência, o que reduzirá o consumo de energia</translation>
+        <translation>CPU-ja funksionon përherë nën frekuencë të ulët, do të ulet harxhimi i energjisë</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation>centro de controle dde</translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation>Ocorreu um erro durante a leitura dos arquivos de configuração ou regras de senha!</translation>
+        <translation>Ndodhi një gabim teksa lexoheshin kartelat e formësimit të rregullave të fjalëkalimit!</translation>
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
-        <translation>Verificando as versões do sistema, aguarde...</translation>
+        <translation>Po kontrollohen versione sistemi, ju lutemi, pritni…</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation>Sair</translation>
+        <translation>Braktise</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Configurações do Touch Screen</translation>
+        <translation>Rregullime Ekrani Me Prekje</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>As configurações do touch screen foram alteradas</translation>
+        <translation>Rregullimet për ekranin me prekje u ndryshuan</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Este papel de parede do sistema está bloqueado. Entre em contato com seu administrador.</translation>
+        <translation>Ky sfond sistemi është i kyçur. Ju lutemi, lidhuni me përgjegjësin tuaj.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation>Regiões e formatos</translation>
+        <translation>Rajone dhe formate</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation>Formatos padrão</translation>
+        <translation>Formate parazgjedhje</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Primeiro dia da semana</translation>
+        <translation>Dita e parë e javës</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Data abreviada</translation>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Data completa</translation>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Hora abreviada</translation>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Hora completa</translation>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation>Dígito</translation>
+        <translation>Shifër</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Madhësi letre</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>RegionModule</name>
     <message>
         <source>Region and Format</source>
-        <translation>Região e Formato</translation>
+        <translation>Rajon dhe Format</translation>
     </message>
     <message>
         <source>Country or Region</source>
-        <translation>País ou região</translation>
+        <translation>Vend ose Rajon</translation>
     </message>
     <message>
         <source>Format</source>
-        <translation>Formato</translation>
+        <translation>Format</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation>O sistema operacional e os aplicativos podem fornecer conteúdo local com base em seu país e região</translation>
+        <translation>Sistemi operativ dhe aplikacionet mund t’ju japin lëndë vendore bazuar në vendin dhe rajonin tuaj.</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation>Zonë</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation>O sistema operacional e os aplicativos podem definir formatos de data e hora com base em formatos regionais</translation>
+        <translation>Sistemi operativ dhe aplikacionet mund të caktojnë formate datash dhe kohe bazuar në formate rajonalë.</translation>
     </message>
     <message>
         <source>Region format</source>
-        <translation>Formato da região</translation>
+        <translation>Format rajoni</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Primeiro dia da semana</translation>
+        <translation>Dita e parë e javës</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Data curta</translation>
+        <translation>Datë e shkurtër</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Data longa</translation>
+        <translation>Datë e gjatë</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Hora curta</translation>
+        <translation>Kohë e shkurtër</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Hora longa</translation>
+        <translation>Kohë e gjatë</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo monetário</translation>
+        <translation>Simbol monedhe</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation>Números</translation>
+        <translation>Numra</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>Tamanho de papel</translation>
+        <translation>Letër</translation>
     </message>
     <message>
         <source>Custom Format</source>
-        <translation>Formato personalizado</translation>
+        <translation>Format Vetjak</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation>Definir uma senha</translation>
+        <translation>Caktoni një Fjalëkalim</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 caracteres</translation>
+        <translation>8-64 shenja</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Repita a senha</translation>
+        <translation>Rijepni fjalëkalimin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation>As senhas não coincidem</translation>
+        <translation>Fjalëkalimet s’përputhen</translation>
     </message>
 </context>
 <context>
     <name>ResultItem</name>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation>O sistema não está autorizado, ative-o</translation>
+        <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
     </message>
     <message>
         <source>Update successful</source>
-        <translation>Atualizado com sucesso</translation>
+        <translation>Përditësim i suksesshëm</translation>
     </message>
     <message>
         <source>Failed to update</source>
-        <translation>Falha ao atualizar</translation>
+        <translation>S’u përditësua dot</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation>Protetor de tela</translation>
+        <translation>Ekrankursyes</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation>pré-visualização</translation>
+        <translation>paraparje</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Protetor de tela personalizado</translation>
+        <translation>Ekrankursyes i personalizuar</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation>Configuração</translation>
+        <translation>rregullim</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation>Tempo ocioso</translation>
+        <translation>kohë plogështie</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 minuto</translation>
+        <translation>1 minutë</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 minutos</translation>
+        <translation>5 minuta</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 minutos</translation>
+        <translation>10 minuta</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 minutos</translation>
+        <translation>15 minuta</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 minutos</translation>
+        <translation>30 minuta</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 hora</translation>
+        <translation>1 orë</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>Nunca</translation>
+        <translation>kurrë</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Senha necessária para recuperação</translation>
+        <translation>Për rimarrje lypset fjalëkalim</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Protetor de tela e apresentação de slides de imagens</translation>
+        <translation>Ekrankursyes “shfaqje diapozitivash”</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Protetor de tela do sistema</translation>
+        <translation>Ekrankursyes sistemi</translation>
     </message>
 </context>
 <context>
     <name>SearchInput</name>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërkim</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Kërko</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation>Adicionar atalho personalizado</translation>
+        <translation>Shtoni shkurtore vetjake</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nome:</translation>
+        <translation>Emër:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation>Comando:</translation>
+        <translation>Urdhër:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Atalho</translation>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nenhum</translation>
+        <translation>Asnjë</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Por favor, insira um novo atalho</translation>
+        <translation>Ju lutemi, jepni një shkurtore të re</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shto</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation>Clique em adicionar para substituir</translation>
+        <translation>Që të zëvendësohet, klikoni mbi Shtoje</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Atalhos</translation>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation>Atalho do sistema, atalho personalizado</translation>
+        <translation>Shkurtore sistemi, shkurtore vetjake</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation>Pesquisar atalhos</translation>
+        <translation>Shkurtore kërkimesh</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Personalizado</translation>
+        <translation>Vetjake</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>Feito</translation>
+        <translation>u bë</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>përpunojeni</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Por favor, insira um novo atalho</translation>
+        <translation>Ju lutemi, jepni një shkurtore të re</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation>Clique</translation>
+        <translation>Klikim</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>or</source>
-        <translation>ou</translation>
+        <translation>ose</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>Substituir</translation>
+        <translation>Zëvendësoje</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation>Restaurar padrão</translation>
+        <translation>Rikthe parazgjedhjen</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation>Adicionar atalho personalizado</translation>
+        <translation>Shtoni shkurtore vetjake</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Pajisje Në Dalje</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation>Selecione se deseja habilitar os dispositivos</translation>
+        <translation>Përzgjidhni të aktivizohen ajo pajisjet</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Dispositivos de entrada</translation>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation>Efeitos sonoros</translation>
+        <translation>Efekte Zanore</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation>Inicialização</translation>
+        <translation>Nisu</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Desligar</translation>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation>Sair</translation>
+        <translation>Dalje</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation>Ligar</translation>
+        <translation>Zgjohu</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation>Volume +/-</translation>
+        <translation>Volum +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Notificações</translation>
+        <translation>Njoftim</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation>Bateria fraca</translation>
+        <translation>Bateri e pakët</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone do Lançador para a Área de Trabalho</translation>
+        <translation>Dërgoje ikonën te Nisës në Desktop</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation>Esvaziar Lixeira</translation>
+        <translation>Zbraz Hedhurinat</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation>Plugar</translation>
+        <translation>Fute</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation>Desplugar</translation>
+        <translation>Nxirre</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Dispositivo removível conectado</translation>
+        <translation>U lidh pajisje e heqshme</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Dispositivo removível desconectado</translation>
+        <translation>U hoq pajisje e heqshme</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Erro</translation>
+        <translation>Gabim</translation>
     </message>
 </context>
 <context>
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation>Som</translation>
+        <translation>Tingull</translation>
     </message>
 </context>
 <context>
     <name>SoundPlugin</name>
     <message>
         <source>Output</source>
-        <translation>Saída</translation>
+        <translation>Në Dalje</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation>Pausar automaticamente</translation>
+        <translation>Pauzë e automatizuar</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>Quando o dispositivo de áudio atual for desconectado, o áudio será automaticamente pausado</translation>
+        <translation>Nëse do të ndalet apo jo automatikisht audioja, kur hiqet pajisja audio e çastit</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Entrada</translation>
+        <translation>Në Hyrje</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Efeitos sonoros</translation>
+        <translation>Efekte Zanore</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation>Dispositivos</translation>
+        <translation>Pajisje</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Dispositivos de entrada</translation>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Pajisje Në Dalje</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Output Device</source>
-        <translation>Dispositivo de Saída</translation>
+        <translation>Pajisje Në Dalje</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Volume de saída</translation>
+        <translation>Volum Në Dalje</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Amplificar volume</translation>
+        <translation>Përforcim Volumi</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Se o volume for superior a 100%, haverá distorção do áudio e o alto-falante poderá ser danificado</translation>
+        <translation>Nëse volumi është më i fortë se 100%, mund të shformohen tingujt dhe të jetë e dëmshme për altoparlantët tuaj</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
-        <translation>Balanço esquerdo/direito</translation>
+        <translation>Balancë Majtas/Djathtas</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation>Saída</translation>
+        <translation>Në Dalje</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation>Nenhum dispositivo de saída de som encontrado</translation>
+        <translation>S’u gjet pajisje output-i për zërin</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>Balanço Esquerda e Direita</translation>
+        <translation>Balancë Majtas-Djathtas</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation>Áudio mono</translation>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation>Mesclar canais esquerdo e direito em um único canal</translation>
+        <translation>Përzje në një kanal të vetëm kanalet majtas dhe djathtas</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation>Pausar automaticamente</translation>
+        <translation>Pauzë e automatizuar</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>O áudio será pausado automaticamente quando o dispositivo de áudio atual for desconectado</translation>
+        <translation>Të ndalet a jo automatikisht audioja, kur hiqet pajisja audio e çastit</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Pajisje Në Dalje</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation>Som</translation>
+        <translation>Tingull</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Temë</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Energia</translation>
+        <translation>Energji</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Rede</translation>
+        <translation>Rrjet</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atualização</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Mais papéis de parede</translation>
+        <translation>Më Tepër Sfonde</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Sincronizar hora automaticamente</translation>
+        <translation>Vetënjëkohësohë kohën</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation>Servidor NTP</translation>
+        <translation>Shërbyes NTP</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation>Sistema data e hora</translation>
+        <translation>Datë dhe kohë e sistemit</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation>Personalizar</translation>
+        <translation>Përshtateni</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configurações</translation>
+        <translation>Rregullime</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation>Endereço do servidor</translation>
+        <translation>Adresë shërbyesi</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation>O endereço do servidor NTP não pode estar vazio</translation>
+        <translation>Adresa e shërbyesit ntp s’mund të jetë e zbrazët</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation>Usar formato 24 horas</translation>
+        <translation>Përdorin formatin 24-orësh</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation>Fuso horário do sistema</translation>
+        <translation>zonë kohore sistemi</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation>Lista de fusos horários</translation>
+        <translation>Listë zonash kohore</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation>A partir</translation>
+        <translation>nga</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>Até</translation>
+        <translation>në</translation>
     </message>
 </context>
 <context>
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation>Configurações de data e hora</translation>
+        <translation>Rregullime Kohe</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Horário</translation>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Auto Sync</source>
-        <translation>Sincronizar com servidor de horário</translation>
+        <translation>Vetë-njëkohësohu</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation>Redefinir</translation>
+        <translation>Riktheje te parazgjedhja</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation>Servidor</translation>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation>Endereço</translation>
+        <translation>Adresë</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Obrigatório</translation>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation>Personalizar</translation>
+        <translation>Përshtateni</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation>Ano</translation>
+        <translation>Vit</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Mês</translation>
+        <translation>Muaj</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Dia</translation>
+        <translation>Ditë</translation>
     </message>
 </context>
 <context>
     <name>TimeZoneChooser</name>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation>Adicionar fuso horário</translation>
+        <translation>Shtoni Zonë Kohore</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <source>Change Timezone</source>
-        <translation>Alterar Fuso Horário</translation>
+        <translation>Ndryshoni Zonë Kohore</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Salvar configurações de exibição?</translation>
+        <translation>Të ruhen rregullimet për ekranin?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>As configurações serão revertidas em %1s.</translation>
+        <translation>Rregullimet do të kthehen te %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Reverter</translation>
+        <translation>Riktheji</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation>Adicionar fuso horário</translation>
+        <translation>Shtoni zonë kohore</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation>Determinar o fuso horário com base na localização atual</translation>
+        <translation>Përcaktoje zonën kohore bazuar në vendndodhjen aktuale</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Fuso horário:</translation>
+        <translation>Zonë kohore:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation>Cidade mais próxima:</translation>
+        <translation>Qyteti Më i Afërt:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>TimezoneItem</name>
     <message>
         <source>Tomorrow</source>
-        <translation>Amanhã</translation>
+        <translation>Nesër</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation>Ontem</translation>
+        <translation>Dje</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Hoje</translation>
+        <translation>Sot</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>%1 horas mais cedo que a local</translation>
+        <translation>%1 orë më herët se sa vendorja</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>%1 horas mais tarde que a local</translation>
+        <translation>%1 orë më vonë se sa vendorja</translation>
     </message>
 </context>
 <context>
     <name>TimezoneModule</name>
     <message>
         <source>Timezone List</source>
-        <translation>Lista de fusos horários</translation>
+        <translation>Listë Zonash Kohore</translation>
     </message>
     <message>
         <source>System Timezone</source>
-        <translation>Fuso horário do sistema</translation>
+        <translation>Zonë Kohore Sistemi</translation>
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation>Adicionar fuso horário</translation>
+        <translation>Shtoni Zonë Kohore</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Tela sensível ao toque</translation>
+        <translation>Ekran me prekje</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Configure aqui ao conectar a tela sensível ao toque</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation>Configurações básicas</translation>
+        <translation>Rregullime Elementare</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -5758,1056 +5773,1056 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Shpejtësi Treguesi</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>E ngadaltë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rápido</translation>
+        <translation>E shpejtë</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Desativar touchpad durante a digitação</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Toque para clicar</translation>
+        <translation>Prekeni që të Klikohet</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem natural</translation>
+        <translation>Rrëshqitje e Natyrshme</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation>Gestos</translation>
+        <translation>Gjest</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation>Gestos de três dedos</translation>
+        <translation>Gjeste me tre gishta</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation>Gestos de quatro dedos</translation>
+        <translation>Gjeste me katër gishta</translation>
     </message>
 </context>
 <context>
     <name>TreeCombox</name>
     <message>
         <source>Collaboration Settings</source>
-        <translation>Configurações de colaboração</translation>
+        <translation>Rregullime Bashkëpunimi</translation>
     </message>
 </context>
 <context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
-        <translation>A conta de usuário não está conectada à Union ID</translation>
+        <translation>Llogaria e përdoruesit s’është e lidhur me Union ID</translation>
     </message>
     <message>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation>Para alterar senhas, você primeiro precisa autenticar seu Union ID. Clique em &quot;Ir para o endereço&quot; para finalizar as alterações.</translation>
+        <translation>Që të ricaktoni fjalëkalime, duhet së pari të bëni mirëfilltësimin e ID-së tuaj Union. Që të përfundohet ujdisja, klikoni mbi “Kalo te Lidhje”.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Go to Link</source>
-        <translation>Ir para o endereço</translation>
+        <translation>Kalo te Lidhja</translation>
     </message>
 </context>
 <context>
     <name>UnknownUpdateItem</name>
     <message>
         <source>Release date: </source>
-        <translation>Data de lançamento:</translation>
+        <translation>Datë hedhjeje në qarkullim: </translation>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation>Tempo previsto de instalação:</translation>
+        <translation>Kohë e pritshme instalimi:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation>30 minutos</translation>
+        <translation>30m</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation>Instalando</translation>
+        <translation>Po instalohet</translation>
     </message>
 </context>
 <context>
     <name>UpdateCtrlWidget</name>
     <message>
         <source>Check Again</source>
-        <translation>Verificar novamente</translation>
+        <translation>Rikontrollo</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>A atualização falhou: espaço insuficiente em disco</translation>
+        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Erro de dependência, falha ao detectar atualizações</translation>
+        <translation>Gabim varësish, s’u arrit të zbulohen përditësimet</translation>
     </message>
     <message>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie o computador para usar o sistema e os aplicativos normalmente</translation>
+        <translation>Që të përdorni sistemin dhe aplikacionet si duhet, rinisni kompjuterin</translation>
     </message>
     <message>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Rede desconectada; tente novamente, após conectar-se</translation>
+        <translation>Rrjeti u shkëput, ju lutemi, riprovoni pasi të jetë lidhur</translation>
     </message>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation>O sistema não está autorizado, ative-o</translation>
+        <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
     </message>
     <message>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Esta atualização pode demorar, não desligue ou reinicie durante o processo</translation>
+        <translation>Ky përditësim mund të zgjasë një kohë të gjatë, ju lutemi, mos e fikni apo rinisni gjatë procesit</translation>
     </message>
     <message>
         <source>Updates Available</source>
-        <translation>Atualizações disponíveis</translation>
+        <translation>Ka Përditësime</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation>Atualizando...</translation>
+        <translation>Po përditësohet…</translation>
     </message>
     <message>
         <source>Download Updates</source>
-        <translation>Baixar atualizações</translation>
+        <translation>Shkarko Përditësimet</translation>
     </message>
     <message>
         <source>Last checking time: </source>
-        <translation>Última verificação:</translation>
+        <translation>Koha e kontrollit të fundit: </translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>Seu sistema está atualizado</translation>
+        <translation>Sistemi juaj është i përditësuar</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Status de atualização</translation>
+        <translation>Kontrollo për Përditësime</translation>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
-        <translation>Verificando se há atualizações, aguarde...</translation>
+        <translation>Po kontrollohet për përditësime, ju lutemi, pritni…</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation>O sistema mais recente está instalado. Reinicie para efetivar.</translation>
+        <translation>U instalua sistemi më i ri, riniseni që të hyjë në fuqi</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% baixado (clique para pausar)</translation>
+        <translation>%1% të shkarkuara (Klikoni që të ndalet)</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% baixado (clique para continuar)</translation>
+        <translation>%1% të shkarkuara (Klikoni që të vazhdohet)</translation>
     </message>
     <message>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>A carga da bateria está abaixo de 50%; conecte o carregador</translation>
+        <translation>Bateria juaj është më pak se 50%, ju lutemi, që të vazhdohet, vëreni në prizë</translation>
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Certifique-se de que há energia suficiente para reiniciar; não desligue ou desconecte o carregador</translation>
+        <translation>Ju lutemi, që të riniset, sigurohuni për energji të mjaftueshme dhe mos e fikni apo të hiqni prizën e makinës tuaj</translation>
     </message>
     <message>
         <source>Current Edition</source>
-        <translation>Versão atual</translation>
+        <translation>Edicioni i Tanishëm</translation>
     </message>
     <message>
         <source>The backup update function is currently disabled. If the upgrade fails, the system cannot be rolled back!</source>
-        <translation>A função de backup de atualizações está desativada no momento. Se a atualização falhar, o sistema não poderá ser revertido!</translation>
+        <translation>Funksioni i përditësimit të kopjeruajtjeve aktualisht është i çaktivizuar. Nëse dështon përmirësimi, sistemi s’mund të rikthehet si ishte!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Update Now</source>
-        <translation>Atualizar agora</translation>
+        <translation>Përditësoje Tani</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Tamanho</translation>
+        <translation>Madhësi</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>As configurações serão revertidas em %1s.</translation>
+        <translation>Rregullimet do të kthehen te %1s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation>Salvar as configurações de exibição?</translation>
+        <translation>Të ruhen rregullimet për ekranin?</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Reverter</translation>
+        <translation>Riktheji</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Ruaji</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Esta atualização de patch melhora principalmente a experiência de desempenho operacional do ambiente de desktop e dos aplicativos mais usados, além de corrigir alguns problemas conhecidos do sistema, melhorando ainda mais a qualidade do produto.</translation>
+        <translation>Ky përditësim përmes arnimi përmirëson kryesisht funksionimin e mjedisit desktop dhe të aplikacioneve të përdorur rëndom, si dhe ndreq disa probleme të ditura sistemi, duke thelluar më tej cilësinë e produktit.</translation>
     </message>
     <message>
         <source>Updates：</source>
-        <translation>Atualizações：</translation>
+        <translation>Përditësime :</translation>
     </message>
     <message>
         <source>Release time：</source>
-        <translation>Data de lançamento:</translation>
+        <translation>Kohë hedhjeje në qarkullim :</translation>
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
+        <translation>20.01.2025</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation>Ver detalhes</translation>
+        <translation>Shihni Hollësitë</translation>
     </message>
     <message>
         <source>收起</source>
-        <translation>Fechar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation>Atualizações disponíveis</translation>
+        <translation>Ka Përditësime</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation>Instalando atualização</translation>
+        <translation>Instalim Përditësimi</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation>Instalando atualizações…</translation>
+        <translation>Po instalohen përditësime…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation>Atualização instalada com sucesso</translation>
+        <translation>Përditësimi u instalua me sukses</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Reiniciar agora</translation>
+        <translation>Rinise Tani</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation>Falha no download da atualização</translation>
+        <translation>Shkarkimi i përditësimit dështoi</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation>Tentar novamente</translation>
+        <translation>riprovo</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation>Verificando atualizações, aguarde…</translation>
+        <translation>Po kontrollohet për përditësime, ju lutemi, pritni…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Seu sistema está atualizado, por favor reinicie agora</translation>
+        <translation>Sistemi juaj është i përditësuar, ju lutemi, riniseni tani</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>Seu sistema está atualizado</translation>
+        <translation>Sistemi juaj është i përditësuar</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation>Uma atualização foi encontrada.</translation>
+        <translation>U pikas një përditësim.</translation>
     </message>
 </context>
 <context>
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation>Atualizações</translation>
+        <translation>Përditësime</translation>
     </message>
 </context>
 <context>
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation>Verificar atualizações</translation>
+        <translation>Kontrollo për Përditësime</translation>
     </message>
 </context>
 <context>
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation>Tipo de atualização</translation>
+        <translation>lloj përditësimi</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation>Atualização de função</translation>
+        <translation>Përditësim funksioni</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Fornece novos recursos, patches de qualidade, correções de vulnerabilidades de segurança e conteúdo totalmente atualizado</translation>
+        <translation>Sill veçori të reja, arnime cilësore, ndreqje cenueshmërish sigurie dhe lëndë plotësisht të përditësuar</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation>Atualização de qualidade</translation>
+        <translation>Përditësim Cilësie</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation>Fornece patches de qualidade do sistema</translation>
+        <translation>Sill arnime cilësore sistemi</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation>Troca inteligente de espelho</translation>
+        <translation>Ndërrim i Mençur Pasqyrash</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingItem</name>
     <message>
         <source>Insufficient disk space</source>
-        <translation>Espaço insuficiente em disco</translation>
+        <translation>Hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>A atualização falhou: espaço insuficiente em disco</translation>
+        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation>A atualização falhou</translation>
+        <translation>Përditësimi dështoi</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation>Erro de rede</translation>
+        <translation>Gabim rrjeti</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation>Houve um erro na rede. Por favor, verifique e tente novamente</translation>
+        <translation>Gabim rrjeti, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Packages error</source>
-        <translation>Erro nos pacotes</translation>
+        <translation>Gabim paketash</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation>Erro nos pacotes, por favor, tente novamente</translation>
+        <translation>Gabim paketash, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Dependency error</source>
-        <translation>Erro de dependência</translation>
+        <translation>Gabim varësish</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation>Dependências não atendidas</translation>
+        <translation>Varësi të paplotësuara</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation>O sistema mais recente está instalado. Reinicie para efetivar.</translation>
+        <translation>U instalua sistemi më i ri, riniseni që të hyjë në fuqi</translation>
     </message>
     <message>
         <source>Waiting</source>
-        <translation>Aguardando</translation>
+        <translation>Në pritje</translation>
     </message>
     <message>
         <source>Backing up</source>
-        <translation>Respaldando</translation>
+        <translation>Po kryhet kopjeruajtje</translation>
     </message>
     <message>
         <source>System backup failed</source>
-        <translation>O backup do sistema falhou</translation>
+        <translation>Kopjeruajtja e sistemit dështoi</translation>
     </message>
     <message>
         <source>System backup failed, space is full</source>
-        <translation>O backup do sistema falhou, espaço insuficiente em disco</translation>
+        <translation>Kopjeruajtja e sistemit dështoi, hapësira është plot</translation>
     </message>
     <message>
         <source>Release date: </source>
-        <translation>Data de lançamento:</translation>
+        <translation>Datë hedhjeje në qarkullim: </translation>
     </message>
     <message>
         <source>Server</source>
-        <translation>Servidor</translation>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Área de trabalho</translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versão</translation>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingsModule</name>
     <message>
         <source>Update Settings</source>
-        <translation>Configurações de atualização</translation>
+        <translation>Përditësoni Rregullimet</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Security Updates Only</source>
-        <translation>Apenas atualizações de segurança</translation>
+        <translation>Vetëm Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation>Ative para atualizar apenas as vulnerabilidades de segurança e problemas de compatibilidade</translation>
+        <translation>Aktivizojeni, që të bëhen përditësime vetëm për cenueshmëri sigurie dhe probleme përputhshmërie</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation>Repositórios de terceiros</translation>
+        <translation>Depo Palësh të Treta</translation>
     </message>
     <message>
         <source>Other settings</source>
-        <translation>Outras configurações</translation>
+        <translation>Rregullime të tjera</translation>
     </message>
     <message>
         <source>Auto Check for Updates</source>
-        <translation>Verificar automaticamente as atualizações</translation>
+        <translation>Kontrollo Vetvetiu për Përditësime</translation>
     </message>
     <message>
         <source>Auto Download Updates</source>
-        <translation>Baixar automaticamente as atualizações</translation>
+        <translation>Përidtësimet Vetëshkarkoji</translation>
     </message>
     <message>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>As atualizações serão baixadas automaticamente; mas, serão instaladas apenas com a intervenção do usuário</translation>
+        <translation>Aktivizojeni që të shkarkohen automatikisht përditësimet në rrjet me ose pa fill</translation>
     </message>
     <message>
         <source>Auto Install Updates</source>
-        <translation>Instalar automaticamente as atualizações</translation>
+        <translation>Përditësimet Vetëinstaloji</translation>
     </message>
     <message>
         <source>Backup updates</source>
-        <translation>Backup de atualizações</translation>
+        <translation>Përditësime kopjerujtjesh</translation>
     </message>
     <message>
         <source>Ensuring normal system rollback in case of upgrade failure</source>
-        <translation>Em caso de falha na instalação, o sistema será revertido para o estado anterior à atualização</translation>
+        <translation>Garantim rikthim te sistemi normal, në rast dështimi përmirësimi</translation>
     </message>
     <message>
         <source>Updates Notification</source>
-        <translation>Notificar quando houver atualizações disponíveis</translation>
+        <translation>Njoftim Përditësimesh</translation>
     </message>
     <message>
         <source>Clear Package Cache</source>
-        <translation>Limpar cache de pacotes</translation>
+        <translation>Spastro Fshehtinë Paketash</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation>Troca inteligente de espelho</translation>
+        <translation>Ndërrim i Mençur Pasqyrash</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Ligue-o para conectar-se automaticamente ao site espelho mais rápido</translation>
+        <translation>Aktivizojeni, për t’u lidhur automatikisht te sajti pasqyrë më i shpejtë</translation>
     </message>
     <message>
         <source>Mirror List</source>
-        <translation>Lista de Mirrors</translation>
+        <translation>Listë Pasqyrash</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
-        <translation>Repositório de testes interno</translation>
+        <translation>Përditësime prej Burimesh të Brendshme Testimesh</translation>
     </message>
     <message>
         <source>internal update</source>
-        <translation>atualização interna</translation>
+        <translation>përditësim i brendshëm</translation>
     </message>
     <message>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation>Participe do canal de testes internos para receber as atualizações mais recentes</translation>
+        <translation>Bëhuni pjesë e kanalit të brendshëm të testimeve, që të merrni përditësimet më të reja të deepin-it</translation>
     </message>
     <message>
         <source>System Updates</source>
-        <translation>Atualizações do Sistema</translation>
+        <translation>Përditësime Sistemi</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation>Atualizações de Segurança</translation>
+        <translation>Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation>Instalar atualizações automaticamente quando o download for concluído</translation>
+        <translation>Instaloji përditësimet automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation>Instalar &quot;%1&quot; automaticamente quando o download for concluído</translation>
+        <translation>Instaloje “%1” automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
 </context>
 <context>
     <name>UpdateWidget</name>
     <message>
         <source>Current Edition</source>
-        <translation>Versão atual</translation>
+        <translation>Edicioni i Tanishëm</translation>
     </message>
 </context>
 <context>
     <name>UpdateWorker</name>
     <message>
         <source>System Updates</source>
-        <translation>Atualizações do Sistema</translation>
+        <translation>Përditësime Sistemi</translation>
     </message>
     <message>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation>Correção de alguns bugs conhecidos e vulnerabilidades de segurança</translation>
+        <translation>U ndreqën disa të meta të ditura dhe cenueshmëri sigurie</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation>Atualizações de Segurança</translation>
+        <translation>Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation>Repositórios de terceiros</translation>
+        <translation>Depo Palësh të Treta</translation>
     </message>
     <message>
         <source>It may be unsafe for you to leave the internal testing channel now, do you still want to leave?</source>
-        <translation>Talvez não seja seguro você sair do canal de testes interno neste momento. Sair?</translation>
+        <translation>Braktisja e kanalit të brendshëm të testimeve tani mund të mos jetë pa rrezik për ju, doni ende ta braktisni?</translation>
     </message>
     <message>
         <source>Your are safe to leave the internal testing channel</source>
-        <translation>Você pode sair do canal de testes interno com segurança</translation>
+        <translation>S’ka rrezik për ju, nëse e braktisni kanalin e brendshëm të testimeve</translation>
     </message>
     <message>
         <source>Cannot find machineid</source>
-        <translation>Impossível encontrar o ID da máquina</translation>
+        <translation>S’gjendet dot machineid</translation>
     </message>
     <message>
         <source>Cannot Uninstall package</source>
-        <translation>Impossível desinstalar o pacote</translation>
+        <translation>Nuk Çinstalohet dot paketa</translation>
     </message>
     <message>
         <source>Error when exit testingChannel</source>
-        <translation>Erro ao sair do canal de testes</translation>
+        <translation>Gabim kur dilej nga testingChannel</translation>
     </message>
     <message>
         <source>try to manually uninstall package</source>
-        <translation>tente desinstalar manualmente o pacote</translation>
+        <translation>provoni ta çinstaloni paketën dorazi</translation>
     </message>
     <message>
         <source>Cannot install package</source>
-        <translation>Impossível instalar o pacote</translation>
+        <translation>S’instalohet dot paketa</translation>
     </message>
 </context>
 <context>
     <name>UseBatteryModule</name>
     <message>
         <source>On Battery</source>
-        <translation>Na bateria</translation>
+        <translation>Nën Bateri</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Nunca</translation>
+        <translation>Kurrë</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Desligar</translation>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Suspender</translation>
+        <translation>Pezulloje</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Hibernar</translation>
+        <translation>Plogështoje</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar monitor</translation>
+        <translation>Fike monitorin</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Não fazer nada</translation>
+        <translation>Mos bëj gjë</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation>1 minuto</translation>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation>%1 minutos</translation>
+        <translation>%1 Minutash</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation>1 hora</translation>
+        <translation>1 Orë</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e suspensão</translation>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar monitor após</translation>
+        <translation>Fike monitorin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender computador após</translation>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation>Suspender o computador após</translation>
+        <translation>Kompjuteri do të pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Quando a tampa é fechada </translation>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia é pressionado</translation>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation>Bateria Fraca</translation>
+        <translation>Bateri e Pakët</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation>Notificação de bateria fraca</translation>
+        <translation>Njoftim për bateri të pakët</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>Nível de bateria baixo</translation>
+        <translation>Nivel i ulët baterie</translation>
     </message>
     <message>
         <source>Auto suspend battery level</source>
-        <translation>Nível de bateria para suspensão automática</translation>
+        <translation>Nivel baterie për pezullim të automatizuar</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Gerenciamento de Energia</translation>
+        <translation>Administrim Baterie</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Exibir o tempo restante de uso e carregamento</translation>
+        <translation>Shfaq kohën e mbetur për përdorimin dhe atë për ngarkimin</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation>Capacidade máxima</translation>
+        <translation>Kapacitet maksimum</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Exibir interface de desligamento</translation>
+        <translation>Shfaq Ndërfaqen e fikjes</translation>
     </message>
 </context>
 <context>
     <name>UseElectricModule</name>
     <message>
         <source>Plugged In</source>
-        <translation>Na tomada</translation>
+        <translation>Në Prizë</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation>1 minuto</translation>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation>%1 minutos</translation>
+        <translation>%1 Minutash</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation>1 hora</translation>
+        <translation>1 Orë</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Nunca</translation>
+        <translation>Kurrë</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e suspensão</translation>
+        <translation>Ekran dhe Pezullim</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar monitor após</translation>
+        <translation>Fike monitorin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender computador após</translation>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Quando a tampa é fechada </translation>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia é pressionado</translation>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Desligar</translation>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Suspender</translation>
+        <translation>Pezulloje</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Hibernar</translation>
+        <translation>Plogështoje</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar tela</translation>
+        <translation>Fike monitorin</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Exibir interface de desligamento</translation>
+        <translation>Shfaq Ndërfaqen e fikjes</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Não fazer nada</translation>
+        <translation>Mos bëj gjë</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Participar do Programa de Experiência do Usuário</translation>
+        <translation>Merrni Pjesë te “User Experience Program”</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation>Verificação de segurança</translation>
+        <translation>Verifikim Sigurie</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation>A ação é sensível, digite primeiro a senha de login</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 caracteres</translation>
+        <translation>8-64 shenja</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation>Esqueceu sua senha?</translation>
+        <translation>Harruat Fjalëkalimin?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation>Mesa Digitalizadora</translation>
+        <translation>Tablet Vizatimi</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidade ao pressionar</translation>
+        <translation>Ndjeshmëri Trysnie</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation>Caneta</translation>
+        <translation>Penë</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation>Intensidade </translation>
+        <translation>E fortë</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>papel de parede</translation>
+        <translation>sfond</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation>Cantos das janelas arredondados</translation>
+        <translation>Cepa të rrumbullakët dritaresh</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation>Minhas fotos</translation>
+        <translation>Fotot e mia</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Papéis de parede do sistema</translation>
+        <translation>Sfond Sistemi</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation>Papel de parede de cor sólida</translation>
+        <translation>Sfond ngjyrë e plotë</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation>Papéis de parede personalizáveis</translation>
+        <translation>Sfonde që mund të përshtaten</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation>estilo de preenchimento</translation>
+        <translation>stil mbushjeje</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation>Troca automática de papel de parede</translation>
+        <translation>Ndryshim i automatizuar sfondi</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>Nunca</translation>
+        <translation>kurrë</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation>30 segundos</translation>
+        <translation>30 sekonda</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 minuto</translation>
+        <translation>1 minutë</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 minutos</translation>
+        <translation>5 minuta</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 minutos</translation>
+        <translation>10 minuta</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 minutos</translation>
+        <translation>15 minuta</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 minutos</translation>
+        <translation>30 minuta</translation>
     </message>
     <message>
         <source>1 hover</source>
-        <translation>1 hora</translation>
+        <translation>1 kalim kursori përsipër</translation>
     </message>
     <message>
         <source>login</source>
-        <translation>Login</translation>
+        <translation>hyrje</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation>Ligar</translation>
+        <translation>zgjohu</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation>Papéis de parede do sistema</translation>
+        <translation>Sfonde Sistemi</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation>Papel de parede animado</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>Desdobrar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>show all</source>
-        <translation>Mostrar tudo</translation>
+        <translation>shfaqi krejt</translation>
     </message>
     <message>
         <source>items</source>
-        <translation>Itens</translation>
+        <translation>objekte</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation>Definir tela de bloqueio</translation>
+        <translation>Ujdisni kyçje ekrani</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation>Definir área de trabalho</translation>
+        <translation>Caktoni desktop</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>Interface e efeitos</translation>
+        <translation>Ndërfaqe dhe Efekte</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation>Configurações da janela</translation>
+        <translation>Rregullime Dritareje</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation>Cantos das janelas arredondados</translation>
+        <translation>Cepa të rrumbullakët dritaresh</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nenhum</translation>
+        <translation>Asnjë</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pequeno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grande</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Habilitar efeitos transparentes quando as janelas se moverem</translation>
+        <translation>Aktivizo efekte tejdukshmërie, kur lëvizet një dritare</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Efeito ao minimizar janelas</translation>
+        <translation>Efekt Minimizimi Dritaresh</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Escala</translation>
+        <translation>Ripërmasojeni</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation>Lâmpada mágica</translation>
+        <translation>Llambë Magjike</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Opacidade</translation>
+        <translation>Patejdukshmëri</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>Baixa</translation>
+        <translation>E ulët</translation>
     </message>
     <message>
         <source>High</source>
-        <translation>Alta</translation>
+        <translation>E lartë</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation>Barras de rolagem</translation>
+        <translation>Shtylla Rrëshqitjeje</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Mostrar ao rolar</translation>
+        <translation>Shfaqe gjatë rrëshqitjesh</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Manter mostrado</translation>
+        <translation>Mbaje të shfaqur</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Exibição compacta</translation>
+        <translation>Shfaqje Kompakte</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Se ativado, mais conteúdo será exibido na janela.</translation>
+        <translation>Në u aktivizoftë, te dritarja shfaqet më tepër lëndë.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura da barra do título</translation>
+        <translation>Lartësi Shtylle Titulli</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>Adequado somente para barras de título de janelas de aplicativos desenhadas pelo gerenciador de janelas.</translation>
+        <translation>E përshtatshme vetëm për shtylla titujsh dritaresh aplikacionesh të vizatuara nga përgjegjësi i dritareve.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Extremamente pequeno</translation>
+        <translation>Tejet e vockël</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Conta</translation>
+        <translation>Llogari</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Gerenciamento de conta</translation>
+        <translation>Përgjegjës llogarish</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Outras contas</translation>
+        <translation>Llogari të tjera</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticação Biométrica</translation>
+        <translation>Mirëfilltësim Biometrik</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticação Biométrica</translation>
+        <translation>Mirëfilltësim Biometrik</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Rosto</translation>
+        <translation>Fytyrë</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Podem ser inseridos até 5 metódos faciais</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Impressão Digital</translation>
+        <translation>Shenja gishtash</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Identificar a identidade do usuário por meio da biometria da impressão digital</translation>
+        <translation>Identifikim identiteti përdoruesi përmes skanimi shenjash gishtash</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Íris</translation>
+        <translation>Bebe Syri</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Reconhecimento de identidade por meio do escaneamento de íris</translation>
+        <translation>Dallim identiteti përmes skanimi bebeje syri</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Use apenas letras, números e traços, e não mais que 15 caracteres</translation>
+        <translation>Përdorni vetëm shkronja, numra dhe nënvija, si dhe jo më shumë se 15 shenja</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Use apenas letras, números e traços</translation>
+        <translation>Përdorni vetëm shkronja, numra dhe nënvija</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>Não mais do que 15 caracteres</translation>
+        <translation>Jo më shumë se 15 shenja</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation>Adicionar um novo</translation>
+        <translation>Shtoni të re </translation>
     </message>
 </context>
 <context>
@@ -6818,315 +6833,315 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Configurações do Bluetooth, dispositivos</translation>
+        <translation>Rregullime, pajisje Bluetooth</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de inicialização</translation>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gerenciar seu menu de inicialização</translation>
+        <translation>Administroni menunë tuaj të nisjeve</translation>
     </message>
     <message>
         <source>Developer Optilons</source>
-        <translation>Opções do desenvolvedor</translation>
+        <translation>Mundësi Zhvilluesish</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Gerenciador de permissão de root do desenvolvedor</translation>
+        <translation>Administrim lejesh rrënjë për zhvillues</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Hora e data</translation>
+        <translation>Kohë dhe datë</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Hora e data, configurações de fuso horário</translation>
+        <translation>Rregullime kohe, date dhe zone kohore</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Idioma e região</translation>
+        <translation>Gjuhë dhe rajon</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation>Idioma do sistema, formato da região</translation>
+        <translation>Gjuhë sistemi, format rajonesh</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>O nome de usuário deve ter entre 3 e 32 caracteres</translation>
+        <translation>Emri i përdoruesit duhet të jetë nga 3 deri në 32 shenja</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>O primeiro caractere deve ser uma letra ou número</translation>
+        <translation>Shenja e parë duhet të jetë shkronjë ose numër</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>Seu nome de usuário não deve ter apenas números</translation>
+        <translation>Emri juaj i përdoruesit s’duhet të përmbajë vetëm numra</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>O nome de usuário foi usado por outra conta de usuário</translation>
+        <translation>Emri i përdoruesit është përdorur nga të tjera llogari përdoruesish</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>O nome completo é muito longo</translation>
+        <translation>Emri i plotë është shumë i gjatë</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>O nome completo foi usado por outra conta de usuário</translation>
+        <translation>Emri i plotë është përdorur nga të tjera llogari përdoruesish</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Senha incorreta</translation>
+        <translation>Fjalëkalim i gabuar</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Usuário padrão</translation>
+        <translation>Përdorues Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Përgjegjës</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Personalizado</translation>
+        <translation>E përshtatur</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Seu host foi removido do servidor de domínio com sucesso</translation>
+        <translation>Streha juaj u hoq me sukses nga shërbyesi i përkatësive</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Seu host se conectou ao servidor de domínio com sucesso</translation>
+        <translation>Streha juaj u bë me sukses pjesë e shërbyesit të përkatësive</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Seu host não conseguiu se desconectar do servidor de domínio</translation>
+        <translation>S’u arrit të braktisej shërbyesi i përkatësive nga streha juaj</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Seu host falhou ao ingressar no servidor de domínio</translation>
+        <translation>S’u arrit që streha juaj të bëhej pjesë e shërbyesit të përkatësive</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Configurações de domínio do AD</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>As senhas não coincidem</translation>
+        <translation>Fjalëkalimi s’përputhet</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation>Dimensional</translation>
+        <translation>Përmasor</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation>Plano</translation>
+        <translation>I sheshtë</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Use seu rosto para desbloquear o dispositivo e fazer as configurações mais tarde</translation>
+        <translation>Përdorni fytyrën tuaj që të shkyçni pajisjen dhe për të bërë ujdisjen më vonë</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation>Reconhecimento facial</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>Coloque o seu dedo</translation>
+        <translation>Vendosni gishtin</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Coloque o dedo firmemente no sensor até que seja solicitado que você retire</translation>
+        <translation>Vendoseni gishtin tuaj te ndijuesi pa e lëvizur, deri sa t’ju kërkohet ta hiqni</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation>Levante o dedo</translation>
+        <translation>Hiqeni gishtin</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Levante o dedo e coloque-o novamente no sensor</translation>
+        <translation>Ngrijeni gishtin dhe rivendoseni te ndijuesi</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Escaneie as bordas da sua impressão digital</translation>
+        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Posicione corretamente o dedo para digitalizar as laterais da sua impressão digital</translation>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>Levante o dedo e aproxime de novo</translation>
+        <translation>Hiqeni gishtin dhe ribëjeni këtë</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation>Impressão digital adicionada</translation>
+        <translation>U shtuan shenja gishtash</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Cadastro biométrico cancelado</translation>
+        <translation>Skanimi u Pezullua</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Posicione as laterais da impressão digital sobre o sensor</translation>
+        <translation>Vendosni te ndijuesi skajet e mollëzës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Íris</translation>
+        <translation>Bebe syri</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation>Este atalho entra em conflito com [%1]</translation>
+        <translation>Kjo shkurtore përplaset me [%1]</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>A senha não pode ficar vazia</translation>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>A senha deve ter pelo menos %1 caracteres</translation>
+        <translation>Fjalëkalimi duhet të ketë e pakta %1 shenja</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>A senha não deve ter mais que %1 caracteres</translation>
+        <translation>Fjalëkalimi s’duhet të jetë më tepër se %1 shenja</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha pode conter apenas letras (maiúsculas e minúsculas), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi mund të përmbajë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Não mais que %1 caracteres palíndromos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja palindromike</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Não mais que %1 caracteres monótonos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Não mais que %1 caracteres repetidos, por favor</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>A senha deve conter letras maiúsculas, letras minúsculas, números e símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Fjalëkalimi duhet të përmbajë shkronja të mëdha, shkronja të vogla, numra dhe simbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A senha não deve conter mais de 4 caracteres palíndromos</translation>
+        <translation>Fjalëkalimi s’duhet të përmbajë më shumë se 4 shenja palindromike</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Não use palavras e combinações comuns como senha</translation>
+        <translation>Mos përdorni si fjalëkalim fjalë dhe kombinime të zakonshme</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Crie uma senha forte, por favor</translation>
+        <translation>Ju lutemi, krijoni një fjalëkalim të fortë</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Não atende às regras de segurança de senha</translation>
+        <translation>S’plotëson rregullat për fjalëkalime</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Janela</translation>
+        <translation>Dritare</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Espaço de trabalho</translation>
+        <translation>Hapësirë pune</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation>Ferramentas Assistivas</translation>
+        <translation>Mjete Ndihmuese</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Personalizado</translation>
+        <translation>Vetjake</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nenhum</translation>
+        <translation>Asnjë</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>deepin ID</translation>
+        <translation>ID deepin</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS ID</translation>
+        <translation>ID UOS</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>Serviços em nuvem</translation>
+        <translation>Shërbime me bazë në re</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Aplicativo padrão</translation>
+        <translation>Aplikacion parazgjedhje</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>Defina o aplicativo padrão para abrir vários tipos de arquivos</translation>
+        <translation>Caktoni aplikacioni parazgjedhje për hapje llojesh të ndryshëm kartelash</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Página Web</translation>
+        <translation>Faqe web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Email</translation>
+        <translation>Postë</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Música</translation>
+        <translation>Muzikë</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vídeo</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
@@ -7141,18 +7156,18 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Dispositivo</translation>
+        <translation>Pajisje</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation>Tela</translation>
+        <translation>Ekran</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Brilho, resolução, escala</translation>
+        <translation>Ndriçim,qartësi,ripërmasim</translation>
     </message>
 </context>
 <context>
@@ -7195,35 +7210,35 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicar</translation>
+        <translation>Përsëdyte</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Estender</translation>
+        <translation>Zgjeroje</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation>Parazgjedhje</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Ajustar</translation>
+        <translation>Sa ta nxërë</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Esticar</translation>
+        <translation>Tërhiqe</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Centralizar</translation>
+        <translation>Vëre Në Qendër</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Somente em %1</translation>
+        <translation>Vetëm në %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation>(Recomendado)</translation>
+        <translation> (E rekomanduar)</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -7231,51 +7246,51 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>Configurar várias telas</translation>
+        <translation>Rregullime për Ekrane të Shumtë</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation>Identificar</translation>
+        <translation>Identifikoje</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>A reorganização da tela entrará em vigor em %1s após as alterações</translation>
+        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimesh</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Tela principal</translation>
+        <translation>Skena Kryesore</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Exibição e layout</translation>
+        <translation>Ekran dhe Skemë</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Brilho</translation>
+        <translation>Ndriçim</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Resolução</translation>
+        <translation>Qartësi</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Redimensionar área de trabalho</translation>
+        <translation>Ripërmasoni Dekstopin</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Taxa de atualização</translation>
+        <translation>Shpeshti Rifreskimi</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Rotação</translation>
+        <translation>Rrotullim</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Padrão</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>90°</source>
@@ -7291,605 +7306,605 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>Escala de exibição</translation>
+        <translation>Përshkallëzim Ekrani</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>O monitor suporta apenas 100% de escala de exibição</translation>
+        <translation>Monitori mbulon vetëm përshkallëzim 100% të ekranit</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Conforto para os olhos</translation>
+        <translation>Rehati Sysh</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Permitir conforto visual</translation>
+        <translation>Aktivizo rehati sysh</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Ajuste a tela para cores mais quentes, reduzindo a luz azul da tela</translation>
+        <translation>Përimtoje me ngjyra më të ngrohta shfaqjen e ekranit, duke reduktuar dritë blu ekrani</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Hora</translation>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation>Todos os dias </translation>
+        <translation>Gjithë ditën</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Do pôr do sol ao nascer do sol</translation>
+        <translation>Nga Agu Gjer Në Perëndim</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Hora personalizada</translation>
+        <translation>Kohë Vetjake</translation>
     </message>
     <message>
         <source>from</source>
-        <translation>A partir</translation>
+        <translation>nga</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>Até</translation>
+        <translation>në</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Temperatura da cor</translation>
+        <translation>Temperaturë Ngjyre</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Desktop e barra de tarefas</translation>
+        <translation>Desktop dhe panel punësh</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Defina a exibição e o tamanho dos ícones na área de trabalho</translation>
+        <translation>Caktoni shfaqjen dhe madhësinë e ikonave në desktop</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Teclado</translation>
+        <translation>Tastierë</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>Configurações gerais, layout do teclado, método de entrada, atalhos</translation>
+        <translation>Rregullime të Përgjithshme, skemë tastiere, metodë dhëniesh, shkurtore</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Skemë tastiere</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation>Definir layout de teclado padrão do sistema</translation>
+        <translation>Caktoni skemë parazgjedhje tastiere sistemi</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>A Central de Controle fornece todas as opções para as configurações do sistema.</translation>
+        <translation>Qendra e Kontrollit furnizon mundësitë për rregullime sistemi.</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Modo clássico</translation>
+        <translation>Mënyra Klasike</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Modo centralizado</translation>
+        <translation>Mënyra e Qendërzuar</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Tamanho da dock</translation>
+        <translation>Madhësi paneli</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pequeno</translation>
+        <translation>E vogël</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grande</translation>
+        <translation>E madhe</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Posição na tela</translation>
+        <translation>Pozicion në ekran</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Superior</translation>
+        <translation>Në krye</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Inferior</translation>
+        <translation>Në fund</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation>Gjendje</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Sempre exibir</translation>
+        <translation>Mbaje të shfaqur</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Manter escondido</translation>
+        <translation>Mbaje të fshehur</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultação inteligente</translation>
+        <translation>Fshehje e mençur</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Múltiplas Telas</translation>
+        <translation>Disa Ekrane</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Configurar a posição da barra de tarefa na tela</translation>
+        <translation>Caktoni pozicionin në ekran të panelit të punëve</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Apenas na principal</translation>
+        <translation>Vetëm te kryesore</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>Na tela onde está o cursor</translation>
+        <translation>Te ekrani ku gjendet kursori</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Área de plugins</translation>
+        <translation>Zonë Shtojcash</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Selecione quais ícones devem aparecer na dock</translation>
+        <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Mouse e touchpad</translation>
+        <translation>Mi dhe Touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Comum、Mouse、Touchpad</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>Modo DND, notificações de aplicativos</translation>
+        <translation>Mënyra MMB, njoftime aplikacionesh</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Notificação</translation>
+        <translation>Njoftim</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Configurações do Não Perturbe</translation>
+        <translation>Rregullime për “Mos Më Bezdisni”</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>As notificações do aplicativo não serão exibidas na área de trabalho e os sons serão silenciados, mas você poderá visualizar todas as mensagens na central de notificações.</translation>
+        <translation>Njoftimet nga aplikacionet s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund t’i shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Habilitar Não Perturbe</translation>
+        <translation>Aktivizo “Mos Më Bezdisni”</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Quando a tela estiver bloqueada</translation>
+        <translation>Kur ekrani është i kyçur</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Número de notificações mostradas na área de trabalho</translation>
+        <translation>Numër njoftimesh shfaqur te desktopi</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Notificações de aplicativos</translation>
+        <translation>Njoftime Aplikacioni</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>Permitir notificações</translation>
+        <translation>Lejo Njoftime</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Exibir notificação na área de trabalho ou mostrar mensagens não lidas na central de notificações</translation>
+        <translation>Shfaq njoftim në desktop, ose shfaq mesazhe të palexuar te qendra e njoftimeve</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Área de trabalho </translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Tela de bloqueio</translation>
+        <translation>Kyçe Ekranin</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Centro de Notificação</translation>
+        <translation>Qendër Njoftimesh</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Mostrar pré-visualização da mensagem</translation>
+        <translation>Shfaq paraparje mesazhi</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Reproduzir um som</translation>
+        <translation>Luaj një tingull</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>Personalização</translation>
+        <translation>Personalizim</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Temë</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Aparência</translation>
+        <translation>Dukje</translation>
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation>Selecione a aparência do tema claro, escuro ou automático</translation>
+        <translation>Përzgjidhni dukje të çelët, të errët, ose automatike teme</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Efeito da janela</translation>
+        <translation>Efekt dritaresh</translation>
     </message>
     <message>
         <source>Interface and effects、rounded corner、compact display</source>
-        <translation>Interface e efeitos、cantos arredondados、tela compacta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalize seu papel de parede e protetor de tela</translation>
+        <translation>Personalizoni sfondin dhe ekrankuryesin tuaj</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Protetor de tela</translation>
+        <translation>Ekrankursyes</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>Cores e ícones</translation>
+        <translation>Ngjyra dhe ikona</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>Ajustar a cor de destaque e o tema dos ícones</translation>
+        <translation>Përimtoni ngjyrë theksimesh dhe ikona teme</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>Fonte e tamanho da fonte</translation>
+        <translation>Shkronja dhe Madhësi Shkronjash</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>Alterar a fonte do sistema e o tamanho</translation>
+        <translation>Ndryshoni shkronja sistemi dhe madhësi</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de Parede</translation>
+        <translation>Sfond</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Configurações de economia de energia, tela e suspensão</translation>
+        <translation>Rregullime kursimi energjie, ekran dhe pezullim</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Energia</translation>
+        <translation>Energji</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation>Geral</translation>
+        <translation>Të përgjithshme</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Planos de energia, configurações de economia de energia, configurações de ligar o sistema, configurações de desligamento</translation>
+        <translation>Plane energjie, rregullime kursimi energjie, rregullime zgjimi, rregullime fikjeje</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Conectado ao carregador</translation>
+        <translation>Në Prizë</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>Tela e suspensão</translation>
+        <translation>Ekran dhe pezullim</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Na bateria</translation>
+        <translation>Nën Bateri</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>Tela e suspensão, bateria fraca, gerenciamento de bateria</translation>
+        <translation>ekran dhe pezullim, bateri e pakët, administrim baterie</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Privacidade e Segurança</translation>
+        <translation>Privatësi dhe Siguri</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Câmera, permissões de pasta</translation>
+        <translation>Kamerë, leje dosjesh</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Câmera</translation>
+        <translation>Kamerë</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Escolha se o aplicativo tem acesso à câmera</translation>
+        <translation>Zgjidhni të ketë a jo aplikacioni hyrje te kamera</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Arquivos e Pastas</translation>
+        <translation>Kartela dhe Dosje</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>Escolha se o aplicativo tem acesso a arquivos e pastas</translation>
+        <translation>Zgjidhni të ketë a jo aplikacioni hyrje te kartela dhe dosje</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Output,input sound efects,devices</source>
-        <translation>Saída, efeitos de som de entrada, dispositivos</translation>
+        <translation>Hyrje zëri, dalje zëri, efekte zanore, pajisje</translation>
     </message>
     <message>
         <source>Sound</source>
-        <translation>Som</translation>
+        <translation>Tingull</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation>Saída</translation>
+        <translation>Në Dalje</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Entrada</translation>
+        <translation>Në Hyrje</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configurações</translation>
+        <translation>Rregullime</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Efeitos sonoros</translation>
+        <translation>Efekte Zanore</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>Ativar/desativar efeitos sonoros</translation>
+        <translation>Aktivizoni/çaktivizoni efekte zanore</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation>Gerenciador de dispositivos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>Habilitar/desabilitar dispositivos de áudio</translation>
+        <translation>Aktivizoni/çaktivizoni pajisje audio</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Configurações comuns</translation>
+        <translation>Rregullime të rëndomta</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation>Sistem</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Informações Auxiliares</translation>
+        <translation>Informacion Ndihmës</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este PC</translation>
+        <translation>Mbi Këtë PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versão do sistema, informações do dispositivo</translation>
+        <translation>Version sistemi, hollësi pajisjesh</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation>Descrição do software de código aberto</translation>
+        <translation>Përshkrim Software-i Me Burim të Hapët</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver aviso de software de código aberto</translation>
+        <translation>Shihni shënimin për “software” me burim të hapët</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Programa de experiência do usuário</translation>
+        <translation>“User Experience Program”</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Participe do programa de experiência do usuário para ajudar a melhorar o produto</translation>
+        <translation>Merrni pjesë te programi “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Contrato de licença do usuário final</translation>
+        <translation>Marrëveshje Licence Përdoruesi</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver o contrato de licença do usuário final</translation>
+        <translation>Shihni marrëveshje licence përdoruesi</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Política de privacidade</translation>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver informações sobre a política de privacidade</translation>
+        <translation>Shihni informacion rreth rregullash privatësie</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Tela sensível ao toque</translation>
+        <translation>Ekran me prekje</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Configurando a tela sensível ao toque</translation>
+        <translation>Formësim Ekrani Me Prekje</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation>Atualizações do Sistema</translation>
+        <translation>Përditësim Sistemi</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation>Atualização do sistema e melhorias</translation>
+        <translation>Përditësim dhe përmirësim sistemi</translation>
     </message>
 </context>
 <context>
     <name>updateControlPanel</name>
     <message>
         <source>Downloading </source>
-        <translation>Baixando</translation>
+        <translation>Po shkarkohet </translation>
     </message>
     <message>
         <source>Waiting </source>
-        <translation>Aguardando</translation>
+        <translation>Po pritet </translation>
     </message>
     <message>
         <source>Installing </source>
-        <translation>Instalando </translation>
+        <translation>Po instalohet </translation>
     </message>
     <message>
         <source>Backing up </source>
-        <translation>Respaldando</translation>
+        <translation>Po kryhet kopjeruajtje </translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation>Aprender mais</translation>
+        <translation>Mësoni më tepër</translation>
     </message>
 </context>
 <context>
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation>Atualizações de recursos</translation>
+        <translation>Përditësime Veçorish</translation>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation>Configurações de atualização</translation>
+        <translation>Përditësoni Rregullimet</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Configurando o wacom</translation>
+        <translation>Formësim wacom-i</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation>Modo Wacom</translation>
+        <translation>Mënyrë Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Modo Caneta</translation>
+        <translation>Mënyrë PENË</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Modo Mouse</translation>
+        <translation>Mënyrë Miu</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidade do toque</translation>
+        <translation>Ndjeshmëri Trysnie</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Leve</translation>
+        <translation>Butë</translation>
     </message>
 </context>
 </TS>
