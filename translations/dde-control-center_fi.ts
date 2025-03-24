@@ -947,7 +947,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -955,11 +955,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
@@ -979,11 +979,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Napautuksen nopeus</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>Napautuksen testi</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
@@ -1006,7 +1006,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ensin sinun Union id:llä</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
@@ -1499,7 +1499,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ensin sinun Union id:llä</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
@@ -1787,7 +1787,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sinun Union id:llä ja jatka</translation>
     </message>
     <message>
         <source>Next</source>
@@ -1884,7 +1884,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Napautuksen testi</translation>
     </message>
 </context>
 <context>
@@ -1903,7 +1903,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
@@ -1911,11 +1911,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
     <message>
         <source>Test here</source>
@@ -1946,15 +1946,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Tuplapainalluksen nopeus</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
 </context>
 <context>
@@ -2162,11 +2162,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
 </context>
 <context>
@@ -4283,11 +4283,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
     <message>
         <source>Pointer Size</source>
@@ -4299,7 +4299,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
@@ -5774,11 +5774,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
