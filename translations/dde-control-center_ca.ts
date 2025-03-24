@@ -6016,35 +6016,35 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Actualització instal·lada correctament</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Reinicia ara</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation> Ha fallat la baixada de l&apos;actualització.</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>Torna-ho a provar</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"/>
+        <translation>Es comprova si hi ha actualitzacions. Espereu, si us plau...</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>El sistema està actualitzat. Si us plau, reinicieu-lo ara.</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>El sistema està actualitzat.</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha detectat una actualització.</translation>
     </message>
 </context>
 <context>
@@ -6065,27 +6065,27 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>tipus d&apos;actualització</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Actualització de funcions</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona funcions noves, pedaços de qualitat, solucions de vulnerabilitats de seguretat i contingut totalment actualitzat.</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualització de qualitat</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona pedaços de qualitat del sistema</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Canvi intel·ligent de rèplica</translation>
     </message>
 </context>
 <context>
@@ -6223,15 +6223,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Canvi intel·ligent de rèplica</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Activeu-ho per connectar amb la rèplica més ràpida automàticament.</translation>
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Llista de rèpliques</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
@@ -6494,14 +6494,14 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Uniu-vos al programa d&apos;experiència de l&apos;usuari</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificació de seguretat</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
