@@ -3436,19 +3436,19 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Canviar les opcions es tradueix en un registre més detallat que pot degradar el rendiment del sistema i/o ocupar més espai d&apos;emmagatzematge.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Desactivat</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>Depuració</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>El canvi d&apos;opció pot trigar fins a un minut a processar-se; després de rebre una sol·licitud de configuració correcta, reinicieu el dispositiu perquè tingui efecte.</translation>
     </message>
 </context>
 <context>
@@ -3660,35 +3660,35 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Permet que les aplicacions següents accedeixin a aquests fitxers i carpetes:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Documents</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escriptori</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Imatges</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Vídeos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Baixades</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>carpeta</translation>
     </message>
 </context>
 <context>
@@ -3783,15 +3783,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Mida</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Lletra estàndard</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Lletra d&apos;un sol espai</translation>
     </message>
 </context>
 <context>
@@ -3857,138 +3857,138 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Plans d&apos;energia</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de l&apos;estalvi d&apos;energia</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Estalvi d&apos;energia automàtic amb la bateria baixa</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Llindar de bateria baixa</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Estalvi d&apos;energia automàtic amb la bateria</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del despertament</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Cal la contrasenya per despertar l&apos;ordinador.</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Cal la contrasenya per despertar el monitor..</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de l&apos;aturada</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Aturada programada</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Repeteix</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>Un cop</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>Cada dia</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>Els dies feiners</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora personalitzada</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Dilluns</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Dimarts</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Dimecres</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Dijous</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Divendres</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Dissabte</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Diumenge</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Personalitzeu l&apos;hora de repetició</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Desa</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>Disminueix la brillantor de la pantalla amb l&apos;estalvi d&apos;energia.</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>Tres dits</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>Quatre dits</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Amunt</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Avall</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>A l&apos;esquerra</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>A la dreta</translation>
     </message>
     <message>
         <source>tap</source>
