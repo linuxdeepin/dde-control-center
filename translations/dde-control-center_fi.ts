@@ -3196,7 +3196,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
@@ -3208,7 +3208,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti tyhjentää tietokoneen asetukset ja pilveen tallennetut henkilökohtaiset tiedot?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
@@ -5655,7 +5655,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Tallenna näytön asetukset?</translation>
+        <translation>Tallennatko näytön asetukset?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
@@ -5750,7 +5750,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Perusasetukset</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -5948,7 +5948,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Tallennatko näytön asetukset?</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -6818,7 +6818,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth asetukset, laitteet</translation>
     </message>
 </context>
 <context>
@@ -6848,7 +6848,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Aika ja aikavyöhyke, maa-asetukset</translation>
     </message>
     <message>
         <source>Language and region</source>
@@ -6922,7 +6922,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Toimialueen asetukset</translation>
     </message>
     <message>
         <source>Password not match</source>
