@@ -6821,75 +6821,75 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"/>
+        <translation>Afegeix-n&apos;hi més</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del bluetooth, dispositius</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú d&apos;arrencada</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gestioneu el menú d&apos;arrencada</translation>
     </message>
     <message>
         <source>Developer Optilons</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de desenvolupador</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió de permisos d&apos;arrel del desenvolupador</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Hora i data</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Hora i data, configuració de la zona horària</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Llengua i regió</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Llengua del sistema, format de regió</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nom d&apos;usuari ha de tenir de 3 a 32 caràcters de llargada.</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>El primer caràcter ha de ser una lletra o un número.</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>El nom d’usuari no només hauria de tenir números.</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Altres comptes d&apos;usuari ja han usat aquest nom d&apos;usuari.</translation>
     </message>
     <message>
         <source>The full name is too long</source>
