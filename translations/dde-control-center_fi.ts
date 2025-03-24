@@ -1034,7 +1034,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset otetaan käyttöön tietokoneen käynnistämisen yhteydessä</translation>
     </message>
 </context>
 <context>
@@ -1241,7 +1241,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Toimialueen asetukset</translation>
     </message>
     <message>
         <source>Password not match</source>
@@ -1452,7 +1452,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Lisäasetukset</translation>
     </message>
     <message>
         <source>Boot Menu</source>
@@ -7357,7 +7357,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>Asetukset, näppäimistön asettelu, kieli, pikanäppäimet</translation>
+        <translation>Lisäasetukset, näppäimistön asettelu, kieli, pikanäppäimet</translation>
     </message>
 </context>
 <context>
@@ -7511,7 +7511,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Älä häiritse -  asetukset</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
@@ -7624,7 +7624,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Virransäästö, näyttö ja lepotila</translation>
     </message>
     <message>
         <source>Power</source>
