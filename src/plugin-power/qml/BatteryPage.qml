@@ -242,7 +242,7 @@ DccObject {
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
                 model: ListModel {
-                    ListElement { text: qsTr("Disbale"); value: 0 }
+                    ListElement { text: qsTr("Disable"); value: 0 }
                     ListElement { text: "10%"; value: 10 }
                     ListElement { text: "15%"; value: 15 }
                     ListElement { text: "20%"; value: 20 }

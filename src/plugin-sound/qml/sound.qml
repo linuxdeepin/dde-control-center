@@ -7,7 +7,7 @@ DccObject {
     name: "sound"
     parentName: "system"
     displayName: qsTr("Sound")
-    description: qsTr("Output,input sound efects,devices")
+    description: qsTr("Output,input,sound efects,devices")
     icon: "audio"
     weight: 20
 }

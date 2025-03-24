@@ -345,7 +345,7 @@ DccObject {
         name: settings.papaName + "acountSettings"
         parentName: settings.papaName
         displayName: qsTr("Login Settings")
-        description: qsTr("Auto longin, login without password")
+        description: qsTr("Auto login, login without password")
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -355,7 +355,7 @@ DccObject {
             id: autoLongin
             name: settings.papaName + "autoLongin"
             parentName: settings.papaName + "acountSettings"
-            displayName: qsTr("Auto longin")
+            displayName: qsTr("Auto login")
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.isAutoLoginVisable()
