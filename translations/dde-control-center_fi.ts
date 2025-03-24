@@ -490,7 +490,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Kun virtapainiketta painetaan</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -3853,7 +3853,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Virrankäyttö</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
@@ -3861,7 +3861,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen virransäästö alhaisella akulla</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -3869,7 +3869,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen virransäästö akkutilassa</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -4761,7 +4761,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Kun virtapainiketta painetaan</translation>
     </message>
 </context>
 <context>
@@ -4924,7 +4924,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation>Prosessori toimii aina matalalla taajuudella, mikä vähentää virrankulutusta</translation>
+        <translation>Prosessori toimii matalalla taajuudella, mikä vähentää virrankulutusta</translation>
     </message>
     <message>
         <source>dde-control-center</source>
@@ -5507,7 +5507,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Virta</translation>
     </message>
     <message>
         <source>Network</source>
@@ -6994,7 +6994,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Skannaus keskeytetty</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
@@ -7634,11 +7634,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Virransäästö, näyttö ja lepotila</translation>
+        <translation>Virransäästö, näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Virta</translation>
     </message>
 </context>
 <context>
@@ -7657,7 +7657,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -7665,7 +7665,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>näyttö ja valmustila, alhainen akku, akun hallinta</translation>
     </message>
 </context>
 <context>
