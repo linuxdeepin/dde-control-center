@@ -1117,7 +1117,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -1214,7 +1214,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -1558,7 +1558,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1652,7 +1652,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Required</source>
@@ -1695,7 +1695,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Command</source>
@@ -1725,7 +1725,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Viikon ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -1745,7 +1745,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Valuutan symboli</translation>
     </message>
     <message>
         <source>Numbers</source>
@@ -2365,7 +2365,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Valuutan symboli</translation>
     </message>
     <message>
         <source>Numbers</source>
@@ -3023,11 +3023,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>Viikko</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Viikon ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -3047,15 +3047,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Valuutan symboli</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>Positiivinen valuutta</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>Negatiivinen valuutta</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
@@ -3063,11 +3063,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Numeroiden ryhmäsymboli</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Numeroiden ryhmittely</translation>
     </message>
     <message>
         <source>Page size</source>
@@ -4329,7 +4329,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen nimi</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -4977,7 +4977,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Viikon ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -4997,7 +4997,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Valuutan symboli</translation>
     </message>
     <message>
         <source>Digit</source>
