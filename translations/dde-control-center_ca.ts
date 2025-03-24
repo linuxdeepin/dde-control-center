@@ -7265,91 +7265,91 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla i disposició</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillantor</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolució</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Canvia la mida de l&apos;escriptori</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Freqüència d&apos;actualització</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotació</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estàndard</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalatge de la pantalla</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>El monitor només admet un escalatge del 100 %.</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Confort ocular</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Activa el confort ocular</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta la visualització de la pantalla a colors més càlids i en redueix la llum blava.</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Tot el dia</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>De la posta a la sortida del sol</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora personalitzada</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>de</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperatura del color</translation>
     </message>
 </context>
 <context>
@@ -7367,26 +7367,26 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclat</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Configuració general, disposició del teclat, mètode d&apos;entrada, dreceres</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comú</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Disposició del teclat</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Estableix la disposició del teclat predeterminada del sistema.</translation>
     </message>
 </context>
 <context>
@@ -7488,52 +7488,52 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí i ratolí tàctil</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Comú, ratolí, ratolí tàctil</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comú</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí tàctil</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Mode sense destorbs, notificacions d&apos;aplicacions</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificació</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del mode de no empipar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Les notificacions d&apos;aplicacions no es mostraran a l&apos;escriptori i no n&apos;hi haurà cap indicació sonora, però les podreu veure totes al centre de notificacions.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Habilita el mode de no empipar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
