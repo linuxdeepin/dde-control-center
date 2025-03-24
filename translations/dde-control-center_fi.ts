@@ -1388,7 +1388,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimi:</translation>
     </message>
     <message>
         <source>root</source>
@@ -1476,7 +1476,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Käyttökokemusohjelma</translation>
     </message>
 </context>
 <context>
@@ -1550,11 +1550,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän tyyppi</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimi</translation>
     </message>
     <message>
         <source>Full Name</source>
@@ -1582,7 +1582,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Tavallinen käyttäjä</translation>
     </message>
     <message>
         <source>Administrator</source>
@@ -1610,7 +1610,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimen on oltava 3–32 merkkiä pitkä</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
@@ -1618,15 +1618,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimessäsi ei saa olla vain numeroita</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä on käytetty muilla käyttäjätileillä</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimeä on käytetty muilla käyttäjätileillä</translation>
     </message>
 </context>
 <context>
@@ -6883,7 +6883,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimessäsi ei saa olla vain numeroita</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
@@ -6895,7 +6895,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimeä on käytetty muilla käyttäjätileillä</translation>
     </message>
     <message>
         <source>Wrong password</source>
