@@ -3400,39 +3400,39 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha iniciat la sessió amb el vostre ID d&apos;UOS, cliqueu per entrar al mode de desenvolupador.</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, primer inicieu la sessió a l&apos;ID d&apos;UOS i continueu.</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1. Exporteu la informació de l&apos;ordinador</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Exporta</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Aneu a &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; per descarregar el certificat fora de línia.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Importeu el certificat</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Per instal·lar i executar aplicacions sense signar, aneu al &lt;a href=&quot;Security Center&quot;&gt;Centre de seguretat&lt;/a&gt; per canviar-ne la configuració.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de desenvolupament i depuració</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Nivell de registre del sistema</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
