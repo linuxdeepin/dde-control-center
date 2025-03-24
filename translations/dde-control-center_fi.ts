@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Avaa työpöydän tiedosto</translation>
+        <translation>Open desktop-tiedosto</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
@@ -1252,7 +1252,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::AppNotifyWidget</name>
     <message>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kohteesta %1 ilmoitukset työpöydälle ja ilmoitusalueelle.</translation>
     </message>
     <message>
         <source>Play a sound</source>
@@ -2400,7 +2400,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Muuta pöydän kokoa</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
@@ -2787,7 +2787,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Sovellusten ilmoituksia ei näytetä työpöydällä ja äänimerkit äänettömälle, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
+        <translation>Sovellusten ilmoituksia ei näytetä työpöydälle ja äänimerkit ovat äänettömiä, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -3330,11 +3330,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Open desktop-tiedosto</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Sovellukset (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -3666,15 +3666,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musiikki</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Lataukset</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>kansio</translation>
     </message>
 </context>
 <context>
@@ -4468,7 +4468,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation>Työpöytä</translation>
+        <translation>Pöytä</translation>
     </message>
     <message>
         <source>Window</source>
@@ -6142,7 +6142,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Työpöytä</translation>
+        <translation>Pöytä</translation>
     </message>
     <message>
         <source>Version</source>
@@ -7543,7 +7543,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pöytä</translation>
     </message>
     <message>
         <source>Lock Screen</source>
