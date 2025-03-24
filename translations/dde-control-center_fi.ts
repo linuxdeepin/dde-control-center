@@ -1036,11 +1036,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Aloita uuden käynnistysanimaation asetus, odota hetki</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Uuden animaation asetus on valmis</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
@@ -1099,7 +1099,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Luo uusi käyttäjätili</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -1852,7 +1852,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöönottoon, tarvitaan tietokoneen käynnistys. Käynnistetäänkö nyt?</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1860,7 +1860,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
@@ -3889,7 +3889,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Ajastettu sammutus</translation>
     </message>
     <message>
         <source>Time</source>
@@ -4714,7 +4714,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta</translation>
     </message>
     <message>
         <source>Suspend</source>
@@ -4730,7 +4730,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Näytä sammutusliittymä</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -6016,7 +6016,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä</translation>
     </message>
     <message>
         <source>Update download failed</source>
@@ -6032,7 +6032,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä on ajan tasalla, käynnistä uudelleen</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
