@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Poista nykyinen tili</translation>
+        <translation>Poista tili</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -905,11 +905,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti poistaa tilin?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttätilin hakemisto</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -917,7 +917,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Poista</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt</translation>
     </message>
     <message>
         <source>Long</source>
@@ -1194,7 +1194,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Nimesi on liian pitkä</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -1574,7 +1574,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Nimesi on liian pitkä</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
@@ -1729,11 +1729,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä päivämäärä</translation>
     </message>
     <message>
         <source>Short time</source>
@@ -1899,7 +1899,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt</translation>
     </message>
     <message>
         <source>Long</source>
@@ -2349,11 +2349,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä päivämäärä</translation>
     </message>
     <message>
         <source>Short time</source>
@@ -2388,11 +2388,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti poistaa tilin?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttätilin hakemisto</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2400,7 +2400,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Poista</translation>
     </message>
 </context>
 <context>
@@ -3031,11 +3031,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä päivämäärä</translation>
     </message>
     <message>
         <source>Short time</source>
@@ -4295,7 +4295,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt</translation>
     </message>
     <message>
         <source>Long</source>
@@ -4981,11 +4981,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt päivämäärä</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä päivämäärä</translation>
     </message>
     <message>
         <source>Short time</source>
@@ -6891,7 +6891,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Nimesi on liian pitkä</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
