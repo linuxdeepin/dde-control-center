@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Rename</source>
-        <translation>Nimeä uudelleen</translation>
+        <translation>Nimeä</translation>
     </message>
     <message>
         <source>Send Files</source>
@@ -496,11 +496,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Akku vähissä</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Alhaisen varauksen ilmoitus</translation>
     </message>
     <message>
         <source>Disbale</source>
@@ -516,7 +516,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Akun alhainen varaus</translation>
     </message>
     <message>
         <source>Battery Management</source>
@@ -532,7 +532,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Alhainen akun varaustaso</translation>
     </message>
 </context>
 <context>
@@ -558,11 +558,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä tiedostot</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä</translation>
     </message>
     <message>
         <source>Remove Device</source>
@@ -570,7 +570,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Valitse tiedosto</translation>
     </message>
 </context>
 <context>
@@ -585,7 +585,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Salli Bluetoothin löytää tämä laite</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
@@ -3393,7 +3393,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Valitse tiedosto</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
@@ -5315,7 +5315,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Valitse otetaanko laitteet käyttöön</translation>
     </message>
     <message>
         <source>Input Devices</source>
