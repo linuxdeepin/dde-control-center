@@ -19,6 +19,14 @@ UpdateModel::UpdateModel(QObject *parent)
       m_actionBtnText(""),
       m_updateStatus(nullptr)
 {
+   m_checkErrorTipMaps = {{NoError, ""},
+                             {UpdateErrorType::NoSpace, tr("Update failed: insufficient disk space")},
+                             {UpdateErrorType::UnKnown, tr("Update failed")},
+                             {UpdateErrorType::NoNetwork,tr("Network error, please check and try again")},
+                             {UpdateErrorType::DpkgInterrupted, tr("Packages error, please try again")},
+                             {UpdateErrorType::DeependenciesBrokenError, tr("Unmet dependencies")}
+
+    };
 }
 
 UpdateModel::~UpdateModel()
@@ -195,7 +203,7 @@ void UpdateModel::updateCheckUpdateData()
         }
         break;
     case CheckUpdateState::checkFailed:
-        setCheckUpdateStateTips(lastCheckUpdateErrorMsg());
+        setCheckUpdateStateTips(checkErrorTips());
         setCheckUpdateIcon("update_failure");
         break;
     }
@@ -270,6 +278,39 @@ void UpdateModel::setDistUpgradeProgress(double newDistUpgradeProgress)
         return;
     m_distUpgradeProgress = newDistUpgradeProgress;
     emit distUpgradeProgressChanged();
+}
+
+QString UpdateModel::checkErrorTips() const
+{
+    return m_checkErrorTips;
+}
+
+void UpdateModel::setCheckErrorTips(const QString &newCheckErrorTips)
+{
+    if (m_checkErrorTips == newCheckErrorTips)
+        return;
+    m_checkErrorTips = newCheckErrorTips;
+    emit checkErrorTipsChanged();
+}
+
+void UpdateModel::updateCheckErrorTips()
+{
+    setCheckErrorTips(m_checkErrorTipMaps.value(m_updateErrorType));
+}
+
+UpdateErrorType UpdateModel::updateErrorType() const
+{
+    return m_updateErrorType;
+}
+
+void UpdateModel::setUpdateErrorType(UpdateErrorType newUpdateErrorType)
+{
+    if (m_updateErrorType == newUpdateErrorType)
+        return;
+    m_updateErrorType = newUpdateErrorType;
+
+    updateCheckErrorTips();
+    emit updateErrorTypeChanged();
 }
 
 bool UpdateModel::smartMirrorSwitch() const

@@ -98,6 +98,8 @@ void UpdateWork::onCheckUpdateStatusChanged(const QString &value)
     if (value == "failed" || value.isEmpty()) {
         qWarning() << "check for updates job failed";
         if (m_checkUpdateJob != nullptr) {
+            QString desc = m_checkUpdateJob->description();
+            m_model->setUpdateErrorType(analyzeJobErrorMessage(desc));
             m_updateInter->CleanJob(m_checkUpdateJob->id());
             deleteJob(m_checkUpdateJob);
         }
@@ -106,9 +108,9 @@ void UpdateWork::onCheckUpdateStatusChanged(const QString &value)
         m_model->setCheckUpdateState(UpdateModel::CheckUpdateState::checking);
     } else if (value == "success" || value == "succeed") {
         m_model->setCheckUpdateState(UpdateModel::CheckUpdateState::checked);
+        m_model->setShowUpdateCtl(m_model->upgradable());
     } else if (value == "end") {
         deleteJob(m_checkUpdateJob);
-        m_model->setShowUpdateCtl(m_model->upgradable());
     }
 }
 
@@ -301,3 +303,32 @@ void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         }
     }
 }
+
+UpdateErrorType UpdateWork::analyzeJobErrorMessage(QString jobDescription)
+{
+    QJsonParseError err_rpt;
+    QJsonDocument jobErrorMessage = QJsonDocument::fromJson(jobDescription.toUtf8(), &err_rpt);
+
+    if (err_rpt.error != QJsonParseError::NoError) {
+        return UpdateErrorType::NoError;
+    }
+    const QJsonObject &object = jobErrorMessage.object();
+    QString errorType = object.value("ErrType").toString();
+    if (errorType.contains("fetchFailed", Qt::CaseInsensitive)
+        || errorType.contains("IndexDownloadFailed", Qt::CaseInsensitive)) {
+        return UpdateErrorType::NoNetwork;
+        }
+    if (errorType.contains("unmetDependencies", Qt::CaseInsensitive)
+        || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DeependenciesBrokenError;
+        }
+    if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
+        return UpdateErrorType::NoSpace;
+    }
+    if (errorType.contains("interrupted", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DpkgInterrupted;
+    }
+
+    return UpdateErrorType::UnKnown;
+}
+

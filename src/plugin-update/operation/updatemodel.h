@@ -3,6 +3,7 @@
 #ifndef UPDATEMODEL_H
 #define UPDATEMODEL_H
 
+#include "operation/common.h"
 #include "updatestatus.h"
 
 #include <QObject>
@@ -24,7 +25,8 @@ class UpdateModel : public QObject
     Q_PROPERTY(double distUpgradeProgress READ distUpgradeProgress NOTIFY distUpgradeProgressChanged FINAL)
     Q_PROPERTY(int distUpgradeState READ distUpgradeState NOTIFY distUpgradeStateChanged FINAL)
     Q_PROPERTY(bool smartMirrorSwitch READ smartMirrorSwitch NOTIFY smartMirrorSwitchChanged FINAL)
-
+    Q_PROPERTY(UpdateErrorType updateErrorType READ updateErrorType NOTIFY updateErrorTypeChanged FINAL)
+    Q_PROPERTY(QString checkErrorTips READ checkErrorTips NOTIFY checkErrorTipsChanged FINAL)
 
 public:
     enum updateState
@@ -105,6 +107,14 @@ public:
 
     void clearUpdateStatus();
 
+    UpdateErrorType updateErrorType() const;
+    void setUpdateErrorType(UpdateErrorType newUpdateErrorType);
+
+    QString checkErrorTips() const;
+    void setCheckErrorTips(const QString &newCheckErrorTips);
+
+    void updateCheckErrorTips();
+
 signals:
     void upgradableChanged();
     void updateStateChanged();
@@ -126,6 +136,10 @@ signals:
 
 
     void smartMirrorSwitchChanged();
+
+    void updateErrorTypeChanged();
+
+    void checkErrorTipsChanged();
 
 public Q_SLOTS:
     void setCheckUpdateProgress(double newCheckUpdateProgress);
@@ -149,9 +163,14 @@ private:
 
     bool m_smartMirrorSwitch;
 
+    UpdateErrorType m_updateErrorType;
+    QString m_checkErrorTips;
+
 
     double m_checkUpdateProgress;
     double m_distUpgradeProgress;
+
+    QMap<UpdateErrorType, QString> m_checkErrorTipMaps;
 };
 
 #endif // UPDATEMODEL_H
