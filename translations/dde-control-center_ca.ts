@@ -5997,22 +5997,22 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>收起</source>
-        <translation type="unfinished"/>
+        <translation>Tanca</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions disponibles</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;instal·la l&apos;actualització</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;instal·len les actualitzacions</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
