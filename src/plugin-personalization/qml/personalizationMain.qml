@@ -119,7 +119,7 @@ DccObject {
         name: "windowEffect"
         parentName: "personalization"
         displayName: qsTr("Window effect")
-        description: qsTr("Interface and effects,rounded corner,compact display")
+        description: qsTr("Interface and effects, rounded corner, compact display")
         icon: "window_effect"
         weight: 200
         WindowEffectPage {}
