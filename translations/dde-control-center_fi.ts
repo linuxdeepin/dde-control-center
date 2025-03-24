@@ -1710,11 +1710,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::CustomItem</name>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäin</translation>
     </message>
     <message>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Anna uusi pikanäppäin</translation>
     </message>
 </context>
 <context>
@@ -2019,7 +2019,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimet</translation>
     </message>
 </context>
 <context>
@@ -2598,7 +2598,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Apuvälineet</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
@@ -2610,7 +2610,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäin</translation>
     </message>
 </context>
 <context>
@@ -5229,7 +5229,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäin</translation>
     </message>
     <message>
         <source>None</source>
@@ -5256,7 +5256,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimet</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
