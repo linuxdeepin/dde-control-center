@@ -249,7 +249,17 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
+        <translation>Ennen kuin käytät kasvojentunnistusta, ota huomioont:
+1. Laitteesi lukituksen voivat avata ihmiset tai esineet, jotka näyttävät sinulta.
+2. Kasvojentunnistus on vähemmän turvallinen kuin salasanat.
+3. Laitteen lukituksen avaamisen onnistumisprosentti kasvojentunnistuksella  vähenee valaistoksen ollessa heikko, korkea, takavalo tai suuressa kulmassa.
+4. Älä anna laitettasi muille välttääksesi kasvojentunnistuksen haitallisen käytön.
+5. Yllä olevien skenaarioiden lisäksi sinun tulee kiinnittää huomiota muihin tilanteisiin, jotka voivat vaikuttaa kasvojentunnistuksen normaaliin käyttöön.
+
+Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asiat kasvotietoja tallentaessa:
+1. Ole hyvin valaistussa ympäristössä, vältä suoraa auringonvaloa ja muiden ihmisten esiintymistä.
+2. Kiinnitä huomiota kasvojen asentoon, kun tallennat tietoja, äläkä anna hattujen, hiusten, aurinkolasien, raskaan meikin ja muiden tekijöiden peittää piirteitäsi.
+3. Vältä kallistamasta tai laskemasta päätäsi, sulkemasta silmiä tai kuvaamasta vain toista kasvon puolta. Varmista, että kasvosi näkyvät selvästi ja kokonaan kuvausalueella.</translation>
     </message>
     <message>
         <source>Agree</source>
@@ -468,11 +478,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Lukitaan näyttö</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone siirtyy lepotilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -1260,7 +1270,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
+        <translation>Näytä viestit lukitusnäytössä</translation>
     </message>
     <message>
         <source>Show in notification center</source>
@@ -2791,7 +2801,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kun näyttö on lukittu</translation>
     </message>
 </context>
 <context>
@@ -4743,7 +4753,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone siirtyy lepotilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -6640,7 +6650,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Aseta lukitusnäyttö</translation>
     </message>
     <message>
         <source>Set desktop</source>
