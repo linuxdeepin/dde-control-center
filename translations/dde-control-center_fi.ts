@@ -1190,7 +1190,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmä</translation>
     </message>
     <message>
         <source>The full name is too long</source>
@@ -1202,7 +1202,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmänvalvoja</translation>
     </message>
     <message>
         <source>Reset Password</source>
@@ -1534,7 +1534,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::CreateAccountPage</name>
     <message>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmä</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1586,7 +1586,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmänvalvoja</translation>
     </message>
     <message>
         <source>Customized</source>
@@ -2440,24 +2440,24 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kääntö</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Vakio</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -6907,7 +6907,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmänvalvoja</translation>
     </message>
     <message>
         <source>Customized</source>
@@ -7283,11 +7283,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kääntö</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Vakio</translation>
     </message>
     <message>
         <source>90°</source>
@@ -7319,7 +7319,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Säädä näyttöä lämpimämpiin väreihin vähentäen näytön sinistä valoa</translation>
     </message>
     <message>
         <source>Time</source>
@@ -7601,7 +7601,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet,  pyöristetyt kulmat,  kompakti näyttö</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
