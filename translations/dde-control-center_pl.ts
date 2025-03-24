@@ -2164,75 +2164,75 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Wolne</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Szybkie</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Wiele ekranów</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Tryb</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekran główny</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplikuj</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Rozszerz</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Tylko na %1</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Powiadomienia aplikacji</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Powiadomienia</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Powiadomienia systemowe</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>Wykrywanie dłoni</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Minimalna powierzchnia styku</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Minimalna wartość nacisku</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz tę opcję, jeśli touchpad przestanie działać</translation>
     </message>
 </context>
 <context>
@@ -2243,103 +2243,103 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Small Size</source>
-        <translation type="unfinished"/>
+        <translation>Mały rozmiar</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation type="unfinished"/>
+        <translation>Duży rozmiar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Polityka prywatności</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Jesteśmy świadomi jak ważne Twoje dane osobiste są dla Ciebie. Mając to na uwadze, stworzyliśmy Politykę Prywatności, która tłumaczy jak zbieramy, używamy, udostępniamy, przenosimy, ujawniamy publicznie i przechowujemy Twoje informacje.&lt;/p&gt;&lt;p&gt;Możesz &lt;a href=&quot;%1&quot;&gt;kliknąć tutaj&lt;/a&gt;, aby zobaczyć naszą najnowszą politykę prywatności i/lub zobaczyć ją online poprzez odwiedziny &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Prosimy abyś uważnie przeczytał i przyswoił nasze działania w stosunku do prywatności konsumentów. Jeśli masz jakieś pytania, skontaktuj się z nami pod adresem: support@uniontech.com&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie może być puste</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać co najmniej %1 znaków</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie może przekraczać %1 znaków</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać tylko litery angielskie (z rozróżnieniem wielkich i małych), cyfry lub symbole specjalne (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż %1 znaki palindromowe</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż %1 znaki monotoniczne</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż %1 powtarzające się znaki</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać wielkie litery, małe litery, cyfry i symbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie może zawierać więcej niż 4 znaki palindromowe</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>Nie używaj popularnych słów i ich kombinacji jako hasła</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Utwórz silne hasło</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Nie spełnia zasad dotyczących haseł</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Częstotliwość odświeżania</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Zalecana</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation type="unfinished"/>
+        <translation>Format regionu</translation>
     </message>
     <message>
         <source>Default format</source>
