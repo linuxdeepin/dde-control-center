@@ -4739,7 +4739,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Lukitaan näyttö</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -5349,7 +5349,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Lähetä kuvake työpöydälle</translation>
+        <translation>Lähetä kuvake pöydälle</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -6644,7 +6644,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>Aseta työpöytä</translation>
     </message>
 </context>
 <context>
@@ -7263,7 +7263,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Muuta pöydän kokoa</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
@@ -7515,7 +7515,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Sovellusten ilmoituksia ei näytetä työpöydällä ja äänimerkit äänettömälle, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
+        <translation>Sovellusten ilmoituksia ei näytetä työpöydälle ja äänimerkit ovat äänettömiä, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -7523,11 +7523,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kun näyttö on lukittu</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pöydällä näkyvien ilmoitusten määrä</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -7539,7 +7539,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Näytä ilmoitus pöydällä tai näytä lukemattomat viestit ilmoitusalueella</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -7547,7 +7547,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö</translation>
     </message>
     <message>
         <source>Notification Center</source>
