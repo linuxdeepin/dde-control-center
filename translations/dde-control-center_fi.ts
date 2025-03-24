@@ -3433,7 +3433,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Asetuksen muuttaminen voi kestää minuutin. Kun olet saanut ilmoituksen valmistumisesta, käynnistä tietokone uudelleen, jotta asetus tulee voimaan.</translation>
     </message>
 </context>
 <context>
@@ -3650,19 +3650,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Asiakirjat</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pöytä</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Kuvat</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Videot</translation>
     </message>
     <message>
         <source>Music</source>
@@ -5136,7 +5136,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>asetus</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -6944,7 +6944,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kasvoja lukituksen avaamiseen ja tee asetukset myöhemmin</translation>
     </message>
     <message>
         <source>Faceprint</source>
@@ -7231,7 +7231,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Usean näytön asetuksia</translation>
     </message>
     <message>
         <source>Identify</source>
@@ -7734,7 +7734,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Yleiset asetukset</translation>
     </message>
     <message>
         <source>System</source>
