@@ -4467,15 +4467,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>La llargada de la contrasenya ha de ser d&apos;almenys 8 caràcters i ha de contenir una combinació d&apos;almenys 3 dels elements següents: lletres majúscules, lletres minúscules, números i símbols. Aquest tipus de contrasenya és més segura.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Restablir la contrasenya esborrarà les dades emmagatzemades al clauer.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
@@ -4498,11 +4498,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Si s&apos;activa, es mostra més contingut a la finestra.</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -4541,15 +4541,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Clar</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automàtic</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Fosc</translation>
     </message>
 </context>
 <context>
@@ -4718,77 +4718,77 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Atura&apos;t</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspèn-te</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Hiberna</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Desactiva el monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la interfície d&apos;aturada.</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>No facis res.</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla i suspensió</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Atura el monitor al cap de...</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Bloca la pantalla al cap de...</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ordinador es posarà en suspens al cap de...</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Quan la tapa estigui tancada</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Quan es premi el botó d&apos;engegada</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendiment alt</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendiment equilibrat</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta agressivament la freqüència de funcionament de la CPU segons les condicions de càrrega de la CPU.</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrat</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Estalviador d&apos;energia</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
