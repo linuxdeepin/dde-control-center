@@ -3431,7 +3431,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Asetusten muuttaminen johtaa tarkempaan lokiin, joka hieman heikentää suorituskykyä ja/tai vie enemmän tallennustilaa.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -4017,7 +4017,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Optimaalinen suoritusteho</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
@@ -4768,11 +4768,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Korkea suoritusteho</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Tasapainoinen suoritusteho</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
@@ -4788,7 +4788,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Priorisoi suorituskykyä, mikä lisää merkittävästi virrankulutusta ja lämmöntuotantoa</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
@@ -4796,7 +4796,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Priorisoi akun käyttöikää, jolloin järjestelmä laskee hieman suorituskykyä virrankulutuksen vähentämiseksi</translation>
     </message>
 </context>
 <context>
@@ -5927,7 +5927,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Varmista, että sinulla on riittävästi virtaa uudelleenkäynnistystä varten. Älä katkaise virtaa koneesta</translation>
+        <translation>Varmista, että akussa riittävästi virtaa käynnistystä varten. Älä katkaise virtaa tietokoneesta</translation>
     </message>
     <message>
         <source>Current Edition</source>
