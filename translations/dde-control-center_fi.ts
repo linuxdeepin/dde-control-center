@@ -524,7 +524,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Näytä jäljellä oleva latausaika</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
@@ -871,7 +871,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Last checking time</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin tarkistusaika</translation>
     </message>
 </context>
 <context>
@@ -1737,11 +1737,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -2357,11 +2357,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -2852,15 +2852,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
 </context>
 <context>
@@ -2871,11 +2871,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Hidas</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Nopea</translation>
     </message>
 </context>
 <context>
@@ -2949,7 +2949,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Päiväyksen asetukset</translation>
     </message>
     <message>
         <source>Date</source>
@@ -2969,7 +2969,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>Cancel</source>
