@@ -871,7 +871,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Last checking time</source>
-        <translation>Viimeisin tarkistusaika</translation>
+        <translation>Tarkistusaika</translation>
     </message>
 </context>
 <context>
@@ -3039,11 +3039,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -3212,7 +3212,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistusaika: %1 </translation>
     </message>
     <message>
         <source>Clear cloud data</source>
@@ -3895,7 +3895,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -4161,7 +4161,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä ja sovellukset voivat asettaa päivämäärän alueellisten muotojen perusteella</translation>
     </message>
 </context>
 <context>
@@ -4361,7 +4361,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>Asennuspäivä</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -4989,11 +4989,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Lyhyt aika</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Pitkä aika</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -5040,7 +5040,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä ja sovellukset voivat asettaa päivämäärän alueellisten muotojen perusteella.</translation>
     </message>
     <message>
         <source>Region format</source>
@@ -5152,7 +5152,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>Joutoaika</translation>
     </message>
     <message>
         <source>1 minute</source>
