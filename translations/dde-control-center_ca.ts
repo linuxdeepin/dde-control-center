@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Useu la teva cara per desblocar el dispositiu i feu-ne la configuració més tard.</translation>
+        <translation>Useu la cara per desblocar el dispositiu i fer-ne la configuració més tard.</translation>
     </message>
     <message>
         <source>Done</source>
