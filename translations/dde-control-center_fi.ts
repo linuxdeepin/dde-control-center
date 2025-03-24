@@ -1515,7 +1515,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset otetaan käyttöön tietokoneen käynnistämisen yhteydessä</translation>
     </message>
 </context>
 <context>
@@ -3091,7 +3091,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Ohjauspaneelissa asetukset järjestelmälle.</translation>
     </message>
 </context>
 <context>
@@ -3192,7 +3192,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna asetukset ja omat tiedot turvallisesti pilveen ja pidä ne synkronoituna eri laitteiden välillä.</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -3847,7 +3847,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Virransäästön asetukset</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
@@ -3863,7 +3863,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Heräämisen asetukset</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
@@ -3875,7 +3875,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>Sammutamisen asetukset</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
@@ -4600,7 +4600,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Text Settings</source>
-        <translation>Tekstiasetukset</translation>
+        <translation>Tekstin asetukset</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -5539,7 +5539,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Server address</source>
@@ -7639,7 +7639,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Virrankäyttö, virransäästö, herääminen, sammuttaminen, asetukset</translation>
     </message>
     <message>
         <source>Plugged In</source>
