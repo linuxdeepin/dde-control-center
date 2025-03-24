@@ -1668,11 +1668,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Tämä pikakuvake on ristiriidassa %1 kanssa. Paina Lisää ja pikanäppäin tulee voimaan heti</translation>
     </message>
 </context>
 <context>
@@ -1691,7 +1691,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäin</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1703,7 +1703,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Tämä pikakuvake on ristiriidassa %1 kanssa. Paina Lisää ja pikanäppäin tulee voimaan heti</translation>
     </message>
 </context>
 <context>
@@ -1984,7 +1984,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
@@ -2337,7 +2337,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation type="unfinished"/>
+        <translation>Maan aikamuoto</translation>
     </message>
     <message>
         <source>Default format</source>
@@ -2763,11 +2763,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kieli</translation>
     </message>
 </context>
 <context>
@@ -2782,7 +2782,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kieli</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3338,7 +3338,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>lisää</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
@@ -4141,11 +4141,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>lisää</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Maa</translation>
     </message>
     <message>
         <source>Area</source>
@@ -4168,7 +4168,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kieli</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4180,14 +4180,14 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kieli</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4199,7 +4199,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
 </context>
 <context>
@@ -5245,7 +5245,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
@@ -5555,7 +5555,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Palvelimen osoite</translation>
     </message>
     <message>
         <source>Required</source>
@@ -5563,7 +5563,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>NTP-palvelimen osoite ei voi olla tyhjä</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
@@ -6992,7 +6992,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki lisätty</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
@@ -7011,7 +7011,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Tämä on ristiriidassa [%1] kanssa</translation>
     </message>
 </context>
 <context>
