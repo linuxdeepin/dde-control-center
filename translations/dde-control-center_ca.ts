@@ -7106,7 +7106,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Serveis al núvol</translation>
     </message>
 </context>
 <context>
