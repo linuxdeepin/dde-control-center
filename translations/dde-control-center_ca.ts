@@ -2466,164 +2466,164 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>El monitor només admet un escalat del 100 %.</translation>
+        <translation>El monitor només admet un escalatge del 100 %.</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalatge de la pantalla</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillantor</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Dèbil</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mitjana</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Forta</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Preguntes de seguretat</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation> Aquestes preguntes s&apos;usaran per ajudar-vos a restablir la contrasenya en cas que l&apos;oblideu.</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>Pregunta de seguretat 1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>Pregunta de seguretat 2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>Pregunta de seguretat 3</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Mantingueu la resposta inferior a 30 caràcters.</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>No trieu una pregunta duplicada, si us plau.</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu una pregunta</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>A quina ciutat on vau néixer?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Com es deia la primera escola on vau anar?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Qui estimeu més en aquest món?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Quin és el vostre animal favorit?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Quina és la vostra cançó favorita?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Quin sobrenom teniu?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>No es pot deixar en blanc.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Edita</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Fet</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió del sistema</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Finestra</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Espai de treball</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Eines d&apos;assistència</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Drecera personalitzada</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>Restaura els valors per defecte</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Drecera</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, restabliu la drecera.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Replace</source>
