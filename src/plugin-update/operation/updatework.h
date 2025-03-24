@@ -4,14 +4,13 @@
 #ifndef UPDATEWORK_H
 #define UPDATEWORK_H
 
+#include "common.h"
 #include "updatedbusproxy.h"
 #include "updatejobdbusproxy.h"
 #include "updatemodel.h"
 
-
 #include <QDBusInterface>
 #include <QObject>
-
 
 const QString UpdateManagerService = QStringLiteral("org.deepin.UpdateManager1");
 const QString UpdateManagerPath = QStringLiteral("/org/deepin/UpdateManager1");
@@ -22,6 +21,7 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 class UpdateWork : public QObject
 {
     Q_OBJECT
+
 public:
     explicit UpdateWork(UpdateModel* model, QObject *parent = nullptr);
 
@@ -50,6 +50,7 @@ private:
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);
 
     void upgrade();
+    UpdateErrorType analyzeJobErrorMessage(QString jobDescription);
 
     UpdateStatus* parseUpdateStatus(const QString &updateStatus);
 
