@@ -1016,11 +1016,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen lataaminen epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen varmennus epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -1509,11 +1509,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen lataaminen epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen varmennus epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
@@ -1773,7 +1773,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Pyydä root oikeuksia</translation>
     </message>
     <message>
         <source>Online</source>
@@ -1816,11 +1816,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Pyydä root oikeuksia</translation>
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjätilassa voit saada root oikeudet, asentaa ja suorittaa allekirjoittamattomia sovelluksia, joita ei ole listattu sovelluskaupassa. Voit myös vahingossa vaurioittaa järjestelmää, joten käytä oikeuksia huolellisesti.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
@@ -1844,11 +1844,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen lataaminen epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteen varmennus epäonnistui, root oikeuksia ei saatu</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
@@ -3355,15 +3355,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Pyydä root oikeuksia</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Kun olet siirtynyt kehittäjätilaan, voit hankkia root oikeudet, mutta se voi myös vahingoittaa järjestelmää, joten käytä oikeuksia huolellisesti.</translation>
     </message>
     <message>
         <source>Allowed</source>
