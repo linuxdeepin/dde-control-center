@@ -992,7 +992,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>Suuri</translation>
     </message>
     <message>
         <source>Small size</source>
@@ -1936,7 +1936,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Poista kosketuslevy, kun kirjoitat</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
@@ -2133,7 +2133,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Kosketuslevy</translation>
     </message>
     <message>
         <source>TrackPoint</source>
@@ -2144,7 +2144,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen nopeus</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
@@ -2228,7 +2228,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Poista asetus käytöstä, jos kosketuslevy ei toimi käyttöönoton jälkeen</translation>
     </message>
 </context>
 <context>
@@ -2838,11 +2838,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen nopeus</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Kosketuslevy käyttöön</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -2865,7 +2865,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen nopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -3779,7 +3779,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Koko</translation>
     </message>
     <message>
         <source>Standard Font</source>
@@ -4289,7 +4289,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen koko</translation>
     </message>
     <message>
         <source>Short</source>
@@ -5764,11 +5764,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Kosketuslevy</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Osoittimen nopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -5780,7 +5780,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Poista kosketuslevy, kun kirjoitat</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -7503,7 +7503,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Kosketuslevy</translation>
     </message>
 </context>
 <context>
