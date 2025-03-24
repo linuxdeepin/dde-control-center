@@ -634,11 +634,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"/>
+        <translation>teema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Kun olet vaihtanut teeman, näet teeman taustan kun käynnistät tietokoneen</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
@@ -886,7 +886,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Kuvake teema</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -894,7 +894,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Kohdistin</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
@@ -1352,7 +1352,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Teema</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
@@ -1364,7 +1364,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda teema käynnistysvalikoon</translation>
     </message>
     <message>
         <source>GRUB Authentication</source>
@@ -5505,7 +5505,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Teema</translation>
     </message>
     <message>
         <source>Power</source>
@@ -7585,7 +7585,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Teema</translation>
     </message>
     <message>
         <source>Appearance</source>
@@ -7593,7 +7593,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Valitse vaalea, tumma tai autom. ulkoasu</translation>
     </message>
     <message>
         <source>Window effect</source>
@@ -7613,11 +7613,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Värit ja kuvakkeet</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Säädä korostusvärejä ja teeman kuvakkeisiin</translation>
     </message>
     <message>
         <source>Font and font size</source>
