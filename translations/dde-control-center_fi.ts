@@ -476,7 +476,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta näyttö</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -488,7 +488,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Kun kansi on kiinni</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
@@ -504,7 +504,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Disbale</source>
-        <translation type="unfinished"/>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Auto suspend</source>
@@ -520,7 +520,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Akun hallinta</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -528,7 +528,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Täysi varaus</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -566,7 +566,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Poista laite</translation>
     </message>
     <message>
         <source>Select file</source>
