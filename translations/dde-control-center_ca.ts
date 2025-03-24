@@ -2627,226 +2627,226 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Reemplaça</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Aquesta drecera té conflicte amb %1. Cliqueu a Reemplaça per fer que sigui efectiva immediatament.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu una drecera nova</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>disponible</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Quant a aquest ordinador</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nom de l&apos;ordinador</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>informació del sistema</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Nom del sistema</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versió</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edició</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipus</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autorització</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Processador</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Memòria</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma gràfica</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Nucli</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Acords i política de privadesa</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Llicència de l&apos;edició</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acord de llicència de l&apos;usuari final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privadesa</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1 bits</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Informació del sistema</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Som profundament conscients de la importància de la vostra informació personal. Per tant, tenim la Política de privadesa que recull com recopilem, utilitzem, compartim, transferim, divulguem públicament i emmagatzemem la vostra informació. &lt;/p&gt; &lt;p&gt; Podeu fer clic&lt;a href=&quot;%1&quot;&gt; aquí&lt;/a&gt; per veure la nostra política de privadesa més recent o veure-la en línia visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Si us plau, llegiu-la atentament i compreneu plenament les nostres pràctiques sobre privadesa del client. Si teniu cap pregunta, poseu-vos en contacte amb nosaltres a support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unir-se al Programa d’experiència d’usuari significa que ens autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recollida i ús de la informació esmentada, no us uniu al Programa d’experiència d’usuari. Per obtenir-ne més informació, consulteu la política de privadesa del Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unir-se al Programa d’experiència d’usuari significa que ens autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recollida i ús de la informació esmentada, no us uniu al Programa d’experiència d’usuari. Per obtenir-ne més informació, consulteu &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Hi estic d&apos;acord i m&apos;uneixo al programa d&apos;experiència de l&apos;usuari.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu una llengua de sistema</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Edita</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Llista de llengües</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu-hi una llengua</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Fet</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>No m&apos;empipis</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Les notificacions d&apos;aplicacions no es mostraran a l&apos;escriptori i no n&apos;hi haurà cap indicació sonora, però les podreu veure totes al centre de notificacions.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quan la pantalla estigui blocada</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>De</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>A</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla tàctil</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la pantalla tàctil quan estigui connectada o configureu-la aquí.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchpadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocitat del punter</translation>
     </message>
     <message>
         <source>Enable TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Habilita el ratolí tàctil</translation>
     </message>
     <message>
         <source>Tap to Click</source>
