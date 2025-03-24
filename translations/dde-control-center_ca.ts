@@ -3207,27 +3207,27 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Deseu de manera segura la configuració del sistema i les dades personals al núvol i manteniu-les sincronitzades entre dispositius.</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del sistema</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Darrera sincronització: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Neteja les dades del núvol</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Segur que voleu esborrar la configuració del sistema i les dades personals desades al núvol?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Un cop esborrades les dades, no es poden recuperar!</translation>
     </message>
     <message>
         <source>Cancel</source>
