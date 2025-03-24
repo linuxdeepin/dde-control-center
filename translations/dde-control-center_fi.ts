@@ -1276,34 +1276,34 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Show in notification center</source>
-        <translation type="unfinished"/>
+        <translation>Näytä ilmoitusalueella</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Näytä viestin esikatselu</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListDialog</name>
     <message>
         <source>Person</source>
-        <translation type="unfinished"/>
+        <translation>Henkilö</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Eläin</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Maisema</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Kuvitus</translation>
     </message>
     <message>
         <source>Expression</source>
-        <translation type="unfinished"/>
+        <translation>Ilmaisu</translation>
     </message>
     <message>
         <source>Custom Picture</source>
@@ -1322,15 +1322,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Cartoon Style</source>
-        <translation type="unfinished"/>
+        <translation>Sarjakuvan tyyli</translation>
     </message>
     <message>
         <source>Dimensional Style</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen</translation>
     </message>
 </context>
 <context>
@@ -1344,11 +1344,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::BootWidget</name>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>Päivitetään...</translation>
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysviive</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -4337,7 +4337,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä</translation>
     </message>
     <message>
         <source>Version</source>
@@ -4395,7 +4395,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Näytä Bluetooth-laitteet ilman nimiä</translation>
     </message>
 </context>
 <context>
@@ -5217,7 +5217,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nimi:</translation>
     </message>
     <message>
         <source>Required</source>
