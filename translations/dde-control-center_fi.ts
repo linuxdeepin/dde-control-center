@@ -510,7 +510,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Autom. lepotila</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -664,7 +664,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
@@ -1000,7 +1000,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet epäonnistui</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -1390,7 +1390,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New password:</source>
@@ -1412,7 +1412,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Confirm</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -1493,7 +1493,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet epäonnistui</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -1828,7 +1828,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet epäonnistui</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -1864,7 +1864,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet sallittu</translation>
     </message>
 </context>
 <context>
@@ -2526,7 +2526,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
@@ -2827,7 +2827,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2975,7 +2975,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
 </context>
 <context>
@@ -4722,7 +4722,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Lepotila</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
@@ -4780,7 +4780,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Tasapainoinen</translation>
     </message>
     <message>
         <source>Power Saver</source>
@@ -5108,7 +5108,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
@@ -6505,7 +6505,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 merkkiä</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
@@ -6517,7 +6517,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
 </context>
 <context>
