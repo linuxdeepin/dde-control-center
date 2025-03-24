@@ -470,7 +470,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -482,7 +482,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone siirtyy lepotilaan</translation>
+        <translation>Tietokone valmiustilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -506,7 +506,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"/>
+        <translation>Autom. valmiustila</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
@@ -4718,7 +4718,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Valmiustila</translation>
     </message>
     <message>
         <source>Hibernate</source>
@@ -4741,7 +4741,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -4753,7 +4753,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone siirtyy lepotilaan</translation>
+        <translation>Tietokone valmiustilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -6356,7 +6356,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Näyttö ja keskeytys</translation>
+        <translation>Näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -6368,11 +6368,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone siirtyy lepotilaan</translation>
+        <translation>Tietokone valmiustilaan</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation>Tietokone siirtyy lepotilaan</translation>
+        <translation>Tietokone siirtyy valmiustilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -6396,7 +6396,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto suspend battery level</source>
-        <translation>Automaattinen lepotila akun varaustasolla</translation>
+        <translation>Autom. valmiustila akun varaustasolla</translation>
     </message>
     <message>
         <source>Battery Management</source>
@@ -6439,7 +6439,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Näyttö ja keskeytys</translation>
+        <translation>Näyttö ja valmiustila</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -6451,7 +6451,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone siirtyy lepotilaan</translation>
+        <translation>Tietokone valmiustilaan</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
