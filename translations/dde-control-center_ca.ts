@@ -3992,18 +3992,18 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>toc</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -4021,27 +4021,27 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendiment òptim</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Rendiment òptim: desactiva tots els efectes de la interfície i les finestres per obtenir un rendiment eficient del sistema.</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrat</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrat: limita alguns efectes de les finestres per obtenir una visualització excel·lent i mantenir un bon rendiment del sistema.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>La millor visualització</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>La millor visualització: habilita tots els efectes de la interfície i les finestres per obtenir la millor experiència visual.</translation>
     </message>
 </context>
 <context>
@@ -4104,42 +4104,42 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Disposició del teclat</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>fet</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>edita</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu el mètode d&apos;entrada corresponent a la &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Gestió del mètode d&apos;entrada&lt;/a&gt; per garantir que la disposició del teclat funcioni quan s&apos;afegeixi o es canviï.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu una disposició de teclat nova...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Llengua</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>fet</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>edita</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>Altres llengües</translation>
     </message>
     <message>
         <source>add</source>
