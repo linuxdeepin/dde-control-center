@@ -2285,188 +2285,188 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya només pot contenir caràcters en anglès (majúscules o minúscules), números o símbols especials (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/).</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Com a màxim %1 caràcters palíndroms, si us plau.</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Com a màxim %1 caràcters monòtons, si us plau.</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Com a màxim %1 caràcters repetits, si us plau.</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de tenir lletres majúscules, minúscules, números i símbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/).</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya no ha de contenir més de 4 caràcters palíndroms.</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>No useu paraules i combinacions habituals com a contrasenya.</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, creeu una contrasenya forta.</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>No compleix les regles de la contrasenya.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Freqüència d&apos;actualització</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomanada</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RegionFormatDialog</name>
     <message>
         <source>Region Format</source>
-        <translation type="unfinished"/>
+        <translation>Format de la regió</translation>
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Format per defecte</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"/>
+        <translation>Primer dia</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data abreujada</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data ampliada</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora abreujada</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora ampliada</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbol de la moneda</translation>
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Paper</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Desa</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Segur que voleu eliminar aquest compte?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Elimina el directori del compte</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Elimina</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolució</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Canvia la mida de l&apos;escriptori</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Per defecte</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta&apos;l</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Estira&apos;l</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centra&apos;l</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomanada</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotació</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estàndard</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>El monitor només admet un escalat del 100 %.</translation>
     </message>
     <message>
         <source>Display Scaling</source>
