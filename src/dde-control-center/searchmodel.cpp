@@ -67,6 +67,7 @@ protected:
 
 private:
     QList<SearchData *> m_data;
+    QTextDocument m_doc;
 };
 
 SearchSourceModel::SearchSourceModel(QObject *parent)
@@ -119,12 +120,13 @@ void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QSt
     if (!obj || !obj->canSearch()) {
         return;
     }
-    const QString &sText = text.isEmpty() ? Qt::convertFromPlainText(obj->displayName()) : Qt::convertFromPlainText(text);
+    m_doc.setHtml(text.isEmpty() ? obj->displayName() : text);
+    const QString &sText = m_doc.toPlainText().toLower();
     if (sText.isEmpty()) {
         return;
     }
     SearchData *data = new SearchData(obj);
-    data->text = text;
+    data->text = sText;
     data->url = url;
     bool ok = false;
     for (auto &&c : sText) {
@@ -250,20 +252,20 @@ QHash<int, QByteArray> SearchModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names[SearchUrlRole] = "url";
     names[SearchPlainTextRole] = "plainText";
-    names[SearchIsBeginRole] = "isBegin";
+    names[SearchIsEndRole] = "isEnd";
     return names;
 }
 
 QVariant SearchModel::data(const QModelIndex &index, int role) const
 {
-    if (role == SearchIsBeginRole) {
+    if (role == SearchIsEndRole) {
         int row = index.row();
-        if (row == 0) {
+        if (row == rowCount() - 1) {
             return false;
         }
         const SearchData *curentData = QSortFilterProxyModel::data(index, SearchDataRole).value<const SearchData *>();
-        const SearchData *previousData = QSortFilterProxyModel::data(this->index(row - 1, 0), SearchDataRole).value<const SearchData *>();
-        return curentData->ancestors != previousData->ancestors;
+        const SearchData *nextData = QSortFilterProxyModel::data(this->index(row + 1, 0), SearchDataRole).value<const SearchData *>();
+        return curentData->ancestors != nextData->ancestors;
     }
     return QSortFilterProxyModel::data(index, role);
 }
@@ -290,7 +292,7 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
     if (filterText.isEmpty()) {
         return false;
     }
-
+    filterText = filterText.toLower();
     QList<int> findIndex;
     int from = 0;
     bool findOk = true;
@@ -316,16 +318,13 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
             for (auto &&words : texts) {
                 ++wordsIndex;
                 for (auto &&py : words) {
-                    from = py.indexOf(*cIt, 0, Qt::CaseInsensitive);
-                    if (from >= 0) {
+                    from = 0;
+                    while (from < py.size() && cIt != filterText.cend() && py.at(from) == (*cIt)) {
+                        ++cIt;
+                        ++from;
+                    }
+                    if (from > 0) {
                         findIndex.append(wordsIndex);
-                        while (from >= 0) {
-                            ++cIt;
-                            if (cIt == filterText.cend()) {
-                                break;
-                            }
-                            from = py.indexOf(*cIt, ++from, Qt::CaseInsensitive);
-                        }
                         break;
                     }
                 }
@@ -376,7 +375,9 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
     displays.append(text);
     sourceModel()->setData(sourceIndex, displays.join("/"), SearchPlainTextRole);
     auto currentIndex = mapFromSource(sourceIndex);
-    Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole });
+    if (currentIndex.isValid()) {
+        Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole, SearchIsEndRole });
+    }
     return true;
 }
 

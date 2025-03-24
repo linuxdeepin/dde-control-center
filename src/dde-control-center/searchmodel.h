@@ -16,7 +16,7 @@ class SearchModel : public QSortFilterProxyModel
 public:
     explicit SearchModel(QObject *parent = nullptr);
 
-    enum DccSearchRole { SearchUrlRole = Qt::UserRole + 300, SearchPlainTextRole, SearchIsBeginRole, SearchTextRole, SearchWeightRole, SearchDataRole };
+    enum DccSearchRole { SearchUrlRole = Qt::UserRole + 300, SearchPlainTextRole, SearchIsEndRole, SearchTextRole, SearchWeightRole, SearchDataRole };
 
     QHash<int, QByteArray> roleNames() const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

@@ -27,6 +27,17 @@ Rectangle {
 
     SearchEdit {
         id: searchEdit
+        function setViewIndex(viewIndex) {
+            if (viewIndex < 0) {
+                viewIndex = view.count - 1
+                view.positionViewAtEnd()
+            } else if (viewIndex >= view.count) {
+                viewIndex = 0
+                view.positionViewAtBeginning()
+            }
+            view.currentIndex = viewIndex
+        }
+
         anchors.fill: parent
         anchors.margins: 1
         activeFocusOnTab: true
@@ -60,23 +71,11 @@ Rectangle {
                 popup.close()
                 break
             case Qt.Key_Down:
-            {
-                let cIndex = view.currentIndex + 1
-                if (cIndex < 0) {
-                    cIndex = 0
-                }
-                view.currentIndex = cIndex
-            }
-            break
+                setViewIndex(view.currentIndex + 1)
+                break
             case Qt.Key_Up:
-            {
-                let cIndex = view.currentIndex - 1
-                if (cIndex < 0) {
-                    cIndex = 0
-                }
-                view.currentIndex = cIndex
-            }
-            break
+                setViewIndex(view.currentIndex - 1)
+                break
             case Qt.Key_Return:
             case Qt.Key_Enter:
                 if (view.currentItem) {
@@ -93,14 +92,20 @@ Rectangle {
         id: popup
         y: 35
         width: searchEdit.width > 308 ? searchEdit.width : 308
-        padding: 10
+        height: (view.count > 7 ? 7 : view.count) * 32 + 15
+        padding: 5
         ListView {
             id: view
             clip: true
             anchors.fill: parent
+            spacing: 0
             delegate: ItemDelegate {
                 implicitWidth: parent ? parent.width : 0
                 implicitHeight: 32
+                topInset: 0
+                bottomInset: 0
+                topPadding: 0
+                bottomPadding: 0
                 backgroundVisible: true
                 corners: getCornersForBackground(index, view.count)
                 icon.name: model.decoration
@@ -115,7 +120,8 @@ Rectangle {
                     popup.close()
                 }
                 background: DccItemBackground {
-                    separatorVisible: model.isBegin !== undefined ? model.isBegin : false
+                    separatorVisible: model.isEnd !== undefined ? model.isEnd : false
+                    bgMargins: 0
                 }
             }
         }
