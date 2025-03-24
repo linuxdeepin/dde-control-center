@@ -2475,7 +2475,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
 </context>
 <context>
@@ -2489,22 +2489,22 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Heikko</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Hyvä</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Vahva</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Turvakysymykset</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
@@ -2512,15 +2512,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>Turvakysymys 1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>Turvakysymys 2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>Turvakysymys 3</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4172,7 +4172,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4191,7 +4191,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4410,15 +4410,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Heikko</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Hyvä</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Vahva</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4969,7 +4969,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
     <message>
         <source>Default formats</source>
@@ -5087,7 +5087,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
 </context>
 <context>
@@ -5199,14 +5199,14 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>SearchInput</name>
     <message>
         <source>Search</source>
-        <translation>Etsi</translation>
+        <translation>Haku</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
 </context>
 <context>
@@ -5264,7 +5264,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Hae pikanäppäimiä</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -6683,7 +6683,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Hyvä</translation>
     </message>
     <message>
         <source>Large</source>
@@ -6856,7 +6856,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Aika ja päivämäärä</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
@@ -7323,7 +7323,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>All day</source>
