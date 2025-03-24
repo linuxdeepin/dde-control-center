@@ -700,7 +700,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Säädä logon kokoa käynnistymisen yhteydessä</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>Pieni</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -2239,11 +2239,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Small Size</source>
-        <translation type="unfinished"/>
+        <translation>Pieni</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation type="unfinished"/>
+        <translation>Suurin</translation>
     </message>
 </context>
 <context>
@@ -3069,7 +3069,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>Sivun koko</translation>
     </message>
 </context>
 <context>
@@ -3783,11 +3783,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Vakio</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Tasaleveä</translation>
     </message>
 </context>
 <context>
@@ -4614,7 +4614,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Font Size</source>
-        <translation>Fonttikoko</translation>
+        <translation>Kirjasimen koko</translation>
     </message>
     <message>
         <source>Standard Font</source>
@@ -5003,7 +5003,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>Paperin koko</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -7619,11 +7619,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Kirjasin ja koko</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Muuta kirjasinta ja kokoa</translation>
     </message>
     <message>
         <source>Wallpaper</source>
