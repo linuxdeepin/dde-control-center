@@ -630,7 +630,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>grub käynnistyksen viive</translation>
     </message>
     <message>
         <source>theme</source>
@@ -642,7 +642,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysvalikon vahvistus</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
@@ -674,7 +674,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -1113,7 +1113,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>FullName</source>
@@ -1356,11 +1356,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
+        <translation>Valitse käynnistysvalikon vaihtoehto, jonka haluat asettaa oletukseksi. Vedä ja pudota kuva taustan muuttamiseksi.</translation>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation type="unfinished"/>
+        <translation>Valitse käynnistysvalikon vaihtoehto, jonka haluat asettaa oletukseksi</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
@@ -1368,7 +1368,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
+        <translation>GRUB todennus</translation>
     </message>
     <message>
         <source>GRUB password is required to edit its configuration</source>
@@ -1380,7 +1380,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistys valikko</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
@@ -1404,7 +1404,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1445,11 +1445,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Näytön sävy säädetään sijaintisi mukaan</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Muuta värilämpötilaa</translation>
     </message>
     <message>
         <source>Cool</source>
@@ -1468,7 +1468,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistys valikko</translation>
     </message>
     <message>
         <source>Developer Mode</source>
@@ -1503,7 +1503,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1594,7 +1594,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>optional</source>
@@ -1656,7 +1656,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Command</source>
@@ -1679,7 +1679,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::CustomEdit</name>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2077,7 +2077,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -4406,7 +4406,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Weak</source>
@@ -5221,7 +5221,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Command:</source>
@@ -5559,7 +5559,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
