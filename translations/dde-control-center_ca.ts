@@ -5796,15 +5796,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Gest</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos amb tres dits</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos amb quatre dits</translation>
     </message>
 </context>
 <context>
@@ -5844,15 +5844,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Temps d&apos;instal·lació previst:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;instal·la</translation>
     </message>
 </context>
 <context>
@@ -5958,42 +5958,42 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>La configuració es revertirà d&apos;aquí a %1 s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Voleu desar els paràmetres de la pantalla?</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Reveteix</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Desa</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest pedaç d&apos;actualització millora principalment l&apos;experiència de rendiment operatiu de l&apos;entorn d&apos;escriptori i les aplicacions d&apos;ús habitual, i soluciona alguns problemes coneguts del sistema, i millora encara més la qualitat del producte.</translation>
     </message>
     <message>
         <source>Updates：</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions:</translation>
     </message>
     <message>
         <source>Release time：</source>
-        <translation type="unfinished"/>
+        <translation>Data de publicació:</translation>
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Mostra&apos;n els detalls</translation>
     </message>
     <message>
         <source>收起</source>
