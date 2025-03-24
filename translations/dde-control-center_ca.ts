@@ -2850,59 +2850,59 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Un toc per fer clic</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplaçament natural</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lent</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Ràpid</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocitat del punter</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lenta</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Ràpida</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Uniu-vos al programa d&apos;experiència de l&apos;usuari</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unir-se al Programa d’experiència d’usuari significa que ens autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recollida i ús de la informació esmentada, no us uniu al Programa d’experiència d’usuari. Per obtenir-ne més informació, consulteu la política de privadesa del Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unir-se al Programa d’experiència d’usuari significa que ens autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recollida i ús de la informació esmentada, no us uniu al Programa d’experiència d’usuari. Per obtenir-ne més informació sobre la gestió de les vostres dades, consulteu la Política de privadesa del sistema operatiu UnionTech (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -3116,93 +3116,94 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>En vincular-hi el WeChat, podeu iniciar sessió de manera segura i ràpida a l&apos;ID d&apos;%1 i als comptes locals.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>Desenllaçat</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Desvinculació</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Enllaça</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Segur que voleu desvincular el WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Després de desvincular el WeChat, no podreu usar el WeChat per escanejar el codi QR per iniciar sessió a l&apos;ID d&apos;%1 o al compte local.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Deixa-m&apos;ho pensar</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Vinculació de comptes locals</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Després de vincular el compte local, podeu usar les funcions següents:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema d&apos;inici de sessió amb escaneig de codi del WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Useu WeChat, que està vinculat a l&apos;ID d&apos;%1, per escanejar el codi per iniciar sessió al vostre compte local.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Restableix la contrasenya amb l&apos;ID d&apos;%1.</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Restabliu la contrasenya local mitjançant l&apos;ID d&apos;%1 en cas que l&apos;oblideu.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Per usar les funcions anteriors, aneu al Centre de control - Comptes i activeu les opcions corresponents.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronització amb el núvol</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Gestioneu el vostre ID d&apos;%1 i sincronitzeu les dades personals entre dispositius.
+Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personalitzats del navegador, botiga d&apos;aplicacions, assistència i molt més.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Inicieu la sessió a l&apos;ID d&apos;%1</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronització automàtica</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
