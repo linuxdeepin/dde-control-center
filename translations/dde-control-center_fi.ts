@@ -2099,11 +2099,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmävirhe</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe</translation>
     </message>
 </context>
 <context>
@@ -2125,7 +2125,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri</translation>
     </message>
     <message>
         <source>General</source>
@@ -2148,7 +2148,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Hiiren kiihtyvyys</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
@@ -3348,7 +3348,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki tiedostot (*)</translation>
     </message>
 </context>
 <context>
@@ -3656,7 +3656,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Salli sovellusten käyttää näitä tiedostoja ja kansioita:</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -4273,7 +4273,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
@@ -4301,7 +4301,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Hiiren kiihtyvyys</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
@@ -5511,11 +5511,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Verkko</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri</translation>
     </message>
     <message>
         <source>Update</source>
@@ -5526,7 +5526,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Lisää taustakuvia</translation>
     </message>
 </context>
 <context>
@@ -7484,11 +7484,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri ja kosketuslevy</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen, hiiri, kosketuslevy</translation>
     </message>
 </context>
 <context>
@@ -7499,7 +7499,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri</translation>
     </message>
     <message>
         <source>Touchpad</source>
