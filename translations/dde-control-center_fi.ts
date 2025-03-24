@@ -314,7 +314,9 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
+Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
+UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
     </message>
     <message>
         <source>Agree</source>
@@ -660,7 +662,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimi</translation>
     </message>
     <message>
         <source>root</source>
@@ -1107,7 +1109,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimi</translation>
     </message>
     <message>
         <source>Required</source>
@@ -1127,7 +1129,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Luo käyttäjätili</translation>
     </message>
 </context>
 <context>
@@ -1148,19 +1150,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::AccountsModule</name>
     <message>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjät</translation>
     </message>
     <message>
         <source>User management</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjien hallinta</translation>
     </message>
     <message>
         <source>Create User</source>
-        <translation type="unfinished"/>
+        <translation>Luo käyttäjä</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimi</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -1168,11 +1170,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete User</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttäjä</translation>
     </message>
     <message>
         <source>User Type</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän tyyppi</translation>
     </message>
     <message>
         <source>Auto Login</source>
@@ -1196,7 +1198,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Tavallinen käyttäjä</translation>
     </message>
     <message>
         <source>Administrator</source>
@@ -1208,7 +1210,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimeä on käytetty muilla käyttäjätileillä</translation>
     </message>
     <message>
         <source>Full Name</source>
@@ -1517,11 +1519,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Aloita uuden käynnistysanimaation asetus, odota hetki</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Uuden animaation asetus on valmis</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
@@ -1540,11 +1542,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Luo</translation>
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished"/>
+        <translation>Uusi käyttäjä</translation>
     </message>
     <message>
         <source>User Type</source>
@@ -2634,7 +2636,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Tee uusi pikanäppäin</translation>
     </message>
 </context>
 <context>
@@ -5235,7 +5237,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Anna uusi pikanäppäin</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5278,7 +5280,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Anna uusi pikanäppäin</translation>
     </message>
     <message>
         <source>Click</source>
@@ -6817,7 +6819,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi</translation>
     </message>
 </context>
 <context>
