@@ -7537,93 +7537,93 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quan la pantalla estigui blocada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de notificacions que es mostren a l&apos;escriptori</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificacions d&apos;aplicacions</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permet les notificacions</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la notificació a l&apos;escriptori o mostra missatges no llegits al centre de notificacions.</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escriptori</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla de bloqueig</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centre de notificacions</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la previsualització del missatge.</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reprodueix un so</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personalització</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparença</translation>
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu l&apos;aspecte del tema: clar, fosc o automàtic.</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectes de les finestres</translation>
     </message>
     <message>
         <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"/>
+        <translation>Interfície i efectes, cantons arrodonits, pantalla compacta</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalitzeu el fons i l&apos;estalvi de pantalla</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Estalvi de pantalla</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Colors i icones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajusteu el color d&apos;accentuació i les icones del tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Tipus i mida de la lletra</translation>
     </message>
     <message>
         <source>Change system font and size</source>
