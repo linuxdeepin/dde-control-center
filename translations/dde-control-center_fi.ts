@@ -2744,11 +2744,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity käyttökokemusohjelmaan. Deepin tietosuojakäytännöstä lisätietoja (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity siihen. Lisätietoja käyttökokemusohjelmasta osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -2848,7 +2848,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Napauta</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2882,7 +2882,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Liity käyttökokemusohjelmaan</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
@@ -2896,11 +2896,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity käyttökokemusohjelmaan. Deepin tietosuojakäytännöstä lisätietoja (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity käyttökokemusohjelmaan. UnionTech OS tietosuojakäytännöstä lisätietoja (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).</translation>
     </message>
 </context>
 <context>
@@ -6492,7 +6492,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Liity käyttökokemusohjelmaan</translation>
     </message>
 </context>
 <context>
@@ -6795,7 +6795,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän identiteetin tunnistaminen sormenjälkien avulla</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -6875,7 +6875,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimen on oltava 3–32 merkkiä pitkä</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
@@ -6887,7 +6887,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä on käytetty muilla käyttäjätileillä</translation>
     </message>
     <message>
         <source>The full name is too long</source>
@@ -6903,7 +6903,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Tavallinen käyttäjä</translation>
     </message>
     <message>
         <source>Administrator</source>
@@ -7784,7 +7784,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
