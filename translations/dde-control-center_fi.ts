@@ -709,7 +709,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Salli sovellusten käyttää kameraa:</translation>
     </message>
 </context>
 <context>
@@ -2662,39 +2662,39 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edition</source>
         <translation>Versio</translation>
     </message>
     <message>
+        <source>Edition</source>
+        <translation>Painos</translation>
+    </message>
+    <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Valtuutus</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prosessori</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Muisti</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafiikka</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
@@ -2714,14 +2714,14 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Tietoja</translation>
     </message>
 </context>
 <context>
@@ -2778,7 +2778,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Kieliluettelo</translation>
     </message>
     <message>
         <source>Add Language</source>
@@ -2793,7 +2793,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Älä häiritse</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
@@ -2810,18 +2810,18 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Kohteesta</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>-</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Kosketusnäyttö</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
@@ -3146,7 +3146,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Kun olet sitonut paikallisen tilisi, voit käyttää seuraavia toimintoja:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
@@ -3369,7 +3369,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Sallittu</translation>
     </message>
     <message>
         <source>Enter</source>
@@ -3867,7 +3867,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Akun alhainen varaus</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -6711,7 +6711,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>Matala</translation>
     </message>
     <message>
         <source>High</source>
@@ -7547,7 +7547,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Salli ilmoitukset</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
