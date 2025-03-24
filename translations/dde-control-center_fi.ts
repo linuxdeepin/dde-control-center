@@ -6002,7 +6002,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys asennettu</translation>
     </message>
     <message>
         <source>Restart Now</source>
@@ -6010,7 +6010,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksen lataus epäonnistui</translation>
     </message>
     <message>
         <source>retry</source>
@@ -6030,7 +6030,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys havaittiin.</translation>
     </message>
 </context>
 <context>
@@ -6051,19 +6051,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>päivitystyyppi</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Toiminnan päivitys</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Tarjoaa uusia ominaisuuksia, laatukorjauksia, tietoturva-aukkojen korjauksia ja päivitettyä sisältöä</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Laatupäivitys</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
@@ -7711,7 +7711,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Sound Effects</source>
@@ -7851,7 +7851,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksen asetukset</translation>
     </message>
 </context>
 <context>
