@@ -610,7 +610,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistymisen asetukset</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
@@ -870,7 +870,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Kuvakkeiden asetukset</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -912,7 +912,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>Siirry asetuksiin</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1206,7 +1206,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Siirry asetuksiin</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3239,7 +3239,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Siirry Internet asetuksiin</translation>
     </message>
 </context>
 <context>
@@ -3409,7 +3409,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat asentaa ja käyttää allekirjoittamattomia sovelluksia, siirry &lt;a href=&quot;Security Center&quot;&gt;Turvakeskukseen&lt;/a&gt; ja muuta asetuksia.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -4588,7 +4588,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Kuvakeasetukset</translation>
+        <translation>Kuvakkeiden asetukset</translation>
     </message>
     <message>
         <source>Icon Theme</source>
