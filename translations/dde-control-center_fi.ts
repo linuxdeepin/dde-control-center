@@ -539,11 +539,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth on päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth on pois päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1873,11 +1873,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::DisplayPlugin</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö</translation>
     </message>
     <message>
         <source>Light, resolution, scaling and etc</source>
-        <translation type="unfinished"/>
+        <translation>Valo, resoluutio, skaalaus jne</translation>
     </message>
 </context>
 <context>
@@ -2173,7 +2173,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Useita näyttöjä</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
@@ -2464,11 +2464,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö tukee vain 100% skaalausta</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näytön skaalaus</translation>
     </message>
 </context>
 <context>
@@ -2643,22 +2643,22 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>saatavilla</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Tästä tietokoneesta</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen nimi</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>tiedot</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -4496,7 +4496,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompakti näyttö</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -6731,7 +6731,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompakti näyttö</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -7160,7 +7160,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
@@ -7263,7 +7263,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö ja asettelu</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -7303,11 +7303,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näytön skaalaus</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö tukee vain 100% skaalausta</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
