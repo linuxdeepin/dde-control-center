@@ -3281,7 +3281,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Muut maat</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
@@ -3289,7 +3289,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Paikallisten lakien ja määräysten mukaisesti tämä ei ole saatavilla sinun maassasi.</translation>
     </message>
 </context>
 <context>
@@ -4153,11 +4153,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä ja sovellukset voivat tarjota sinulle paikallista sisältöä maasi ja alueesi perusteella</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Maa ja aikamuoto</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
@@ -4965,7 +4965,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Maat ja aikamuodot</translation>
     </message>
     <message>
         <source>Search</source>
@@ -5020,11 +5020,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>RegionModule</name>
     <message>
         <source>Region and Format</source>
-        <translation>Alue ja aikamuoto</translation>
+        <translation>Maa ja aikamuoto</translation>
     </message>
     <message>
         <source>Country or Region</source>
-        <translation type="unfinished"/>
+        <translation>Maa tai alue</translation>
     </message>
     <message>
         <source>Format</source>
@@ -5032,7 +5032,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöjärjestelmä ja sovellukset voivat tarjota sinulle paikallista sisältöä maasi ja alueesi perusteella.</translation>
     </message>
     <message>
         <source>Area</source>
@@ -5044,7 +5044,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Region format</source>
-        <translation>Alueen aikamuoto</translation>
+        <translation>Maan aikamuoto</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -6864,7 +6864,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Kieli ja maa</translation>
     </message>
     <message>
         <source>System language, region format</source>
