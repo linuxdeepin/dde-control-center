@@ -5535,7 +5535,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Synkronointiaika</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -5543,7 +5543,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Päiväys ja kellonaika</translation>
     </message>
     <message>
         <source>Customize</source>
@@ -5571,11 +5571,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>aikavyöhyke</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Aikavyöhykkeet</translation>
     </message>
 </context>
 <context>
@@ -5686,15 +5686,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Lisää aikavyöhyke</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Määritä aikavyöhyke sijainnin perusteella</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Aikavyöhyke:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
@@ -5740,7 +5740,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System Timezone</source>
-        <translation>Järjestelmän aikavyöhyke</translation>
+        <translation>Aikavyöhyke</translation>
     </message>
     <message>
         <source>Add Timezone</source>
@@ -5842,7 +5842,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Arvioitu asennuspäivä:</translation>
     </message>
     <message>
         <source>30min</source>
@@ -5983,7 +5983,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Release time：</source>
-        <translation type="unfinished"/>
+        <translation>Julkaisupäivä : </translation>
     </message>
     <message>
         <source>2025.1.20</source>
@@ -6406,7 +6406,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Näytä jäljellä oleva käyttö- ja latausaika </translation>
+        <translation>Näytä jäljellä oleva aika ja latausaika</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
