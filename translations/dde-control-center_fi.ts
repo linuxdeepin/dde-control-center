@@ -1834,7 +1834,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ensin sinun Union id:llä</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
@@ -3189,11 +3189,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Hallinnoi sinun %1 id:tä ja synkronoi omat tietosi eri laitteiden välillä. Kirjaudu sisään %1 id:llä ja saat mukautetun selaimen, sovelluskaupan, tuen ja muita palveluita.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään %1 id:llä</translation>
     </message>
 </context>
 <context>
@@ -3247,7 +3247,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ulos</translation>
     </message>
     <message>
         <source>Go to web settings</source>
@@ -3401,7 +3401,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ensin Union id:llä ja jatka</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -6868,7 +6868,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen kieli, aikamuoto</translation>
     </message>
 </context>
 <context>
