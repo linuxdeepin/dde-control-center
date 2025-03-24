@@ -3231,68 +3231,68 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Neteja</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Serveis de sincronització</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Compte i seguretat</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Surt de la sessió</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Ves a la configuració web</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>ha fallat encriptar la contrasenya</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Contrasenya incorrecta. Us queden %1 intents.</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>El nombre d&apos;errors d&apos;inici de sessió ha arribat al límit avui. Podeu restablir la contrasenya i tornar-ho a provar.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Operació reeixida</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Xina continental</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Altres regions</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>La funció no està disponible actualment. Si us plau, primer activeu el sistema.</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>D&apos;acord amb les lleis i regulacions locals, actualment no està disponible a la vostra regió.</translation>
     </message>
 </context>
 <context>
@@ -3337,66 +3337,66 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, trieu el programa predeterminat per obrir %1.</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Obre un fitxer d&apos;escriptori</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Tots els fitxers (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Accés d&apos;arrel</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Demana l&apos;accés d&apos;arrel</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Després d&apos;entrar al mode de desenvolupador, podeu obtenir permisos d&apos;arrel, però això també pot danyar la integritat del sistema, així que useu-lo amb precaució.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Permès</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>Entreu</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>En línia</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Inici de sessió d&apos;ID d&apos;UOS</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Fora de línia</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Importa el certificat</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu el fitxer</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
