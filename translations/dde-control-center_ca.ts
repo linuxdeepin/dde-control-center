@@ -2107,181 +2107,181 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Error de xarxa</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identifica</translation>
     </message>
     <message>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Agrupa les finestres</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;arranjament de la pantalla tindrà efecte %1s després dels canvis.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí tàctil</translation>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Punt de rastreig</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocitat del punter</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Acceleració del ratolí</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Inhabilita el ratolí tàctil quan en connectar un ratolí.</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplaçament natural</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lent</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Ràpid</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Pantalles múltiples</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplica</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Estén</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Només a %1</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Notificació d&apos;aplicació</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificació</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Notificació del sistema</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detecció de palmell</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Superfície de contacte mínima</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Valor de pressió mínim</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Inhabiliteu l&apos;opció si el ratolí tàctil no funciona bé després d&apos;habilitar-la.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation type="unfinished"/>
+        <translation>Animació de l&apos;arrencada</translation>
     </message>
     <message>
         <source>Small Size</source>
-        <translation type="unfinished"/>
+        <translation>Mida petita</translation>
     </message>
     <message>
         <source>Big Size</source>
-        <translation type="unfinished"/>
+        <translation>Mida grossa</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privadesa</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Som profundament conscients de la importància de la vostra informació personal. Per tant, tenim la Política de privadesa que recull com recopilem, utilitzem, compartim, transferim, divulguem públicament i emmagatzemem la vostra informació. &lt;/p&gt; &lt;p&gt; Podeu fer clic&lt;a href=&quot;%1&quot;&gt; aquí&lt;/a&gt; per veure la nostra política de privadesa més recent o veure-la en línia visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Si us plau, llegiu-la atentament i compreneu plenament les nostres pràctiques sobre privadesa del client. Si teniu cap pregunta, poseu-vos en contacte amb nosaltres a support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya no pot estar en blanc.</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de tenir com a mínim %1 caràcters.</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya no ha de tenir més de %1 caràcters.</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
