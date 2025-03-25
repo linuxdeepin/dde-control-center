@@ -1749,11 +1749,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numerot</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Arkki</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2369,11 +2369,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numerot</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Arkki</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5005,7 +5005,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Paperin koko</translation>
+        <translation>Paperikoko</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -6577,7 +6577,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>taustakuva</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -6593,7 +6593,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Yksivärinen taustakuva</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
@@ -6605,7 +6605,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Automaattiset taustakuvat</translation>
     </message>
     <message>
         <source>never</source>
@@ -6649,7 +6649,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Elävä taustakuva</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -6827,11 +6827,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
