@@ -1245,11 +1245,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistuminen toimialueelta epäonnistui</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyminen toimialueeseen epäonnistui</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -1606,7 +1606,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Policykit todennus epäonnistui</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
@@ -1614,7 +1614,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
@@ -6946,11 +6946,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistuminen toimialueelta epäonnistui</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyminen toimialueeseen epäonnistui</translation>
     </message>
     <message>
         <source>AD domain settings</source>
