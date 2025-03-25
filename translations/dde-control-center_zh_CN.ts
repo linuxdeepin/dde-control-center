@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -13,6 +11,10 @@
     </message>
     <message>
         <source>Acount information</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <source>Acount Information</source>
         <translation>账户信息</translation>
     </message>
     <message>
@@ -37,6 +39,10 @@
     </message>
     <message>
         <source>Login settings</source>
+        <translation>登录设置</translation>
+    </message>
+    <message>
+        <source>Login Settings</source>
         <translation>登录设置</translation>
     </message>
     <message>
@@ -68,20 +74,12 @@
         <translation>添加用户组</translation>
     </message>
     <message>
-        <source>Acount Information</source>
-        <translation>账户信息</translation>
-    </message>
-    <message>
-        <source>Login Settings</source>
-        <translation>登录设置</translation>
-    </message>
-    <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>自动登录, 免密登录</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"></translation>
+        <translation>自动登录</translation>
     </message>
 </context>
 <context>
@@ -314,7 +312,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -436,6 +434,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>动物</translation>
     </message>
     <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
+    <message>
         <source>Illustration</source>
         <translation>创意插图</translation>
     </message>
@@ -446,6 +448,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>custom</source>
         <translation>自定义图片</translation>
+    </message>
+    <message>
+        <source>Cartoon style</source>
+        <translation>Q版风格</translation>
     </message>
     <message>
         <source>Dimensional style</source>
@@ -462,14 +468,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Save</source>
         <translation>保存</translation>
-    </message>
-    <message>
-        <source>Scenery</source>
-        <translation>静物</translation>
-    </message>
-    <message>
-        <source>Cartoon style</source>
-        <translation>Q版风格</translation>
     </message>
 </context>
 <context>
@@ -507,6 +505,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>低电量提醒</translation>
     </message>
     <message>
+        <source>Auto suspend</source>
+        <translation>自动待机</translation>
+    </message>
+    <message>
+        <source>Auto Hibernate</source>
+        <translation>自动休眠</translation>
+    </message>
+    <message>
         <source>Low battery threshold</source>
         <translation>低电量阈值</translation>
     </message>
@@ -523,20 +529,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>最大容量</translation>
     </message>
     <message>
-        <source>Auto Hibernate</source>
-        <translation>自动休眠</translation>
-    </message>
-    <message>
-        <source>Auto suspend</source>
-        <translation>自动待机</translation>
-    </message>
-    <message>
         <source>Low battery level</source>
         <translation>低电量时</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
 </context>
 <context>
@@ -547,7 +545,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>蓝牙已打开，名称显示为 &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -561,20 +559,20 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>连接</translation>
     </message>
     <message>
-        <source>Rename</source>
-        <translation>重命名</translation>
-    </message>
-    <message>
-        <source>Select file</source>
-        <translation>选择文件</translation>
-    </message>
-    <message>
         <source>Send Files</source>
         <translation>发送文件</translation>
     </message>
     <message>
+        <source>Rename</source>
+        <translation>重命名</translation>
+    </message>
+    <message>
         <source>Remove Device</source>
         <translation>移除设备</translation>
+    </message>
+    <message>
+        <source>Select file</source>
+        <translation>选择文件</translation>
     </message>
 </context>
 <context>
@@ -582,6 +580,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Edit</source>
         <translation>修改</translation>
+    </message>
+    <message>
+        <source>Length greater than or equal to 64</source>
+        <translation>长度大于或等于64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
@@ -594,10 +596,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Airplane Mode</source>
         <translation>飞行模式</translation>
-    </message>
-    <message>
-        <source>Length greater than or equal to 64</source>
-        <translation>长度大于或等于64</translation>
     </message>
 </context>
 <context>
@@ -669,6 +667,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>用户名：</translation>
     </message>
     <message>
+        <source>root</source>
+        <translation>root</translation>
+    </message>
+    <message>
         <source>New Password :</source>
         <translation>新密码：</translation>
     </message>
@@ -703,10 +705,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>调整系统启动界面的logo动画尺寸大小</translation>
-    </message>
-    <message>
-        <source>root</source>
-        <translation type="unfinished">root</translation>
     </message>
 </context>
 <context>
@@ -942,12 +940,8 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>通用</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>滚动速度</translation>
-    </message>
-    <message>
-        <source>Double Click Speed</source>
-        <translation>双击速度</translation>
+        <source>Repeat delay</source>
+        <translation>重复延迟</translation>
     </message>
     <message>
         <source>Short</source>
@@ -956,18 +950,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Long</source>
         <translation>长</translation>
-    </message>
-    <message>
-        <source>Double Click Test</source>
-        <translation>双击测试</translation>
-    </message>
-    <message>
-        <source>Left Hand Mode</source>
-        <translation>左手模式</translation>
-    </message>
-    <message>
-        <source>Repeat delay</source>
-        <translation>重复延迟</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -992,6 +974,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Caps lock prompt</source>
         <translation>大写锁定提示</translation>
+    </message>
+    <message>
+        <source>Scroll Speed</source>
+        <translation>滚动速度</translation>
+    </message>
+    <message>
+        <source>Double Click Speed</source>
+        <translation>双击速度</translation>
+    </message>
+    <message>
+        <source>Double Click Test</source>
+        <translation>双击测试</translation>
+    </message>
+    <message>
+        <source>Left Hand Mode</source>
+        <translation>左手模式</translation>
     </message>
 </context>
 <context>
@@ -1298,6 +1296,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>动物</translation>
     </message>
     <message>
+        <source>Scenery</source>
+        <translation>静物</translation>
+    </message>
+    <message>
         <source>Illustration</source>
         <translation>创意插图</translation>
     </message>
@@ -1317,13 +1319,13 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Save</source>
         <translation>保存</translation>
     </message>
-    <message>
-        <source>Scenery</source>
-        <translation>静物</translation>
-    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AvatarListFrame</name>
+    <message>
+        <source>Cartoon Style</source>
+        <translation>Q版风格</translation>
+    </message>
     <message>
         <source>Dimensional Style</source>
         <translation>立体风格</translation>
@@ -1331,10 +1333,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Flat Style</source>
         <translation>平面风格</translation>
-    </message>
-    <message>
-        <source>Cartoon Style</source>
-        <translation>Q版风格</translation>
     </message>
 </context>
 <context>
@@ -2743,20 +2741,20 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>&lt;p&gt;统信软件非常重视您的隐私。因此我们制定了涵盖如何收集、使用、共享、转让、公开披露以及存储您的信息的隐私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;点击此处&lt;/a&gt;查看我们最新的隐私政策和/或通过访问 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;在线查看。请您务必认真阅读、充分理解我们针对客户隐私的做法，如果有任何疑问，请联系我们：support@uniontech.com。&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
+        <source>https://www.uniontech.com/agreement/experience-en</source>
+        <translation>https://www.uniontech.com/agreement/experience-cn</translation>
     </message>
     <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation>同意并加入用户体验计划</translation>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
         <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解用户体验计划，请访问：&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;。&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation>https://www.uniontech.com/agreement/experience-cn</translation>
+        <source>Agree and Join User Experience Program</source>
+        <translation>同意并加入用户体验计划</translation>
     </message>
 </context>
 <context>
@@ -2960,18 +2958,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>日期</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>确认</translation>
-    </message>
-    <message>
         <source>Year</source>
         <translation>年</translation>
     </message>
@@ -2982,6 +2968,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Day</source>
         <translation>日</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
@@ -3137,6 +3135,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>您确定要解绑微信吗？</translation>
     </message>
     <message>
+        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
+        <translation>解绑微信后，您将无法使用微信扫码登录%1 ID、微信扫码登录本地账户</translation>
+    </message>
+    <message>
         <source>Let me think it over</source>
         <translation>我再想想</translation>
     </message>
@@ -3168,16 +3170,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
         <translation>如需使用上述功能，请前往控制中心-账户，开启相应选项</translation>
     </message>
-    <message>
-        <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation>解绑微信后，您将无法使用微信扫码登录%1 ID、微信扫码登录本地账户</translation>
-    </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS</source>
@@ -3204,6 +3202,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>DeepinIDSyncService</name>
     <message>
+        <source>Auto Sync</source>
+        <translation>自动同步</translation>
+    </message>
+    <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
         <translation>将您的系统设置和个人信息安全地存储在云端，并在您不同的设备上保持同步</translation>
     </message>
@@ -3218,10 +3220,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Clear cloud data</source>
         <translation>清除云端数据</translation>
-    </message>
-    <message>
-        <source>Auto Sync</source>
-        <translation>自动同步</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
@@ -3247,16 +3245,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>同步服务</translation>
     </message>
     <message>
+        <source>Account and Security</source>
+        <translation>账户与安全</translation>
+    </message>
+    <message>
         <source>Sign out</source>
         <translation>退出登录</translation>
     </message>
     <message>
         <source>Go to web settings</source>
         <translation>前往网页设置</translation>
-    </message>
-    <message>
-        <source>Account and Security</source>
-        <translation>账户与安全</translation>
     </message>
 </context>
 <context>
@@ -3338,6 +3336,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>DetailItem</name>
     <message>
+        <source>Please choose the default program to open &apos;%1&apos;</source>
+        <translation>选择打开“%1”的默认程序</translation>
+    </message>
+    <message>
+        <source>add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
         <source>Open Desktop file</source>
         <translation>打开Desktop文件</translation>
     </message>
@@ -3348,14 +3354,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>All files (*)</source>
         <translation>所有文件(*)</translation>
-    </message>
-    <message>
-        <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>选择打开“%1”的默认程序</translation>
-    </message>
-    <message>
-        <source>add</source>
-        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -3421,6 +3419,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>2.前往 &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; 下载离线证书.</translation>
     </message>
     <message>
+        <source>3.Import Certificate</source>
+        <translation>3.导入证书</translation>
+    </message>
+    <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
         <translation>如需安装非应用商店来源的应用，前往 &lt;a href=&quot;Security Center&quot;&gt;安全中心&lt;/a&gt; 进行设置。</translation>
     </message>
@@ -3445,10 +3447,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>调试</translation>
     </message>
     <message>
-        <source>3.Import Certificate</source>
-        <translation>3.导入证书</translation>
-    </message>
-    <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>更改选项处理可能需要一分钟，收到设置成功提示后，请重启设备方可生效。</translation>
     </message>
@@ -3458,21 +3456,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Disclaimer</source>
         <translation>《用户免责声明》</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>下一步</translation>
-    </message>
-    <message>
-        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -3487,7 +3470,36 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>在使用人脸识别功能前，请注意以下事项：
+1.您的设备可能会被容貌、外形与您相近的人或物品解锁。
+2.人脸识别的安全性低于数字密码、混合密码。
+3.在暗光、强光、逆光或角度过大等场景下，人脸识别的解锁成功率会有所降低。
+4.请勿将设备随意交给他人使用，避免人脸识别功能被恶意利用。
+5.除以上场景外，您需注意其他可能影响人脸识别功能正常使用的情况。
+
+为更好使用人脸识别，录入面部数据时请注意以下事项：
+1.请保证光线充足，避免阳光直射并避免其他人出现在录入的画面中。
+2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
+3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
+</translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>下一步</translation>
     </message>
 </context>
 <context>
@@ -3648,6 +3660,10 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>FileAndFolder</name>
     <message>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation>允许下面的应用访问您的文件和文件夹</translation>
+    </message>
+    <message>
         <source>Documents</source>
         <translation>文档</translation>
     </message>
@@ -3674,10 +3690,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>folder</source>
         <translation>文件夹</translation>
-    </message>
-    <message>
-        <source>Allow below apps to access these files and folders:</source>
-        <translation>允许下面的应用访问您的文件和文件夹</translation>
     </message>
 </context>
 <context>
@@ -3909,18 +3921,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>自定义</translation>
     </message>
     <message>
-        <source>Customize repetition time</source>
-        <translation>自定义重复时间</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-    <message>
         <source>Monday</source>
         <translation>周一</translation>
     </message>
@@ -3949,6 +3949,18 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>周日</translation>
     </message>
     <message>
+        <source>Customize repetition time</source>
+        <translation>自定义重复时间</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>节能模式时降低屏幕亮度</translation>
     </message>
@@ -3962,10 +3974,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Four-finger</source>
         <translation>四指</translation>
-    </message>
-    <message>
-        <source>tap</source>
-        <translation>点击</translation>
     </message>
     <message>
         <source>Up</source>
@@ -3982,6 +3990,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Right</source>
         <translation>向右</translation>
+    </message>
+    <message>
+        <source>tap</source>
+        <translation>点击</translation>
     </message>
 </context>
 <context>
@@ -4092,6 +4104,10 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>KeyboardLayout</name>
     <message>
+        <source>Keyboard layout</source>
+        <translation>键盘布局</translation>
+    </message>
+    <message>
         <source>done</source>
         <translation>完成</translation>
     </message>
@@ -4100,16 +4116,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>编辑</translation>
     </message>
     <message>
-        <source>Add new keyboard layout...</source>
-        <translation>添加键盘布局...</translation>
-    </message>
-    <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
         <translation>如需添加或切换键盘布局，请同时在 &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt; 输入法管理 &lt;/a&gt;  中添加对应的输入法以确保生效</translation>
     </message>
     <message>
-        <source>Keyboard layout</source>
-        <translation>键盘布局</translation>
+        <source>Add new keyboard layout...</source>
+        <translation>添加键盘布局...</translation>
     </message>
 </context>
 <context>
@@ -4135,24 +4147,24 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>添加</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>区域格式</translation>
-    </message>
-    <message>
         <source>Region</source>
         <translation>区域</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>地区</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
         <translation>操作系统和应用可能会根据你所在的国家和地区向你提供本地内容</translation>
     </message>
     <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
+        <source>Region and format</source>
+        <translation>区域格式</translation>
     </message>
     <message>
-        <source>Area</source>
-        <translation>地区</translation>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
     </message>
 </context>
 <context>
@@ -4254,12 +4266,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>输入</translation>
     </message>
     <message>
-        <source>Input Devices</source>
-        <translation>输入设备</translation>
-    </message>
-    <message>
         <source>No input device for sound found</source>
         <translation>没有找到声音输入设备</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>输入设备</translation>
     </message>
 </context>
 <context>
@@ -4271,6 +4283,14 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>快</translation>
     </message>
     <message>
         <source>Pointer Size</source>
@@ -4295,14 +4315,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Natural Scrolling</source>
         <translation>自然滚动</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>快</translation>
     </message>
 </context>
 <context>
@@ -4375,7 +4387,7 @@ In order to better use of face recognition, please pay attention to the followin
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4486,6 +4498,14 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>最小化时效果</translation>
     </message>
     <message>
+        <source>Compact Display</source>
+        <translation>紧凑模式</translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation>开启后，窗口将显示更多内容</translation>
+    </message>
+    <message>
         <source>Transparency</source>
         <translation>透明度</translation>
     </message>
@@ -4516,14 +4536,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Large</source>
         <translation>大</translation>
-    </message>
-    <message>
-        <source>Compact Display</source>
-        <translation>紧凑模式</translation>
-    </message>
-    <message>
-        <source>If enabled, more content is displayed in the window.</source>
-        <translation>开启后，窗口将显示更多内容</translation>
     </message>
 </context>
 <context>
@@ -4741,12 +4753,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <source>Computer suspends after</source>
-        <translation>进入待机</translation>
-    </message>
-    <message>
         <source>Lock screen after</source>
         <translation>自动锁屏</translation>
+    </message>
+    <message>
+        <source>Computer suspends after</source>
+        <translation>进入待机</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -4789,15 +4801,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>续航优先，系统会牺牲一些性能表现来降低功耗</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
-    <message>
-        <source>Never</source>
-        <translation>从不</translation>
-    </message>
     <message>
         <source>Minutes</source>
         <translation>分钟</translation>
@@ -4805,6 +4813,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Hour</source>
         <translation>小时</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation>从不</translation>
     </message>
 </context>
 <context>
@@ -4868,32 +4880,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>QObject</name>
     <message>
+        <source>, </source>
+        <translation>、</translation>
+    </message>
+    <message>
         <source>Control Center</source>
         <translation>控制中心</translation>
-    </message>
-    <message>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation>密码规则配置文件读取错误</translation>
-    </message>
-    <message>
-        <source>dde-control-center</source>
-        <translation>控制中心</translation>
-    </message>
-    <message>
-        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
-        <translation>根据负载情况自动调整运行频率</translation>
-    </message>
-    <message>
-        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>根据负载情况积极调整运行频率</translation>
-    </message>
-    <message>
-        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
-        <translation>有利于增加性能，会显著提升功耗和发热</translation>
-    </message>
-    <message>
-        <source>CPU always works under low frequency, will reduce power consumption</source>
-        <translation>始终低频率运行，可降低功耗</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -4924,12 +4916,28 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>试用期过期</translation>
     </message>
     <message>
-        <source>Touch Screen Settings</source>
-        <translation>触控屏设置</translation>
+        <source>Auto adjust CPU operating frequency based on CPU load condition</source>
+        <translation>根据负载情况自动调整运行频率</translation>
     </message>
     <message>
-        <source>The settings of touch screen changed</source>
-        <translation>已变更触控屏设置</translation>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>根据负载情况积极调整运行频率</translation>
+    </message>
+    <message>
+        <source>Be good to imporving performance, but power consumption and heat generation will increase</source>
+        <translation>有利于增加性能，会显著提升功耗和发热</translation>
+    </message>
+    <message>
+        <source>CPU always works under low frequency, will reduce power consumption</source>
+        <translation>始终低频率运行，可降低功耗</translation>
+    </message>
+    <message>
+        <source>dde-control-center</source>
+        <translation>控制中心</translation>
+    </message>
+    <message>
+        <source>Error occurred when reading the configuration files of password rules!</source>
+        <translation>密码规则配置文件读取错误</translation>
     </message>
     <message>
         <source>Checking system versions, please wait...</source>
@@ -4944,8 +4952,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>取消</translation>
     </message>
     <message>
-        <source>, </source>
-        <translation>、</translation>
+        <source>Touch Screen Settings</source>
+        <translation>触控屏设置</translation>
+    </message>
+    <message>
+        <source>The settings of touch screen changed</source>
+        <translation>已变更触控屏设置</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
@@ -5014,8 +5026,28 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>区域与格式</translation>
     </message>
     <message>
+        <source>Country or Region</source>
+        <translation>国家或地区</translation>
+    </message>
+    <message>
         <source>Format</source>
         <translation>格式</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may provide you with local content based on your country and region.</source>
+        <translation>操作系统和应用可能会根据你所在的国家或地区向你提供本地内容</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>地区</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may set date and time formats based on regional formats.</source>
+        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
+    </message>
+    <message>
+        <source>Region format</source>
+        <translation>区域格式</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -5053,26 +5085,6 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Custom Format</source>
         <translation>自定义格式</translation>
     </message>
-    <message>
-        <source>Country or Region</source>
-        <translation>国家或地区</translation>
-    </message>
-    <message>
-        <source>Operating system and applications may provide you with local content based on your country and region.</source>
-        <translation>操作系统和应用可能会根据你所在的国家或地区向你提供本地内容</translation>
-    </message>
-    <message>
-        <source>Area</source>
-        <translation>地区</translation>
-    </message>
-    <message>
-        <source>Operating system and applications may set date and time formats based on regional formats.</source>
-        <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
-    </message>
-    <message>
-        <source>Region format</source>
-        <translation>区域格式</translation>
-    </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
@@ -5088,20 +5100,20 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>设置密码</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>确定</translation>
-    </message>
-    <message>
         <source>8-64 characters</source>
         <translation>请输入8-64位密码</translation>
     </message>
     <message>
         <source>Repeat the password</source>
         <translation>请再次输入密码</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
@@ -5126,8 +5138,20 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>ScreenSaverPage</name>
     <message>
+        <source>Screensaver</source>
+        <translation>屏幕保护</translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation>全屏预览</translation>
+    </message>
+    <message>
         <source>Personalized screensaver</source>
         <translation>个性化屏保</translation>
+    </message>
+    <message>
+        <source>setting</source>
+        <translation>设置</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -5172,18 +5196,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>System screensaver</source>
         <translation>系统屏保</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>屏幕保护</translation>
-    </message>
-    <message>
-        <source>preview</source>
-        <translation>全屏预览</translation>
-    </message>
-    <message>
-        <source>setting</source>
-        <translation>设置</translation>
     </message>
 </context>
 <context>
@@ -5250,6 +5262,10 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>快捷键</translation>
     </message>
     <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation>系统快捷键、自定义快捷键</translation>
+    </message>
+    <message>
         <source>Search shortcuts</source>
         <translation>搜索快捷键</translation>
     </message>
@@ -5293,10 +5309,6 @@ In order to better use of face recognition, please pay attention to the followin
         <source>Add custom shortcut</source>
         <translation>添加快捷键</translation>
     </message>
-    <message>
-        <source>System shortcut, custom shortcut</source>
-        <translation>系统快捷键、自定义快捷键</translation>
-    </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
@@ -5305,12 +5317,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>输出设备</translation>
     </message>
     <message>
-        <source>Input Devices</source>
-        <translation>输入设备</translation>
-    </message>
-    <message>
         <source>Select whether to enable the devices</source>
         <translation>选择是否启用设备</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>输入设备</translation>
     </message>
 </context>
 <context>
@@ -5460,8 +5472,20 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>输出</translation>
     </message>
     <message>
+        <source>No output device for sound found</source>
+        <translation>没有找到声音输出设备</translation>
+    </message>
+    <message>
         <source>Left Right Balance</source>
         <translation>左右平衡</translation>
+    </message>
+    <message>
+        <source>Mono audio</source>
+        <translation>单声道音频</translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation>将左声道和右声道合并成一个声道</translation>
     </message>
     <message>
         <source>Auto pause</source>
@@ -5474,18 +5498,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Output Devices</source>
         <translation>输出设备</translation>
-    </message>
-    <message>
-        <source>Mono audio</source>
-        <translation>单声道音频</translation>
-    </message>
-    <message>
-        <source>Merge left and right channels into a single channel</source>
-        <translation>将左声道和右声道合并成一个声道</translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
-        <translation>没有找到声音输出设备</translation>
     </message>
 </context>
 <context>
@@ -5525,6 +5537,18 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>TimeAndDate</name>
     <message>
+        <source>Auto sync time</source>
+        <translation>自动同步配置</translation>
+    </message>
+    <message>
+        <source>Ntp server</source>
+        <translation>服务器</translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation>系统日期和时间</translation>
+    </message>
+    <message>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
@@ -5555,18 +5579,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Timezone list</source>
         <translation>时区列表</translation>
-    </message>
-    <message>
-        <source>Auto sync time</source>
-        <translation>自动同步配置</translation>
-    </message>
-    <message>
-        <source>Ntp server</source>
-        <translation>服务器</translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation>系统日期和时间</translation>
     </message>
 </context>
 <context>
@@ -5677,19 +5689,19 @@ In order to better use of face recognition, please pay attention to the followin
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
@@ -5756,8 +5768,20 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>基础设置</translation>
     </message>
     <message>
+        <source>Touchpad</source>
+        <translation>触控板</translation>
+    </message>
+    <message>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>快</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
@@ -5776,24 +5800,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>手势</translation>
     </message>
     <message>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>快</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>三指手势</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>四指手势</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>触控板</translation>
     </message>
 </context>
 <context>
@@ -5832,16 +5844,16 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>UpdateControl</name>
     <message>
-        <source>Installing</source>
-        <translation>安装更新中</translation>
-    </message>
-    <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing</source>
+        <translation>安装更新中</translation>
     </message>
 </context>
 <context>
@@ -5947,46 +5959,46 @@ In order to better use of face recognition, please pay attention to the followin
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished">如无任何操作将在%1秒后还原。</translation>
+        <translation>如无任何操作将在%1秒后还原。</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished">是否要保存显示设置？</translation>
+        <translation>是否要保存显示设置？</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished">还原</translation>
+        <translation>还原</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
-    <message>
-        <source>View Details</source>
-        <translation>查看详细信息</translation>
-    </message>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
         <translation>本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。</translation>
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View Details</source>
+        <translation>查看详细信息</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"></translation>
+        <translation>更新：</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"></translation>
+        <translation>发布时间：</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>收起</translation>
     </message>
 </context>
 <context>
@@ -5994,6 +6006,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Updates Available</source>
         <translation>可用更新</translation>
+    </message>
+    <message>
+        <source>Installing Update</source>
+        <translation>安装更新</translation>
     </message>
     <message>
         <source>Installing updates…</source>
@@ -6004,56 +6020,52 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>更新安装成功</translation>
     </message>
     <message>
-        <source>Update download failed</source>
-        <translation>更新下载失败</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>正在检查更新，请等待…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>您的系统已更新</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>安装更新</translation>
-    </message>
-    <message>
         <source>Restart Now</source>
         <translation>立即重启</translation>
+    </message>
+    <message>
+        <source>Update download failed</source>
+        <translation>更新下载失败</translation>
     </message>
     <message>
         <source>retry</source>
         <translation>重试</translation>
     </message>
     <message>
-        <source>An update has been detected.</source>
-        <translation>检测到更新。</translation>
+        <source>Checking for updates, please wait…</source>
+        <translation>正在检查更新，请等待…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
         <translation>您的系统已经是最新的,请立即重启</translation>
     </message>
     <message>
+        <source>Your system is up to date</source>
+        <translation>您的系统已更新</translation>
+    </message>
+    <message>
+        <source>An update has been detected.</source>
+        <translation>检测到更新。</translation>
+    </message>
+    <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished">当前硬盘空间不足，无法进行系统更新</translation>
+        <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation type="unfinished">更新失败</translation>
+        <translation>更新失败</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished">网络异常，请检查后重试</translation>
+        <translation>网络异常，请检查后重试</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished">安装包错误，请重试</translation>
+        <translation>安装包错误，请重试</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished">依赖关系不满足</translation>
+        <translation>依赖关系不满足</translation>
     </message>
 </context>
 <context>
@@ -6074,23 +6086,23 @@ In order to better use of face recognition, please pay attention to the followin
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
@@ -6231,6 +6243,18 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>清除软件包缓存</translation>
     </message>
     <message>
+        <source>Smart Mirror Switch</source>
+        <translation>智能镜像源</translation>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation>镜像源列表</translation>
+    </message>
+    <message>
         <source>Updates from Internal Testing Sources</source>
         <translation>从内测通道升级</translation>
     </message>
@@ -6257,18 +6281,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>“%1”下载完成后会自动进行安装</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>智能镜像源</translation>
-    </message>
-    <message>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
-    </message>
-    <message>
-        <source>Mirror List</source>
-        <translation>镜像源列表</translation>
     </message>
 </context>
 <context>
@@ -6517,6 +6529,10 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>您正在进行敏感操作，请进行登录密码认证</translation>
     </message>
     <message>
+        <source>8-64 characters</source>
+        <translation>请输入8-64位密码</translation>
+    </message>
+    <message>
         <source>Forgot Password?</source>
         <translation>忘记密码？</translation>
     </message>
@@ -6527,10 +6543,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Confirm</source>
         <translation>确定</translation>
-    </message>
-    <message>
-        <source>8-64 characters</source>
-        <translation>请输入8-64位密码</translation>
     </message>
 </context>
 <context>
@@ -6567,16 +6579,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>WallpaperPage</name>
     <message>
-        <source>Window rounded corners</source>
-        <translation>窗口圆角</translation>
-    </message>
-    <message>
         <source>wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <source>System Wallapers</source>
-        <translation>系统壁纸</translation>
+        <source>Window rounded corners</source>
+        <translation>窗口圆角</translation>
     </message>
     <message>
         <source>My pictures</source>
@@ -6639,12 +6647,16 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>唤醒时</translation>
     </message>
     <message>
+        <source>System Wallapers</source>
+        <translation>系统壁纸</translation>
+    </message>
+    <message>
         <source>Live Wallpaper</source>
         <translation>动态壁纸</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished">1小时</translation>
+        <translation>1小时</translation>
     </message>
 </context>
 <context>
@@ -6817,10 +6829,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>通过扫描虹膜进行身份识别</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>添加新的</translation>
-    </message>
-    <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
         <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
     </message>
@@ -6832,16 +6840,20 @@ In order to better use of face recognition, please pay attention to the followin
         <source>No more than 15 characters</source>
         <translation>不得超过15个字符</translation>
     </message>
+    <message>
+        <source>Add a new </source>
+        <translation>添加新的</translation>
+    </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>蓝牙设置、设备管理</translation>
-    </message>
-    <message>
         <source>bluetooth</source>
         <translation>蓝牙</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>蓝牙设置、设备管理</translation>
     </message>
 </context>
 <context>
@@ -6860,7 +6872,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"></translation>
+        <translation>开发者选项</translation>
     </message>
 </context>
 <context>
@@ -6956,11 +6968,11 @@ In order to better use of face recognition, please pay attention to the followin
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7010,12 +7022,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>录入中断</translation>
     </message>
     <message>
-        <source>Iris</source>
-        <translation>虹膜</translation>
-    </message>
-    <message>
         <source>Place the edges of your fingerprint on the sensor</source>
         <translation>请以手指边缘压指纹收集器，然后根据提示抬起</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>虹膜</translation>
     </message>
 </context>
 <context>
@@ -7106,16 +7118,16 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>deepinid</name>
     <message>
+        <source>deepin ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>UOS ID</source>
         <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
         <translation>云服务</translation>
-    </message>
-    <message>
-        <source>deepin ID</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7181,20 +7193,48 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>displayMain</name>
     <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Duplicate</source>
         <translation>复制</translation>
     </message>
     <message>
         <source>Extend</source>
         <translation>扩展</translation>
-    </message>
-    <message>
-        <source> (Recommended)</source>
-        <translation> （推荐）</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>赫兹</translation>
     </message>
     <message>
         <source>Default</source>
@@ -7217,8 +7257,24 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>仅%1屏</translation>
     </message>
     <message>
+        <source> (Recommended)</source>
+        <translation> （推荐）</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation>赫兹</translation>
+    </message>
+    <message>
         <source>Multiple Displays Settings</source>
         <translation>多屏设置</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>识别</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>屏幕拼接将在修改完成%1s后生效</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -7273,8 +7329,16 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>缩放</translation>
     </message>
     <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>当前屏幕仅支持1倍缩放</translation>
+    </message>
+    <message>
         <source>Eye Comfort</source>
         <translation>护眼模式</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>开启护眼模式</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -7307,58 +7371,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Color Temperature</source>
         <translation>色温</translation>
-    </message>
-    <message>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>当前屏幕仅支持1倍缩放</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>识别</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>屏幕拼接将在修改完成%1s后生效</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>开启护眼模式</translation>
     </message>
 </context>
 <context>
@@ -7402,7 +7414,7 @@ In order to better use of face recognition, please pay attention to the followin
     <name>main</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished">控制中心提供操作系统的所有设置选项。</translation>
+        <translation>控制中心提供操作系统的所有设置选项。</translation>
     </message>
     <message>
         <source>Dock</source>
@@ -7553,6 +7565,10 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>通知横幅展示数量</translation>
     </message>
     <message>
+        <source>App Notifications</source>
+        <translation>应用通知</translation>
+    </message>
+    <message>
         <source>Allow Notifications</source>
         <translation>允许通知</translation>
     </message>
@@ -7579,10 +7595,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Play a sound</source>
         <translation>通知时提示声音</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>应用通知</translation>
     </message>
 </context>
 <context>
@@ -7615,6 +7627,10 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>个性化您的壁纸和屏保</translation>
     </message>
     <message>
+        <source>Screensaver</source>
+        <translation>屏幕保护</translation>
+    </message>
+    <message>
         <source>Colors and icons</source>
         <translation>颜色和图标</translation>
     </message>
@@ -7631,16 +7647,12 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>修改系统字体与字号</translation>
     </message>
     <message>
-        <source>Screensaver</source>
-        <translation>屏幕保护</translation>
-    </message>
-    <message>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"></translation>
+        <translation>界面和效果、窗口圆角、紧凑模式</translation>
     </message>
 </context>
 <context>
@@ -7719,7 +7731,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>输入、输出、系统音效、设备管理</translation>
     </message>
 </context>
 <context>
@@ -7733,24 +7745,24 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>输入</translation>
     </message>
     <message>
-        <source>Sound Effects</source>
-        <translation>系统音效</translation>
+        <source>Settings</source>
+        <translation>设置</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>设备管理</translation>
+        <source>Sound Effects</source>
+        <translation>系统音效</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
         <translation>开启/关闭系统音效</translation>
     </message>
     <message>
-        <source>Enable/disable audio devices</source>
-        <translation>启用/禁用音频设备</translation>
+        <source>DevicesManger</source>
+        <translation>设备管理</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>设置</translation>
+        <source>Enable/disable audio devices</source>
+        <translation>启用/禁用音频设备</translation>
     </message>
 </context>
 <context>
@@ -7778,6 +7790,10 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>关于本机</translation>
     </message>
     <message>
+        <source>System version, device information</source>
+        <translation>系统版本、设备信息</translation>
+    </message>
+    <message>
         <source>Open Source Software Description</source>
         <translation>开源软件声明</translation>
     </message>
@@ -7788,6 +7804,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>User Experience Program</source>
         <translation>用户体验计划</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>加入用户体验计划，帮助改进产品</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -7804,14 +7824,6 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>View information about privacy policy</source>
         <translation>查看隐私政策相关信息</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>系统版本、设备信息</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>加入用户体验计划，帮助改进产品</translation>
     </message>
 </context>
 <context>
@@ -7869,12 +7881,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>updateMain</name>
     <message>
-        <source>Update Settings</source>
-        <translation>更新设置</translation>
-    </message>
-    <message>
         <source>Feature Updates</source>
         <translation>功能更新</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation>更新设置</translation>
     </message>
 </context>
 <context>

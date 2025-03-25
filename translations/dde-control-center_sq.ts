@@ -46,14 +46,6 @@
         <translation>Rregullime Hyrjeje</translation>
     </message>
     <message>
-        <source>Auto longin, login without password</source>
-        <translation>Hyrje vetvetiu, hyni pa fjalëkalim</translation>
-    </message>
-    <message>
-        <source>Auto longin</source>
-        <translation>Hyrje e automatizuar</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>Hyni pa fjalëkalim</translation>
     </message>
@@ -80,6 +72,14 @@
     <message>
         <source>Add group</source>
         <translation>Shto grup</translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -505,10 +505,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <translation>Njoftim për bateri të pakët</translation>
     </message>
     <message>
-        <source>Disbale</source>
-        <translation>Çaktivizoje</translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation>Vetëpezulloje</translation>
     </message>
@@ -536,16 +532,20 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Low battery level</source>
         <translation>Nivel i ulët baterie</translation>
     </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation>Bluetooth-i është i aktivizuar dhe emri është shfaqur si “%1”</translation>
-    </message>
-    <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation>Bluetooth-i është i çaktivizuar dhe emri është shfaqur si “%1”</translation>
+    </message>
+    <message>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4800,8 +4800,8 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Baraspeshim funksionimi dhe jetëgjatësie baterie, e përshtatur automatikisht sipas përdorimit</translation>
     </message>
     <message>
-        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Jepi përparësi jetëgjatësisë së baterisë, prej kësaj sistemi do të sakrifikojë në shkallë funksionimi, për të reduktuar harxhimin e energjisë</translation>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5981,14 +5981,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Ky përditësim përmes arnimi përmirëson kryesisht funksionimin e mjedisit desktop dhe të aplikacioneve të përdorur rëndom, si dhe ndreq disa probleme të ditura sistemi, duke thelluar më tej cilësinë e produktit.</translation>
     </message>
     <message>
-        <source>Updates：</source>
-        <translation>Përditësime :</translation>
-    </message>
-    <message>
-        <source>Release time：</source>
-        <translation>Kohë hedhjeje në qarkullim :</translation>
-    </message>
-    <message>
         <source>2025.1.20</source>
         <translation>20.01.2025</translation>
     </message>
@@ -5997,7 +5989,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Shihni Hollësitë</translation>
     </message>
     <message>
-        <source>收起</source>
+        <source>Updates:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Release time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6046,6 +6046,26 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>An update has been detected.</source>
         <translation>U pikas një përditësim.</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update failed</source>
+        <translation>Përditësimi dështoi</translation>
+    </message>
+    <message>
+        <source>Network error, please check and try again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Packages error, please try again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unmet dependencies</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6619,10 +6639,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>30 minuta</translation>
     </message>
     <message>
-        <source>1 hover</source>
-        <translation>1 kalim kursori përsipër</translation>
-    </message>
-    <message>
         <source>login</source>
         <translation>hyrje</translation>
     </message>
@@ -6636,6 +6652,10 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Live Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 hour</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6847,12 +6867,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Administroni menunë tuaj të nisjeve</translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
-        <translation>Mundësi Zhvilluesish</translation>
-    </message>
-    <message>
         <source>Developer root permission management</source>
         <translation>Administrim lejesh rrënjë për zhvillues</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7603,10 +7623,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Efekt dritaresh</translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation>Personalizoni sfondin dhe ekrankuryesin tuaj</translation>
     </message>
@@ -7633,6 +7649,10 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Wallpaper</source>
         <translation>Sfond</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corner, compact display</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7706,12 +7726,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
 <context>
     <name>sound</name>
     <message>
-        <source>Output,input sound efects,devices</source>
-        <translation>Hyrje zëri, dalje zëri, efekte zanore, pajisje</translation>
-    </message>
-    <message>
         <source>Sound</source>
         <translation>Tingull</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
