@@ -1178,7 +1178,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
     <message>
         <source>Login Without Password</source>
@@ -1186,7 +1186,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Validity Days</source>
-        <translation type="unfinished"/>
+        <translation>Voimassaolo</translation>
     </message>
     <message>
         <source>Group</source>
@@ -1237,11 +1237,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistettiin toimialueelta onnistuneesti</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyi toimialueeseen onnistuneesti</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
@@ -4222,7 +4222,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Voimassaolo</translation>
     </message>
     <message>
         <source>Always</source>
@@ -6938,11 +6938,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistettiin toimialueelta onnistuneesti</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyi toimialueeseen onnistuneesti</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
