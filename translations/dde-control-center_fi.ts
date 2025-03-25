@@ -963,19 +963,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Numeronäppäimistö</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>Testaa täällä</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Numerolukon kehote</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vieritysnopeus</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
@@ -1010,7 +1010,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1105,7 +1105,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tilin tyyppi</translation>
     </message>
     <message>
         <source>UserName</source>
@@ -1942,7 +1942,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vierityksen nopeus</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
@@ -2158,7 +2158,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -5790,7 +5790,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Gesture</source>
@@ -6739,11 +6739,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>Vierityspalkit</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Näytä vierityksessä</translation>
     </message>
     <message>
         <source>Keep shown</source>
