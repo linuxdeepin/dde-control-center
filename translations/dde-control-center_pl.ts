@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne logowanie</translation>
     </message>
 </context>
 <context>
@@ -534,7 +534,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz</translation>
     </message>
 </context>
 <context>
@@ -545,7 +545,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth jest włączony pod nazwą &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -2577,7 +2577,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <name>DCC_NAMESPACE::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Done</source>
