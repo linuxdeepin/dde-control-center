@@ -2581,53 +2581,53 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Gotowe</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortCutSettingWidget</name>
     <message>
         <source>System Management</source>
-        <translation type="unfinished"/>
+        <translation>Zarządzanie systemem</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Okno</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Obszar roboczy</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Narzędzia pomocnicze</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Własny skrót</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>Przywróć domyślne</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Skrót</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Resetuj skrót</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Zastąp</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
