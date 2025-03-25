@@ -20,7 +20,7 @@ DccObject {
     DccObject {
         name: "developerMode"
         parentName: "system"
-        displayName: qsTr("Developer Optilons")
+        displayName: qsTr("Developer Options")
         description: qsTr("Developer root permission management")
         visible: !dccData.mode().isCommunitySystem()
         icon: "developer"

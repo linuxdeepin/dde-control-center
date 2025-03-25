@@ -163,7 +163,7 @@ DccObject {
                         ListElement { text: qsTr("10 minute"); value: "600" }
                         ListElement { text: qsTr("15 minute"); value: "900" }
                         ListElement { text: qsTr("30 minute"); value: "1800" }
-                        ListElement { text: qsTr("1 hover"); value: "3600" }
+                        ListElement { text: qsTr("1 hour"); value: "3600" }
                         ListElement { text: qsTr("login"); value: "login" }
                         ListElement { text: qsTr("wake up"); value: "wakeup" }
                     }

@@ -112,7 +112,7 @@ Rectangle {
             mode: "powersave"
             title: qsTr("Power Saver")
             icon: "power_performance"
-            description: qsTr("Prioritize battery life,which the system will sacrifice some performance to reduce power consumption")
+            description: qsTr("Prioritize battery life, which the system will sacrifice some performance to reduce power consumption")
         }
     }
 }
