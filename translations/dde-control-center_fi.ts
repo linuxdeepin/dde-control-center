@@ -1143,7 +1143,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Aina</translation>
     </message>
 </context>
 <context>
@@ -4226,7 +4226,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Aina</translation>
     </message>
 </context>
 <context>
