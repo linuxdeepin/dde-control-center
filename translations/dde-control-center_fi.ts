@@ -5486,11 +5486,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Autom. tauko</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Keskeytetäänkö äänentoisto automaattisesti, kun äänilaite irrotetaan</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -5539,7 +5539,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>NTP-palvelin</translation>
     </message>
     <message>
         <source>System date and time</source>
@@ -5567,7 +5567,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Käytä 24h kelloa</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -5582,11 +5582,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>kohteesta</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>-</translation>
     </message>
 </context>
 <context>
@@ -5698,7 +5698,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Lähin kaupunki:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5786,7 +5786,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Napauta</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -5794,7 +5794,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Ele</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
