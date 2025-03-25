@@ -626,7 +626,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation>Voit vaihtaa käynnistyskohteita painamalla valikkosta tai vaihtaa taustakuvaa vetämällä kuvan ikkunaan.</translation>
+        <translation>Voit vaihtaa käynnistyskohteita painamalla valikkosta tai vaihtaa taustakuvan vetämällä ja pudottamalla ikkunaan.</translation>
     </message>
     <message>
         <source>grub start delay</source>
@@ -1136,7 +1136,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Et ole vielä valinnut avataria. Lataa kuva tai vedä ja pudota kuva.</translation>
+        <translation>Et ole vielä valinnut avataria. Voit ladata kuvan vetämällä ja pudottamalla.</translation>
     </message>
 </context>
 <context>
@@ -1633,11 +1633,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Et ole vielä ladannut kuvaa. Voit ladata kuvan vetämällä ja pudottamalla</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu tiedostotyyppi on virheellinen, lataa uudelleen</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1660,7 +1660,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Komento</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1699,7 +1699,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Komento</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
@@ -5225,7 +5225,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>Komento:</translation>
     </message>
     <message>
         <source>Shortcut</source>
