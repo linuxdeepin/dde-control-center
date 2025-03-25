@@ -12,10 +12,13 @@
 #include <QUrl>
 #include <QDir>
 #include <QHash>
+#include <QtConcurrent/QtConcurrent>
 
 #include "wallpaperprovider.h"
 #include "operation/personalizationdbusproxy.h"
 #include "utils.hpp"
+
+QHash<QString, QString> InterfaceWorker::g_thumbnailMap;
 
 Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallpaper-worker")
 
@@ -40,6 +43,7 @@ WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDB
 
     connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::listFinished, this, &WallpaperProvider::fetchFinish);
+    connect(m_worker, &InterfaceWorker::thumbnailFinished, this, &WallpaperProvider::setThumbnail);
 }
 
 WallpaperProvider::~WallpaperProvider()
@@ -88,7 +92,24 @@ void WallpaperProvider::setWallpaper(const QList<WallpaperItemPtr> &items, Wallp
     }
 }
 
-WallpaperItemPtr WallpaperProvider::createItem(const QString &path, bool del)
+void WallpaperProvider::setThumbnail(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail)
+{
+    switch (type) {
+        case WallpaperType::Wallpaper_Sys:
+            m_model->getSysWallpaperModel()->setThumbnail(item, thumbnail);
+            break;
+        case WallpaperType::Wallpaper_Custom:
+            m_model->getCustomWallpaperModel()->setThumbnail(item, thumbnail);
+            break;
+        case WallpaperType::Wallpaper_Solid:
+            m_model->getSolidWallpaperModel()->setThumbnail(item, thumbnail);
+            break;
+        default:
+            break;
+    }
+}
+
+WallpaperItemPtr InterfaceWorker::createItem(const QString &path, bool del, WallpaperType type)
 {
     if (path.isEmpty())
         return {};
@@ -104,16 +125,43 @@ WallpaperItemPtr WallpaperProvider::createItem(const QString &path, bool del)
         fileInfo = QFileInfo(path);
     }
 
-    static QHash<QString, QString> g_thumbnailMap;
-    auto iter = g_thumbnailMap.find(url.toString());
-    if (iter == g_thumbnailMap.end()) {
-        const auto &thumbnail = generateThumbnail(fileInfo.filePath(), QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT));
-        iter = g_thumbnailMap.insert(url.toString(), thumbnail);
-    }
-    const QString &thumbnail = iter.value();
+    auto ptr =  WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
+        , "", del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
 
-    return WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
-        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
+    static QMutex thumbnailMutex;
+    QString thumbnail;
+    {
+        QMutexLocker locker(&thumbnailMutex);
+        auto iter = g_thumbnailMap.find(url.toString());
+        if (iter != g_thumbnailMap.end()) {
+            thumbnail = iter.value();
+        }
+    }
+
+    if (!thumbnail.isEmpty()) {
+        ptr->thumbnail = thumbnail;
+    } else {
+        QSharedPointer<WallpaperItem> safePtr(ptr);
+
+        (void)QtConcurrent::run([this, safePtr, type, url]() {
+            if (!safePtr) return;
+
+            const QString localPath = url.toLocalFile();
+            const auto thumbnail = generateThumbnail(localPath, QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT));
+            QMetaObject::invokeMethod(this, [this, safePtr, type, thumbnail]() {
+                if (!safePtr) return;
+
+                {
+                    QMutexLocker locker(&thumbnailMutex);
+                    g_thumbnailMap.insert(safePtr->url, thumbnail);
+                }
+
+                safePtr->thumbnail = thumbnail;
+                Q_EMIT thumbnailFinished(safePtr, type, thumbnail);
+            }, Qt::QueuedConnection);
+        });
+    }
+    return ptr;
 }
 
 InterfaceWorker::InterfaceWorker(PersonalizationDBusProxy *proxy, QObject *parent)
@@ -135,8 +183,8 @@ void InterfaceWorker::startListBackground(WallpaperType type)
     CHECK_RETURN_RUNNING
     switch (type) {
         case WallpaperType::Wallpaper_all:
-            getSysBackground();
             getCustomBackground();
+            getSysBackground();
             getSolodBackground();
             break;
         case WallpaperType::Wallpaper_Sys:
@@ -159,7 +207,7 @@ void InterfaceWorker::getSysBackground()
     auto list = fetchWallpaper(SYS_WALLPAPER_DIR);
     for (const auto &path : list) {
         CHECK_RETURN_RUNNING
-        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, false);
+        WallpaperItemPtr ptr = createItem(path, false, WallpaperType::Wallpaper_Sys);
         if (ptr)
             wallpapers.append(ptr);
     }
@@ -176,7 +224,7 @@ void InterfaceWorker::getCustomBackground()
         if (WallpaperProvider::isColor(path)) {
             continue;
         }
-        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, true);
+        WallpaperItemPtr ptr = createItem(path, true, WallpaperType::Wallpaper_Custom);
         if (ptr)
             wallpapers.append(ptr);
     }
@@ -194,13 +242,13 @@ void InterfaceWorker::getSolodBackground()
             continue;
         }
 
-        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, true);
+        WallpaperItemPtr ptr = createItem(path, true, WallpaperType::Wallpaper_Solid);
         if (ptr)
             wallpapers.append(ptr);
     }
     auto list = fetchWallpaper(SYS_SOLIDE_WALLPAPER_DIR);
     for (const auto &path : list) {
-        WallpaperItemPtr ptr = WallpaperProvider::createItem(path, false);
+        WallpaperItemPtr ptr = createItem(path, false, WallpaperType::Wallpaper_Solid);
         if (ptr)
             wallpapers.append(ptr);
     }

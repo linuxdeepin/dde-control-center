@@ -52,9 +52,6 @@ QVariant WallpaperModel::data(const QModelIndex &index, int role) const
         break;
     case Item_Thumbnail_Role:
         ret = node->thumbnail;
-        if (ret.toString().isEmpty()) {
-            ret = node->url;
-        }
         break;
     case Item_deleteAble_Role:
         ret = node->deleteAble;
@@ -79,12 +76,18 @@ bool WallpaperModel::setData(const QModelIndex &index, const QVariant &value, in
     if (index.row() >= items.size() || index.row() < 0) {
         return false;
     }
+
     if (role == Item_Selected_Role) {
         if (items[index.row()]->selected != value.toBool()) {
             items[index.row()]->selected = value.toBool();
             Q_EMIT dataChanged(index, index, {role});
+
         }
+    } else if (role == Item_Thumbnail_Role) {
+        items[index.row()]->thumbnail = value.toString();
+        Q_EMIT dataChanged(index, index, {role});
     }
+
     return QAbstractItemModel::setData(index, value, role);
 }
 
@@ -157,6 +160,15 @@ void WallpaperModel::updateSelected(const QStringList &selectedLists)
     }
 }
 
+void WallpaperModel::setThumbnail(WallpaperItemPtr item, const QString &thumbnail)
+{
+    for (int i = 0; i < items.size(); ++i) {
+        if (items[i].get() == item.get()) {
+            setData(index(i, 0), thumbnail, Item_Thumbnail_Role);
+            break;
+        }
+    }
+}
 
 QString WallpaperSortModel::getPicPathByUrl(const QString &url) const
 {
