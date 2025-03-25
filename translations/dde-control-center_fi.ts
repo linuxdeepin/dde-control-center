@@ -5001,7 +5001,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <source>Paper size</source>
@@ -5036,7 +5036,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Alue</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
@@ -5098,7 +5098,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 merkkiä</translation>
     </message>
     <message>
         <source>Repeat the password</source>
@@ -6054,15 +6054,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe, tarkista ja yritä uudelleen</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Pakettivirhe, yritä uudelleen</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Puuttuvat riippuvuudet</translation>
     </message>
 </context>
 <context>
