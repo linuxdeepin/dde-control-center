@@ -1768,7 +1768,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Lisätietoja osoitteessa:</translation>
     </message>
 </context>
 <context>
@@ -1779,11 +1779,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Verkossa</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Poissa</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
@@ -1807,7 +1807,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. Siirry https://www.chinauos.com/developMode ja lataa offline-sertifikaatti</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
@@ -3385,11 +3385,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Poissa</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Tuo varmenne</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -7621,7 +7621,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personoi taustakuvaa ja näytönsäästää</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -7645,7 +7645,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuva</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
