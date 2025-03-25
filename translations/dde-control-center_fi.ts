@@ -7649,7 +7649,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet,  pyöristetyt kulmat,  kompakti näyttö</translation>
     </message>
 </context>
 <context>
@@ -7667,7 +7667,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -7675,7 +7675,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Kytketty</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
@@ -7683,7 +7683,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Akulla</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -7694,30 +7694,30 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Yksityisyys ja tietoturva</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, kansion käyttöoikeudet</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, onko sovelluksella pääsy kameraan</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostot ja kansiot</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, onko sovelluksella pääsy tiedostoihin ja kansioihin</translation>
     </message>
 </context>
 <context>
@@ -7777,7 +7777,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Aputiedot</translation>
     </message>
 </context>
 <context>
@@ -7792,7 +7792,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Avoimen lähdekoodin ohjelmistokuvaus</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
