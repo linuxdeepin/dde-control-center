@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -46,14 +48,6 @@
         <translation>Параметри входу</translation>
     </message>
     <message>
-        <source>Auto longin, login without password</source>
-        <translation>Автоматичний вхід, вхід без пароля</translation>
-    </message>
-    <message>
-        <source>Auto longin</source>
-        <translation>Автоматичний вхід</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>Вхід без пароля</translation>
     </message>
@@ -80,6 +74,14 @@
     <message>
         <source>Add group</source>
         <translation>Додати групу</translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -312,7 +314,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -504,10 +506,6 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <translation>Сповіщення щодо низького заряду</translation>
     </message>
     <message>
-        <source>Disbale</source>
-        <translation>Вимкнути</translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation>Автопризупинення</translation>
     </message>
@@ -535,16 +533,20 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <source>Low battery level</source>
         <translation>Низький рівень заряду</translation>
     </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation>Bluetooth увімкнено, і показана назва — «%1»</translation>
-    </message>
-    <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation>Bluetooth вимкнено, і показана назва — «%1»</translation>
+    </message>
+    <message>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3484,7 +3486,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co., Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -4799,8 +4801,8 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Баланс між швидкодією та часом роботи від акумулятора, автоматичне коригування, залежно від режиму користування</translation>
     </message>
     <message>
-        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Перевага часу роботи від акумулятора, певне уповільнення системи для зниження споживання енергії</translation>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5980,14 +5982,6 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Це оновлення-латка в основному удосконалює швидкодію стільничного середовища та типових програм і виправляє деякі відомі вади системи, роблячи якість продукту вищою.</translation>
     </message>
     <message>
-        <source>Updates：</source>
-        <translation>Оновлення</translation>
-    </message>
-    <message>
-        <source>Release time：</source>
-        <translation>Час релізу</translation>
-    </message>
-    <message>
         <source>2025.1.20</source>
         <translation>2025.1.20</translation>
     </message>
@@ -5996,8 +5990,16 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Переглянути подробиці</translation>
     </message>
     <message>
-        <source>收起</source>
-        <translation>Закрити</translation>
+        <source>Updates:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6045,6 +6047,26 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>An update has been detected.</source>
         <translation>Виявлено оновлення.</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished">Помилка оновлення: недостатньо місця на диску</translation>
+    </message>
+    <message>
+        <source>Update failed</source>
+        <translation type="unfinished">Не вдалося оновити</translation>
+    </message>
+    <message>
+        <source>Network error, please check and try again</source>
+        <translation type="unfinished">Помилка мережі. Будь ласка, перевірте дані і повторіть спробу</translation>
+    </message>
+    <message>
+        <source>Packages error, please try again</source>
+        <translation type="unfinished">Помилка із пакунками. Будь ласка, повторіть спробу</translation>
+    </message>
+    <message>
+        <source>Unmet dependencies</source>
+        <translation type="unfinished">Не задоволено залежності</translation>
     </message>
 </context>
 <context>
@@ -6618,10 +6640,6 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>хвилина</translation>
     </message>
     <message>
-        <source>1 hover</source>
-        <translation>Наведення</translation>
-    </message>
-    <message>
         <source>login</source>
         <translation>login</translation>
     </message>
@@ -6636,6 +6654,10 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Live Wallpaper</source>
         <translation>інтерактивне фонове зображення</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished">1 година</translation>
     </message>
 </context>
 <context>
@@ -6846,12 +6868,12 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Керування меню завантаження</translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
-        <translation>Параметри для розробників</translation>
-    </message>
-    <message>
         <source>Developer root permission management</source>
         <translation>Керування правами доступу root для розробника</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7602,10 +7624,6 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Ефект вікон</translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation>Інтерфейс і ефекти, заокруглені краї, компактний показ</translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation>Персоналізація фонового зображення і зберігача екрана</translation>
     </message>
@@ -7632,6 +7650,10 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Wallpaper</source>
         <translation>Зображення тла</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corner, compact display</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7705,12 +7727,12 @@ UnionTech Software працює над вивченням і удосконал�
 <context>
     <name>sound</name>
     <message>
-        <source>Output,input sound efects,devices</source>
-        <translation>Виведення,введення,звукові ефекти,пристрої</translation>
-    </message>
-    <message>
         <source>Sound</source>
         <translation>Звук</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

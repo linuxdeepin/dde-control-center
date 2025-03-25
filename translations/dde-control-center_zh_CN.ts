@@ -40,14 +40,6 @@
         <translation>登录设置</translation>
     </message>
     <message>
-        <source>Auto longin, login without password</source>
-        <translation>自动登录, 免密登录</translation>
-    </message>
-    <message>
-        <source>Auto longin</source>
-        <translation>自动登录</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>免密登录</translation>
     </message>
@@ -82,6 +74,14 @@
     <message>
         <source>Login Settings</source>
         <translation>登录设置</translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -507,10 +507,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>低电量提醒</translation>
     </message>
     <message>
-        <source>Disbale</source>
-        <translation>从不</translation>
-    </message>
-    <message>
         <source>Low battery threshold</source>
         <translation>低电量阈值</translation>
     </message>
@@ -538,16 +534,20 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Low battery level</source>
         <translation>低电量时</translation>
     </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation>蓝牙已打开，名称显示为&quot;%1&quot;</translation>
-    </message>
-    <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation>蓝牙已关闭，名称显示为&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4788,8 +4788,8 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>兼顾性能和续航，根据使用情况自动调节</translation>
     </message>
     <message>
-        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>续航优先，系统会牺牲一些性能表现来降低功耗</translation>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5965,14 +5965,6 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>UpdateList</name>
     <message>
-        <source>Updates：</source>
-        <translation>更新：</translation>
-    </message>
-    <message>
-        <source>Release time：</source>
-        <translation>发布时间：</translation>
-    </message>
-    <message>
         <source>View Details</source>
         <translation>查看详细信息</translation>
     </message>
@@ -5985,7 +5977,15 @@ In order to better use of face recognition, please pay attention to the followin
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>收起</source>
+        <source>Updates:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6034,6 +6034,26 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Your system is up to date, please restart now</source>
         <translation>您的系统已经是最新的,请立即重启</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished">当前硬盘空间不足，无法进行系统更新</translation>
+    </message>
+    <message>
+        <source>Update failed</source>
+        <translation type="unfinished">更新失败</translation>
+    </message>
+    <message>
+        <source>Network error, please check and try again</source>
+        <translation type="unfinished">网络异常，请检查后重试</translation>
+    </message>
+    <message>
+        <source>Packages error, please try again</source>
+        <translation type="unfinished">安装包错误，请重试</translation>
+    </message>
+    <message>
+        <source>Unmet dependencies</source>
+        <translation type="unfinished">依赖关系不满足</translation>
     </message>
 </context>
 <context>
@@ -6611,10 +6631,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>30分钟</translation>
     </message>
     <message>
-        <source>1 hover</source>
-        <translation>1小时</translation>
-    </message>
-    <message>
         <source>login</source>
         <translation>登录时</translation>
     </message>
@@ -6625,6 +6641,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Live Wallpaper</source>
         <translation>动态壁纸</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished">1小时</translation>
     </message>
 </context>
 <context>
@@ -6839,8 +6859,8 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>开发者Root权限管理</translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
-        <translation>开发者选项</translation>
+        <source>Developer Options</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7591,10 +7611,6 @@ In order to better use of face recognition, please pay attention to the followin
         <translation>窗口效果</translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation>界面和效果、窗口圆角、紧凑模式</translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation>个性化您的壁纸和屏保</translation>
     </message>
@@ -7621,6 +7637,10 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corner, compact display</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7694,12 +7714,12 @@ In order to better use of face recognition, please pay attention to the followin
 <context>
     <name>sound</name>
     <message>
-        <source>Output,input sound efects,devices</source>
-        <translation>输入、输出、系统音效、设备管理</translation>
-    </message>
-    <message>
         <source>Sound</source>
         <translation>声音</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
