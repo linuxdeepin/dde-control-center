@@ -4042,7 +4042,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Najlepsze efekty wizualne: Włącz wszystkie efekty interfejsu i okien dla najlepszych doświadczeń wizualnych.</translation>
     </message>
 </context>
 <context>
@@ -4105,15 +4105,15 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Układ klawiatury</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Gotowe</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
@@ -4121,115 +4121,115 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj nowy układ klawiatury...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Język</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Gotowe</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>Inne języki</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Region</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Rejon</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>System operacyjny i aplikacje mogą dostosowywać zawartość do kraju i regionu, w którym się znajdujesz</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>Region i format</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>System operacyjny i aplikacje mogą dostosować format daty i godziny do kraju i regionu, w którym się znajdujesz</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj język</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj język</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Sposób logowania</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Hasło, WeChat, uwierzytelnienie biometryczne, klucz bezpieczeństwa</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Hasło</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Zmień hasło</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Dni ważności</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Zawsze</translation>
     </message>
 </context>
 <context>
@@ -4263,7 +4263,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Wejście</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
