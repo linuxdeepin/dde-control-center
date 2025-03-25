@@ -514,7 +514,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Niski próg baterii</translation>
+        <translation>Próg niskiego naładowania</translation>
     </message>
     <message>
         <source>Battery Management</source>
@@ -3436,19 +3436,19 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Zwiększenie ilości zbieranych danych może wpłynąć na wydajność systemu i zwiększyć zużycie miejsca na dysku.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Wyłączone</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>Debug</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Zmiana tej opcji może zając parę minut, gdy zmiany zostaną wprowadzone pomyślnie, uruchom ponownie urządzenie.</translation>
     </message>
 </context>
 <context>
@@ -3661,35 +3661,35 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Zezwól aplikacjom poniżej na dostęp do plików i folderów:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Dokumenty</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pulpit</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Zdjęcia</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Filmy</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Muzyka</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Pobrane</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>Folder</translation>
     </message>
 </context>
 <context>
@@ -3784,15 +3784,15 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Czcionka zwykła</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Czcionka o stałej szerokości</translation>
     </message>
 </context>
 <context>
@@ -3858,63 +3858,63 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Plany zasilania</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia oszczędzania energii</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Próg niskiego naładowania</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne oszczędzanie energii na baterii</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia wybudzania</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Wymagaj hasło po wybudzeniu komputera</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Wymagaj hasło po wybudzeniu monitora</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia wyłączania</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Zaplanowane wyłączenie</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Godzina</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Powtórzenie</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>Raz</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>Codziennie</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>W dni robocze</translation>
     </message>
     <message>
         <source>Custom Time</source>
