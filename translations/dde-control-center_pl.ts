@@ -75,7 +75,7 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne logowanie bez hasła</translation>
     </message>
     <message>
         <source>Auto login</source>
