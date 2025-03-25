@@ -11,7 +11,7 @@ add_library(${Update_Name} MODULE
     )
 
 set(Update_Libraries
-        dde-control-center
+        ${DCC_FRAME_Library}
         ${QT_NS}::DBus
         ${DTK_NS}::Gui
         ${QT_NS}::Concurrent

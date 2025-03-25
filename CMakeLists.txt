@@ -18,10 +18,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ENABLE_ASAN OFF)
 option(BUILD_TESTING "UNIT test" OFF)
-set(BUILE_EXAMPLES OFF)
+set(BUILD_EXAMPLES OFF)
 
 # dcc-v23
-set(BUILD_DCC_OLD ON)
+set(BUILD_DCC_OLD OFF)
 if (BUILD_DCC_OLD)
     add_subdirectory(dcc-old)
 endif()
@@ -220,7 +220,7 @@ add_subdirectory(src/plugin-display)
 add_subdirectory(src/plugin-privacy)
 add_subdirectory(src/plugin-dock)
 
-if(BUILE_EXAMPLES)
+if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
