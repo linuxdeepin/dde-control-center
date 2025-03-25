@@ -3160,33 +3160,33 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation>Resetuj hasło poprzez %1 ID</translation>
+        <translation>Zresetuj hasło poprzez %1 ID</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Zresetuj swoje hasło lokalne poprzez %1 ID, jeśli je zapomnisz.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Aby skorzystać z powyższych funkcji, przejdź do Centrum kontroli - Konta włączając odpowiednie opcje.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Synchronizacja z chmurą</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
