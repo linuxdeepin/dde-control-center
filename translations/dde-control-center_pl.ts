@@ -3116,51 +3116,51 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation>Wiążąc konto WeChat, możesz szybko i bezpiecznie logować się do swojego %1 i kont lokalnych.</translation>
+        <translation>Powiązanie konta WeChat, pozwala na bezpieczne i szybkie logowanie na swoje konto %1 ID, jak i konta lokalne.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>Niepowiązane</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Rozłączanie</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Powiąż</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz odłączyć konto WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Po odłączeniu konta WeChat, nie będziesz mógł skanować kodów QR, aby zalogować się do %1 ID lub konta lokalnego poprzez WeChat.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Jeszcze to przemyślę</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie kont lokalnych</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Po powiązaniu konta lokalnego, będziesz mógł korzystać z następujących funkcji:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>System logowania kodem WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Korzystaj z WeChat, które jest powiązane z Twoim %1 ID, aby logować się do swojego konta lokalnego.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Resetuj hasło poprzez %1 ID</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
