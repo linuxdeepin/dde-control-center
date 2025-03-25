@@ -1826,7 +1826,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus ei ole tällä hetkellä käytettävissä, aktivoi tietokone ensin</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -2211,7 +2211,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmäilmoitus</translation>
     </message>
 </context>
 <context>
@@ -5901,7 +5901,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>on ajan tasalla</translation>
+        <translation>Tietokone on päivitetty</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -6034,11 +6034,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Järjestelmä on ajan tasalla, käynnistä uudelleen</translation>
+        <translation>Tietokone on päivitetty, käynnistä uudelleen</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone on päivitetty</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
@@ -6099,7 +6099,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Tarjoa laatukorjauksista</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
@@ -6589,7 +6589,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuvia</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
@@ -6645,7 +6645,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuvia</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
@@ -7089,7 +7089,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä</translation>
     </message>
     <message>
         <source>Window</source>
@@ -7770,7 +7770,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä</translation>
     </message>
 </context>
 <context>
