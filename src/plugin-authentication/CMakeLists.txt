@@ -15,7 +15,7 @@ pkg_check_modules(DaReader REQUIRED dareader)
 
 find_package(PolkitQt6-1)
 set(authentication_Libraries
-    dde-control-center
+    ${DCC_FRAME_Library}
     ${QT_NS}::DBus
     ${DTK_NS}::Core
     ${DTK_NS}::Gui

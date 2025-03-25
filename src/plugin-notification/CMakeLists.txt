@@ -48,6 +48,7 @@ if (BUILD_PLUGIN)
         ${PROJECT_BINARY_DIR}/src/plugin-notification
     )
     set(notification_Libraries
+        ${DCC_FRAME_Library}
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Concurrent

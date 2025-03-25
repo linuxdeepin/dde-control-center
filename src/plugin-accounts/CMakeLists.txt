@@ -14,7 +14,7 @@ pkg_check_modules(DEEPIN_PW_CHECK REQUIRED libdeepin_pw_check)
 
 find_package(PolkitQt6-1)
 set(accounts_Libraries
-    dde-control-center
+    ${DCC_FRAME_Library}
     ${QT_NS}::DBus
     ${DTK_NS}::Core
     ${DTK_NS}::Gui

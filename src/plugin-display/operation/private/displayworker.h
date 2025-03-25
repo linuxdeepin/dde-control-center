@@ -38,7 +38,7 @@ class DisplayWorker : public QObject
 
 public:
     explicit DisplayWorker(DisplayModel *model, QObject *parent = nullptr, bool isSync = false);
-    ~DisplayWorker();
+    ~DisplayWorker() override;
 
     void active();
 
