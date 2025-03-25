@@ -532,7 +532,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Pois</translation>
     </message>
 </context>
 <context>
@@ -1291,11 +1291,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Animal</source>
-        <translation>Eläin</translation>
+        <translation>Eläimet</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Maisema</translation>
+        <translation>Maisemat</translation>
     </message>
     <message>
         <source>Illustration</source>
@@ -7728,7 +7728,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
     </message>
 </context>
 <context>
@@ -7739,7 +7739,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulo</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -7755,11 +7755,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Laitehallinta</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Käytä/poista äänilaite käytöstä</translation>
     </message>
 </context>
 <context>
