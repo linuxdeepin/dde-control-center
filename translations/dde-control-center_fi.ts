@@ -1380,7 +1380,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistys valikko</translation>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
@@ -1468,7 +1468,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistys valikko</translation>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Developer Mode</source>
@@ -6823,7 +6823,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Henkilöllisyyden tunnistus iiriksen skannauksella</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -6835,7 +6835,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Enintään 15 merkkiä</translation>
     </message>
     <message>
         <source>Add a new </source>
@@ -6846,7 +6846,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
@@ -6857,19 +6857,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Hallitse käynnistysvalikkoa</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjän root oikeuksien hallinta</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjäasetukset</translation>
     </message>
 </context>
 <context>
@@ -6899,7 +6899,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
@@ -6965,11 +6965,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Taso</translation>
     </message>
 </context>
 <context>
@@ -6980,7 +6980,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Kasvojälki</translation>
     </message>
     <message>
         <source>Place your finger</source>
