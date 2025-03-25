@@ -2091,7 +2091,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła. </translation>
+        <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła.</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -4409,74 +4409,74 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Wymagane</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Słabe</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Średnie</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Silne</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Hasło</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Powtórz hasło</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"/>
+        <translation>Wskazówka do hasła</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcjonalne</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie może być puste</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Hasła nie pasują do siebie</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>Nowe hasło powinno różnić się od bieżącego</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Zmień hasło</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Zresetuj hasło</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać co najmniej 8 znaków i kombinację co najmniej 3 typów: małe litery, duże litery, liczby i symbole.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Zresetowanie hasła spowoduje usunięcie danych zapisanych w keyringu.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
 </context>
 <context>
