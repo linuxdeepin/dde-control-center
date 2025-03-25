@@ -3154,7 +3154,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä WeChatia, joka on sidottu %1 id:lle, skannaa koodi ja kirjaudu sinun paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
@@ -3166,7 +3166,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat käyttää yllä mainittuja ominaisuuksia, siirry kohtaan Ohjauspaneeli - Tilit ja ota vastaavat asetukset käyttöön.</translation>
     </message>
 </context>
 <context>
@@ -3177,14 +3177,14 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Pilvisynkronointi</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -3200,7 +3200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Autom. synkronointi</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
@@ -3216,7 +3216,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä tiedot pilvestä</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
@@ -3224,7 +3224,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Kun tiedot on tyhjennetty, niitä ei voi palauttaa!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3232,18 +3232,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Synkronointipalvelu</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Tili ja turvallisuus</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -3270,14 +3270,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Tehtävä onnistui</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Kiinassa</translation>
     </message>
     <message>
         <source>Other regions</source>
@@ -5601,7 +5601,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto Sync</source>
-        <translation>Automaattinen synkronointi</translation>
+        <translation>Autom. synkronointi</translation>
     </message>
     <message>
         <source>Reset</source>
