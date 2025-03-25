@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Hyrje vetvetiu, hyni pa fjalëkalim</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Hyrje e automatizuar</translation>
     </message>
 </context>
 <context>
@@ -534,7 +534,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje</translation>
     </message>
 </context>
 <context>
@@ -545,7 +545,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-i është i aktivizuar dhe emri është shfaqur si “%1”</translation>
     </message>
 </context>
 <context>
@@ -4801,7 +4801,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Jepi përparësi jetëgjatësisë së baterisë, prej kësaj sistemi do të sakrifikojë në shkallë funksionimi, për të reduktuar harxhimin e energjisë</translation>
     </message>
 </context>
 <context>
@@ -5990,15 +5990,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Kohë hedhjeje në qarkullim:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Palose</translation>
     </message>
 </context>
 <context>
@@ -6049,7 +6049,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6057,15 +6057,15 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Gabim rrjeti, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Gabim paketash, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Varësi të paplotësuara</translation>
     </message>
 </context>
 <context>
@@ -6526,7 +6526,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>Veprimi është me spec, ju lutemi, së pari jepni fjalëkalimin për hyrje</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -6656,7 +6656,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 orë</translation>
     </message>
 </context>
 <context>
@@ -6810,7 +6810,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Mund të jepen deri në 5 palë të dhënash fytyrash</translation>
     </message>
     <message>
         <source>Fingerprint</source>
@@ -6872,7 +6872,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi Zhvilluesi</translation>
     </message>
 </context>
 <context>
