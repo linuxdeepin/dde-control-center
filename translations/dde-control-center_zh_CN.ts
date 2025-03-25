@@ -668,7 +668,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
@@ -5959,19 +5959,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>如无任何操作将在%1秒后还原。</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>是否要保存显示设置？</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>还原</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -6049,7 +6049,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6057,15 +6057,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>网络异常，请检查后重试</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>安装包错误，请重试</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>依赖关系不满足</translation>
     </message>
 </context>
 <context>
@@ -6656,7 +6656,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1小时</translation>
     </message>
 </context>
 <context>
