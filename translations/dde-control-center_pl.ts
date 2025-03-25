@@ -2746,7 +2746,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Przystąpienie do Programu doświadczeń użytkowników oznacza, że udzielasz nam i upoważniasz nas do gromadzenia i wykorzystywania informacji o Twoim urządzeniu, systemie i aplikacjach. Jeśli odmówisz nam gromadzenia i wykorzystywania wyżej wymienionych informacji, nie dołączaj do Programu doświadczeń użytkowników. Aby uzyskać szczegółowe informacje, zapoznaj się z Polityką prywatności Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Przystąpienie do Programu doświadczeń użytkowników oznacza, że udzielasz nam zgodę i upoważniasz nas do gromadzenia i wykorzystywania informacji o Twoim urządzeniu, systemie i aplikacjach. Jeśli nie zgadzasz się na przetwarzanie wyżej wymienionych danych, nie dołączaj do programu. Aby uzyskać szczegółowe informacje, zapoznaj się z Polityką prywatności Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
@@ -3021,7 +3021,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Spacja</translation>
     </message>
     <message>
         <source>Week</source>
@@ -4117,7 +4117,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj metody wprowadzania w &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Zarządzanie metodami wprowadzania&lt;/a&gt;, aby upewnić się, że układ klawiatury działa i przełącza się prawidłowo.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
@@ -6515,7 +6515,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Dołącz do programu doświadczeń użytkownika</translation>
     </message>
 </context>
 <context>
@@ -7803,11 +7803,11 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Program doświadczeń użytkownika</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Dołącz do programu doświadczeń użytkownika i pomóż nam ulepszać nasze produkty</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
