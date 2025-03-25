@@ -290,7 +290,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormi lukijaan ja liikuta sitä alhaalta ylöspäin. Kun tehty niin nosta sormesi.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -410,7 +410,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Automaattinen kirjautuminen&quot; voidaan käyttää vain yhdellä tilillä. Poista se tililtä &quot;%1&quot; ensin.</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -425,23 +425,23 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation>Ihmiset</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Eläimet</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Maisema</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Kuvitus</translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation>Hymiöt</translation>
     </message>
     <message>
         <source>custom</source>
@@ -1230,7 +1230,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Automaattinen kirjautuminen&quot; voidaan käyttää vain yhdellä tilillä. Poista se tililtä &quot;%1&quot; ensin.</translation>
     </message>
 </context>
 <context>
