@@ -3334,7 +3334,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Valitse oletusohjelma avataksesi &quot;%1&quot;</translation>
     </message>
     <message>
         <source>add</source>
@@ -3373,15 +3373,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Verkossa</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu UOS id:llä</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -3397,7 +3397,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Sinun UOS id on kirjautunut sisään, paina siirtyäksesi kehittäjätilaan</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
@@ -4027,7 +4027,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Tasapaino</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
@@ -4035,7 +4035,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Visuaalisesti paras</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
@@ -4149,7 +4149,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Alue</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -4206,7 +4206,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Kirjautumistapa</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
@@ -4260,7 +4260,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulo</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
@@ -4318,7 +4318,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Omat laitteet</translation>
     </message>
 </context>
 <context>
