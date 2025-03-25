@@ -2631,177 +2631,177 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Ten skrót jest w konflikcie z %1, kliknij Zastąp, aby go nadpisać</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Wprowadź nowy skrót</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>dostępne</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>O tym komputerze</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa komputera</translation>
     </message>
     <message>
         <source>systemInfo</source>
-        <translation type="unfinished"/>
+        <translation>Informacje o systemie</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa systemu</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Wersja</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Wydanie</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autoryzacja</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Pamięć</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Platforma graficzna</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Porozumienie i polityka prywatności</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Licencja wydania</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Umowa licencyjna EULA</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Polityka prywatności</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Info systemu</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Jesteśmy świadomi jak ważne Twoje dane osobiste są dla Ciebie. Mając to na uwadze, stworzyliśmy Politykę Prywatności, która tłumaczy jak zbieramy, używamy, udostępniamy, przenosimy, ujawniamy publicznie i przechowujemy Twoje informacje.&lt;/p&gt;&lt;p&gt;Możesz &lt;a href=&quot;%1&quot;&gt;kliknąć tutaj&lt;/a&gt;, aby zobaczyć naszą najnowszą politykę prywatności i/lub zobaczyć ją online poprzez odwiedziny &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Prosimy abyś uważnie przeczytał i przyswoił nasze działania w stosunku do prywatności konsumentów. Jeśli masz jakieś pytania, skontaktuj się z nami pod adresem: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Przystąpienie do Programu doświadczeń użytkowników oznacza, że udzielasz nam i upoważniasz nas do gromadzenia i wykorzystywania informacji o Twoim urządzeniu, systemie i aplikacjach. Jeśli odmówisz nam gromadzenia i wykorzystywania wyżej wymienionych informacji, nie dołączaj do Programu doświadczeń użytkowników. Aby uzyskać szczegółowe informacje, zapoznaj się z Polityką prywatności Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Przystąpienie do Programu doświadczeń użytkowników oznacza, że udzielasz nam zgodę i upoważniasz nas do gromadzenia i wykorzystywania informacji o Twoim urządzeniu, systemie i aplikacjach. Jeśli nie zgadzasz się na przetwarzanie wyżej wymienionych danych, nie dołączaj do programu. Aby uzyskać szczegółowe informacje o Programie doświadczeń użytkownika, odwiedź &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Zaakceptuj i dołącz do programu doświadczeń użytkownika</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj język systemu</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemLanguageWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Lista języków</translation>
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj język</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Gotowe</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Nie przeszkadzać</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Powiadomienia aplikacji nie będą wyświetlane, dźwięki zostaną wyciszone, a wszystkie wiadomości będzie można przeczytać w Centrum powiadomień.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
