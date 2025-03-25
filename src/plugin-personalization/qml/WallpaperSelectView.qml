@@ -140,10 +140,21 @@ ColumnLayout {
             }
         }
 
+        Timer {
+            id: updateTimer
+            interval: 20
+            running: false
+            repeat: false
+            onTriggered: {
+                sortedModel.update()
+            }
+        }
+
         D.SortFilterModel {
             id: sortedModel
             model: root.model
             property int maxCount: layout.lineCount * 2 - (root.firstItemVisible ? 1 : 0)
+            property int lastMaxCount: 0
             lessThan: function(left, right) {
                 return left.index < right.index
             }
@@ -151,7 +162,12 @@ ColumnLayout {
                 return root.isExpand ? true : item.index < maxCount
             }
             onMaxCountChanged: {
-                sortedModel.update()
+                if ((Math.abs(maxCount - lastMaxCount)) > 5) {
+                    updateTimer.start()
+                } else {
+                    sortedModel.update()
+                }
+                lastMaxCount = maxCount
             }
 
             delegate: Control {
