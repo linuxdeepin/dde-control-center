@@ -878,7 +878,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Korostusväri</translation>
     </message>
     <message>
         <source>Icon Settings</source>
@@ -1799,7 +1799,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Tuo varmenne</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
@@ -1811,7 +1811,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Tuo varmenne</translation>
     </message>
 </context>
 <context>
@@ -1838,7 +1838,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1934,7 +1934,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Vasenkätinen</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
@@ -2999,27 +2999,27 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Huomenna</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Eilen</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Tänään</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia edellä paikallista aikaa</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia paikallista myöhemmin</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Välilyönti</translation>
     </message>
     <message>
         <source>Week</source>
@@ -3059,7 +3059,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Desimaalin merkki</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
@@ -3110,7 +3110,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>WeChat sidonta</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
