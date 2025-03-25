@@ -5144,7 +5144,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personoi näytönsäästää</translation>
     </message>
     <message>
         <source>setting</source>
@@ -5156,31 +5156,31 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 min</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 min</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 min</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 min</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 h</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ei koskaan</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
@@ -5188,7 +5188,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Kuvien, diaesitys, näytönsäästäjä</translation>
     </message>
     <message>
         <source>System screensaver</source>
@@ -5284,7 +5284,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Paina</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5292,7 +5292,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>tai</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -5474,15 +5474,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Tasapaino vasen ja oikea</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono ääni</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä vasen ja oikea kanava yhdeksi kanavaksi</translation>
     </message>
     <message>
         <source>Auto pause</source>
