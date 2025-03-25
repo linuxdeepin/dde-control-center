@@ -3719,7 +3719,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Aseta sormesi tiukasti anturiin, kunnes sinua pyydetään nostamaan se</translation>
+        <translation>Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
@@ -3739,7 +3739,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Säädä sijaintia kun haluat skannata sormenjäljen reunat</translation>
+        <translation>Säädä asentoa kun skannaat sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
@@ -6984,31 +6984,31 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormi</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormesi</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormesi ja aseta se lukijaan uudelleen</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Skannaa sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Säädä asentoa kun skannaat sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormeasi ja tee se uudelleen</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
@@ -7020,11 +7020,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormen reunat anturiin</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiris</translation>
     </message>
 </context>
 <context>
@@ -7054,11 +7054,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 merkkiä palindromina</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 monotonista merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
@@ -7101,7 +7101,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Apuvälineet</translation>
     </message>
     <message>
         <source>Custom</source>
