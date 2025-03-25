@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ilman salasanaa</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
 </context>
 <context>
@@ -235,7 +235,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista uudelleen</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -286,7 +286,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista sormi</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
@@ -306,7 +306,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista uudelleen</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
