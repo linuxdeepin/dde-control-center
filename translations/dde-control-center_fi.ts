@@ -5798,11 +5798,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Kolmen sormen ele</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Neljän sormen ele</translation>
     </message>
 </context>
 <context>
@@ -5846,11 +5846,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30min</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>Asennetaan</translation>
     </message>
 </context>
 <context>
@@ -5861,7 +5861,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: levytilaa ei ole</translation>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
@@ -5979,23 +5979,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tiedot</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Päivitykset:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Julkaisupäivä:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Tiivistetty</translation>
     </message>
 </context>
 <context>
@@ -6026,7 +6026,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>uudelleen</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
@@ -6046,7 +6046,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6103,7 +6103,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
 </context>
 <context>
@@ -6114,7 +6114,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: levytilaa ei ole</translation>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6241,7 +6241,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
