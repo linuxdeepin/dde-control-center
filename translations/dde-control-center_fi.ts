@@ -433,7 +433,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Maisema</translation>
+        <translation>Maisemat</translation>
     </message>
     <message>
         <source>Illustration</source>
@@ -449,15 +449,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Sarjakuva tyyliin</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus tyyliin</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Taso tyyliin</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1322,15 +1322,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Cartoon Style</source>
-        <translation>Sarjakuvan tyyli</translation>
+        <translation>Sarjakuva tyyliin</translation>
     </message>
     <message>
         <source>Dimensional Style</source>
-        <translation>Ulottuvuus</translation>
+        <translation>Ulottuvuus tyyliin</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>Tasainen</translation>
+        <translation>Taso tyyliin</translation>
     </message>
 </context>
 <context>
