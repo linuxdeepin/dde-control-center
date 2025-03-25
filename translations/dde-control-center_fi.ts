@@ -6660,15 +6660,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>levitä</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation>näytä kaikki</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation>kohteet</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -6683,7 +6683,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -6699,7 +6699,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pieni</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -6707,7 +6707,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Suuri</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -6719,15 +6719,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Skaalaus</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Taikalamppu</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Läpinäkyvyys</translation>
     </message>
     <message>
         <source>Low</source>
@@ -6735,7 +6735,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Korkea</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
@@ -6747,7 +6747,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Näytä aina</translation>
     </message>
     <message>
         <source>Compact Display</source>
@@ -6759,7 +6759,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Otsikkopalkin korkeus</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
@@ -6767,51 +6767,51 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Erittäin pieni</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Tili</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Tilin hallinta</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Muut tilit</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrinen todennus</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrinen todennus</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Kasvot</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Enintään 5 kasvotietoa voidaan antaa</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
@@ -6819,7 +6819,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
