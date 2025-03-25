@@ -572,7 +572,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Select file</source>
-        <translation>Zaznacz plik</translation>
+        <translation>Wybierz plik</translation>
     </message>
 </context>
 <context>
@@ -3388,15 +3388,15 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Importuj certyfikat</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz plik</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
@@ -3404,35 +3404,35 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Najpierw zaloguj się na swoje konto UOS ID, aby kontynuować </translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1. Wyeksportuj informacje o komputerze</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Eksportuj</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Przejdź do https://www.chinauos.com/developMode, aby pobrać certyfikat offline</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Zaimportuj certyfikat</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Aby móc zainstalować i uruchomić niepodpisane aplikacje, przejdź do &lt;a href=&quot;Security Center&quot;&gt;Centrum bezpieczeństwa&lt;/a&gt;, aby zmienić odpowiednie ustawienia.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opcje debugowania dewelopera</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Poziom zbierania logów systemu</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
