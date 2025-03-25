@@ -935,11 +935,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>Toiston viive</translation>
     </message>
     <message>
         <source>Short</source>
@@ -951,7 +951,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>Toistonopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -1895,7 +1895,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation type="unfinished"/>
+        <translation>Toiston viive</translation>
     </message>
     <message>
         <source>Short</source>
@@ -1907,7 +1907,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="unfinished"/>
+        <translation>Toistonopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -1919,15 +1919,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Testaa täällä</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Numeronäppäimistö</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Numerolukon kehote</translation>
     </message>
 </context>
 <context>
@@ -2295,7 +2295,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -3899,7 +3899,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Toista</translation>
     </message>
     <message>
         <source>Once</source>
@@ -7062,7 +7062,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -7396,7 +7396,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -7517,7 +7517,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -7838,7 +7838,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
 </context>
 <context>
