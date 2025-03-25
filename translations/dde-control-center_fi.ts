@@ -2326,7 +2326,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2341,11 +2341,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Oletusmuoto</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -2407,7 +2407,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resoluutio</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
@@ -2417,19 +2417,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Oletus</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Sovita</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Venytä</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Keskitetty</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2736,7 +2736,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Olemme tietoisia henkilötietojen tärkeydestä sinulle. Siksi meillä on laadittu tietosuojakäytäntö, joka kertoo kuinka tietojasi kerätään, käytetään, jaetaan, siirretään, julkistaan ja tallenetaan.&lt;/p&gt;&lt;p&gt; Voit katsoa uusinta tietosuojakäytäntöämme &lt;a href=&quot;%1&quot;&gt;napsauttamalla tästä&lt;/a&gt; tai verkossa osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lue huolellisesti ja ymmärrä täysin asiakkaidemme yksityisyyttä koskevat käytännöt. Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -2949,23 +2949,23 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation>Päiväyksen asetukset</translation>
+        <translation>Päivämäärän asetukset</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Päivämäärä</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Vuosi</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Kuukausi</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
     <message>
         <source>Time</source>
@@ -5140,7 +5140,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>esikatselu</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
