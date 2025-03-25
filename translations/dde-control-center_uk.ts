@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Автоматичний вхід, вхід без пароля</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Автоматичний вхід</translation>
     </message>
 </context>
 <context>
@@ -533,7 +533,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Вимкнути</translation>
     </message>
 </context>
 <context>
@@ -544,7 +544,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth увімкнено, і показана назва — «%1»</translation>
     </message>
 </context>
 <context>
@@ -4800,7 +4800,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Перевага часу роботи від акумулятора, певне уповільнення системи для зниження споживання енергії</translation>
     </message>
 </context>
 <context>
@@ -5989,15 +5989,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Час випуску:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Згорнути</translation>
     </message>
 </context>
 <context>
@@ -6048,7 +6048,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Помилка оновлення: недостатньо місця на диску</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6056,15 +6056,15 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Помилка мережі. Будь ласка, перевірте дані і повторіть спробу</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Помилка із пакунками. Будь ласка, повторіть спробу</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Не задоволено залежності</translation>
     </message>
 </context>
 <context>
@@ -6655,7 +6655,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 година</translation>
     </message>
 </context>
 <context>
@@ -6871,7 +6871,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Параметри для розробників</translation>
     </message>
 </context>
 <context>
@@ -7651,7 +7651,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Інтерфейс і ефекти, заокруглені краї, компактний показ</translation>
     </message>
 </context>
 <context>
@@ -7730,7 +7730,7 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Виведення, введення, звукові ефекти, пристрої</translation>
     </message>
 </context>
 <context>
