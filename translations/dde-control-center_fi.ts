@@ -543,7 +543,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth on päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -581,7 +581,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"/>
+        <translation>Pituus vähintään 64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
@@ -589,7 +589,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat käyttää Bluetoothia, sammuta se</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -694,11 +694,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Varma</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysanimaatio</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
@@ -863,7 +863,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista uudelleen</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -7796,7 +7796,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -7890,18 +7890,18 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacomin konfigurointi</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
@@ -7917,11 +7917,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Paineherkkyys</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Kevyt</translation>
     </message>
 </context>
 </TS>
