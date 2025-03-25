@@ -3114,7 +3114,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>WeChat sitomisella, voit kirjautua turvallisesti %1 id:llä myös paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Unlinked</source>
@@ -3122,7 +3122,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Pura</translation>
     </message>
     <message>
         <source>Link</source>
@@ -3130,19 +3130,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti purkaa WeChatin?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Purkamisen jälkeen et voi käyttää WeChat QR-koodia kirjautumiseen %1 id:llä tai paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Harkitsen asiaa</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Paikallisen tilin sidonta</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
