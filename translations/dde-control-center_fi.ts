@@ -4008,7 +4008,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>HostNameItem</name>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Ei voi alkaa tai päättyä viivoilla</translation>
+        <translation>Se ei voi alkaa tai päättyä väliviivoihin</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
@@ -4325,7 +4325,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
@@ -4333,7 +4333,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Se ei voi alkaa tai päättyä väliviivoihin</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -4341,23 +4341,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edition</source>
         <translation>Versio</translation>
     </message>
     <message>
+        <source>Edition</source>
+        <translation>Painos</translation>
+    </message>
+    <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Valtuutus</translation>
     </message>
     <message>
         <source>System installation time</source>
@@ -4365,19 +4365,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafiikka</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prosessori</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Muisti</translation>
     </message>
 </context>
 <context>
@@ -4391,7 +4391,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Muut laitteet</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
@@ -4539,15 +4539,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Vaalea</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Autom.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Tumma</translation>
     </message>
 </context>
 <context>
@@ -4728,7 +4728,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta näyttö</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
@@ -4736,7 +4736,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Älä tee mitään</translation>
     </message>
 </context>
 <context>
@@ -4747,7 +4747,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta näyttö</translation>
     </message>
     <message>
         <source>Lock screen after</source>
