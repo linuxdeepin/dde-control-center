@@ -2930,7 +2930,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
         <source>Mirror List</source>
-        <translation>Peili luettelo</translation>
+        <translation>Pakettivarastot</translation>
     </message>
     <message>
         <source>Test Speed</source>
@@ -6249,7 +6249,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Pakettivarastot</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
@@ -6519,7 +6519,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Tietoturvan vahvistus</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
@@ -6585,7 +6585,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Minun kuvat</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
@@ -6601,7 +6601,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>täyttötyyli</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
@@ -6609,39 +6609,39 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ei koskaan</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30 sek</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 min</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 min</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 min</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 min</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>kirjaudu</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>herää</translation>
     </message>
     <message>
         <source>System Wallapers</source>
@@ -6653,7 +6653,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 h</translation>
     </message>
 </context>
 <context>
