@@ -7652,7 +7652,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Ndërfaqe dhe efekte, cepa të rrumbullakët, shfaqje kompakte</translation>
     </message>
 </context>
 <context>
@@ -7731,7 +7731,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Zë në hyrje, zë në dale, efekte zanore, pajisje</translation>
     </message>
 </context>
 <context>
