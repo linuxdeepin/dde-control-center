@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Pokaż urządzenia Bluetooth bez nazw</translation>
+        <translation>Pokaż urządzenia Bluetooth bez nazwy</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -4011,7 +4011,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>HostNameItem</name>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Nie może rozpoczynać lub kończyć się myślnikiem </translation>
+        <translation>Bez myślnika na początku lub końcu</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
@@ -4267,18 +4267,18 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono urządzenia wejściowego audio</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenia wejściowe</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mysz</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
@@ -4286,31 +4286,31 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Wolna</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Szybka</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Szybkość wskaźnika</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Krótka</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Długa</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Akceleracja myszy</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz touchpad po podłączeniu myszy</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -4321,91 +4321,91 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Moje urządzenia</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa komputera</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Bez myślnika na początku lub końcu</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa systemu</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Wersja</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Wydanie</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bity</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autoryzacja</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>Data instalacji systemu</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Platforma graficzna</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Pamięć</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>Twój system nie jest aktywowany, nie można uruchomić usługi aktualizacji</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Inne urządzenia</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż urządzenia Bluetooth bez nazwy</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"/>
+        <translation>Aktualne hasło</translation>
     </message>
     <message>
         <source>Required</source>
