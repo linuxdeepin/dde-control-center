@@ -55,7 +55,7 @@ QVariant BlueToothAdaptersModel::data(const QModelIndex &index, int role) const
     case Discoverabled:
         return bluetoothAdapterData->discoverabled();
     case NameDetail:
-        return bluetoothAdapterData->powered() ? tr("Bluetooth is turned on and the name is displayed as \"%1\"").arg(bluetoothAdapterData->name()) : tr("Bluetooth is turned off, and the name is displayed as \"%1\"").arg(bluetoothAdapterData->name()) ;
+        return bluetoothAdapterData->powered() ? tr("Bluetooth is turned on, and the name is displayed as \"%1\"").arg(bluetoothAdapterData->name()) : tr("Bluetooth is turned off, and the name is displayed as \"%1\"").arg(bluetoothAdapterData->name()) ;
     case MyDevice:
         return QVariant::fromValue(bluetoothAdapterData->myDevices());
     case OtherDevice:

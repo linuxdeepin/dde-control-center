@@ -48,14 +48,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto longin, login without password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto longin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,6 +73,14 @@
     </message>
     <message>
         <source>Add group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -493,10 +493,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disbale</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -524,15 +520,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Low battery level</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
+        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4773,7 +4773,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5954,14 +5954,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Updates：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Release time：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>2025.1.20</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5970,7 +5962,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>收起</source>
+        <source>Updates:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6018,6 +6018,26 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>An update has been detected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network error, please check and try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Packages error, please try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unmet dependencies</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6592,10 +6612,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1 hover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6609,6 +6625,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Live Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 hour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6820,11 +6840,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Options</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7576,10 +7596,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7605,6 +7621,10 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corner, compact display</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7679,11 +7699,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>sound</name>
     <message>
-        <source>Output,input sound efects,devices</source>
+        <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sound</source>
+        <source>Output, input, sound effects, devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -46,14 +48,6 @@
         <translation>Configurações de login</translation>
     </message>
     <message>
-        <source>Auto longin, login without password</source>
-        <translation>Login automático, login sem senha</translation>
-    </message>
-    <message>
-        <source>Auto longin</source>
-        <translation>Login automático</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>Entrar sem senha</translation>
     </message>
@@ -80,6 +74,14 @@
     <message>
         <source>Add group</source>
         <translation>Adicionar grupo</translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -301,7 +303,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -491,10 +493,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>Notificação de bateria fraca</translation>
     </message>
     <message>
-        <source>Disbale</source>
-        <translation>Desativar</translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation>Suspensão automática</translation>
     </message>
@@ -522,16 +520,20 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Low battery level</source>
         <translation>Nível de bateria fraca</translation>
     </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on,and the name is displayed as &quot;%1&quot;</source>
-        <translation>O Bluetooth está ligado e o nome é exibido como &quot;%1&quot;</translation>
-    </message>
-    <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation>O Bluetooth está desligado e o nome é exibido como &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3470,7 +3472,7 @@ Para usar melhor o reconhecimento facial, preste atenção aos seguintes aspecto
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>&quot;Autenticação biométrica&quot; é uma função para autenticação da identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.
@@ -4785,8 +4787,8 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>Balanceia o desempenho e a duração da bateria, é ajustado automaticamente de acordo com o uso</translation>
     </message>
     <message>
-        <source>Prioritize battery life,which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Prioriza a duração da bateria, pois o sistema sacrificará parte do desempenho para reduzir o consumo de energia</translation>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5966,14 +5968,6 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>Esta atualização de patch melhora principalmente a experiência de desempenho operacional do ambiente de desktop e dos aplicativos mais usados, além de corrigir alguns problemas conhecidos do sistema, melhorando ainda mais a qualidade do produto.</translation>
     </message>
     <message>
-        <source>Updates：</source>
-        <translation>Atualizações：</translation>
-    </message>
-    <message>
-        <source>Release time：</source>
-        <translation>Data de lançamento:</translation>
-    </message>
-    <message>
         <source>2025.1.20</source>
         <translation>2025.1.20</translation>
     </message>
@@ -5982,8 +5976,16 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>Ver detalhes</translation>
     </message>
     <message>
-        <source>收起</source>
-        <translation>Fechar</translation>
+        <source>Updates:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6031,6 +6033,26 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <message>
         <source>An update has been detected.</source>
         <translation>Uma atualização foi encontrada.</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished">A atualização falhou: espaço insuficiente em disco</translation>
+    </message>
+    <message>
+        <source>Update failed</source>
+        <translation type="unfinished">A atualização falhou</translation>
+    </message>
+    <message>
+        <source>Network error, please check and try again</source>
+        <translation type="unfinished">Houve um erro na rede. Por favor, verifique e tente novamente</translation>
+    </message>
+    <message>
+        <source>Packages error, please try again</source>
+        <translation type="unfinished">Erro nos pacotes, por favor, tente novamente</translation>
+    </message>
+    <message>
+        <source>Unmet dependencies</source>
+        <translation type="unfinished">Dependências não atendidas</translation>
     </message>
 </context>
 <context>
@@ -6604,10 +6626,6 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>30 minutos</translation>
     </message>
     <message>
-        <source>1 hover</source>
-        <translation>1 hora</translation>
-    </message>
-    <message>
         <source>login</source>
         <translation>Login</translation>
     </message>
@@ -6622,6 +6640,10 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <message>
         <source>Live Wallpaper</source>
         <translation>Papel de parede animado</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished">1 hora</translation>
     </message>
 </context>
 <context>
@@ -6832,12 +6854,12 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>Gerenciar seu menu de inicialização</translation>
     </message>
     <message>
-        <source>Developer Optilons</source>
-        <translation>Opções do desenvolvedor</translation>
-    </message>
-    <message>
         <source>Developer root permission management</source>
         <translation>Gerenciador de permissão de root do desenvolvedor</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7588,10 +7610,6 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
         <translation>Efeito da janela</translation>
     </message>
     <message>
-        <source>Interface and effects、rounded corner、compact display</source>
-        <translation>Interface e efeitos、cantos arredondados、tela compacta</translation>
-    </message>
-    <message>
         <source>Personalize your wallpaper and screensaver</source>
         <translation>Personalize seu papel de parede e protetor de tela</translation>
     </message>
@@ -7618,6 +7636,10 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
     <message>
         <source>Wallpaper</source>
         <translation>Papel de Parede</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corner, compact display</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7691,12 +7713,12 @@ A UnionTech Software Technology Co., Ltd. tem o compromisso de pesquisar e melho
 <context>
     <name>sound</name>
     <message>
-        <source>Output,input sound efects,devices</source>
-        <translation>Saída, efeitos de som de entrada, dispositivos</translation>
-    </message>
-    <message>
         <source>Sound</source>
         <translation>Som</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

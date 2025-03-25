@@ -100,7 +100,7 @@ Rectangle {
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             font.pixelSize: 12
-                            text: qsTr("Updates：")
+                            text: qsTr("Updates:")
                         }
 
                         D.Label {
@@ -136,7 +136,7 @@ Rectangle {
                                     Layout.alignment: Qt.AlignLeft
                                     horizontalAlignment: Text.AlignLeft
                                     font.pixelSize: 12
-                                    text: qsTr("Release time：")
+                                    text: qsTr("Release time:")
                                     opacity: 0.7
                                 }
 
@@ -156,7 +156,7 @@ Rectangle {
 
                             D.ToolButton {
                                 Layout.alignment: Qt.AlignRight
-                                text: shortLog.visible ? qsTr("View Details") : qsTr("收起")
+                                text: shortLog.visible ? qsTr("View Details") : qsTr("Collapse")
                                 textColor: DS.Style.highlightedButton.text
                               //  Layout.rightMargin: -25
 
