@@ -7134,7 +7134,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Domyślna aplikacja</translation>
+        <translation>Aplikacje domyślne</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
