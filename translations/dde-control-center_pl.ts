@@ -5291,38 +5291,38 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>lub</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Zamień</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Przywróć domyślne</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj własny skrót</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenia wyjściowe</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz urządzenia do włączenia</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenia wejściowe</translation>
     </message>
 </context>
 <context>
@@ -5469,19 +5469,19 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Wyjście</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono urządzenia wyjściowego audio</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Balans lewo-prawo</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Dźwięk mono</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
