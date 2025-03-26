@@ -4255,7 +4255,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Input Volume</source>
-        <translation>Głośność na wejściu</translation>
+        <translation>Głośność wejściowa</translation>
     </message>
     <message>
         <source>Input Level</source>
@@ -5445,7 +5445,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Głośność na wyjściu</translation>
+        <translation>Głośność wyjściowa</translation>
     </message>
     <message>
         <source>Volume Boost</source>
@@ -5538,7 +5538,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Auto synchronizacja czasu</translation>
+        <translation>Automatyczna synchronizacja czasu</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -7758,7 +7758,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation>Menedżer urządzeń</translation>
+        <translation>Zarządzaj urządzeniami</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
