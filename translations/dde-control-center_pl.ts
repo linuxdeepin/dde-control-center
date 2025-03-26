@@ -5489,96 +5489,96 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczna pauza</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Dźwięk zostanie automatycznie zatrzymany, gdy używane urządzenie audio zostanie odłączone.</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenia wyjściowe</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Dźwięk</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Motyw</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Zasilanie</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Sieć</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mysz</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacja</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Więcej tapet</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Auto synchronizacja czasu</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Serwer NTP</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Data i czas systemu</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Dostosuj</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Adres serwera</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Wymagane</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Adres serwera NTP nie może być pusty</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Użyj formatu 24-godzinnego</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa czasowa systemu</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Lista stref czasowych</translation>
     </message>
 </context>
 <context>
