@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Entrada automàtica, inici de sessió sense contrasenya</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Entrada automàtica</translation>
     </message>
 </context>
 <context>
@@ -534,7 +534,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Inhabilita</translation>
     </message>
 </context>
 <context>
@@ -545,7 +545,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>El Bluetooth està activat i el nom es mostra com a %1</translation>
     </message>
 </context>
 <context>
@@ -4800,7 +4800,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Prioritza la durada de la bateria. El sistema sacrificarà una mica de rendiment per reduir el consum d&apos;energia.</translation>
     </message>
 </context>
 <context>
@@ -5989,15 +5989,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Data de publicació:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Replega</translation>
     </message>
 </context>
 <context>
@@ -6048,7 +6048,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat l&apos;actualització: no hi ha prou espai de disc.</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6056,15 +6056,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Error de xarxa. Comproveu-la i torneu-ho a provar.</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Error de paquets. Torneu-ho a provar.</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Dependències no satisfetes</translation>
     </message>
 </context>
 <context>
@@ -6655,7 +6655,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
@@ -6871,7 +6871,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de desenvolupador</translation>
     </message>
 </context>
 <context>
@@ -7651,7 +7651,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Interfície i efectes, cantó arrodonit, pantalla compacta</translation>
     </message>
 </context>
 <context>
@@ -7730,7 +7730,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Sortida, entrada, efectes de so, dispositius</translation>
     </message>
 </context>
 <context>

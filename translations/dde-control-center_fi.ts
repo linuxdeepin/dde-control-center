@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ilman salasanaa</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
 </context>
 <context>
@@ -235,7 +235,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista uudelleen</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -286,11 +286,11 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista sormi</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormi lukijaan ja liikuta sitä alhaalta ylöspäin. Kun tehty niin nosta sormesi.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -306,7 +306,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista uudelleen</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -410,7 +410,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Automaattinen kirjautuminen&quot; voidaan käyttää vain yhdellä tilillä. Poista se tililtä &quot;%1&quot; ensin.</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -425,23 +425,23 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation>Ihmiset</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Eläimet</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Maisemat</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Kuvitus</translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation>Hymiöt</translation>
     </message>
     <message>
         <source>custom</source>
@@ -449,15 +449,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Sarjakuva tyyliin</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus tyyliin</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Taso tyyliin</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -532,7 +532,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Pois</translation>
     </message>
 </context>
 <context>
@@ -543,7 +543,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth on päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -581,7 +581,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"/>
+        <translation>Pituus vähintään 64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
@@ -589,7 +589,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat käyttää Bluetoothia, sammuta se</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -626,7 +626,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation>Voit vaihtaa käynnistyskohteita painamalla valikkosta tai vaihtaa taustakuvaa vetämällä kuvan ikkunaan.</translation>
+        <translation>Voit vaihtaa käynnistyskohteita painamalla valikkosta tai vaihtaa taustakuvan vetämällä ja pudottamalla ikkunaan.</translation>
     </message>
     <message>
         <source>grub start delay</source>
@@ -694,11 +694,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Varma</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysanimaatio</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
@@ -863,7 +863,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista uudelleen</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -878,7 +878,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Korostusväri</translation>
     </message>
     <message>
         <source>Icon Settings</source>
@@ -935,11 +935,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>Toiston viive</translation>
     </message>
     <message>
         <source>Short</source>
@@ -951,7 +951,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>Toistonopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -963,19 +963,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Numeronäppäimistö</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>Testaa täällä</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Numerolukon kehote</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vieritysnopeus</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
@@ -1010,7 +1010,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1105,7 +1105,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tilin tyyppi</translation>
     </message>
     <message>
         <source>UserName</source>
@@ -1136,14 +1136,14 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Et ole vielä valinnut avataria. Lataa kuva tai vedä ja pudota kuva.</translation>
+        <translation>Et ole vielä valinnut avataria. Voit ladata kuvan vetämällä ja pudottamalla.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountSpinBox</name>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Aina</translation>
     </message>
 </context>
 <context>
@@ -1178,7 +1178,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
     <message>
         <source>Login Without Password</source>
@@ -1186,7 +1186,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Validity Days</source>
-        <translation type="unfinished"/>
+        <translation>Voimassaolo</translation>
     </message>
     <message>
         <source>Group</source>
@@ -1230,26 +1230,26 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Automaattinen kirjautuminen&quot; voidaan käyttää vain yhdellä tilillä. Poista se tililtä &quot;%1&quot; ensin.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistettiin toimialueelta onnistuneesti</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyi toimialueeseen onnistuneesti</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistuminen toimialueelta epäonnistui</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyminen toimialueeseen epäonnistui</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -1291,11 +1291,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Animal</source>
-        <translation>Eläin</translation>
+        <translation>Eläimet</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Maisema</translation>
+        <translation>Maisemat</translation>
     </message>
     <message>
         <source>Illustration</source>
@@ -1322,15 +1322,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::AvatarListFrame</name>
     <message>
         <source>Cartoon Style</source>
-        <translation>Sarjakuvan tyyli</translation>
+        <translation>Sarjakuva tyyliin</translation>
     </message>
     <message>
         <source>Dimensional Style</source>
-        <translation>Ulottuvuus</translation>
+        <translation>Ulottuvuus tyyliin</translation>
     </message>
     <message>
         <source>Flat Style</source>
-        <translation>Tasainen</translation>
+        <translation>Taso tyyliin</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1380,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistys valikko</translation>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Change GRUB password</source>
@@ -1468,7 +1468,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistys valikko</translation>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Developer Mode</source>
@@ -1606,7 +1606,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Policykit todennus epäonnistui</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
@@ -1614,7 +1614,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
@@ -1633,11 +1633,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::CustomAddAvatarWidget</name>
     <message>
         <source>You have not uploaded a picture, you can click or drag to upload a picture</source>
-        <translation type="unfinished"/>
+        <translation>Et ole vielä ladannut kuvaa. Voit ladata kuvan vetämällä ja pudottamalla</translation>
     </message>
     <message>
         <source>Uploaded file type is incorrect, please upload again</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu tiedostotyyppi on virheellinen, lataa uudelleen</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1660,7 +1660,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Komento</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1699,7 +1699,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Komento</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
@@ -1749,11 +1749,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numerot</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Arkki</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1768,7 +1768,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Lisätietoja osoitteessa:</translation>
     </message>
 </context>
 <context>
@@ -1779,11 +1779,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Verkossa</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Poissa</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
@@ -1795,23 +1795,23 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>Vie tietokoneen tiedot</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Tuo varmenne</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
-        <translation type="unfinished"/>
+        <translation>1. Vie sinun tietokoneen tiedot</translation>
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. Siirry https://www.chinauos.com/developMode ja lataa offline-sertifikaatti</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Tuo varmenne</translation>
     </message>
 </context>
 <context>
@@ -1826,7 +1826,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus ei ole tällä hetkellä käytettävissä, aktivoi tietokone ensin</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -1838,7 +1838,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1895,7 +1895,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation type="unfinished"/>
+        <translation>Toiston viive</translation>
     </message>
     <message>
         <source>Short</source>
@@ -1907,7 +1907,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="unfinished"/>
+        <translation>Toistonopeus</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -1919,22 +1919,22 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Testaa täällä</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Numeronäppäimistö</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Numerolukon kehote</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Vasenkätinen</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
@@ -1942,7 +1942,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vierityksen nopeus</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
@@ -2015,7 +2015,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Kieli</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -2112,7 +2112,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -2120,7 +2120,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Näytön järjestely tulee voimaan %1s muutosten jälkeen</translation>
     </message>
 </context>
 <context>
@@ -2131,7 +2131,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -2139,7 +2139,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Tappihiiri</translation>
     </message>
 </context>
 <context>
@@ -2158,7 +2158,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -2183,50 +2183,50 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Päänäyttö</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Kahdenna</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Laajenna</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Vain %1</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::NotificationModule</name>
     <message>
         <source>AppNotify</source>
-        <translation type="unfinished"/>
+        <translation>Sovellusilmoitus</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus</translation>
     </message>
     <message>
         <source>SystemNotify</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmäilmoitus</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>Palm tunnistus</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Pienin kosketuspinta</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Pienin paineen arvo</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
@@ -2237,7 +2237,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::PlyMouthModule</name>
     <message>
         <source>Boot Animation</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysanimaatio</translation>
     </message>
     <message>
         <source>Small Size</source>
@@ -2264,7 +2264,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Olemme tietoisia henkilötietojen tärkeydestä sinulle. Siksi meillä on laadittu tietosuojakäytäntö, joka kertoo kuinka tietojasi kerätään, käytetään, jaetaan, siirretään, julkistaan ja tallenetaan.&lt;/p&gt;&lt;p&gt; Voit katsoa uusinta tietosuojakäytäntöämme &lt;a href=&quot;%1&quot;&gt;napsauttamalla tästä&lt;/a&gt; tai verkossa osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lue huolellisesti ja ymmärrä täysin asiakkaidemme yksityisyyttä koskevat käytännöt. Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa: support@uniontech.com&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2287,15 +2287,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 merkkiä palindromina</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 monotonista merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -2326,7 +2326,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2341,11 +2341,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Default format</source>
-        <translation type="unfinished"/>
+        <translation>Oletusmuoto</translation>
     </message>
     <message>
         <source>First of day</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäinen päivä</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -2369,11 +2369,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numerot</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Arkki</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2407,7 +2407,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resoluutio</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
@@ -2417,19 +2417,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Oletus</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Sovita</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Venytä</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Keskitetty</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2736,7 +2736,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Olemme tietoisia henkilötietojen tärkeydestä sinulle. Siksi meillä on laadittu tietosuojakäytäntö, joka kertoo kuinka tietojasi kerätään, käytetään, jaetaan, siirretään, julkistaan ja tallenetaan.&lt;/p&gt;&lt;p&gt; Voit katsoa uusinta tietosuojakäytäntöämme &lt;a href=&quot;%1&quot;&gt;napsauttamalla tästä&lt;/a&gt; tai verkossa osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lue huolellisesti ja ymmärrä täysin asiakkaidemme yksityisyyttä koskevat käytännöt. Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -2930,7 +2930,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
         <source>Mirror List</source>
-        <translation>Peili luettelo</translation>
+        <translation>Pakettivarastot</translation>
     </message>
     <message>
         <source>Test Speed</source>
@@ -2949,23 +2949,23 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation>Päiväyksen asetukset</translation>
+        <translation>Päivämäärän asetukset</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Päivämäärä</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Vuosi</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Kuukausi</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
     <message>
         <source>Time</source>
@@ -2999,27 +2999,27 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Huomenna</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Eilen</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Tänään</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia edellä paikallista aikaa</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia paikallista myöhemmin</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Välilyönti</translation>
     </message>
     <message>
         <source>Week</source>
@@ -3059,7 +3059,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Desimaalin merkki</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
@@ -3110,11 +3110,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>WeChat sidonta</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>WeChat sitomisella, voit kirjautua turvallisesti %1 id:llä myös paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Unlinked</source>
@@ -3122,7 +3122,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Pura</translation>
     </message>
     <message>
         <source>Link</source>
@@ -3130,19 +3130,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti purkaa WeChatin?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Purkamisen jälkeen et voi käyttää WeChat QR-koodia kirjautumiseen %1 id:llä tai paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Harkitsen asiaa</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Paikallisen tilin sidonta</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
@@ -3150,11 +3150,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>WeChat Scan Code kirjautuminen</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä WeChatia, joka on sidottu %1 id:lle, skannaa koodi ja kirjaudu sinun paikalliselle tietokoneelle.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
@@ -3166,7 +3166,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat käyttää yllä mainittuja ominaisuuksia, siirry kohtaan Ohjauspaneeli - Tilit ja ota vastaavat asetukset käyttöön.</translation>
     </message>
 </context>
 <context>
@@ -3177,14 +3177,14 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Pilvisynkronointi</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -3200,7 +3200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Autom. synkronointi</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
@@ -3216,7 +3216,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä tiedot pilvestä</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
@@ -3224,7 +3224,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Kun tiedot on tyhjennetty, niitä ei voi palauttaa!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3232,18 +3232,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Synkronointipalvelu</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Tili ja turvallisuus</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -3270,14 +3270,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Tehtävä onnistui</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Kiinassa</translation>
     </message>
     <message>
         <source>Other regions</source>
@@ -3285,7 +3285,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus ei ole tällä hetkellä käytettävissä, aktivoi tietokone ensin</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
@@ -3334,7 +3334,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Valitse oletusohjelma avataksesi &quot;%1&quot;</translation>
     </message>
     <message>
         <source>add</source>
@@ -3373,23 +3373,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Verkossa</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu UOS id:llä</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Poissa</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Tuo varmenne</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -3397,7 +3397,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Sinun UOS id on kirjautunut sisään, paina siirtyäksesi kehittäjätilaan</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
@@ -3405,11 +3405,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1. Vie tietokoneen tiedot</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Vie</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
@@ -3417,7 +3417,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Tuo varmenne</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
@@ -3425,11 +3425,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Kehitys- ja vianetsinnän valinnat</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Lokin kirjaustaso</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
@@ -3437,11 +3437,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Pois</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>Vianetsintä</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
@@ -3719,7 +3719,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Aseta sormesi tiukasti anturiin, kunnes sinua pyydetään nostamaan se</translation>
+        <translation>Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
@@ -3739,7 +3739,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Säädä sijaintia kun haluat skannata sormenjäljen reunat</translation>
+        <translation>Säädä asentoa kun skannaat sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
@@ -3899,19 +3899,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Toista</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>Kerran</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>Joka päivä</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>Työpäivinä</translation>
     </message>
     <message>
         <source>Custom Time</source>
@@ -3919,31 +3919,31 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Maanantai</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Tiistai</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Keskiviikko</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Torstai</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Perjantai</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Lauantai</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Sunnuntai</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
@@ -3966,49 +3966,49 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>Kolmen sormen</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>Neljän sormen</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Ylös</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Alas</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Vasen</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Oikea</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>napauta</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>HostNameItem</name>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Ei voi alkaa tai päättyä viivoilla</translation>
+        <translation>Se ei voi alkaa tai päättyä väliviivoihin</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
@@ -4027,7 +4027,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Tasapaino</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
@@ -4035,7 +4035,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Visuaalisesti paras</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
@@ -4125,7 +4125,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Kieli</translation>
     </message>
     <message>
         <source>done</source>
@@ -4137,7 +4137,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>Muut kielet</translation>
     </message>
     <message>
         <source>add</source>
@@ -4149,7 +4149,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Alue</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -4206,7 +4206,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Kirjautumistapa</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
@@ -4222,11 +4222,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Voimassaolo</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Aina</translation>
     </message>
 </context>
 <context>
@@ -4260,7 +4260,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulo</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
@@ -4318,14 +4318,14 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Omat laitteet</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
@@ -4333,7 +4333,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Se ei voi alkaa tai päättyä väliviivoihin</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -4341,23 +4341,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edition</source>
         <translation>Versio</translation>
     </message>
     <message>
+        <source>Edition</source>
+        <translation>Painos</translation>
+    </message>
+    <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Valtuutus</translation>
     </message>
     <message>
         <source>System installation time</source>
@@ -4365,19 +4365,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafiikka</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prosessori</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Muisti</translation>
     </message>
 </context>
 <context>
@@ -4391,7 +4391,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Muut laitteet</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
@@ -4539,15 +4539,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Vaalea</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Autom.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Tumma</translation>
     </message>
 </context>
 <context>
@@ -4728,7 +4728,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta näyttö</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
@@ -4736,7 +4736,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Älä tee mitään</translation>
     </message>
 </context>
 <context>
@@ -4747,7 +4747,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Sammuta näyttö</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -4759,7 +4759,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Kun kansi on kiinni</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
@@ -4778,7 +4778,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Säätää prosessorin toimintataajuutta aggressiivisesti suorittimen kuormituksen perusteella</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -4794,26 +4794,26 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Tasapainottaa suorituskykyä ja akun kestoa, säätyy automaattisesti käytön mukaan</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Priorisoi akun käyttöikää, jolloin järjestelmä laskee hieman suorituskykyä virrankulutuksen vähentämiseksi</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>Minuuttia</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Tuntia</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Ei koskaan</translation>
     </message>
 </context>
 <context>
@@ -4930,7 +4930,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>Ohjauspaneli</translation>
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
@@ -4958,7 +4958,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä taustakuva on lukittu. Ota yhteyttä järjestelmänvalvojaasi.</translation>
     </message>
 </context>
 <context>
@@ -4973,7 +4973,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Oletusmuodot</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -5001,11 +5001,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Paperin koko</translation>
+        <translation>Paperikoko</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5036,7 +5036,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Alue</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
@@ -5098,7 +5098,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 merkkiä</translation>
     </message>
     <message>
         <source>Repeat the password</source>
@@ -5140,11 +5140,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>esikatselu</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personoi näytönsäästää</translation>
     </message>
     <message>
         <source>setting</source>
@@ -5156,31 +5156,31 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 min</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 min</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 min</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 min</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 h</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ei koskaan</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
@@ -5188,11 +5188,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Kuvien, diaesitys, näytönsäästäjä</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Näytönsäästäjä</translation>
     </message>
 </context>
 <context>
@@ -5225,7 +5225,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>Komento:</translation>
     </message>
     <message>
         <source>Shortcut</source>
@@ -5284,7 +5284,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Paina</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5292,7 +5292,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>tai</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -5474,23 +5474,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Tasapaino vasen ja oikea</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono ääni</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä vasen ja oikea kanava yhdeksi kanavaksi</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Autom. tauko</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Keskeytetäänkö äänentoisto automaattisesti, kun äänilaite irrotetaan</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -5539,7 +5539,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>NTP-palvelin</translation>
     </message>
     <message>
         <source>System date and time</source>
@@ -5567,7 +5567,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Käytä 24h kelloa</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -5582,11 +5582,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>kohteesta</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>-</translation>
     </message>
 </context>
 <context>
@@ -5601,7 +5601,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Auto Sync</source>
-        <translation>Automaattinen synkronointi</translation>
+        <translation>Autom. synkronointi</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -5698,7 +5698,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Lähin kaupunki:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5786,23 +5786,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Napauta</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Ele</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Kolmen sormen ele</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Neljän sormen ele</translation>
     </message>
 </context>
 <context>
@@ -5846,11 +5846,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30min</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>Asennetaan</translation>
     </message>
 </context>
 <context>
@@ -5861,7 +5861,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: levytilaa ei ole</translation>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
@@ -5901,7 +5901,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>on ajan tasalla</translation>
+        <translation>Tietokone on päivitetty</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -5979,23 +5979,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tiedot</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Päivitykset:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Julkaisupäivä:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Tiivistetty</translation>
     </message>
 </context>
 <context>
@@ -6026,7 +6026,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>uudelleen</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
@@ -6034,11 +6034,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Järjestelmä on ajan tasalla, käynnistä uudelleen</translation>
+        <translation>Tietokone on päivitetty, käynnistä uudelleen</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone on päivitetty</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
@@ -6046,7 +6046,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6054,15 +6054,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe, tarkista ja yritä uudelleen</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Pakettivirhe, yritä uudelleen</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Puuttuvat riippuvuudet</translation>
     </message>
 </context>
 <context>
@@ -6099,11 +6099,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Tarjoa laatukorjauksista</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
 </context>
 <context>
@@ -6114,7 +6114,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: levytilaa ei ole</translation>
+        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6241,7 +6241,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
@@ -6249,7 +6249,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Pakettivarastot</translation>
     </message>
     <message>
         <source>Updates from Internal Testing Sources</source>
@@ -6519,7 +6519,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Tietoturvan vahvistus</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
@@ -6577,7 +6577,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>taustakuva</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -6585,15 +6585,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Minun kuvat</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuvia</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Yksivärinen taustakuva</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
@@ -6601,74 +6601,74 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>täyttötyyli</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Automaattiset taustakuvat</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ei koskaan</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30 sek</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 min</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 min</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 min</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 min</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>kirjaudu</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>herää</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuvia</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Elävä taustakuva</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 h</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>levitä</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation>näytä kaikki</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation>kohteet</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -6683,7 +6683,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -6699,7 +6699,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pieni</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -6707,7 +6707,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Suuri</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -6719,15 +6719,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Skaalaus</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Taikalamppu</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Läpinäkyvyys</translation>
     </message>
     <message>
         <source>Low</source>
@@ -6735,19 +6735,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Korkea</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>Vierityspalkit</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Näytä vierityksessä</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Näytä aina</translation>
     </message>
     <message>
         <source>Compact Display</source>
@@ -6759,7 +6759,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Otsikkopalkin korkeus</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
@@ -6767,51 +6767,51 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Erittäin pieni</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Tili</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Tilin hallinta</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Muut tilit</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrinen todennus</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrinen todennus</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Kasvot</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Enintään 5 kasvotietoa voidaan antaa</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
@@ -6819,23 +6819,23 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Henkilöllisyyden tunnistus iiriksen skannauksella</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Enintään 15 merkkiä</translation>
     </message>
     <message>
         <source>Add a new </source>
@@ -6846,7 +6846,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
@@ -6857,19 +6857,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysvalikko</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Hallitse käynnistysvalikkoa</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjän root oikeuksien hallinta</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjäasetukset</translation>
     </message>
 </context>
 <context>
@@ -6899,7 +6899,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
@@ -6938,19 +6938,19 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistettiin toimialueelta onnistuneesti</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyi toimialueeseen onnistuneesti</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistuminen toimialueelta epäonnistui</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyminen toimialueeseen epäonnistui</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -6965,11 +6965,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Ulottuvuus</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Taso</translation>
     </message>
 </context>
 <context>
@@ -6980,35 +6980,35 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Kasvojälki</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormi</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormesi</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormesi ja aseta se lukijaan uudelleen</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Skannaa sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Säädä asentoa kun skannaat sormenjäljen reunat</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Nosta sormeasi ja tee se uudelleen</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
@@ -7020,11 +7020,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormen reunat anturiin</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiris</translation>
     </message>
 </context>
 <context>
@@ -7054,15 +7054,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 merkkiä palindromina</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 monotonista merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -7089,7 +7089,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä</translation>
     </message>
     <message>
         <source>Window</source>
@@ -7101,7 +7101,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Apuvälineet</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -7120,60 +7120,60 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Pilvipalvelut</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Oletussovellus</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Aseta oletussovellus erityyppisten tiedostojen avaamiseen</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Salain</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>Sähköposti</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Teksti</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musiikki</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Videot</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Kuvat</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Pääte</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"/>
+        <translation>Laite</translation>
     </message>
 </context>
 <context>
@@ -7191,67 +7191,67 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>displayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"/>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"/>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"/>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"/>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"/>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Monista</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Laajenna</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Oletus</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Sovita</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Venytä</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Keskitetty</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Vain %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
@@ -7259,7 +7259,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
@@ -7267,11 +7267,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Näytön järjestely tulee voimaan %1s muutosten jälkeen</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -7279,7 +7279,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Päänäyttö</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -7291,7 +7291,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resoluutio</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
@@ -7311,15 +7311,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
@@ -7331,11 +7331,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Silmien mukavuus</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Ota silmien mukavuus käyttöön</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -7347,11 +7347,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Koko päivä</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Auringonlaskusta nousuun</translation>
     </message>
     <message>
         <source>Custom Time</source>
@@ -7359,15 +7359,15 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>kohteesta</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>-</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Värilämpötila</translation>
     </message>
 </context>
 <context>
@@ -7396,7 +7396,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -7517,7 +7517,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -7536,7 +7536,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus</translation>
     </message>
 </context>
 <context>
@@ -7551,7 +7551,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Älä häiritse käyttöön</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -7563,7 +7563,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Sovellusten ilmoitukset</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
@@ -7583,11 +7583,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoituskeskus</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Näytä viestin esikatselu</translation>
     </message>
     <message>
         <source>Play a sound</source>
@@ -7598,7 +7598,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personointi</translation>
     </message>
 </context>
 <context>
@@ -7609,7 +7609,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoasu</translation>
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
@@ -7621,7 +7621,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personoi taustakuvaa ja näytönsäästää</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -7645,11 +7645,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuva</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet,  pyöristetyt kulmat,  kompakti näyttö</translation>
     </message>
 </context>
 <context>
@@ -7667,7 +7667,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -7675,7 +7675,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Kytketty</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
@@ -7683,7 +7683,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Akulla</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -7694,30 +7694,30 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Yksityisyys ja tietoturva</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, kansion käyttöoikeudet</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, onko sovelluksella pääsy kameraan</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostot ja kansiot</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, onko sovelluksella pääsy tiedostoihin ja kansioihin</translation>
     </message>
 </context>
 <context>
@@ -7728,7 +7728,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
     </message>
 </context>
 <context>
@@ -7739,7 +7739,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulo</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -7755,11 +7755,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Laitehallinta</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Käytä/poista äänilaite käytöstä</translation>
     </message>
 </context>
 <context>
@@ -7770,14 +7770,14 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Aputiedot</translation>
     </message>
 </context>
 <context>
@@ -7792,11 +7792,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Avoimen lähdekoodin ohjelmistokuvaus</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -7838,7 +7838,7 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
 </context>
 <context>
@@ -7890,18 +7890,18 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacomin konfigurointi</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
@@ -7917,11 +7917,11 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Paineherkkyys</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Kevyt</translation>
     </message>
 </context>
 </TS>
