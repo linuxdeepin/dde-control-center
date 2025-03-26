@@ -4976,47 +4976,47 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Formaty domyślne</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Pierwszy dzień tygodnia</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Krótka data</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Długa data</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Krótka godzina</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Długa godzina</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol waluty</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Cyfra</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar strony</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Zapisz</translation>
     </message>
 </context>
 <context>
@@ -5027,7 +5027,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Country or Region</source>
-        <translation type="unfinished"/>
+        <translation>Kraj lub region</translation>
     </message>
     <message>
         <source>Format</source>
@@ -5039,7 +5039,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Rejon</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats.</source>
@@ -5090,34 +5090,34 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Szukaj</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>Ustaw hasło</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 znaków</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Powtórz hasło</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Potwierdź</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>Hasła nie pasują do siebie</translation>
     </message>
 </context>
 <context>
@@ -5139,23 +5139,23 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Wygaszacz ekranu</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>preview</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Własny wygaszacz ekranu</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>Czas bezczynności</translation>
     </message>
     <message>
         <source>1 minute</source>
