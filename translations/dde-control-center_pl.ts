@@ -1243,7 +1243,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Twój host pomyślnie dołącza do serwera domeny</translation>
+        <translation>Twój host pomyślnie dołączył do serwera domeny</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
@@ -1251,7 +1251,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Twój host nie przyłączył się do serwera domeny</translation>
+        <translation>Twój host nie mógł połączyć się z serwerem domeny</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -1624,7 +1624,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>Nazwa użytkownika jest już używana przez innych użytkowników</translation>
+        <translation>Inne konta korzystają już z tej nazwy użytkownika</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
@@ -6872,88 +6872,88 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcje programisty</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Czas i data</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Czas i data, ustawienia strefy czasowej</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Język i region</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Język systemu, format regionu</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa użytkownika musi zawierać od 3 do 32 znaków</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Pierwszy znak musi być literą lub cyfrą</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Twoja nazwa użytkownika nie powinna zawierać tylko cyfr</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Inne konta korzystają już z tej nazwy użytkownika</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Imię i nazwisko jest już używane przez innych użytkowników</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Błędne hasło</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Użytkownik standardowy</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Dostosuj</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Twój host został pomyślnie usunięty z serwera domeny</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Twój host pomyślnie dołączył do serwera domeny</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Twój host nie mógł opuścić serwera domeny</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Twój host nie mógł połączyć się z serwerem domeny</translation>
     </message>
     <message>
         <source>AD domain settings</source>
