@@ -31,7 +31,7 @@
     </message>
     <message>
         <source>Set fullname</source>
-        <translation>Ustaw pełną nazwę</translation>
+        <translation>Ustaw imię i nazwisko</translation>
     </message>
     <message>
         <source>Acount type</source>
@@ -937,7 +937,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <source>Repeat delay</source>
@@ -5485,7 +5485,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Połącz lewy i prawy kanał w jeden</translation>
     </message>
     <message>
         <source>Auto pause</source>
@@ -5758,7 +5758,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Skonfiguruj po podłączeniu ekranu dotykowego</translation>
     </message>
 </context>
 <context>
@@ -7399,7 +7399,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -7882,7 +7882,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacje funkcji</translation>
     </message>
     <message>
         <source>Update Settings</source>
