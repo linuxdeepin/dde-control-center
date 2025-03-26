@@ -7791,7 +7791,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Wersja systemu. informacje o urządzeniu</translation>
+        <translation>Wersja systemu, informacje o urządzeniu</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
