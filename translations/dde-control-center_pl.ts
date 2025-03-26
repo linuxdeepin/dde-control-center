@@ -7574,103 +7574,103 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetl powiadomienia na pulpicie lub pokaż nieprzeczytane wiadomości w Centrum powiadomień</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pulpit</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekran blokady</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centrum powiadomień</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż podgląd wiadomości</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Odtwórz dźwięk</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personalizacja</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Motyw</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Wygląd</translation>
     </message>
     <message>
         <source>Select light, dark, or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz motyw jasny, ciemny lub automatycznie</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efekty okien</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalizuj swoją tapetę i wygaszacz ekranu</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Wygaszacz ekranu</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Kolory i ikony</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Dostosuj kolor akcentu i motyw ikon</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Czcionka i rozmiar czcionki</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Zmień czcionkę systemu i jej rozmiar</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Tapeta</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corner, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Efekty interfejsu, zaokrąglone rogi i wyświetlanie kompaktowe</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia planu zasilania, ekran i wstrzymywanie</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Zasilanie</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -7678,7 +7678,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Podłączony</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
