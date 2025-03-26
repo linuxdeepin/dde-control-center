@@ -29,6 +29,14 @@ void ThemeModel::setDefault(const QString &value)
 {
     m_default = value;
     Q_EMIT defaultChanged(value);
+    for (const auto &themeItem : m_list) {
+        if (themeItem.value("Id") == value) {
+            const QString &themeName = themeItem.value("Name").toString();
+            m_currentThemeName = themeName;
+            Q_EMIT currentThemeNameChanged(themeName);
+            break;
+        }
+    }
 }
 
 QMap<QString, QString> ThemeModel::getPicList() const

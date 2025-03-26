@@ -40,7 +40,7 @@ ColumnLayout {
                         RowLayout {
                             Layout.fillWidth: true
                             Text {
-                                text: model.id
+                                text: model.name
                                 color: this.palette.windowText
                             }
 

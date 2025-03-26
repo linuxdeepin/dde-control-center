@@ -105,13 +105,19 @@ ColumnLayout {
                 sourceComponent: Item {
                     width: root.itemWidth
                     height: root.itemHeight
-                    D.DciIcon {
-                        id: firstItemImage
-                        anchors.fill: parent
-                        visible: false
-                        sourceSize: Qt.size(width, height)
-                        name: root.firstItemImgSource
-                        asynchronous: true
+
+                    Control {
+                        id: iconControl
+                        anchors.fill: parent                        
+                        contentItem: D.DciIcon {
+                            id: firstItemImage
+                            anchors.fill: parent
+                            visible: false
+                            sourceSize: Qt.size(width, height)
+                            name: root.firstItemImgSource
+                            asynchronous: true
+                            theme: iconControl.D.ColorSelector.controlTheme
+                        }
                     }
 
                     OpacityMask {
@@ -239,7 +245,7 @@ ColumnLayout {
                         onClicked: {
                             if (mouse.button === Qt.LeftButton) {
                                 wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
-                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
+                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu && !DccApp.isTreeland()) {
                                 contextMenu.x = mouse.x
                                 contextMenu.y = mouse.y
                                 contextMenu.open()
@@ -248,20 +254,22 @@ ColumnLayout {
                     }
 
                     Control {
-                        implicitHeight: 24
-                        implicitWidth: 24
                         anchors.right: parent.right
                         anchors.top: parent.top
                         anchors.topMargin: - height / 2 + root.imageMargin
-                        anchors.rightMargin: - width / 2 + root.imageMargin
+                        anchors.rightMargin: - width / 2 + root.imageMargin + 2
                         hoverEnabled: true
                         z: 999
                         contentItem: D.IconButton {
                             icon.name: "close"
+                            implicitWidth: 20
+                            implicitHeight: 20
+                            icon.width: 14
+                            icon.height: 14
                             visible: (control.hovered || parent.hovered) && model.deleteAble && !model.selected
                             background: P.ButtonPanel {
-                                implicitWidth: DS.Style.iconButton.backgroundSize
-                                implicitHeight: DS.Style.iconButton.backgroundSize
+                                implicitWidth: 20
+                                implicitHeight: 20
                                 radius: width / 2
                                 button: control
                             }

@@ -211,6 +211,11 @@ void PersonalizationWorker::onGetThemeFinished(const QString &category, const QS
 {
     const QJsonArray &array = QJsonDocument::fromJson(json.toUtf8()).array();
     addList(m_themeModels[category], category, array);
+    if (category == "cursor") {
+        m_themeModels[category]->setDefault(m_personalizationDBusProxy->cursorTheme());
+    } else if (category == "icon") {
+        m_themeModels[category]->setDefault(m_personalizationDBusProxy->iconTheme());
+    }
 }
 
 void PersonalizationWorker::onGetPicFinished(const QString &category, const QString &id, const QString &json)
