@@ -154,7 +154,6 @@ D.ApplicationWindow {
                 }
             }
             Crumb {
-                implicitHeight: parent.implicitHeight
                 width: parent.width - x
                 anchors {
                     left: breakBut.right
