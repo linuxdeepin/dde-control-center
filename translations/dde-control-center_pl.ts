@@ -5864,7 +5864,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Niepowodzenie aktualizacji: za mało miejsca na dysku</translation>
+        <translation>Błąd aktualizacji: za mało miejsca na dysku.</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
@@ -5978,78 +5978,78 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Ta aktualizacja skupia się na ogólnej poprawie wydajności, często używanych aplikacjach i naprawie znanych błędów.</translation>
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetl szczegóły</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacje:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Data wydania:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Zwiń</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacje są dostępne</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"/>
+        <translation>Instalowanie aktualizacji</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation type="unfinished"/>
+        <translation>Instalowanie aktualizacji...</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacja zainstalowana pomyślnie</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Uruchom ponownie teraz</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się pobrać aktualizacji</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>Ponów</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdzanie aktualizacji, proszę czekać...</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>Twój system jest aktualny, uruchom ponownie teraz</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Twój system jest aktualny</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Znaleziono aktualizacje</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Błąd aktualizacji: za mało miejsca na dysku</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -6057,11 +6057,11 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Błąd sieci, spróbuj ponownie</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Błąd pakietów, spróbuj ponownie</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
@@ -6117,7 +6117,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Aktualizacja nie powiodła się: za mało miejsca na dysku</translation>
+        <translation>Błąd aktualizacji: za mało miejsca na dysku.</translation>
     </message>
     <message>
         <source>Update failed</source>
