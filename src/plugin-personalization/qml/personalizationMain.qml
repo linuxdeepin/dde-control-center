@@ -87,7 +87,7 @@ DccObject {
             name: "appearance"
             parentName: "personalization/themeRoot"
             displayName: qsTr("Appearance")
-            description: qsTr("Select light, dark, or automatic theme appearance")
+            description: qsTr("Select light, dark or automatic theme appearance")
             weight: 2
             pageType: DccObject.Editor
             icon: "appearance"
@@ -119,7 +119,7 @@ DccObject {
         name: "windowEffect"
         parentName: "personalization"
         displayName: qsTr("Window effect")
-        description: qsTr("Interface and effects, rounded corner, compact display")
+        description: qsTr("Interface and effects, rounded corners, compact display")
         icon: "window_effect"
         weight: 200
         WindowEffectPage {}
