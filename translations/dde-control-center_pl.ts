@@ -6094,15 +6094,15 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Dostarczaj nowe funkcje, łatki luk bezpieczeństwa i nową zawartość</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacje poprawek</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Dostarczaj aktualizacje poprawek systemu</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
@@ -6600,7 +6600,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Własne tapety</translation>
     </message>
     <message>
         <source>fill style</source>
