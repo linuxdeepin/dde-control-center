@@ -6663,7 +6663,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>rozwiń</translation>
+        <translation>zwiń</translation>
     </message>
     <message>
         <source>show all</source>
