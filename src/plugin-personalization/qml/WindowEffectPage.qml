@@ -88,9 +88,16 @@ DccObject {
                                     anchors.margins: 4
                                     color: Qt.rgba(0, 0, 0, 0.05)
                                     radius: 7
-                                    D.DciIcon {
-                                        sourceSize: Qt.size(parent.width, parent.height)
-                                        name: listview.icons[index]
+                                    Control {
+                                        id: iconControl
+                                        anchors.fill: parent
+                                        
+                                        contentItem: D.DciIcon {
+                                            palette: D.DTK.makeIconPalette(iconControl.palette)
+                                            theme: iconControl.D.ColorSelector.controlTheme
+                                            sourceSize: Qt.size(width, height)
+                                            name: listview.icons[index]
+                                        }
                                     }
                                 }
                                 MouseArea {

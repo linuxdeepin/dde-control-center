@@ -6,6 +6,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.15
 import QtQuick.Dialogs
+import Qt5Compat.GraphicalEffects
 
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
@@ -53,19 +54,12 @@ DccObject {
                 }
 
                 Rectangle {
+                    id: colorImg
                     anchors.fill: parent
                     anchors.margins: 4
                     radius: width / 2
                     color: listview.cutColors[index] === "CUSTOM" ? "transparent" : listview.cutColors[index]
                     anchors.centerIn: parent
-
-                    D.BoxShadow {
-                        anchors.fill: parent
-                        shadowColor: parent.color
-                        shadowOffsetY: 3
-                        shadowBlur: 4
-                        cornerRadius: parent.radius
-                    }
 
                     Canvas {
                         anchors.fill: parent
@@ -109,6 +103,17 @@ DccObject {
                         }
                     }
                 }
+
+                InnerShadow {
+                    anchors.fill: colorImg
+                    radius: 0
+                    samples: 24
+                    spread: 0
+                    horizontalOffset: 0
+                    verticalOffset: -1
+                    color: Qt.rgba(0, 0, 0, 0.1)
+                    source: colorImg
+                }
             }
             DccColorDialog {
                 id: colorDialog
@@ -141,7 +146,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.MenuEditor
         page: Label {
-            text: dccData.model.iconModel.currentTheme
+            text: dccData.model.iconModel.currentThemeName
         }
 
         DccObject {
@@ -173,7 +178,7 @@ DccObject {
         pageType: DccObject.MenuEditor
         visible: dccData.platformName() !== "wayland"
         page: Label {
-            text: dccData.model.cursorModel.currentTheme
+            text: dccData.model.cursorModel.currentThemeName
         }
 
         DccObject {

@@ -13,6 +13,7 @@ class ThemeModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString currentTheme READ getDefault WRITE setDefault NOTIFY defaultChanged)
+    Q_PROPERTY(QString currentThemeName MEMBER m_currentThemeName NOTIFY currentThemeNameChanged)
 public:
     explicit ThemeModel(QObject *parent = 0);
 
@@ -31,6 +32,7 @@ public:
 Q_SIGNALS:
     void itemAdded(const QJsonObject &json);
     void defaultChanged(const QString &value);
+    void currentThemeNameChanged(const QString &value);
     void picAdded(const QString &id, const QString &picPath);
     void itemRemoved(const QString &id);
 
@@ -39,6 +41,7 @@ private:
     QString m_default;
     QMap<QString, QString> m_picList;
     QStringList m_keys;
+    QString m_currentThemeName;
 };
 
 #endif // THEMEMODEL_H

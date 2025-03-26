@@ -71,12 +71,19 @@ DccObject {
                                     visible: dccData.dockInter.DisplayMode === model.value
                                 }
 
-                                D.DciIcon {
+                                Control {
+                                    id: iconControl
                                     anchors.fill: parent
                                     anchors.margins: 4
-                                    sourceSize: Qt.size(width, height)
-                                    name: model.icon
+                                    
+                                    contentItem: D.DciIcon {
+                                        palette: D.DTK.makeIconPalette(iconControl.palette)
+                                        theme: iconControl.D.ColorSelector.controlTheme
+                                        sourceSize: Qt.size(width, height)
+                                        name: model.icon
+                                    }
                                 }
+
                                 MouseArea {
                                     anchors.fill: parent
                                     onClicked: {
