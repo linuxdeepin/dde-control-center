@@ -36,7 +36,6 @@ FocusScope {
             child = children[i]
             if (child.visible) {
                 child.x = x
-                child.y = (height - child.height) / 2
                 x += child.width
             }
         }
@@ -65,26 +64,21 @@ FocusScope {
         delegate: DelegateChooser {
             role: "type"
             DelegateChoice {
-                roleValue: 0
-                delegate: DccLabel {
-                    text: " / "
-                    clip: true
-                    elide: Text.ElideLeft
-                    color: palette.placeholderText
-                }
-            }
-            DelegateChoice {
                 roleValue: 1
                 delegate: Control {
                     property alias pressed: ma.pressed
                     property D.Palette textColor: DS.Style.button.text
                     palette.windowText: D.ColorSelector.textColor
-
-                    padding: 2
+                    anchors.verticalCenter: parent.verticalCenter
+                    bottomPadding: 3
+                    topPadding: 3
+                    leftPadding: 4
+                    rightPadding: 4
                     focus: true
                     hoverEnabled: enabled
+                    onImplicitWidthChanged: root.updateLayout()
                     contentItem: Row {
-                        spacing: 4
+                        spacing: 6
                         DccLabel {
                             text: model.display
                             elide: Text.ElideLeft
@@ -104,7 +98,7 @@ FocusScope {
                             pressed: Qt.rgba(0, 0, 0, 0.06)
                             pressedDark: Qt.rgba(1, 1, 1, 0.06)
                         }
-                        radius: DS.Style.control.radius
+                        radius: 6
                         color: D.ColorSelector.backgroundColor
                         border {
                             color: parent.palette.highlight
@@ -141,15 +135,17 @@ FocusScope {
             DelegateChoice {
                 roleValue: 2
                 delegate: Control {
-                    padding: 2
+                    bottomPadding: 3
+                    topPadding: 3
+                    leftPadding: 4
+                    rightPadding: 4
+                    anchors.verticalCenter: parent.verticalCenter
+                    onImplicitWidthChanged: root.updateLayout()
                     contentItem: DccLabel {
-                        anchors.leftMargin: 4
                         text: model.display
                         clip: true
                         elide: Text.ElideLeft
                         color: parent.palette.highlight
-                        onImplicitWidthChanged: root.updateLayout()
-                        onImplicitHeightChanged: root.updateLayout()
                     }
                 }
             }
