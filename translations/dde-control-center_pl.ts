@@ -7882,7 +7882,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation>Aktualizacje funkcji</translation>
+        <translation>Aktualizacje funkcjonalności</translation>
     </message>
     <message>
         <source>Update Settings</source>
