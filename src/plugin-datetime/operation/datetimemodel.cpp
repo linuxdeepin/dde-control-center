@@ -555,21 +555,31 @@ void DatetimeModel::setRegion(const QString &region)
 
     m_regionName = region;
     auto reg = m_langRegionsCache.value(region, region);
-    for (const auto &locale : m_regions) {
-        if (locale.territoryToCode(locale.territory()) == reg) {
-            QString country = locale.countryToString(locale.country());
-            QString language = QLocale::languageToString(locale.language());
-            QString langCountry = QString("%1:%2").arg(language).arg(country);
-            m_work->setConfigValue(country_key, country);
-            m_work->setConfigValue(localeName_key, locale.name());
-            m_work->genLocale(locale.name());
-            m_work->setConfigValue(languageRegion_key, langCountry);
-            setLangRegion(langCountry);
-
-            Q_EMIT regionChanged(region);
-            Q_EMIT currentRegionIndexChanged(currentRegionIndex());
-            break;
+    QLocale locale(QLocale::C);
+    for (const auto &tmplocale : m_regions) {
+        if (tmplocale.territoryToCode(tmplocale.territory()) == reg) {
+            if (m_work->genLocale(tmplocale.name())) {
+                locale = tmplocale;
+                qDebug() << "set locale success:" << locale.name();
+                break;
+            }
+            if (locale.language() == QLocale::C) {
+                locale = tmplocale;
+            }
         }
+    }
+    if (locale.language() != QLocale::C) {
+        qDebug() << "set locale:" << locale.name();
+        QString country = locale.countryToString(locale.country());
+        QString language = QLocale::languageToString(locale.language());
+        QString langCountry = QString("%1:%2").arg(language).arg(country);
+        m_work->setConfigValue(country_key, country);
+        m_work->setConfigValue(localeName_key, locale.name());
+        m_work->setConfigValue(languageRegion_key, langCountry);
+        setLangRegion(langCountry);
+
+        Q_EMIT regionChanged(region);
+        Q_EMIT currentRegionIndexChanged(currentRegionIndex());
     }
 }
 

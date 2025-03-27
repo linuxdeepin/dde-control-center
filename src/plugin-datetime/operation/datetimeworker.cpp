@@ -475,7 +475,7 @@ void DatetimeWorker::setConfigValue(const QString &key, const QVariant &value)
     m_config->setValue(key, value);
 }
 
-void DatetimeWorker::genLocale(const QString &localeName)
+bool DatetimeWorker::genLocale(const QString &localeName)
 {
     static QString localeConfPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QDir::separator() + "locale.conf";
 
@@ -483,7 +483,7 @@ void DatetimeWorker::genLocale(const QString &localeName)
 
     auto supportedLocaleListRes = getSupportedLocale();
     if (!supportedLocaleListRes.has_value()) {
-        return;
+        return false;
     }
 
     QStringList supportedLocaleList = supportedLocaleListRes.value();
@@ -494,9 +494,8 @@ void DatetimeWorker::genLocale(const QString &localeName)
     } else if (supportedLocaleList.contains(localeName)) {
         localeSet = localeName;
     } else {
-        return;
+        return false;
     }
-
     settings.setValue("LC_NUMERIC", localeSet);
     settings.setValue("LC_MONETARY", localeSet);
     settings.setValue("LC_TIME", localeSet);
@@ -505,4 +504,5 @@ void DatetimeWorker::genLocale(const QString &localeName)
     settings.setValue("LC_ADDRESS", localeSet);
     settings.setValue("LC_TELEPHONE", localeSet);
     settings.setValue("LC_MEASUREMENT", localeSet);
+    return true;
 }
