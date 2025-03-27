@@ -3939,7 +3939,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Bildirim</translation>
     </message>
 </context>
 <context>
@@ -3954,11 +3954,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Etkinleştir Rahatsız Etmeyin</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Ekran kilitlendiğinde</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
@@ -3966,7 +3966,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Uygulama Bildirimleri</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
@@ -3978,45 +3978,45 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstü</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekranı Kilitle</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Bildirim Merkezi</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mesaj önizlemesini göster</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Bir ses çal</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Kişiselleştir</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Pencere efekti</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
@@ -4044,7 +4044,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Duvar Kâğıdı</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
@@ -4063,14 +4063,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Güç</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Genel</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -4078,7 +4078,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Fişe Takılı</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
@@ -4086,7 +4086,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Pilde</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -4097,7 +4097,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Gizlilik ve Güvenlik</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
@@ -4108,7 +4108,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
@@ -4116,7 +4116,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar ve klasörler</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
@@ -4127,7 +4127,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Ses</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
@@ -4138,19 +4138,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Giriş</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Ses Efektleri</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
