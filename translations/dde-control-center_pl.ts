@@ -2621,16 +2621,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Dźwięk</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Motyw</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Zasilanie</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Sieć</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2639,6 +2631,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Update</source>
         <translation>Aktualizacja</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
