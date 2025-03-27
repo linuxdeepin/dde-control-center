@@ -2618,16 +2618,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Ääni</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Teema</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Virta</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Verkko</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2636,6 +2628,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Update</source>
         <translation>Päivitä</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
