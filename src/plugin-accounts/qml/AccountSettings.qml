@@ -215,7 +215,7 @@ DccObject {
     DccObject {
         name: "acountInfosTitle"
         parentName: settings.papaName
-        displayName: qsTr("Acount information")
+        displayName: qsTr("Account Information")
         weight: 18
         pageType: DccObject.Item
         page: Label {
@@ -231,8 +231,8 @@ DccObject {
     DccObject {
         name: settings.papaName + "acountInfos"
         parentName: settings.papaName
-        displayName: qsTr("Acount Information")
-        description: qsTr("Acount name, acount fullname, account type")
+        displayName: qsTr("Account Information")
+        description: qsTr("Account name, account fullname, account type")
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -240,7 +240,7 @@ DccObject {
         DccObject {
             name: settings.papaName + "acountName"
             parentName: settings.papaName + "acountInfos"
-            displayName: qsTr("Acount name")
+            displayName: qsTr("Account name")
             weight: 10
             pageType: DccObject.Editor
             page: Label {
@@ -250,7 +250,7 @@ DccObject {
         DccObject {
             name: settings.papaName + "acountFullname"
             parentName: settings.papaName + "acountInfos"
-            displayName: qsTr("Acount fullname")
+            displayName: qsTr("Account fullname")
             weight: 20
             pageType: DccObject.Editor
             page: RowLayout {
@@ -307,7 +307,7 @@ DccObject {
         DccObject {
             name: settings.papaName + "acountType"
             parentName: settings.papaName + "acountInfos"
-            displayName: qsTr("Acount type")
+            displayName: qsTr("Account type")
             weight: 30
             pageType: DccObject.Editor
             enabled: dccData.isDeleteAble(settings.userId)
