@@ -4,45 +4,7 @@ DDE 控制中心控制整个DDE桌面环境
 
 ## 依赖
 
-### 构建依赖
-
-* pkg-config
-* cmake
-* Qt5(>= 5.6) with modules:
-  - qt5-default
-  - qt5declarative5-dev
-  - qt5svg5-dev
-  - qttools5-dev-tools
-  - qtdeclarative5-dev
-* Deepin-tool-kit(>=2.0) with modules:
-  - dtkcore-dev
-  - dtkwidget-dev
-  - dtkcore-bin
-* geoip-dev
-* dde-qt-dbus-factory
-* gsettings-qt-dev
-* kf5networkmanagerqt-dev
-* xrandr-dev
-* mtdev-dev
-* fontconfig1-dev
-* freetype6-dev
-* egl1-mesa-dev
-* xcb-ewmh-dev
-
-### 运行时依赖
-
-* [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit)
-* [dde-api](https://github.com/linuxdeepin/dde-api)
-* [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
-* [startdde](https://github.com/linuxdeepin/startdde)
-* [dde-qt-dbus-factory](https://github.com/linuxdeepin/dde-qt-dbus-factory)
-* [qt5integration](https://github.com/linuxdeepin/qt5integration)
-* geoip-database
-* Qt5(>= 5.6)
-  * Qt5-DBus
-  * Qt5-Multimedia
-  * Qt5-MultimediaWidgets
-  * Qt5-Svg
+查看 `debian/control` 文件来了解此项目的构建与运行时依赖，或者使用 `cmake` 检查缺失的必要组件。
 
 ## 安装
 
@@ -65,6 +27,13 @@ sudo make install
 
 运行文件在 `/usr/bin/dde-control-center` , 插件在 `${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules/`下，`CMAKE_INSTALL_FULL_LIBDIR`请查阅GNUInstallDir,根据发行版有所不同 , 如arch下这个目录在 `/usr/lib/dde-control-center/modules/`.
 
+为在 *deepin* 桌面发行版进行此软件包的构建，我们还提供了一个 `debian` 目录。若要构建软件包，可参照下面的命令进行构建：
+
+```shell
+$ sudo apt build-dep . # 安装构建依赖
+$ dpkg-buildpackage -uc -us -nc -b # 构建二进制软件包
+```
+
 ## 使用方式
 
 Execute `dde-control-center -h` to get more details.
@@ -73,13 +42,11 @@ Execute `dde-control-center -h` to get more details.
 
 任何使用问题都可以通过以下方式寻求帮助:
 
-* [Telegram 群组](https://t.me/deepin)
+* [Telegram 群组](https://t.me/deepin_community)
 * [Matrix](https://matrix.to/#/#deepin-community:matrix.org)
 * [IRC (libera.chat)](https://web.libera.chat/#deepin-community)
 * [Forum](https://bbs.deepin.org)
 * [WiKi](https://wiki.deepin.org/)
-
-
 
 ## 加入我们
 
