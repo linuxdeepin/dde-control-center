@@ -2620,16 +2620,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Звук</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Тема</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Живлення</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Мережа</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2638,6 +2630,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Update</source>
         <translation>Оновлення</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
