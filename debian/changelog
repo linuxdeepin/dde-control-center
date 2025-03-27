@@ -1,3 +1,30 @@
+dde-control-center (6.1.19) unstable; urgency=medium
+
+  *  feat: modify the system configuration items of the deepinid
+  * fix: No configuration written after modifying the region format
+  * chore: update README.md and translations in desktop file
+  * i18n: Updates for project Deepin Desktop Environment (#2147)
+  * fix: typo mistakes (#2145)
+  * i18n: Updates for project Deepin Desktop Environment (#2146)
+  * fix(personalization): UI optimization
+  * fix: Modify Crumb spacing
+  * fix: No configuration written after modifying the region format
+  * i18n: Updates for project Deepin Desktop Environment (#2140)
+  * fix: Remove Qt5 dependencies
+  * fix: wallpaper interface loads slowly
+  * fix: Modify search list keyboard interaction
+  * fix: Modify the style of the return key
+  * i18n: Updates for project Deepin Desktop Environment (#2138)
+  * fix: fix typo and update ts files
+  * i18n: Updates for project Deepin Desktop Environment (#2136)
+  * fix: minor typos (#2134)
+  * fix: add update moudle check error tips
+  * i18n: Updates for project Deepin Desktop Environment (#2131)
+  * i18n: Updates for project Deepin Desktop Environment (#2130)
+  * fix: add transifex config
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 27 Mar 2025 15:52:20 +0800
+
 dde-control-center (6.1.18) unstable; urgency=medium
 
   * fix: The issue of intercepting mouse events while modifying the ComboBox
