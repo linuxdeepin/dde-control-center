@@ -59,23 +59,23 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Дані щодо облікового запису</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Назва облікового запису, повна назва облікового запису, тип облікового запису</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Назва облікового запису</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Повна назва облікового запису</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Тип облікового запису</translation>
     </message>
 </context>
 <context>
@@ -2633,7 +2633,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Зберігач екрана</translation>
     </message>
 </context>
 <context>
@@ -4062,11 +4062,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Інтерфейс і ефекти, заокруглені краї, компактний показ</translation>
     </message>
 </context>
 <context>
