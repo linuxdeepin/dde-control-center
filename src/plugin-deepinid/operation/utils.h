@@ -48,7 +48,8 @@ enum SyncType {
     Update,
     Dock,
     Launcher,
-    Wallpaper
+    Wallpaper,
+    Screensaver
 };
 
 
