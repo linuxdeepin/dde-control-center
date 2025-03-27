@@ -2621,16 +2621,8 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Tingull</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Energji</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Rrjet</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2638,6 +2630,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Screensaver</source>
         <translation type="unfinished"/>
     </message>
 </context>
