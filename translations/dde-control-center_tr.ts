@@ -4169,11 +4169,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ortak ayarlar</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
 </context>
 <context>
@@ -4187,7 +4187,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Bu PC Hakkında</translation>
     </message>
     <message>
         <source>System version, device information</source>
@@ -4203,7 +4203,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı Deneyimi Programı</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -4211,7 +4211,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
@@ -4219,7 +4219,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Gizlilik Politikası</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
@@ -4241,7 +4241,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Ortak</translation>
     </message>
 </context>
 <context>
@@ -4263,14 +4263,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Güncelleme Ayarları</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
@@ -4281,7 +4281,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
@@ -4301,7 +4301,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Açık</translation>
     </message>
 </context>
 </TS>
