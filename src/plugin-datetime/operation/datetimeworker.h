@@ -60,7 +60,7 @@ public Q_SLOTS:
     void setShortTimeFormat(int type);
     void setWeekStartDayFormat(int type);
 
-    void genLocale(const QString &localeName);
+    bool genLocale(const QString &localeName);
 
     ZoneInfo GetZoneInfo(const QString &zoneId);
 
