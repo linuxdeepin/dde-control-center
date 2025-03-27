@@ -2621,16 +2621,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>声音</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>主题</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>电源</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>网络</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2639,6 +2631,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Update</source>
         <translation>更新</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
