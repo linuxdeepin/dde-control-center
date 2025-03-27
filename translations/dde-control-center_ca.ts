@@ -2621,16 +2621,8 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>So</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Energia</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Xarxa</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2639,6 +2631,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Update</source>
         <translation>Actualitza</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
