@@ -4808,7 +4808,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minuty</translation>
+        <translation>Minutach</translation>
     </message>
     <message>
         <source>Hour</source>
@@ -6009,7 +6009,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Installing Update</source>
-        <translation>Instalowanie aktualizacji</translation>
+        <translation>Zainstaluj aktualizacje</translation>
     </message>
     <message>
         <source>Installing updates…</source>
