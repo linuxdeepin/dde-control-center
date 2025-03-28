@@ -260,7 +260,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Sonrasında ekranı kilitle</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -268,7 +268,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Kapak kapatıldığında</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
@@ -276,7 +276,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Düşük Batarya</translation>
     </message>
     <message>
         <source>Low battery notification</source>
@@ -284,35 +284,35 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik askıya al </translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Uyut</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Düşük pil eşiği</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Batarya Yönetimi</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Kalan kullanım ve şarj süresini göster</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Azami kapasite</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Düşük pil seviyesi</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Devre Dışı </translation>
     </message>
 </context>
 <context>
@@ -330,7 +330,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantıyı kes</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -365,7 +365,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Diğer Bluetooth cihazlarının bu cihazı bulmasına izin ver</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
@@ -419,7 +419,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı Değiştir</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
@@ -439,23 +439,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"/>
+        <translation>Yeni Parola:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Parola boş olamaz</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı tekrarla:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -632,11 +632,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Tekrar Kontrol Et</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Güncellemeleri kontrol et</translation>
     </message>
     <message>
         <source>Last checking time</source>
@@ -647,15 +647,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Vurgu Rengi</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Simge Ayarları</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Simge Teması</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -663,7 +663,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>İmleç Teması</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
@@ -674,11 +674,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Bu hesabı silmek istediğinize emin misiniz?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Hesap dizinini sil</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -686,14 +686,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Sil</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlara git</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -704,39 +704,39 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Ortak</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>Yineleme gecikmesi</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Kısa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Uzun</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>Yineleme hızı</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Yavaş</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Sayısal Klavye</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>burada dene</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
@@ -744,15 +744,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kaydırma Hızı</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Çift Tıklama Hızı</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>Çift Tıklama Denemesi</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
