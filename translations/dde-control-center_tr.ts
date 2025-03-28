@@ -3,11 +3,11 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>düzenle</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"/>
+        <translation>Yeni kullanıcı ekle</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -15,15 +15,15 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"/>
+        <translation>Giriş ayarları</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation type="unfinished"/>
+        <translation>Giriş Ayarları</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Oturum Parola Kullanmadan Açılsın</translation>
     </message>
     <message>
         <source>Delete current account</source>
@@ -31,11 +31,11 @@
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"/>
+        <translation>Grup ayarları</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"/>
+        <translation>Hesap grupları</translation>
     </message>
     <message>
         <source>done</source>
@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"/>
+        <translation>Grup adı</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"/>
+        <translation>Grup ekle</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik giriş</translation>
     </message>
     <message>
         <source>Account Information</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Hesap adı</translation>
     </message>
     <message>
         <source>Account fullname</source>
@@ -75,38 +75,38 @@
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Hesap Türü</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt Yüzü</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"/>
+        <translation>Yüzünüzün tüm bölümlerinin nesnelerle kaplanmadığından ve açıkça görülebildiğinden emin olun. Yüzünüz de iyi aydınlatılmış olmalıdır. </translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Okudum ve onaylıyorum</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Sonraki</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Yüz kayıtlı</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>Yüzünüz kaydedilemedi</translation>
     </message>
     <message>
         <source>Done</source>
@@ -159,11 +159,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Okudum ve onaylıyorum</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Next</source>
