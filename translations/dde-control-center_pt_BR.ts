@@ -3060,7 +3060,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
@@ -3276,7 +3276,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de Desenvolvedor</translation>
     </message>
 </context>
 <context>
