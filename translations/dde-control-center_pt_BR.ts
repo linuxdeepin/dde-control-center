@@ -2845,7 +2845,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Data de lançamento:</translation>
     </message>
     <message>
         <source>Collapse</source>
