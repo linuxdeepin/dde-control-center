@@ -63,19 +63,19 @@
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Nome completo da conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conta</translation>
     </message>
 </context>
 <context>
@@ -312,7 +312,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Desativar</translation>
     </message>
 </context>
 <context>
@@ -2619,7 +2619,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de tela</translation>
     </message>
 </context>
 <context>
@@ -2841,7 +2841,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações:</translation>
     </message>
     <message>
         <source>Release time:</source>
@@ -2849,7 +2849,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Recolher</translation>
     </message>
 </context>
 <context>
