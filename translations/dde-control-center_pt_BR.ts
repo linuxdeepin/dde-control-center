@@ -2900,7 +2900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>A atualização falhou: espaço insuficiente em disco</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -2908,7 +2908,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede, verifique e tente novamente</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
@@ -4048,7 +4048,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Selecione entre os temas claro, escuro ou automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
