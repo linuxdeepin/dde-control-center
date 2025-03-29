@@ -640,7 +640,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Last checking time</source>
-        <translation type="unfinished"/>
+        <translation>Son kontrol zamanı</translation>
     </message>
 </context>
 <context>
@@ -763,39 +763,39 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>Büyük boy</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>Küçük boy</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Kök erişimi alınamadı</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen önce Union ID&apos;nizde oturum açın</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>PC bilgileriniz okunamıyor</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Ağ bağlantısı yok</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Sertifika yüklenemedi, kök erişimine erişilemedi</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
@@ -803,7 +803,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Kök Erişimi Kabul Et ve İste</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
@@ -822,18 +822,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>Parola rakamlar ve harfler içermelidir</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Parola 8 ile 64 karakter arasında olmalıdır</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Yeni hesap Oluştur</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -841,19 +841,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı Adı</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Tam Ad</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>İsteğe bağlı</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -861,14 +861,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Hesap oluştur</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>Henüz bir avatar yüklemediniz.Bir resim yüklemek için tıklayın veya sürükleyin ve bırakın.</translation>
     </message>
 </context>
 <context>
@@ -906,7 +906,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
 </context>
 <context>
@@ -960,11 +960,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>Yerelden %1 saat önce</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>Yerelden %1 saat sonra</translation>
     </message>
     <message>
         <source>Space</source>
@@ -1020,7 +1020,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>Sayfa boyutu</translation>
     </message>
 </context>
 <context>
