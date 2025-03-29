@@ -323,7 +323,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O Bluetooth está ligado e o nome é exibido como &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -2075,7 +2075,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Priorizar a duração da bateria, significa que o sistema sacrificará parte do desempenho para reduzir o consumo de energia</translation>
     </message>
 </context>
 <context>
@@ -4131,7 +4131,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, entrada, efeitos sonoros, dispositivos</translation>
     </message>
 </context>
 <context>
