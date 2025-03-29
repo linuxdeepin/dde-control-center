@@ -51,15 +51,15 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Login automático, login sem senha</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Login automático</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Informações da Conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
