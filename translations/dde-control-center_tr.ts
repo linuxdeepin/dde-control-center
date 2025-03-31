@@ -1,124 +1,124 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>muokkaa</translation>
+        <translation>düzenle</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Lisää uusi käyttäjä</translation>
+        <translation>Yeni kullanıcı ekle</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation>Aseta koko nimi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Login settings</source>
-        <translation>Kirjautumisen asetukset</translation>
+        <translation>Giriş ayarları</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation>Kirjautumisen asetukset</translation>
+        <translation>Giriş Ayarları</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Kirjaudu ilman salasanaa</translation>
+        <translation>Oturum Parola Kullanmadan Açılsın</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Poista tili</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>Ryhmän asetukset</translation>
+        <translation>Grup ayarları</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation>Tiliryhmät</translation>
+        <translation>Hesap grupları</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Group name</source>
-        <translation>Ryhmän nimi</translation>
+        <translation>Grup adı</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation>Lisää ryhmä</translation>
+        <translation>Grup ekle</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation>Kirjaudu ilman salasanaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto login</source>
-        <translation>Automaattinen kirjautuminen</translation>
+        <translation>Otomatik giriş</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation>Tilin tiedot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation>Tilin nimi, koko nimi, tilin tyyppi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account name</source>
-        <translation>Tilin nimi</translation>
+        <translation>Hesap adı</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation>Tilin koko nimi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Tilin tyyppi</translation>
+        <translation>Hesap Türü</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Kasvojen tunnistus</translation>
+        <translation>Kayıt Yüzü</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Varmista, että kasvosi ovat selvästi näkyvissä eikä esineet ole esteenä. Kasvoillesi tulee olla riittävästi valoa.</translation>
+        <translation>Yüzünüzün tüm bölümlerinin nesnelerle kaplanmadığından ve açıkça görülebildiğinden emin olun. Yüzünüz de iyi aydınlatılmış olmalıdır. </translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Olen lukenut ja hyväksyn</translation>
+        <translation>Okudum ve onaylıyorum</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Vastuuvapauslauseke</translation>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Seuraava</translation>
+        <translation>Sonraki</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Kasvot tunnistettu</translation>
+        <translation>Yüz kayıtlı</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Kasvojen tunnistus epäonnistui</translation>
+        <translation>Yüzünüz kaydedilemedi</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Tunnista uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -132,56 +132,46 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation>Ennen kuin käytät kasvojentunnistusta, ota huomioont:
-1. Laitteesi lukituksen voivat avata ihmiset tai esineet, jotka näyttävät sinulta.
-2. Kasvojentunnistus on vähemmän turvallinen kuin salasanat.
-3. Laitteen lukituksen avaamisen onnistumisprosentti kasvojentunnistuksella  vähenee valaistoksen ollessa heikko, korkea, takavalo tai suuressa kulmassa.
-4. Älä anna laitettasi muille välttääksesi kasvojentunnistuksen haitallisen käytön.
-5. Yllä olevien skenaarioiden lisäksi sinun tulee kiinnittää huomiota muihin tilanteisiin, jotka voivat vaikuttaa kasvojentunnistuksen normaaliin käyttöön.
-
-Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asiat kasvotietoja tallentaessa:
-1. Ole hyvin valaistussa ympäristössä, vältä suoraa auringonvaloa ja muiden ihmisten esiintymistä.
-2. Kiinnitä huomiota kasvojen asentoon, kun tallennat tietoja, äläkä anna hattujen, hiusten, aurinkolasien, raskaan meikin ja muiden tekijöiden peittää piirteitäsi.
-3. Vältä kallistamasta tai laskemasta päätäsi, sulkemasta silmiä tai kuvaamasta vain toista kasvon puolta. Varmista, että kasvosi näkyvät selvästi ja kokonaan kuvausalueella.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree</source>
-        <translation>Hyväksyn</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Valmis</translation>
+        <translation>Tamamlandı</translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Tunnista sormi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation>Aseta sormi lukijaan ja liikuta sitä alhaalta ylöspäin. Kun tehty niin nosta sormesi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Olen lukenut ja hyväksyn</translation>
+        <translation>Okudum ve onaylıyorum</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Vastuuvapauslauseke</translation>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Seuraava</translation>
+        <translation>Sonraki</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Tunnista uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -189,261 +179,259 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
-Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
-UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree</source>
-        <translation>Hyväksyn</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>&quot;Automaattinen kirjautuminen&quot; voidaan käyttää vain yhdellä tilillä. Poista se tililtä &quot;%1&quot; ensin.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Selvä</translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation>Kuvat</translation>
+        <translation>Görseller</translation>
     </message>
     <message>
         <source>Human</source>
-        <translation>Ihmiset</translation>
+        <translation>İnsan</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation>Eläimet</translation>
+        <translation>Hayvan</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation>Maisemat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Illustration</source>
-        <translation>Kuvitus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Emoji</source>
-        <translation>Hymiöt</translation>
+        <translation>İmoji</translation>
     </message>
     <message>
         <source>custom</source>
-        <translation>mukautettu</translation>
+        <translation>özel</translation>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation>Sarjakuva tyyliin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation>Ulottuvuus tyyliin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Flat style</source>
-        <translation>Taso tyyliin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Näyttö ja valmiustila</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Sammuta näyttö</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Lukitaan näyttö</translation>
+        <translation>Sonrasında ekranı kilitle</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone valmiustilaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kun kansi on kiinni</translation>
+        <translation>Kapak kapatıldığında</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Kun virtapainiketta painetaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation>Akku vähissä</translation>
+        <translation>Düşük Batarya</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation>Alhaisen varauksen ilmoitus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation>Autom. valmiustila</translation>
+        <translation>Otomatik askıya al </translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>Autom. lepotila</translation>
+        <translation>Otomatik Uyut</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Akun alhainen varaus</translation>
+        <translation>Düşük pil eşiği</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Akun hallinta</translation>
+        <translation>Batarya Yönetimi</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Näytä jäljellä oleva latausaika</translation>
+        <translation>Kalan kullanım ve şarj süresini göster</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation>Täysi varaus</translation>
+        <translation>Azami kapasite</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>Alhainen akun varaustaso</translation>
+        <translation>Düşük pil seviyesi</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation>Pois</translation>
+        <translation>Devre Dışı </translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation>Bluetooth on pois päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation>Bluetooth on päällä ja nimi näkyy muodossa &quot;%1&quot;</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation>Katkaise</translation>
+        <translation>Bağlantıyı kes</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Yhdistä</translation>
+        <translation>Bağlan</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation>Lähetä tiedostot</translation>
+        <translation>Dosyaları Gönder</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Nimeä</translation>
+        <translation>Yeniden adlandır</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation>Poista laite</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Valitse tiedosto</translation>
+        <translation>Dosya Seçin</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation>Muokkaa</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation>Pituus vähintään 64</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Salli Bluetoothin löytää tämä laite</translation>
+        <translation>Diğer Bluetooth cihazlarının bu cihazı bulmasına izin ver</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation>Jos haluat käyttää Bluetoothia, sammuta se</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Lentokonetila</translation>
+        <translation>Uçak Kipi</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation>Yhdistetty</translation>
+        <translation>Bağlandı</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Ei yhteyttä</translation>
+        <translation>Bağlı değil</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation>Käynnistymisen asetukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation>Voit vaihtaa käynnistyskohteita painamalla valikkosta tai vaihtaa taustakuvan vetämällä ja pudottamalla ikkunaan.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>grub käynnistyksen viive</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>theme</source>
-        <translation>teema</translation>
+        <translation>tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation>Kun olet vaihtanut teeman, näet teeman taustan kun käynnistät tietokoneen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation>Käynnistysvalikon vahvistus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation>Valikon avaamisen jälkeen, muokkaaminen vaatii salasanan.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Vaihda salasana</translation>
+        <translation>Parolayı Değiştir</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation>Vaihda käynnistysvalikon salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation>Aseta käynnistysvalikon salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Käyttäjänimi</translation>
+        <translation>Kullanıcı Adı :</translation>
     </message>
     <message>
         <source>root</source>
@@ -451,443 +439,443 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>New Password :</source>
-        <translation>Uusi salasana :</translation>
+        <translation>Yeni Parola:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Vaadittu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Salasana ei voi olla tyhjä</translation>
+        <translation>Parola boş olamaz</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Salasanat eivät täsmää</translation>
+        <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Toista salasana:</translation>
+        <translation>Parolayı tekrarla:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation>Varma</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start animation</source>
-        <translation>Käynnistysanimaatio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation>Säädä logon kokoa käynnistymisen yhteydessä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation>Salli sovellusten käyttää kameraa:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>Sormenjälki1</translation>
+        <translation>Parmakizi1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>Sormenjälki2</translation>
+        <translation>Parmakizi2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>Sormenjälki3</translation>
+        <translation>Parmakizi3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>Sormenjälki4</translation>
+        <translation>Parmakizi4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>Sormenjälki5</translation>
+        <translation>Parmakizi5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>Sormenjälki6</translation>
+        <translation>Parmakizi6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>Sormenjälki7</translation>
+        <translation>Parmakizi7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>Sormenjälki8</translation>
+        <translation>Parmakizi8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>Sormenjälki9</translation>
+        <translation>Parmakizi9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>Sormenjälki10</translation>
+        <translation>Parmakizi10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Skannaus epäonnistui</translation>
+        <translation>Tarama başarısız</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation>Sormenjälki on jo olemassa</translation>
+        <translation>Parmak izi zaten var</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Tarkista muut sormet</translation>
+        <translation>Lütfen diğer parmaklarınızı tarayın</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Tuntematon virhe</translation>
+        <translation>Bilinmeyen hata</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Skannaus keskeytetty</translation>
+        <translation>Tarama askıya alındı</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>ei voi tunnistaa</translation>
+        <translation>Tanınamıyor</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation>Pyyhkäisit liian nopeasti</translation>
+        <translation>Çok hızlı taşındı</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Olet liian nopea, älä nosta sormea ennen kuin pyydetään</translation>
+        <translation>Parmak çok hızlı hareket etti, lütfen istenene kadar kaldırmayın</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Epäselvä sormenjälki</translation>
+        <translation>Net olmayan parmak izi</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Puhdista sormesi tai säädä sormen asentoa ja yritä uudelleen</translation>
+        <translation>Parmağınızı temizleyin veya parmak konumunu ayarlayın ve tekrar deneyin</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation>Jo skannattu</translation>
+        <translation>Zaten tarandı</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Säädä sormen asentoa, jotta sormenjälkesi voidaan skannata</translation>
+        <translation>Parmak izinizi tamamen taramak için parmak konumunu ayarlayın</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Sormi liikkui liian nopeasti. Älä nosta, ennen kuin pyydetään</translation>
+        <translation>Parmak çok hızlı hareket etti. Lütfen istenene kadar kaldırmayın</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Nosta sormesi ja aseta se lukijaan uudelleen</translation>
+        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation>Aseta kasvosi kehyksen sisään</translation>
+        <translation>Yüzünüzü çerçevenin içine yerleştirin</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Kasvot tunnistettu</translation>
+        <translation>Yüz kayıtlı</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation>Aseta ihmisen kasvot</translation>
+        <translation>Bir insan yüzünü konumlandırın lütfen</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation>Pysy kauempana kamerasta</translation>
+        <translation>Kameradan uzak tutun</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation>Siirry lähemmäs kameraa</translation>
+        <translation>Kameraya daha yakın ol</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation>Ei useita kasvoja kehyksen sisään</translation>
+        <translation>Çerçevenin içine birden fazla yüz yerleştirmeyin</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation>Varmista, että kameran linssi on puhdas</translation>
+        <translation>Kamera merceğinin temiz olduğundan emin olun</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>Älä tunnistaudu pimeässä, liian kirkkaassa tai takavalaistussa ympäristössä</translation>
+        <translation>Karanlık, aydınlık veya arkadan aydınlatmalı ortamlara kaydolmayın</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation>Pidä kasvosi paljaana</translation>
+        <translation>Yüzünü açık tut</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation>Skannaus aikakatkaistiin</translation>
+        <translation>Tarama zaman aşımına uğradı</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation>Laite kaatui, skannaa uudelleen!</translation>
+        <translation>Cihaz çöktü, lütfen tekrar tarayın!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation>Tarkista uudelleen</translation>
+        <translation>Tekrar Kontrol Et</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Tarkista päivitykset</translation>
+        <translation>Güncellemeleri kontrol et</translation>
     </message>
     <message>
         <source>Last checking time</source>
-        <translation>Tarkistusaika</translation>
+        <translation>Son kontrol zamanı</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation>Korostusväri</translation>
+        <translation>Vurgu Rengi</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Kuvakkeiden asetukset</translation>
+        <translation>Simge Ayarları</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Kuvake teema</translation>
+        <translation>Simge Teması</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation>Mukauta teeman kuvakkeita</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>Kohdistin</translation>
+        <translation>İmleç Teması</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation>Mukauta teeman kohdistinta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Haluatko varmasti poistaa tilin?</translation>
+        <translation>Bu hesabı silmek istediğinize emin misiniz?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Poista käyttätilin hakemisto</translation>
+        <translation>Hesap dizinini sil</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Poista</translation>
+        <translation>Sil</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Siirry asetuksiin</translation>
+        <translation>Ayarlara git</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Yleinen</translation>
+        <translation>Ortak</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Toiston viive</translation>
+        <translation>Yineleme gecikmesi</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Lyhyt</translation>
+        <translation>Kısa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Pitkä</translation>
+        <translation>Uzun</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation>Toistonopeus</translation>
+        <translation>Yineleme hızı</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Hidas</translation>
+        <translation>Yavaş</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Nopea</translation>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Numeronäppäimistö</translation>
+        <translation>Sayısal Klavye</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation>Testaa täällä</translation>
+        <translation>burada dene</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation>Numerolukon kehote</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation>Vieritysnopeus</translation>
+        <translation>Kaydırma Hızı</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation>Napautuksen nopeus</translation>
+        <translation>Çift Tıklama Hızı</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Napautuksen testi</translation>
+        <translation>Çift Tıklama Denemesi</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Vasenkätiselle</translation>
+        <translation>Solak Kip</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Suuri</translation>
+        <translation>Büyük boy</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Pieni</translation>
+        <translation>Küçük boy</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Root oikeudet epäonnistui</translation>
+        <translation>Kök erişimi alınamadı</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Kirjaudu ensin sinun Union id:llä</translation>
+        <translation>Lütfen önce Union ID&apos;nizde oturum açın</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Tietokoneesi tietoja ei voi lukea</translation>
+        <translation>PC bilgileriniz okunamıyor</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Ei verkkoa</translation>
+        <translation>Ağ bağlantısı yok</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Varmenteen lataaminen epäonnistui, root oikeuksia ei saatu</translation>
+        <translation>Sertifika yüklenemedi, kök erişimine erişilemedi</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Varmenteen varmennus epäonnistui, root oikeuksia ei saatu</translation>
+        <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Hyväksy ja liity käyttökokemus ohjelmaan</translation>
+        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Kehittäjätilan vastuuvapauslauseke</translation>
+        <translation>Geliştirici Kipi Sorumluluk Reddi</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Hyväksy ja pyydä root-oikeuksia</translation>
+        <translation>Kök Erişimi Kabul Et ve İste</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation>Aloita uuden käynnistysanimaation asetus, odota hetki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation>Uuden animaation asetus on valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation>Asetukset otetaan käyttöön tietokoneen käynnistämisen yhteydessä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation>Salasanan tulee sisältää numeroita ja kirjaimia</translation>
+        <translation>Parola rakamlar ve harfler içermelidir</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation>Salasanan tulee olla 8–64 merkkiä pitkä</translation>
+        <translation>Parola 8 ile 64 karakter arasında olmalıdır</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation>Luo uusi käyttäjätili</translation>
+        <translation>Yeni hesap Oluştur</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Tilin tyyppi</translation>
+        <translation>Hesap Türü</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation>Käyttäjänimi</translation>
+        <translation>Kullanıcı Adı</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Vaadittu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation>Koko nimi</translation>
+        <translation>Tam Ad</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Valinnainen</translation>
+        <translation>İsteğe bağlı</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation>Luo käyttäjätili</translation>
+        <translation>Hesap oluştur</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Et ole vielä valinnut avataria. Voit ladata kuvan vetämällä ja pudottamalla.</translation>
+        <translation>Henüz bir avatar yüklemediniz.Bir resim yüklemek için tıklayın veya sürükleyin ve bırakın.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>saatavilla</translation>
+        <translation>kullanılabilir</translation>
     </message>
 </context>
 <context>
@@ -902,232 +890,232 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Olemme tietoisia henkilötietojen tärkeydestä sinulle. Siksi meillä on laadittu tietosuojakäytäntö, joka kertoo kuinka tietojasi kerätään, käytetään, jaetaan, siirretään, julkistaan ja tallenetaan.&lt;/p&gt;&lt;p&gt; Voit katsoa uusinta tietosuojakäytäntöämme &lt;a href=&quot;%1&quot;&gt;napsauttamalla tästä&lt;/a&gt; tai verkossa osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lue huolellisesti ja ymmärrä täysin asiakkaidemme yksityisyyttä koskevat käytännöt. Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa: support@uniontech.com&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation>https://www.uniontech.com/agreement/experience-en</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity käyttökokemusohjelmaan. Deepin tietosuojakäytännöstä lisätietoja (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Liittyminen käyttökokemusohjelmaan tarkoittaa sitä, että myönnät meille valtuuden kerätä laitteen, järjestelmän ja sovellusten tietoja. Jos kieltäydyt mainittujen tietojen käytöstä, älä liity siihen. Lisätietoja käyttökokemusohjelmasta osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Hyväksy ja liity käyttökokemus ohjelmaan</translation>
+        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation>Päivämäärän asetukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Date</source>
-        <translation>Päivämäärä</translation>
+        <translation>Tarih</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation>Vuosi</translation>
+        <translation>Yıl</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Kuukausi</translation>
+        <translation>Ay</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Päivä</translation>
+        <translation>Gün</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Aika</translation>
+        <translation>Zaman</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Vahvista</translation>
+        <translation>Onayla</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation>Huomenna</translation>
+        <translation>Yarın</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation>Eilen</translation>
+        <translation>Dün</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Tänään</translation>
+        <translation>Bugün</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>%1 tuntia edellä paikallista aikaa</translation>
+        <translation>Yerelden %1 saat önce</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>%1 tuntia paikallista myöhemmin</translation>
+        <translation>Yerelden %1 saat sonra</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation>Välilyönti</translation>
+        <translation>Boşluk</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation>Viikko</translation>
+        <translation>Hafta</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Viikon ensimmäinen päivä</translation>
+        <translation>Haftanın ilk günü</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Lyhyt päivämäärä</translation>
+        <translation>Kısa tarih</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Pitkä päivämäärä</translation>
+        <translation>Uzun tarih</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Lyhyt aika</translation>
+        <translation>Kısa zaman</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Pitkä aika</translation>
+        <translation>Uzun zaman</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Valuutan symboli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation>Positiivinen valuutta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation>Negatiivinen valuutta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation>Desimaalin merkki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation>Numeroiden ryhmäsymboli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation>Numeroiden ryhmittely</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Page size</source>
-        <translation>Sivun koko</translation>
+        <translation>Sayfa boyutu</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>NTP-palvelimen muuttamiseen tarvitaan tunnistautuminen</translation>
+        <translation>NTP sunucusunu değiştirmek için kimlik doğrulaması gerekli</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Ohjauspaneelissa asetukset järjestelmälle.</translation>
+        <translation>Kontrol Merkezi, sistem ayarları için seçenekler sunar.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation>WeChat sidonta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation>WeChat sitomisella, voit kirjautua turvallisesti %1 id:llä myös paikalliselle tietokoneelle.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation>Linkitys poistettu</translation>
+        <translation>Bağlantı kaldırıldı</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation>Pura</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Link</source>
-        <translation>Linkki</translation>
+        <translation>Bağla</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation>Haluatko varmasti purkaa WeChatin?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation>Purkamisen jälkeen et voi käyttää WeChat QR-koodia kirjautumiseen %1 id:llä tai paikalliselle tietokoneelle.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation>Harkitsen asiaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation>Paikallisen tilin sidonta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation>Kun olet sitonut paikallisen tilisi, voit käyttää seuraavia toimintoja:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation>WeChat Scan Code kirjautuminen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation>Käytä WeChatia, joka on sidottu %1 id:lle, skannaa koodi ja kirjaudu sinun paikalliselle tietokoneelle.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation>Palauta salasana %1 id:llä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation>Palauta paikallinen salasanasi %1 id:llä, jos unohdat sen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation>Jos haluat käyttää yllä mainittuja ominaisuuksia, siirry kohtaan Ohjauspaneeli - Tilit ja ota vastaavat asetukset käyttöön.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>deepin</translation>
+        <translation>Deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -1138,422 +1126,422 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Pilvisynkronointi</translation>
+        <translation>Bulut Eşitleyici</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation>Hallinnoi sinun %1 id:tä ja synkronoi omat tietosi eri laitteiden välillä. Kirjaudu sisään %1 id:llä ja saat mukautetun selaimen, sovelluskaupan, tuen ja muita palveluita.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation>Kirjaudu sisään %1 id:llä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Autom. synkronointi</translation>
+        <translation>Otomatik Eşitle</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation>Tallenna asetukset ja omat tiedot turvallisesti pilveen ja pidä ne synkronoituna eri laitteiden välillä.</translation>
+        <translation>Sistem ayarlarını ve kişisel verileri bulutta güvenli bir şekilde saklayın ve bunları cihazlar arasında senkronize halde tutun.</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation>Asetukset</translation>
+        <translation>Sistem Ayarları</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation>Tarkistusaika: %1 </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation>Tyhjennä tiedot pilvestä</translation>
+        <translation>Bulut verilerini temizle</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Haluatko varmasti tyhjentää tietokoneen asetukset ja pilveen tallennetut henkilökohtaiset tiedot?</translation>
+        <translation>Sistem ayarlarınızı ve bulutta kayıtlı kişisel verilerinizi temizlemek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Kun tiedot on tyhjennetty, niitä ei voi palauttaa!</translation>
+        <translation>Veriler temizlendikten sonra kurtarılamaz!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Tyhjennä</translation>
+        <translation>Temizle</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Synkronointipalvelu</translation>
+        <translation>Eşitleme Servisi</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation>Tili ja turvallisuus</translation>
+        <translation>Hesap ve Güvenlik</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Kirjaudu ulos</translation>
+        <translation>Oturumu kapat</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Siirry Internet asetuksiin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation>salasanan kryptaus epäonnistui</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Väärä salasana, %1 arvausta jäljellä</translation>
+        <translation>Yanlış şifre, %1 şans kaldı</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation>Kirjautumisvirheiden raja on täynnä tältä päivältä. Voit yrittää palauttaa salasanasi ja yrittää uudelleen.</translation>
+        <translation>Giriş hatası günlük sınırına ulaştı. Parolayı sıfırlayabilir ve tekrar deneyebilirsiniz.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation>Tehtävä onnistui</translation>
+        <translation>İşlem Başarılı</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation>Kiinassa</translation>
+        <translation>Çin Toprakları</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation>Muut maat</translation>
+        <translation>Diğer bölgeler</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>Ominaisuus ei ole tällä hetkellä käytettävissä, aktivoi tietokone ensin</translation>
+        <translation>Özellik şu anda kullanılamıyor, lütfen önce sisteminizi etkinleştirin</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Paikallisten lakien ja määräysten mukaisesti tämä ei ole saatavilla sinun maassasi.</translation>
+        <translation>Yerel yasa ve yönetmeliklerinize bağlı olarak, şu anda bölgenizde kullanılamamaktadır.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Valitse oletusohjelma avataksesi &quot;%1&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>add</source>
-        <translation>lisää</translation>
+        <translation>ekle</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Open desktop-tiedosto</translation>
+        <translation>Masaüstü Dosyası Aç</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Sovellukset (*.desktop)</translation>
+        <translation>Uygulamalar (*.masaüstü)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Kaikki tiedostot (*)</translation>
+        <translation>Tüm dosyalar  (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Root oikeudet</translation>
+        <translation>Kök Erişimi</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Pyydä root oikeuksia</translation>
+        <translation>Kök Erişimi İsteği</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>Kun olet siirtynyt kehittäjätilaan, voit hankkia root oikeudet, mutta se voi myös vahingoittaa järjestelmää, joten käytä oikeuksia huolellisesti.</translation>
+        <translation>Geliştirici kipine girdikten sonra kök izinleri alabilirsiniz, ancak sistem bütünlüğüne de zarar verebilir, bu nedenle lütfen dikkatle kullanın.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation>Sallittu</translation>
+        <translation>İzin verilmiş</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation>OK</translation>
+        <translation>Giriş</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>Verkossa</translation>
+        <translation>Çevrimiçi</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation>Kirjaudu UOS id:llä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Poissa</translation>
+        <translation>Çevrimdışı</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>Tuo varmenne</translation>
+        <translation>Sertifikayı İçe Aktar</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Valitse tiedosto</translation>
+        <translation>Dosya Seçin</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation>Sinun UOS id on kirjautunut sisään, paina siirtyäksesi kehittäjätilaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Kirjaudu ensin Union id:llä ja jatka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1. Vie tietokoneen tiedot</translation>
+        <translation>1.PC Bilgisini Dışa Aktar</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>Vie</translation>
+        <translation>Dışarı aktar</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation>2. Siirry &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; ja lataa offline-sertifikaatti.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3. Tuo varmenne</translation>
+        <translation>3.Sertifikayı İçe Aktar</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Jos haluat asentaa ja käyttää allekirjoittamattomia sovelluksia, siirry &lt;a href=&quot;Security Center&quot;&gt;Turvakeskukseen&lt;/a&gt; ja muuta asetuksia.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation>Kehitys- ja vianetsinnän valinnat</translation>
+        <translation>Geliştirme ve hata ayıklama seçenekleri</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation>Lokin kirjaustaso</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation>Asetusten muuttaminen johtaa tarkempaan lokiin, joka hieman heikentää suorituskykyä ja/tai vie enemmän tallennustilaa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Off</source>
-        <translation>Pois</translation>
+        <translation>Kapalı</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Vianetsintä</translation>
+        <translation>Ayıkla</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation>Asetuksen muuttaminen voi kestää minuutin. Kun olet saanut ilmoituksen valmistumisesta, käynnistä tietokone uudelleen, jotta asetus tulee voimaan.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Salli sovellusten käyttää näitä tiedostoja ja kansioita:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Asiakirjat</translation>
+        <translation>Belgeler</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Pöytä</translation>
+        <translation>Masaüstü</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Kuvat</translation>
+        <translation>Resimler</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation>Videot</translation>
+        <translation>Videolar</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Musiikki</translation>
+        <translation>Müzik</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation>Lataukset</translation>
+        <translation>İndirilenler</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation>kansio</translation>
+        <translation>Klasör</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation>Koko</translation>
+        <translation>Boyut</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Vakio</translation>
+        <translation>Standart Yazı Tipi</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Tasaleveä</translation>
+        <translation>Sabit Aralıklı Yazı Tipi</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation>Virrankäyttö</translation>
+        <translation>Güç Planları</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation>Virransäästön asetukset</translation>
+        <translation>Güç Tasarrufu Ayarları</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation>Automaattinen virransäästö alhaisella akulla</translation>
+        <translation>Düşük pilde otomatik güç tasarrufu</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Akun alhainen varaus</translation>
+        <translation>Düşük pil eşiği</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Automaattinen virransäästö akkutilassa</translation>
+        <translation>Pilden otomatik güç tasarrufu</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Heräämisen asetukset</translation>
+        <translation>Uyandırma Ayarları</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Tietokoneen herättäminen edellyttää salasanaa</translation>
+        <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>Näytön herääminen edellyttää salasanaa</translation>
+        <translation>Ekranı uyandırmak için parola gerekli</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation>Sammutamisen asetukset</translation>
+        <translation>Kapatma Ayarları</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation>Ajastettu sammutus</translation>
+        <translation>Planlanmış Kapatma</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Aika</translation>
+        <translation>Zaman</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>Toista</translation>
+        <translation>Tekrar</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation>Kerran</translation>
+        <translation>Bir kez</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation>Joka päivä</translation>
+        <translation>Her gün</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation>Työpäivinä</translation>
+        <translation>İş günleri</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Mukautettu aika</translation>
+        <translation>Özel Zaman</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation>Maanantai</translation>
+        <translation>Pazartesi</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation>Tiistai</translation>
+        <translation>Salı</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation>Keskiviikko</translation>
+        <translation>Çarşamba</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation>Torstai</translation>
+        <translation>Perşembe</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation>Perjantai</translation>
+        <translation>Cuma</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation>Lauantai</translation>
+        <translation>Cumartesi</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation>Sunnuntai</translation>
+        <translation>Pazar</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation>Muokkaa toistoaikaa</translation>
+        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Vähennä näytön kirkkautta virransäästössä</translation>
+        <translation>Güç Tasarrufu&apos;nda ekran parlaklığını azalt</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation>Kolmen sormen</translation>
+        <translation>Üç Parmak</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation>Neljän sormen</translation>
+        <translation>Dört Parmak</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Ylös</translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Alas</translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation>napauta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1571,165 +1559,165 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Optimaalinen suoritusteho</translation>
+        <translation>Optimal Performans</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimoitu suorituskykyyn: Poistaa kaikki ikkunatehosteet käytöstä.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Tasapaino</translation>
+        <translation>Dengeli</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Tasapainoinen: Rajoittaa hieman ikkunatehosteita ja siirtää suorituskukyä järjestelmälle.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Visuaalisesti paras</translation>
+        <translation>En İyi Görseller</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Visuaalisesti paras: Käyttää kaikkia ikkunatehosteita parhaan visuaalisen kokemuksen saamiseksi.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Näppäimistön asettelu</translation>
+        <translation>Klavye düzeni</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>edit</source>
-        <translation>muokkaa</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>Lisää sopiva kieli &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; ja testaa, että näppäimistö toimii oikein</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation>Lisää uusi näppäimistön asettelu...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Kieli</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>edit</source>
-        <translation>muokkaa</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation>Muut kielet</translation>
+        <translation>Diğer diller</translation>
     </message>
     <message>
         <source>add</source>
-        <translation>lisää</translation>
+        <translation>ekle</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation>Maa</translation>
+        <translation>Bölge</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Alue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation>Käyttöjärjestelmä ja sovellukset voivat tarjota sinulle paikallista sisältöä maasi ja alueesi perusteella</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Region and format</source>
-        <translation>Maa ja aikamuoto</translation>
+        <translation>Bölge ve biçim</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation>Käyttöjärjestelmä ja sovellukset voivat asettaa päivämäärän alueellisten muotojen perusteella</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation>Lisää kieli</translation>
+        <translation>Dil Ekle</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Haku</translation>
+        <translation>Ara</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Lisää</translation>
+        <translation>Ekle</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation>Lisää kieli</translation>
+        <translation>Dil Ekle</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Haku</translation>
+        <translation>Ara</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Lisää</translation>
+        <translation>Ekle</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation>Kirjautumistapa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation>Salasana, wechat, sormrnjälki, todennus, suojausavain</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Modify password</source>
-        <translation>Vaihda salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Validity days</source>
-        <translation>Voimassaolo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Always</source>
-        <translation>Aina</translation>
+        <translation>Her zaman</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Deepin Community</translation>
+        <translation>Copyright© 2011-%1 Deepin Topluluğu</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -1740,108 +1728,108 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Automaattinen melunvaimennus</translation>
+        <translation>Otomatik Gürültü Bastırma</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation>Sisääntulon voimakkuus</translation>
+        <translation>Ses Girişi</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation>Tulotaso</translation>
+        <translation>Giriş Seviyesi</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Sisääntulo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation>Ei löytynyt äänilaitetta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Sisääntulon laitteet</translation>
+        <translation>Giriş Cihazları</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation>Hiiri</translation>
+        <translation>Fare</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Osoittimen nopeus</translation>
+        <translation>İşaretçi Hızı</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Hidas</translation>
+        <translation>Yavaş</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Nopea</translation>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>Osoittimen koko</translation>
+        <translation>İşaretçi Boyutu</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Lyhyt</translation>
+        <translation>Kısa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Pitkä</translation>
+        <translation>Uzun</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Hiiren kiihtyvyys</translation>
+        <translation>Fare Hızlandırması</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Ota kosketuslevyn käytöstä, kun hiiri on kytketty</translation>
+        <translation>Bir fare bağlandığında dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Luonnollinen rullaaminen</translation>
+        <translation>Doğal Kaydırma</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Omat laitteet</translation>
+        <translation>Aygıtlarım</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation>UOS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Tietokoneen nimi</translation>
+        <translation>Bilgisayar Adı</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Se ei voi alkaa tai päättyä väliviivoihin</translation>
+        <translation>Kısa çizgi ile başlayamaz veya bitemez</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Käyttöjärjestelmä</translation>
+        <translation>İS Adı</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edition</source>
-        <translation>Painos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tyyppi</translation>
+        <translation>Tür</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1849,999 +1837,999 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Authorization</source>
-        <translation>Valtuutus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System installation time</source>
-        <translation>Asennuspäivä</translation>
+        <translation>Sistem Kurulum Tarihi</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Kernel</translation>
+        <translation>Çekirdek</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Grafiikka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Processor</source>
-        <translation>Prosessori</translation>
+        <translation>İşlemci</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>Muisti</translation>
+        <translation>Bellek</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation>Tietokone ei ole aktivoitu, päivityspalvelua ei voida käynnistää</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation>Muut laitteet</translation>
+        <translation>Diğer Cihazlar</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Näytä Bluetooth-laitteet ilman nimiä</translation>
+        <translation>Bluetooth cihazlarını isimsiz göster</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation>Nykyinen salasana</translation>
+        <translation>Mevcut parola</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Vaadittu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Heikko</translation>
+        <translation>Zayıf</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Hyvä</translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Vahva</translation>
+        <translation>Güçlü</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Salasana</translation>
+        <translation>Parola</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Toista salasana</translation>
+        <translation>Parolayı Tekrarla</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Salasana vihje</translation>
+        <translation>Parola İpucu</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Valinnainen</translation>
+        <translation>İsteğe bağlı</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Salasana ei voi olla tyhjä</translation>
+        <translation>Parola boş olamaz</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Salasanat eivät täsmää</translation>
+        <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>Uusi salasana ei saa olla sama kuin nykyinen</translation>
+        <translation>Yeni parola mevcut paroladan farklı olmalıdır</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>Vihje näkyy kaikille tietokoneen käyttäjille. Älä lisää salasanaa tähän.</translation>
+        <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation>Vaihda salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reset password</source>
-        <translation>Palauta salasana</translation>
+        <translation>Parolayı sıfırla</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>Salasanan pituus vähintään 8 merkkiä ja sisältää vähintään 3 seuraavista: isot kirjaimet, pienet kirjaimet, numerot ja symbolit. Tämän kaltainen salasana on turvallisempi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Salasanan palautus tyhjentää avaimeen tallennetut tiedot.</translation>
+        <translation>Parolanın sıfırlanması, anahtarlıkta depolanan verileri siler.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Vaalea</translation>
+        <translation>Açık</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Autom.</translation>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Tumma</translation>
+        <translation>Koyu</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation>Mukautettu</translation>
+        <translation>Özel</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Laajennusalue</translation>
+        <translation>Eklenti Alanı</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation>Sammuta</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Valmiustila</translation>
+        <translation>Askıya al</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Lepotila</translation>
+        <translation>Uyut</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Sammuta näyttö</translation>
+        <translation>Monitörü kapat</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Näytä sammutusliittymä</translation>
+        <translation>Kapatma arayüzünü göster</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Älä tee mitään</translation>
+        <translation>Hiçbir şey yapma</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Näyttö ja valmiustila</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Sammuta näyttö</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Lukitaan näyttö</translation>
+        <translation>Sonrasında ekranı kilitle</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Tietokone valmiustilaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kun kansi on kiinni</translation>
+        <translation>Kapak kapatıldığında</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Kun virtapainiketta painetaan</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation>Korkea suoritusteho</translation>
+        <translation>Yüksek Performans</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Tasapainoinen suoritusteho</translation>
+        <translation>Dengeli Performans</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Säätää prosessorin toimintataajuutta aggressiivisesti suorittimen kuormituksen perusteella</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Tasapainoinen</translation>
+        <translation>Dengeli</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation>Virransäästö</translation>
+        <translation>Güç Tasarrufu</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Priorisoi suorituskykyä, mikä lisää merkittävästi virrankulutusta ja lämmöntuotantoa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Tasapainottaa suorituskykyä ja akun kestoa, säätyy automaattisesti käytön mukaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Priorisoi akun käyttöikää, jolloin järjestelmä laskee hieman suorituskykyä virrankulutuksen vähentämiseksi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minuuttia</translation>
+        <translation>Dakika</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Tuntia</translation>
+        <translation>Saat</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Ei koskaan</translation>
+        <translation>Asla</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>Tietosuojakäytäntö</translation>
+        <translation>Gizlilik Politikası</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Salasana ei voi olla tyhjä</translation>
+        <translation>Parola boş olamaz</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
+        <translation>Parola en az %1 karakter olmalıdır</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
+        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Salasana voi sisältää vain englanninkielisiä kirjaimia (isot ja pienet kirjaimet), numeroita tai erikoismerkkejä (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Enintään %1 merkkiä palindromina</translation>
+        <translation>En fazla %1 palindrom karakter lütfen</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Enintään %1 monotonista merkkiä peräkkäin</translation>
+        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
+        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Salasanassa on oltava isoja kirjaimia, pieniä kirjaimia, numeroita ja symboleja (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Salasana ei saa sisältää takaperin enempää kuin 4 -merkkiä</translation>
+        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Älä käytä yleisiä sanoja ja yhdistelmiä salasanassa</translation>
+        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Luo vahva salasana</translation>
+        <translation>Lütfen güçlü bir parola oluşturun</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Tämä ei täytä salasanan sääntöjä</translation>
+        <translation>Parola kurallarına uymuyor</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Ohjauspaneli</translation>
+        <translation>Kontrol Merkezi</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation>Aktivoitu</translation>
+        <translation>Etkin</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Katsele</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation>Aktivoidaan</translation>
+        <translation>Etkinleştirilecek</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation>Aktivoi</translation>
+        <translation>Etkinleştir</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation>Vanhentunut</translation>
+        <translation>Süresi doldu</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation>Kokeilujakso</translation>
+        <translation>Deneme süresinde</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation>Kokeilujakso päättynyt</translation>
+        <translation>Deneme süresi doldu</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation>Ohjauspaneli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Kosketusnäytön asetukset</translation>
+        <translation>Dokunmatik Ekran Ayarları</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>Kosketusnäytön asetukset muuttuivat</translation>
+        <translation>Dokunmatik ekranın ayarları değişti</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Tämä taustakuva on lukittu. Ota yhteyttä järjestelmänvalvojaasi.</translation>
+        <translation>Bu sistem duvar kağıdı kilitli.Lütfen yöneticinizle iletişime geçin.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation>Maat ja aikamuodot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search</source>
-        <translation>Haku</translation>
+        <translation>Ara</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation>Oletusmuodot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Viikon ensimmäinen päivä</translation>
+        <translation>Haftanın ilk günü</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Lyhyt päivämäärä</translation>
+        <translation>Kısa tarih</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Pitkä päivämäärä</translation>
+        <translation>Uzun tarih</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Lyhyt aika</translation>
+        <translation>Kısa zaman</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Pitkä aika</translation>
+        <translation>Uzun zaman</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Valuutan symboli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digit</source>
-        <translation>Numero</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Paperikoko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation>Haku</translation>
+        <translation>Ara</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation>Aseta salasana</translation>
+        <translation>Parolayı Ayarla</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 merkkiä</translation>
+        <translation>8-64 karakterler</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Toista salasana</translation>
+        <translation>Parolayı tekrarla</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Vahvista</translation>
+        <translation>Onayla</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation>Salasanat eivät täsmää</translation>
+        <translation>Parolalar eşleşmiyor</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation>Näytönsäästäjä</translation>
+        <translation>Ekran koruyucu</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation>esikatselu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Personoi näytönsäästää</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>setting</source>
-        <translation>asetus</translation>
+        <translation>ayar</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation>Joutoaika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 min</translation>
+        <translation>1 dakika</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 min</translation>
+        <translation>5 dakika</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 min</translation>
+        <translation>10 dakika</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 min</translation>
+        <translation>15 dakika</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 min</translation>
+        <translation>30 dakika</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 h</translation>
+        <translation>1 saat</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>ei koskaan</translation>
+        <translation>asla</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Palautukseen vaaditaan salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Kuvien, diaesitys, näytönsäästäjä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Näytönsäästäjä</translation>
+        <translation>Sistem ekran koruyucu</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation>Haku</translation>
+        <translation>Ara</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation>Lisää mukautettu pikakuvake</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nimi:</translation>
+        <translation>Ad:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Vaadittu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation>Komento:</translation>
+        <translation>Komut:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Pikanäppäin</translation>
+        <translation>Kısayol</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Mitään</translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Anna uusi pikanäppäin</translation>
+        <translation>Lütfen yeni bir kısayol gir</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Lisää</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation>Korvaa painamalla Lisää</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Pikanäppäimet</translation>
+        <translation>Kısayollar</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation>Järjestelmän kuvake, mukautettu pikakuvake</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation>Hae pikanäppäimiä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Mukautettu</translation>
+        <translation>Özel</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>edit</source>
-        <translation>muokkaa</translation>
+        <translation>düzenle</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Anna uusi pikanäppäin</translation>
+        <translation>Lütfen yeni bir kısayol gir</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation>Paina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>or</source>
-        <translation>tai</translation>
+        <translation>ya da</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>Korvaa</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation>Palauta oletus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation>Lisää mukautettu pikakuvake</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Ulostulon laitteet</translation>
+        <translation>Çıkış Cihazları</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation>Valitse otetaanko laitteet käyttöön</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Sisääntulon laitteet</translation>
+        <translation>Giriş Cihazları</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation>Äänitehosteet</translation>
+        <translation>Ses Etkileri</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation>Käynnistys</translation>
+        <translation>Önyükleme</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Sammuta</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation>Kirjaudu ulos</translation>
+        <translation>Oturumu kapat</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation>Herää</translation>
+        <translation>Uyan</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation>Voimakkuus +/-</translation>
+        <translation>Ses +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Ilmoitus</translation>
+        <translation>Bildirim</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation>Akku vähissä</translation>
+        <translation>Düşük pil</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Lähetä kuvake pöydälle</translation>
+        <translation>Başlatıcı&apos;dan Masaüstüne simge gönder</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation>Tyhjennä roskakori</translation>
+        <translation>Çöpü Boşalt</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation>Kytketty</translation>
+        <translation>Fişe tak</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation>Poista laite</translation>
+        <translation>Fişten çıkar</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Siirrettävä laite kytketty</translation>
+        <translation>Çıkarılabilir aygıt bağlandı</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Siirrettävä laite poistettu</translation>
+        <translation>Çıkarılabilir aygıt kaldırıldı</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Virhe</translation>
+        <translation>Hata</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
-        <translation>Tila</translation>
+        <translation>Kip</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Ulostulon voimakkuus</translation>
+        <translation>Ses Çıkışı</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Voimakkuuden tehostin</translation>
+        <translation>Ses Artışı</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Jos voimakkuus on suurempi kuin 100%, se voi vääristää ääntä ja olla haitallista toistolaitteille</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation>Ulostulo</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation>Ei löytynyt äänilaitetta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>Tasapaino vasen ja oikea</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation>Mono ääni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation>Yhdistä vasen ja oikea kanava yhdeksi kanavaksi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation>Autom. tauko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>Keskeytetäänkö äänentoisto automaattisesti, kun äänilaite irrotetaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Ulostulon laitteet</translation>
+        <translation>Çıkış Cihazları</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation>Ääni</translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Virta</translation>
+        <translation>Güç</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Hiiri</translation>
+        <translation>Fare</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Päivitä</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Näytönsäästäjä</translation>
+        <translation>Ekran koruyucu</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Lisää taustakuvia</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Synkronointiaika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation>NTP-palvelin</translation>
+        <translation>Ntp sunucu</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation>Päiväys ja kellonaika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize</source>
-        <translation>Muokkaa</translation>
+        <translation>Özelleştir</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation>Palvelimen osoite</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
-        <translation>Vaadittu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation>NTP-palvelimen osoite ei voi olla tyhjä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation>Käytä 24h kelloa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>
-        <translation>aikavyöhyke</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation>Aikavyöhykkeet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation>kohteesta</translation>
+        <translation>buradan</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>-</translation>
+        <translation>buraya</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Tallennatko näytön asetukset?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>Asetukset palautetaan %1s kulttua.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Palauta</translation>
+        <translation>Eski haline döndür</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation>Lisää aikavyöhyke</translation>
+        <translation>Saat dilimi ekle</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation>Määritä aikavyöhyke sijainnin perusteella</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Aikavyöhyke:</translation>
+        <translation>Zaman dilimi:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation>Lähin kaupunki:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Kosketusnäyttö</translation>
+        <translation>Dokunmatik ekran</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Aseta täällä, kun liität kosketusnäytön</translation>
+        <translation>Dokunmatik ekranı bağlarken burayı ayarlayın</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation>Perusasetukset</translation>
+        <translation>Temel Ayarlar</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Kosketuslevy</translation>
+        <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Osoittimen nopeus</translation>
+        <translation>İşaretçi Hızı</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Hidas</translation>
+        <translation>Yavaş</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Nopea</translation>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Poista kosketuslevy, kun kirjoitat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Napauta</translation>
+        <translation>Tıklamak için Dokun</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Tasainen vieritys</translation>
+        <translation>Doğal Kaydırma</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation>Ele</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation>Kolmen sormen ele</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation>Neljän sormen ele</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation>Arvioitu asennuspäivä:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>30min</source>
-        <translation>30min</translation>
+        <translation>30 dak</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation>Asennetaan</translation>
+        <translation>Kuruluyor</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>Asetukset palautetaan %1s kulttua.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation>Tallennatko näytön asetukset?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Palauta</translation>
+        <translation>Eski haline döndür</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Tämä korjauspäivitys parantaa pääasiassa työpöydän toimivuutta ja sovellusten käyttökokemusta. Lisäksi korjaa joitakin ongelmia, mikä parantaa laatua entisestään.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>2025.1.20</source>
@@ -2849,416 +2837,416 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View Details</source>
-        <translation>Näytä tiedot</translation>
+        <translation>Ayrıntıları Görüntüle</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation>Päivitykset:</translation>
+        <translation>Güncellemeler:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation>Julkaisupäivä:</translation>
+        <translation>Yayın zamanı:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Tiivistetty</translation>
+        <translation>Daralt</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation>Päivityksiä saatavilla</translation>
+        <translation>Güncelleme Kullanılabilir</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation>Asennetaan päivitystä</translation>
+        <translation>Güncellemeler Yükleniyor</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation>Asentaa päivityksiä...</translation>
+        <translation>Güncellemeler yükleniyor...</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation>Päivitys asennettu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Käynnistä</translation>
+        <translation>Şimdi Yeniden Başlat</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation>Päivityksen lataus epäonnistui</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>retry</source>
-        <translation>uudelleen</translation>
+        <translation>yeniden dene</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation>Tarkistetaan päivityksiä, odota...</translation>
+        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Tietokone on päivitetty, käynnistä uudelleen</translation>
+        <translation>Sisteminiz güncel, lütfen şimdi yeniden başlatın</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>Tietokone on päivitetty</translation>
+        <translation>Sisteminiz güncel</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation>Päivitys havaittiin.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
+        <translation>Güncelleme başarısız oldu: yetersiz disk alanı</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation>Päivitys epäonnistui</translation>
+        <translation>Güncelleme başarısız oldu</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation>Verkkovirhe, tarkista ja yritä uudelleen</translation>
+        <translation>Ağ hatası, lütfen kontrol edip tekrar deneyin</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation>Pakettivirhe, yritä uudelleen</translation>
+        <translation>Paket hatası, lütfen tekrar deneyin</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation>Puuttuvat riippuvuudet</translation>
+        <translation>Karşılanmayan bağımlılıklar</translation>
     </message>
 </context>
 <context>
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation>päivitystyyppi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Function update</source>
-        <translation>Toiminnan päivitys</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Tarjoaa uusia ominaisuuksia, laatukorjauksia, tietoturva-aukkojen korjauksia ja päivitettyä sisältöä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation>Laatupäivitys</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation>Tarjoa laatukorjauksista</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation>Älykäs pakettivaraston vaihto</translation>
+        <translation>Akıllı Yansı Değiştir</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Liity käyttökokemusohjelmaan</translation>
+        <translation>Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation>Tietoturvan vahvistus</translation>
+        <translation>Güvenlik Doğrulama</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation>Toiminto on arkaluonteinen, kirjoita ensin kirjautumissalasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 merkkiä</translation>
+        <translation>8-64 karakterler</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation>Unohditko salasanan?</translation>
+        <translation>Parolanızı mı unuttunuz?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Vahvista</translation>
+        <translation>Onayla</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>taustakuva</translation>
+        <translation>duvar Kâğıdı</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation>Ikkunoiden pyöristettyt kulmat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>My pictures</source>
-        <translation>Minun kuvat</translation>
+        <translation>Resimlerim</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Taustakuvia</translation>
+        <translation>Sistem Duvar Kağıdı</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation>Yksivärinen taustakuva</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation>Muokattavat taustakuvat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>fill style</source>
-        <translation>täyttötyyli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation>Automaattiset taustakuvat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>never</source>
-        <translation>ei koskaan</translation>
+        <translation>asla</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation>30 sek</translation>
+        <translation>30 Saniye</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 min</translation>
+        <translation>1 dakika</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 min</translation>
+        <translation>5 dakika</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 min</translation>
+        <translation>10 dakika</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 min</translation>
+        <translation>15 dakika</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 min</translation>
+        <translation>30 dakika</translation>
     </message>
     <message>
         <source>login</source>
-        <translation>kirjaudu</translation>
+        <translation>oturum aç</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation>herää</translation>
+        <translation>uyan</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation>Taustakuvia</translation>
+        <translation>Sistem Duvar Kağıtları</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation>Elävä taustakuva</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 h</translation>
+        <translation>1 saat</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>levitä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>show all</source>
-        <translation>näytä kaikki</translation>
+        <translation>Tümünü göster</translation>
     </message>
     <message>
         <source>items</source>
-        <translation>kohteet</translation>
+        <translation>Öğeler</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation>Aseta lukitusnäyttö</translation>
+        <translation>Kilit ekranı ayarla</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation>Aseta työpöytä</translation>
+        <translation>Masaüstü ayarla</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>Käyttöliittymä ja tehosteet</translation>
+        <translation>Arayüz ve Efektler</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation>Ikkunoinnin asetukset</translation>
+        <translation>Pencere Ayarları</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation>Ikkunoiden pyöristettyt kulmat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Mitään</translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pieni</translation>
+        <translation>Küçük</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Hyvä</translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Suuri</translation>
+        <translation>Büyük</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Käytä läpinäkyviä tehosteita ikkunaa siirtäessä</translation>
+        <translation>Pencereleri taşırken şeffaflık efektlerini etkinleştirin</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Ikkunan minimointitehoste</translation>
+        <translation>Pencere Küçültme Efekti</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Skaalaus</translation>
+        <translation>Ölçek</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation>Taikalamppu</translation>
+        <translation>Sihirli Işık</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Läpinäkyvyys</translation>
+        <translation>Saydamlık</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>Matala</translation>
+        <translation>Düşük</translation>
     </message>
     <message>
         <source>High</source>
-        <translation>Korkea</translation>
+        <translation>Yüksek</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation>Vierityspalkit</translation>
+        <translation>Kaydırma Çubukları</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Näytä vierityksessä</translation>
+        <translation>Kaydırmayı göster</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Näytä aina</translation>
+        <translation>Gösterilmeyi sürdür</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Kompakti näyttö</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Jos käytössä, ikkunassa näkyy lisää sisältöä.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Otsikkopalkin korkeus</translation>
+        <translation>Başlık Çubuğu Yüksekliği</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>Sopii vain piirtämille sovellusten ikkunoiden otsikkoriville.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Erittäin pieni</translation>
+        <translation>Son derece küçük</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Tili</translation>
+        <translation>Hesap</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Tilin hallinta</translation>
+        <translation>Hesap yönetimi</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Muut tilit</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biometrinen todennus</translation>
+        <translation>Biyometrik Kimlik Doğrulama</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biometrinen todennus</translation>
+        <translation>Biyometrik Kimlik Doğrulama</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Kasvot</translation>
+        <translation>Yüz</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Enintään 5 kasvotietoa voidaan antaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Sormenjälki</translation>
+        <translation>Parmak İzi</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Käyttäjän identiteetin tunnistaminen sormenjälkien avulla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Iiris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Henkilöllisyyden tunnistus iiriksen skannauksella</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
+        <translation>Yalnızca harf, rakam ve alt çizgi kullanın ve en fazla 15 karakter kullanın</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja</translation>
+        <translation>Yalnızca harf, rakam ve alt çizgi kullanın</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>Enintään 15 merkkiä</translation>
+        <translation>15 karakterden fazla değil</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation>Lisää uusi</translation>
+        <translation>Yeni ekle</translation>
     </message>
 </context>
 <context>
@@ -3269,341 +3257,341 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth asetukset, laitteet</translation>
+        <translation>Bluetooth ayarları, Aygıtlar</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistysvalikko</translation>
+        <translation>Ön Yükleme Menüsü</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Hallitse käynnistysvalikkoa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Kehittäjän root oikeuksien hallinta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Kehittäjäasetukset</translation>
+        <translation>Geliştirici Seçenekleri</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Aika ja päivämäärä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Aika ja aikavyöhyke, maa-asetukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Kieli ja maa</translation>
+        <translation>Dil ve bölge</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation>Tietokoneen kieli, aikamuoto</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>Käyttäjänimen on oltava 3–32 merkkiä pitkä</translation>
+        <translation>Kullanıcı adı 3 ile 32 karakter arasında olmalıdır</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
+        <translation>İlk karakter bir harf veya sayı olmalıdır</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>Käyttäjänimessäsi ei saa olla vain numeroita</translation>
+        <translation>Kullanıcı adınız sadece rakam içermemelidir</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>Nimeä on käytetty muilla käyttäjätileillä</translation>
+        <translation>Kullanıcı adı diğer kullanıcı hesapları tarafından kullanılmış</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>Nimesi on liian pitkä</translation>
+        <translation>Tam isim çok uzun</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Koko nimeä on käytetty muilla käyttäjätileillä</translation>
+        <translation>Tam ad diğer kullanıcı hesapları tarafından kullanılmış</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Väärä salasana</translation>
+        <translation>Yanlış parola</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Tavallinen käyttäjä</translation>
+        <translation>Standart Kullanıcı</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Järjestelmänvalvoja</translation>
+        <translation>Yönetici</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Muokattu</translation>
+        <translation>Özelleştirilmiş</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Laitteesi poistettiin toimialueelta onnistuneesti</translation>
+        <translation>Ana makineniz etki alanı sunucusundan başarıyla kaldırıldı</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Laitteesi liittyi toimialueeseen onnistuneesti</translation>
+        <translation>Ana makineniz etki alanı sunucusuna başarıyla katıldı</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Laitteesi poistuminen toimialueelta epäonnistui</translation>
+        <translation>Ana makineniz etki alanı sunucusundan ayrılamadı</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Laitteesi liittyminen toimialueeseen epäonnistui</translation>
+        <translation>Ana makineniz etki alanı sunucusuna katılamadı</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Toimialueen asetukset</translation>
+        <translation>Aktif Dizin etki alanı ayarları</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>Salasana ei täsmää</translation>
+        <translation>Parola eşleşmiyor</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation>Ulottuvuus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Flat</source>
-        <translation>Taso</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Käytä kasvoja lukituksen avaamiseen ja tee asetukset myöhemmin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation>Kasvojälki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>Aseta sormi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation>Nosta sormesi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Nosta sormesi ja aseta se lukijaan uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Skannaa sormenjäljen reunat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Säädä asentoa kun skannaat sormenjäljen reunat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>Nosta sormeasi ja tee se uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation>Sormenjälki lisätty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Skannaus keskeytetty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Aseta sormen reunat anturiin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Iiris</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation>Tämä on ristiriidassa [%1] kanssa</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Salasana ei voi olla tyhjä</translation>
+        <translation>Parola boş olamaz</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
+        <translation>Parola en az %1 karakter olmalıdır</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
+        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Salasana voi sisältää vain englanninkielisiä kirjaimia (isot ja pienet kirjaimet), numeroita tai erikoismerkkejä (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Enintään %1 merkkiä palindromina</translation>
+        <translation>En fazla %1 palindrom karakter lütfen</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Enintään %1 monotonista merkkiä peräkkäin</translation>
+        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Enintään %1 samaa merkkiä peräkkäin</translation>
+        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Salasanassa on oltava isoja kirjaimia, pieniä kirjaimia, numeroita ja symboleja (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Salasana ei saa sisältää takaperin enempää kuin 4 -merkkiä</translation>
+        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Älä käytä yleisiä sanoja ja yhdistelmiä salasanassa</translation>
+        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Luo vahva salasana, kiitos</translation>
+        <translation>Lütfen güçlü bir parola oluşturun</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Tämä ei täytä salasanan sääntöjä</translation>
+        <translation>Parola kurallarına uymuyor</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation>Järjestelmä</translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Ikkuna</translation>
+        <translation>Pencere</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Työtila</translation>
+        <translation>Çalışma Alanı</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation>Apuvälineet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Mukautettu</translation>
+        <translation>Özel</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Mitään</translation>
+        <translation>Hiçbiri</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>deepin tunnus</translation>
+        <translation>Deepin Kimliği</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS ID</translation>
+        <translation>UOS Kimliği</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>Pilvipalvelut</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Oletussovellus</translation>
+        <translation>Varsayılan Uygulama</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>Aseta oletussovellus erityyppisten tiedostojen avaamiseen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Salain</translation>
+        <translation>Web sayfası</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Sähköposti</translation>
+        <translation>E-posta</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Teksti</translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Musiikki</translation>
+        <translation>Müzik</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Videot</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Kuvat</translation>
+        <translation>Resim</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Pääte</translation>
+        <translation>Uçbirim</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Laite</translation>
+        <translation>Cihaz</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation>Näyttö</translation>
+        <translation>Ekran</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Kirkkaus, resoluutio, skaalaus</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3634,7 +3622,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>250%</source>
-        <translation>250%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>275%</source>
@@ -3646,35 +3634,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Monista</translation>
+        <translation>Çoğalt</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Laajenna</translation>
+        <translation>Genişlet</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Oletus</translation>
+        <translation>Varsayılan</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Sovita</translation>
+        <translation>Sığdır</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Venytä</translation>
+        <translation>Uzat</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Keskitetty</translation>
+        <translation>Ortala</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Vain %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation>(suositus)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hz</source>
@@ -3682,51 +3670,51 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>Usean näytön asetuksia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identify</source>
-        <translation>Tunnista</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Näytön järjestely tulee voimaan %1s muutosten jälkeen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Tila</translation>
+        <translation>Kip</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Päänäyttö</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Näyttö ja asettelu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Kirkkaus</translation>
+        <translation>Parlaklık</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Resoluutio</translation>
+        <translation>Çözünürlük</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Muuta pöydän kokoa</translation>
+        <translation>Masaüstünü Yeniden Boyutlandır</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Virkistystaajuus</translation>
+        <translation>Yenileme Hızı</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Kääntö</translation>
+        <translation>Döndür</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Vakio</translation>
+        <translation>Standart</translation>
     </message>
     <message>
         <source>90°</source>
@@ -3742,378 +3730,378 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>Näytön skaalaus</translation>
+        <translation>Görüntü Ölçeği</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Näyttö tukee vain 100% skaalausta</translation>
+        <translation>Ekran yalnızca %100 ekran ölçeklendirmeyi destekler</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Silmien mukavuus</translation>
+        <translation>Göz Rahatlığı</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Ota silmien mukavuus käyttöön</translation>
+        <translation>Göz rahatlığını enkileştir</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Säädä näyttöä lämpimämpiin väreihin vähentäen näytön sinistä valoa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation>Aika</translation>
+        <translation>Zaman</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation>Koko päivä</translation>
+        <translation>Tüm gün</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Auringonlaskusta nousuun</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Mukautettu aika</translation>
+        <translation>Özel Zaman</translation>
     </message>
     <message>
         <source>from</source>
-        <translation>kohteesta</translation>
+        <translation>buradan</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>-</translation>
+        <translation>buraya</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Värilämpötila</translation>
+        <translation>Renk Sıcaklığı</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Pöytä ja tehtäväpalkki</translation>
+        <translation>Masaüstü ve görev çubuğu</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Aseta pöydän kuvakkeet ja koko</translation>
+        <translation>Masaüstündeki simgelerin görünümünü ve boyutunu ayarlayın</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Näppäimistö</translation>
+        <translation>Klavye</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>Lisäasetukset, näppäimistön asettelu, kieli, pikanäppäimet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Yleinen</translation>
+        <translation>Ortak</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Näppäimistön asettelu</translation>
+        <translation>Klavye düzeni</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation>Aseta näppäimistön oletusasettelu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation>Paneeli</translation>
+        <translation>Rıhtım</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Tila</translation>
+        <translation>Kip</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Klassinen</translation>
+        <translation>Klasik Kip</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Keskitetty</translation>
+        <translation>Ortalanmış Kip</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Paneelin koko</translation>
+        <translation>Rıhtım boyutu</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Pieni</translation>
+        <translation>Küçük</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Suuri</translation>
+        <translation>Büyük</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Paikka ruudulla</translation>
+        <translation>Ekrandaki konumu</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Ylös</translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Alas</translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Tila</translation>
+        <translation>Durum</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Näytä aina</translation>
+        <translation>Sürekli görünür</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Pidä piilossa</translation>
+        <translation>Sürekli gizli</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Älykäs piilotus</translation>
+        <translation>Akıllı gizlenme</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Useita näyttöjä</translation>
+        <translation>Birden Fazla Ekran</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Aseta tehtäväpalkin paikka näytöllä</translation>
+        <translation>Görev çubuğunun ekrandaki konumunu ayarlayın</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Päänäytössä</translation>
+        <translation>Yalnızca ana ekranda</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>Näytöllä, jossa kohdistin on</translation>
+        <translation>İmlecin olduğu ekranda</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Laajennusalue</translation>
+        <translation>Eklenti Alanı</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Hiiri ja kosketuslevy</translation>
+        <translation>Fare ve Dokunmatik Yüzey</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Yleinen, hiiri, kosketuslevy</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Yleinen</translation>
+        <translation>Ortak</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Hiiri</translation>
+        <translation>Fare</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Kosketuslevy</translation>
+        <translation>Dokunmatik Yüzey</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>Älä häiritse, sovellusten ilmoitukset</translation>
+        <translation>RHT Kipi, uygulama Bildirimleri</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Ilmoitus</translation>
+        <translation>Bildirim</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Älä häiritse -  asetukset</translation>
+        <translation>Rahatsız Etme Ayarları</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Sovellusten ilmoituksia ei näytetä työpöydälle ja äänimerkit ovat äänettömiä, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Älä häiritse käyttöön</translation>
+        <translation>Etkinleştir Rahatsız Etmeyin</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Kun näyttö on lukittu</translation>
+        <translation>Ekran kilitlendiğinde</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Pöydällä näkyvien ilmoitusten määrä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Sovellusten ilmoitukset</translation>
+        <translation>Uygulama Bildirimleri</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>Salli ilmoitukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Näytä ilmoitus pöydällä tai näytä lukemattomat viestit ilmoitusalueella</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Pöytä</translation>
+        <translation>Masaüstü</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Lukitse näyttö</translation>
+        <translation>Ekranı Kilitle</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Ilmoituskeskus</translation>
+        <translation>Bildirim Merkezi</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Näytä viestin esikatselu</translation>
+        <translation>Mesaj önizlemesini göster</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Toista ääni</translation>
+        <translation>Bir ses çal</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>Personointi</translation>
+        <translation>Kişiselleştir</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>Teema</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Ulkoasu</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Tehosteet</translation>
+        <translation>Pencere efekti</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personoi taustakuvaa ja näytönsäästää</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Näytönsäästäjä</translation>
+        <translation>Ekran koruyucu</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>Värit ja kuvakkeet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>Säädä korostusvärejä ja teeman kuvakkeisiin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>Kirjasin ja koko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>Muuta kirjasinta ja kokoa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Taustakuva</translation>
+        <translation>Duvar Kâğıdı</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>Valitse vaalea, tumma tai autom. teeman ulkoasu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Käyttöliittymä ja tehosteet,  pyöristetyt kulmat,  kompakti näyttö</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Virransäästö, näyttö ja valmiustila</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation>Virta</translation>
+        <translation>Güç</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation>Yleinen</translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Virrankäyttö, virransäästö, herääminen, sammuttaminen, asetukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Kytketty</translation>
+        <translation>Fişe Takılı</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>Näyttö ja valmiustila</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Akulla</translation>
+        <translation>Pilde</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>näyttö ja valmustila, alhainen akku, akun hallinta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Yksityisyys ja tietoturva</translation>
+        <translation>Gizlilik ve Güvenlik</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Kamera, kansion käyttöoikeudet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4124,158 +4112,158 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Valitse, onko sovelluksella pääsy kameraan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Tiedostot ja kansiot</translation>
+        <translation>Dosyalar ve klasörler</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>Valitse, onko sovelluksella pääsy tiedostoihin ja kansioihin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation>Ääni</translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation>Ulostulo</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Sisääntulo</translation>
+        <translation>Giriş</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Äänitehosteet</translation>
+        <translation>Ses Efektleri</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>Äänitehosteet käyttöön/pois</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation>Laitehallinta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>Käytä/poista äänilaite käytöstä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Yleiset asetukset</translation>
+        <translation>Ortak ayarlar</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Järjestelmä</translation>
+        <translation>Sistem</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Aputiedot</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Tietoja tästä tietokoneesta</translation>
+        <translation>Bu PC Hakkında</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versio, järjestelmätiedot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation>Avoimen lähdekoodin ohjelmistokuvaus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Käyttökokemusohjelma</translation>
+        <translation>Kullanıcı Deneyimi Programı</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Loppukäyttäjän lisenssisopimus</translation>
+        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Näytä loppukäyttäjän lisenssisopimus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Tietosuojakäytäntö</translation>
+        <translation>Gizlilik Politikası</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Katso tietoja tietosuojakäytännöstä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Kosketusnäyttö</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Kosketusnäytön konfigurointi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Yleinen</translation>
+        <translation>Ortak</translation>
     </message>
 </context>
 <context>
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation>Päivitys</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation>Päivitys ja versio päivitys</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation>Ominaisuus päivitykset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation>Päivityksen asetukset</translation>
+        <translation>Güncelleme Ayarları</translation>
     </message>
 </context>
 <context>
@@ -4286,7 +4274,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Wacomin konfigurointi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4297,23 +4285,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation>Wacom</translation>
+        <translation>Wacom Kipi</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Kynä</translation>
+        <translation>Kalem Kipi</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Hiiri</translation>
+        <translation>Fare Kipi</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Paineherkkyys</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation>Kevyt</translation>
+        <translation>Açık</translation>
     </message>
 </context>
 </TS>

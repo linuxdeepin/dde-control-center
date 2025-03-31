@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -53,31 +51,31 @@
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>Login automático, login sem senha</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login automático</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informações da Conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da conta</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome completo da conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished">Tipo de conta</translation>
+        <translation>Tipo de conta</translation>
     </message>
 </context>
 <context>
@@ -178,7 +176,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -314,7 +312,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"></translation>
+        <translation>Desativar</translation>
     </message>
 </context>
 <context>
@@ -325,7 +323,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>O Bluetooth está ligado e o nome é exibido como &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -2077,7 +2075,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Priorizar a duração da bateria, significa que o sistema sacrificará parte do desempenho para reduzir o consumo de energia</translation>
     </message>
 </context>
 <context>
@@ -2621,7 +2619,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished">Protetor de tela</translation>
+        <translation>Protetor de tela</translation>
     </message>
 </context>
 <context>
@@ -2843,15 +2841,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizações:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Data de lançamento:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Recolher</translation>
     </message>
 </context>
 <context>
@@ -2902,7 +2900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"></translation>
+        <translation>A atualização falhou: espaço insuficiente em disco</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -2910,15 +2908,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de rede, verifique e tente novamente</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de pacotes, tente novamente</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Dependências desencontradas</translation>
     </message>
 </context>
 <context>
@@ -3062,7 +3060,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished">1 hora</translation>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
@@ -3278,7 +3276,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções de Desenvolvedor</translation>
     </message>
 </context>
 <context>
@@ -4050,11 +4048,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione entre os temas claro, escuro ou automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface e efeitos, cantos arredondados, tela compacta</translation>
     </message>
 </context>
 <context>
@@ -4133,7 +4131,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Saída, entrada, efeitos sonoros, dispositivos</translation>
     </message>
 </context>
 <context>

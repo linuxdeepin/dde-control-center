@@ -59,23 +59,23 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Hollësi Llogarie</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Emër llogarie, emër i plotë llogarie, lloj llogarie</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Emër llogarie</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Emër i plotë për llogarinë</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Lloj llogarie</translation>
     </message>
 </context>
 <context>
@@ -1082,7 +1082,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Lidhje</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
@@ -2621,16 +2621,8 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Tingull</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-    <message>
         <source>Power</source>
         <translation>Energji</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Rrjet</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2639,6 +2631,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Update</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>Ekrankursyes</translation>
     </message>
 </context>
 <context>
@@ -4067,11 +4063,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidhni dukje të çelët, të errët, ose automatike teme</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Ndërfaqe dhe efekte, cepa të rrumbullakët, shfaqje kompakte</translation>
     </message>
 </context>
 <context>
