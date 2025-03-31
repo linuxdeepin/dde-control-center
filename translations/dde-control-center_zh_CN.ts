@@ -1129,7 +1129,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -2634,7 +2634,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>屏幕保护</translation>
     </message>
 </context>
 <context>
@@ -3538,7 +3538,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
