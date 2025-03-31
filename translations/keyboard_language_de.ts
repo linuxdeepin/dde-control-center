@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation>Afrikanisch</translation>
+        <translation>Afrikaans</translation>
     </message>
     <message>
         <source>አማርኛ</source>
@@ -71,7 +71,7 @@
     </message>
     <message>
         <source>Kaszëbsczi</source>
-        <translation>Slawisch (Kaschubisch)</translation>
+        <translation>Kaschubisch</translation>
     </message>
     <message>
         <source>Чăвашла</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>ཇོང་ཁ</source>
-        <translation>Algerisch (ཇོང་ཁ)</translation>
+        <translation>Algerisch/ཇོང་ཁ</translation>
     </message>
     <message>
         <source>Ελληνικά</source>
