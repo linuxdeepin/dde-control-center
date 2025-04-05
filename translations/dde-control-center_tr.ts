@@ -2246,7 +2246,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>Kağıt boyutu</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2626,7 +2626,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Daha Fazla Duvar Kağıdı</translation>
     </message>
 </context>
 <context>
