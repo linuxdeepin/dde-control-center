@@ -718,7 +718,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Shumë</translation>
     </message>
     <message>
         <source>Repeat delay</source>
@@ -754,7 +754,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Shkrimi me përkufizim të majtë</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
@@ -889,7 +889,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>dispozable</translation>
     </message>
 </context>
 <context>
@@ -1215,7 +1215,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>fjalëkalimi i kodifikuar nuk u kuptoi</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
@@ -1288,11 +1288,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Po</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>Enter</translation>
     </message>
     <message>
         <source>Online</source>
@@ -1356,7 +1356,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Po</translation>
     </message>
     <message>
         <source>Debug</source>
@@ -1755,7 +1755,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Shkrimi</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
@@ -2062,7 +2062,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Performancë të Higjë</translation>
     </message>
     <message>
         <source>Balance Performance</source>
@@ -2630,7 +2630,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -2756,7 +2756,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Po shtypni tuaj këndore kur lidetni përsëri tastaturën e pantë</translation>
     </message>
 </context>
 <context>
@@ -2783,7 +2783,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Ndaloni tastaturën e pantë kur shkruani</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -3071,7 +3071,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Wallpaper Live</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -3082,7 +3082,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>përshtatë</translation>
     </message>
     <message>
         <source>show all</source>
@@ -3121,15 +3121,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Kukox</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mesatar</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Gjergj</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -3376,7 +3376,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Përshtatja e domenit AD</translation>
     </message>
     <message>
         <source>Password not match</source>
@@ -3402,7 +3402,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Printa e fete</translation>
     </message>
     <message>
         <source>Place your finger</source>
@@ -3818,7 +3818,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Shumë</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -3928,14 +3928,14 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Muz, Tastaturë e pantë</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Shumë</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -3943,7 +3943,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturë e pantë</translation>
     </message>
 </context>
 <context>
@@ -4173,7 +4173,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Përgjegjës i mbështjes</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
@@ -4256,7 +4256,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Shumë</translation>
     </message>
 </context>
 <context>
@@ -4285,7 +4285,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
@@ -4296,7 +4296,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom Principal</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
