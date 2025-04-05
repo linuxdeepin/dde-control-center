@@ -1821,7 +1821,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Sürüm</translation>
     </message>
     <message>
         <source>Edition</source>
@@ -4191,7 +4191,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Sistem sürümü, cihaz bilgileri</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
