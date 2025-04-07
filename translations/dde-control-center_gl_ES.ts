@@ -1,112 +1,112 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="gl_ES">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>düzenle</translation>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Yeni kullanıcı ekle</translation>
+        <translation>Engadir novo usuario</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Establecer nome completo</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation>Giriş ayarları</translation>
+        <translation>Configuración de inicio de sesión</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation>Giriş Ayarları</translation>
+        <translation>Configuración de inicio de sesión</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Oturum Parola Kullanmadan Açılsın</translation>
+        <translation>Iniciar sesión sen contrasinal</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar conta actual</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>Grup ayarları</translation>
+        <translation>Configuración de grupos</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation>Hesap grupları</translation>
+        <translation>Grupos de conta</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>feito</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation>Grup adı</translation>
+        <translation>Nome do grupo</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation>Grup ekle</translation>
+        <translation>Engadir grupo</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión automático, iniciar sesión sen contrasinal</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation>Otomatik giriş</translation>
+        <translation>Iniciar sesión automático</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Información da conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation>Hesap adı</translation>
+        <translation>Nome da conta</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Nome completo da conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Hesap Türü</translation>
+        <translation>Tipo de conta</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Kayıt Yüzü</translation>
+        <translation>Inscrir rostro</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Yüzünüzün tüm bölümlerinin nesnelerle kaplanmadığından ve açıkça görülebildiğinden emin olun. Yüzünüz de iyi aydınlatılmış olmalıdır. </translation>
+        <translation>Asúrtese de que todas as partes do seu rostro non estén cubertas polos obxectos e sexan visibles. O seu rostro debe estar ben iluminado tamén.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Okudum ve onaylıyorum</translation>
+        <translation>Leido e acordo coa</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Feragat</translation>
+        <translation>Aviso</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Sonraki</translation>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Yüz kayıtlı</translation>
+        <translation>Rosto inscrito</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Yüzünüz kaydedilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -143,11 +143,11 @@ In order to better use of face recognition, please pay attention to the followin
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation>Tamamlandı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enroll Finger</source>
@@ -159,15 +159,15 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Okudum ve onaylıyorum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Feragat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation>Sonraki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -194,22 +194,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Ok</source>
-        <translation>Tamam</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation>Görseller</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Human</source>
-        <translation>İnsan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Animal</source>
-        <translation>Hayvan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scenery</source>
@@ -221,185 +221,185 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Emoji</source>
-        <translation>İmoji</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>custom</source>
-        <translation>özel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo de dibujo animado</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo tridimensional</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo plano</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla e suspensión</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar o monitor despois de</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Sonrasında ekranı kilitle</translation>
+        <translation>Bloquear a pantalla despois de</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>O ordenador suspenderá despois de</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kapak kapatıldığında</translation>
+        <translation>Cando se pecha a tapa</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cando se preme o botón de poder</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation>Düşük Batarya</translation>
+        <translation>Batería baixa</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificación de batería baixa</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation>Otomatik askıya al </translation>
+        <translation>Suspensión automática</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>Otomatik Uyut</translation>
+        <translation>Hibernación automática</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Düşük pil eşiği</translation>
+        <translation>Límite de batería baixa</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Batarya Yönetimi</translation>
+        <translation>Gestión da batería</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Kalan kullanım ve şarj süresini göster</translation>
+        <translation>Mostrar o tempo restante de uso e carga</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation>Azami kapasite</translation>
+        <translation>Capacidade máxima</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>Düşük pil seviyesi</translation>
+        <translation>Nivel de batería baixa</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation>Devre Dışı </translation>
+        <translation>Desactivar</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O Bluetooth está desactivado e o nome é mostrado como &quot;%1&quot; </translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O Bluetooth está activado e o nome é mostrado como &quot;%1&quot; </translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation>Bağlantıyı kes</translation>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Bağlan</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation>Dosyaları Gönder</translation>
+        <translation>Enviar arquivos</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Yeniden adlandır</translation>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar dispositivo</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Seleccionar ficheiro</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation>Düzenle</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"/>
+        <translation>Longitud superior ou igual a 64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Diğer Bluetooth cihazlarının bu cihazı bulmasına izin ver</translation>
+        <translation>Permitir que outros dispositivos Bluetooth o atopen</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Para usar a función Bluetooth, por favor desactiva-a</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Uçak Kipi</translation>
+        <translation>Modo avión</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation>Bağlandı</translation>
+        <translation>Conectado</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Bağlı değil</translation>
+        <translation>Non conectado</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de arranque</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Podes clicar no menú para cambiar os elementos de arranque por defecto, ou arrastra a imaxe ao xanela para cambiar a imaxe de fondo.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>Retraso do arranque de grub</translation>
     </message>
     <message>
         <source>theme</source>
@@ -407,31 +407,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Despois de activar o tema, verás a imaxe de fondo do tema ao encender o ordenador</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificación do menú de arranque</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Despois de abrir, a introdución de edición do menú require unha contrasinal.</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Parolayı Değiştir</translation>
+        <translation>Cambiar contrasinal</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar contrasinal de verificación do menú de arranque</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Establecer o contrasinal de autenticación do menú de arranque</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Kullanıcı Adı :</translation>
+        <translation>Nome de usuario :</translation>
     </message>
     <message>
         <source>root</source>
@@ -439,371 +439,372 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>New Password :</source>
-        <translation>Yeni Parola:</translation>
+        <translation>Novo contrasinal :</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Obrigatorio</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>A contrasinal non pode estar en branco</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>As contrasínhas non coinciden</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Parolayı tekrarla:</translation>
+        <translation>Repita o contrasinal:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Xánllate</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Seguro</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Inicia a animación</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta o tamaño da animación do logotipo na interface de arranque do sistema</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Permite a seguintes aplicativos acceder á súa cámara:</translation>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>Parmakizi1</translation>
+        <translation>Impresión1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>Parmakizi2</translation>
+        <translation>Impresión2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>Parmakizi3</translation>
+        <translation>Impresión3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>Parmakizi4</translation>
+        <translation>Impresión4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>Parmakizi5</translation>
+        <translation>Impresión5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>Parmakizi6</translation>
+        <translation>Impresión6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>Parmakizi7</translation>
+        <translation>Impresión7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>Parmakizi8</translation>
+        <translation>Impresión8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>Parmakizi9</translation>
+        <translation>Impresión9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>Parmakizi10</translation>
+        <translation>Impresión10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Tarama başarısız</translation>
+        <translation>A escaneación fallou</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation>Parmak izi zaten var</translation>
+        <translation>A impressión digital xa existe</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Lütfen diğer parmaklarınızı tarayın</translation>
+        <translation>Escanea outras dedos, por favor</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Bilinmeyen hata</translation>
+        <translation>Erro descoñecido</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Tarama askıya alındı</translation>
+        <translation>A escaneación foi pausada</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>Tanınamıyor</translation>
+        <translation>Non se pode identificar</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation>Çok hızlı taşındı</translation>
+        <translation>Movido demasiado rápido</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Parmak çok hızlı hareket etti, lütfen istenene kadar kaldırmayın</translation>
+        <translation>O dedo foi movido demasiado rápido, por favor, non levale ata que se o solicite</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Net olmayan parmak izi</translation>
+        <translation>Impresión de dedo confusa</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Parmağınızı temizleyin veya parmak konumunu ayarlayın ve tekrar deneyin</translation>
+        <translation>Limpe o seu dedo ou ajuste a posición do dedo e tente de novo</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation>Zaten tarandı</translation>
+        <translation>Xá escaneado</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Parmak izinizi tamamen taramak için parmak konumunu ayarlayın</translation>
+        <translation>Ajuste a posición do dedo para escanear a súa impresión completa</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Parmak çok hızlı hareket etti. Lütfen istenene kadar kaldırmayın</translation>
+        <translation>O dedo foi movido demasiado rápido. Por favor, non levale ata que se o solicite</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
+        <translation>Leve o dedo e posidxo de novo no sensor</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation>Yüzünüzü çerçevenin içine yerleştirin</translation>
+        <translation>Posidxa a súa cara dentro do marco</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Yüz kayıtlı</translation>
+        <translation>Cara inscrita</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation>Bir insan yüzünü konumlandırın lütfen</translation>
+        <translation>Posidxa unha cara de xerme, por favor</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation>Kameradan uzak tutun</translation>
+        <translation>Manteña-se á distancia da cámara</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation>Kameraya daha yakın ol</translation>
+        <translation>Vexa máis próximo da cámara</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation>Çerçevenin içine birden fazla yüz yerleştirmeyin</translation>
+        <translation>Non posidxa múltiples caras dentro do marco</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation>Kamera merceğinin temiz olduğundan emin olun</translation>
+        <translation>Confírme que o lente da cámara está limpo</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>Karanlık, aydınlık veya arkadan aydınlatmalı ortamlara kaydolmayın</translation>
+        <translation>Non inscríba en entornos escuros, claros ou con iluminación de trasfondo</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation>Yüzünü açık tut</translation>
+        <translation>Manteña a súa cara descuberta</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation>Tarama zaman aşımına uğradı</translation>
+        <translation>O escaneamento agoude o tempo</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation>Cihaz çöktü, lütfen tekrar tarayın!</translation>
+        <translation>Dispositivo caído, escaneade de novo!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation>Tekrar Kontrol Et</translation>
+        <translation>Comprobar de novo</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Güncellemeleri kontrol et</translation>
+        <translation>Comprobar actualizacions</translation>
     </message>
     <message>
         <source>Last checking time</source>
-        <translation>Son kontrol zamanı</translation>
+        <translation>Última vez que se comprobou</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation>Vurgu Rengi</translation>
+        <translation>Cor de destaque</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Simge Ayarları</translation>
+        <translation>Configuracións dos iconos</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Simge Teması</translation>
+        <translation>Temas de iconos</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Personaliza o ícone do tema</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>İmleç Teması</translation>
+        <translation>Tema do punteiro do rato</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Personaliza o punteiro do tema</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Bu hesabı silmek istediğinize emin misiniz?</translation>
+        <translation>Estás seguro de que queres eliminar esta conta?
+</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Hesap dizinini sil</translation>
+        <translation>Eliminar a carpeta da conta</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Sil</translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Ayarlara git</translation>
+        <translation>Ir ás configuracións</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Común</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Yineleme gecikmesi</translation>
+        <translation>Atraso de repetición</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Kısa</translation>
+        <translation>Curto</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Uzun</translation>
+        <translation>Longo</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation>Yineleme hızı</translation>
+        <translation>Taxa de repetición</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Sayısal Klavye</translation>
+        <translation>Teclado numérico</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation>burada dene</translation>
+        <translation>probar aquí</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Activar o bloqueo de mayúsculas</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation>Kaydırma Hızı</translation>
+        <translation>Velocidade de deslizado</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation>Çift Tıklama Hızı</translation>
+        <translation>Velocidade de dobre clic</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Çift Tıklama Denemesi</translation>
+        <translation>Probar dobre clic</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Solak Kip</translation>
+        <translation>Modo de mão esquerdas</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Büyük boy</translation>
+        <translation>Grandes tamaño</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Küçük boy</translation>
+        <translation>Pequeño tamaño</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Kök erişimi alınamadı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Lütfen önce Union ID&apos;nizde oturum açın</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>PC bilgileriniz okunamıyor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Ağ bağlantısı yok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Sertifika yüklenemedi, kök erişimine erişilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Geliştirici Kipi Sorumluluk Reddi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Kök Erişimi Kabul Et ve İste</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
@@ -822,300 +823,300 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation>Parola rakamlar ve harfler içermelidir</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation>Parola 8 ile 64 karakter arasında olmalıdır</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation>Yeni hesap Oluştur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Hesap Türü</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UserName</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>FullName</source>
-        <translation>Tam Ad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Create account</source>
-        <translation>Hesap oluştur</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Henüz bir avatar yüklemediniz.Bir resim yüklemek için tıklayın veya sürükleyin ve bırakın.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>kullanılabilir</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-es</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Estamos moi conscientes da importancia da súa información personal para vostede. Polo tanto, temos a Política de Privacidade que cubre como recopilamos, utilizamos, partilhamos, transferimos, divulgamos publicamente e armazenamos a súa información.&lt;/p&gt;&lt;p&gt;Pode &lt;a href=&quot;%1&quot;&gt;clicar aquí&lt;/a&gt; para ver a nosa política de privacidade mais recente e/ou verla online visitando &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lea atentamente e entienda completamente as nosas prácticas sobre a privacidade do cliente. Se tiver algúns preguntas, contáanos en: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-es</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unirse ao Programa de Experiencia do Usuario implica que concede e autoriza a recopilación e utilización da información do seu dispositivo, sistema e aplicacións. Se se opoña á recopilación e utilización da información mencionada, non se unira ao Programa de Experiencia do Usuario. Para os detalles, consulte a Política de Privacidade de Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Unirse ao Programa de Experiencia do Usuario implica que concede e autoriza a recopilación e utilización da información do seu dispositivo, sistema e aplicacións. Se se opoña á recopilación e utilización da información mencionada, non se unirá a ela. Para os detalles do Programa de Experiencia do Usuario, visite &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation>Concordar e unirse ao Programa de Experiencia do Usuario</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de data e hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Tarih</translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation>Yıl</translation>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Ay</translation>
+        <translation>Mes</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Gün</translation>
+        <translation>Día</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation>Yarın</translation>
+        <translation>Mañá</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation>Dün</translation>
+        <translation>Ontem</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Bugün</translation>
+        <translation>Hoxe</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>Yerelden %1 saat önce</translation>
+        <translation>%1 horas antes da local</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>Yerelden %1 saat sonra</translation>
+        <translation>%1 horas despois da local</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation>Boşluk</translation>
+        <translation>Espazo</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation>Hafta</translation>
+        <translation>Semana</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Haftanın ilk günü</translation>
+        <translation>Primer día da semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Kısa tarih</translation>
+        <translation>Data curta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Uzun tarih</translation>
+        <translation>Data larga</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Kısa zaman</translation>
+        <translation>Hora curta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Uzun zaman</translation>
+        <translation>Tiempo longo</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Para birimi sembolü</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation>Pozitif para birimi</translation>
+        <translation>Moeda positiva</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation>Negatif para birimi</translation>
+        <translation>Moeda negativa</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo decimal</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupación de dígitos</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Agrupación de dígitos</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation>Sayfa boyutu</translation>
+        <translation>Tamaño de paxina</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>NTP sunucusunu değiştirmek için kimlik doğrulaması gerekli</translation>
+        <translation>É necesario autenticarse para cambiar o servidor NTP</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Kontrol Merkezi, sistem ayarları için seçenekler sunar.</translation>
+        <translation>O Centro de Controlo proporciona as opcións para atopar as configuracións do sistema.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>Ligar WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>Ao liga-llle WeChat, podes acceder de xeito seguro e rápido ao teu ID %1 e ás súas conta locais.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation>Bağlantı kaldırıldı</translation>
+        <translation>Desligado</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Desligar</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation>Bağla</translation>
+        <translation>Ligar</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Xa estás seguro de que queres desligar WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Despois de desligar WeChat, non podes usar WeChat para escanear o código QR para acceder ao teu ID %1 ou á súa conta local.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Deixame pensalo</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Ligado de conta local</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Despois de ligar a súa conta local, podes usar as seguintes funcións:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema de entrada por escaner de código de WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Usa WeChat, ligado ao teu ID %1, para escanear o código para acceder á súa conta local.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer a contrasinal via ID %1</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Restablece a tua contrasinal local através de %1 ID no caso de que o escojas esquecer.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Para usar as funcións anteriores, velle a Control Center - Contas e activa as opcións correspondentes.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>Deepin</translation>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -1126,418 +1127,422 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Bulut Eşitleyici</translation>
+        <translation>Sincronización en nube</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Gestiona o teu %1 ID e sincroniza os teu datos persoais en todos os dispositivos.
+
+Regístrate no teu %1 ID para obter características e servicios personalizados do Navegador, o Tesouro de Aplicacións, e máis.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Inicia sesión no teu %1 ID</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Otomatik Eşitle</translation>
+        <translation>Sincronización automática</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation>Sistem ayarlarını ve kişisel verileri bulutta güvenli bir şekilde saklayın ve bunları cihazlar arasında senkronize halde tutun.</translation>
+        <translation>Almacena seguramente as configuracións do sistema e os teu datos persoais en a nube e mante-os sincronizados en todos os dispositivos</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation>Sistem Ayarları</translation>
+        <translation>Configuracións do sistema</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Última sincronización: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation>Bulut verilerini temizle</translation>
+        <translation>Borra os datos da nube</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Sistem ayarlarınızı ve bulutta kayıtlı kişisel verilerinizi temizlemek istediğinizden emin misiniz?</translation>
+        <translation>¿Estás seguro de que queres borrar as teu configuracións do sistema e os teu datos persoais almacenados na nube?
+</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Veriler temizlendikten sonra kurtarılamaz!</translation>
+        <translation>Axúndase que os datos borbados non se poden recuperar!
+</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Temizle</translation>
+        <translation>Borrar</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Eşitleme Servisi</translation>
+        <translation>Servizo de sincronización</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation>Hesap ve Güvenlik</translation>
+        <translation>Contas e Seguridade</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Oturumu kapat</translation>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Ir ás configuracións da web</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>A encriptación do contrasinal fallou</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Yanlış şifre, %1 şans kaldı</translation>
+        <translation>Contrasinal incorrecto, quedan %1 oportunidades</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation>Giriş hatası günlük sınırına ulaştı. Parolayı sıfırlayabilir ve tekrar deneyebilirsiniz.</translation>
+        <translation>O erro de inicio de sesión atopouse no límite de hoje. Podes resetar o contrasinal e tentalo de novo.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation>İşlem Başarılı</translation>
+        <translation>Operación exitosa</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation>Çin Toprakları</translation>
+        <translation>China continental</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation>Diğer bölgeler</translation>
+        <translation>Outras zonas</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>Özellik şu anda kullanılamıyor, lütfen önce sisteminizi etkinleştirin</translation>
+        <translation>A funcionalidade non está dispoñible no momento, por favor actívalo primeiro</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Yerel yasa ve yönetmeliklerinize bağlı olarak, şu anda bölgenizde kullanılamamaktadır.</translation>
+        <translation>Subxestivo ás leis e regulamentos locais, non está dispoñible neste axenzamento.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, escolhe o programa predeterminado para abrir &apos;%1&apos;, </translation>
     </message>
     <message>
         <source>add</source>
-        <translation>ekle</translation>
+        <translation>añadir</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Masaüstü Dosyası Aç</translation>
+        <translation>Abrir ficheiro de escritorio</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Uygulamalar (*.masaüstü)</translation>
+        <translation>Apps (*.desktop), </translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Tüm dosyalar  (*)</translation>
+        <translation>Todos os arquivos (*), </translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Kök Erişimi</translation>
+        <translation>Acceso de raíz</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Kök Erişimi İsteği</translation>
+        <translation>Solicitar acceso de raíz</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>Geliştirici kipine girdikten sonra kök izinleri alabilirsiniz, ancak sistem bütünlüğüne de zarar verebilir, bu nedenle lütfen dikkatle kullanın.</translation>
+        <translation>Despois de entrar no modo de desenvolvedor, pode obter permisos de raíz, pero pode danificar a integridade do sistema, polo que use-o coa máxima cautela.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation>İzin verilmiş</translation>
+        <translation>Permitido</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation>Giriş</translation>
+        <translation>Entrar</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>Çevrimiçi</translation>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Identificación de UOS</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Çevrimdışı</translation>
+        <translation>Desconectado</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>Sertifikayı İçe Aktar</translation>
+        <translation>Importar certificado</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Seleccionar ficheiro</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>O seu ID de UOS foi ingresado, clicar para entrar no modo de desenvolvedor</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, inicie sesión no seu ID de UOS primeiro e continue</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.PC Bilgisini Dışa Aktar</translation>
+        <translation>1.Exportar información do PC</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>Dışarı aktar</translation>
+        <translation>Exportar</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>por favor, vade a &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http://www.chinauos.com/developMode&lt;/a&gt; para descargar o certificado desexo</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3.Sertifikayı İçe Aktar</translation>
+        <translation>3.Importar certificado</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar e executar apps sen firmar, vade a &lt;a href=&quot;Centro de Segurança&quot;&gt;Centro de Segurança&lt;/a&gt; para cambiar os rexistros.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation>Geliştirme ve hata ayıklama seçenekleri</translation>
+        <translation>Opcionals de desenvolvemento e depuración</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Nivel de rexistro do sistema</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar as opcións resultará en un rexistro máis detallado que pode deteriorar o rendemento do sistema e/ou ocupar máis espazo de almacenamento.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation>Kapalı</translation>
+        <translation>Desactivado</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Ayıkla</translation>
+        <translation>Depuración</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar esta opción pode levar un minuto para procesarse. Despois de recibir unha solicitude de configuración exitosa, reinicie o dispositivo para que teña efecto.</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que as aplicacións seguintes accedan a estes ficheiros e cartafolos:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Belgeler</translation>
+        <translation>Documentos</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Masaüstü</translation>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Resimler</translation>
+        <translation>Imaxes</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation>Videolar</translation>
+        <translation>Videos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Müzik</translation>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation>İndirilenler</translation>
+        <translation>Descargas</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation>Klasör</translation>
+        <translation>cartafol</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation>Boyut</translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Standart Yazı Tipi</translation>
+        <translation>Fons estándar</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Sabit Aralıklı Yazı Tipi</translation>
+        <translation>Fons fijo</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation>Güç Planları</translation>
+        <translation>Planos de poder</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation>Güç Tasarrufu Ayarları</translation>
+        <translation>Configuracións de ahorro de poder</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation>Düşük pilde otomatik güç tasarrufu</translation>
+        <translation>Ahorro de poder automático en batería baixa</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Düşük pil eşiği</translation>
+        <translation>Límite de batería baixa</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Pilden otomatik güç tasarrufu</translation>
+        <translation>Ahorro de poder automático en batería</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Uyandırma Ayarları</translation>
+        <translation>Configuracións de despertar</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
+        <translation>É necesario introducir unha contrasinal para despertar o ordenador</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>Ekranı uyandırmak için parola gerekli</translation>
+        <translation>É necesario introducir unha contrasinal para despertar a pantalla</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation>Kapatma Ayarları</translation>
+        <translation>Configuración de apagado</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation>Planlanmış Kapatma</translation>
+        <translation>Apagado programado</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>Tekrar</translation>
+        <translation>Repetir</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation>Bir kez</translation>
+        <translation>Una vez</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation>Her gün</translation>
+        <translation>Todos os días</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation>İş günleri</translation>
+        <translation>Días laborables</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Özel Zaman</translation>
+        <translation>Hora personalizada</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation>Pazartesi</translation>
+        <translation>Lunes</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation>Salı</translation>
+        <translation>Martes</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation>Çarşamba</translation>
+        <translation>Miércoles</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation>Perşembe</translation>
+        <translation>Jueves</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation>Cuma</translation>
+        <translation>Viernes</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation>Cumartesi</translation>
+        <translation>Sábado</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation>Pazar</translation>
+        <translation>Domingo</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
+        <translation>Personaliza o tempo de repetición</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Güç Tasarrufu&apos;nda ekran parlaklığını azalt</translation>
+        <translation>Reduzir a luminosidade da pantalla no modo ahorro de batería</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation>Üç Parmak</translation>
+        <translation>Tres dedos</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation>Dört Parmak</translation>
+        <translation>Cuatro dedos</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Yukarı</translation>
+        <translation>Arriba</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Aşağı</translation>
+        <translation>Abaixo</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Dereita</translation>
     </message>
     <message>
         <source>tap</source>
@@ -1548,18 +1553,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation>,</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Optimal Performans</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
@@ -1567,7 +1572,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance</source>
-        <translation>Dengeli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
@@ -1575,7 +1580,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>En İyi Görseller</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
@@ -1586,7 +1591,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Klavye düzeni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>done</source>
@@ -1594,7 +1599,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>edit</source>
-        <translation>Düzenle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
@@ -1609,7 +1614,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Dil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>done</source>
@@ -1617,19 +1622,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>edit</source>
-        <translation>Düzenle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Other languages</source>
-        <translation>Diğer diller</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>add</source>
-        <translation>ekle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Region</source>
-        <translation>Bölge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Area</source>
@@ -1641,7 +1646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Region and format</source>
-        <translation>Bölge ve biçim</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
@@ -1652,72 +1657,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation>Dil Ekle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Engadir</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation>Dil Ekle</translation>
+        <translation>Engadir idioma</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Engadir</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Método de inicio de sesión</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña, WeChat, autenticación biométrica, clave de seguridad</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Modificar contraseña</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Días de validez</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation>Her zaman</translation>
+        <translation>Sempre</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Deepin Topluluğu</translation>
+        <translation>Copyright© 2011-%1 Comunidade Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -1728,108 +1733,108 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Otomatik Gürültü Bastırma</translation>
+        <translation>Supresión automática de ruido</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation>Ses Girişi</translation>
+        <translation>Volumen de entrada</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation>Giriş Seviyesi</translation>
+        <translation>Nivel de entrada</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Non se atopou ningún dispositivo de entrada de son</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Giriş Cihazları</translation>
+        <translation>Dispositivos de entrada</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Rexistro</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
+        <translation>Velocidade do indicador</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>İşaretçi Boyutu</translation>
+        <translation>Tamaño do punteiro</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Kısa</translation>
+        <translation>Curto</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Uzun</translation>
+        <translation>Longo</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Fare Hızlandırması</translation>
+        <translation>Aceleración do ratón</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Bir fare bağlandığında dokunmatik yüzeyi devre dışı bırak</translation>
+        <translation>Desactivar o touchpad cando un ratón esté conectado</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
+        <translation>Deslizado natural</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Aygıtlarım</translation>
+        <translation>Os meus dispositivos</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Bilgisayar Adı</translation>
+        <translation>Nome do ordenador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Kısa çizgi ile başlayamaz veya bitemez</translation>
+        <translation>Non pode empezar ou acabar con guiones</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>İS Adı</translation>
+        <translation>Nome do sistema operativo</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Sürüm</translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation>Yayın</translation>
+        <translation>Edición</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tür</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1837,999 +1842,1024 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autorización</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation>Sistem Kurulum Tarihi</translation>
+        <translation>Hora de instalación do sistema</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Çekirdek</translation>
+        <translation>Núcleo</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma gráfica</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation>İşlemci</translation>
+        <translation>Procesador</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>Bellek</translation>
+        <translation>Memoria</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>O sistema actual non está activado, non se pode iniciar o servizo de actualización</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation>Diğer Cihazlar</translation>
+        <translation>Outros dispositivos</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Bluetooth cihazlarını isimsiz göster</translation>
+        <translation>Mostrar dispositivos Bluetooth sen nome</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation>Mevcut parola</translation>
+        <translation>Contrasinal actual</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Obrigatorio</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Zayıf</translation>
+        <translation>Débil</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Orta</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Güçlü</translation>
+        <translation>Fuerte</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
+        <translation>Contrasinal</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Parolayı Tekrarla</translation>
+        <translation>Repetir contrasinal</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Parola İpucu</translation>
+        <translation>Pista de contrasinal</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>O contrasinal non pode estar en branco</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>Os contrasinals non coinciden</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>Yeni parola mevcut paroladan farklı olmalıdır</translation>
+        <translation>O novo contrasinal debe diferir do actual</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
+        <translation>A pista é visible para todos os usuarios. Non inclúis o contrasinal aquí.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Modificar contrasinal</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation>Parolayı sıfırla</translation>
+        <translation>Restablecer contrasinal</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>A lonxitude do contrasinal debe ser de polo menos 8 caracteres, e o contrasinal debe contén unha combinación de polo menos 3 das seguintes: letras mayúsculas, minúsculas, números e símbolos. Este tipo de contrasinal é máis seguro.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Parolanın sıfırlanması, anahtarlıkta depolanan verileri siler.</translation>
+        <translation>Restablecer o contrasinal limpará os datos almacenados no anfiteatro de chaves.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Açık</translation>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Otomatik</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Koyu</translation>
+        <translation>Escur@</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Personalizado</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Eklenti Alanı</translation>
+        <translation>Área de complementos</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+        <translation>Seleccionar que iconas aparecen no Dock</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation>Kapat</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Askıya al</translation>
+        <translation>Suspender</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Uyut</translation>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Monitörü kapat</translation>
+        <translation>Apagar o monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Kapatma arayüzünü göster</translation>
+        <translation>Mostar a interface de apagado</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Hiçbir şey yapma</translation>
+        <translation>Non facer nada</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla e suspensión</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar o monitor despois de</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Sonrasında ekranı kilitle</translation>
+        <translation>Bloquear a pantalla despois de</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>O ordenador entra en suspensión despois de</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kapak kapatıldığında</translation>
+        <translation>Cando se pecha a tapa</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cando se prema o botón de alimentación</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation>Yüksek Performans</translation>
+        <translation>Alto rendemento</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Dengeli Performans</translation>
+        <translation>Equilibrio do rendemento</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar agresivamente a frecuencia de operación do CPU dependendo da carga do CPU</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Dengeli</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation>Güç Tasarrufu</translation>
+        <translation>Conservation de enerxía</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Priorizar o rendemento, o que aumentará significativamente a consumición de enerxía e a geração de calor</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrar o rendemento e a vida da batería, ajustado automaticamente segundo a utilización</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Priorizar a vida da batería, que o sistema sacrificará algúns rendementos para reducir a consumición de enerxía</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Dakika</translation>
+        <translation>Minutos</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Saat</translation>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Asla</translation>
+        <translation>Nunca</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>Gizlilik Politikası</translation>
+        <translation>Política de privacidade</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>A contrasinal non pode estar en branco</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Parola en az %1 karakter olmalıdır</translation>
+        <translation>A contrasinal debe ter polo menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
+        <translation>A contrasinal non debe ter máis de %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A súa contrasinal só pode contén letras en inglés (sensible á cadradeira), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)
+</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>En fazla %1 palindrom karakter lütfen</translation>
+        <translation>Non use %1 caracteres palíndromos
+</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
+        <translation>Non use %1 caracteres monotónicos
+</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
+        <translation>Non use %1 caracteres repetidos
+</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A súa contrasinal debe contén letras mayúsculas, minúsculas, números e símbolos (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)
+</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
+        <translation>A súa contrasinal non debe contén máis de 4 caracteres palíndromos
+</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
+        <translation>Non use palabras e combinacións comúns como contrasinal
+</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Lütfen güçlü bir parola oluşturun</translation>
+        <translation>Crea un contrasinal forte, por favor
+</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Parola kurallarına uymuyor</translation>
+        <translation>Non atopase a as regras de contrasinal
+</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Kontrol Merkezi</translation>
+        <translation>Centro de Control
+</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation>Etkin</translation>
+        <translation>Activado
+</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Görünüm</translation>
+        <translation>Ver
+</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation>Etkinleştirilecek</translation>
+        <translation>Para activar
+</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation>Etkinleştir</translation>
+        <translation>Activar
+</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation>Süresi doldu</translation>
+        <translation>Expirado
+</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation>Deneme süresinde</translation>
+        <translation>Durante o período de proba
+</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation>Deneme süresi doldu</translation>
+        <translation>A proba expirou
+</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-control-center
+</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Dokunmatik Ekran Ayarları</translation>
+        <translation>Configuración da Pantalla táctil
+</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>Dokunmatik ekranın ayarları değişti</translation>
+        <translation>Cambian as configuracións da pantalla táctil
+</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Bu sistem duvar kağıdı kilitli.Lütfen yöneticinizle iletişime geçin.</translation>
+        <translation>A pantalla de fons do sistema está bloqueada. Por favor, contáctese co seu administrador.
+</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Regións e formatos
+</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Buscar
+</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos por defecto
+</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Haftanın ilk günü</translation>
+        <translation>Primer día da semana
+</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Kısa tarih</translation>
+        <translation>Data corta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Uzun tarih</translation>
+        <translation>Data longa</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Kısa zaman</translation>
+        <translation>Hora corta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Uzun zaman</translation>
+        <translation>Hora longa</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Para birimi sembolü</translation>
+        <translation>Símbolo de divisa</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Dígito</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Kağıt boyutu</translation>
+        <translation>Tamaño de papel</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation>Parolayı Ayarla</translation>
+        <translation>Establecer unha contrasinal</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 karakterler</translation>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Parolayı tekrarla</translation>
+        <translation>Repetir o contrasinal</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>Os contrasinals non coinciden</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Guarda-pantalla</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>prévia</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Guarda-pantalla personalizado</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation>ayar</translation>
+        <translation>configuración</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>tempo inactivo</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 dakika</translation>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 dakika</translation>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 dakika</translation>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 dakika</translation>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 dakika</translation>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 saat</translation>
+        <translation>1 hora</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>asla</translation>
+        <translation>nunca</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Se necesite unha contrasinal para recuperación</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protección de pantalla de diapositivas de fotos</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Sistem ekran koruyucu</translation>
+        <translation>Protección de pantalla do sistema</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Engadir atalho personalizado</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Ad:</translation>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation>Komut:</translation>
+        <translation>Comando:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Kısayol</translation>
+        <translation>Atalho</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Non</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
+        <translation>Introduza un novo atalho</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Engadir</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Clique en Engadir para substituír</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Kısayollar</translation>
+        <translation>Atalos</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atalho do sistema, atalho personalizado</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Atalos de busca</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>feito</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>düzenle</translation>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
+        <translation>Introduza un novo atalho</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Clique</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>or</source>
-        <translation>ya da</translation>
+        <translation>ou</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>Değiştir</translation>
+        <translation>Substituír</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar os valores predeterminados</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Engadir atalho personalizado</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Çıkış Cihazları</translation>
+        <translation>Dispositivos de saída</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona se queres activar os dispositivos</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Giriş Cihazları</translation>
+        <translation>Dispositivos de entrada</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation>Ses Etkileri</translation>
+        <translation>Efectos sonoros</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation>Önyükleme</translation>
+        <translation>Encendemento</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Kapat</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation>Oturumu kapat</translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation>Uyan</translation>
+        <translation>Despertar</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation>Ses +/-</translation>
+        <translation>Volumen +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Bildirim</translation>
+        <translation>Notificación</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation>Düşük pil</translation>
+        <translation>Batería baixa</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Başlatıcı&apos;dan Masaüstüne simge gönder</translation>
+        <translation>Enviar o icona no Lanceiro ao Escritorio</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation>Çöpü Boşalt</translation>
+        <translation>Borrar a lixeira</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation>Fişe tak</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation>Fişten çıkar</translation>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Çıkarılabilir aygıt bağlandı</translation>
+        <translation>Dispositivo removíbel conectado</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Çıkarılabilir aygıt kaldırıldı</translation>
+        <translation>Dispositivo removíbel desconectado</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Hata</translation>
+        <translation>Erro</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Ses Çıkışı</translation>
+        <translation>Volumen de saída</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Ses Artışı</translation>
+        <translation>Amplificación do volumen</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Se o volumen é superior a 100%, pode distorcer o son e ser perjudicial para os dispositivos de saída</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Esquerdo</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Dereito</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation>Çıkış</translation>
+        <translation>Saída</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Non se atopou ningún dispositivo de saída para o son</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrio esquerdo-dereito</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Fundir canais esquerdo e dereito nun único canal</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausa automática</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Se o son irá pausarse automaticamente cando se desconeza o dispositivo de son actual</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Çıkış Cihazları</translation>
+        <translation>Dispositivos de saída</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation>Ses</translation>
+        <translation>Son</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Güç</translation>
+        <translation>Poder</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Rexistro</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Güncelle</translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Ecran de espera</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Daha Fazla Duvar Kağıdı</translation>
+        <translation>Máis fondos de pantalla</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Sincronización automática do tempo</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation>Ntp sunucu</translation>
+        <translation>Servidor NTP</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Data e hora do sistema</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation>Özelleştir</translation>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Enderezo do servidor</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A dirección do servidor ntp non pode estar vazia</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Usar formato de 24 horas</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>fuso horario do sistema</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Lista de fusos horarios</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation>buradan</translation>
+        <translation>desde</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>buraya</translation>
+        <translation>até</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Gardar as configuracións de visualización</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>As configuracións volverán a ser asixadas en %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Eski haline döndür</translation>
+        <translation>Reanudar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation>Saat dilimi ekle</translation>
+        <translation>Engadir fuso horario</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Determinar o fuso horario baseándose na localización actual</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Zaman dilimi:</translation>
+        <translation>Fuso horario:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Ciudad máis xistra:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Dokunmatik ekran</translation>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Dokunmatik ekranı bağlarken burayı ayarlayın</translation>
+        <translation>Configuración aquí ao conectar a pantalla táctil</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation>Temel Ayarlar</translation>
+        <translation>Configuración básica</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Dokunmatik Yüzey</translation>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
+        <translation>Velocidade do indicador</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Desactivar a pantalla táctil durante a entrada</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Tıklamak için Dokun</translation>
+        <translation>Tocar para clicar</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
+        <translation>Deslizado natural</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Gesto</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos con tres dedos</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos con cuatro dedos</translation>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo previsto para a instalación:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation>30 dak</translation>
+        <translation>30 min</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation>Kuruluyor</translation>
+        <translation>Instalando</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Os atopos volverán a ser os do sistema en %1s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Gardar os atopos de visualización？</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Eski haline döndür</translation>
+        <translation>Devolver</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Gardar</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Esta actualización de parches principalmente mellora a experiencia de desempeño operativo do entorno de escritorio e das aplicacións máis utilizadas, e corrixe algúns problemas de sistema coñecidos, mellorando así a calidade do produto.</translation>
     </message>
     <message>
         <source>2025.1.20</source>
@@ -2837,416 +2867,416 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View Details</source>
-        <translation>Ayrıntıları Görüntüle</translation>
+        <translation>Ver detalles</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation>Güncellemeler:</translation>
+        <translation>Actualizacions:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation>Yayın zamanı:</translation>
+        <translation>Hora de lanzamento:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Daralt</translation>
+        <translation>Colapsar</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation>Güncelleme Kullanılabilir</translation>
+        <translation>Disponibles actualizacions</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation>Güncellemeler Yükleniyor</translation>
+        <translation>Instalando actualización</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation>Güncellemeler yükleniyor...</translation>
+        <translation>Instalando actualizacions…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>A actualización instalouse con éxito</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Şimdi Yeniden Başlat</translation>
+        <translation>Reiniciar agora</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Fallou a descarga da actualización</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation>yeniden dene</translation>
+        <translation>reintentar</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
+        <translation>Buscando actualizacions, agúarde un momento…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Sisteminiz güncel, lütfen şimdi yeniden başlatın</translation>
+        <translation>Sua sistema está actualizado, por favor reinícialo agora</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>Sisteminiz güncel</translation>
+        <translation>Sua sistema está actualizado</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Detectouse unha actualización.</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Güncelleme başarısız oldu: yetersiz disk alanı</translation>
+        <translation>Fallou a actualización: espazo de disco insuficiente</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation>Güncelleme başarısız oldu</translation>
+        <translation>Fallou a actualización</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation>Ağ hatası, lütfen kontrol edip tekrar deneyin</translation>
+        <translation>Erro de rede, por favor verifica e tenta de novo</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation>Paket hatası, lütfen tekrar deneyin</translation>
+        <translation>Erro de paquetes, por favor tenta de novo</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation>Karşılanmayan bağımlılıklar</translation>
+        <translation>Dependencias non atendidas</translation>
     </message>
 </context>
 <context>
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>tipo de actualización</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de función</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona novas funcionalidades, correccións de calidade, correccións de vulnerabilidades de seguridade e contido totalmente actualizado</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de calidade</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona correccións de calidade do sistema</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation>Akıllı Yansı Değiştir</translation>
+        <translation>Intercambiador de espeiro inteligente</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation>Únete ao Programa de Experiencia do Usuario</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation>Güvenlik Doğrulama</translation>
+        <translation>Verificación de seguridade</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>A acción é sensible, por favor introduce primeiro o contrasinal de inicio de sesión</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 karakterler</translation>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation>Parolanızı mı unuttunuz?</translation>
+        <translation>¿Olvidou a contrasinal?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Cancela</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Confirma</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>duvar Kâğıdı</translation>
+        <translation>fondo de pantalla</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Bordes redondeados de ventanas</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation>Resimlerim</translation>
+        <translation>As minhas imaxes</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Sistem Duvar Kağıdı</translation>
+        <translation>Fondo de pantalla do sistema</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla de corolao sólido</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fondos de pantalla personalizables</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>estilo de relleno</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Cambio de fondo de pantalla automático</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>asla</translation>
+        <translation>nunca</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation>30 Saniye</translation>
+        <translation>30 segundos</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 dakika</translation>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 dakika</translation>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 dakika</translation>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 dakika</translation>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 dakika</translation>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>login</source>
-        <translation>oturum aç</translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation>uyan</translation>
+        <translation>despertar</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation>Sistem Duvar Kağıtları</translation>
+        <translation>Fondos de pantalla do sistema</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla en vivo</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 saat</translation>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>desdoblar</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation>Tümünü göster</translation>
+        <translation>mostrar todos</translation>
     </message>
     <message>
         <source>items</source>
-        <translation>Öğeler</translation>
+        <translation>elementos</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation>Kilit ekranı ayarla</translation>
+        <translation>Establecer pantalla de bloqueo</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation>Masaüstü ayarla</translation>
+        <translation>Establecer escritorio</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>Arayüz ve Efektler</translation>
+        <translation>Interfaz e efectos</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation>Pencere Ayarları</translation>
+        <translation>Configuración de ventanas</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Bordes redondeados de ventanas</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Küçük</translation>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Orta</translation>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Büyük</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Pencereleri taşırken şeffaflık efektlerini etkinleştirin</translation>
+        <translation>Habilitar efectos transparentes ao mover ventanas</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Pencere Küçültme Efekti</translation>
+        <translation>Efecto de minimización de ventana</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Ölçek</translation>
+        <translation>Escala</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation>Sihirli Işık</translation>
+        <translation>Lámpara mágica</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Saydamlık</translation>
+        <translation>Opacidad</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>Düşük</translation>
+        <translation>Bajo</translation>
     </message>
     <message>
         <source>High</source>
-        <translation>Yüksek</translation>
+        <translation>Alto</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation>Kaydırma Çubukları</translation>
+        <translation>Barras de desplazamento</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Kaydırmayı göster</translation>
+        <translation>Mostrar ao desplazarse</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Gösterilmeyi sürdür</translation>
+        <translation>Manter mostrado</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Mostraxe compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Se está habilitado, se mostrará máis contido na ventá.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Başlık Çubuğu Yüksekliği</translation>
+        <translation>Altura da barra de títuloe</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Só se atopará para as barras de título das ventás de aplicación desenhadas polo gerador de ventá.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Son derece küçük</translation>
+        <translation>Extremadamente pequeno</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Hesap</translation>
+        <translation>Cuenta</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Hesap yönetimi</translation>
+        <translation>Gestor de contas</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Outras contas</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
+        <translation>Autenticación biométrica</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
+        <translation>Autenticación biométrica</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Yüz</translation>
+        <translation>Rostro</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Se pode introducir até 5 datos faciales</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Parmak İzi</translation>
+        <translation>Impresión digital</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificación da identidade do usuario a través da escaneo de impressións digitais</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Irís</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Identificación da identidade a través do escaneo do irís</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın ve en fazla 15 karakter kullanın</translation>
+        <translation>Utilice letras, números e sublinhados, e non máis de 15 caracteres</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın</translation>
+        <translation>Utilice letras, números e sublinhados</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>15 karakterden fazla değil</translation>
+        <translation>Non máis de 15 caracteres</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation>Yeni ekle</translation>
+        <translation>Engade un novo </translation>
     </message>
 </context>
 <context>
@@ -3257,115 +3287,115 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth ayarları, Aygıtlar</translation>
+        <translation>Configuración de Bluetooth, dispositivos</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Ön Yükleme Menüsü</translation>
+        <translation>Menú de arranque</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gestione o seu menú de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestión das permisos de raíz do desenvolvedor</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Geliştirici Seçenekleri</translation>
+        <translation>Opcións do desenvolvedor</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Hora e data</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Hora e data, configuración da zona horaria</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Dil ve bölge</translation>
+        <translation>Língua e rexión</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Língua do sistema, formato de rexión</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>Kullanıcı adı 3 ile 32 karakter arasında olmalıdır</translation>
+        <translation>O nome de usuario debe estar entre 3 e 32 caracteres</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>İlk karakter bir harf veya sayı olmalıdır</translation>
+        <translation>O primer carácter debe ser unha letra ou número</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>Kullanıcı adınız sadece rakam içermemelidir</translation>
+        <translation>O seu nome de usuario non debe ter só números</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>Kullanıcı adı diğer kullanıcı hesapları tarafından kullanılmış</translation>
+        <translation>O nome de usuario xa foi utilizado por outras contas de usuario</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>Tam isim çok uzun</translation>
+        <translation>O nome completo é moi lonxe</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Tam ad diğer kullanıcı hesapları tarafından kullanılmış</translation>
+        <translation>O nome completo xa foi utilizado por outras contas de usuario</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Yanlış parola</translation>
+        <translation>Contrasinal incorrecto</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Standart Kullanıcı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Yönetici</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Özelleştirilmiş</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Ana makineniz etki alanı sunucusundan başarıyla kaldırıldı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Ana makineniz etki alanı sunucusuna başarıyla katıldı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Ana makineniz etki alanı sunucusundan ayrılamadı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Ana makineniz etki alanı sunucusuna katılamadı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Aktif Dizin etki alanı ayarları</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>Parola eşleşmiyor</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3445,224 +3475,224 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>A password non pode estar vacío</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Parola en az %1 karakter olmalıdır</translation>
+        <translation>A password debe ter pelo menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
+        <translation>A password non debe ter máis de %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A password únicamente pode contencer letras de inglés (sensible á caxa), números ou símbolos especiais (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>En fazla %1 palindrom karakter lütfen</translation>
+        <translation>Non use máis de %1 caracteres palíndromos</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
+        <translation>Non use máis de %1 caracteres monotónicos</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
+        <translation>Non use máis de %1 caracteres repetidos</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>A password debe contencer letras mayúsculas, minúsculas, números e símbolos (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
+        <translation>A password non debe contencer máis de 4 caracteres palíndromos</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
+        <translation>Non use palabras e combinacións comúns como contrasinal</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Lütfen güçlü bir parola oluşturun</translation>
+        <translation>Crea un contrasinal forte, por favor</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Parola kurallarına uymuyor</translation>
+        <translation>Non atopase aoas reas do contrasinal</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation>Sistem</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Pencere</translation>
+        <translation>Xanela</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Çalışma Alanı</translation>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Xogos de axuda</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Ningún</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>Deepin Kimliği</translation>
+        <translation>deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS Kimliği</translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Servizos de nube</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Varsayılan Uygulama</translation>
+        <translation>Aplicación por defecto</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Establece a aplicación por defecto para abrir diferentes tipos de ficheiros</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Web sayfası</translation>
+        <translation>Páxina web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>E-posta</translation>
+        <translation>Correo</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Metin</translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Müzik</translation>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Resim</translation>
+        <translation>Imaxe</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Uçbirim</translation>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Cihaz</translation>
+        <translation>Dispositivo</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation>Ekran</translation>
+        <translation>Mostrador</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Iluminación, resolución, escalado</translation>
     </message>
 </context>
 <context>
     <name>displayMain</name>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation>100%%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation>125%</translation>
+        <translation>125%%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation>150%%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation>175%</translation>
+        <translation>175%%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation>200%%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation>225%</translation>
+        <translation>225%%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation>275%</translation>
+        <translation>275%%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation>300%%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Çoğalt</translation>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Genişlet</translation>
+        <translation>Expandir</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Varsayılan</translation>
+        <translation>Polo defecto</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Sığdır</translation>
+        <translation>Ajustar</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Uzat</translation>
+        <translation>Estirar</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Ortala</translation>
+        <translation>Centrar</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Só en %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Recomendado)</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -3670,51 +3700,51 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de múltiples pantallas</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificar</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>A disposición da pantalla cambiará despois de %1 segundos</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla e disposición</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Parlaklık</translation>
+        <translation>Iluminación</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Çözünürlük</translation>
+        <translation>Resolución</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Masaüstünü Yeniden Boyutlandır</translation>
+        <translation>Redimensionar escritorio</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Yenileme Hızı</translation>
+        <translation>Frecuencia de actualización</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Döndür</translation>
+        <translation>Rotación</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Standart</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <source>90°</source>
@@ -3730,278 +3760,278 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeği</translation>
+        <translation>Aumento de pantalla</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Ekran yalnızca %100 ekran ölçeklendirmeyi destekler</translation>
+        <translation>A monitor só soporta un aumento de pantalla de 100%</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Göz Rahatlığı</translation>
+        <translation>Conforto ocular</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Göz rahatlığını enkileştir</translation>
+        <translation>Activar conforto ocular</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar a pantalla para cores mellores, reducindo a luz azul da pantalla</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Tempo</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation>Tüm gün</translation>
+        <translation>Todo o día</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Pôr de sol a alba</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Özel Zaman</translation>
+        <translation>Hora personalizada</translation>
     </message>
     <message>
         <source>from</source>
-        <translation>buradan</translation>
+        <translation>desde</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>buraya</translation>
+        <translation>a</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Renk Sıcaklığı</translation>
+        <translation>Temperatura de cor</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Masaüstü ve görev çubuğu</translation>
+        <translation>Escritorio e barra de tarefas</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Masaüstündeki simgelerin görünümünü ve boyutunu ayarlayın</translation>
+        <translation>Establece a visualización e o tamaño dos iconas no escritorio</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Klavye</translation>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Configuracións xerais, dispostivo de teclado, método de entrada, atallos</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Común</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Klavye düzeni</translation>
+        <translation>Dispostivo de teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Establece o dispostivo de teclado predeterminado do sistema</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation>Rıhtım</translation>
+        <translation>Anclade</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Klasik Kip</translation>
+        <translation>Modo clásico</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Ortalanmış Kip</translation>
+        <translation>Modo centrado</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Rıhtım boyutu</translation>
+        <translation>Tamaño da anclade</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Küçük</translation>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Büyük</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Ekrandaki konumu</translation>
+        <translation>Posición na pantalla</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Üst</translation>
+        <translation>Arriba</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Alt</translation>
+        <translation>Baixo</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Dereita</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Durum</translation>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Sürekli görünür</translation>
+        <translation>Manter visible</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Sürekli gizli</translation>
+        <translation>Manter oculto</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Akıllı gizlenme</translation>
+        <translation>Ocultar de xeito inteligente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Birden Fazla Ekran</translation>
+        <translation>Pantallas múltiples</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Görev çubuğunun ekrandaki konumunu ayarlayın</translation>
+        <translation>Establece a posición da barra de tarefas na pantalla</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Yalnızca ana ekranda</translation>
+        <translation>Só na principal</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>İmlecin olduğu ekranda</translation>
+        <translation>Na pantalla onde esté o cursor</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Eklenti Alanı</translation>
+        <translation>Área de xogos</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+        <translation>Selecciona que ícones aparecen no Dock</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Fare ve Dokunmatik Yüzey</translation>
+        <translation>Rexistro e táboa de toque</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Común, Ruxiro, Táboa de toque</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Común</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Ruxiro</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Dokunmatik Yüzey</translation>
+        <translation>Táboa de toque</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>RHT Kipi, uygulama Bildirimleri</translation>
+        <translation>Modo DND, notificacións de aplicación</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Bildirim</translation>
+        <translation>Notificación</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Rahatsız Etme Ayarları</translation>
+        <translation>Configuración de non molestar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificacións da aplicación non se mostrarán na mesa de traballo e os sons sexán silenciados, pero podes ver todas as mensaxes no centro de notificacións.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Etkinleştir Rahatsız Etmeyin</translation>
+        <translation>Habilita non molestar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Ekran kilitlendiğinde</translation>
+        <translation>Cando a pantalla esté bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificacións mostradas na mesa de traballo</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Uygulama Bildirimleri</translation>
+        <translation>Notificacións de aplicación</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permite notificacións</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Mostra a notificación na mesa de traballo ou mostra as mensaxes non lidas no centro de notificacións</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Masaüstü</translation>
+        <translation>Mesa de traballo</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Ekranı Kilitle</translation>
+        <translation>Bloquea a pantalla</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Bildirim Merkezi</translation>
+        <translation>Centro de notificacións</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Mesaj önizlemesini göster</translation>
+        <translation>Amosar a prevista da mensaxe</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Bir ses çal</translation>
+        <translation>Executar un son</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
+        <translation>Personalización</translation>
     </message>
 </context>
 <context>
@@ -4012,258 +4042,258 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Görünüm</translation>
+        <translation>Aparición</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Pencere efekti</translation>
+        <translation>Efecto de ventá</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personaliza o papel de xeito e o ahorcado da pantalla</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Ahorcado da pantalla</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Cor e iconas</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta as cores de enfoque e as iconas do tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fontería e tamaño de fontería</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Cambia a fontería do sistema e o seu tamaño</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Duvar Kâğıdı</translation>
+        <translation>Papel de xeito</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Escolle un tema clar, escuro ou automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz e efectos, cantos redondos, visual compacto</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Configuracións de ahorro de enerxía, pantalla e suspensión</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Güç</translation>
+        <translation>Enerxía</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation>Genel</translation>
+        <translation>Xeral</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planos de enerxía, configuracións de ahorro de enerxía, configuracións de despertar, configuracións de apagado</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Fişe Takılı</translation>
+        <translation>Conectado</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla e suspensión</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Pilde</translation>
+        <translation>Con batería</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>pantalla e suspensión, batería baixa,管理模式</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Gizlilik ve Güvenlik</translation>
+        <translation>Privacidade e Seguridade</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Cámara, permisos de carpeta</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Kamera</translation>
+        <translation>Cámara</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Escolle si a aplicación ten acceso á cámara</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Dosyalar ve klasörler</translation>
+        <translation>Ficheros e Carpetas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Escolle si a aplicación ten acceso a ficheros e carpetas</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation>Ses</translation>
+        <translation>Son</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, entrada, efectos de son, dispositivos</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation>Çıkış</translation>
+        <translation>Saída</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Giriş</translation>
+        <translation>Entrada</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Ses Efektleri</translation>
+        <translation>Efectos de son</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Activar/desactivar os efectos de son</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de Dispositivos</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activar/desactivar os dispositivos de son</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Ortak ayarlar</translation>
+        <translation>Configuración común</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistem</translation>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Información adicional</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Bu PC Hakkında</translation>
+        <translation>Sobre esta PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Sistem sürümü, cihaz bilgileri</translation>
+        <translation>Versión do sistema, información do dispositivo</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción do Software de Orixe Aberta</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Ver a noticia do software de orixe aberta</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Kullanıcı Deneyimi Programı</translation>
+        <translation>Programa de Experiencia do Usuario</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Únete ao programa de experiencia do usuario para axudar a mellorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
+        <translation>Convenio de Licenzia ao Usuario Final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Ver o convenio de licenzia ao usuario final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Gizlilik Politikası</translation>
+        <translation>Política de Privacidade</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Ver información sobre a política de privacidade</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Configuración da pantalla táctil</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Común</translation>
     </message>
 </context>
 <context>
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización do sistema</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation type="unfinished"/>
+        <translation>Actualización e actualización de software</translation>
     </message>
 </context>
 <context>
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualizacións de características</translation>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
+        <translation>Configuración das actualizacións</translation>
     </message>
 </context>
 <context>
@@ -4274,7 +4304,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de wacom</translation>
     </message>
 </context>
 <context>
@@ -4285,23 +4315,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation>Wacom Kipi</translation>
+        <translation>Modo Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Kalem Kipi</translation>
+        <translation>Modo lápiz</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Fare Kipi</translation>
+        <translation>Modo ratón</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidade á presión</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Açık</translation>
+        <translation>Luces</translation>
     </message>
 </context>
 </TS>

@@ -1,112 +1,112 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="kk">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>düzenle</translation>
+        <translation>редагуу</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Yeni kullanıcı ekle</translation>
+        <translation>Жаңы користувача қосу</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Толук аты-жөнін аттау</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation>Giriş ayarları</translation>
+        <translation>Жүктелдік айту құралы</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation>Giriş Ayarları</translation>
+        <translation>Жүктелдік айту құралы</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Oturum Parola Kullanmadan Açılsın</translation>
+        <translation>Пароль арқылы жүктелдік айту</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Жетілдік сметаны сатып алу</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>Grup ayarları</translation>
+        <translation>Жеке салынамасын құралу</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation>Hesap grupları</translation>
+        <translation>Сметалар салынамалары</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Тамыр</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation>Grup adı</translation>
+        <translation>Жеке салынама аты</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation>Grup ekle</translation>
+        <translation>Жеке салынамасы қосу</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Авто жүктелдік айту, пароль арқылы жүктелдік айту</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation>Otomatik giriş</translation>
+        <translation>Авто жүктелдік айту</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Сметанын мақсаты</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Сметанын аты, толук аты-жөні, сметанын түрі</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation>Hesap adı</translation>
+        <translation>Сметанын аты</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Сметанын толук аты-жөні</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Hesap Türü</translation>
+        <translation>Сметанын түрі</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Kayıt Yüzü</translation>
+        <translation>Жақсыру өз аты</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Yüzünüzün tüm bölümlerinin nesnelerle kaplanmadığından ve açıkça görülebildiğinden emin olun. Yüzünüz de iyi aydınlatılmış olmalıdır. </translation>
+        <translation>Төмөнкі өзгөчөлүктөрдү текшерүү керек: өз атыңызның бардык бөлүктөрү сөздүү басылма албайык жана толық түшүнүүдө көрсөткүл. Атыңыз дүйнөсүнө дайын көрсөткүл.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Okudum ve onaylıyorum</translation>
+        <translation>Мен бул қалыптанузды оқыймын жана атқаруым</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Feragat</translation>
+        <translation>Туура келбейт</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Sonraki</translation>
+        <translation>Келесі</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Yüz kayıtlı</translation>
+        <translation>Аты жақсырылды</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Yüzünüz kaydedilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -143,11 +143,11 @@ In order to better use of face recognition, please pay attention to the followin
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation>Tamamlandı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enroll Finger</source>
@@ -159,15 +159,15 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Okudum ve onaylıyorum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Feragat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation>Sonraki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -194,22 +194,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Ok</source>
-        <translation>Tamam</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation>Görseller</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Human</source>
-        <translation>İnsan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Animal</source>
-        <translation>Hayvan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scenery</source>
@@ -221,217 +221,217 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Emoji</source>
-        <translation>İmoji</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>custom</source>
-        <translation>özel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Картона стилі</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Демпстүрөлүк стилі</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Түкөлүк стилі</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Келтірім</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Сактау</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнгілік және түртілу</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Мониторды жылыңыз барып жылыңызды ынталандырат</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Sonrasında ekranı kilitle</translation>
+        <translation>Көрүнгілік жылыңыз барып жылыңызды кіру</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Компьютер түртін барып түртілу</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kapak kapatıldığında</translation>
+        <translation>Капақты жылыңыз барып</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Көңілдік түсті басылғанда</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation>Düşük Batarya</translation>
+        <translation>Жақсырақ кіші</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Жақсырақ кіші табиғат</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation>Otomatik askıya al </translation>
+        <translation>Ортасында түртілу</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>Otomatik Uyut</translation>
+        <translation>Ортасында қысымылу</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Düşük pil eşiği</translation>
+        <translation>Жақсырақ кіші бөлігі</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Batarya Yönetimi</translation>
+        <translation>Жақсырақ куралы</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation>Kalan kullanım ve şarj süresini göster</translation>
+        <translation>Корытындылық және өнімділікті көрсете</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation>Azami kapasite</translation>
+        <translation>Максималды бөлігі</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>Düşük pil seviyesi</translation>
+        <translation>Жақсырақ кіші бөлігі</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation>Devre Dışı </translation>
+        <translation>Коркун</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Блутутты жылыңыз барып, аты &quot;%1&quot; деп көрсек</translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Блутутты жылыңызды ынталандырат, аты &quot;%1&quot; деп көрсек</translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation>Bağlantıyı kes</translation>
+        <translation>Жылыңызды жою</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Bağlan</translation>
+        <translation>Жылыңызды жетілу</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation>Dosyaları Gönder</translation>
+        <translation>Файлы жіберу</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Yeniden adlandır</translation>
+        <translation>Теріс жазу</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Қорқыту</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Файлды таңдау</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation>Düzenle</translation>
+        <translation>Тамырлау</translation>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"/>
+        <translation> uzunluk 64ге же артық</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Diğer Bluetooth cihazlarının bu cihazı bulmasına izin ver</translation>
+        <translation>Башка Bluetooth касиеттерінің бұл касиетті табуға мүмкіндік беру</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth функциясын қолдану үшін lütfen оттыңыз</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Uçak Kipi</translation>
+        <translation>Салкау режимі</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation>Bağlandı</translation>
+        <translation>Байланысқа кіреді</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Bağlı değil</translation>
+        <translation>Байланысқа кіреді жоқ</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Аяқталу атқарадары</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Сіз менюн түзіп, әрекеттеріңізді өзгертіңіз, немесе ретесіңізді қатынастыңыз үшін ретесіңізді қалыптастырыңыз</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>grub басталу тарту</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation>tema</translation>
+        <translation>тәрібі</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Тәрібын қосқанда, қ putі қосқанда тәрібінің ретесін ойнайтын</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Баштау менюсінің тексеруі</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Колдану суретінен кийін, менюсін өзгертудіңіз үшін пароль керек</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Parolayı Değiştir</translation>
+        <translation>Парольді өзгертіңіз</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Баштау менюсінің тексеруін өзгертіңіз</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Баштау менюсінің аттестация парольын атқарады</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Kullanıcı Adı :</translation>
+        <translation>Пайдалануын аты :</translation>
     </message>
     <message>
         <source>root</source>
@@ -439,371 +439,372 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>New Password :</source>
-        <translation>Yeni Parola:</translation>
+        <translation>Жаңы пароль :</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Төлөлсөз</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>Пароль эмпір емес</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>Паролдар бір-біріне тақырып жоқ</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Parolayı tekrarla:</translation>
+        <translation>Қайта пароль:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Тәжіри</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Анимацияны бастау</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Система басталу интерфейсінде логотип анимациясындын өлкесін өзгерту</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Төмөнкі арпта ап Parol айланасына таңдауға рұқсат ету:</translation>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>Parmakizi1</translation>
+        <translation>Тізімді 1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>Parmakizi2</translation>
+        <translation>Тізімді 2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>Parmakizi3</translation>
+        <translation>Тізімді 3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>Parmakizi4</translation>
+        <translation>Тізімді 4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>Parmakizi5</translation>
+        <translation>Тізімді 5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>Parmakizi6</translation>
+        <translation>Тізімді 6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>Parmakizi7</translation>
+        <translation>Тізімді 7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>Parmakizi8</translation>
+        <translation>Тізімді 8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>Parmakizi9</translation>
+        <translation>Тізімді 9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>Parmakizi10</translation>
+        <translation>Тізімді 10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Tarama başarısız</translation>
+        <translation>Тізім өтінішіне болмады</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation>Parmak izi zaten var</translation>
+        <translation>Тізім бар</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation>Lütfen diğer parmaklarınızı tarayın</translation>
+        <translation>Басқа айланаларды тізімді өт</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Bilinmeyen hata</translation>
+        <translation>Түсірілмейген катастрофа</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Tarama askıya alındı</translation>
+        <translation>Тізім ақпараттарды өтінішін таңдайтын</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>Tanınamıyor</translation>
+        <translation>Негізде айналып калды</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation>Çok hızlı taşındı</translation>
+        <translation>Тізім өткізілген</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Parmak çok hızlı hareket etti, lütfen istenene kadar kaldırmayın</translation>
+        <translation>Турум көп жылып, алдынча көргенде көргөндерди пайда болбайын</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Net olmayan parmak izi</translation>
+        <translation>Турум толук көрүлбөй</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Parmağınızı temizleyin veya parmak konumunu ayarlayın ve tekrar deneyin</translation>
+        <translation>Турумдун айрым ырларын чыңдоого же турумдын өлчөмүн түзүүгө аракет et ий, алдынча көргенде көргөндерди пайда бол</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation>Zaten tarandı</translation>
+        <translation>Чындыкты көргөн</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Parmak izinizi tamamen taramak için parmak konumunu ayarlayın</translation>
+        <translation>Турумдын жетишкен өлчөмүнүн түзүүгө аракет et ий, турумду чындыкты көргөнде көргөндерди пайда бол</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Parmak çok hızlı hareket etti. Lütfen istenene kadar kaldırmayın</translation>
+        <translation>Турум көп жылып, алдынча көргенде көргөндерди пайда болбайын</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
+        <translation>Турумдын көргөндерди пайда бол, алсызда сенсорго ылайык көрсөт</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation>Yüzünüzü çerçevenin içine yerleştirin</translation>
+        <translation>Көзөңүңүздү кадрдагы айрым аймакта көрсөт</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Yüz kayıtlı</translation>
+        <translation>Көзөңүү киргизилген</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation>Bir insan yüzünü konumlandırın lütfen</translation>
+        <translation>Көзөңүүнүн айрым аймакын кадрдагы айрым аймакта көрсөтүүлүк</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation>Kameradan uzak tutun</translation>
+        <translation>Камердан айырмалык</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation>Kameraya daha yakın ol</translation>
+        <translation>Камерга чыныгы көргөндерди пайда бол</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation>Çerçevenin içine birden fazla yüz yerleştirmeyin</translation>
+        <translation>Кадрдагы айрым аймакта көзөңүүлөрдүн айрым аймактарын көрсөтүүгө аракет etпайын</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation>Kamera merceğinin temiz olduğundan emin olun</translation>
+        <translation>Камеранын өлкөнү чындыктын айрым аймакын чыңдоого аракет et ий</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>Karanlık, aydınlık veya arkadan aydınlatmalı ortamlara kaydolmayın</translation>
+        <translation>Таң-таңсыз, жок-жок же аркылуу айырмалык айырмаларда киргизүүгө аракет etпайын</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation>Yüzünü açık tut</translation>
+        <translation>Көзөңүүнүн айрым аймакын чыңдоого аракет et ий</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation>Tarama zaman aşımına uğradı</translation>
+        <translation>Чындык таң кайсып кетти</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation>Cihaz çöktü, lütfen tekrar tarayın!</translation>
+        <translation>Сапалы жаткан, алдынча чындык көрсөтүүлүк</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болушуна аракет</translation>
     </message>
 </context>
 <context>
     <name>CheckUpdate</name>
     <message>
         <source>Check Again</source>
-        <translation>Tekrar Kontrol Et</translation>
+        <translation>Башкара</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Güncellemeleri kontrol et</translation>
+        <translation>Жаңырылыштарды текшерүү</translation>
     </message>
     <message>
         <source>Last checking time</source>
-        <translation>Son kontrol zamanı</translation>
+        <translation>Акыркы текшерүү убакыты</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation>Vurgu Rengi</translation>
+        <translation>Таң-тартуу салыны</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation>Simge Ayarları</translation>
+        <translation>Иконка өнүгүүлөрү</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Simge Teması</translation>
+        <translation>Иконка темасы</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Тема иконасын өзгөртүү</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>İmleç Teması</translation>
+        <translation>Курсор темасы</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Тема курсорун өзгөртүү</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Bu hesabı silmek istediğinize emin misiniz?</translation>
+        <translation>Сиз бул суреттүүнүн жоюунун төмөнкү нерсесинде эскерсиз?
+</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Hesap dizinini sil</translation>
+        <translation>Суреттүүнүн жолун жоюу</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болсун</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Sil</translation>
+        <translation>Жоюу</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Ayarlara git</translation>
+        <translation>Түзүлүүлөргө жүрүү</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болсун</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Берилген</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Yineleme gecikmesi</translation>
+        <translation>Толугу жарыс күнгөрү</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Kısa</translation>
+        <translation>Кыска</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Uzun</translation>
+        <translation>Жашыраак</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation>Yineleme hızı</translation>
+        <translation>Толуу түзүлүшү</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Төмөнкү</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Жашыраак</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Sayısal Klavye</translation>
+        <translation>Саналык түштүк</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation>burada dene</translation>
+        <translation>Бул жерде тест</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Caps lock көрсөткүчү</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation>Kaydırma Hızı</translation>
+        <translation>Көзөмөлдөнүн жылысы</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation>Çift Tıklama Hızı</translation>
+        <translation>Негизги бирликтешүү жылысы</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Çift Tıklama Denemesi</translation>
+        <translation>Негизги бирликтешүү тест</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Solak Kip</translation>
+        <translation>Калкын көлөм</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Büyük boy</translation>
+        <translation>Байыркы көлөм</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Küçük boy</translation>
+        <translation>Кичирик көлөм</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Kök erişimi alınamadı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>Lütfen önce Union ID&apos;nizde oturum açın</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>PC bilgileriniz okunamıyor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Ağ bağlantısı yok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Sertifika yüklenemedi, kök erişimine erişilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Geliştirici Kipi Sorumluluk Reddi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Kök Erişimi Kabul Et ve İste</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
@@ -822,285 +823,285 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation>Parola rakamlar ve harfler içermelidir</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation>Parola 8 ile 64 karakter arasında olmalıdır</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation>Yeni hesap Oluştur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account type</source>
-        <translation>Hesap Türü</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UserName</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>FullName</source>
-        <translation>Tam Ad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Create account</source>
-        <translation>Hesap oluştur</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation>Henüz bir avatar yüklemediniz.Bir resim yüklemek için tıklayın veya sürükleyin ve bırakın.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>kullanılabilir</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-kk</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Біз азықтануыңыз үчүн жеке маалыматыңыздын маанисін түздөм билишимді. Ошондой эле, бардык жеке маалыматтын өнүгүү, колдонуу, бөлүнүү, түштүрүлүү, ачыктарга түштүрүү жана өнүктүрүү жөндөмдүүлөрүнүн туралы бардык маалыматын көрсөтөттүү куулук бар.&lt;/p&gt;&lt;p&gt;Сизде бардык күнүмдүү куулукка көрсөтүү үчүн &lt;a href=&quot;%1&quot;&gt;бұл сізге&lt;/a&gt; түзгі көрсете алыңыз және/ немесе бардык күнүмдүү куулукты онлайнда көрсете алу үшін &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt; саясатында көрсете алыңыз. Сиз бардык күнүмдүү куулуктын қол жетілдіктерін күнделікті жалғастырыңыз. Егер сизде сұрақтарыңыз болсаңыз, бізге бірге байланыс алу үшін support@uniontech.com электрондық поштасында жазыңыз.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-kk</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Клиенттердің досы программасына қатысу олай болып, сиз бізге дәрігердің, системаны және әртүрлі қолданбалардын маалыматын өнүктүрүү және колдонуу үшін қатысуға қатысты қатысқаныңызды қатыстырууга және өнүктірууга қатысты маалыматты берүүгө қатысты маалыматты беруіңізді қатыстырууга мүмкіндік береді. Егер сіз бізге дәрігердің, системаны және әртүрлі қолданбалардын маалыматын өнүктүрүү және колдонуу үшін қатысыңыз болмасаңыз, клиенттердің досы программасына қатысуға қатысыңыз. Білімділікті үлесіңізге, Deepin Privacy Policy-ге (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;) көрсектіңіз.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Клиенттердің досы программасына қатысу олай болып, сиз бізге дәрігердің, системаны және әртүрлі қолданбалардын маалыматын өнүктүрүү және колдонуу үшін қатысуға қатысты қатысқаныңызды қатыстырууга және өнүктірууга қатысты маалыматты берүүгө қатысты маалыматты беруіңізді қатыстырууга мүмкіндік береді. Егер сіз бізге дәрігердің, системаны және әртүрлі қолданбалардын маалыматын өнүктүрүү және колдонуу үшін қатысыңыз болмасаңыз, клиенттердің досы программасына қатысыңыз жоқ. Клиенттердің досы программасының білімділікті үлесіңізге, &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt; саясатында көрсектіңіз.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation>Клиенттердің досы программасына қатысуу үшін қатысқаныңызды қатыстыру</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Жыл жана күнүү түзінүү</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Tarih</translation>
+        <translation>Жыл</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation>Yıl</translation>
+        <translation>Жыл</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation>Ay</translation>
+        <translation>Ай</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation>Gün</translation>
+        <translation>Күн</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Жыныс</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Тақырыпты тақырыптау</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation>Yarın</translation>
+        <translation>Күн бойы</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation>Dün</translation>
+        <translation>Күнөгө кеткен күн</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Bugün</translation>
+        <translation>Бүгін</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>Yerelden %1 saat önce</translation>
+        <translation>%1 саат бұрын барлығы</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>Yerelden %1 saat sonra</translation>
+        <translation>%1 саат кейін барлығы</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation>Boşluk</translation>
+        <translation>Түсті</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation>Hafta</translation>
+        <translation>Жаңғырта</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Haftanın ilk günü</translation>
+        <translation>Жаңғыртаның бирінші күні</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Kısa tarih</translation>
+        <translation>Кыска жыл</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Uzun tarih</translation>
+        <translation>Жаңы жыл</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Kısa zaman</translation>
+        <translation>Кыска жыныс</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Uzun zaman</translation>
+        <translation>Жаңырту аралыгы</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Para birimi sembolü</translation>
+        <translation>Төлө жөнүндө симболу</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation>Pozitif para birimi</translation>
+        <translation>Төлө үчүн позитивдик симболу</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation>Negatif para birimi</translation>
+        <translation>Төлө үчүн негативдик симболу</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Тартуу символу</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Сан өзгөчөлүктөрүнө символу</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Сан өзгөчөлүктөрү</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation>Sayfa boyutu</translation>
+        <translation>Башкаруу окуянын өлчөмү</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>NTP sunucusunu değiştirmek için kimlik doğrulaması gerekli</translation>
+        <translation>NTP серверин өзгөртүү үчүн эпгөрүү керек</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болбос</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Сактау</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Kontrol Merkezi, sistem ayarları için seçenekler sunar.</translation>
+        <translation>Контроль центрү система параметрлеринин түзөлуу мүмкүнчилери бере алат</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>Вэйхатты байланышташ</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>Вэйхатты байланышташ кылганда, сиз %1 ID-синен жана жергиликтүү суроого жардамчылык кылышыңыз жана жогору маанай жана жакын кабыл алуу үчүн</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation>Bağlantı kaldırıldı</translation>
+        <translation>Байланыштуу эмес</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Байланышты баскып чыгуу</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation>Bağla</translation>
+        <translation>Байланышташ</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Siz мында баскып чыгууну аныктоо лы？</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Вэйхатты баскып чыгуу кпоскунда, сиз Вэйхатты QR кодуна сүрөп кабыл алуу үчүн %1 ID-синен же жергиликтүү суроого жардамчылык кылышыңыз эмес</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Мен бул суроого аракет кылым</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Жергиликтүү суроого байланышташ</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Жергиликтүү суроонун байланышташтын кпоскунда, сиз ар бир чечимди колдонуу ыкмасыздыңыз:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Вэйхат кодун сүрөп жардамчылык системасы</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Вэйхатты колдонуу, бул Вэйхат %1 ID-синен байланышташып жатып, кодун сүрөп кабыл алуу үчүн жергиликтүү сурооңузга кабыл алуу үчүн</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>%1 ID-сиз аркылуу паролун тастыгуу</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
@@ -1115,18 +1116,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>Deepin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS</source>
-        <translation>UOS</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Bulut Eşitleyici</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -1142,15 +1143,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Otomatik Eşitle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation>Sistem ayarlarını ve kişisel verileri bulutta güvenli bir şekilde saklayın ve bunları cihazlar arasında senkronize halde tutun.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Settings</source>
-        <translation>Sistem Ayarları</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last sync time: %1</source>
@@ -1158,38 +1159,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation>Bulut verilerini temizle</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Sistem ayarlarınızı ve bulutta kayıtlı kişisel verilerinizi temizlemek istediğinizden emin misiniz?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Veriler temizlendikten sonra kurtarılamaz!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Temizle</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Eşitleme Servisi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation>Hesap ve Güvenlik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Oturumu kapat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Go to web settings</source>
@@ -1204,344 +1205,344 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Yanlış şifre, %1 şans kaldı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation>Giriş hatası günlük sınırına ulaştı. Parolayı sıfırlayabilir ve tekrar deneyebilirsiniz.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation>İşlem Başarılı</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation>Çin Toprakları</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Other regions</source>
-        <translation>Diğer bölgeler</translation>
+        <translation>Башка региондер</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>Özellik şu anda kullanılamıyor, lütfen önce sisteminizi etkinleştirin</translation>
+        <translation>Сегиңиз бармак, ал эми сizin системаны баштап кылыңыз</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Yerel yasa ve yönetmeliklerinize bağlı olarak, şu anda bölgenizde kullanılamamaktadır.</translation>
+        <translation>Башкастырылышыңыз уюштурулган өлкөлөрдө жана иштеп чыгуу өлкөлөрдө бармак.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Туура түркө баштап кылуунун өзгөчө программасын таңдаңыз, &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation>ekle</translation>
+        <translation>жою</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation>Masaüstü Dosyası Aç</translation>
+        <translation>Компьютер тарабынан өстүрүү файлын баштап кылуу</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Uygulamalar (*.masaüstü)</translation>
+        <translation>Программалар (*.desktop), </translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Tüm dosyalar  (*)</translation>
+        <translation>Бардык файлдар (*), </translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Kök Erişimi</translation>
+        <translation>Админ аркылуу жеткиликтүү</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Kök Erişimi İsteği</translation>
+        <translation>Админ аркылуу жеткиликтүүнү сүрөңүз</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>Geliştirici kipine girdikten sonra kök izinleri alabilirsiniz, ancak sistem bütünlüğüne de zarar verebilir, bu nedenle lütfen dikkatle kullanın.</translation>
+        <translation>Программчы режимуна киргизген так, админ аркылуу жеткиликтүүгө ээ болушу мүмкүн, бирок системанын толуктуулугун калыптануу үчүн эң жетишкендикте колдоноо керек.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation>İzin verilmiş</translation>
+        <translation>Разрешет</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation>Giriş</translation>
+        <translation>Жылуу</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>Çevrimiçi</translation>
+        <translation>Онлайн</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID-нен киргизүү</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Çevrimdışı</translation>
+        <translation>Оффлайн</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation>Sertifikayı İçe Aktar</translation>
+        <translation>Төмөнкү кэдитти импорттоо</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Файлды таңдаңыз</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Сиздин UOS ID-нин башталып калып жатат, программчы режимун киргизүү үчүн бир нече түшүнүүлөрдү түшүнүү</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Сиздин UOS ID-сизге киргизүү үчүн эң баштап кылыңыз жана иштеп чыгуу</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.PC Bilgisini Dışa Aktar</translation>
+        <translation>1. PC маалыматын экспортуу</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>Dışarı aktar</translation>
+        <translation>Экспорт</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation> offline кэдитти импорттоо үчүн &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; сайтын кылуу</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3.Sertifikayı İçe Aktar</translation>
+        <translation>3. Кэдитти импорттоо</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Ээ булган программаларды иштеп чыгуу үчүн &lt;a href=&quot;Security Center&quot;&gt;Безие жөнүндө&lt;/a&gt; булган өзгөртүүлөрдү кылуу</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation>Geliştirme ve hata ayıklama seçenekleri</translation>
+        <translation>Девелопердік және түзініктіру арқылы көмек</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Система логдайтын дәрежесі</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Нәтижелерін өзгертілгенде, бірнеше сапаттау жүйесінің құқығын және/ немесе қол жабуын арттыруға арналған болу мүмкін.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation>Kapalı</translation>
+        <translation>Офф</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Ayıkla</translation>
+        <translation>Тест</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Нәтижелерін өзгертілгенде, уақыт үшін бір минутына дейін басқару құрылымын көрсету үшін, қолдану үшін басқару құрылымын қайта басқару керек.</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Төмендегі ұстақтарды бұл файлдар және жолдарды қолдану үшін рота беріңіз:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Belgeler</translation>
+        <translation>Документтер</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Masaüstü</translation>
+        <translation>Міңгілік</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Resimler</translation>
+        <translation>Каралар</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation>Videolar</translation>
+        <translation>Відеке</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Müzik</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation>İndirilenler</translation>
+        <translation>Жарық жасалу</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation>Klasör</translation>
+        <translation>фолдер</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation>Boyut</translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Standart Yazı Tipi</translation>
+        <translation>Стандарттық шығын</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Sabit Aralıklı Yazı Tipi</translation>
+        <translation>Тұрақты шығын</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation>Güç Planları</translation>
+        <translation>Жүйе пландары</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation>Güç Tasarrufu Ayarları</translation>
+        <translation>Жүйе қорғау құралдары</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation>Düşük pilde otomatik güç tasarrufu</translation>
+        <translation>Низа батареясында автоматты қорғау</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>Düşük pil eşiği</translation>
+        <translation>Низа батареясында жетекшілік</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Pilden otomatik güç tasarrufu</translation>
+        <translation>Батареясында автоматты қорғау</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Uyandırma Ayarları</translation>
+        <translation>Басқару құрылымының жыртылу құралдары</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
+        <translation>Пароль қажет етеді, әртүрлі компьтерді басқару үшін</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>Ekranı uyandırmak için parola gerekli</translation>
+        <translation>Пароль қажет етеді, мониторды басқару үшін</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation>Kapatma Ayarları</translation>
+        <translation>Шығару ашылуу параметрлері</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation>Planlanmış Kapatma</translation>
+        <translation>Жетише жығаруу</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Саат</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>Tekrar</translation>
+        <translation>Таңдау</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation>Bir kez</translation>
+        <translation>Бір жол</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation>Her gün</translation>
+        <translation>Күн күн</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation>İş günleri</translation>
+        <translation>Шаардағы күндер</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Özel Zaman</translation>
+        <translation>Кастом саат</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation>Pazartesi</translation>
+        <translation>Дүйшөмбү</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation>Salı</translation>
+        <translation>Сешімбү</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation>Çarşamba</translation>
+        <translation>Чүнгізбү</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation>Perşembe</translation>
+        <translation>Бейшембү</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation>Cuma</translation>
+        <translation>Жұмсакбү</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation>Cumartesi</translation>
+        <translation>Қаракүн</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation>Pazar</translation>
+        <translation>Бейсенбү</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
+        <translation>Таңдау кезін кастомldsquo;дай</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Тастау</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Сақтау</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Güç Tasarrufu&apos;nda ekran parlaklığını azalt</translation>
+        <translation>Жаңырақ модде аркылуынан екінші есептің көршілігін азайту</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation>Üç Parmak</translation>
+        <translation>Түрт кулақ</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation>Dört Parmak</translation>
+        <translation>Төрт кулақ</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Yukarı</translation>
+        <translation>Теңізге</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Aşağı</translation>
+        <translation>Долыға</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Сол</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Жоғары</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>тап</translation>
     </message>
 </context>
 <context>
@@ -1559,165 +1560,165 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Optimal Performans</translation>
+        <translation>Түзімді артыру</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Түзімді артыру: Системаның ерекше артыруы үшін барлық интерфейс және панель түзімдерін деактивласыз.</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Dengeli</translation>
+        <translation>Негізделген</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Негізделген: Негізделген түзімдерді қолданып, жаңылыстарды жетілдіріп, системаның жақсы артыруы үшін бірнеше панель түзімдерін қатыстырыңыз.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>En İyi Görseller</translation>
+        <translation>Түзімді артыру</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Түзімді артыру: Түзімді артыру үшін барлық интерфейс және панель түзімдерін активласыз.</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Klavye düzeni</translation>
+        <translation>Клавиатура түрі</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Тапсырмадан басылды</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>Düzenle</translation>
+        <translation>редактіру</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Клавиатура түрін қолдану үшін &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Клавиатура түрлерінің алу және қолдану атқарады&lt;/a&gt; арқылы барлық кирім тәсілдерін қосып, қолданып, өзгертіп қолдану үшін қатысты кирім тәсілін қосыңыз.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Нوу клавиатура түрі қосу...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Dil</translation>
+        <translation>Тіл</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Тапсырмадан басылды</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>Düzenle</translation>
+        <translation>редактіру</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation>Diğer diller</translation>
+        <translation>Басқа тілдер</translation>
     </message>
     <message>
         <source>add</source>
-        <translation>ekle</translation>
+        <translation>қоса</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation>Bölge</translation>
+        <translation>Бөлім</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Бөлім</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>Операциялық система және әрекеттер ұстазыңызға өзіңіздің қызметінде және бөлімінде міндетті контент береді</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation>Bölge ve biçim</translation>
+        <translation>Бөлім және формат</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Операциялық система және әрекеттер регіондық форматтарға қатысты даталар және уақыт форматтарын атқарады</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation>Dil Ekle</translation>
+        <translation>Тіл қосу</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Табыс</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Тастау</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Қосу</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation>Dil Ekle</translation>
+        <translation>Тіл қосу</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Табу</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Тастау</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Қосу</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Кіріс түрі</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Құпия сөз, WeChat, биометриялық аутентификация, құралдық құпия сөз</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Құпия сөз</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Құпия сөз ауқой</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Корытынды күндің саны</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation>Her zaman</translation>
+        <translation>Әр күн</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Deepin Topluluğu</translation>
+        <translation>Copyright© 2011-%1 Deepin Community</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -1728,1108 +1729,1108 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Otomatik Gürültü Bastırma</translation>
+        <translation>Автоматтық шумды түштіру</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation>Ses Girişi</translation>
+        <translation>Кірістік ортамдығындың жалпысы</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation>Giriş Seviyesi</translation>
+        <translation>Кірістік ортамдығындың дәрежесі</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Кірістік</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Зомдын кірістік ортамдығы табылмады</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Giriş Cihazları</translation>
+        <translation>Кірістік ортамдықтар</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Мыш</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
+        <translation>Кошымдық қозғалысының жылысы</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Төмөнкі</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Жылыз</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>İşaretçi Boyutu</translation>
+        <translation>Коштун寸из</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Kısa</translation>
+        <translation>Жарық</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Uzun</translation>
+        <translation>Жалпы</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Fare Hızlandırması</translation>
+        <translation>Күлкінінің өсімділігі</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Bir fare bağlandığında dokunmatik yüzeyi devre dışı bırak</translation>
+        <translation>Күлкі жетіп келсе тачпадды деңгейлендір</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
+        <translation>Табиғатты тауару</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Aygıtlarım</translation>
+        <translation>Міндетімініңізді</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Bilgisayar Adı</translation>
+        <translation>Компьютердин аты</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation>Kısa çizgi ile başlayamaz veya bitemez</translation>
+        <translation>Ол таңбалармен басталып аякталмайды</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation>İS Adı</translation>
+        <translation>ОС аты</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Sürüm</translation>
+        <translation>Жылысы</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation>Yayın</translation>
+        <translation>Жүйесі</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tür</translation>
+        <translation>Түрі</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation>bit</translation>
+        <translation>бит</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Тандалу</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation>Sistem Kurulum Tarihi</translation>
+        <translation>Система ыңғайлысының таңдауының уақыты</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Çekirdek</translation>
+        <translation>Кернел</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Графикалық платформа</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation>İşlemci</translation>
+        <translation>Процессор</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation>Bellek</translation>
+        <translation>Негізгі памық</translation>
     </message>
 </context>
 <context>
     <name>NoActive</name>
     <message>
         <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
+        <translation>Жалпысы ыңғайылдырылмады, оновуу үлгісін басылдыруу мүмкін емес</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation>Diğer Cihazlar</translation>
+        <translation>Басқа міндеттер</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Bluetooth cihazlarını isimsiz göster</translation>
+        <translation>Аты жок Bluetooth міндеттерін көрсөт</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation>Mevcut parola</translation>
+        <translation>Жою күлкі</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Қажетті</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Zayıf</translation>
+        <translation>Төмөнкү</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Orta</translation>
+        <translation>Мындай</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Güçlü</translation>
+        <translation>Қалыптастырылған</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
+        <translation>Құпия сөз</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Parolayı Tekrarla</translation>
+        <translation>Құпия сөзді көрсет</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Parola İpucu</translation>
+        <translation>Құпия сөз көрсетуі</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
+        <translation>Кездесетін</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>Құпия сөз басқа жоқ</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>Құпия сөздер тең емес</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>Yeni parola mevcut paroladan farklı olmalıdır</translation>
+        <translation>Жаңы құпия сөз кеңесінде қолданылған құпия сөзден кеңейтіледі</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
+        <translation>Көрсеткіш бар пользоваттерге түсінікті. Құпия сөзді бұттан көрсетуі мүмкін.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Құпия сөзі өзгерту</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation>Parolayı sıfırla</translation>
+        <translation>Құпия сөзі азайту</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Құпия сөз кіруі 8 символдан аз болмасыз және құпия сөзі келесі 3 символдан бірінің комбинациясын жинағып, өзгерістерге жетілдіріледі. Бұл құпия сөздің жақсартылуы мүмкін.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Parolanın sıfırlanması, anahtarlıkta depolanan verileri siler.</translation>
+        <translation>Құпия сөзі азайту үшін кеңесінде қалыптасқан мақсаттарды өлтіреді.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болдырмау</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Açık</translation>
+        <translation>Көркем</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Otomatik</translation>
+        <translation>Авто</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>Koyu</translation>
+        <translation>Күнімді</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Туғандаған</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Eklenti Alanı</translation>
+        <translation>Плагин аймағы</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+        <translation>Қай иконкалар Докта көрсетіледі</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation>Kapat</translation>
+        <translation>Тындау</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Askıya al</translation>
+        <translation>Тақырыптау</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Uyut</translation>
+        <translation>Жүгүртүү</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Monitörü kapat</translation>
+        <translation>Экранды жою</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Kapatma arayüzünü göster</translation>
+        <translation>Катышу интерфейсін көрсет</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Hiçbir şey yapma</translation>
+        <translation>Ол көбүнчө</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Экранды жана тазыруу</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Экранды жоюňын keyін</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Sonrasında ekranı kilitle</translation>
+        <translation>Экранды көңілді түштүрүү keyін</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Компьютер тазыркы keyін</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>Kapak kapatıldığında</translation>
+        <translation>Капкан жылынан курулганда</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Пайыз түстүн басылып</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation>Yüksek Performans</translation>
+        <translation>Таңдалгы таразы</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Dengeli Performans</translation>
+        <translation>Таразы балансы</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>CPU иштөө жүйесинин иштөө узундугуна жетишкендік таанды</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Dengeli</translation>
+        <translation>Баланс</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation>Güç Tasarrufu</translation>
+        <translation>Көп аркылуу арқылы</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Таразын арттырууга жетишкендік, бул энергияды жана жогорулыгын иштеп чыгууга арналыштырат</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Таразы жана батареянын күчтүүлүгү балансы, колдонууна арналыштырмалы таанды</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Батареянын күчтүүлүгүн арттырууга жетишкендік, бул системанын көбүнчө таразын жогорулоо үчүн аткарууга арналыштыралып</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Dakika</translation>
+        <translation>Минут</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Saat</translation>
+        <translation>Саат</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Asla</translation>
+        <translation>Ал эмес</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation>Gizlilik Politikası</translation>
+        <translation>Кіріспе калыптану</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>Пароль булак болушу мүмкүн эмес</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Parola en az %1 karakter olmalıdır</translation>
+        <translation>Пароль %1 символдан аз болушу мүмкүн эмес</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
+        <translation>Пароль %1 символдан көп болушу мүмкүн эмес</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Пароль бірнеше міндетті симболдарындағы, сандардың немесе ретінде кішкентай латынша сөздерге (беттілік арқылы көрсетілген) мүнөздірілген. (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>En fazla %1 palindrom karakter lütfen</translation>
+        <translation>%1 деген санда бірнеше симболдың саралуы бар символдары кіруі мүмкін</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
+        <translation>%1 деген санда бірнеше жетістік символдары кіруі мүмкін</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
+        <translation>%1 деген санда бірнеше қайталап қалатын символдары кіруі мүмкін</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Пароль кішкентай латынша сөздер, кішкентай латынша сөздер, сандар және символдар (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ ) қандайсыздарды барысында кірілуі мүмкін</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
+        <translation>Пароль 4 деген санда бірнеше симболдың саралуы бар символдарын барысында кіруі мүмкін емес</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
+        <translation>Оңтүстік сөздер және комбинацияларды паролы кіруі мүмкін емес</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Lütfen güçlü bir parola oluşturun</translation>
+        <translation>Күчті пароль түзіңіз</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Parola kurallarına uymuyor</translation>
+        <translation>Бұл пароль қате</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Kontrol Merkezi</translation>
+        <translation>Контрол жоғарылышы</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation>Etkin</translation>
+        <translation>Активді</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Görünüm</translation>
+        <translation>Жасалу</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation>Etkinleştirilecek</translation>
+        <translation>Активді етіледі</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation>Etkinleştir</translation>
+        <translation>Активді ету</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation>Süresi doldu</translation>
+        <translation>Сыртқы</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation>Deneme süresinde</translation>
+        <translation>Триaling уақытына</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation>Deneme süresi doldu</translation>
+        <translation>Триaling уақыты басты</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Dokunmatik Ekran Ayarları</translation>
+        <translation>Түсті экран параметрлері</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>Dokunmatik ekranın ayarları değişti</translation>
+        <translation>Түсті экран параметрлері өзгертілді</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Bu sistem duvar kağıdı kilitli.Lütfen yöneticinizle iletişime geçin.</translation>
+        <translation>Бұл системалық курама жою өндірілген. Өзіңіздің администраторына байланысқаныңыз.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Берілген региондер және форматтар</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Көрсете</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Стандарттаулар форматтары</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation>Haftanın ilk günü</translation>
+        <translation>Недең өзгөчө күні</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation>Kısa tarih</translation>
+        <translation>Короткая дата</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Uzun tarih</translation>
+        <translation>Долгая дата</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Kısa zaman</translation>
+        <translation>Короткое время</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Uzun zaman</translation>
+        <translation>Долгое время</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Para birimi sembolü</translation>
+        <translation>Монета симболы</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Жылыз</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Kağıt boyutu</translation>
+        <translation>Көзөмөл көлөмү</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Түшүнө</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Сактоо</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Тызбөө</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation>Parolayı Ayarla</translation>
+        <translation>Көзөмөл сүрөттөө</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 karakterler</translation>
+        <translation>8-64 символ</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Parolayı tekrarla</translation>
+        <translation>Көзөмөлдүн тарабынан үлгүнүнү көрсөтүү</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Түшүнө</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Таанылыш</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation>Parolalar eşleşmiyor</translation>
+        <translation>Көзөмөлдөр толуктук келбейт</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Көзөмөл көлөмү</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>Түзө</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Көзөмөл көлөмүнү кыскачуу</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation>ayar</translation>
+        <translation>Түштүк</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>Көзөмөл көлөмү</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 dakika</translation>
+        <translation>1 минутта</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 dakika</translation>
+        <translation>5 минутта</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 dakika</translation>
+        <translation>10 минутта</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 dakika</translation>
+        <translation>15 минутта</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 dakika</translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 saat</translation>
+        <translation>1 сағат</translation>
     </message>
     <message>
         <source>never</source>
-        <translation>asla</translation>
+        <translation>ақпарат бермей</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Користуу паролу керек</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Көрсөткүч карточкалар слайс</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Sistem ekran koruyucu</translation>
+        <translation>Системалык карточкак слайс</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Табу</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Кастом шорткат қосу</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Ad:</translation>
+        <translation>Аты:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Талапталат</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation>Komut:</translation>
+        <translation>Команда:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation>Kısayol</translation>
+        <translation>Шорткат</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Жоқ</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
+        <translation>Негізгі шортката жаңы шорткат керек</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Тарту</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Қосу</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Көрсөткүчке қосу үшін Add түз</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Kısayollar</translation>
+        <translation>Шорткаттар</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Системалық шорткат, кастом шорткат</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Табу шорткаттары</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Кастом</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>Берілген</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>düzenle</translation>
+        <translation>Түз</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
+        <translation>Негізгі шортката жаңы шорткат керек</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Көрсөткүчке түз</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Тастық</translation>
     </message>
     <message>
         <source>or</source>
-        <translation>ya da</translation>
+        <translation>ысырыңыз</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation>Değiştir</translation>
+        <translation>Көрсеткенди өзгерт</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Натыйжанын таңдауына қайтыстыру</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Кастом шорткат қосу</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Çıkış Cihazları</translation>
+        <translation>Шығу жөндөмдөрү</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Жөндөмдөрдү өнөрдүнүн өзгөчөлүктөрүнүн алууну созу</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Giriş Cihazları</translation>
+        <translation>Жүйө жөндөмдөрү</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation>Ses Etkileri</translation>
+        <translation>Звук жөндөмдөрү</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation>Önyükleme</translation>
+        <translation>Арттыру</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Kapat</translation>
+        <translation>Жою</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation>Oturumu kapat</translation>
+        <translation>Жетиштүү</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation>Uyan</translation>
+        <translation>Акыркылыш</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation>Ses +/-</translation>
+        <translation>Гүлдөрүнө +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Bildirim</translation>
+        <translation>Жалпысыз бөлүштүрүү</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation>Düşük pil</translation>
+        <translation>Жылыз батарейка</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Başlatıcı&apos;dan Masaüstüne simge gönder</translation>
+        <translation>Лаунчерда иконкага басып, аркылы жердеги жылыз батарейка</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation>Çöpü Boşalt</translation>
+        <translation>Көргөзмөнү тазалоо</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation>Fişe tak</translation>
+        <translation>Жүктөнү жүктеу</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation>Fişten çıkar</translation>
+        <translation>Жүктөнү жылуу</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Çıkarılabilir aygıt bağlandı</translation>
+        <translation>Таңдашуу жөндөм жетиштүү болгон</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Çıkarılabilir aygıt kaldırıldı</translation>
+        <translation>Таңдашуу жөндөм жылуу болгон</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Hata</translation>
+        <translation>Таа</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Мода</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Ses Çıkışı</translation>
+        <translation>Шығу гүлдөрү</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Ses Artışı</translation>
+        <translation>Гүлдік арттыру</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Егер гүлдік 100% дегенде аз емес болса, ол звука көркемді калыптандыруы мүмкін және шығыс жөндерге жақсартылатын</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Калім</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Тұрақты</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation>Çıkış</translation>
+        <translation>Шығыс</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Звука шығыс жөнірі жоқ</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Калім-турақты баланс</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Моно аудио</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Калім және тұрақты каналдарды бір каналға қосу</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Орналасқан тақтау</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Егер жүзеге асырғанда негізгі аудио жөнірі тақталады ма?</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Çıkış Cihazları</translation>
+        <translation>Шығыс жөнірлері</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation>Ses</translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Güç</translation>
+        <translation>Көзөмөлдүк</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Мause</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Güncelle</translation>
+        <translation>Өзгөртүү</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Көзөмөлдүк туралы қаралу</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Daha Fazla Duvar Kağıdı</translation>
+        <translation>Көбірек көзөмөлдүктер</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Орналасқан уақыт синхронизациясы</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation>Ntp sunucu</translation>
+        <translation>NTP сервері</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Система уақыт жана күн</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation>Özelleştir</translation>
+        <translation>Туындайтын</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>Түзүлүш</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Сервер аドレスі</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Талапталатын</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>NTP серверин айрым айрым бере алмайсын</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>24-саат форматын колдон</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>система время зонасы</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Zona жасалуы</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation>buradan</translation>
+        <translation>соңғы</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>buraya</translation>
+        <translation>күнү</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүш түзүлөшүн кеңейт</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Түзүлөш %1с кайтышында кайтышы керек</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Eski haline döndür</translation>
+        <translation>Кайттыру</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Кеңейтүү</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation>Saat dilimi ekle</translation>
+        <translation>Zona жөнөтүү</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Жергиликтеги жайга киргизсизде күнө жазуу зонасын таңдашын</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Zaman dilimi:</translation>
+        <translation>Zona:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Күнүк шаар:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Оттыруу</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Кеңейтүү</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Dokunmatik ekran</translation>
+        <translation>Жасыл экран</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Dokunmatik ekranı bağlarken burayı ayarlayın</translation>
+        <translation>Жасыл экранга байланышып, бул жерде түзүү</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation>Temel Ayarlar</translation>
+        <translation>Негизги түзүлөш</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Dokunmatik Yüzey</translation>
+        <translation>Жасыл экран</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
+        <translation>Белештүү жылысы</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Yavaş</translation>
+        <translation>Жогору</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Hızlı</translation>
+        <translation>Төмөнкү</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Киргизүүдө жасыл экранды жайгаштыруу</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Tıklamak için Dokun</translation>
+        <translation>Кликтөрүү</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
+        <translation>Түз бекіту</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Жүйе</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Три жылыс жүйелері</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Төрт жылыс жүйелері</translation>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Талапталат келет жүктеу узактыгы:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation>30 dak</translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation>Kuruluyor</translation>
+        <translation>Жүктеу</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Түймөлдөр %1с деңгээлінде анықталуы көбөйүп келет.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Жылдыз түймөлдөрүн кеңейтүү</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation>Eski haline döndür</translation>
+        <translation>Анықтау</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Kaydet</translation>
+        <translation>Сақтау</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Бұл қорытынды жұмысқа қатысты және қолданылатын қолданмалардың әрекеттік әрекетінің тәуелсіз ішінде, бірнеше білімді система әлемдіктерін жоюға болады және көміркілікты арттыруға жетеді.</translation>
     </message>
     <message>
         <source>2025.1.20</source>
@@ -2837,166 +2838,166 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View Details</source>
-        <translation>Ayrıntıları Görüntüle</translation>
+        <translation>Мүмкіндіктерін көр</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation>Güncellemeler:</translation>
+        <translation>Жаңылар:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation>Yayın zamanı:</translation>
+        <translation>Жарыс жылы:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Daralt</translation>
+        <translation>Жыртық</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation>Güncelleme Kullanılabilir</translation>
+        <translation>Жаңылар бар</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation>Güncellemeler Yükleniyor</translation>
+        <translation>Жаңылуы жүктеп келісімді</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation>Güncellemeler yükleniyor...</translation>
+        <translation>Жаңылар жүктеу…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Жаңылар жүктілген</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation>Şimdi Yeniden Başlat</translation>
+        <translation>Тепе-тепе қайта старт ету</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Жаңылардын өнімділік ету күрделі</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation>yeniden dene</translation>
+        <translation>қайта көр</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
+        <translation>Жаңыларды табу үшін, ұсыныңыз…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation>Sisteminiz güncel, lütfen şimdi yeniden başlatın</translation>
+        <translation>Система жаңырылған, айтуу үчүн жараша келет</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation>Sisteminiz güncel</translation>
+        <translation>Система жаңырылган</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Жаңырым таанылган.</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation>Güncelleme başarısız oldu: yetersiz disk alanı</translation>
+        <translation>Жаңырым катмарылган: дисктеги жалпы кызматкачылык жакшы эмес</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation>Güncelleme başarısız oldu</translation>
+        <translation>Жаңырым катмарылган</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation>Ağ hatası, lütfen kontrol edip tekrar deneyin</translation>
+        <translation>Жүйө сапатында катмар, кайттыкча текшериңиз жана экинчи көз алуу</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation>Paket hatası, lütfen tekrar deneyin</translation>
+        <translation>Пакеттердеги катмар, экинчи көз алуу</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation>Karşılanmayan bağımlılıklar</translation>
+        <translation>Толук киргизилген багыттар</translation>
     </message>
 </context>
 <context>
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>жаңырмак түрү</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Функция жаңырмасы</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
+        <translation>Жаңы функцияларды, өзгөчөдүүлөрдү, ар кандай жамбылдатуу үчүн катааларды жана толук жаңырылган маданиятын берүү</translation>
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Өзгөчөдүү жаңырмасы</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
+        <translation>Системада өзгөчөдүүлөрдү берүү</translation>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation>Akıllı Yansı Değiştir</translation>
+        <translation>Ар бирдик түш түрүн жаңыртуу</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Kullanıcı Deneyimi Programına Katıl</translation>
+        <translation>Користушуу мамилесине кирүү</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation>Güvenlik Doğrulama</translation>
+        <translation>Жамбылдатуу тасымалык</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>Намыс ар кандай, эң бирин користуу паролу киргизин</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation>8-64 karakterler</translation>
+        <translation>8-64 символ</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation>Parolanızı mı unuttunuz?</translation>
+        <translation>Паролун жайгаштырдыңыз?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>Болбосу</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Onayla</translation>
+        <translation>Тааным</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>duvar Kâğıdı</translation>
+        <translation>бекас</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Окнонын жооптануу канттары</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation>Resimlerim</translation>
+        <translation>Менин кадрларым</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Sistem Duvar Kağıdı</translation>
+        <translation>Системадык бекас</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
@@ -3016,43 +3017,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>never</source>
-        <translation>asla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>30 second</source>
-        <translation>30 Saniye</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 dakika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 dakika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 dakika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>15 minute</source>
-        <translation>15 dakika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>30 minute</source>
-        <translation>30 dakika</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>login</source>
-        <translation>oturum aç</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>wake up</source>
-        <translation>uyan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation>Sistem Duvar Kağıtları</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Live Wallpaper</source>
@@ -3060,7 +3061,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1 hour</source>
-        <translation>1 saat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3071,30 +3072,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all</source>
-        <translation>Tümünü göster</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>items</source>
-        <translation>Öğeler</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation>Kilit ekranı ayarla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation>Masaüstü ayarla</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>Arayüz ve Efektler</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation>Pencere Ayarları</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -3102,496 +3103,496 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>Küçük</translation>
+        <translation>Кішкентай</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Orta</translation>
+        <translation>Мысалык</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Büyük</translation>
+        <translation>Демек</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Pencereleri taşırken şeffaflık efektlerini etkinleştirin</translation>
+        <translation>Окнадан жүктүндүк кезде прозрачтандыруу өзгөртүүлерди иштеп чыгуу</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Pencere Küçültme Efekti</translation>
+        <translation>Окно кемитүү өзгөртүүсү</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Ölçek</translation>
+        <translation>Масштабдандыруу</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation>Sihirli Işık</translation>
+        <translation>Магиялы таң</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Saydamlık</translation>
+        <translation>Таңдама</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>Düşük</translation>
+        <translation>Негизги</translation>
     </message>
     <message>
         <source>High</source>
-        <translation>Yüksek</translation>
+        <translation>Түшүк</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation>Kaydırma Çubukları</translation>
+        <translation>Көрсөткүч бары</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Kaydırmayı göster</translation>
+        <translation>Көрсөтүү кезде көрсөтүү</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Gösterilmeyi sürdür</translation>
+        <translation>Көрсөтүүнү кыскартуу</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Компакттык көрсөткүч</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Егер иштеп чыгылып келсе, окнада ар көп контент көрсөтүлөт.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Başlık Çubuğu Yüksekliği</translation>
+        <translation>Окно ат барынын көлөмү</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Негизинен оюн жөнүндө окнадын ат барындашатын оюн менеджери менен сүрөттөлгөн.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Son derece küçük</translation>
+        <translation>Жөнөкөй</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Hesap</translation>
+        <translation>Туура</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Hesap yönetimi</translation>
+        <translation>Туура менеджери</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Башка туура</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
+        <translation>Биометриялык аутентификация</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
+        <translation>Биометриялык аутентификация</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Yüz</translation>
+        <translation>Жана мүнөз</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Максимум 5 мүнөздүн маалыматы киргизилүү</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Parmak İzi</translation>
+        <translation>Қаңтар</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Қаңтар арқылы користушының айтылуын анықтау</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Ирис</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Ирис арқылы айтылуын анықтау</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın ve en fazla 15 karakter kullanın</translation>
+        <translation>Сәйкесінше сөймеге, сандарға және alt таңғылықтарға қолданыңыз және 15 символдан аз болуы керек</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın</translation>
+        <translation>Сәйкесінше сөймеге, сандарға және alt таңғылықтарға қолданыңыз</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>15 karakterden fazla değil</translation>
+        <translation>15 символдан аз</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation>Yeni ekle</translation>
+        <translation>Неймейден жөнелдіру</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation>bluetooth</translation>
+        <translation>Блутуз</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth ayarları, Aygıtlar</translation>
+        <translation>Блутуз шығынысы, дәйлектер</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Ön Yükleme Menüsü</translation>
+        <translation>Старт жүзегі</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Старт жүзегінізді курапайырыңыз</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Программалик жұмсасының ақпараттық орнын курапайырылуы</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Geliştirici Seçenekleri</translation>
+        <translation>Программалик мүмкіндіктер</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Сауал жана күн</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Сауал жана күн, жаңыртау зонасын өзгертуді</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Dil ve bölge</translation>
+        <translation>Сөймеге және құрылым</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Система сөймеге, құрылым форматы</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>Kullanıcı adı 3 ile 32 karakter arasında olmalıdır</translation>
+        <translation>Қалқысыңыз 3-ден 32-ге дейін болуы керек</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>İlk karakter bir harf veya sayı olmalıdır</translation>
+        <translation>Ең бірінші символ сөймеге немесе сан болуы керек</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>Kullanıcı adınız sadece rakam içermemelidir</translation>
+        <translation>Қалқысыңыз сандарға биікті болмайтын керек</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>Kullanıcı adı diğer kullanıcı hesapları tarafından kullanılmış</translation>
+        <translation>Кейде басқа користуу сәйкесініңізді пайдаланылған</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>Tam isim çok uzun</translation>
+        <translation>Толық аты-жөні толған</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Tam ad diğer kullanıcı hesapları tarafından kullanılmış</translation>
+        <translation>Кейде басқа користуу сәйкесініңізді пайдаланылған</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Yanlış parola</translation>
+        <translation>Қате пароль</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Standart Kullanıcı</translation>
+        <translation>Стандарттыс пользователь</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Yönetici</translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Özelleştirilmiş</translation>
+        <translation>Кастомдыс</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Ana makineniz etki alanı sunucusundan başarıyla kaldırıldı</translation>
+        <translation>Жаңырыңыз көмүн домен серверинен жетишиңиз керек</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Ana makineniz etki alanı sunucusuna başarıyla katıldı</translation>
+        <translation>Жаңырыңыз көмүн домен серверге жетишиңиз керек</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Ana makineniz etki alanı sunucusundan ayrılamadı</translation>
+        <translation>Жаңырыңыз көмүн домен серверинин туратыңыз керек</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Ana makineniz etki alanı sunucusuna katılamadı</translation>
+        <translation>Жаңырыңыз көмүн домен серверге жетишиңиз керек</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Aktif Dizin etki alanı ayarları</translation>
+        <translation>AD домен маалыматтары</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation>Parola eşleşmiyor</translation>
+        <translation>Құпия сөз тақырыбын түз</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Дөңгелектік</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Толугон</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Көңілдіңізді пайдаланып дайындауды жүргізіңіз</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Көңіл өсімдігі</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді қойыңыз</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді сенсорға күйдей қойыңыз, күйдіңізді жеткізу керек болғанда</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді жеткізіңіз</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді жеткізіңіз және ал сенсорға қойыңыз</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңіздің өсімдігінің көліктілерінізді түзіңіз</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңіздің өсімдігінің көліктілерінің түзініңізді өзгертіңіз</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді жеткізіңіз және бұл аяқта қайталаныңыз</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңізді қосқан</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Түзінікті жетілдірілді</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Күзіңіздің өсімдігінің көліктілерін сенсорға қойыңыз</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Ирис</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Бұл қысқаша пайдалануы [1] сақталуы сұрайыт</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation>Parola boş olamaz</translation>
+        <translation>Пароль булактан тастырылмайсыз</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation>Parola en az %1 karakter olmalıdır</translation>
+        <translation>Пароль minimum %1 симболдан туратында</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation>Parola %1 karakterden fazla olmamalıdır</translation>
+        <translation>Пароль %1 симболдунан аз болуп туратында</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Парольдин бірнеше символдарындағы барлығы англий тілінің сөймесі (басып-таңк), саны немесе атқарадық симболдары (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/) барысында болушы мүмкін</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>En fazla %1 palindrom karakter lütfen</translation>
+        <translation>Палиндром символдардын барысы %1-ге эсептіңіз</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
+        <translation>Тек түрдік символдардын барысы %1-ге эсептіңіз</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
+        <translation>Түзгі символдардын барысы %1-ге эсептіңіз</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Парольдин барысы басып-таңк сөймесі, таңк сөймесі, сандар және атқарадық симболдар (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/) болып туратында</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
+        <translation>Парольдин барысы 4-ден ашық палиндром символдарын жоқ болуы керек</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
+        <translation>Түп-түнді сөздер және комбинацияларды паролын қолданып қойыңыз</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Lütfen güçlü bir parola oluşturun</translation>
+        <translation>Жаңы жоғары пароль құрыңыз</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Parola kurallarına uymuyor</translation>
+        <translation>Пароль кездерге жетіспейт</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation>Sistem</translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>Pencere</translation>
+        <translation>Кеңістік</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Çalışma Alanı</translation>
+        <translation>Мекен-жай</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Таасирпесіз алаттар</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Özel</translation>
+        <translation>Кастом</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Жоқ</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>Deepin Kimliği</translation>
+        <translation>Deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS Kimliği</translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Бағытталмау алуу алаттары</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Varsayılan Uygulama</translation>
+        <translation>Кез-келген қолданма</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Беттерді ар кандай түрдегі файлдарды жүктеп алу үшін кез-келген қолданманы атқарыңыз</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Web sayfası</translation>
+        <translation>Бет</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>E-posta</translation>
+        <translation>Почта</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Metin</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Müzik</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Resim</translation>
+        <translation>Картпік</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Uçbirim</translation>
+        <translation>Термінал</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Cihaz</translation>
+        <translation>Техника</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation>Ekran</translation>
+        <translation>Жылдыз экран</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Көрсөткүч, аралык, өлчөм</translation>
     </message>
 </context>
 <context>
@@ -3622,7 +3623,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
@@ -3634,35 +3635,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Çoğalt</translation>
+        <translation>Көбейту</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Genişlet</translation>
+        <translation>Шығару</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Varsayılan</translation>
+        <translation>Стандартты</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Sığdır</translation>
+        <translation>Түштүк</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Uzat</translation>
+        <translation>Түзөт</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Ortala</translation>
+        <translation>Көзөмөлдүү</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Мындай %1-да бісімді</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation> (Келесі) </translation>
     </message>
     <message>
         <source>Hz</source>
@@ -3670,51 +3671,51 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Нөлдөрдүн айрым айлаштурулушу</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Көрсөтүү</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Төмөнкү өзгөрүүлер көрсөткүчүүсүнө %1 секунддан кийин кайталанышат</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ар кандай экран</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Экран жана туралы</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Parlaklık</translation>
+        <translation>Жаңырымдылык</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Çözünürlük</translation>
+        <translation>Резолюция</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Masaüstünü Yeniden Boyutlandır</translation>
+        <translation>Масштабташтыруу оюндардын табысы</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Yenileme Hızı</translation>
+        <translation>Негиздөө бурушуучу</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Döndür</translation>
+        <translation>Күлөм менен калыптануу</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Standart</translation>
+        <translation>Стандарт</translation>
     </message>
     <message>
         <source>90°</source>
@@ -3730,540 +3731,540 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeği</translation>
+        <translation>Экрандын масштабы</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Ekran yalnızca %100 ekran ölçeklendirmeyi destekler</translation>
+        <translation>Көрсөткүч 100% масштабды төмөнкүлөрдүн кайталанышына барабар</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Göz Rahatlığı</translation>
+        <translation>Окумуштын жаңырымдылыгы</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Göz rahatlığını enkileştir</translation>
+        <translation>Окумуштын жаңырымдылыгын алуу</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Жаңырымды топтумдуу колордорга жарыялаштыруу, көрсөткүчүүнүн синий жаңырымды азайтуу</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Жылдыз</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation>Tüm gün</translation>
+        <translation>Бүттөн күн</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Башкы жылынан күнүнгі</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Özel Zaman</translation>
+        <translation>Маанилуу жылдыз</translation>
     </message>
     <message>
         <source>from</source>
-        <translation>buradan</translation>
+        <translation>әзірлік</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>buraya</translation>
+        <translation>ғана</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Renk Sıcaklığı</translation>
+        <translation>Реттік температура</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Masaüstü ve görev çubuğu</translation>
+        <translation>Компьютер экраны және қаралудың жолы</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Masaüstündeki simgelerin görünümünü ve boyutunu ayarlayın</translation>
+        <translation>Компьютер экранында иконкалардын жалғыздануы және өлшемін айту</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Klavye</translation>
+        <translation>Клавиатура</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Текшерілімдер, клавиатура түрі, кіредірек әдіс, қысқа жолдар</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Жалпы</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Klavye düzeni</translation>
+        <translation>Клавиатура түрі</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Система үшін қолданылатын клавиатура түрін айту</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation>Rıhtım</translation>
+        <translation>Жою менен</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Kip</translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Klasik Kip</translation>
+        <translation>Классикалық режим</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Ortalanmış Kip</translation>
+        <translation>Көзөмөл режим</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Rıhtım boyutu</translation>
+        <translation>Жоюның өлшемі</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation>Küçük</translation>
+        <translation>Кішкентай</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>Büyük</translation>
+        <translation>Көп</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Ekrandaki konumu</translation>
+        <translation>Экрандағы орналасу</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Üst</translation>
+        <translation>Түсті</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Alt</translation>
+        <translation>Жоғары</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation>Таң</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation>Жоғары</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Durum</translation>
+        <translation>Саясат</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Sürekli görünür</translation>
+        <translation>Көрінісін сақтау</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Sürekli gizli</translation>
+        <translation>Көрінісін сактау</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Akıllı gizlenme</translation>
+        <translation>Жетімді келтіру</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Birden Fazla Ekran</translation>
+        <translation>Негізгі жетістік</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Görev çubuğunun ekrandaki konumunu ayarlayın</translation>
+        <translation>Экранда жетістік барынын ортасын тастықтау</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Yalnızca ana ekranda</translation>
+        <translation>Негізгіде екінші</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>İmlecin olduğu ekranda</translation>
+        <translation>Курсордын туралы экранда</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Eklenti Alanı</translation>
+        <translation>Плагин тізімі</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+        <translation>Докта көрсөтілген иконкаларды таңдау</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Fare ve Dokunmatik Yüzey</translation>
+        <translation>Маус және тачпад</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Жалпы, Маус, Тачпад</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Жалпы</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Fare</translation>
+        <translation>Маус</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Dokunmatik Yüzey</translation>
+        <translation>Тачпад</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>RHT Kipi, uygulama Bildirimleri</translation>
+        <translation>ДНД режимі, арналыс собщеттері</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Bildirim</translation>
+        <translation>Собщет</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Rahatsız Etme Ayarları</translation>
+        <translation>Соңырақтырмалык құралдар</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Программа собщеттері сіздің жоғары бетінде көрсөтілмейді және звукаларды кесілді, бірақ сіз барлық собщеттерді собщеттірлерде қараңыз</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Etkinleştir Rahatsız Etmeyin</translation>
+        <translation>Соңырақтырмалық қой</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Ekran kilitlendiğinde</translation>
+        <translation>Экранды қайрылуы кезінде</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Жоғары бетте көрсөтілген собщеттер саны</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Uygulama Bildirimleri</translation>
+        <translation>Программа собщеттері</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Собщеттерге реттеу</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Жоғары бетте собщеттерді көрсөтіңіз же негізгі собщеттірлерде оқиған собщеттерді көрсете</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Masaüstü</translation>
+        <translation>Жоғары бет</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Ekranı Kilitle</translation>
+        <translation>Экранды қайрылуу</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Bildirim Merkezi</translation>
+        <translation>Собщеттірлерді табу</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Mesaj önizlemesini göster</translation>
+        <translation>Жаңы сообщение оқыту</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Bir ses çal</translation>
+        <translation>Зарық көрсөткүү</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
+        <translation>Көрүнүү түзүлүшү</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Тема</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Görünüm</translation>
+        <translation>Көрүнүү</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Pencere efekti</translation>
+        <translation>Көзөмөлдүүлүк</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Көзөмөлдүүлүкүнү жана көзөмөлдүү көрүнүгүнү түзүү</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
+        <translation>Көзөмөлдүү көрүнүк</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Реттү жана иконкалар</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Эсептүү реттүнү жана тема иконкаларын айтуу</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Шырай жана шырайн түрү</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Системанын шырайн жана түрүн жөнөтүү</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Duvar Kâğıdı</translation>
+        <translation>Көзөмөлдүүлүк</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Азыркы, күчөрүк же автоматикалык теманын көрүнүгүн сараптыйтуу</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners, compact display</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүү жана көзөмөлдүктөрү, азыркы кемиеки көрүнүк</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүү жана түштүрүү көрсөткүүлөрү, энергия сактоо түзүлүшү</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation>Güç</translation>
+        <translation>Көрүнүү</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation>Genel</translation>
+        <translation>Жалпы</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүү тарабындагы таасирлөшүмдөр, энергия сактоо түзүлүшү, жашыруу түзүлүшү, жоюу түзүлүшү</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Fişe Takılı</translation>
+        <translation>Жетиштүү</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүү жана түштүрүү</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Pilde</translation>
+        <translation>Батарейка аркылуу</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Көрүнүү жана түштүрүү, низк батарейка, батарейка курулушу</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Gizlilik ve Güvenlik</translation>
+        <translation>Жекелектүүлүк жана жалпысыздуулук</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Камера, жазылыштын эрежелери</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Kamera</translation>
+        <translation>Камера</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Аплыттук кода камераға жабуу мүмкүнчүлүгүн салымдат</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Dosyalar ve klasörler</translation>
+        <translation>Файлдар жана каталогдар</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Аплыттук кода файлдарды жана каталогдардын жабуу мүмкүнчүлүгүн салымдат</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation>Ses</translation>
+        <translation>Дол</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Чыгаруу, жеткилиक, дол аракеттери, касиеттер</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation>Çıkış</translation>
+        <translation>Чыгаруу</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation>Giriş</translation>
+        <translation>Жеткиликтүү</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>Камсыздоо</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Ses Efektleri</translation>
+        <translation>Дол аракеттери</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Дол аракеттерин алуу/башкаруу</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Касиеттер менеджери</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Дол касиеттерин алуу/башкаруу</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Ortak ayarlar</translation>
+        <translation>Жалпы камсыздоо</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistem</translation>
+        <translation>Система</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Комплекттүү маалымат</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Bu PC Hakkında</translation>
+        <translation>Бул ПК жөнүндө</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Sistem sürümü, cihaz bilgileri</translation>
+        <translation>Система мүнөтү, касиеттер</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Комплекттүү программалык өнүктүрмөлөрдүн түзүлүшү</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Комплекттүү программалык өнүктүрмөлөрдүн айтымчысын көрүү</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Kullanıcı Deneyimi Programı</translation>
+        <translation>Кыйынчалык көрүнүшү программасы</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Кыйынчалык көрүнүшү программасына кирүү жана продукттин көрүнүшүн таасир этүү</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
+        <translation>Кийинчалык кыйынчалык өнүктүрмөчүлүк согуш</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Кийинчалык кыйынчалык өнүктүрмөчүлүк согушты көрүү</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Gizlilik Politikası</translation>
+        <translation>Жекелүү максаты</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Тақырыптың мағынасын түзүү аbout privacy policy</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Жүрек экраны</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Жүрек экранын конфигурациялау</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Ortak</translation>
+        <translation>Жалпы</translation>
     </message>
 </context>
 <context>
     <name>update</name>
     <message>
         <source>System Update</source>
-        <translation type="unfinished"/>
+        <translation>Система жарыс</translation>
     </message>
     <message>
         <source>System update and upgrade</source>
-        <translation type="unfinished"/>
+        <translation>Система жарыс жана жакшырту</translation>
     </message>
 </context>
 <context>
     <name>updateMain</name>
     <message>
         <source>Feature Updates</source>
-        <translation type="unfinished"/>
+        <translation>Жаңылдаштуруу</translation>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
+        <translation>Жарыс тақырыplerini түзүү</translation>
     </message>
 </context>
 <context>
@@ -4274,7 +4275,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom-ды конфигурациялау</translation>
     </message>
 </context>
 <context>
@@ -4285,23 +4286,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation>Wacom Kipi</translation>
+        <translation>Wacom режимі</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Kalem Kipi</translation>
+        <translation>Каран режимі</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Fare Kipi</translation>
+        <translation>Мыш режимі</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Жылыздык жақсартуы</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Açık</translation>
+        <translation>Түш</translation>
     </message>
 </context>
 </TS>
