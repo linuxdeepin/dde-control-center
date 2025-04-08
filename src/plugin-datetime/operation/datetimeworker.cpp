@@ -36,6 +36,15 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
             tzinfo = GetZoneInfo(QTimeZone::systemTimeZoneId());
         }
         m_model->setCurrentUseTimeZone(tzinfo);
+        QList<ZoneInfo> zones = m_model->userTimeZones();
+        // Remove the timezone from user list if it becomes the system timezone
+        for (const ZoneInfo &zone : zones) {
+            if (zone.getZoneName() == value) {
+                m_model->removeUserTimeZone(zone);
+                onTimezoneListChanged(m_timedateInter->userTimezones());
+                break;
+            }
+        }
     });
 
     connect(m_timedateInter, &DatetimeDBusProxy::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
