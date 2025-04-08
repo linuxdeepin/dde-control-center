@@ -15,6 +15,7 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+#include <QDir>
 #include <QElapsedTimer>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -101,6 +102,11 @@ void DccManager::init()
     m_engine = new QQmlApplicationEngine(this);
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
+    const QString rootDir = QCoreApplication::applicationDirPath();
+    QDir pluginDir(rootDir);
+    if (pluginDir.cd("../lib")) {
+        paths.prepend(pluginDir.absolutePath());
+    }
     m_engine->setImportPathList(paths);
     QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
     dciPaths << QStringLiteral(DefaultModuleDirectory);
