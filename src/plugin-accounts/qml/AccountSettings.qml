@@ -101,6 +101,7 @@ DccObject {
                     id: image
                     source: dccData.avatar(settings.userId)
                     asynchronous: true
+                    visible: false
                     anchors.fill: parent
                     width: 100
                     height: 100
@@ -109,18 +110,37 @@ DccObject {
                 }
 
                 Rectangle {
-                    width: 100
-                    height: 30
-                    visible: control.hovered
-                    anchors {
-                        bottom: image.bottom
-                        horizontalCenter: image.horizontalCenter
-                    }
+                    id: mask
+                    radius: width / 2
+                    visible: false
+                    anchors.fill: parent
+                }
+
+                OpacityMask {
+                    id: opMask
+                    source:image
+                    maskSource: mask
+                    anchors.fill: image
+                }
+
+                Rectangle {
+                    id: shadow
+                    visible: false
+                    anchors.fill: parent
                     // color: Qt.rgba(0, 0, 0, 0.5)
                     gradient: Gradient {
                         GradientStop {  position: 0.0; color: Qt.rgba(0, 0, 0, 0) }
+                        GradientStop {  position: 0.7; color: Qt.rgba(0, 0, 0, 0) }
                         GradientStop {  position: 1.0; color: Qt.rgba(0, 0, 0, 1) }
                     }
+                }
+
+                OpacityMask {
+                    id: shadowOpMask
+                    source:shadow
+                    maskSource: mask
+                    visible: control.hovered
+                    anchors.fill: shadow
                 }
 
                 Text {
@@ -133,17 +153,6 @@ DccObject {
                         bottom: control.bottom
                         bottomMargin: 2
                     }
-                }
-
-                // fake round image, just set shadowColor same with window color
-                BoxShadow {
-                    id: boxShadow
-                    hollow: true
-                    anchors.fill: image
-                    shadowBlur: 10
-                    spread: 20
-                    shadowColor: control.palette.window
-                    cornerRadius: control.width / 2
                 }
             }
 
