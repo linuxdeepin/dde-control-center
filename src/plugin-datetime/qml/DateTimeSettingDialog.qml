@@ -44,6 +44,7 @@ D.DialogWindow {
             SpinboxEx {
                 id: spYear
                 unitText: qsTr("Year")
+                locale: Qt.locale("C")
                 from: 1990
                 to: 2090
                 value: currentDate.getFullYear()
