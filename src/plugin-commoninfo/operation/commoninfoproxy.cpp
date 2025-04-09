@@ -99,6 +99,8 @@ void CommonInfoProxy::setEnableTheme(const bool value)
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
             Q_EMIT resetEnableTheme();
+        } else {
+            Q_EMIT EnableThemeChanged(value);
         }
         watcher->deleteLater();
     });

@@ -172,7 +172,11 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     connect(m_commonInfoProxy, &CommonInfoProxy::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
     connect(m_commonInfoProxy, &CommonInfoProxy::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
     connect(m_commonInfoProxy, &CommonInfoProxy::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
-    connect(m_commonInfoProxy, &CommonInfoProxy::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
+    // connect(m_commonInfoProxy, &CommonInfoProxy::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
+    connect(m_commonInfoProxy, &CommonInfoProxy::EnableThemeChanged, m_commomModel, [this](bool ThemeEnable) {
+        m_commomModel->setGrubThemePath(m_commonInfoProxy->Background());
+        m_commomModel->setThemeEnabled(ThemeEnable);
+    });
     connect(m_commonInfoProxy, &CommonInfoProxy::TimeoutChanged, m_commomModel, [this] (const uint timeout) {
         m_commomModel->setBootDelay(timeout > 1);
     });

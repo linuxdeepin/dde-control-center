@@ -64,6 +64,13 @@ DccObject {
                 clip: true
             }
 
+            Rectangle {
+                visible: dccData.mode().grubThemePath === ""
+                anchors.fill: image
+                color: "black"
+                radius: 10
+            }
+
             Column {
                 spacing: 5
                 leftPadding: 20
