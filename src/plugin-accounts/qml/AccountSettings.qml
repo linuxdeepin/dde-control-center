@@ -296,8 +296,9 @@ DccObject {
                         }
 
                         if (text.trim().length === 0) {
-                            text = dccData.fullName(settings.userId)
-                            return
+                            dccData.setFullname(settings.userId, "");
+                            fullNameEdit.text = "";
+                            return;
                         }
 
                         dccData.setFullname(settings.userId, text)
