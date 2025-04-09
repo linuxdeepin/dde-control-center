@@ -307,7 +307,8 @@ DccObject {
                             id: userEdit
                             text: qsTr("root")
                             readOnly: true
-                            clearButton.visible: false
+                            enabled: false
+                            clearButton.visible: true
                             Layout.preferredWidth: parent.width
                         }
 
