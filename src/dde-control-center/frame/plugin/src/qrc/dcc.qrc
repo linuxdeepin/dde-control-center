@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/org/deepin/dcc">
-        <file>dcc_checked.svg</file>
-    </qresource>
-</RCC>

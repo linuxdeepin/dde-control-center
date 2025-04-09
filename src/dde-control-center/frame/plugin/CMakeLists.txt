@@ -7,7 +7,6 @@ string(REPLACE "." "/" URI_PATH ${URI})
 file(GLOB DCCQmlPlugin_SRCS
     "src/*.h"
     "src/*.cpp"
-    "src/qrc/dcc.qrc"
 )
 
 file(GLOB QML_PATHS
