@@ -481,6 +481,10 @@ DccObject {
                 enabled: dccData.isDeleteAble(settings.userId)
                 implicitWidth: fm.advanceWidth(text) + 12
                 implicitHeight: 30
+                contentItem: Text {
+                    text: deleteBtn.text
+                    color: "#FF5736"
+                }
                 Loader {
                     id: cfdLoader
                     active: false
