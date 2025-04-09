@@ -232,7 +232,6 @@ DccObject {
                         visible: dccData.mode().grubEditAuthEnabled
                         horizontalAlignment: Qt.AlignLeft
                         verticalAlignment: Qt.AlignVCenter
-                        font.pointSize: 8
                         color:"#5A000000"
                         // 超链接点击事件
                         onLinkActivated: function(url) {
