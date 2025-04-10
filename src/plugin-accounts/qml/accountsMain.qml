@@ -17,6 +17,7 @@ DccObject {
 
     // 其他账户
     DccObject {
+        id: otherAcountsTitle
         name: "otherAcountsTitle"
         parentName: "accounts"
         displayName: qsTr("Other accounts")
@@ -163,6 +164,9 @@ DccObject {
                        otherSettings.userId = model.userId
                        DccApp.showPage(otherSettings)
                    }
+               }
+               onCountChanged: {
+                   otherAcountsTitle.visible = count > 0;
                }
            }
         }
