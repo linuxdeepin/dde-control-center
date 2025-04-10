@@ -1,3 +1,24 @@
+dde-control-center (6.1.20) unstable; urgency=medium
+
+  * refact: migrate plugin-update to deepin-update-ui
+  * fix: remove redundant locale config when setting region
+  * fix: improve SearchableListViewPopup positioning and visibility
+  * fix: Fixed text color errors
+  * fix: The issue that the username is displayed abnormally is fixed
+  * fix: Fixed the issue that the full name could not be set to the
+    blank
+  * fix: number separator issue in SpinBox with C locale
+  * fix: Fixed the profile picture background issue
+  * fix: Fixed the issue that the font size does not change
+  * fix: adjust UI for DccCheckIcon
+  * fix: Fixed it was not refreshed in time when switching theme
+    displays
+  * fix: prevent duplicate timezone between system and user lists
+  * i18n: Updates for project Deepin Desktop Environment (#2154)
+  * i18n: Updates for project Deepin Desktop Environment (#2153)
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 10 Apr 2025 15:49:14 +0800
+
 dde-control-center (6.1.19) unstable; urgency=medium
 
   *  feat: modify the system configuration items of the deepinid
