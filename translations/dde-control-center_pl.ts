@@ -3185,7 +3185,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>Tylko dla aplikacji, których pasek tytułu jest rysowany przez menedżer okien.</translation>
+        <translation>Tylko dla aplikacji, których pasek tytułu jest rysowany przez menedżera okien.</translation>
     </message>
     <message>
         <source>Extremely small</source>
