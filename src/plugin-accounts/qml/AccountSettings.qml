@@ -165,7 +165,10 @@ DccObject {
                     text: dccData.userName(settings.userId)
                     font.pointSize: 16
                     font.bold: true
-                    color: palette.text // not update ?
+                    color: palette.text
+                    elide: Text.ElideRight
+                    maximumLineCount: 1
+                    Layout.maximumWidth: item.width - 230
                 }
                 Text {
                     id: userTypeName
