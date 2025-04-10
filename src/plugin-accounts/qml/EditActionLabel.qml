@@ -9,14 +9,26 @@ import org.deepin.dtk.style 1.0 as DS
 D.LineEdit {
     id: edit
     property alias editBtn: editButton
+    property alias alertText: panel.alertText
+    property alias showAlert: panel.showAlert
     signal finished()
 
     readOnly: true
-    background.visible: showAlert
     horizontalAlignment: TextInput.AlignLeft
     clearButton.visible: !readOnly
     rightPadding: clearButton.width + clearButton.anchors.rightMargin
-    alertDuration: 3000
+    background: D.EditPanel {
+        id: panel
+        control: edit
+        showBorder: !readOnly
+        alertDuration: 3000
+        implicitWidth: DS.Style.edit.width
+        implicitHeight: DS.Style.edit.textFieldHeight
+        backgroundColor: D.Palette {
+            normal: Qt.rgba(1, 1, 1, 0)
+            normalDark: Qt.rgba(1, 1, 1, 0)
+        }
+    }
     onEditingFinished: {
         if (edit.readOnly)
             return
@@ -31,10 +43,28 @@ D.LineEdit {
     D.ActionButton {
         id: editButton
         focusPolicy: Qt.NoFocus
+        width: 30
+        height: 30
         icon.name: "dcc-edit"
         icon.width: DS.Style.edit.actionIconSize
         icon.height: DS.Style.edit.actionIconSize
-        background: null
+        background: Rectangle {
+            anchors.fill: parent
+            property D.Palette pressedColor: D.Palette {
+                normal: Qt.rgba(0, 0, 0, 0.2)
+                normalDark: Qt.rgba(1, 1, 1, 0.25)
+            }
+            property D.Palette hoveredColor: D.Palette {
+                normal: Qt.rgba(0, 0, 0, 0.1)
+                normalDark: Qt.rgba(1, 1, 1, 0.1)
+            }
+            radius: DS.Style.control.radius
+            color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+            border {
+                color: parent.palette.highlight
+                width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+            }
+        }
         anchors {
             right: edit.right
             verticalCenter: edit.verticalCenter
