@@ -41,11 +41,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # INFO:
 # plugins can be disabled and their options
 # plugin-authentication : DISABLE_AUTHENTICATION
-# plugin-update : DISABLE_UPDATE
 # plugin-keyboard: DISABLE_LANGUAGE to disable language panel
 
 option(DISABLE_AUTHENTICATION "disable build authentication plugins" OFF)
-option(DISABLE_UPDATE "disable build update plugins" OFF)
 option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
 option(USE_DEEPIN_ZONE "enable special timezone file on deepin" OFF)
 option(DISABLE_SOUND_ADVANCED "disable sound advanced settings" OFF)
@@ -213,7 +211,6 @@ add_subdirectory(src/plugin-touchscreen)
 add_subdirectory(src/plugin-datetime)
 add_subdirectory(src/plugin-wacom)
 add_subdirectory(src/plugin-bluetooth)
-add_subdirectory(src/plugin-update)
 add_subdirectory(src/plugin-notification)
 add_subdirectory(src/plugin-deepinid)
 add_subdirectory(src/plugin-display)
