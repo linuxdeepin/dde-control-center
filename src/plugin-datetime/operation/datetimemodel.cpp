@@ -574,9 +574,6 @@ void DatetimeModel::setRegion(const QString &region)
         QString language = QLocale::languageToString(locale.language());
         QString langCountry = QString("%1:%2").arg(language).arg(country);
         m_work->setConfigValue(country_key, country);
-        m_work->setConfigValue(localeName_key, locale.name());
-        m_work->setConfigValue(languageRegion_key, langCountry);
-        setLangRegion(langCountry);
 
         Q_EMIT regionChanged(region);
         Q_EMIT currentRegionIndexChanged(currentRegionIndex());
