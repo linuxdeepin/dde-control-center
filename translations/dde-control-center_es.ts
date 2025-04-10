@@ -1087,7 +1087,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation>¿Estás seguro de que quieres desvincular WeChat?</translation>
+        <translation>¿Está seguro de que quiere desvincular WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
