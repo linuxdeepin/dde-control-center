@@ -921,7 +921,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar y unirse al programa de experiencia de usuario</translation>
     </message>
 </context>
 <context>
@@ -975,7 +975,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas antes que la local</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
