@@ -1123,7 +1123,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Para utilizar las funciones anteriores, vaya al Centro de control - Cuentas y active las opciones correspondientes.</translation>
     </message>
 </context>
 <context>
@@ -1146,11 +1146,12 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Administre su deepin ID y sincronice sus datos personales entre dispositivos.
+Inicie sesión en deepin ID para obtener funciones y servicios personalizados del navegador, tienda de aplicaciones, soporte y más.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión en %1 ID</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1162,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Almacene de forma segura la configuración del sistema y los datos personales en la nube, y manténgalos sincronizados en todos los dispositivos.</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -1177,11 +1178,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que desea borrar la configuración del sistema y los datos personales guardados en la nube?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Una vez que se borran los datos, ¡no se pueden recuperar!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1246,7 +1247,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Sujeto a leyes y regulaciones locales, actualmente no está disponible en su región.</translation>
     </message>
 </context>
 <context>
@@ -1284,7 +1285,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Después de ingresar al modo de desarrollador, puede obtener permisos de root, pero también puede dañar la integridad del sistema, así que úselo con precaución.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1316,11 +1317,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Su ID de UOS ha iniciado sesión, haga clic para ingresar al modo de desarrollador</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Inicie sesión primero con su ID de UOS y continúe</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1344,7 +1345,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de depuración para desarrolladores</translation>
     </message>
     <message>
         <source>System logging level</source>
@@ -1556,7 +1557,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>tap</translation>
     </message>
 </context>
 <context>
@@ -1849,7 +1850,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
@@ -1942,7 +1943,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>La nueva contraseña debe ser diferente a la actual</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
@@ -1969,14 +1970,14 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Auto</source>
