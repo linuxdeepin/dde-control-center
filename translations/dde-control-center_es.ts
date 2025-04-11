@@ -1981,11 +1981,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Oscuro</translation>
     </message>
 </context>
 <context>
@@ -2010,73 +2010,73 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspender</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar interfaz de apagado</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>No hacer nada</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor después</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla después</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender la computadora después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la tapa está cerrada</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando se presiona el botón de encendido</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Alto rendimiento</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendimiento equilibrado</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste agresivo de la frecuencia de funcionamiento de la CPU según la condición de carga de la CPU</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
