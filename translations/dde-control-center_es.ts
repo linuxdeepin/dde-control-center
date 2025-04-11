@@ -2650,23 +2650,23 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Sincronizar hora automáticamente</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor Ntp</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora del sistema</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Server address</source>
