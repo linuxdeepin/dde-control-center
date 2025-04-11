@@ -126,13 +126,26 @@ DccObject {
                     implicitWidth: 24
                     Layout.rightMargin: 4
                 }
-                Slider {
+                Item {
                     Layout.fillWidth: false
-                   // handleType: Slider.HandleType.NoArrowHorizontal
-                    handleType: -2
-                    highlightedPassedGroove: true
-                    implicitHeight: 24
-                    value: dccData.model().microphoneFeedback
+                    implicitHeight: slider.implicitHeight
+                    implicitWidth: slider.implicitWidth
+
+                    Slider {
+                        id: slider
+                        anchors.fill: parent
+                        handleType: -2
+                        highlightedPassedGroove: true
+                        value: dccData.model().microphoneFeedback
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onPressed: mouse.accepted = true
+                        onReleased: mouse.accepted = true
+                        onClicked: mouse.accepted = true
+                    }
                 }
                 D.DciIcon {
                     name: "big_volume"
