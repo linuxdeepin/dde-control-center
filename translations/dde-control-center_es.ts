@@ -2410,77 +2410,77 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Agregar</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Haga clic en Agregar para reemplazar</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Atajos</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atajos del sistema, atajo personalizado</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Buscar atajos</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca un nuevo atajo</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Clic</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>o</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Reemplazar</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar valores predeterminados</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Añadir atajo personalizado</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de salida</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
@@ -2488,7 +2488,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de entrada</translation>
     </message>
 </context>
 <context>
@@ -2585,7 +2585,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Salida</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
