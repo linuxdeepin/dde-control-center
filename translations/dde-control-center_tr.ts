@@ -1052,7 +1052,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>WeChat Bağla</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
@@ -1084,11 +1084,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Yerel Hesap Bağla</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Yerel hesabınızı bağladıktan sonra aşağıdaki işlevleri kullanabilirsiniz:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
