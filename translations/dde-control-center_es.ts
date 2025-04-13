@@ -3,7 +3,7 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Add new user</source>
@@ -2382,7 +2382,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Añadir atajo personalizado</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2643,7 +2643,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Más fondos de pantalla</translation>
     </message>
 </context>
 <context>
@@ -2674,11 +2674,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La dirección del servidor ntp no puede estar vacía</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
@@ -2686,22 +2686,22 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Zona horaria del sistema</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Lista de zonas horarias</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>de</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
 </context>
 <context>
@@ -2727,27 +2727,27 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Añadir zona horaria</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Determinar la zona horaria en función de la ubicación actual</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zona Horaria</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Ciudad más cercana:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -2765,7 +2765,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración básica</translation>
     </message>
     <message>
         <source>Touchpad</source>
