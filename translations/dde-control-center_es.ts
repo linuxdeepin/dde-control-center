@@ -2754,11 +2754,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Configure aquí al conectar la pantalla táctil</translation>
     </message>
 </context>
 <context>
@@ -2769,77 +2769,77 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidad del Puntero</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Desactivar el panel táctil mientras escribe</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Toque para hacer clic</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplazamiento natural</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Gesto</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de tres dedos</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de cuatro dedos</translation>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo de instalación estimado:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>Instalando</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Los ajustes se revertirán en %1s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>¿Guardar los ajustes de pantalla?</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Revertir</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
