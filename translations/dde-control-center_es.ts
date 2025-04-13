@@ -2909,15 +2909,15 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Su sistema está actualizado</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Se ha detectado una actualización.</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>La actualización falló: espacio de disco insuficiente</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -2925,7 +2925,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Error de red, por favor, compruebe y vuelva a intentarlo</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
