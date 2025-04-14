@@ -1591,7 +1591,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Efectos Visuales</translation>
+        <translation>Optimizar efectos visuales</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
