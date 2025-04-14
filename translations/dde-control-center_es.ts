@@ -2973,7 +2973,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificación de seguridad</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
