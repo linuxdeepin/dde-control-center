@@ -2944,7 +2944,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de funciones</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
@@ -2952,7 +2952,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de calidad</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
@@ -2990,7 +2990,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
