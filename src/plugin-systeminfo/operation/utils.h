@@ -29,6 +29,8 @@ inline const static QString homeEnduserAgreement_new =
 inline const static QString homeEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/"
         "End-User-License-Agreement-Home-CN-%1.%2";
+inline const static QString militaryEnduserAgreement =
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Military-%1.%2";
 inline const static QString professionalEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.%2";
 inline const static QString professionalEnduserAgreement_old =
@@ -191,6 +193,9 @@ inline LicenseSearchInfo isEndUserAgreementExist()
         return LicenseSearchInfo{ QFile::exists(file_pa), file_pa };
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
         const QString bodypath = getLicensePath(educationEnduserAgreement, "txt");
+        return { QFile::exists(bodypath), bodypath };
+    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosMilitary) {
+        const QString bodypath = getLicensePath(militaryEnduserAgreement, "txt");
         return { QFile::exists(bodypath), bodypath };
     } else {
         const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "txt");
