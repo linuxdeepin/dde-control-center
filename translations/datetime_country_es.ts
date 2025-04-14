@@ -23,7 +23,7 @@
     </message>
     <message>
         <source>US</source>
-        <translation>EE. UU</translation>
+        <translation>EE.UU.</translation>
     </message>
     <message>
         <source>Belize</source>
