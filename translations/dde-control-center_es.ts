@@ -2986,7 +2986,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>¿Olvidó la contraseña?</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2994,14 +2994,14 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>fondo de pantalla</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
