@@ -2670,7 +2670,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección del servidor</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2682,7 +2682,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Usar formato de 24 horas</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -2940,7 +2940,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>tipo de actualización</translation>
     </message>
     <message>
         <source>Function update</source>
@@ -3107,11 +3107,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz y efectos</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de ventana</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
