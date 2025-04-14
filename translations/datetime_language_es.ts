@@ -559,7 +559,7 @@
     </message>
     <message>
         <source>US English</source>
-        <translation>Inglés de EE.UU</translation>
+        <translation>Inglés de EE.UU.</translation>
     </message>
     <message>
         <source>Erzya</source>
