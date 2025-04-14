@@ -148,6 +148,7 @@ Item {
         StackView {
             id: rightView
             clip: true
+            hoverEnabled: true
             anchors {
                 fill: parent
                 topMargin: 50
