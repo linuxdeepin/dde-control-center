@@ -1575,12 +1575,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Rendimiento óptimo</translation>
+        <translation>Optimizar rendimiento</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation> 
-Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para un rendimiento eficiente del sistema.</translation>
+        <translation>Optimizar rendimiento: Desactiva todos los efectos de interfaz y ventana para mejorar rendimiento del sistema.</translation>
     </message>
     <message>
         <source>Balance</source>
