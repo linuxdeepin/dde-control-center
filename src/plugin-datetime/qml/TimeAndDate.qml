@@ -108,8 +108,7 @@ DccObject {
                     onActivated: function (index) {
                         dateAndTimeSettings.showCustom = (serverList[index] === qsTr("Customize"))
                         if (dateAndTimeSettings.showCustom) {
-                            if (dateAndTimeSettings.customAddr.length > 0)
-                                dccData.ntpServerAddress = dateAndTimeSettings.customAddr
+                            dccData.ntpServerAddress = dateAndTimeSettings.customAddr
                             return
                         }
 

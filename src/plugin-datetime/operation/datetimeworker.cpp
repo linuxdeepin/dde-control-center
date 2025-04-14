@@ -166,7 +166,7 @@ void DatetimeWorker::setNtpServer(QString server)
 {
     qInfo() << "Try set server : " << server;
 
-    if (server.isEmpty() || server == m_timedateInter->nTPServer())
+    if (server == m_timedateInter->nTPServer())
         return;
     m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
 }
