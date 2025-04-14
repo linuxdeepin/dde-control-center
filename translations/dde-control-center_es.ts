@@ -1579,7 +1579,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimizar rendimiento: Desactiva todos los efectos de interfaz y ventana para mejorar rendimiento del sistema.</translation>
+        <translation>Optimizar rendimiento: Desactiva todos los efectos de ventana para mejorar rendimiento del sistema.</translation>
     </message>
     <message>
         <source>Balance</source>
