@@ -535,7 +535,7 @@
     </message>
     <message>
         <source>UK</source>
-        <translation>RU</translation>
+        <translation>R.U.</translation>
     </message>
     <message>
         <source>England</source>
