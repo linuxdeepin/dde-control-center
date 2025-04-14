@@ -1587,7 +1587,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Equilibrio: Limitar algunos efectos de ventana para obtener excelentes efectos visuales y mantener un rendimiento fluido del sistema.</translation>
+        <translation>Equilibrado: Limita algunos efectos de ventana manteniendo buenos efectos visuales y una experiencia fluida del sistema.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
@@ -1595,7 +1595,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Efectos visuales: Habilitar todos los efectos de interfaz y ventana para la mejor experiencia visual.</translation>
+        <translation>Optimizar efectos visuales: Activa todos los efectos de ventana para tener la mejor experiencia visual.</translation>
     </message>
 </context>
 <context>
