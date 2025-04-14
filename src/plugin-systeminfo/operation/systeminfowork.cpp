@@ -214,7 +214,7 @@ void SystemInfoWork::initUserLicenseData()
 void SystemInfoWork::initSystemCopyright()
 {
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
-    QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
+    QString oem_copyright = settings.value("system_info_vendor_name").toString().toUtf8();
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::productType() != DSysInfo::ProductType::Uos)
             oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
