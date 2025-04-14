@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Catalan</source>
-        <translation>Catalan</translation>
+        <translation>Catalán</translation>
     </message>
     <message>
         <source>Cayuga</source>
@@ -547,11 +547,11 @@
     </message>
     <message>
         <source>British English</source>
-        <translation>Inglés Britanico</translation>
+        <translation>Inglés Británico</translation>
     </message>
     <message>
         <source>UK English</source>
-        <translation>Inglés Britanico</translation>
+        <translation>Inglés Británico</translation>
     </message>
     <message>
         <source>American English</source>
