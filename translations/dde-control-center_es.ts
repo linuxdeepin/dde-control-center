@@ -3,7 +3,7 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>Editar</translation>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Add new user</source>
@@ -921,7 +921,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar y unirse al programa de experiencia de usuario</translation>
     </message>
 </context>
 <context>
@@ -975,7 +975,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas antes que la local</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
@@ -1123,7 +1123,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Para utilizar las funciones anteriores, vaya al Centro de control - Cuentas y active las opciones correspondientes.</translation>
     </message>
 </context>
 <context>
@@ -1146,11 +1146,12 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Administre su deepin ID y sincronice sus datos personales entre dispositivos.
+Inicie sesión en deepin ID para obtener funciones y servicios personalizados del navegador, tienda de aplicaciones, soporte y más.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión en %1 ID</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1162,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Almacene de forma segura la configuración del sistema y los datos personales en la nube, y manténgalos sincronizados en todos los dispositivos.</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -1177,11 +1178,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que desea borrar la configuración del sistema y los datos personales guardados en la nube?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Una vez que se borran los datos, ¡no se pueden recuperar!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1246,7 +1247,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>Sujeto a leyes y regulaciones locales, actualmente no está disponible en su región.</translation>
     </message>
 </context>
 <context>
@@ -1284,7 +1285,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Después de ingresar al modo de desarrollador, puede obtener permisos de root, pero también puede dañar la integridad del sistema, así que úselo con precaución.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1316,11 +1317,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Su ID de UOS ha iniciado sesión, haga clic para ingresar al modo de desarrollador</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Inicie sesión primero con su ID de UOS y continúe</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1344,7 +1345,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de depuración para desarrolladores</translation>
     </message>
     <message>
         <source>System logging level</source>
@@ -1556,7 +1557,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>tap</translation>
     </message>
 </context>
 <context>
@@ -1849,7 +1850,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
@@ -1942,11 +1943,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>La nueva contraseña debe ser diferente a la actual</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>La pista es visible para todos los usuarios. No incluya aquí la contraseña.</translation>
     </message>
 </context>
 <context>
@@ -1961,30 +1962,30 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe tener al menos 8 caracteres y contener al menos 3 de los siguientes elementos: mayúsculas, minúsculas, números y símbolos. Este tipo de contraseña es más segura.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer la contraseña borrará los datos almacenados en el llavero.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Oscuro</translation>
     </message>
 </context>
 <context>
@@ -2009,111 +2010,111 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspender</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar interfaz de apagado</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>No hacer nada</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor después</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla después</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender la computadora después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la tapa está cerrada</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando se presiona el botón de encendido</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Alto rendimiento</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendimiento equilibrado</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste agresivo de la frecuencia de funcionamiento de la CPU según la condición de carga de la CPU</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Ahorro de energía</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Priorizar el rendimiento, lo que aumentará significativamente el consumo de energía y la generación de calor.</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrio entre rendimiento y duración de la batería, ajustado automáticamente según el uso</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Priorizar la duración de la batería, con lo cual el sistema sacrificará algo de rendimiento para reducir el consumo de energía.</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>Minutos</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Nunca</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidad</translation>
     </message>
 </context>
 <context>
@@ -2203,7 +2204,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>centro-de-control-dde</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2215,279 +2216,279 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Este fondo de pantalla del sistema está bloqueado. Póngase en contacto con su administrador.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Región y formato</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Formato predeterminado</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Primer día de la semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha corta</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha larga </translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora corta</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora larga </translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de moneda</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Dígito</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño de la página</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>Establecer una contraseña</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Repetir contraseña</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>Las contraseñas no coinciden</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Salvapantallas</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>vista previa</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protector de pantalla personalizado</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>ajuste</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>tiempo de inactividad</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 hora</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>nunca</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere contraseña para la recuperación</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protector de pantalla con presentación de diapositivas de imágenes</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protector de pantalla del sistema</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Añadir atajo personalizado</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>Comando:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atajo</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca un nuevo atajo</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Agregar</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Haga clic en Agregar para reemplazar</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Atajos</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atajos del sistema, atajo personalizado</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Buscar atajos</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca un nuevo atajo</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Clic</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>o</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Reemplazar</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar valores predeterminados</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Añadir atajo personalizado</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de salida</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione para habilitar los dispositivos</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de entrada</translation>
     </message>
 </context>
 <context>
@@ -2584,88 +2585,88 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Salida</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>No se encontró ningún dispositivo de salida de sonido</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Balance izquierda/derecha</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Fusionar los canales izquierdo y derecho en un solo canal</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausa automática</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>El audio se pausará automáticamente cuando se desconecte el dispositivo de audio actual</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de salida</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Sonido</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energía</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Salvapantallas</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Más fondos de pantalla</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Sincronizar hora automáticamente</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor Ntp</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora del sistema</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Server address</source>
@@ -2673,11 +2674,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La dirección del servidor ntp no puede estar vacía</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
@@ -2685,22 +2686,22 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Zona horaria del sistema</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Lista de zonas horarias</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>de</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
 </context>
 <context>
@@ -2726,197 +2727,197 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Añadir zona horaria</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Determinar la zona horaria en función de la ubicación actual</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zona Horaria</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Ciudad más cercana:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Configure aquí al conectar la pantalla táctil</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración básica</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidad del Puntero</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Desactivar el panel táctil mientras escribe</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Toque para hacer clic</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplazamiento natural</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Gesto</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de tres dedos</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de cuatro dedos</translation>
     </message>
 </context>
 <context>
     <name>UpdateControl</name>
     <message>
         <source>Expected installation time:</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo de instalación estimado:</translation>
     </message>
     <message>
         <source>30min</source>
-        <translation type="unfinished"/>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation>Instalando</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistory</name>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Los ajustes se revertirán en %1s.</translation>
     </message>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>¿Guardar los ajustes de pantalla?</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Revertir</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>UpdateList</name>
     <message>
         <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
+        <translation>Esta actualización mejora principalmente la experiencia de rendimiento operativo del entorno de escritorio y las aplicaciones de uso común, y corrige algunos problemas conocidos del sistema, mejorando aún más la calidad del producto.</translation>
     </message>
     <message>
         <source>2025.1.20</source>
-        <translation type="unfinished"/>
+        <translation>2025.1.20</translation>
     </message>
     <message>
         <source>View Details</source>
-        <translation type="unfinished"/>
+        <translation>Ver detalles</translation>
     </message>
     <message>
         <source>Updates:</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones:</translation>
     </message>
     <message>
         <source>Release time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora de lanzamiento:</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Contraer</translation>
     </message>
 </context>
 <context>
     <name>UpdateModel</name>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones disponibles</translation>
     </message>
     <message>
         <source>Installing Update</source>
-        <translation type="unfinished"/>
+        <translation>Instalando actualización</translation>
     </message>
     <message>
         <source>Installing updates…</source>
-        <translation type="unfinished"/>
+        <translation>Instalando actualizaciones…</translation>
     </message>
     <message>
         <source>Update installed successfully</source>
-        <translation type="unfinished"/>
+        <translation>Actualización instalada exitosamente</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Reinicar ahora</translation>
     </message>
     <message>
         <source>Update download failed</source>
-        <translation type="unfinished"/>
+        <translation>Falló la descarga de la actualización</translation>
     </message>
     <message>
         <source>retry</source>
-        <translation type="unfinished"/>
+        <translation>reintentar</translation>
     </message>
     <message>
         <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"/>
+        <translation>Comprobando actualizaciones, por favor espere…</translation>
     </message>
     <message>
         <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
+        <translation>Su sistema está actualizado, reinícielo ahora</translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Su sistema está actualizado</translation>
     </message>
     <message>
         <source>An update has been detected.</source>
-        <translation type="unfinished"/>
+        <translation>Se ha detectado una actualización.</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>La actualización falló: espacio de disco insuficiente</translation>
     </message>
     <message>
         <source>Update failed</source>
@@ -2924,7 +2925,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Error de red, por favor, compruebe y vuelva a intentarlo</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
