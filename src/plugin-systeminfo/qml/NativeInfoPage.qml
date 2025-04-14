@@ -83,6 +83,17 @@ DccObject {
                     id: hostNameLabel
                     Layout.alignment: Qt.AlignRight | Qt.AlignTop
                     text: dccData.systemInfoMode().hostName
+                    ToolTip {
+                        text: hostNameLabel.text
+                        delay: 500
+                        visible: hostNameArea.containsMouse
+                    }
+
+                    MouseArea {
+                        id: hostNameArea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                    }
                 }
 
                 IconButton {
