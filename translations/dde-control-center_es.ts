@@ -3895,7 +3895,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultar inteligentemente</translation>
+        <translation>Ocultado inteligente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
