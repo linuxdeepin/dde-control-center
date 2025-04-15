@@ -195,13 +195,16 @@ DccObject{
         weight: 20
         visible: !dccData.model().airplaneEnable && model.powered
 
-        page: CheckBox {
-            checked: model.discoverabled
-            leftPadding: 10
-            text: qsTr("Allow other Bluetooth devices to find this device")
-            
-            onCheckedChanged: {
-                dccData.work().setAdapterDiscoverable(model.id ,checked)
+        page: RowLayout {
+            CheckBox {
+                checked: model.discoverabled
+                Layout.alignment: Qt.AlignLeft
+                leftPadding: 10
+                text: qsTr("Allow other Bluetooth devices to find this device")
+                
+                onCheckedChanged: {
+                    dccData.work().setAdapterDiscoverable(model.id ,checked)
+                }
             }
         }
     }
