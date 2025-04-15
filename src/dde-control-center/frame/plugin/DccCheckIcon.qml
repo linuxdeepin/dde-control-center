@@ -10,6 +10,6 @@ D.ActionButton {
     icon {
         width: size
         height: size
-        name: "item_checked"
+        name: checked ? "item_checked" : "item_unchecked"
     }
 }
