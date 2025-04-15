@@ -38,7 +38,8 @@ QStringList systemFilter = {"terminal",
                             "wm-switcher",
                             "system-monitor",
                             "color-picker",
-                            "clipboard"
+                            "clipboard",
+                            "switch-monitors"
 };
 
 const QStringList &windowFilter = {"maximize",
@@ -98,9 +99,6 @@ ShortcutModel::ShortcutModel(QObject *parent)
     : QObject(parent)
     , m_windowSwitchState(false)
 {
-    if (qApp->screens().count() > 1) {
-        systemFilter.append("switch-monitors");
-    }
 }
 
 ShortcutModel::~ShortcutModel()
