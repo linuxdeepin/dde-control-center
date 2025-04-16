@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Preveri znova</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Preveri nadzor za posodobitve</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Združenost zadnje preveritve</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1865,13 +1850,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Sistem trenutno ni aktiviran, ne morete začeti storitve za posodobitve</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2793,162 +2771,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Four-finger gestures</source>
         <translation>Štiri-pongi potez</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Predvideno časovno potrebno za instalacijo:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Instaliranje</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Nastavitve bodo povrnitev v %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Shrani nastavitve zaslova?
-</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Povrnitev</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Shrani</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Ta popravilni posodobitev glavno povečuje izkušnjo operativne učinkovitosti okolja za delo in pogosto uporabljanih aplikacij, in popravi nekaj poznanih sistemskih težav, z učinkom povečanja kakovosti izdelka.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Pogledaj podrobnosti</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Posodobitve:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Datum izdaje:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Zaklopi</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Na voljo posodobitve</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Ustvarjanje posodobitve</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Ustvarjanje posodobitev…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Posodobitev je uspešno naložena</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Ponovno zagon zdaj</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Prenos posodobitve je spodletel</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>poskus ponovno</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Preverjanje na voljo posodobitev, prosim počakajte…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Sistem je na najnovnejši verzi, prosimo za ponovno zagon.</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Sistem je na najnovnejši verzi</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Zaznaman je novi posodobitev.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Posodobitev je zavrstila: nepristransk prostora.</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Posodobitev je zavrstila</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Napaka s omrežjem, prosimo, preverite in poskusite znova.</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Napaka z paketom, poskusite znova.</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Nepočasne odvisnosti</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>vrsta posodobitve</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Funkcijska posodobitev</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Nudi nove funkcije, kakovostne popraveke, odprte napake varnostne in vsebino, ki je na najnovnejši verzi.</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Kakovostna posodobitev</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Nudi kakovostne popraveke za sistem</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Vključi/izključi značilnost smetnje</translation>
     </message>
 </context>
 <context>
@@ -4056,8 +3878,8 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Izberi svetlo, temno ali samodegljivo izgled teme</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Vmesnik in učinki, zakrščastih robov, kompaktivni prikaz</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4247,28 +4069,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Common</source>
         <translation>Splošno</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Posodobitev sistema</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Posodobitev in nadgradnja sistema</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Posodobitve zmožnosti</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Nastavitve posodobitv</translation>
     </message>
 </context>
 <context>
