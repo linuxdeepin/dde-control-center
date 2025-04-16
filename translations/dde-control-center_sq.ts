@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sq">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sq">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -186,7 +188,7 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
@@ -640,21 +642,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>Cancel</source>
         <translation>Anuloje</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Rikontrollo</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Kontrollo për Përditësime</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Koha e kontrollit të fundit</translation>
     </message>
 </context>
 <context>
@@ -1876,13 +1863,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Sistemi aktual s’është i aktivizuar, s’arrihet të niset shërbimi i përditësimeve</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2804,161 +2784,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Four-finger gestures</source>
         <translation>Gjeste me katër gishta</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Kohë e pritshme instalimi:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30m</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Po instalohet</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Rregullimet do të kthehen te %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Të ruhen rregullimet për ekranin?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Riktheji</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Ruaji</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Ky përditësim përmes arnimi përmirëson kryesisht funksionimin e mjedisit desktop dhe të aplikacioneve të përdorur rëndom, si dhe ndreq disa probleme të ditura sistemi, duke thelluar më tej cilësinë e produktit.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>20.01.2025</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Shihni Hollësitë</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Përditësime:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Kohë hedhjeje në qarkullim:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Palose</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Ka Përditësime</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Instalim Përditësimi</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Po instalohen përditësime…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Përditësimi u instalua me sukses</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Rinise Tani</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Shkarkimi i përditësimit dështoi</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>riprovo</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Po kontrollohet për përditësime, ju lutemi, pritni…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Sistemi juaj është i përditësuar, ju lutemi, riniseni tani</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Sistemi juaj është i përditësuar</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>U pikas një përditësim.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Përditësimi dështoi</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Gabim rrjeti, ju lutemi, riprovoni</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Gabim paketash, ju lutemi, riprovoni</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Varësi të paplotësuara</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>lloj përditësimi</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Përditësim funksioni</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Sill veçori të reja, arnime cilësore, ndreqje cenueshmërish sigurie dhe lëndë plotësisht të përditësuar</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Përditësim Cilësie</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Sill arnime cilësore sistemi</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Ndërrim i Mençur Pasqyrash</translation>
     </message>
 </context>
 <context>
@@ -4066,8 +3891,8 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Përzgjidhni dukje të çelët, të errët, ose automatike teme</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Ndërfaqe dhe efekte, cepa të rrumbullakët, shfaqje kompakte</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4257,28 +4082,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Common</source>
         <translation>Shumë</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Përditësim Sistemi</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Përditësim dhe përmirësim sistemi</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Përditësime Veçorish</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Përditësoni Rregullimet</translation>
     </message>
 </context>
 <context>

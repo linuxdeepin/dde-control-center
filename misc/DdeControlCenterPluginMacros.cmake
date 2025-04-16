@@ -49,28 +49,31 @@ function(dcc_handle_plugin_translation)
         file(GLOB_RECURSE _config_SOURCE_FILES ${_config_SOURCE_DIR}/*.cpp ${_config_SOURCE_DIR}/*.h)
     endif()
 
-    set(TRANSLATION_FILES
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_en.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_en_US.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_az.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_bo.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ca.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_es.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_fi.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_fr.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_hu.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_it.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ja.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ko.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_nb_NO.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_pl.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_pt_BR.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_ru.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_uk.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_CN.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_HK.ts
-        ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_TW.ts
-    )
+    file(GLOB TRANSLATION_FILES ${_config_SOURCE_DIR}/translations/${_config_NAME}_*.ts)
+    if( NOT TRANSLATION_FILES)
+        set(TRANSLATION_FILES
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_en.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_en_US.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_az.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_bo.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_ca.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_es.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_fi.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_fr.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_hu.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_it.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_ja.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_ko.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_nb_NO.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_pl.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_pt_BR.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_ru.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_uk.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_CN.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_HK.ts
+            ${_config_SOURCE_DIR}/translations/${_config_NAME}_zh_TW.ts
+        )
+    endif()
 
     # set(plugin_dirs ${PROJECT_BINARY_DIR}/plugins/${_config_NAME}/)
 

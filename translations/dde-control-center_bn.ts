@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="bn">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="bn">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -106,19 +108,19 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -132,100 +134,100 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">আমি পড়েছি এবং আমি এটির সহমতি দিয়েছি</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">রিজার্মেন্ট</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">পরবর্তী</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cartoon style</source>
@@ -629,21 +631,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>আবার চে크 করুন</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>@update এ তথ্য পরীক্ষা করুন</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>শেষ পরীক্ষার সময়</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -887,109 +874,110 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">সম্মত হলে ইউজার এক্সপারিয়েন্স প্রোগ্রামে যোগ দিন</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">যাচাই করুন</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">সপ্তাহের প্রথম দিন
+</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">ছুটির তারিখ</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">দীর্ঘ তারিখ</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">ছুটির সময়</translation>
     </message>
     <message>
         <source>Long time</source>
@@ -1863,13 +1851,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Memory</source>
         <translation>মেমরি</translation>
-    </message>
-</context>
-<context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>বর্তমানে সিস্টেম অ্যাক্টিভেট হয়নি, অপ্�дей্ট সারভিস শুরু করা যায় না</translation>
     </message>
 </context>
 <context>
@@ -2822,317 +2803,162 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>প্রতিবেশ্য স্থাপনের সময়:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 মিনিট</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>স্থাপন চলছে</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>%1s পর সেটিংগুলি পুনরায় সংযোজিত হবে।</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>দৃশ্য সেটিংগুলি সংরক্ষণ করতে?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>পুনরায় সংযোজন</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>সংরক্ষণ</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>এই পাচ অপ্ডেট প্রধানত ডেস্কটপ মাধ্যমে এবং সামান্যভাবে ব্যবহার করা হওয়া প্রোগ্রামের কাজের অভিজ্ঞতা বাড়াতে এবং এটি কিছু পরিচিত সিস্টেম সমস্যার সমাধান করাতে কেন্দ্রীভূত হয়, এবং উপকরণের গুণোত্তর বাড়াতে।</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>২০২৫.১.২০</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>বিস্তারিত দেখুন</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>অপ্ডেট:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>প্রকাশক সময়:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>ক্লেইন্ড</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>অপ্ডেট উপলব্ধ</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>অপ্ডেট স্থাপন চলছে</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>অপ্ডেট স্থাপন হচ্ছে…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>অপ্ডেট সফলভাবে স্থাপিত হয়েছে</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>এখন পুনরায় শুরু করুন</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>অপ্ডেট ডাউনলোড ত্রুটি হয়েছে</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>পুনরায় চেষ্টা করুন</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>অপ্ডেট খোঁজছে, ক্ষমা করুন প্রত্যাশা করুন…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">8-64 ক্যারেক্টার</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">যাচাই করুন</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">বসে থাকলেও</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">1 মিনিট</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">5 মিনিট</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">10 মিনিট</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">15 মিনিট</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">30 মিনিট</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">1 ঘন্টা</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">কোনো একটি নেই</translation>
     </message>
     <message>
         <source>Small</source>
@@ -4081,8 +3907,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সветল, অন্ধকার বা স্বয়ংক্রিয় থিম প্রকৃতি নির্বাচন করুন</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>পরিচালনা ও প্রভাব, প্রান্তের চাপা রেখা, সংক্ষিপ্ত দৃষ্টিভঙ্গি</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4272,28 +4098,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>সাধারণ</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>সিস্টেম আপডেট</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>সিস্টেম আপডেট এবং আপগ্রেড</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>ফেচার আপডেট</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>আপডেট সেটিংস</translation>
     </message>
 </context>
 <context>
