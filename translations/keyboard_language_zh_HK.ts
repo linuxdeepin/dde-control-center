@@ -550,11 +550,11 @@
         <translation>簡體中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>繁體中文（中國香港）</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
+        <source>繁體中文</source>
         <translation>繁體中文（中國台灣）</translation>
     </message>
     <message>
