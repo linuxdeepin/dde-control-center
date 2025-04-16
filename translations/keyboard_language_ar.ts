@@ -550,12 +550,12 @@
         <translation>الصينية البسيطة</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
-        <translation>الصينية المبسطة (هونغ كونغ)</translation>
+        <source>繁體中文(中國香港)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>الصينية التقليدية (تايوان)</translation>
+        <source>繁體中文</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>isiZulu</source>
