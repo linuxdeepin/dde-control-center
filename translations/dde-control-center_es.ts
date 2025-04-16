@@ -1575,12 +1575,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Rendimiento Óptimo</translation>
+        <translation>Optimizar rendimiento</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation> 
-Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para un rendimiento eficiente del sistema.</translation>
+        <translation>Optimizar rendimiento: Desactiva todos los efectos de ventana para mejorar rendimiento del sistema.</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -1588,15 +1587,15 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Equilibrio: Limitar algunos efectos de ventana para obtener excelentes efectos visuales y mantener un rendimiento fluido del sistema.</translation>
+        <translation>Equilibrado: Limita algunos efectos de ventana manteniendo buenos efectos visuales y una experiencia fluida del sistema.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Efectos Visuales</translation>
+        <translation>Optimizar efectos visuales</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Efectos visuales: Habilitar todos los efectos de interfaz y ventana para la mejor experiencia visual.</translation>
+        <translation>Optimizar efectos visuales: Activa todos los efectos de ventana para tener la mejor experiencia visual.</translation>
     </message>
 </context>
 <context>
@@ -2670,7 +2669,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección del servidor</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2682,7 +2681,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>Usar formato de 24 horas</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -2940,11 +2939,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>UpdateSetting</name>
     <message>
         <source>update type</source>
-        <translation type="unfinished"/>
+        <translation>tipo de actualización</translation>
     </message>
     <message>
         <source>Function update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de funciones</translation>
     </message>
     <message>
         <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
@@ -2952,7 +2951,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Quality Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualización de calidad</translation>
     </message>
     <message>
         <source>Provide system quality patches</source>
@@ -2974,7 +2973,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificación de seguridad</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
@@ -2986,22 +2985,22 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>¿Olvidó la contraseña?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>fondo de pantalla</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -3107,11 +3106,11 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz y efectos</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de ventana</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -3895,7 +3894,7 @@ Rendimiento óptimo: Deshabilitar todos los efectos de interfaz y ventana para u
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultar inteligentemente</translation>
+        <translation>Ocultado inteligente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
