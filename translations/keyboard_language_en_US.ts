@@ -550,11 +550,11 @@
         <translation>Chinese (China)</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>Chinese (Chinese Hong Kong)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
+        <source>繁體中文</source>
         <translation>Chinese (Chinese Taiwan)</translation>
     </message>
     <message>
