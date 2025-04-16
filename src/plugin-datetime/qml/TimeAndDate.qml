@@ -295,6 +295,23 @@ DccObject {
             displayText: dccData.timeZoneDispalyName
             hoverEnabled: true
             currentIndex: dccData.currentTimeZoneIndex
+            property string saveZoneId: ""
+
+            Component.onCompleted: {
+                if (model && currentIndex >= 0) {
+                    saveZoneId = model.data(model.index(currentIndex, 0), model.ZoneIdRole)
+                }
+            }
+
+            Connections {
+                target: dccData
+                function onCurrentTimeZoneIndexChanged() {
+                    if (model && dccData.currentTimeZoneIndex >= 0) {
+                        combo.currentIndex = dccData.currentTimeZoneIndex
+                        saveZoneId = model.data(model.index(dccData.currentTimeZoneIndex, 0), model.ZoneIdRole)
+                    }
+                }
+            }
 
             popup: SearchableListViewPopup {
                 id: searchView
@@ -305,11 +322,19 @@ DccObject {
                 onSearchTextChanged: {
                     let delegateModel = dccData.zoneSearchModel()
                     delegateModel.setFilterWildcard(searchView.searchText);
+                    for (let i = 0; i < delegateModel.rowCount(); i++) {
+                        if (delegateModel.data(delegateModel.index(i, 0), model.ZoneIdRole) === combo.saveZoneId) {
+                            combo.currentIndex = i
+                            return
+                        }
+                    }
+                    combo.currentIndex = -1
                 }
             }
 
             onActivated: function (index) {
                 let zoneId = currentValue["zoneId"]
+                combo.currentIndex = dccData.currentTimeZoneIndex
                 dccData.setSystemTimeZone(zoneId)
             }
         }
