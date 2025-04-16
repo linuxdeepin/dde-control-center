@@ -630,21 +630,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>בדוק שוב</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>חפש עדכונים</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>הזמן האחרון בדיקה</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1862,13 +1847,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>המערכת הנוכחית לא מופעלת, אין אפשרות להתחיל את שירות העדכון</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2790,161 +2768,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>ה惴 של ארבעה אצבעות</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>זמן התקנה המוכן:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 דקות</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>התנתק</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>ההגדרות יRESETו ב-%1 שניות.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>שמור על הגדרות מסך</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>RESET</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>שמור</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>עדכון זו של קציצת תקן עשויה לה民企环境体验，提高常用应用程序的运行性能，并修复了一些已知的系统问题，进一步提升了产品质量。</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>הצג פרטים</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>עדכונים:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>תאריך שחרור:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>רור</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>עדכונים זמינים</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>התנתק עדכון</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>התנתק עדכונים...</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>עדכון התקנת בהצלחה</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>האנט עכשיו</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>ה Téléchargement d&apos;actualisation a échoué</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>נסה שוב</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>האם יש עדכונים, אנא המתן...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>מערכת הפעלה שלך היא Newest, אנא התחבר שוב עכשיו</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>מערכת הפעלה שלך היא Newest</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>נמצאה עדכון.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>העדכון נכשל: חסרים מקומותDataContract</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>העדכון נכשל</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>שגיאה ברשת, אנא בדוק ונסה שוב</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>שגיאה בpakcages, אנא נסה שוב</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>תלות לא מקיימת</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>סוג עדכון</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>עדכון פונקציה</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>הציע תכונות חדשות, עדכונים איכותיים,-fixים בטיחות ותוכן עדכון מלא</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>עדכון איכות</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>הציע עדכונים איכות של מערכת</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>החלף מראה חכמה</translation>
     </message>
 </context>
 <context>
@@ -4052,8 +3875,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>בחר בין תאילתה חמה, שחורה או אוטומטית</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>משתמש וэффектים, רדוקטורים חצי עגולים, מסך מضغوط</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4243,28 +4066,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>ה😉מגניב</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>עדכון מערכת</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>עדכון ומעודכן מערכת</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>עדכון תכונות</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>הגדרות עדכון</translation>
     </message>
 </context>
 <context>
