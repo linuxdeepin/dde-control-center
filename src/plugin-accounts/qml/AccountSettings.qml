@@ -616,11 +616,13 @@ DccObject {
                         }
                         implicitHeight: 40
                         implicitWidth: 200
+                        Layout.fillWidth: !readOnly
                         placeholderText: qsTr("Group name")
                         horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
                         editBtn.visible: readOnly && editAble
                                          && !groupSettings.isEditing
                         readOnly: model.display.length > 0
+                        background: null
 
                         onFinished: function () {
                             if (text.length < 1) {
@@ -658,7 +660,7 @@ DccObject {
                         focusPolicy: Qt.NoFocus
                         icon.width: 18
                         icon.height: 18
-                        visible: groupSettings.isEditing ? editLabel.editAble : true
+                        visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
                         icon.name: {
                             if (groupSettings.isEditing) {
                                 return "list_delete"
