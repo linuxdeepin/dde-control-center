@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -186,7 +188,7 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -640,21 +642,6 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Torna-ho a comprovar</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Comprova si hi ha actualitzacions</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Darrera hora de comprovació: </translation>
     </message>
 </context>
 <context>
@@ -1876,13 +1863,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>El sistema actual no està activat. No es pot iniciar el servei d&apos;actualització.</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2804,161 +2784,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Four-finger gestures</source>
         <translation>Gestos amb quatre dits</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Temps d&apos;instal·lació previst:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>S&apos;instal·la</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>La configuració es revertirà d&apos;aquí a %1 s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Voleu desar els paràmetres de la pantalla?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Reveteix</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Desa</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Aquest pedaç d&apos;actualització millora principalment l&apos;experiència de rendiment operatiu de l&apos;entorn d&apos;escriptori i les aplicacions d&apos;ús habitual, i soluciona alguns problemes coneguts del sistema, i millora encara més la qualitat del producte.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Mostra&apos;n els detalls</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Actualitzacions:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Data de publicació:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Replega</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Actualitzacions disponibles</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>S&apos;instal·la l&apos;actualització</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>S&apos;instal·len les actualitzacions</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Actualització instal·lada correctament</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Reinicia ara</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation> Ha fallat la baixada de l&apos;actualització.</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>Torna-ho a provar</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Es comprova si hi ha actualitzacions. Espereu, si us plau...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>El sistema està actualitzat. Si us plau, reinicieu-lo ara.</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>El sistema està actualitzat.</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>S&apos;ha detectat una actualització.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Ha fallat l&apos;actualització: no hi ha prou espai de disc.</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Ha fallat l&apos;actualització.</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Error de xarxa. Comproveu-la i torneu-ho a provar.</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Error de paquets. Torneu-ho a provar.</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Dependències no satisfetes</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>tipus d&apos;actualització</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Actualització de funcions</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Proporciona funcions noves, pedaços de qualitat, solucions de vulnerabilitats de seguretat i contingut totalment actualitzat.</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Actualització de qualitat</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Proporciona pedaços de qualitat del sistema</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Canvi intel·ligent de rèplica</translation>
     </message>
 </context>
 <context>
@@ -4066,8 +3891,8 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Seleccioneu l&apos;aspecte del tema: clar, fosc o automàtic.</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Interfície i efectes, cantons arrodonits, pantalla compacta</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4257,28 +4082,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Common</source>
         <translation>Comú</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Actualització del sistema</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Actualització i millora del sistema</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Actualitzacions de funcions</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Configuració de l&apos;actualització</translation>
     </message>
 </context>
 <context>

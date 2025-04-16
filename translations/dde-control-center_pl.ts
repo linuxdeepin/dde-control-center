@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -186,7 +188,7 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -640,21 +642,6 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Sprawdź ponownie</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Sprawdź aktualizacje</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Data ostatniego sprawdzania</translation>
     </message>
 </context>
 <context>
@@ -1876,13 +1863,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Twój system nie jest aktywowany, nie można uruchomić usługi aktualizacji</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2804,161 +2784,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Four-finger gestures</source>
         <translation>Gesty czterech palców</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Szacowany czas instalacji:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Instalowanie</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Ustawienia zostaną przywrócone za %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Zapisać ustawienia wyświetlania?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Przywróć</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Zapisz</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Ta aktualizacja skupia się na ogólnej poprawie wydajności, często używanych aplikacjach i naprawie znanych błędów.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Wyświetl szczegóły</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Aktualizacje:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Data wydania:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Zwiń</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Aktualizacje są dostępne</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Zainstaluj aktualizacje</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Instalowanie aktualizacji...</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Aktualizacja zainstalowana pomyślnie</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Uruchom ponownie teraz</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Nie udało się pobrać aktualizacji</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>Ponów</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Sprawdzanie aktualizacji, proszę czekać...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Twój system jest aktualny, uruchom ponownie teraz</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Twój system jest aktualny</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Znaleziono aktualizacje</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Błąd aktualizacji: za mało miejsca na dysku</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Błąd aktualizacji</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Błąd sieci, spróbuj ponownie</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Błąd pakietów, spróbuj ponownie</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Niezaspokojone zależności</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>Typ aktualizacji</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Aktualizacje funkcjonalności</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Dostarczaj nowe funkcje, łatki luk bezpieczeństwa i nową zawartość</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Aktualizacje poprawek</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Dostarczaj aktualizacje poprawek systemu</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Inteligentne przełączanie mirrorów</translation>
     </message>
 </context>
 <context>
@@ -4066,8 +3891,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Wybierz motyw jasny, ciemny lub automatycznie</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Efekty interfejsu, zaokrąglone rogi i wyświetlanie kompaktowe</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4257,28 +4082,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Common</source>
         <translation>Ogólne</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Aktualizacja systemu</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Aktualizacje systemu</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Aktualizacje funkcjonalności</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Ustawienia aktualizacji</translation>
     </message>
 </context>
 <context>
