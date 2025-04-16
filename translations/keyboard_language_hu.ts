@@ -550,12 +550,12 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>Hagyományos kínai (Hongkong, Kína)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>Hagyományos kínai (Tajvan)</translation>
+        <source>繁體中文</source>
+        <translation>Tradicionális kínai</translation>
     </message>
     <message>
         <source>isiZulu</source>
