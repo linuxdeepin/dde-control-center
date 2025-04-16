@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -106,19 +108,19 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Prekliči</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -132,100 +134,100 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Prekliči</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Sem prebral/a in se strinjam z</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Oznanitvama</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Naprej</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cartoon style</source>
@@ -626,21 +628,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Cancel</source>
         <translation>Prekliči</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Preveri znova</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Preveri nadzor za posodobitve</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Združenost zadnje preveritve</translation>
     </message>
 </context>
 <context>
@@ -1865,13 +1852,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Sistem trenutno ni aktiviran, ne morete začeti storitve za posodobitve</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2793,162 +2773,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Four-finger gestures</source>
         <translation>Štiri-pongi potez</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Predvideno časovno potrebno za instalacijo:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Instaliranje</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Nastavitve bodo povrnitev v %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Shrani nastavitve zaslova?
-</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Povrnitev</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Shrani</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Ta popravilni posodobitev glavno povečuje izkušnjo operativne učinkovitosti okolja za delo in pogosto uporabljanih aplikacij, in popravi nekaj poznanih sistemskih težav, z učinkom povečanja kakovosti izdelka.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Pogledaj podrobnosti</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Posodobitve:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Datum izdaje:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Zaklopi</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Na voljo posodobitve</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Ustvarjanje posodobitve</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Ustvarjanje posodobitev…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Posodobitev je uspešno naložena</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Ponovno zagon zdaj</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Prenos posodobitve je spodletel</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>poskus ponovno</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Preverjanje na voljo posodobitev, prosim počakajte…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Sistem je na najnovnejši verzi, prosimo za ponovno zagon.</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Sistem je na najnovnejši verzi</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Zaznaman je novi posodobitev.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Posodobitev je zavrstila: nepristransk prostora.</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Posodobitev je zavrstila</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Napaka s omrežjem, prosimo, preverite in poskusite znova.</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Napaka z paketom, poskusite znova.</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Nepočasne odvisnosti</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>vrsta posodobitve</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Funkcijska posodobitev</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Nudi nove funkcije, kakovostne popraveke, odprte napake varnostne in vsebino, ki je na najnovnejši verzi.</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Kakovostna posodobitev</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Nudi kakovostne popraveke za sistem</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Vključi/izključi značilnost smetnje</translation>
     </message>
 </context>
 <context>
@@ -4056,8 +3880,8 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Izberi svetlo, temno ali samodegljivo izgled teme</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Vmesnik in učinki, zakrščastih robov, kompaktivni prikaz</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4247,28 +4071,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Common</source>
         <translation>Splošno</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Posodobitev sistema</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Posodobitev in nadgradnja sistema</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Posodobitve zmožnosti</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Nastavitve posodobitv</translation>
     </message>
 </context>
 <context>

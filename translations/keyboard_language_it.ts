@@ -550,12 +550,12 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>Cinese tradizionale (Hong Kong, Cina)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>Cinese tradizionale (Taiwan, Cina)</translation>
+        <source>繁體中文</source>
+        <translation>Cinese Tradizionale</translation>
     </message>
     <message>
         <source>isiZulu</source>

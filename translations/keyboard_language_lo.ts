@@ -550,11 +550,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
+        <source>繁體中文</source>
         <translation type="unfinished"/>
     </message>
     <message>

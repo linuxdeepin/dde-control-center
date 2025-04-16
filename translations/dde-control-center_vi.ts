@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="vi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="vi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -196,7 +198,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>Biometric authentication là một chức năng xác thực danh tính người dùng cung cấp bởi UnionTech Software Technology Co., Ltd. Qua biometric authentication, dữ liệu sinh trắc học thu thập sẽ được so sánh với dữ liệu lưu trữ trong thiết bị, và danh tính người dùng sẽ được xác thực dựa trên kết quả so sánh.
@@ -650,21 +652,6 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <message>
         <source>Cancel</source>
         <translation>Huỷ bỏ</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Kiểm tra lại</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Kiểm tra cập nhật</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Thời gian kiểm tra cuối cùng</translation>
     </message>
 </context>
 <context>
@@ -1568,118 +1555,118 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Bố cục bàn phím</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Thêm</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Thêm ngôn ngữ</translation>
     </message>
     <message>
         <source>Search</source>
@@ -1885,13 +1872,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Memory</source>
         <translation>Bộ nhớ</translation>
-    </message>
-</context>
-<context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Hệ thống hiện tại chưa được kích hoạt, không thể khởi động dịch vụ cập nhật</translation>
     </message>
 </context>
 <context>
@@ -2816,161 +2796,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Bốn ngón tay cử chỉ</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Thời gian cài đặt dự kiến:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 phút</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Đang cài đặt</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Cài đặt sẽ được khôi phục sau %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Lưu cài đặt hiển thị?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Khôi phục</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Lưu</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Cập nhật này chủ yếu cải thiện trải nghiệm hiệu suất hoạt động của môi trường bàn làm việc và các ứng dụng thường dùng, và sửa một số vấn đề hệ thống đã biết, cải thiện chất lượng sản phẩm.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Xem chi tiết</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Cập nhật:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Thời gian phát hành:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Thu gọn</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Có cập nhật sẵn có</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Đang cài đặt cập nhật</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Đang cài đặt cập nhật…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Cập nhật đã được cài đặt thành công</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Khởi động lại ngay</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Tải xuống cập nhật thất bại</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>thử lại</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Đang kiểm tra cập nhật, vui lòng chờ…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Hệ thống của bạn đã cập nhật, vui lòng khởi động lại ngay</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Hệ thống của bạn đã cập nhật</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Có bản cập nhật được phát hiện.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Cập nhật thất bại: không đủ không gian trên ổ đĩa</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Cập nhật thất bại</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Lỗi mạng, vui lòng kiểm tra và thử lại</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Lỗi gói, vui lòng thử lại</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Yêu cầu phụ thuộc chưa được đáp ứng</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>loại cập nhật</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Cập nhật chức năng</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Cung cấp các tính năng mới, sửa lỗi chất lượng, sửa lỗi lỗ hổng bảo mật và nội dung đã được cập nhật hoàn toàn</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Cập nhật chất lượng</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Cung cấp các sửa lỗi chất lượng cho hệ thống</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Bật/Tắt gương thông minh</translation>
     </message>
 </context>
 <context>
@@ -4078,8 +3903,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Chọn tiêu đề sáng, tối hoặc tự động</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Giao diện và hiệu ứng, viền cong, hiển thị gọn gàng</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4269,28 +4094,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Chung</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Cập nhật hệ thống</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Cập nhật và nâng cấp hệ thống</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Cập nhật tính năng</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Cài đặt cập nhật</translation>
     </message>
 </context>
 <context>

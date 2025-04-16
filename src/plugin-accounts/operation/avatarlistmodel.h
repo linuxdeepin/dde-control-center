@@ -9,6 +9,7 @@ namespace dccV25 {
 class User;
 class AvatarTypesModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
     explicit AvatarTypesModel(QObject *parent = nullptr);
 

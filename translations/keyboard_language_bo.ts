@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Português do Brasil</source>
-        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད། པ་ཞི།Português do Brasil</translation>
+        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད།པ་ཞིPortuguês do Brasil</translation>
     </message>
     <message>
         <source>Română</source>
@@ -550,11 +550,11 @@
         <translation>ཟོར་ཡང་རྒྱ་ཡིག</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>ཟོར་ལྕིའི་རྒྱ་ཡིག(ཀྲུང་གོའི་ཤང་ཀང་།)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
+        <source>繁體中文</source>
         <translation>ཟོར་ལྕིའི་རྒྱ་ཡིག(ཀྲུང་གོའི་ཐའེ་ཝན།)</translation>
     </message>
     <message>

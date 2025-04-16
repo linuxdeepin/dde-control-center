@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="et">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="et">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -106,19 +108,19 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -132,100 +134,100 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Olen lugenud ja nõustun</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Huvilause</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Järgmine</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cartoon style</source>
@@ -626,21 +628,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Cancel</source>
         <translation>Katkesta</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Kontrolli uuesti</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Kontrolli uuendusi</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Viimane kontrolli aeg</translation>
     </message>
 </context>
 <context>
@@ -1869,13 +1856,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Järgmine süsteem ei ole aktiveeritud, seega ei saa käivitada uuenduspalvet</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2800,211 +2780,56 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
 </context>
 <context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Ootatud installimisajal:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Installitakse</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Seaded tõlgitakse %1 s minu pärast.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Salvestada näidust seadistused?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Tõlgita tagasi</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salvesta</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>See täpsustusjuhting suurendab põhivahendite ja kõige kasutatavate rakenduste kasutusvõime kokkuvõtet ning korraldab osas osatud süsteemprobleme, lisandult parandades toote kvaliteeti.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.01.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Näita detaile</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Järgmised uuendused:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Väljaminemise hetk:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Puske</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Ühendusi saadaval</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Installitakse uuendust</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Installitakse uuendusi…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Uuendus installiti edukalt</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Alusta uuesti nüüd</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Uuenduse laadimine ebaõnnestus</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>proovige uuesti</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Katsetatakse uuendusi, palun oota…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">8-64 tähed</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Aken rohkem külgi</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
@@ -4059,8 +3884,8 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Vali häve, tundlik või automaatne teema näitamine</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Vahendid ja mõjukus, kõrge peal, kompaktne ekraan</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4250,28 +4075,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Common</source>
         <translation>Üldine</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Süsteemvärskendamine</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Süsteemvärskendamine ja uuendamine</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Funktsioonivärskendused</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Värskenduse seadistused</translation>
     </message>
 </context>
 <context>

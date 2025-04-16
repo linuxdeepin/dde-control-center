@@ -323,7 +323,7 @@
     </message>
     <message>
         <source>Norsk (bokmål)</source>
-        <translation>Norvég</translation>
+        <translation>Norsk (bokmål)</translation>
     </message>
     <message>
         <source>Plattdüütsch</source>
@@ -371,7 +371,7 @@
     </message>
     <message>
         <source>Polski</source>
-        <translation>Lengyel</translation>
+        <translation>Polski</translation>
     </message>
     <message>
         <source>پښتو</source>
@@ -550,12 +550,12 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
+        <source>繁體中文(中國香港)</source>
         <translation>Hagyományos kínai (Hongkong, Kína)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>Hagyományos kínai (Tajvan)</translation>
+        <source>繁體中文</source>
+        <translation>Tradicionális kínai</translation>
     </message>
     <message>
         <source>isiZulu</source>

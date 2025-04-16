@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>संस्कृत</source>
-        <translation>Sanskritçe</translation>
+        <translation>संस्कृत</translation>
     </message>
     <message>
         <source>Sardu</source>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>سنڌي</source>
-        <translation>Sind dili</translation>
+        <translation>سنڌي</translation>
     </message>
     <message>
         <source>Sámegiella</source>
@@ -459,23 +459,23 @@
     </message>
     <message>
         <source>தமிழ்</source>
-        <translation>Tamil dili</translation>
+        <translation>தமிழ்</translation>
     </message>
     <message>
         <source>తెలుగు</source>
-        <translation>Telugu dili</translation>
+        <translation>తెలుగు</translation>
     </message>
     <message>
         <source>Тоҷикӣ</source>
-        <translation>Tacikçe</translation>
+        <translation>Тоҷикӣ</translation>
     </message>
     <message>
         <source>ภาษาไทย</source>
-        <translation>Tay dili</translation>
+        <translation>ภาษาไทย</translation>
     </message>
     <message>
         <source>ትግርኛ</source>
-        <translation>Tigrinya</translation>
+        <translation>ትግርኛ</translation>
     </message>
     <message>
         <source>Türkmen</source>
@@ -495,11 +495,11 @@
     </message>
     <message>
         <source>Татарский</source>
-        <translation>Tatarca</translation>
+        <translation>Татарский</translation>
     </message>
     <message>
         <source>ئۇيغۇرچە</source>
-        <translation>Uygurca</translation>
+        <translation>ئۇيغۇرچە</translation>
     </message>
     <message>
         <source>Українська</source>
@@ -507,7 +507,7 @@
     </message>
     <message>
         <source>اردو</source>
-        <translation>Urduca</translation>
+        <translation>اردو</translation>
     </message>
     <message>
         <source>Oʻzbekcha</source>
@@ -547,15 +547,15 @@
     </message>
     <message>
         <source>简体中文</source>
-        <translation>Basitleştirilmiş Çince</translation>
+        <translation>简体中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
-        <translation>Geleneksel Çince (Hong Kong)</translation>
+        <source>繁體中文(中國香港)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>Geleneksel Çince (Tayvan)</translation>
+        <source>繁體中文</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>isiZulu</source>

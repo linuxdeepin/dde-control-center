@@ -503,7 +503,7 @@
     </message>
     <message>
         <source>Українська</source>
-        <translation>Ukrajinský</translation>
+        <translation>Українська</translation>
     </message>
     <message>
         <source>اردو</source>
@@ -550,12 +550,12 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <source>繁體中文（中國香港）</source>
-        <translation>繁體中文（中國香港）</translation>
+        <source>繁體中文(中國香港)</source>
+        <translation>tradiční čínština (Hongkong, Čína)</translation>
     </message>
     <message>
-        <source>繁體中文（中國臺灣）</source>
-        <translation>繁體中文（中國臺灣）</translation>
+        <source>繁體中文</source>
+        <translation>tradiční čínština</translation>
     </message>
     <message>
         <source>isiZulu</source>
