@@ -107,6 +107,7 @@ DccObject{
                         text = text.substr(0, 64);  // 截断到31个字符
                         nameEdit.alertText = qsTr("Length greater than or equal to 64")
                         nameEdit.showAlert = true
+                        dccData.work().playErrorSound()
                         alertTimer.start()
                     } else {
                         nameEdit.showAlert = false
