@@ -3890,7 +3890,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Efekty interfejsu i zaokrąglony róg</translation>
     </message>
 </context>
 <context>
