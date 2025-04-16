@@ -12,7 +12,9 @@
 #include <QJsonObject>
 #include <QLoggingCategory>
 #include <QTimer>
+#include <DDesktopServices>
 
+DGUI_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcBluetoothWorkder, "dcc-bluetooth-worker")
 
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
@@ -231,6 +233,10 @@ void BluetoothWorker::setAdapterDiscovering(const QString &path, bool enable)
     m_bluetoothDBusProxy->SetAdapterDiscovering(QDBusObjectPath(path), enable);
 }
 
+void BluetoothWorker::playErrorSound()
+{
+    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+}
 
 bool BluetoothWorker::displaySwitch()
 {
