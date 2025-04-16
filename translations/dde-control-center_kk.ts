@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Башкара</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Жаңырылыштарды текшерүү</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Акыркы текшерүү убакыты</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1862,13 +1847,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Жалпысы ыңғайылдырылмады, оновуу үлгісін басылдыруу мүмкін емес</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2790,161 +2768,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Төрт жылыс жүйелері</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Талапталат келет жүктеу узактыгы:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 минут</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Жүктеу</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Түймөлдөр %1с деңгээлінде анықталуы көбөйүп келет.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Жылдыз түймөлдөрүн кеңейтүү</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Анықтау</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Сақтау</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Бұл қорытынды жұмысқа қатысты және қолданылатын қолданмалардың әрекеттік әрекетінің тәуелсіз ішінде, бірнеше білімді система әлемдіктерін жоюға болады және көміркілікты арттыруға жетеді.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Мүмкіндіктерін көр</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Жаңылар:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Жарыс жылы:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Жыртық</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Жаңылар бар</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Жаңылуы жүктеп келісімді</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Жаңылар жүктеу…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Жаңылар жүктілген</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Тепе-тепе қайта старт ету</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Жаңылардын өнімділік ету күрделі</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>қайта көр</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Жаңыларды табу үшін, ұсыныңыз…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Система жаңырылған, айтуу үчүн жараша келет</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Система жаңырылган</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Жаңырым таанылган.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Жаңырым катмарылган: дисктеги жалпы кызматкачылык жакшы эмес</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Жаңырым катмарылган</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Жүйө сапатында катмар, кайттыкча текшериңиз жана экинчи көз алуу</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Пакеттердеги катмар, экинчи көз алуу</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Толук киргизилген багыттар</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>жаңырмак түрү</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Функция жаңырмасы</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Жаңы функцияларды, өзгөчөдүүлөрдү, ар кандай жамбылдатуу үчүн катааларды жана толук жаңырылган маданиятын берүү</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Өзгөчөдүү жаңырмасы</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Системада өзгөчөдүүлөрдү берүү</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Ар бирдик түш түрүн жаңыртуу</translation>
     </message>
 </context>
 <context>
@@ -4052,8 +3875,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Азыркы, күчөрүк же автоматикалык теманын көрүнүгүн сараптыйтуу</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Көрүнүү жана көзөмөлдүктөрү, азыркы кемиеки көрүнүк</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4243,28 +4066,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Жалпы</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Система жарыс</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Система жарыс жана жакшырту</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Жаңылдаштуруу</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Жарыс тақырыplerini түзүү</translation>
     </message>
 </context>
 <context>
