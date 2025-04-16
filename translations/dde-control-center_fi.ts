@@ -3887,7 +3887,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymä ja tehosteet, pyöristetyt kulmat</translation>
     </message>
 </context>
 <context>
