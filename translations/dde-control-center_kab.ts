@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Chkewen again</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Chkewen updates</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Time last chkewen</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1865,13 +1850,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Tafayut tayssurt amzur iskra, yamzur iskra tisnawen tafayut</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2793,162 +2771,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Gestu bil-lexen-4</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Temps d&apos;installation prevu:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Installation</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Les paramètres seront rétablis dans %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Sauvegarder les paramètres d&apos;affichage ?
-</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Rétrograde</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Sauvegarder</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Cette mise à jour de patch améliore principalement l&apos;expérience de performance opérationnelle de l&apos;environnement de bureau et des applications couramment utilisées, et corrige certains problèmes connus du système, améliorant ainsi la qualité du produit.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Voir les détails</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Mises à jour :</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Date de sortie :</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Réduire</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Mises à jour disponibles</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Installation de la mise à jour</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Installation des mises à jour…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Mise à jour installée avec succès</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Redémarrer maintenant</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Téléchargement de la mise à jour échoué</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>reessayer</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Recherche des mises à jour, veuillez patienter…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>System nis yusfn, tefawwuz nis u tafroq now</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>System nis yusfn</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>An yusfn has been detected.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Yusfn tafaq: space ddisks tafawwuz</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Yusfn tafaq</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Error dnetwork, tefawwuz nis u tafroq now</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Error dpackages, tefawwuz nis u tafroq now</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Dependencies tafawwuz</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>Type yusfn</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Update function</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Dawen nfeetures new, patches quality, fix security vulnerability, wawfully updated content</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Update quality</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Dawen patches quality system</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Switch miror smat</translation>
     </message>
 </context>
 <context>
@@ -4056,8 +3878,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Sesel light, dark ur automatic tema</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Interface u afrif, corb tichkilt, affich tigraz</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4247,28 +4069,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Wawel</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Imawen systeme</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Imawen systeme wi wersifuzi</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Imawen fihaz</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Tefuzi imawen</translation>
     </message>
 </context>
 <context>

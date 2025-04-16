@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Comprobar de novo</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Comprobar actualizacions</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Última vez que se comprobou</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1866,13 +1851,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>O sistema actual non está activado, non se pode iniciar o servizo de actualización</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2819,161 +2797,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Four-finger gestures</source>
         <translation>Gestos con cuatro dedos</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Tiempo previsto para a instalación:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Instalando</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Os atopos volverán a ser os do sistema en %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Gardar os atopos de visualización？</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Devolver</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Gardar</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Esta actualización de parches principalmente mellora a experiencia de desempeño operativo do entorno de escritorio e das aplicacións máis utilizadas, e corrixe algúns problemas de sistema coñecidos, mellorando así a calidade do produto.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Ver detalles</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Actualizacions:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Hora de lanzamento:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Colapsar</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Disponibles actualizacions</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Instalando actualización</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Instalando actualizacions…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>A actualización instalouse con éxito</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Reiniciar agora</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Fallou a descarga da actualización</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>reintentar</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Buscando actualizacions, agúarde un momento…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Sua sistema está actualizado, por favor reinícialo agora</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Sua sistema está actualizado</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Detectouse unha actualización.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Fallou a actualización: espazo de disco insuficiente</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Fallou a actualización</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Erro de rede, por favor verifica e tenta de novo</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Erro de paquetes, por favor tenta de novo</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Dependencias non atendidas</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>tipo de actualización</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Actualización de función</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Proporciona novas funcionalidades, correccións de calidade, correccións de vulnerabilidades de seguridade e contido totalmente actualizado</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Actualización de calidade</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Proporciona correccións de calidade do sistema</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Intercambiador de espeiro inteligente</translation>
     </message>
 </context>
 <context>
@@ -4081,8 +3904,8 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Escolle un tema clar, escuro ou automático</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Interfaz e efectos, cantos redondos, visual compacto</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4272,28 +4095,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Common</source>
         <translation>Común</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Actualización do sistema</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Actualización e actualización de software</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Actualizacións de características</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Configuración das actualizacións</translation>
     </message>
 </context>
 <context>

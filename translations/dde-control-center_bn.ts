@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>আবার চে크 করুন</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>@update এ তথ্য পরীক্ষা করুন</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>শেষ পরীক্ষার সময়</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1866,13 +1851,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>বর্তমানে সিস্টেম অ্যাক্টিভেট হয়নি, অপ্�дей্ট সারভিস শুরু করা যায় না</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2819,161 +2797,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>চার পাত্র গাস্টার</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>প্রতিবেশ্য স্থাপনের সময়:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 মিনিট</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>স্থাপন চলছে</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>%1s পর সেটিংগুলি পুনরায় সংযোজিত হবে।</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>দৃশ্য সেটিংগুলি সংরক্ষণ করতে?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>পুনরায় সংযোজন</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>সংরক্ষণ</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>এই পাচ অপ্ডেট প্রধানত ডেস্কটপ মাধ্যমে এবং সামান্যভাবে ব্যবহার করা হওয়া প্রোগ্রামের কাজের অভিজ্ঞতা বাড়াতে এবং এটি কিছু পরিচিত সিস্টেম সমস্যার সমাধান করাতে কেন্দ্রীভূত হয়, এবং উপকরণের গুণোত্তর বাড়াতে।</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>২০২৫.১.২০</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>বিস্তারিত দেখুন</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>অপ্ডেট:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>প্রকাশক সময়:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>ক্লেইন্ড</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>অপ্ডেট উপলব্ধ</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>অপ্ডেট স্থাপন চলছে</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>অপ্ডেট স্থাপন হচ্ছে…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>অপ্ডেট সফলভাবে স্থাপিত হয়েছে</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>এখন পুনরায় শুরু করুন</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>অপ্ডেট ডাউনলোড ত্রুটি হয়েছে</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>পুনরায় চেষ্টা করুন</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>অপ্ডেট খোঁজছে, ক্ষমা করুন প্রত্যাশা করুন…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4081,8 +3904,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সветল, অন্ধকার বা স্বয়ংক্রিয় থিম প্রকৃতি নির্বাচন করুন</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>পরিচালনা ও প্রভাব, প্রান্তের চাপা রেখা, সংক্ষিপ্ত দৃষ্টিভঙ্গি</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4272,28 +4095,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>সাধারণ</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>সিস্টেম আপডেট</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>সিস্টেম আপডেট এবং আপগ্রেড</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>ফেচার আপডেট</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>আপডেট সেটিংস</translation>
     </message>
 </context>
 <context>

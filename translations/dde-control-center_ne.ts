@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>पुनः चेक गर्नुहोस्</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>अद्यतन खोज्नुहोस्</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>सर्वात अन्तिम चेक गरिएको समय</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1866,13 +1851,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>वर्तमान सिस्टम अक्षेपित छैन, सिर्जना परिवर्तन सेवा शुरू गर्न मिलेको छैन</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2794,161 +2772,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>चार फ़ींगर गेस्टर्स</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>अपलोड काला समायोजन अवधि:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 मिनिट</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>इनस्टॉल किने छ</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>%1 समयमा सेटिंगहरू वापराउँछ।</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>प्रदर्शन सेटिंगहरू बचाउँदैछ？</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>वापराउनुहोस्</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>बचाउनुहोस्</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>यो पाच अपडेट लगाने रास्तामा डेस्कटॉप परिसर र अन्य प्रयोगिता उपकरणहरूको व्यवहार प्रदर्शन सुधार्न सक्षम गर्छ र कुछ जानी जानकारी राजस्य लागि समस्याहरू ठूलो गर्न समूह गुणवत्ताको एकाउन्तर बढाउने छ।</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>विस्तार गर्नुहोस्</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>अपडेटहरू:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>ला�UNCH समय:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>कुप्लेस</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>अपडेट उपलब्ध</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>अपडेट इनस्टॉल गर्दैछ</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>अपडेट इनस्टॉल गर्दै…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>अपडेट सफल र इनस्टॉल गरिएको छ</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>अब फिर्ता पुनरारम्भ गर्नुहोस्</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>अपडेट डाउनलोड गर्न माफिया</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>पुन्हाको लागि प्रयास गर्नुहोस्</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>अपडेट खोज्नै, कृपया आराम गर्नुहोस्…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4056,8 +3879,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>साफ, अंधेरो या अनुकूलन तयारीका रूप बाट चयन गर्नुहोस्</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>निर्माण र प्रभावहरू, गम्भीर कोन, छोटो दर्शन</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4247,28 +4070,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>सामान्य</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>सिस्टम अपडेट</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>सिस्टम अपडेट र अप्लाउजँ</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>फेचर अपडेट</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>अपडेट सेटिङहरू</translation>
     </message>
 </context>
 <context>

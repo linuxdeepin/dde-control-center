@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1861,13 +1846,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Dabartinė sistema nėra aktyvuota, nepavyksta paleisti atnaujinimo palūkes</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2814,161 +2792,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Keturių poskių žygimai</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Nepakankamai laikas įdiegimo:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Įdiegama</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Nustatymai atkurti per %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Išsaugoti ekrano nustatymus？</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Atkurti</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Išsaugoti</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Šis įrankio atnaujinimas pagrindinės užduoties yra užtikrino, kad asmeninio kompiuterio aplinkos ir populiarios programos dirbtinį atnešimą ir sprendimą būtų patikslinti, ir išlaikytų kokybę.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.01.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Peržiūrėti detalius</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Atnaujinimai:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Išleidimo laikas:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Apribojimas</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Yra galimybė įrašyti atnaujinimus</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Įdiegama atnaujinimas</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Įdiegiami atnaujinimai…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Atnaujinimas sėkmingai įdiegtas</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Paleisti iš naujo dabar</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Atnaujinimų atsisiuntimas nepavyko</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>pabandyti dar kartą</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Ieškoma atnaujinimų, palaukite…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Jūsų sistema yra atnaujinta, prašome dabar atkurkite</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Jūsų sistema yra atnaujinta</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Atnaujinimas buvo aptiktas.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Atnaujinimas nepavyko: nepakankamo disko svetojo</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Atnaujinimas nepavyko</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Tarpinio ryšio klaida, patikrinkite ir bandykite dar kartą</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Paketo klaida, bandykite dar kartą</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Nepasiekiama prireikai</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>atnaujinimo tipas</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Funkcijų atnaujinimas</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Tikslinėjimo naujos funkcijos, kokybės pataisai, saugumo trūkstamuosius elementus ir visiškai atnaujinę turinį</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Kokybės atnaujinimas</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Tikslinėjimo sistemos kokybės pataisai</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Inteligento atminties perjungimas</translation>
     </message>
 </context>
 <context>
@@ -4076,8 +3899,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Pasirinkite svyrantį, tamsią arba automatinį temos rodinį</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Interfeis ir efekto, atsiribotos kampai, kompaktinis rovys</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4267,28 +4090,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Kompirolių</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Systemos atnaujinimas</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Systemos atnaujinimas ir atnaujinimas</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Funkcijų atnaujinimai</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Atnaujinimo nuostatos</translation>
     </message>
 </context>
 <context>

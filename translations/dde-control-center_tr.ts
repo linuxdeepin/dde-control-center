@@ -629,21 +629,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Tekrar Kontrol Et</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Güncellemeleri kontrol et</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Son kontrol zamanı</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1861,13 +1846,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2789,161 +2767,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 dak</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Kuruluyor</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Eski haline döndür</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Kaydet</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Ayrıntıları Görüntüle</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Güncellemeler:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Yayın zamanı:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Daralt</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Güncelleme Kullanılabilir</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Güncellemeler Yükleniyor</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Güncellemeler yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Şimdi Yeniden Başlat</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>yeniden dene</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Sisteminiz güncel, lütfen şimdi yeniden başlatın</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Sisteminiz güncel</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Güncelleme başarısız oldu: yetersiz disk alanı</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Güncelleme başarısız oldu</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Ağ hatası, lütfen kontrol edip tekrar deneyin</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Paket hatası, lütfen tekrar deneyin</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Karşılanmayan bağımlılıklar</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Akıllı Yansı Değiştir</translation>
     </message>
 </context>
 <context>
@@ -4051,7 +3874,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
+        <source>Interface and effects, rounded corners</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4242,28 +4065,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Ortak</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
     </message>
 </context>
 <context>
