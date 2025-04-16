@@ -631,21 +631,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1863,13 +1848,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2790,161 +2768,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Installing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expected installation time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>View Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4053,7 +3876,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
+        <source>Interface and effects, rounded corners</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4243,28 +4066,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Update Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Feature Updates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

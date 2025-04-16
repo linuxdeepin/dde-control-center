@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -187,7 +189,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -640,21 +642,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>重新检查更新</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>检查更新</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>上次检查更新时间</translation>
     </message>
 </context>
 <context>
@@ -1876,13 +1863,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2725,19 +2705,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2804,161 +2784,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>四指手势</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>安装更新中</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>如无任何操作将在%1秒后还原。</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>是否要保存显示设置？</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>还原</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>本次补丁更新主要提升了桌面环境、常用应用的操作性能体验，并且修复部分系统已知问题，进一步提升了产品质量。</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>查看详细信息</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>更新：</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>发布时间：</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>收起</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>可用更新</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>安装更新</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>正在安装更新…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>更新安装成功</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>立即重启</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>更新下载失败</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>重试</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>正在检查更新，请等待…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>您的系统已经是最新的,请立即重启</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>您的系统已更新</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>检测到更新。</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>当前硬盘空间不足，无法进行系统更新</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>更新失败</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>网络异常，请检查后重试</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>安装包错误，请重试</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>依赖关系不满足</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>智能镜像源</translation>
     </message>
 </context>
 <context>
@@ -4066,8 +3891,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>选择浅色、深色或自动切换主题外观</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>界面和效果、窗口圆角、紧凑模式</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation>界面和效果、窗口圆角</translation>
     </message>
 </context>
 <context>
@@ -4257,28 +4082,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>通用</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>系统更新</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>系统更新升级</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>功能更新</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>更新设置</translation>
     </message>
 </context>
 <context>

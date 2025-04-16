@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -187,7 +189,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -639,21 +641,6 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Cancel</source>
         <translation>Скасувати</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Перевірити знову</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Перевірити наявність оновлень</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Остання перевірка</translation>
     </message>
 </context>
 <context>
@@ -1875,13 +1862,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Поточну систему не активовано — неможливо запустити службу оновлення</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2803,161 +2783,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Жести чотирма пальцями</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Очікуваний час встановлення:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>Мін.</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Встановлення</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Система повернеться до початкових налаштувань за %1 с.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Зберегти налаштування дисплея?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Повернути</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Це оновлення-латка в основному удосконалює швидкодію стільничного середовища та типових програм і виправляє деякі відомі вади системи, роблячи якість продукту вищою.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Переглянути подробиці</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Оновлення:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Час випуску:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Згорнути</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Доступні оновлення</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Встановлення оновлення</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Встановлення оновлень</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Оновлення успішно встановлено</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Перезапустити зараз</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Не вдалося отримати оновлення</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>Повторити</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Перевірка оновлень, будь ласка зачекайте...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Вашу систему оновлено. Будь ласка, перезавантажте її</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Ваша система оновлена</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Виявлено оновлення.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Помилка оновлення: недостатньо місця на диску</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Помилка оновлення</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Помилка мережі. Будь ласка, перевірте дані і повторіть спробу</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Помилка із пакунками. Будь ласка, повторіть спробу</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Не задоволено залежності</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>Тип оновлення:</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Функціональне оновленн</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Реалізація нових можливостей, латки якості, виправлення вразливостей захисту та повністю оновлені дані</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Оновлення якості</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Реалізація латок якості системи</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Інтелектуальне перемикання дзеркал</translation>
     </message>
 </context>
 <context>
@@ -4065,8 +3890,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Інтерфейс і ефекти, заокруглені краї, компактний показ</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4256,28 +4081,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Загальні</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Оновлення системи</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Оновлення пакунків та самої системи</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Оновлення можливостей</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Налаштування Оновлення</translation>
     </message>
 </context>
 <context>

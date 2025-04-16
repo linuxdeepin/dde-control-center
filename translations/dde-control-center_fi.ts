@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -186,7 +188,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -638,21 +640,6 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Cancel</source>
         <translation>Peruuta</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Tarkista uudelleen</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Tarkista päivitykset</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Tarkistusaika</translation>
     </message>
 </context>
 <context>
@@ -1873,13 +1860,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Tietokone ei ole aktivoitu, päivityspalvelua ei voida käynnistää</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2801,161 +2781,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Neljän sormen ele</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Arvioitu asennuspäivä:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30min</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Asennetaan</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Asetukset palautetaan %1s kulttua.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Tallennatko näytön asetukset?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Palauta</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Tallenna</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Tämä korjauspäivitys parantaa pääasiassa työpöydän toimivuutta ja sovellusten käyttökokemusta. Lisäksi korjaa joitakin ongelmia, mikä parantaa laatua entisestään.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Näytä tiedot</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Päivitykset:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Julkaisupäivä:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Tiivistetty</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Päivityksiä saatavilla</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Asennetaan päivitystä</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Asentaa päivityksiä...</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Päivitys asennettu</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Käynnistä</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Päivityksen lataus epäonnistui</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>uudelleen</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Tarkistetaan päivityksiä, odota...</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Tietokone on päivitetty, käynnistä uudelleen</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Tietokone on päivitetty</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Päivitys havaittiin.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Päivitys epäonnistui: ei ole levytilaa</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Päivitys epäonnistui</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Verkkovirhe, tarkista ja yritä uudelleen</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Pakettivirhe, yritä uudelleen</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Puuttuvat riippuvuudet</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>päivitystyyppi</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Toiminnan päivitys</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Tarjoaa uusia ominaisuuksia, laatukorjauksia, tietoturva-aukkojen korjauksia ja päivitettyä sisältöä</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Laatupäivitys</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Tarjoa laatukorjauksista</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
 </context>
 <context>
@@ -4063,8 +3888,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Valitse vaalea, tumma tai autom. teeman ulkoasu</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Käyttöliittymä ja tehosteet,  pyöristetyt kulmat,  kompakti näyttö</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4254,28 +4079,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Yleinen</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Päivitys</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Päivitys ja versio päivitys</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Ominaisuus päivitykset</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Päivityksen asetukset</translation>
     </message>
 </context>
 <context>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -176,7 +178,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -626,21 +628,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
-    </message>
-</context>
-<context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Verificar novamente</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Verificar atualizações</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Hora da última verificação</translation>
     </message>
 </context>
 <context>
@@ -1861,13 +1848,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>O sistema atual não está ativado, não é possível iniciar o serviço de atualização</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2789,161 +2769,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Gestos de quatro dedos</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Tempo previsto de instalação:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 minutos</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Instalando</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>As configurações serão revertidas em %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Salvar as configurações de exibição?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Reverter</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salvar</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Esta atualização de patch melhora principalmente a experiência de desempenho operacional do ambiente de desktop e dos aplicativos mais usados, além de corrigir alguns problemas conhecidos do sistema, melhorando ainda mais a qualidade do produto.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Ver detalhes</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Atualizações:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Data de lançamento:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Recolher</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Atualizações disponíveis</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Instalando atualização</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Instalando atualizações…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Atualização instalada com sucesso</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Reiniciar agora</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Falha no download da atualização</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>Tentar novamente</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Verificando atualizações, aguarde…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Seu sistema está atualizado, por favor reinicie agora</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Seu sistema está atualizado</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Uma atualização foi encontrada.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>A atualização falhou: espaço insuficiente em disco</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>A atualização falhou</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Erro de rede, verifique e tente novamente</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Erro de pacotes, tente novamente</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Dependências desencontradas</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>Tipo de atualização</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Atualização de função</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Fornece novos recursos, patches de qualidade, correções de vulnerabilidades de segurança e conteúdo totalmente atualizado</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Atualização de qualidade</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Fornece patches de qualidade do sistema</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Troca inteligente de espelho</translation>
     </message>
 </context>
 <context>
@@ -4051,8 +3876,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Selecione entre os temas claro, escuro ou automático</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Interface e efeitos, cantos arredondados, tela compacta</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4242,28 +4067,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Comum</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Atualizações do Sistema</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Atualização do sistema e melhorias</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Atualizações de recursos</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Configurações de atualização</translation>
     </message>
 </context>
 <context>
