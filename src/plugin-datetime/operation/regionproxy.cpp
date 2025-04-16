@@ -202,13 +202,13 @@ void RegionProxy::active()
     }
     m_isActive = true;
     m_translatorLanguage = new QTranslator(this);
-    m_translatorLanguage->load("/usr/share/dde-control-center/translations/datetime_language_"
-                               + QLocale::system().name());
-    qApp->installTranslator(m_translatorLanguage);
+    if (m_translatorLanguage->load(QLocale(), "datetime_language","_", TRANSLATE_READ_DIR)) {
+        qApp->installTranslator(m_translatorLanguage);
+    }
     m_translatorCountry = new QTranslator(this);
-    m_translatorCountry->load("/usr/share/dde-control-center/translations/datetime_country_"
-                              + QLocale::system().name());
-    qApp->installTranslator(m_translatorCountry);
+    if (m_translatorCountry->load(QLocale(), "datetime_country","_", TRANSLATE_READ_DIR)) {
+        qApp->installTranslator(m_translatorCountry);
+    }
 
     QList<QLocale> locales =
             QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyCountry);
