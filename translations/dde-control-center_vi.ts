@@ -653,21 +653,6 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
 </context>
 <context>
-    <name>CheckUpdate</name>
-    <message>
-        <source>Check Again</source>
-        <translation>Kiểm tra lại</translation>
-    </message>
-    <message>
-        <source>Check for Updates</source>
-        <translation>Kiểm tra cập nhật</translation>
-    </message>
-    <message>
-        <source>Last checking time</source>
-        <translation>Thời gian kiểm tra cuối cùng</translation>
-    </message>
-</context>
-<context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
@@ -1888,13 +1873,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>NoActive</name>
-    <message>
-        <source>The current system is not activated, unable to start the update service</source>
-        <translation>Hệ thống hiện tại chưa được kích hoạt, không thể khởi động dịch vụ cập nhật</translation>
-    </message>
-</context>
-<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2816,161 +2794,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Four-finger gestures</source>
         <translation>Bốn ngón tay cử chỉ</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateControl</name>
-    <message>
-        <source>Expected installation time:</source>
-        <translation>Thời gian cài đặt dự kiến:</translation>
-    </message>
-    <message>
-        <source>30min</source>
-        <translation>30 phút</translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation>Đang cài đặt</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateHistory</name>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>Cài đặt sẽ được khôi phục sau %1s.</translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>Lưu cài đặt hiển thị?</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>Khôi phục</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Lưu</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateList</name>
-    <message>
-        <source>This patch update mainly improves the operational performance experience of desktop environment and commonly used applications, and fixes some known system issues, further enhancing product quality.</source>
-        <translation>Cập nhật này chủ yếu cải thiện trải nghiệm hiệu suất hoạt động của môi trường bàn làm việc và các ứng dụng thường dùng, và sửa một số vấn đề hệ thống đã biết, cải thiện chất lượng sản phẩm.</translation>
-    </message>
-    <message>
-        <source>2025.1.20</source>
-        <translation>2025.1.20</translation>
-    </message>
-    <message>
-        <source>View Details</source>
-        <translation>Xem chi tiết</translation>
-    </message>
-    <message>
-        <source>Updates:</source>
-        <translation>Cập nhật:</translation>
-    </message>
-    <message>
-        <source>Release time:</source>
-        <translation>Thời gian phát hành:</translation>
-    </message>
-    <message>
-        <source>Collapse</source>
-        <translation>Thu gọn</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateModel</name>
-    <message>
-        <source>Updates Available</source>
-        <translation>Có cập nhật sẵn có</translation>
-    </message>
-    <message>
-        <source>Installing Update</source>
-        <translation>Đang cài đặt cập nhật</translation>
-    </message>
-    <message>
-        <source>Installing updates…</source>
-        <translation>Đang cài đặt cập nhật…</translation>
-    </message>
-    <message>
-        <source>Update installed successfully</source>
-        <translation>Cập nhật đã được cài đặt thành công</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation>Khởi động lại ngay</translation>
-    </message>
-    <message>
-        <source>Update download failed</source>
-        <translation>Tải xuống cập nhật thất bại</translation>
-    </message>
-    <message>
-        <source>retry</source>
-        <translation>thử lại</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait…</source>
-        <translation>Đang kiểm tra cập nhật, vui lòng chờ…</translation>
-    </message>
-    <message>
-        <source>Your system is up to date, please restart now</source>
-        <translation>Hệ thống của bạn đã cập nhật, vui lòng khởi động lại ngay</translation>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation>Hệ thống của bạn đã cập nhật</translation>
-    </message>
-    <message>
-        <source>An update has been detected.</source>
-        <translation>Có bản cập nhật được phát hiện.</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation>Cập nhật thất bại: không đủ không gian trên ổ đĩa</translation>
-    </message>
-    <message>
-        <source>Update failed</source>
-        <translation>Cập nhật thất bại</translation>
-    </message>
-    <message>
-        <source>Network error, please check and try again</source>
-        <translation>Lỗi mạng, vui lòng kiểm tra và thử lại</translation>
-    </message>
-    <message>
-        <source>Packages error, please try again</source>
-        <translation>Lỗi gói, vui lòng thử lại</translation>
-    </message>
-    <message>
-        <source>Unmet dependencies</source>
-        <translation>Yêu cầu phụ thuộc chưa được đáp ứng</translation>
-    </message>
-</context>
-<context>
-    <name>UpdateSetting</name>
-    <message>
-        <source>update type</source>
-        <translation>loại cập nhật</translation>
-    </message>
-    <message>
-        <source>Function update</source>
-        <translation>Cập nhật chức năng</translation>
-    </message>
-    <message>
-        <source>Provide new features, quality patches, security vulnerability fixes, and fully updated content</source>
-        <translation>Cung cấp các tính năng mới, sửa lỗi chất lượng, sửa lỗi lỗ hổng bảo mật và nội dung đã được cập nhật hoàn toàn</translation>
-    </message>
-    <message>
-        <source>Quality Update</source>
-        <translation>Cập nhật chất lượng</translation>
-    </message>
-    <message>
-        <source>Provide system quality patches</source>
-        <translation>Cung cấp các sửa lỗi chất lượng cho hệ thống</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation>Bật/Tắt gương thông minh</translation>
     </message>
 </context>
 <context>
@@ -4078,8 +3901,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Chọn tiêu đề sáng, tối hoặc tự động</translation>
     </message>
     <message>
-        <source>Interface and effects, rounded corners, compact display</source>
-        <translation>Giao diện và hiệu ứng, viền cong, hiển thị gọn gàng</translation>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4269,28 +4092,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Chung</translation>
-    </message>
-</context>
-<context>
-    <name>update</name>
-    <message>
-        <source>System Update</source>
-        <translation>Cập nhật hệ thống</translation>
-    </message>
-    <message>
-        <source>System update and upgrade</source>
-        <translation>Cập nhật và nâng cấp hệ thống</translation>
-    </message>
-</context>
-<context>
-    <name>updateMain</name>
-    <message>
-        <source>Feature Updates</source>
-        <translation>Cập nhật tính năng</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation>Cài đặt cập nhật</translation>
     </message>
 </context>
 <context>
