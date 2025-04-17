@@ -146,6 +146,20 @@ static inline QString escapSpace(const QString &space)
     return isSpace ? QLatin1String(" ") : space;
 }
 
+static inline QString normalizeSpace(const QString &value)
+{
+    QString ret = " ";
+    QStringList numberKeepList{ QString("."), QString(","), QString("'")};
+    if (numberKeepList.contains(value)) {
+        ret = value;
+    } else {
+        if (value == "Space" || value == DatetimeModel::tr("Space")) {
+            return ret;
+        }
+    }
+    return ret;
+}
+
 static inline QString unEscapSpace(const QString &space)
 {
     if (space.isEmpty())
@@ -681,7 +695,7 @@ QStringList DatetimeModel::availableFormats(int format)
         return separatorSymbol(locale, true);
     }
     case DigitGrouping: {
-        QString dgSymbol = escapSpace(m_work->digitGroupingSymbol());
+        QString dgSymbol = escapSpace(normalizeSpace(m_work->digitGroupingSymbol()));
         // 不带数字分隔符，方便自定义追加
         locale.setNumberOptions(QLocale::OmitGroupSeparator);
         // 有的国家使用的是阿拉伯*文*数字（东阿拉伯数字）
@@ -754,12 +768,14 @@ int DatetimeModel::currentFormatIndex(int format)
     case DecimalSymbol: {
         const QString &current = m_work->decimalSymbol();
         QStringList defaultSymbols = separatorSymbol(QLocale(m_localeName), false);
-        return defaultSymbols.indexOf(current);
+        int index = defaultSymbols.indexOf(current);
+        return (index != -1) ? index : defaultSymbols.indexOf(DatetimeModel::tr("Space"));
     }
     case DigitGroupingSymbol: {
         const QString &current = m_work->digitGroupingSymbol();
         QStringList defaultSymbols = separatorSymbol(QLocale(m_localeName), true);
-        return defaultSymbols.indexOf(unEscapSpace(current));
+        int index = defaultSymbols.indexOf(unEscapSpace(current));
+        return (index != -1) ? index : defaultSymbols.indexOf(DatetimeModel::tr("Space"));
     }
     case DigitGrouping: {
         const QString &current = m_work->digitGrouping();
