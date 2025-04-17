@@ -32,14 +32,13 @@ DccObject {
         backgroundType: DccObject.Normal
         visible: dccData.model().inPutPortCombo.length === 0
         page: Column {
-            width: parent.width
             Label {
                 height: 100
                 width: parent.width
                 Layout.leftMargin: 10
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font: DTK.fontManager.t8
+                font: D.DTK.fontManager.t8
                 text: qsTr("No input device for sound found")
             }
         }

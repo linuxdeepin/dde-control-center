@@ -22,6 +22,27 @@
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
+QString loggingRules(const QString &loggingModule)
+{
+    if (loggingModule.isEmpty())
+        return "";
+
+    static const QStringList levels = { "warning", "info", "debug" };
+    const auto &list = loggingModule.split(",");
+    const auto &moduleName = list.at(0);
+    const auto &level = list.size() > 1 ? list.at(1) : "info";
+    const int levelIndex = levels.indexOf(level);
+    if (-1 == levelIndex)
+        return "";
+
+    QString rules = "*.debug=false\n*.info=false\n*.warning=false\n";
+    for (int i = 0; i <= levelIndex; ++i) {
+        auto rule = QString("org.deepin.dde.control-center.").append(moduleName).append(".").append(levels.at(i)).append("=true\n");
+        rules.append(std::move(rule));
+    }
+    return rules;
+}
+
 QStringList defaultpath()
 {
     const QStringList path{ QStringLiteral(DefaultPluginsDirectory) };
@@ -40,16 +61,13 @@ int main(int argc, char *argv[])
     app->setApplicationName("dde-control-center");
 
     // take care of command line options
-    QCommandLineOption showOption(QStringList() << "s"
-                                                << "show",
-                                  "show control center(hide for default).");
-    QCommandLineOption toggleOption(QStringList() << "t"
-                                                  << "toggle",
-                                    "toggle control center visible.");
-    QCommandLineOption dbusOption(QStringList() << "d"
-                                                << "dbus",
-                                  "startup on dbus");
+    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
+    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
+    QCommandLineOption dbusOption(QStringList() << "d" << "dbus", "startup on dbus");
+    QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
     QCommandLineOption pageOption("p", "specified module page", "page");
+    QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度
+    QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
 
     QCommandLineParser parser;
@@ -59,11 +77,18 @@ int main(int argc, char *argv[])
     parser.addOption(showOption);
     parser.addOption(toggleOption);
     parser.addOption(dbusOption);
+    parser.addOption(moduleOption);
     parser.addOption(pageOption);
+    parser.addOption(showTime);
+    parser.addOption(loggingModuleOption);
     parser.addOption(pluginDir);
     parser.process(*app);
 
-    const QString &reqPage = parser.value(pageOption);
+    QString reqPage = parser.value(pageOption);
+    const QString &reqModule = parser.value(moduleOption);
+    if (!reqModule.isEmpty()) {
+        reqPage = reqModule + "/" + reqPage;
+    }
     const QString &refPluginDir = parser.value(pluginDir);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
@@ -81,6 +106,12 @@ int main(int argc, char *argv[])
         }
 
         return -1;
+    }
+
+    if (parser.isSet(loggingModuleOption)) {
+        const auto &rules = loggingRules(parser.value(loggingModuleOption));
+        if (!rules.isEmpty())
+            QLoggingCategory::setFilterRules(rules);
     }
 
     DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}:%{line}> %{message}");
@@ -125,8 +156,7 @@ int main(int argc, char *argv[])
     dccV25::DBusControlCenterGrandSearchService *grandSearchadAptor = new dccV25::DBusControlCenterGrandSearchService(dccManager);
 
     if (!conn.registerObject(DccDBusPath, dccManager)) {
-        qDebug() << "dbus service already registered!"
-                 << "pid is:" << qApp->applicationPid();
+        qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
         return -1;
     }
     if (!refPluginDir.isEmpty()) {
@@ -138,6 +168,9 @@ int main(int argc, char *argv[])
             adaptor->ShowPage(reqPage);
         } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             adaptor->Show();
+        } else if (parser.isSet(showTime)) {
+            adaptor->Show();
+            return 0;
         }
 
 #ifdef QT_DEBUG
