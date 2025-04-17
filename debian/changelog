@@ -1,3 +1,35 @@
+dde-control-center (6.1.21) unstable; urgency=medium
+
+  * fix: Compatible with previous command parameters
+  * fix: Return hierarchy error
+  * fix: Return hierarchy error
+  * fix: use system locale for date formatting
+  * fix: Add translation language types
+  * fix: use system locale for date formatting
+  * fix: Added error sounds
+  * fix: Modify the translation loading location
+  * fix: The title is displayed incorrectly.
+  * fix: Add secure compilation parameters
+  * i18n: Updates for project Deepin Desktop Environment (#2171)
+  * fix: improve timezone selection persistence in search
+  * fix: The issue of user group editing is fixed
+  * fix: always include switch-monitors in system shortcuts filter
+  * fix: Fixed the Bluetooth checkbox clicking issue
+  * fix: simplify NTP server validation and address assignment
+  * fix: missing unchecked state for DccCheckIcon
+  * fix: ScorllBar still hide when hovered
+  * feat: Support the user agreement for UosMilitary
+  * fix: copyright cannot display Chinese
+  * fix: Add the computer name tooltip
+  * i18n: Updates for project Deepin Desktop Environment (#2168)
+  * fix: Fixed the issue of formula bar style
+  * fix: The issue that the username is displayed too long is fixed
+  * fix: The issue that the group title is not refreshed in time is fixed
+  * fix: disable microphone input level slider interaction
+  * i18n: Updates for project Deepin Desktop Environment (#2156)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 17 Apr 2025 16:32:20 +0800
+
 dde-control-center (6.1.20) unstable; urgency=medium
 
   * refact: migrate plugin-update to deepin-update-ui
