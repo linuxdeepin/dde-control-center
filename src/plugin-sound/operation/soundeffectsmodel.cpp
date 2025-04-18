@@ -60,7 +60,7 @@ void SoundEffectsModel::updateSoundEffectsData(int index, bool enable)
 
 void SoundEffectsModel::updateSoundEffectsAniIcon(int index, QString path)
 {
-    if (index < 0 || index >= m_soundEffectsData.size())
+    if (index < 0 || index >= m_soundEffectsData.size() || m_soundEffectsData[index]->aniIconPath() == path)
         return;
 
     m_soundEffectsData[index]->setAniIconPath(path);

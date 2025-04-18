@@ -34,7 +34,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_waitOutputReceiptTimer(new QTimer(this))
     , m_mediaDevices(new QMediaDevices(this))
     , m_playAnimationTime(new QTimer(this))
-    , m_playAniIconIndex(1)
 {
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
@@ -45,6 +44,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
 
     m_waitInputReceiptTimer->setSingleShot(true);
     m_waitOutputReceiptTimer->setSingleShot(true);
+
+    updatePlayAniIconPath();
 
     initConnect();
 }
@@ -83,6 +84,9 @@ void SoundWorker::initConnect()
     connect(m_waitOutputReceiptTimer, &QTimer::timeout, this, [this] {
         m_model->setOutPutPortComboEnable(true);
     });
+
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+        this, &SoundWorker::updatePlayAniIconPath);
 }
 
 void SoundWorker::activate()
@@ -473,22 +477,14 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
 
 void SoundWorker::onAniTimerTimeOut()
 {
-    QString path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1").arg(m_playAniIconIndex);
-
-    m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, path);
-    m_playAniIconIndex++;
-    if (m_playAniIconIndex > 3) {
-        m_playAniIconIndex = 1;
-    }
+    m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, m_playAniIconPath);
 }
 
 void SoundWorker::onSoundPlayingChanged()
 {
-    m_playAniIconIndex = 1;
     QString path("");
     if (m_sound && m_sound->isPlaying()) {
-        path = QString("qrc:/icons/deepin/builtin/icons/dcc_volume%1").arg(m_playAniIconIndex);
-        m_playAniIconIndex++;
+        path = m_playAniIconPath;
         m_playAnimationTime->start();
     } else {
         m_playAnimationTime->stop();
@@ -536,6 +532,13 @@ void SoundWorker::initAudioServerData()
         }
         m_model->addAudioServerData(data);
     }
+}
+
+void SoundWorker::updatePlayAniIconPath()
+{
+    auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
+    auto themeTypeStr = themeType == Dtk::Gui::DGuiApplicationHelper::ColorType::DarkType ? "dark" : "light";
+    m_playAniIconPath = QString("qrc:/icons/deepin/builtin/icons/%1/volume_sound_wave_ani.webp").arg(themeTypeStr);
 }
 
 void SoundWorker::setAudioServerIndex(int index)

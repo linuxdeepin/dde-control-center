@@ -12,5 +12,7 @@
         <file>icons/dcc_volume2.dci</file>
         <file>icons/dcc_volume3.dci</file>
         <file>icons/dcc_volume1.dci</file>
+        <file>icons/dark/volume_sound_wave_ani.webp</file>
+        <file>icons/light/volume_sound_wave_ani.webp</file>
     </qresource>
 </RCC>

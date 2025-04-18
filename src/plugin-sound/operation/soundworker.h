@@ -74,6 +74,7 @@ private Q_SLOTS:
 
     void onAniTimerTimeOut();
     void onSoundPlayingChanged();
+    void updatePlayAniIconPath();
 
 private:
     void initConnect();
@@ -99,8 +100,8 @@ private:
     QMediaDevices* m_mediaDevices;
 
     QTimer* m_playAnimationTime;
-    int m_playAniIconIndex;
     int m_upateSoundEffectsIndex;
+    QString m_playAniIconPath;
 };
 
 #endif // SOUNDWORKER_H
