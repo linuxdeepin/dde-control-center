@@ -3890,7 +3890,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Interfície i efectes, cantons arrodonits</translation>
     </message>
 </context>
 <context>
