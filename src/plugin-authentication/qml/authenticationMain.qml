@@ -175,6 +175,22 @@ DccObject {
                                 var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
                                 var isValid = reg.test(textInputItem.text);
                                 var isOverLength = textInputItem.text.length > 15;
+                                
+                                var nameList = [];
+                                switch (itemRep.authType) {
+                                case CharaMangerModel.Type_Face:
+                                    nameList = dccData.model.facesList;
+                                    break;
+                                case CharaMangerModel.Type_Finger:
+                                    nameList = dccData.model.thumbsList;
+                                    break;
+                                case CharaMangerModel.Type_Iris:
+                                    nameList = dccData.model.irisList;
+                                    break;
+                                }
+                                
+                                var isDuplicate = nameList.includes(textInputItem.text) && 
+                                                  textInputItem.text !== modelData;
 
                                 if (!isValid && isOverLength) {
                                     alert.show(qsTr("Use letters, numbers and underscores only, and no more than 15 characters"));
@@ -182,6 +198,8 @@ DccObject {
                                     alert.show(qsTr("Use letters, numbers and underscores only"));
                                 } else if (isOverLength) {
                                     alert.show(qsTr("No more than 15 characters"));
+                                } else if (isDuplicate) {
+                                    alert.show(qsTr("This name already exists"));
                                 } else {
                                     return true;
                                 }
