@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation>Afrikanisch</translation>
+        <translation>Afrikaans</translation>
     </message>
     <message>
         <source>አማርኛ</source>
