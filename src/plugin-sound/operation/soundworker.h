@@ -40,6 +40,7 @@ public:
     Q_INVOKABLE void enableAllSoundEffect(bool enable);
     Q_INVOKABLE void setPortEnableIndex(int index, bool checked, int portType);
     Q_INVOKABLE void playSoundEffect(int index);
+    Q_INVOKABLE void stopSoundEffectPlayback();
     Q_INVOKABLE void setAudioServerIndex(int index);
     Q_INVOKABLE void setAudioMono(bool enable);
 

@@ -290,6 +290,17 @@ void SoundWorker::playSoundEffect(int index)
     m_sound->play();
 }
 
+void SoundWorker::stopSoundEffectPlayback()
+{
+    if (m_sound) {
+        if (m_sound->isPlaying()) {
+            m_model->updatePlayAniIconPath(m_upateSoundEffectsIndex, "");
+        }
+        delete m_sound;
+        m_sound = nullptr;
+    }
+}
+
 void SoundWorker::setBluetoothMode(const QString &mode)
 {
     m_soundDBusInter->SetBluetoothAudioMode(mode);
