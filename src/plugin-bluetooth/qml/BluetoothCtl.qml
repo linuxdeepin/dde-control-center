@@ -52,38 +52,35 @@ DccObject{
                     id: nameDetaillay
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    RowLayout {
-                        spacing: 0
-                        Layout.fillWidth: true
-                        Label {
-                            id: nameDetail
-                            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            width: Math.min(implicitWidth, nameDetaillay.width - editBtn.width - 10)
 
-                            text: model.nameDetail
-                            horizontalAlignment: Qt.AlignLeft
-                            verticalAlignment: Qt.AlignTop
-                            font.pointSize: 8
-                            elide: Text.ElideRight
-                        }
+                    Label {
+                        id: nameDetail
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        width: Math.min(implicitWidth, parent.width - editBtn.implicitWidth - 10)
+                        text: model.nameDetail
+                        horizontalAlignment: Qt.AlignLeft
+                        verticalAlignment: Text.AlignTop
+                        font.pointSize: 8
+                        elide: Text.ElideRight
+                    }
 
-                        ToolButton {
-                            id: editBtn
-                            font.pointSize: 8
-                            text: qsTr("Edit")
+                    ToolButton {
+                        id: editBtn
+                        anchors.left: nameDetail.right
+                        anchors.top: nameDetail.top
+                        font.pointSize: 8
+                        text: qsTr("Edit")
 
-                            hoverEnabled: false
-                            implicitHeight: 20
-                            spacing: 0
-                            textColor: DS.Style.highlightedButton.text
-                            Layout.alignment: Qt.AlignTop
-                            
-                            onClicked: {
-                                nameEdit.visible = true
-                                devName.visible =false
-                                nameEdit.forceActiveFocus(true)
-                                nameEdit.selectAll()
-                            }
+                        hoverEnabled: false
+                        implicitHeight: 20
+                        textColor: DS.Style.highlightedButton.text
+
+                        onClicked: {
+                            nameEdit.visible = true
+                            devName.visible =false
+                            nameEdit.forceActiveFocus(true)
+                            nameEdit.selectAll()
                         }
                     }
                 }
