@@ -41,6 +41,12 @@ DccObject {
 
                 dccData.worker().playSoundEffect(index)
             }
+
+            onVisibleChanged: {
+                if (!visible) {
+                    dccData.worker().stopSoundEffectPlayback();
+                }
+            }
         }
     }
 }
