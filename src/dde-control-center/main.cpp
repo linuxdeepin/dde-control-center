@@ -135,6 +135,10 @@ int main(int argc, char *argv[])
 
     // QAccessible::installFactory(accessibleFactory);
 
+    // disable qml cache
+    if (qEnvironmentVariableIsEmpty("QML_DISABLE_DISK_CACHE"))
+        qputenv("QML_DISABLE_DISK_CACHE", "1");
+
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
