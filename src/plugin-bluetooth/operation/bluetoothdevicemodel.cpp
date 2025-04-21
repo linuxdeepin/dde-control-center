@@ -118,7 +118,7 @@ void BluetoothDeviceModel::insertItem(int index, BluetoothDevice *device)
 {
     if (index < 0 || index > m_deviceData.size()) return; // 确保索引有效
     beginInsertRows(QModelIndex(), index, index);
-    m_deviceData.prepend(device);
+    m_deviceData.insert(index, device);
     endInsertRows();
 }
 
