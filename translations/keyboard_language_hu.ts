@@ -323,7 +323,7 @@
     </message>
     <message>
         <source>Norsk (bokmål)</source>
-        <translation>Norsk (bokmål)</translation>
+        <translation>Norvég</translation>
     </message>
     <message>
         <source>Plattdüütsch</source>
@@ -371,7 +371,7 @@
     </message>
     <message>
         <source>Polski</source>
-        <translation>Polski</translation>
+        <translation>Lengyel</translation>
     </message>
     <message>
         <source>پښتو</source>
