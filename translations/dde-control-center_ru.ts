@@ -1,126 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ru">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مستخدم جديد</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>إعداد الاسم الكامل</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات تسجيل الدخول</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات تسجيل الدخول</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل الدخول بدون كلمة مرور</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف الحساب الحالي</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"></translation>
+        <translation>إعداد المجموعة</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعات الحسابات</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>تم</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم المجموعة</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مجموعة</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل دخول تلقائي، تسجيل الدخول بدون كلمة مرور</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل دخول تلقائي</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"></translation>
+        <translation>معلومات الحساب</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم الحساب، الاسم الكامل، نوع الحساب</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم الحساب</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم الحساب الكامل</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"></translation>
+        <translation>نوع الحساب</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل الوجه</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>تأكد من أن جميع أجزاء وجهك ليست مغطاة بالأجسام وأنها مرئية بوضوح. يجب أن يكون وجهك مضاء بشكل جيد أيضًا.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>أقر وأوافق على</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>ال聲明</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>التالي</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تسجيل الوجه</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось зарегистрировать ваше лицо</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторить регистрацию</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -134,3977 +132,3991 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"></translation>
+        <translation>Прежде чем использовать распознавание лица, пожалуйста, обратите внимание на следующее:
+
+1. Ваше устройство может быть разблокировано людьми или объектами, которые выглядят или кажутся похожими на вас.
+2. Распознавание лица менее безопасно, чем цифровые пароли и смешанные пароли.
+3. Вероятность разблокировки устройства через распознавание лица будет снижена в условиях с низкой, высокой или обратной освещенностью, а также в других сценариях.
+4. Пожалуйста, не передавайте свое устройство другим людям, чтобы избежать злоупотребления распознаванием лица.
+5. Кроме вышеуказанных сценариев, следует учитывать другие ситуации, которые могут влиять на нормальное использование распознавания лица.
+
+Чтобы лучше использовать распознавание лица, пожалуйста, обратите внимание на следующие моменты при вводе данных лица:
+
+1. Пожалуйста, оставайтесь в хорошо освещенном помещении, избегайте прямого солнечного света и других людей на записанном экране.
+2. Пожалуйста, обратите внимание на состояние лица при вводе данных, и не позволяйте шляпам, волосам, солнцезащитным очкам, маскам, тяжелой макияжу и другим факторам закрывать ваши физиognомические особенности.
+3. Пожалуйста, избегайте наклона или опускания головы, закрытия глаз или показа только одной стороны лица, и убедитесь, что передняя сторона лица полностью и четко видна в поле ввода.</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Согласен</translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Зарегистрировать палец</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"></translation>
+        <translation>Поместите палец для ввода в сенсор отпечатка пальца и переместите его снизу вверх. После выполнения действия поднимите палец.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation>Я прочитал и согласен с</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомлением</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторить регистрацию</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;Биометрическая аутентификация&quot; — это функция для аутентификации пользовательской идентификации, предоставленная компанией UnionTech Software Technology Co., Ltd. Через &quot;биометрическую аутентификацию&quot; собранные биометрические данные будут сравниваться с данными, сохраненными на устройстве, и пользовательская идентификация будет подтверждаться на основе результата сравнения.</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Согласен</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматический вход можно включить только для одного аккаунта, пожалуйста, сначала отключите его для аккаунта &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ок</translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"></translation>
+        <translation>Человек</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Illustration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Emoji</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dimensional style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flat style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Животное</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"></translation>
+        <translation>Пейзаж</translation>
+    </message>
+    <message>
+        <source>Illustration</source>
+        <translation>Иллюстрация</translation>
+    </message>
+    <message>
+        <source>Emoji</source>
+        <translation>Эмодзи</translation>
+    </message>
+    <message>
+        <source>custom</source>
+        <translation>персонализированное</translation>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"></translation>
+        <translation>Мультипликационный стиль</translation>
+    </message>
+    <message>
+        <source>Dimensional style</source>
+        <translation>Космический стиль</translation>
+    </message>
+    <message>
+        <source>Flat style</source>
+        <translation>Плоский стиль</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран и приостановка</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить экран через</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть экран через</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Компьютер приостанавливается через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>При закрытии крышки</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>При нажатии кнопки питания</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Низкий заряд</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомление о низком заряде</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Battery Management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display remaining using and charging time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maximum capacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматическое приостановление</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>АвтоматическийHibernate</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>Порог низкого заряда</translation>
+    </message>
+    <message>
+        <source>Battery Management</source>
+        <translation>Управление аккумулятором</translation>
+    </message>
+    <message>
+        <source>Display remaining using and charging time</source>
+        <translation>Отображение оставшегося времени использования и зарядки</translation>
+    </message>
+    <message>
+        <source>Maximum capacity</source>
+        <translation>Максимальная емкость</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень низкого заряда</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>БлюETOOTH выключен, и имя отображается как &quot;%1&quot; </translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>БлюETOOTH включен, и имя отображается как &quot;%1&quot; </translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rename</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключить</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить файлы</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить устройство</translation>
+    </message>
+    <message>
+        <source>Select file</source>
+        <translation>Выбрать файл</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Airplane Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"></translation>
+        <translation>Длина не менее 64</translation>
+    </message>
+    <message>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation>Разрешить другим устройствам Bluetooth найти это устройство</translation>
+    </message>
+    <message>
+        <source>To use the Bluetooth function, please turn off</source>
+        <translation>Чтобы использовать функцию Bluetooth, пожалуйста, выключите</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Режим самолета</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключено</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Не подключено</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки запуска</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы можете кликнуть на меню для изменения стандартных элементов запуска, или перетащить изображение в окно для изменения фона</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка загрузки GRUB</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"></translation>
+        <translation>тема</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>После включения темы вы увидите фон темы при запуске компьютера</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка меню загрузки</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change boot menu verification password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
+        <translation>После открытия редактирование меню требует пароль.</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить пароль</translation>
+    </message>
+    <message>
+        <source>Change boot menu verification password</source>
+        <translation>Изменить пароль проверки меню загрузки</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить пароль для аутентификации в меню загрузки</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Password :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repeat password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя :</translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>корень</translation>
+    </message>
+    <message>
+        <source>New Password :</source>
+        <translation>Новый пароль :</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Обязательно</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>Пароль не может быть пустым</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation>Пароли не совпадают</translation>
+    </message>
+    <message>
+        <source>Repeat password:</source>
+        <translation>Повторите пароль:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Sure</source>
+        <translation>Уверенно</translation>
+    </message>
+    <message>
+        <source>Start animation</source>
+        <translation>Старт анимации</translation>
+    </message>
+    <message>
+        <source>Adjust the size of the logo animation on the system startup interface</source>
+        <translation>凋整系统启动界面logo动画的大小</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить нижеуказанным приложениям доступ к вашей камере:</translation>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Сcan failed</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца уже существует</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, сканируйте другие пальцы</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Неизвестная ошибка</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>Сcan suspended</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу распознать</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Слишком быстро перемещен</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>Палец двигался слишком быстро, не поднимайте его до тех пор, пока не будет дано соответствующее указание</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Неясный отпечаток пальца</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистите палец или перенесите его в другое положение, и попробуйте снова</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца уже сканирован</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместите палец для полного сканирования отпечатка пальца</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>Палец двигался слишком быстро. Не поднимайте его до тех пор, пока не будет дано соответствующее указание</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>Поднимите палец и снова положите его на сенсор</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Положите лицо внутри кадра</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицо зарегистрировано</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, положите человеческое лицо</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Отойдите от камеры</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Приблизьтесь к камере</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Не располагайте несколько лиц внутри кадра</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"></translation>
+        <translation>Убедитесь, что объектив камеры чист</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"></translation>
+        <translation>Не регистрируйтесь в темных, ярких или освещенных сзади условиях</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохраняйте лицо непокрытым</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Время сканирования истекло</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"></translation>
+        <translation>Устройство выключилось, пожалуйста, сканируйте снова!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет акцента</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки иконок</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема иконок</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройте иконку темы</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема курсора</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройте курсор темы</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно хотите удалить этот аккаунт?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить папку аккаунта</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейти в настройки</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Общее</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка повтора</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Частота повтора</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"></translation>
+        <translation>Медленный</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Быстрый</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"></translation>
+        <translation>Набор чисел</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"></translation>
+        <translation>тест здесь</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупреждение о Caps Lock</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость прокрутки</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость двойного клика</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Тест двойного клика</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим левой руки</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"></translation>
+        <translation>Большой размер</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"></translation>
+        <translation>Маленький размер</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось получить доступ к корню</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, сначала войдите в свой аккаунт Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось прочитать информацию о вашем ПК</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет подключения к сети</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка сертификата не удалась, не удалось получить доступ root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка подписи не удалась, не удалось получить доступ root</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Согласиться и присоединиться к программе опытного пользователя</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомление о режиме разработчика</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Согласиться и запросить доступ root</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"></translation>
+        <translation>Начинаем настройку новой анимации загрузки, пожалуйста, подождите минуту</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка новой анимации загрузки завершена</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки будут применены после перезагрузки системы</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать цифры и буквы</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать от 8 до 64 символов</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать новый аккаунт</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип аккаунта</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Обязательно</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"></translation>
+        <translation>Полное имя</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>Опционально</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать аккаунт</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы еще не загрузили аватар. Нажмите или перетащите изображение для загрузки.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"></translation>
+        <translation>доступно</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей персональной информации для вас. Поэтому у нас есть Политика конфиденциальности, которая описывает, как мы собираем, используем, делятся, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь&lt;/a&gt;, чтобы просмотреть нашу последнюю политику конфиденциальности и/или посетить ее онлайн, перейдя по ссылке &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью понимайте наши практики по защите конфиденциальности клиентов. Если у вас есть вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Присоединение к программе опыта пользователя означает, что вы授予和授权我们收集和使用您设备、系统和应用程序的信息。如果您拒绝我们收集和使用上述信息，请不要加入用户体验计划。有关详情，请参阅深度隐私政策（&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;）。&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Присоединение к программе улучшения пользовательского опыта означает, что вы даете нам разрешение и авторизуете нас для сбора и использования информации о вашем устройстве, системе и приложениях. Если вы отказываетесь от сбора и использования вышеуказанной информации, пожалуйста, не присоединяйтесь к программе. Для получения подробной информации о программе улучшения пользовательского опыта, пожалуйста, посетите &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation>Согласиться и присоединиться к программе улучшения пользовательского опыта</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка даты и времени</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Год</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Месяц</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"></translation>
+        <translation>День</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Время</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Подтверждение</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"></translation>
+        <translation>Завтра</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"></translation>
+        <translation>Вчера</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 часов раньше местного времени</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 часов позже местного времени</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Пробел</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Неделя</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"></translation>
+        <translation>Первый день недели</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий формат даты</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный формат даты</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий формат времени</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный формат времени</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Символ валюты</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Положительная валюта</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Отрицательная валюта</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Символ десятичной точки</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Символ группировки цифр</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Группировка цифр</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер страницы</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation type="unfinished"></translation>
+        <translation>Для изменения сервера NTP требуется аутентификация</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Центр управления предоставляет опции для настроек системы.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"></translation>
+        <translation>Привязать WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Привязав WeChat, вы сможете безопасно и быстро войти в свой аккаунт %1 и локальные аккаунты.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"></translation>
+        <translation>Разъединено</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"></translation>
+        <translation>Разъединение</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Привязать</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Let me think it over</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Local Account Binding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reset password via %1 ID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены, что хотите разъединить WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"></translation>
+        <translation>После разъединения WeChat вы не сможете использовать WeChat для сканирования QR-кода входа в аккаунт %1 или локальный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Let me think it over</source>
+        <translation>Позвольте подумать</translation>
+    </message>
+    <message>
+        <source>Local Account Binding</source>
+        <translation>Привязка локального аккаунта</translation>
+    </message>
+    <message>
+        <source>After binding your local account, you can use the following functions:</source>
+        <translation>После привязки локального аккаунта вы сможете использовать следующие функции:</translation>
+    </message>
+    <message>
+        <source>WeChat Scan Code Login System</source>
+        <translation>Система входа в аккаунт с помощью сканирования кода WeChat</translation>
+    </message>
+    <message>
+        <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
+        <translation>Используйте WeChat, привязанный к вашему аккаунту %1, для сканирования кода входа в локальный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Reset password via %1 ID</source>
+        <translation>Сбросить пароль с помощью аккаунта %1</translation>
+    </message>
+    <message>
+        <source>Reset your local password via %1 ID in case you forget it.</source>
+        <translation>Сбросьте локальный пароль с помощью аккаунта %1, если вы его забыли.</translation>
+    </message>
+    <message>
+        <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
+        <translation>Чтобы использовать вышеуказанные функции, пожалуйста, перейдите в Центр управления - Аккаунты и включите соответствующие опции.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"></translation>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронизация облака</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"></translation>
+        <translation>Управляйте своим идентификатором %1 и синхронизируйте личные данные между устройствами.
+Войдите в свой идентификатор %1 для получения персонализированных функций и услуг браузера, магазина приложений и других.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Войти в свой идентификатор %1</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
+        <source>Auto Sync</source>
+        <translation>Авто синхронизация</translation>
+    </message>
+    <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Безопасно храните параметры системы и личные данные в облаке и синхронизируйте их между устройствами</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки системы</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Последнее время синхронизации: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить данные облака</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены, что хотите очистить параметры системы и личные данные, сохраненные в облаке?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"></translation>
+        <translation>Данные, после очистки, не могут быть восстановлены!
+</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Go to web settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронизация сервиса</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Счет и безопасность</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Выйти</translation>
+    </message>
+    <message>
+        <source>Go to web settings</source>
+        <translation>Перейти в настройки веб-сайта</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось зашифровать пароль</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"></translation>
+        <translation>Неверный пароль, %1 попыток осталось</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибки входа достигли лимита сегодня. Вы можете сбросить пароль и попробовать снова.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Операция выполнена успешно</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"></translation>
+        <translation>Китайский континент</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие регионы</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"></translation>
+        <translation>Функция недоступна в настоящее время, пожалуйста, сначала активируйте систему</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"></translation>
+        <translation>Согласно местному законодательству и регламенту, эта функция недоступна в вашем регионе.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Desktop file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apps (*.desktop)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, выберите программу по умолчанию для открытия &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation>Открыть файл рабочего стола</translation>
+    </message>
+    <message>
+        <source>Apps (*.desktop)</source>
+        <translation>Программы (*.desktop</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Все файлы (*</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступ с правами root</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Запросить доступ с правами root</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"></translation>
+        <translation>После входа в разработчический режим вы сможете получить права root, но это может также повредить целостность системы, поэтому используйте это с осторожностью.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешено</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"></translation>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>Онлайн</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Войти в UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Офлайн</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортировать сертификат</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать файл</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш UOS ID вошел в систему, нажмите, чтобы перейти в разработчический режим</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, войдите в свой UOS ID сначала и продолжайте</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Экспорт информации о ПК</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Development and debugging options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System logging level</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>2. перейдите по ссылке &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http://www.chinauos.com/developMode&lt;/a&gt;, чтобы скачать сертификат офлайн.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Импортировать сертификат</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
+        <translation>Для установки и запуска неподписанных приложений перейдите в &lt;a href=&quot;Security Center&quot;&gt;Центр безопасности&lt;/a&gt; для изменения настроек.</translation>
+    </message>
+    <message>
+        <source>Development and debugging options</source>
+        <translation>Опции разработки и отладки</translation>
+    </message>
+    <message>
+        <source>System logging level</source>
+        <translation>Уровень логирования системы</translation>
+    </message>
+    <message>
+        <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
+        <translation>Изменение параметров приводит к более подробному логированию, что может ухудшить производительность системы и/или увеличить использование места на диске.</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Выключено</translation>
+    </message>
+    <message>
+        <source>Debug</source>
+        <translation>Отладка</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменение опции может занять до минуты. После получения уведомления о успешной настройке перезагрузите устройство для применения изменений.</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation>Разрешить ниже перечисленным приложениям доступ к этим файлам и папкам:</translation>
+    </message>
+    <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Документы</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Рабочий стол</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Фотографии</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"></translation>
+        <translation>папка</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт стандартного размера</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт фиксированной ширины</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"></translation>
+        <translation>Программы питания</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки энергосбережения</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматическое включение режима энергосбережения при низком заряде батареи</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Порог низкого заряда батареи</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматическое включение режима энергосбережения при подключении к电源管理设置</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки пробуждения</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>Необходим пароль для пробуждения компьютера</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Необходим пароль для пробуждения монитора</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки выключения</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Запланированное выключение</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Время</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторять</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>Однократно</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"></translation>
+        <translation>Каждый день</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"></translation>
+        <translation>Рабочие дни</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation>Во время, которое вы выберете</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation>Понедельник</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Вторник</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Среда</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation>Четверг</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation>Пятница</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation>Суббота</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation>Воскресенье</translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation>Настройка времени повторения</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Уменьшить яркость экрана в энергосберегающем режиме</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Три пальца</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tap</source>
-        <translation type="unfinished"></translation>
+        <translation>Четыре пальца</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Влево</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Вправо</translation>
+    </message>
+    <message>
+        <source>tap</source>
+        <translation>Тап</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Best Visuals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>Оптимальное производительность</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Оптимальное производительность: отключите все эффекты интерфейса и окон для повышения эффективности системы.</translation>
+    </message>
+    <message>
+        <source>Balance</source>
+        <translation>Баланс</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс: ограничьте некоторые эффекты окон для превосходного визуального восприятия, сохраняя плавную производительность системы.</translation>
+    </message>
+    <message>
+        <source>Best Visuals</source>
+        <translation>Лучшие визуальные эффекты</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
+        <translation>Лучшие визуальные эффекты: включите все эффекты интерфейса и окон для наилучшего визуального опыта.</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
+        <source>Keyboard layout</source>
+        <translation>Набор клавиш</translation>
+    </message>
+    <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавьте соответствующий метод ввода в &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Управлении методами ввода&lt;/a&gt;, чтобы убедиться, что набор клавиш работает при добавлении или переключении.</translation>
     </message>
     <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <source>Add new keyboard layout...</source>
+        <translation>Добавить новый набор клавиш...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие языки</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Region and format</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Регион</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Регион</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may provide you with local content based on your country and region</source>
+        <translation>Система и приложения могут предоставить вам локальный контент на основе вашего страны и региона</translation>
+    </message>
+    <message>
+        <source>Region and format</source>
+        <translation>Регион и формат</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation>Система и приложения могут устанавливать форматы дат и времени на основе региональных форматов</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить язык</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить язык</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"></translation>
+        <translation>Метод входа</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль, WeChat, биометрическая аутентификация, ключ безопасности</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить пароль</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"></translation>
+        <translation>Срок действия дней</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторское право © 2011-%1 Сообщество Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторское право © 2019-%1 ООО «UnionTech Software Technology Co., LTD»</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматическая подавление шума</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень входного звука</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень входа</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Вход</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найдено устройств для звука</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>Устройства ввода</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость указателя</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"></translation>
+        <translation>Медленно</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Быстро</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер указателя</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Ускорение мыши</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключать тачпад при подключении мыши</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Натуральный скроллинг</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Мои устройства</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"></translation>
+        <translation>Нельзя начинать или заканчивать имя компьютера тире</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Название ОС</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>Редакция</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"></translation>
+        <translation>бит</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторизация</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Graphics Platform</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Processor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Время установки системы</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ядро</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>Платформа графики</translation>
+    </message>
+    <message>
+        <source>Processor</source>
+        <translation>Процессор</translation>
+    </message>
+    <message>
+        <source>Memory</source>
+        <translation>Оперативная память</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие устройства</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать Bluetooth-устройства без названий</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"></translation>
+        <translation>Текущий пароль</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Обязательно</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"></translation>
+        <translation>Слабый</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Средний</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"></translation>
+        <translation>Сильный</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторите пароль</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"></translation>
+        <translation>Подсказка к паролю</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>Необязательно</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не может быть пустым</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароли не совпадают</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый пароль должен отличаться от текущего</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подсказка видна всем пользователям. Не включайте тут пароль.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить пароль</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить пароль</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Длина пароля должна быть не менее 8 символов, а пароль должен содержать комбинацию из минимум 3 из следующего: заглавные буквы, строчные буквы, цифры и символы. Такой пароль более безопасен.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сброс пароля очистит данные, сохраненные в ключевом ящике.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлая</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Темная</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательская</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Область плагинов</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите иконки, которые будут отображаться в доке</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Приостановить</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Заснуть</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить монитор</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать интерфейс выключения</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Не делать ничего</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран и приостановка</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить монитор через</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>Заблокировать экран через</translation>
+    </message>
+    <message>
+        <source>Computer suspends after</source>
+        <translation>Компьютер приостанавливается через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Когда закрыта крышка</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Когда нажата кнопка питания</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>Высокая производительность</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс производительности</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Агрессивно регулировать частоту работы процессора в зависимости от нагрузки</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Экономия энергии</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
+        <translation>Приоритет производительности, что значительно увеличит потребление энергии и генерацию тепла</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс производительности и заряда батареи, автоматически регулируемый в зависимости от использования</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Приоритет заряда батареи, при котором система компрометирует некоторые параметры производительности для снижения энергопотребления</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
-        <source>Never</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Минуты</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Час</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation>Никогда</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Политика конфиденциальности</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не может быть пустым</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать не менее %1 символов</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не должен превышать %1 символов</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль может содержать только английские буквы (включая регистр), цифры или специальные символы (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 полиндромных символов</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 монотонных символов</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 повторяющихся символов</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать заглавные буквы, строчные буквы, цифры и символы (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не должен содержать более 4 палиндромных символов</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>Не используйте общие слова и комбинации в пароле</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>Создайте сильный пароль, пожалуйста</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не соответствует правилам</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Центр управления</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Активировано</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Для активации</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"></translation>
+        <translation>Активировать</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation type="unfinished"></translation>
+        <translation>Истекло</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation type="unfinished"></translation>
+        <translation>На пробном периоде</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation type="unfinished"></translation>
+        <translation>Пробный период истек</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"></translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки сенсорного экрана</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки сенсорного экрана изменились</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот системный обоями заблокирован. Пожалуйста, свяжитесь с администратором.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Регионы и форматы</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"></translation>
+        <translation>По умолчанию форматы</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"></translation>
+        <translation>Первый день недели</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий формат даты</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный формат даты</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"></translation>
+        <translation>Короткий формат времени</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"></translation>
+        <translation>Длинный формат времени</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
-        <source>Personalized screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>idle time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>5 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>10 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>15 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>30 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>never</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password required for recovery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"></translation>
+        <translation>プレビュー</translation>
+    </message>
+    <message>
+        <source>Personalized screensaver</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"></translation>
+        <translation>настройка</translation>
+    </message>
+    <message>
+        <source>idle time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>never</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password required for recovery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Picture slideshow screensaver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System screensaver</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить пользовательскую комбинацию клавиш</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Название:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Обязательно</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Комбинация клавиш</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите новую комбинацию клавиш</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите Добавить, чтобы заменить</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Комбинации клавиш</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Системная горячая клавиша, пользовательская горячая клавиша</translation>
+    </message>
+    <message>
+        <source>Search shortcuts</source>
+        <translation>Поиск комбинаций клавиш</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Пользовательские</translation>
+    </message>
+    <message>
+        <source>done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>edit</source>
+        <translation>редактировать</translation>
+    </message>
+    <message>
+        <source>Please enter a new shortcut</source>
+        <translation>Введите новую комбинацию клавиш</translation>
+    </message>
+    <message>
+        <source>Click</source>
+        <translation>Нажмите</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>или</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation>Заменить</translation>
+    </message>
+    <message>
+        <source>Restore default</source>
+        <translation>Восстановить по умолчанию</translation>
+    </message>
+    <message>
+        <source>Add custom shortcut</source>
+        <translation>Добавить пользовательскую комбинацию клавиш</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Выходные устройства</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите, включать ли устройства</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>Входные устройства</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Звуковые эффекты</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключение</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation type="unfinished"></translation>
+        <translation>Выйти</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключение</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation type="unfinished"></translation>
+        <translation>Громкость +/−</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомление</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Низкий уровень заряда</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить значок в пусковом механизме на рабочий стол</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить корзину</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставить</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation type="unfinished"></translation>
+        <translation>Извлечь</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Удаляемое устройство подключено</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Удаляемое устройство выведено</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Громкость выхода</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Увеличение громкости</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Если громкость превышает 100%, это может искажать звук и навредить выходным устройствам</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Левый</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Правый</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Left Right Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Output Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mono audio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найдено устройство вывода звука</translation>
+    </message>
+    <message>
+        <source>Left Right Balance</source>
+        <translation>Баланс левого и правого каналов</translation>
+    </message>
+    <message>
+        <source>Mono audio</source>
+        <translation>Моноаудио</translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation>Соединить левый и правый каналы в один канал</translation>
+    </message>
+    <message>
+        <source>Auto pause</source>
+        <translation>Автоматическое приостановление</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>Автоматически приостановить аудио, когда текущее устройство аудио будет отключено</translation>
+    </message>
+    <message>
+        <source>Output Devices</source>
+        <translation>Устройства вывода</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"></translation>
+        <translation>Сила</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Обновление</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Экранная сохранность</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Больше обоя</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Server address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use 24-hour format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>system time zone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Timezone list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматический синхронизаци времени</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"></translation>
+        <translation>Ntp-сервер</translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation>Дата и время системы</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Настроить</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Server address</source>
+        <translation>Адрес сервера</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Необходимо</translation>
+    </message>
+    <message>
+        <source>The ntp server address cannot be empty</source>
+        <translation>Адрес ntp-сервера не может быть пустым</translation>
+    </message>
+    <message>
+        <source>Use 24-hour format</source>
+        <translation>Использовать формат 24-часового времени</translation>
+    </message>
+    <message>
+        <source>system time zone</source>
+        <translation>Часовой пояс системы</translation>
+    </message>
+    <message>
+        <source>Timezone list</source>
+        <translation>Список часовых поясов</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>от</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>до</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить настройки отображения?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки будут восстановлены через %1с.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить временной пояс</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Определить временной пояс на основе текущего местоположения</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"></translation>
+        <translation>Временной пояс:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ближайший город:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Касание</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка здесь при подключении касания</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable touchpad during input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gesture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger gestures</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>Основные настройки</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Тачпад</translation>
+    </message>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>Скорость курсора</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>Медленно</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>Быстро</translation>
+    </message>
+    <message>
+        <source>Disable touchpad during input</source>
+        <translation>Отключить тачпад во время ввода</translation>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation>Нажатие для клика</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>Природное скроллинг</translation>
+    </message>
+    <message>
+        <source>Gesture</source>
+        <translation>Движение</translation>
+    </message>
+    <message>
+        <source>Three-finger gestures</source>
+        <translation>Двухпальцевые жесты</translation>
+    </message>
+    <message>
+        <source>Four-finger gestures</source>
+        <translation>Трехпальцевые жесты</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Присоединиться к программе пользовательского опыта</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка безопасности</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие чувствительно, пожалуйста, сначала введите пароль для входа</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>8-64 символа</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"></translation>
+        <translation>Забыли пароль?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
-        <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>обои</translation>
     </message>
     <message>
-        <source>System Wallapers</source>
-        <translation type="unfinished"></translation>
+        <source>Window rounded corners</source>
+        <translation>Округлые углы окна</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Мои фотографии</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Системные обои</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Обои с однотонным цветом</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Настраиваемые обои</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"></translation>
+        <translation>стиль заполнения</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматический смена обоев</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"></translation>
+        <translation>никогда</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"></translation>
+        <translation>30 секунд</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>1 минута</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>5 минут</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>10 минут</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>15 минут</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"></translation>
+        <translation>вход</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"></translation>
+        <translation>проснуться</translation>
+    </message>
+    <message>
+        <source>System Wallapers</source>
+        <translation>Системные обои</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Живая обои</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"></translation>
+        <translation>1 час</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"></translation>
+        <translation>развернуть</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"></translation>
+        <translation>показать все</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"></translation>
+        <translation>пункты</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить экран блокировки</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить рабочий стол</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс и эффекты</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки окна</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Округлые углы окна</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"></translation>
+        <translation>Маленький</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Средний</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>Большой</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить прозрачные эффекты при перемещении окон</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Эффект сворачивания окна</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабирование</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Магическая лампа</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозрачность</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Низкий</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Высокий</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"></translation>
+        <translation>Полосы прокрутки</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать при прокрутке</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить отображение</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Компактный отображение</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если включено, больше контента отображается в окне.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Высота заголовка окна</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>Только для заголовков окон приложений, рисуемых менеджером окон.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"></translation>
+        <translation>Очень маленький</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Учетная запись</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управлять учетными записями</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие учетные записи</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Биометрическая аутентификация</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Биометрическая аутентификация</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицо</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"></translation>
+        <translation>Можно ввести до 5 данных лица</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификация пользователя с помощью сканирования отпечатков пальцев</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>Ирис</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a new </source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификация пользователя с помощью сканирования ириса</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте только буквы, цифры и подчеркивания, не более 15 символов</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте только буквы, цифры и подчеркивания</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Не более 15 символов</translation>
+    </message>
+    <message>
+        <source>Add a new </source>
+        <translation>Добавить новый</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
-        <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"></translation>
+        <source>bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
     <message>
-        <source>bluetooth</source>
-        <translation type="unfinished"></translation>
+        <source>Bluetooth settings, devices</source>
+        <translation>Настройки Bluetooth, устройства</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Меню загрузки</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Управлять меню загрузки</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление разработческими правами root</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Разработческие опции</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"></translation>
+        <translation>Время и дата</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Время и дата, настройки временной зоны</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"></translation>
+        <translation>Язык и регион</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"></translation>
+        <translation>Язык системы, формат региона</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя должно содержать от 3 до 32 символов</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"></translation>
+        <translation>Первый символ должен быть буквой или цифрой</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя не должно состоять только из цифр</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя уже используется другими учетными записями</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя слишком длинное</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя уже используется другими учетными записями</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"></translation>
+        <translation>Неправильный пароль</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"></translation>
+        <translation>Стандартный пользователь</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"></translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"></translation>
+        <translation>Настроенный</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш хост успешно удален с доменного сервера</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш хост успешно присоединился к доменному серверу</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш хост не смог покинуть доменный сервер</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш хост не смог присоединиться к доменному серверу</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки домена AD</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароли не совпадают</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"></translation>
+        <translation>Двумерный</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
+        <translation>Плоский</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте свое лицо для открытия устройства и последующих настроек</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток лица</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Поместите палец</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation>Поместите палец на датчик, пока не будет запрошено поднять его</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Поднимите палец</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>Поднимите палец и поместите его на датчик снова</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Сканируйте края вашего отпечатка пальца</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Положите палец так, чтобы сканировать края отпечатка пальца</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation>Поднимите палец и сделайте это снова</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток пальца добавлен</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>Сканирование приостановлено</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>Поместите края вашего отпечатка пальца на датчик</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>Ирис</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта комбинация клавиш конфликтует с [%1]</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не может быть пустым</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать не менее %1 символов</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не должен содержать более %1 символов</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль может содержать только английские буквы (в учитывается регистр), цифры или специальные символы (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 палиндромных символов</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 монотонных символов</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, не более %1 повторяющихся символов</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен содержать заглавные и строчные буквы, цифры и символы (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не должен содержать более 4 палиндромных символов</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>Не используйте распространенные слова и комбинации в качестве пароля</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, создайте сильный пароль</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль не соответствует правилам</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Рабочее пространство</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"></translation>
+        <translation>Средства доступа</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательский</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
+        <source>deepin ID</source>
+        <translation>deepin ID</translation>
+    </message>
+    <message>
         <source>UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID UOS</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>deepin ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Облачные сервисы</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"></translation>
+        <translation>По умолчанию</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить приложение по умолчанию для открытия различных типов файлов</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"></translation>
+        <translation>Веб-страница</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Почта</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Терминал</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Устройство</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Яркость, разрешение, масштабирование</translation>
     </message>
 </context>
 <context>
     <name>displayMain</name>
     <message>
-        <source>Duplicate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display Scaling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"></translation>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"></translation>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"></translation>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"></translation>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"></translation>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"></translation>
+        <source>Duplicate</source>
+        <translation>Дублировать</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Расширить</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>Соотношение сторон</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Растянуть</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Только на %1</translation>
+    </message>
+    <message>
+        <source> (Recommended)</source>
+        <translation> (Рекомендуется)</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation>Гц</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>Настройки нескольких экранов</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентифицировать</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемещение экрана вступит в силу через %1с после изменений</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Режим</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>Основной экран</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>Экран и расположение</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Яркость</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>Разрешение</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>Изменить размер рабочего стола</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>Частота обновления</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Поворот</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Стандартный</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation>Масштабирование экрана</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>Монитор поддерживает только масштабирование экрана 100%</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Комфорт для глаз</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить комфорт для глаз</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>Настроить отображение экрана на более теплые цвета, уменьшив синий свет</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Время</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>Всё время</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>С заката до рассвета</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>Пользовательское время</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>с</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>до</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>Температура цвета</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Рабочий стол и панель задач</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройте отображение и размер значков на рабочем столе</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Клавиатура</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Основные настройки, раскладка клавиатуры, метод ввода, горячие клавиши</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Раскладка клавиатуры</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить системную раскладку клавиатуры по умолчанию</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Док</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Классический режим</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим центрирования</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер панели</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"></translation>
+        <translation>Маленький</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>Большой</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Позиция на экране</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Верх</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Низ</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Лево</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Право</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Состояние</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить показ</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить скрытие</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Умное скрытие</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"></translation>
+        <translation>Несколько экранов</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить позицию панели задач на экране</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"></translation>
+        <translation>Только на основном</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"></translation>
+        <translation>На экране, где находится курсор</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель плагинов</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите, какие иконки отображаются в панели</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь и панель сенсорной панели</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие, Мышь, Панель сенсорной панели</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель сенсорной панели</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим перетаскивания, уведомления приложений</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомление</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки не беспокоить</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомления приложения не будут отображаться на рабочем столе и звуки будут заглушены, но вы можете просмотреть все сообщения в центре уведомлений.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить не беспокоить</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"></translation>
+        <translation>При блокировке экрана</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество уведомлений, отображаемых на рабочем столе</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомления приложений</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>Разрешить уведомления</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>Отображать уведомления на рабочем столе или показывать непрочитанные сообщения в центре уведомлений</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Рабочий стол</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Заблокировать экран</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>Центр уведомлений</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Показать предварительный просмотр сообщения</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Играть звук</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки персонализации</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Внешний вид</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Эффект окна</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройте обои и заставку</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Заставка</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>Цвета и иконки</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>Измените акцентный цвет и иконки темы</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>Шрифт и размер шрифта</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>Изменить системный шрифт и размер</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Обои</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите светлую, темную или автоматическую тему</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс и эффекты, закругленные углы</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Экономия энергии, экран и приостановка</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"></translation>
+        <translation>Энергия</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Программы питания, настройки экономии энергии, настройки пробуждения, настройки выключения</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключено</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран и приостановка</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>На аккумуляторе</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран и приостановка, низкий заряд батареи, управление батареей</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватность и безопасность</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Камера, разрешения папок</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Камера</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите, имеет ли доступ кamera приложение</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы и папки</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите, имеет ли доступ к файлам и папкам приложение</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход, вход, звуковые эффекты, устройства</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DevicesManger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Вход</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>Звуковые эффекты</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>Включить/отключить звуковые эффекты</translation>
+    </message>
+    <message>
+        <source>DevicesManger</source>
+        <translation>Управление устройствами</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>Включить/отключить аудио устройства</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие настройки</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>Система</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительная информация</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>О этом компьютере</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия системы, информация о устройстве</translation>
+    </message>
+    <message>
+        <source>Open Source Software Description</source>
+        <translation>Описание программного обеспечения с открытым исходным кодом</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>Посмотреть уведомление о программном обеспечении с открытым исходным кодом</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>Программа опыта пользователя</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"></translation>
+        <translation>Присоединитесь к программе опыта пользователя, чтобы помочь улучшить продукт</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>Соглашение на лицензию конечного пользователя</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>Посмотреть соглашение на лицензию конечного пользователя</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>Политика конфиденциальности</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>Посмотреть информацию о политике конфиденциальности</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Сенсорный экран</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка сенсорного экрана</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка wacom</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Ручка</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Давление</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Свет</translation>
     </message>
 </context>
 </TS>
