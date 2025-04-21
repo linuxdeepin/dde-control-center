@@ -1,126 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation>redigera</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till ny användare</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account type</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in fullt namn</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggningstillaggnings</translation>
     </message>
     <message>
         <source>Login Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto login, login without password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto login</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggningsinställningar</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggning utan lösenord</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort aktuellt konto</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppinställningar</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontogrupper</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>färdig</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppnamn</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till grupp</translation>
+    </message>
+    <message>
+        <source>Auto login, login without password</source>
+        <translation>Automatisk inloggning, inloggning utan lösenord</translation>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation>Automatisk inloggning</translation>
+    </message>
+    <message>
+        <source>Account Information</source>
+        <translation>Kontoinformation</translation>
+    </message>
+    <message>
+        <source>Account name, account fullname, account type</source>
+        <translation>Kontonamn, fullt namn, kontotyp</translation>
+    </message>
+    <message>
+        <source>Account name</source>
+        <translation>Kontonamn</translation>
+    </message>
+    <message>
+        <source>Account fullname</source>
+        <translation>Fullt namn</translation>
+    </message>
+    <message>
+        <source>Account type</source>
+        <translation>Kontotyp</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
+        <translation>Registrera ansikte</translation>
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se till att alla delar av ditt ansikte inte är dolda av objekt och är tydligt synliga. Ditt ansikte bör också vara vällysadt.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation>Jag har läst och godkänt</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>Varningsbeteende</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">Nästa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansikte registrerat</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"></translation>
+        <translation>Misslyckades med att registrera ditt ansikte</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Klar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Försök igen</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -134,2001 +132,2018 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"></translation>
+        <translation>För att använda ansiktsidentifiering, vänligen notera följande:
+
+1. Din enhet kan låsas av personer eller objekt som ser ut eller ser ut som dig.
+2. Ansiktsidentifiering är mindre säker än digitala lösenord och kombinerade lösenord.
+3. Sannolikheten att låsa upp din enhet genom ansiktsidentifiering kan minskas i svagt ljus, starkt ljus, bakgrundsljus, stort vinkel och andra scenarier.
+4. Vänligen do nota din enhet till andra personer i slump, för att undvika oönskad användning av ansiktsidentifiering.
+5. Utöver de ovan nämnda scenarierna, bör du vara medveten om andra situationer som kan påverka normal användning av ansiktsidentifiering.
+
+
+För att använda ansiktsidentifiering på ett bättre sätt, vänligen notera följande på att mata in ansiktsdata:
+
+1. Stanna i ett vällysande miljö, undvik sjuksköterska eller andra människor som visas i den registrerade skärmen.
+2. Vänligen notera ansiktsstadiet när du mata in data, och undvik att dina hattar, hår, solglasögon, masker, tunga make-up och andra faktorer för att dölja dina ansiktsdrag.
+3. Vänligen undvik att böja eller senkra huvudet, sluta ögonen eller visa bara en sida av ansiktet, och se till att din framsida ansiktsdrag uppträder tydligt och komplett i promptrutan.</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkänna</translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
-        <source>Enroll Finger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="unfinished">Nästa</translation>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Klar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <source>Enroll Finger</source>
+        <translation>Registrera fingret</translation>
+    </message>
+    <message>
+        <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
+        <translation>Placera det finger du vill registrera i fingerprint-sensorn och rör det från nedan till övre. När du har slutfört åtgärden, vänligen hejka dit din finger.</translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation>Jag har läst och godkänt</translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation>Varning</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Försök igen</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Biometrisk autentisering är en funktion för användaridentitetsautentisering som tillhandahålls av UnionTech Software Technology Co., Ltd. Genom biometrisk autentisering kommer de biometriska data som samlat in att jämföras med de som lagras på enheten, och användaridentiteten kommer att verifieras baserat på jämförelseresultatet.
+
+Vänligen notera att UnionTech Software Technology Co., Ltd. kommer inte att samla in eller åtkomst till dina biometriska data, vilka kommer att lagras på din lokala enhet. Vänligen aktivera endast biometrisk autentisering i ditt personliga enhet och använd dina egna biometriska data för relaterade operationer, och ta bort eller ta bort andra personers biometriska data på enheten på ett snabbt och effektivt sätt, annars kommer du att ta på risken som uppstår därifrån.
+
+UnionTech Software Technology Co., Ltd. är engagerat att forskar och förbättra säkerheten, noggrannheten och stabiliteten för biometrisk autentisering. Eftersom det finns faktorer och riskkontroll som miljö, utrustning, teknik och andra faktorer, kan det inte garanteras att du kommer att lyckas med biometrisk autentisering i viss mån. Därför vänligen inte ta biometrisk autentisering som den enda sättet att logga in på UOS. Om du har några frågor eller förslag när du använder biometrisk autentisering, kan du ge feedback genom </translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkänna</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk inloggning kan aktiveras för endast en konto, vänligen inaktivera den för konto &quot;%1&quot; först</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"></translation>
+        <translation>Människa</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"></translation>
+        <translation>Djur</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"></translation>
+        <translation>Sättning</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"></translation>
+        <translation>Illustration</translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"></translation>
+        <translation>Emoji</translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"></translation>
+        <translation>anpassad</translation>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"></translation>
+        <translation>Manga stil</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensionell stil</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"></translation>
+        <translation>Platt stil</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Slå av skärmen och häng paus</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>Slå av skärmen efter</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>Lås skärmen efter</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Datorn pauserar efter</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>När skärmfönstret stängs</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>När trycks på maktknappen</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Låg batteri</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Low battery level</source>
-        <translation type="unfinished"></translation>
+        <translation>Meddelande om låg batteri</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk suspendering</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk hibernation</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedåt batterilivslöftesvärde</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Batterihantering</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa kvarvarande användning och laddningstid</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimal kapacitet</translation>
+    </message>
+    <message>
+        <source>Low battery level</source>
+        <translation>Nedåt batterilivslängd</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>Avaktivera</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
+        <translation>Bluetooth är av, och namnet visas som &quot;%1&quot; </translation>
     </message>
     <message>
-        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <translation>Bluetooth är på, och namnet visas som &quot;%1&quot; </translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished">Koppla från</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished">Anslut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka filer</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort enhet</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj fil</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Ändra</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"></translation>
+        <translation>Längd större än eller lika med 64</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt andra Bluetooth-enheter att hitta denna enhet</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"></translation>
+        <translation>För att använda Bluetooth-funktionen, vänligen avaktivera</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytturkonditioner</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation type="unfinished">Ansluten</translation>
+        <translation>Ansluten</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished">Inte ansluten</translation>
+        <translation>Inte ansluten</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Startinställningar</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan klicka på menyn för att ändra standardstartelement, eller dra bilden till fönstret för att ändra bakgrundsbild.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"></translation>
+        <translation>grub startfördröjning</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"></translation>
+        <translation>tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter att aktiverat tema kan du se teman bakgrund när du startar datorn</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"></translation>
+        <translation>StartmenyalVerifiering</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter att öppnat krävs ett lösenord för att gå in och redigera menyn.</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra Lösenord</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra startmenyalverifieringslösenord</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in autentiseringslösenordet för startmenyn</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamn :</translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"></translation>
+        <translation>Nytt Lösenord :</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">Krävs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet kan inte vara tomt</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenorden matchar inte</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Repetera lösenord:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"></translation>
+        <translation>Värdet</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta animation</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Justera storleken på logotypanimationen på systemstartskärmen</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt nedanstående program att komma åt din kamera:</translation>
     </message>
 </context>
 <context>
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingerprint8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation type="unfinished"></translation>
+        <translation>Spåra 9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation type="unfinished"></translation>
+        <translation>Spåra 10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Skanning misslyckades</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingeravtrycket finns redan</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"></translation>
+        <translation>Skanna andra fingrar</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Okänt fel</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>Skanning pausad</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte identifiera</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Flyttade för snabbt</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingret flyttades för snabbt, vänligen släp pa tillbaka förrän du får ett meddelande</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Osäkert fingeravtryck</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa din finger eller justera fingerens position och försök igen</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"></translation>
+        <translation>Redan skannat</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"></translation>
+        <translation>Justera fingerens position för att skanna hela fingeravtrycket</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingret flyttades för snabbt. Vänligen släp pa tillbaka förrän du får ett meddelande</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>Släp upp fingret och placera det på sensorn igen</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera din ansiktsbild inuti ramen</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansikte registrerat</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera ett ansikte, vänligen</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Bli bortom kameran</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom närmare kameran</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera inte flera ansikten inuti ramen</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"></translation>
+        <translation>Säkerställ att kameran lens är ren</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"></translation>
+        <translation>registrera inte i mörka, ljusa eller baklysade miljöer</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"></translation>
+        <translation>Bli ansiktsutrymme</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Scannen tidsutgått</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"></translation>
+        <translation>Enheten kraschar, var vänlig att skanna igen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Accent färg</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikoninställningar</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished">Ikontema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa ditt tema ikon</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished">Tema för Muspekare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa ditt tema muspekare</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"></translation>
+        <translation>Är du säker på att du vill ta bort denna konto</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished">Radera konto mapp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Radera</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Gå till inställningar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Vanliga</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Upprepningsfördröjning</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished">Kort</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished">Lång</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppprepningstakt</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">Långsam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">Snabb</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"></translation>
+        <translation>Talrutin</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"></translation>
+        <translation>testa här</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>Caps lock meddelande</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Rullningshastighet</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Dubbelklickhastighet</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Dubbelklicktest</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänsterhandläge</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"></translation>
+        <translation>Stor storlek</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"></translation>
+        <translation>Liten storlek</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte få root åtkomst</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"></translation>
+        <translation>Var vänlig att logga in på din Union ID först</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte läsa din datorinformation</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen nätverksanslutning</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Kortladdningen misslyckades, kan inte få root åtkomst</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifiering av signatur misslyckades, kan inte få root tillgång</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkänn och gå med i Användarupplevelsesprogrammet</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Varning om utvecklarläge</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkänn och begär root tillgång</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta att ställa in den nya boot-animeringen, vänta en minut</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Ny boot-animering ställt in</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningarna kommer att tillämpas efter att systemet har startats om</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste innehålla siffror och bokstäver</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste vara mellan 8 och 64 tecken</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa ett nytt konto</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">Krävs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"></translation>
+        <translation>Fullt namn</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished">Valfri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa konto</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du har fortfarande inte uppladdat ett avatar-bild. Klicka eller dra och släpp för att uppladda en bild.</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"></translation>
+        <translation>tillgänglig</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Vi är djupt medvetna om betydelsen av din personliga information för dig. Därför har vi en integritetspolicy som beskriver hur vi samlat in, använd, delat, överför, offentligt utgiven och lagrat din information.&lt;/p&gt;&lt;p&gt;Du kan &lt;a href=&quot;%1&quot;&gt;klicka här&lt;/a&gt; för att visa vår senaste integritetspolicy och/eller se den online genom att besöka &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Läs denna grundligt och förstår helt våra metoder för kundintegritet. Om du har några frågor, kontakta oss på support@uniontech.com.&lt;/p&gt; </translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Bidrag till Användarupplevelsesprogrammet betyder att du ger och authoriserar oss att samla in och använda informationen från din enhet, system och program. Om du nekar vår samling och användning av den ovan nämnade informationen, avsluta inte Användarupplevelsesprogrammet. För detaljer, se Deepin Integritetspolicy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt; </translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Bidrag till Användarupplevelsesprogrammet betyder att du ger och authoriserar oss att samla in och använda informationen från din enhet, system och program. Om du nekar vår samling och användning av den ovan nämnade informationen, avsluta inte Användarupplevelsesprogrammet. För detaljer, besök &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt; </translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkänn och gå med i Användarupplevelsesprogrammet</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum- och tidsinställning</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished">År</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished">Månad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished">Dag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Bekräfta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished">Imorgon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished">Igår</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Idag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished">%1 timmar tidigare än lokal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 timmar senare än lokalt</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Mellanrum</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Vecka</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"></translation>
+        <translation>Första dagen i veckan</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"></translation>
+        <translation>Kort datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"></translation>
+        <translation>Lång datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"></translation>
+        <translation>Kort tid</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"></translation>
+        <translation>Lång tid</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Valutabelik</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Positiv valuta</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Negativ valuta</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Desimaltecken</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupperings-tecken för siffror</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppering av siffror</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"></translation>
+        <translation>Sidan storlek</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation type="unfinished"></translation>
+        <translation>Autentisering krävs för att ändra NTP-server</translation>
     </message>
 </context>
 <context>
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Styrcentrum ger alternativ för systeminställningar.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"></translation>
+        <translation>Anslut WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Genom att ansluta WeChat kan du logga in på din %1 ID och lokala konton säkert och snabbt.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"></translation>
+        <translation>Avkopplad</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"></translation>
+        <translation>Avkoppling</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Anslut</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"></translation>
+        <translation>Är du säker på att du vill avkoppla WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter att du har avkopplat WeChat kommer du inte att kunna använda WeChat för att scanna QR-koden för att logga in på %1 ID eller lokala konton.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"></translation>
+        <translation>Låt mig tänka på det</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalt konto bindning</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter att binda ditt lokala konto kan du använda följande funktioner:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"></translation>
+        <translation>WeChat Skanera koden inloggningssystem</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd WeChat, som är bindat till din %1 ID, för att skanna koden för att inloggning till ditt lokala konto.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ lösenord via %1 ID</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ ditt lokala lösenord via %1 ID om du glömmer det.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"></translation>
+        <translation>För att använda ovanstående funktioner, gå till Kontrollcentrum - Konton och aktivera motsvarande alternativ.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"></translation>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Moln-synkronisering</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hantera din %1 ID och synkronisera dina personliga data mellan enheter.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in på %1 ID</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished">Auto synk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Säkert lagra systeminställningar och personliga data i molnet och synkronisera dem mellan enheter</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeminställningar</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Senaste synkroniseringstid: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa moln-data</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"></translation>
+        <translation>Är du säker på att du vill rensa dina systeminställningar och personliga data som sparats i molnet?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"></translation>
+        <translation>När data är rensat kan det inte återhållas!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkroniserings-tjänst</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto och säkerhet</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga ut</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Gå till webbinställningar</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"></translation>
+        <translation>kryptering av lösenord misslyckades</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"></translation>
+        <translation>Felaktig lösenord, %1 chans kvar</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggningsfel nått gränsen idag. Du kan återställa ditt lösenord och försöka igen.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Åtgärd lyckades</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"></translation>
+        <translation>Kina</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"></translation>
+        <translation>Övriga regioner</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktionen är för närvarande inte tillgänglig, aktivera systemet först</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"></translation>
+        <translation>Förutsatt av lokala lagar och regleringar är det för närvarande olagligt i din region.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänligen välj standardprogram för att öppna &apos;%1&apos;, </translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished">Öppnar skrivbordsfil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"></translation>
+        <translation>Apps (*.desktop), </translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alla filer (*), </translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Root åtkomst</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Använda Root åtkomst</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"></translation>
+        <translation>När du har gått in i utvecklarläge kan du få root åtkomst, men det kan också skada systemets integritet, så vänligen använd det med försiktighet.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåten</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"></translation>
+        <translation>Gå in</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in på UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>Importera certifikat</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj fil</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Din UOS ID har loggats in, klicka för att gå in i utvecklarläge</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänligen logga in på din UOS ID först och fortsätt</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"></translation>
+        <translation>1.Exportera datorinformation</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportera</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Gå till &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http://www.chinauos.com/developMode&lt;/a&gt; för att ladda ned certifikatet för offline-användning.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"></translation>
+        <translation>3.Importera certifikat</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>För att installera och köra icke-signerade program, gå till &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; för att ändra inställningarna.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"></translation>
+        <translation>Utvecklings- och felhanteringstester</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"></translation>
+        <translation>Nivå för systemloggning</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändring av inställningarna resulterar i mer detaljerad loggning som kan påverka systemprestandan och/eller kräva fler lagringsplatser.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Av</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhantering</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändring av inställningen kan ta upp till en minut att bearbeta. Efter att ha mottagit ett lyckat inställningsmeddelande, starta om enheten för att åtgärden ska börja gälla.</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt nedan angivna program att åtkomst till dessa filer och mappar:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokument</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videor</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Musik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Hämtningar</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"></translation>
+        <translation>mapp</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Storlek</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished">Standard typsnitt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Monospaced Font</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"></translation>
+        <translation>Maktenheter</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparande på energiinställningar</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk energisparring vid lågt batteriläge</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Låg batterilägesgräns</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk energisparring vid batteri</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppväckningsinställningar</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ett lösenord krävs för att väcka datorn</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ett lösenord krävs för att väcka skärmen</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Avslutningsinställningar</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Planerat avslut</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Förflytta</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>En gång</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"></translation>
+        <translation>Varje dag</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbetsdagar</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassad tid</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation>Måndag</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Tisdag</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Onsdag</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation>Torsdag</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation>Fredag</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation>Lördag</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation>Söndag</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa förflyttningstid</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
+        <translation>Minska skärmhjulns ljusstyrka i energisparsning</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Tre fingrar</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Fyra fingrar</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Upeft</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedåt</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Vänster</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Höger</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"></translation>
+        <translation>Klicka</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>(),&apos; </translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimerad prestanda</translation>
     </message>
     <message>
         <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimerad prestanda: Avaktivera alla gränssnitt och fönster-effekter för effektiv systemprestanda.</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Balans</translation>
     </message>
     <message>
         <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Balans: Begräns vissa fönster-effekter för utmärkt visuella prestanda samtidigt som systemprestandan behålls.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"></translation>
+        <translation>Bästa visuella</translation>
     </message>
     <message>
         <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bästa visuella: Aktivera alla gränssnitt och fönster-effekter för den bästa visuella upplevelsen.</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangentbordslayout</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>färdig</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation>redigera</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till motsvarande indatametod i &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Indatametodhantering&lt;/a&gt; för att säkerställa att tangentbordslayouten fungerar när den läggs till eller byts ut.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till ny tangentbordslayout...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Språk</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>färdig</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation>redigera</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Övriga språk</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>lägg till</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"></translation>
+        <translation>Region</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Område</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"></translation>
+        <translation>Operativsystem och program kan ge dig lokal innehåll baserat på ditt land och region</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"></translation>
+        <translation>Region och format</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Operativsystem och program kan ställa in datum- och tidsformat baserat på regionella format</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till språk</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Lägg till</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till språk</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Lägg till</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggningsmetod</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord, WeChat, biometrisk autentisering, säkerhetsnyckel</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Lösenord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra lösenord</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"></translation>
+        <translation>Giltighetsdagar</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished">Alltid</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright© 2011-%1 Deepin Community</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Input</source>
-        <translation type="unfinished">Ingång</translation>
-    </message>
-    <message>
-        <source>No input device for sound found</source>
-        <translation type="unfinished"></translation>
+        <source>Automatic Noise Suppression</source>
+        <translation>Automatisk störsuppression</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="unfinished">Ingångsvolym</translation>
+        <translation>Ingångsvolym</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Inmatningsnivå</translation>
     </message>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"></translation>
+        <source>Input</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No input device for sound found</source>
+        <translation>Inga indataenheter för ljud hittades</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Inmatningsenheter</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">Mus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished">Pekarhastighet</translation>
+        <translation>Pekarhastighet</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">Långsam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">Snabb</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Punktförflyttningstorlek</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished">Kort</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished">Lång</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished">Mus acceleration</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaktivera touchpad när en mus är ansluten</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">Naturlig rullningsriktning</translation>
+        <translation>Naturlig Scrollning</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Mina enheter</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"></translation>
+        <translation>Datorns namn</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"></translation>
+        <translation>Det kan inte börja eller sluta med bindestreck</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Operativsystemets namn</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"></translation>
+        <translation>Utgåva</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished">Typ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"></translation>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>Autentisering</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid för systeminstallation</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>Gráfikplattform</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"></translation>
+        <translation>Processorn</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Minnesutrymme</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Andra enheter</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa Bluetooth-enheter utan namn</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuvarande lösenord</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">Krävs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished">Svag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Medium</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"></translation>
+        <translation>Stark</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Lösenord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished">Upprepa lösenord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"></translation>
+        <translation>Tips för lösenord</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished">Valfri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet kan inte vara tomt</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenorden matchar inte</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished">Det nya lösenordet bör skilja sig från det nuvarande</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipsen är synlig för alla användare. Ange inte lösenordet här.</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra lösenord</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ lösenord</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet bör vara minst 8 tecken långt och innehålla en kombination av minst 3 av följande: stora bokstäver, små bokstäver, siffror och symboler. Detta lösenord är säkrare.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställandet av lösenordet kommer att radera data lagrade i lösenordsspelet.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Lätt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Mörkt</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassat</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin område</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj vilka ikoner som visas i docken</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished">Stäng av</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished">Vänteläge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished">Viloläge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa avslutningsgränssnittet</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Gör inget</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärm och avsluta</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta monitor efter</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"></translation>
+        <translation>Lås skärm efter</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Dator avslutas efter</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"></translation>
+        <translation>När luksen stängs</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>När tryckknappen trycks</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög prestanda</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"></translation>
+        <translation>Balansera prestanda</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa CPU-frekvens aggressivt beroende på CPU-bolagskondition</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished">Balanserad</translation>
-    </message>
-    <message>
-        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparsamhet</translation>
+    </message>
+    <message>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation>Prioritiera prestanda, vilket kommer att öka betydligt energiförbrukning och varmeutbildning</translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <translation>Balansera prestanda och batteriliv genom automatisk justering efter användning</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Prioritera batteriliv, vilket systemet kommer att ge upp någon prestanda för att minska energiförbrukning</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Minuter</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Timme</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished">Aldrig</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Integritetspolicy</translation>
     </message>
 </context>
 <context>
     <name>PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord kan inte vara tomt</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste ha minst %1 tecken</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet får inte ha mer än %1 tecken</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet kan endast innehålla engelska bokstäver (källskiftkänsligt), siffror eller speciella symboler (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge inte mer än %1 palindromtecken, tack</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge inte mer än %1 monoton tecken, tack</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge inte mer än %1 upprepade tecken, tack</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste innehålla gemena bokstäver, små bokstäver, siffror och symboler (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet får inte innehålla fler än 4 palindromtecken</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd inte vanliga ord och kombinationer som lösenord</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa ett starkt lösenord, tack</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Det uppfyller inte lösenordets regler</translation>
     </message>
 </context>
 <context>
@@ -2138,1973 +2153,1973 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Kontrollcenter</translation>
     </message>
     <message>
-        <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverad</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished">Visa</translation>
+        <translation>Visa</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Att aktivera</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation type="unfinished"></translation>
+        <translation>Utgått</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation type="unfinished"></translation>
+        <translation>I probetid</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation type="unfinished"></translation>
+        <translation>Försök upphört</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"></translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för dottkort</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningarna för dottkortet har ändrats</translation>
+    </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
+        <translation>Detta systembakgrund är låst. Vänligen kontakta din administratör.</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Regioner och formateringar</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardformateringar</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"></translation>
+        <translation>Första dagen i veckan</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"></translation>
+        <translation>Kort datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"></translation>
+        <translation>Längre datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"></translation>
+        <translation>Kort tid</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"></translation>
+        <translation>Längre tid</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Valutakürv</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"></translation>
+        <translation>Siffra</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>Pappersstorlek</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in ett lösenord</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>8-64 tecken</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"></translation>
+        <translation>Repetera lösenord</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Bekräfta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord matchar inte</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmskydd</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"></translation>
+        <translation>förhandsgranska</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassat skärmskydd</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"></translation>
+        <translation>inställning</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"></translation>
+        <translation>tillåten inaktivitetstid</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>1 minut</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>5 minuter</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">Krävs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished">Kortkommandon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Lägg till</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">Kortkommandon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished">Ersätt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Indataenheter</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished">Ljudeffekter</translation>
+        <translation>Ljudeffekter</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation type="unfinished">Uppstart</translation>
+        <translation>Uppstart</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished">Stäng av</translation>
+        <translation>Stäng av</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation type="unfinished">Logga ut</translation>
+        <translation>Logga ut</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation type="unfinished">Väcka</translation>
+        <translation>Väcka</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation type="unfinished">Volym +/-</translation>
+        <translation>Volym +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished">Avisering</translation>
+        <translation>Avisering</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation type="unfinished">Låg batterinivå</translation>
+        <translation>Låg batterinivå</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished">Skicka ikon från Launchern till Skrivbordet</translation>
+        <translation>Skicka ikon från Launchern till Skrivbordet</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation type="unfinished">Töm papperskorgen</translation>
+        <translation>Töm papperskorgen</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation type="unfinished">Koppla in</translation>
+        <translation>Koppla in</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation type="unfinished">Koppla ur</translation>
+        <translation>Koppla ur</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation type="unfinished">Flyttbar enhet är ansluten</translation>
+        <translation>Flyttbar enhet är ansluten</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation type="unfinished">Flyttbar enhet togs bort</translation>
+        <translation>Flyttbar enhet togs bort</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Fel</translation>
+        <translation>Fel</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
-        <source>Output</source>
-        <translation type="unfinished">Utgång</translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
-        <translation type="unfinished"></translation>
+        <source>Mode</source>
+        <translation>Läge</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="unfinished">Utgångsvolym</translation>
+        <translation>Utgångsvolym</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Volymboost</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Left Right Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Om ljudet är högre än 100% kan det förstöra ljudet och vara skadligt för utdataenheter</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Vänster</translation>
+        <translation>Vänster</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Höger</translation>
+        <translation>Höger</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
+        <translation>Inga utdataenheter för ljud hittades</translation>
+    </message>
+    <message>
+        <source>Left Right Balance</source>
+        <translation>Vänster-höger balans</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Mono ljud</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Slå ihop vänster och höger kanaler till en enda kanal</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk paus</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>Om ljudet kommer att pausas automatiskt när den aktuella ljudenheten avslutats</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="unfinished">Läge</translation>
+        <translation>Utdatatransferer</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished">Ljud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished">Stäng av</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">Mus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Schemalägg skärmskyttningsprogram</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Mer tapeter</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkronisera tid automatiskt</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"></translation>
+        <translation>NTP-server</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemdatum och tid</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"></translation>
+        <translation>Serveradress</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">Krävs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>NTP-serveradressen kan inte vara tom</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd 24-timmarsformat</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>systemtidszoner</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidszonlista</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>från</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>till</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
-        <source>Save</source>
-        <translation>Spara</translation>
+        <source>Save the display settings?</source>
+        <translation>Spara skärminställningarna？</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save the display settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningarna återställs om %1 sekunder.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Spara</translation>
     </message>
 </context>
 <context>
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till tidzoner</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestäm tidzonen baserat på nuvarande plats</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidzoner:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nästlågstad stad:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Dotternyta</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera här när du ansluter dotternyta</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Basic Inställningar</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished">Touchpad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished">Pekarhastighet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">Långsam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished">Snabb</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaktivera dotternyta under inmatning</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished">Knacka för att klicka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">Naturlig rullningsriktning</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewegning</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>Tre-finger-bewegningar</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>Fyra-finger-bewegningar</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Dra med dig i Användarupplevelsesprogrammet</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Säkerhetsverifiering</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"></translation>
+        <translation>Åtgärden är sensibel, ange inloggningslösenord först</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>8-64 tecken</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"></translation>
+        <translation>Glömt lösenord？</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Bekräfta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>bakgrundsbild</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Avrundade fönsterrör</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Mina bilder</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Systembakgrundsbild</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Enkla färbbakgrundsbild</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassningsbara bakgrundsbilder</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"></translation>
+        <translation>fyll stil</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk väggpappersbyxt</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"></translation>
+        <translation>aldrig</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"></translation>
+        <translation>30 sekunder</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>1 minut</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>5 minuter</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>10 minuter</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"></translation>
+        <translation>15 minuter</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation type="unfinished"></translation>
+        <translation>30 minuter</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"></translation>
+        <translation>inloggning</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"></translation>
+        <translation>uppsak</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemväggpappr</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Livsväggpappr</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 timme</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"></translation>
+        <translation>utbilda</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"></translation>
+        <translation>visa alla</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"></translation>
+        <translation>element</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Sätt låstskärm</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Sätt skrivbord</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Gränssnitt och effekter</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Fönsterr settningar</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Avrundade fönsterrör</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">Liten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Medium</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">Stor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera transparenta effekter när fönster flyttas</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Fönsterminimeringseffekt</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Skala</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Magiska lamp</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparens</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Låg</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"></translation>
+        <translation>Rullbarr</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa vid rullning</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>Håll visad</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Komprimerad visning</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om aktiverat visas mer innehåll i fönstret.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Rubriksbårhöjd</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast lämpligt för programfönsterrubrikar som ritas av fönsterverwaltung.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"></translation>
+        <translation>Överallt små</translation>
     </message>
 </context>
 <context>
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontoinnehavare</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Övriga konton</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Biometrisk autentisering</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Biometrisk autentisering</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansikte</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximalt 5 ansiktsdata kan läggas till</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">Fingeravtryck</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarens identitet identifieras genom att skanna fingravtryck</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"></translation>
+        <translation>Identitetsidentifiering genom ögonblåsning</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd endast bokstäver, siffror och understreck, och max 15 tecken</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd endast bokstäver, siffror och understreck</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Max 15 tecken</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till ett nytt</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth-inställningar, enheter</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished">Uppstartsmeny</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Hantera din startmeny</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"></translation>
+        <translation>Hantering av utvecklarens roottillstånd</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Utvecklarens alternativ</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid och datum</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid och datum, tidzoninställningar</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"></translation>
+        <translation>Språk och region</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemspråk, regionformat</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamnet måste vara mellan 3 och 32 tecken långt</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"></translation>
+        <translation>Första tecknet måste vara en bokstav eller ett siffertal</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Ditt användarnamn bör inte bestå endast av siffror</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamnet används redan av andra användarkonton</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"></translation>
+        <translation>Komplettera namnet är för långt</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Komplettera namnet används redan av andra användarkonton</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished">Fel lösenord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardanvändare</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished">Administratör</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassat</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished">Din värd togs precis bort från domän servern</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished">Din värd anslöts precis till domän servern</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished">Din värd misslyckades med att lämna domän servern</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished">Din värd misslyckades med att ansluta till domän servern</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished">AD domän inställningar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished">Lösenorden matchar ej</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensionell</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
+        <translation>Plan</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd ditt ansikte för att låsa upp enheten och göra inställningar senare</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansiktsavbildning</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera ditt fingert</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera ditt fingert fast på sensorn tills du ber om att hepla det bort</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Hepla ditt fingert bort</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"></translation>
+        <translation>Hål bort fingret och placera det igen på sensorn</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Skanna kanten av din fingervåg</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Justera positionen för att skanna kanten av din fingervåg</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation>Hål bort fingret och gör det igen</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation>Fingervåg tillagd</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>Skanning avbrytts</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>Placera kanten av din fingervåg på sensorn</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>Iris</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>Denna snabbtangent konflikt med [%1]</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord kan inte vara tomt</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste innehålla minst %1 tecken</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet får inte innehålla mer än %1 tecken</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet kan endast innehålla engelska bokstäver (kasesensitive), siffror eller speciella tecken (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>För varje palindromtecken, var vänlig att inte använda mer än %1</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>För varje monoton tecken, var vänlig att inte använda mer än %1</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>För varje upprepade tecken, var vänlig att inte använda mer än %1</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet måste innehålla gemensamma bokstäver, små bokstäver, siffror och symboler (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ )</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenordet får inte innehålla mer än 4 palindromtecken</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd inte vanliga ord och kombinationer som lösenord</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa ett starkt lösenord, var vänlig</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Det uppfyller inte lösenordets regler</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished">System</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished">Fönster</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">Arbetsyta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"></translation>
+        <translation>Assistivverktyg</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassat</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ingen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"></translation>
+        <translation>deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuvla-tjänster</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardapp</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd standardappen för att öppna olika filtyper</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished">Webbsida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished">E-post</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Text</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Musik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Video</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">Terminal</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Enheter</translation>
     </message>
 </context>
 <context>
     <name>display</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished">Bildskärm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Hjortskarvning,upplösning,skalning</translation>
     </message>
 </context>
 <context>
     <name>displayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"></translation>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"></translation>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"></translation>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"></translation>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"></translation>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished">Dubblett</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished">Utöka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Förval</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"></translation>
+        <translation>Bred</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrerad</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast på %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>( rekommenderat)</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"></translation>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för flera skärmar</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"></translation>
+        <translation>Identifiera</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmrekonfigurationen kommer att börja gälla efter %1 sekunder</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished">Läge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Huvudskärm</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärm och layout</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished">Ljusstyrka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished">Upplösning</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra skrivbord</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdateringsfrekvens</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished">Rotering</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished">Standard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"></translation>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"></translation>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"></translation>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished">Skärmskalning</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Monitorn stöder bara 100% visningsuppriskning</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"></translation>
+        <translation>Ögonkomfort</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera ögonkomfort</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"></translation>
+        <translation>Justera skärmvisningen till varmare färger för att minska skärmblåsken</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"></translation>
+        <translation>Hela dagen</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"></translation>
+        <translation>Solnedgång till soluppgång</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassad tid</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>från</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>till</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Färgtemperatur</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivbord och uppgifter</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Använda och ställa in ikoner på skrivbordet</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangentbord</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmänna inställningar, tangentbordstillägg, inmatningsmetod, snabbtangent</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmänt</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangentbordstillägg</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in standard tangentbordstillägg för systemet</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished">Dockan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished">Läge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Klassiskt läge</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrerat läge</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation type="unfinished"></translation>
+        <translation>Storlek på bänk</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">Liten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">Stor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Placering på skärmen</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Botten</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Vänster</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Höger</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"></translation>
+        <translation>Behåll synlig</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Behåll dold</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Intelligenta dölj</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"></translation>
+        <translation>Flera skärmar</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in platsen för arbetsfönsterrutan på skärmen</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast på huvudskärm</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"></translation>
+        <translation>På skärmen där markören finns</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-in område</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj vilka ikoner som visas i bänken</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Mus och traceringstav</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Vanliga, Mus, Traceringstav</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Vanliga</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">Mus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished">Touchpad</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
-        <source>Notification</source>
-        <translation type="unfinished">Avisering</translation>
+        <source>DND mode, app notifications</source>
+        <translation>DND-läge, programvaruvarningar</translation>
     </message>
     <message>
-        <source>DND mode, app notifications</source>
-        <translation type="unfinished"></translation>
+        <source>Notification</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för inte störa</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"></translation>
+        <translation>Appvarningar kommer inte att visas på skrivbordet och ljudet avslutas, men du kan visa alla meddelanden i varningscentret.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera inte störa</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"></translation>
+        <translation>När skärmen är låst</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Antal varningar som visas på skrivbordet</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Appvarningar</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt varningar</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa meddelande på skrivbordet eller visa olästa meddelanden i meddelandecenter</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivbord</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Lås skärmen</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Meddelandecenter</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa meddelande förhandsgranskningsversion</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela en ljudfil</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished">Anpassning</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">Tema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Utsikt</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation type="unfinished">Bakgrundsbild</translation>
+        <translation>Fönsterverktyg</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Perssonalisa ditt tapet och dina skärmsskydd</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmsskydd</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Färger och ikoner</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassa accentfärger och temaikoner</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrifttyp och storlek</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra systemskrifttyp och storlek</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>Välj ljust, mörkt eller automatisk temautsikt</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>Gränssnitt och effekter, rundade hörn</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
-        <source>Power</source>
-        <translation type="unfinished">Stäng av</translation>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>Mått för energibesparing, skärm och pausa</translation>
     </message>
     <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <source>Power</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished">Allmänt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Mått för energibesparing, uppstartstillstand, avslutningsmått</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansluten</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärm och pausa</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>På batteri</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärm och pausa, låg batteri, batteri hantering</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Intimitet och säkerhet</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera, mappbehörigheter</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj om programmet har åtkomst till kameran</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Fil och mappe</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj om programmet har åtkomst till filer och mappar</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished">Ljud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Utdata, indata, ljudeffekter, enheter</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished">Utgång</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished">Ingång</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished">Ljudeffekter</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera/inaktivera ljudeffekter</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"></translation>
+        <translation>EnheterMänager</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera/inaktivera ljudenheter</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished">System</translation>
+        <source>Common settings</source>
+        <translation>Vanliga inställningar</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation type="unfinished"></translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompletterande information</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"></translation>
+        <translation>Om denna dator</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemversion, enhetsinformation</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivning av öppen källkod</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa meddelandet om öppen källkod</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarupplevelseprogram</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv in i användarupplevelseprogrammet för att hjälpa till att förbättra produkten</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>Slutbrukarlicensavtal</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa slutbrukarlicensavtalet</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Intimskyldighetspolicy</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa information om intimskyldighetspolicy</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Täckskärm</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera täckskärm</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Vanliga</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera wacom</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Wacom-läge</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiftläge</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Muskeläge</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished">Tryckkänslighet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Lätt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
