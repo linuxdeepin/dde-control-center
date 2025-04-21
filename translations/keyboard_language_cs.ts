@@ -503,7 +503,7 @@
     </message>
     <message>
         <source>Українська</source>
-        <translation>Українська</translation>
+        <translation>Ukrajinský</translation>
     </message>
     <message>
         <source>اردو</source>
