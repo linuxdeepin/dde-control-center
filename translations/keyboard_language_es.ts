@@ -351,7 +351,7 @@
     </message>
     <message>
         <source>Occitan</source>
-        <translation>Occitano </translation>
+        <translation>Occitano</translation>
     </message>
     <message>
         <source>Oromoo</source>
