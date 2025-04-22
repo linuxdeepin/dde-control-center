@@ -637,12 +637,12 @@ UnionTech Software Technology Co., Ltd. är engagerat att forskar och förbättr
         <translation>Scannen tidsutgått</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Enheten kraschar, var vänlig att skanna igen</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Avbryt</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3087,6 +3087,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>Lägg till ett nytt</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
