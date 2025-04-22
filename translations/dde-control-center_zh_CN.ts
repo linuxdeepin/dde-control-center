@@ -634,12 +634,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>录入超时</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>录入设备崩溃，请重新录入！</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3085,6 +3085,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>添加新的</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
