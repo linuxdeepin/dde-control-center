@@ -3485,31 +3485,31 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Estirar</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centrar</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Solo en %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation> (Recomendado)</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla múltiple</translation>
     </message>
     <message>
         <source>Identify</source>
