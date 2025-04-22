@@ -2827,27 +2827,27 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Esquinas redondeadas</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Mis imágenes</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla de color sólido</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fondos de pantalla personalizados</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>estilo de relleno</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
