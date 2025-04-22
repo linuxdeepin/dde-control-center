@@ -620,13 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>הסריקה נגמרת</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>הDEVICE崩了，请重新扫描！
-</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>ביטול</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3071,6 +3070,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>הוספת חדש</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
