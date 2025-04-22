@@ -637,7 +637,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera varattu!</translation>
     </message>
 </context>
 <context>
@@ -3085,7 +3085,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Nimi on jo olemassa</translation>
     </message>
 </context>
 <context>
