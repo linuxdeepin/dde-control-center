@@ -1,3 +1,17 @@
+dde-control-center (6.1.22) unstable; urgency=medium
+
+  * fix: Display window only when DBus calls ShowPage
+  * fix: Update error messages for camera occupancy
+  * i18n: Updates for project Deepin Desktop Environment (#2198)
+  * fix: add stopSoundEffectPlayback method and integrate into SoundEffectsPage
+  * fix: Fixed the Bluetooth list loading issue
+  * i18n: Updates for project Deepin Desktop Environment (#2194)
+  * fix: Can be renamed to a duplicate name
+  * fix: update sound effects and animations for theme support
+  * fix: Fixed the Bluetooth name display issue
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Tue, 22 Apr 2025 15:52:20 +0800
+
 dde-control-center (6.1.21) unstable; urgency=medium
 
   * fix: Compatible with previous command parameters
