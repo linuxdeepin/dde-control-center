@@ -633,12 +633,12 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <translation>Перевищено граничний час сканування</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Пристрій не спрацював. Будь ласка, повторіть сканування!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3084,6 +3084,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>Додати новий</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
