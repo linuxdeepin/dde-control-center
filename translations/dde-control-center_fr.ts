@@ -644,12 +644,12 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <translation>Le scan a expiré</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Le dispositif a planté, veuillez réessayer</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3101,6 +3101,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Add a new </source>
         <translation>Añadir un nuevo</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
