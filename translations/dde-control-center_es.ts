@@ -1326,7 +1326,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al &lt;a href=&quot;Security Center&quot;&gt;Centro de seguridad&lt;/a&gt; para cambiar la configuración.</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -2789,7 +2789,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Unirme al programa de experiencia de usuario</translation>
     </message>
 </context>
 <context>
@@ -2800,11 +2800,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>La acción es confidencial, ingrese primero la contraseña de inicio de sesión</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
