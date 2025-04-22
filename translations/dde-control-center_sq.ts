@@ -634,12 +634,12 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <translation>Skanimit i mbaroi koha</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Pajisja u vithis, ju lutemi, ribëni skanimin!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3085,6 +3085,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Add a new </source>
         <translation>Shtoni të re </translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
