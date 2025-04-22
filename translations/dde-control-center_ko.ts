@@ -644,12 +644,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>스캔 시간 초과</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>장치가 중단되었습니다. 다시 스캔해주세요</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>취소</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3122,6 +3122,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>새로 추가</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
