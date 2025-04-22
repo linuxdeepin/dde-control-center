@@ -632,12 +632,12 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
         <translation>Skannaus aikakatkaistiin</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Laite kaatui, skannaa uudelleen!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3082,6 +3082,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>Lisää uusi</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
