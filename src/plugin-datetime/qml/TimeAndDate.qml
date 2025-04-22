@@ -289,7 +289,7 @@ DccObject {
         page: ComboBox {
             id: combo
             flat: true
-            implicitWidth: 280
+            implicitWidth: 406
             model: dccData.zoneSearchModel()
             textRole: "display"
             displayText: dccData.timeZoneDispalyName
@@ -315,9 +315,10 @@ DccObject {
 
             popup: SearchableListViewPopup {
                 id: searchView
+                palette: combo.palette
                 implicitWidth: combo.width
                 delegateModel: combo.delegateModel
-                maxVisibleItems: combo.maxVisibleItems
+                maxVisibleItems: 13
                 highlightedIndex: combo.highlightedIndex
                 onSearchTextChanged: {
                     let delegateModel = dccData.zoneSearchModel()
@@ -360,7 +361,8 @@ DccObject {
                     active: false
                     sourceComponent: SearchableListViewPopup {
                         id: popup
-                        implicitWidth: 280
+                        implicitWidth: 406
+                        maxVisibleItems: 13
                         delegateModel: DelegateModel {
                             model: dccData.zoneSearchModel()
                             delegate: MenuItem {
@@ -382,7 +384,6 @@ DccObject {
                                 }
                             }
                         }
-                        maxVisibleItems: 16
                         onSearchTextChanged: {
                             let delegateModel = dccData.zoneSearchModel()
                             delegateModel.setFilterWildcard(popup.searchText);

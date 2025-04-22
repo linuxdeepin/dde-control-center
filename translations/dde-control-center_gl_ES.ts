@@ -2370,6 +2370,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>

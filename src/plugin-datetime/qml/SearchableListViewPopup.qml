@@ -9,6 +9,7 @@ import org.deepin.dtk.style 1.0 as DS
 Popup {
     id: control
     implicitWidth: 200
+    implicitHeight: 496
     property int maxVisibleItems: 10
     property int highlightedIndex: 0
     property string searchText: searchEdit.text
@@ -18,13 +19,15 @@ Popup {
     Component.onCompleted: adjustPosition()
 
     contentItem: ColumnLayout {
-        spacing: 10
+        spacing: control.delegateModel.count > 0 ? 10 : 0
         Layout.fillWidth: true
         SearchEdit {
             id: searchEdit
+            implicitHeight: 30
             Layout.fillWidth: true
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
+            Layout.alignment: Qt.AlignTop
+            Layout.leftMargin: 0
+            Layout.rightMargin: 0
             placeholder: qsTr("Search")
             onVisibleChanged: {
                 clear() // clear seach text
@@ -35,13 +38,30 @@ Popup {
             id: arrowListView
             clip: true
             Layout.fillWidth: true
-            visible: view.count > 0
+            visible: control.delegateModel.count  > 0
             maxVisibleItems: control.maxVisibleItems
             view.model: control.delegateModel
             view.currentIndex: control.highlightedIndex
             view.highlightMoveDuration: -1
             view.highlightMoveVelocity: -1
             view.onContentHeightChanged: Qt.callLater(adjustPosition)
+        }
+
+        Item {
+            Layout.fillHeight: true
+            visible: control.delegateModel.count  > 0
+        }
+
+        Text {
+            id: noResultsText
+            text: qsTr("No search results")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            visible: control.delegateModel.count === 0
+            color: this.palette.windowText
+            opacity: 0.4
         }
     }
 
