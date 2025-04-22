@@ -622,12 +622,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3071,6 +3071,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
