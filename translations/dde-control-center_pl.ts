@@ -634,12 +634,12 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <translation>Upłynął czas oczekiwania skanowania</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Urządzenie zawiesiło się, proszę zeskanuj ponownie!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3085,6 +3085,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Add a new </source>
         <translation>Dodaj nowe </translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
