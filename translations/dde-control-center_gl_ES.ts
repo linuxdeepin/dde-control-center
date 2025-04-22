@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>O escaneamento agoude o tempo</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Dispositivo caído, escaneade de novo!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3100,6 +3100,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Add a new </source>
         <translation>Engade un novo </translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
