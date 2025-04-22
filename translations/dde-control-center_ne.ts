@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>स्कान देरमा बाहिर राखिएको छ</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>उपकरण गिर्दै राखिएको छ, कृपया फिर पुनः स्कान गर्नुहोस्</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>रद्द गर्नुहोस्</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3074,6 +3074,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This name already exists</source>
         <translation type="unfinished"/>
     </message>
 </context>
