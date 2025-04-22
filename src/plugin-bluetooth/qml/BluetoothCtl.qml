@@ -18,9 +18,29 @@ DccObject{
         weight: 10
         backgroundType: DccObject.Normal
         page: RowLayout {
+            id: root
             Layout.fillWidth: true
             spacing: 0
-            id: root
+
+            property bool isSwitching: false
+
+            Component.onCompleted: {
+                deviceSwitch.checked = model.powered
+            }
+
+            Connections {
+                target: model
+                function onPoweredChanged(poweredState, discoveringState) {
+                    if (deviceSwitch.checked === model.powered) {
+                        isSwitching = false;
+                        deviceSwitch.enabled = true;
+                    } else {
+                        isSwitching = true;
+                        deviceSwitch.enabled = false;
+                    }
+                }
+            }
+
             DciIcon {
                 id: deviceIcon
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -142,42 +162,24 @@ DccObject{
             BusyIndicator {
                 id: initAnimation
                 running: true
-                visible: false
+                visible: isSwitching
                 implicitWidth: 32
                 implicitHeight: 32
             }
 
-            Timer {
-                id: timer
-                interval: 6000  // 1000毫秒，即1秒
-                repeat: false    // 设置为重复
-                running: false  // 初始状态不运行
-                onTriggered: {
-
-                    initAnimation.visible = false
-                    deviceSwitch.enabled = true
-                }
-
-            }
-
             Switch {
                 id: deviceSwitch
-                checked: model.powered
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
                 onCheckedChanged: {
-                    if (checked === model.powered) {
-                        return
-                    }
-
-                    dccData.work().setAdapterPowered(model.id ,checked)
-                    deviceSwitch.enabled = false
-                    timer.running = true
-                    initAnimation.visible = true
-                    dccData.work().setAdapterDiscovering(model.id, checked)
-
+                    enabled = false;
+                    isSwitching = true;
+                    dccData.work().setAdapterPowered(model.id ,checked);
                     if (checked) {
-                        dccData.work().setAdapterDiscoverable(model.id)
+                        dccData.work().setAdapterDiscovering(model.id, true);
+                        dccData.work().setAdapterDiscoverable(model.id);
+                    } else {
+                        dccData.work().setAdapterDiscovering(model.id, false);
                     }
                 }
             }
