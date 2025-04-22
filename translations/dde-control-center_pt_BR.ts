@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>O tempo limite da varredura expirou</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>O dispositivo travou, verifique novamente!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3071,6 +3071,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Add a new </source>
         <translation>Adicionar um novo</translation>
     </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>blueTooth</name>
@@ -3875,7 +3879,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Interface e efeitos, bordas arredondadas</translation>
     </message>
 </context>
 <context>
