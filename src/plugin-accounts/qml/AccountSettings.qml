@@ -266,6 +266,8 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: RowLayout {
+                property string originalFullName: "" // Store original name here
+
                 EditActionLabel {
                     id: fullNameEdit
                     implicitWidth: 200
@@ -273,6 +275,12 @@ DccObject {
                     placeholderText: qsTr("Set fullname")
                     horizontalAlignment: TextInput.AlignRight
                     editBtn.visible: readOnly
+                    onReadOnlyChanged: {
+                        // Store the original text when editing starts
+                        if (!readOnly) {
+                            originalFullName = text
+                        }
+                    }
                     onTextEdited: {
                         if (showAlert)
                             showAlert = false
@@ -289,6 +297,12 @@ DccObject {
                     }
 
                     onFinished: function () {
+                        // If text hasn't changed, do nothing
+                        if (text === originalFullName) {
+                            return;
+                        }
+
+                        // --- Original validation and saving logic ---
                         let alertMsg = dccData.checkFullname(text)
                         if (alertMsg.length > 0) {
                             showAlert = false
