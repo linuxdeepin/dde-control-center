@@ -635,12 +635,12 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <translation>Tiempo de escaneo agotado</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>El dispositivo se ha estropeado, por favor, vuelva a escanear.</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3085,6 +3085,10 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add a new </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This name already exists</source>
         <translation type="unfinished"/>
     </message>
 </context>
