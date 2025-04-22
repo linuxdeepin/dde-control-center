@@ -634,12 +634,12 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <translation>S&apos;ha esgotat el temps d&apos;escaneig.</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>El dispositiu ha fallat. Si us plau, repetiu l&apos;escaneig!</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3085,6 +3085,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Add a new </source>
         <translation>Afegeix-n&apos;hi més</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
