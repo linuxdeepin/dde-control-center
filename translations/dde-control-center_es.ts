@@ -964,7 +964,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 hora más tarde que la local</translation>
     </message>
     <message>
         <source>Space</source>
@@ -1155,7 +1155,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Última sincronización: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
