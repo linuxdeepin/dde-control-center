@@ -2348,6 +2348,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Search</source>
         <translation>Otsing</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>

@@ -2355,6 +2355,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>

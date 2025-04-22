@@ -2355,6 +2355,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Search</source>
         <translation>Kërko</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
