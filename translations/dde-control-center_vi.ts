@@ -644,12 +644,12 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
         <translation>Thời gian quét đã hết</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Thiết bị bị sập, vui lòng quét lại</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Huỷ bỏ</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3097,6 +3097,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>Thêm mới</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
