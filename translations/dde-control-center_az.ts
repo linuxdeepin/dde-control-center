@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>انتهت فترة التصوير</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>صدى الجهاز ارتطم، يرجى التصوير مرة أخرى</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3079,6 +3079,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>إضافة جديد</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
