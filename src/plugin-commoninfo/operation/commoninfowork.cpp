@@ -16,6 +16,7 @@
 #include <QSettings>
 #include <QLoggingCategory>
 #include <QDir>
+#include <QFileInfo>
 #include <DDBusSender>
 
 #include <mutex>
@@ -182,7 +183,13 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
     connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this] () {
-        QPixmap pix = QPixmap(m_commonInfoProxy->Background());
+        if (!m_commomModel->themeEnabled()) {
+            setEnableTheme(true);
+            m_commomModel->setThemeEnabled(true);
+        }
+        QString backgroundPath = m_commonInfoProxy->Background();
+        QPixmap pix = QPixmap(backgroundPath);
+        m_commomModel->setGrubThemePath(backgroundPath);
         m_commomModel->setBackground(pix);
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::EnabledUsersChanged, m_commomModel, [this] (const QStringList &users) {
@@ -493,7 +500,18 @@ void CommonInfoWork::setDefaultEntry(const QString &entry)
 
 void CommonInfoWork::setBackground(const QString &path)
 {
-    m_commonInfoProxy->setBackground(path);
+    QFileInfo fileInfo(path);
+    QString realPath = path;
+
+    if (fileInfo.exists() && fileInfo.isSymLink()) {
+        realPath = fileInfo.symLinkTarget();
+        if (QFileInfo(realPath).isRelative()) {
+            realPath = fileInfo.dir().absoluteFilePath(realPath);
+        }
+        qCDebug(DccCommonInfoWork) << "Resolved symlink" << path << "to" << realPath;
+    }
+
+    m_commonInfoProxy->setBackground(realPath);
 }
 
 void CommonInfoWork::setUeProgram(bool enabled)
