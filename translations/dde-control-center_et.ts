@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>Skaneerimise aeg on elnud</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Seade lülitusel, proovi uuesti skaneerida</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Katkesta</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3078,6 +3078,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Add a new </source>
         <translation>Lisa uus</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
