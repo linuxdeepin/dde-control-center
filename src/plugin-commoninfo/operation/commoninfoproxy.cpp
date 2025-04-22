@@ -57,6 +57,15 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
 {
     // in this function, it will wait for 50 seconds finall return
     m_grubScaleInter->setTimeout(50000);
+
+    QDBusConnection::systemBus().connect(
+        GrubService,
+        GrubThemePath,
+        GrubThemeInterface,
+        "BackgroundChanged",
+        this,
+        SIGNAL(BackgroundChanged())
+    );
 }
 
 bool CommonInfoProxy::IsLogin()

@@ -184,8 +184,6 @@ QString CommonInfoModel::grubThemePath() const
 
 void CommonInfoModel::setGrubThemePath(const QString &newGrubThemePath)
 {
-    if (m_grubThemePath == newGrubThemePath)
-        return;
     m_grubThemePath = newGrubThemePath;
     emit grubThemePathChanged();
 }

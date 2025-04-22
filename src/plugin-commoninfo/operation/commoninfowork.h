@@ -44,6 +44,7 @@ public:
     Q_INVOKABLE void setLogDebug(int index);
     Q_INVOKABLE void importCertificate(QString filePath);
     Q_INVOKABLE void exportMessage(QString filePath);
+    Q_INVOKABLE void setBackground(const QString &path);
 
 public Q_SLOTS:
     void setBootDelay(bool value);
@@ -51,7 +52,6 @@ public Q_SLOTS:
     void setDefaultEntry(const QString &entry);
     void disableGrubEditAuth();
     void onSetGrubEditPasswd(const QString &password, const bool &isReset);
-    void setBackground(const QString &path);
     void setUeProgram(bool enabled);
     void closeUeProgram();
     void setEnableDeveloperMode(bool enabled);
