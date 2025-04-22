@@ -2906,23 +2906,23 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>desplegar</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation>mostrar todo</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation>Elementos</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Establecer pantalla de bloqueo</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>Establecer escritorio</translation>
     </message>
 </context>
 <context>
@@ -2937,23 +2937,23 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Esquinas redondeadas</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -3351,11 +3351,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ninguno</translation>
     </message>
 </context>
 <context>
