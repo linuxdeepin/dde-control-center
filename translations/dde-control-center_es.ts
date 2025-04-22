@@ -1209,7 +1209,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>Alcanzó el límite de fallos de inicio de sesión de hoy. Puede restablecer la contraseña e interntarlo de nuevo.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
@@ -1228,7 +1228,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>La función no está disponible, primero active su sistema</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
@@ -1239,7 +1239,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione la aplicación predeterminada para abrir &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
