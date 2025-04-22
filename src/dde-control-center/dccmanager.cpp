@@ -498,11 +498,11 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
             return;
         }
     }
-    if (obj && cmd.isEmpty()) {
-        show();
-    }
     if (message.type() != QDBusMessage::InvalidMessage) {
         if (obj) {
+            if (cmd.isEmpty()) {
+                show();
+            }
             QDBusConnection::sessionBus().send(message.createReply());
         } else {
             QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
@@ -535,10 +535,10 @@ void DccManager::tryShow()
     DccObject *obj = findObject(path, true);
     if (obj) {
         showPage(obj, cmd);
-        if (cmd.isEmpty()) {
-            show();
-        }
         if (m_showMessage.type() != QDBusMessage::InvalidMessage) {
+            if (cmd.isEmpty()) {
+                show();
+            }
             QDBusConnection::sessionBus().send(m_showMessage.createReply());
         }
         clearShowParam();
