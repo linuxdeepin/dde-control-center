@@ -1479,7 +1479,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sunday</source>
-        <translation>Septynadienis</translation>
+        <translation>Sekmadienis</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
@@ -1487,11 +1487,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Išsaugoti</translation>
+        <translation>Įrašyti</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
