@@ -639,7 +639,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Càmera ocupada!</translation>
     </message>
 </context>
 <context>
@@ -3088,7 +3088,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Aquest nom ja existeix.</translation>
     </message>
 </context>
 <context>
