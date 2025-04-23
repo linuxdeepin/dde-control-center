@@ -636,11 +636,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Piktogramų nustatymai</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Piktogramų apipavidalinimas</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -648,7 +648,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation>Kurzuojo tema</translation>
+        <translation>Žymeklio apipavidalinimas</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
@@ -659,15 +659,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Ar tikrai norite ištrinti šį tvarkyklės paskyrą?</translation>
+        <translation>Ar tikrai norite ištrinti šią paskyrą?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Ištrinti tvarkyklės paskyros direktoriją</translation>
+        <translation>Ištrinti paskyros katalogą</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -678,11 +678,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Pereskaitinkite nustatymus</translation>
+        <translation>Eiti į nustatymus</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Atsisakyti</translation>
     </message>
 </context>
 <context>
@@ -768,7 +768,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Nėra tinklo ryšio</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
@@ -822,7 +822,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Paskyros tipas</translation>
     </message>
     <message>
         <source>UserName</source>
@@ -842,11 +842,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Sukurti paskyrą</translation>
     </message>
 </context>
 <context>
@@ -871,7 +871,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privatumos-politika-en</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
