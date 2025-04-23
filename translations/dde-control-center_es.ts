@@ -2997,15 +2997,15 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Pantalla compacta</translation>
+        <translation>Vista compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Si está habilitado, se mostrará más contenido en la ventana.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Altura de la barra de título</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
