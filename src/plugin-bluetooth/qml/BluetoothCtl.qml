@@ -139,16 +139,23 @@ DccObject{
                     }
                 }
 
-                onEditingFinished: {
+                function updateAlias() {
+                    if (nameEdit.text.trim() === "") {
+                        nameEdit.text = myDeviceName.text
+                    } else {
+                        dccData.work().setAdapterAlias(model.id, nameEdit.text)
+                    }
                     nameEdit.visible = false
                     devName.visible = true
-                    dccData.work().setAdapterAlias(model.id, nameEdit.text)
                 }
+
+                onEditingFinished: {
+                    updateAlias()
+                }
+
                 onFocusChanged: {
                     if (!focus) {
-                        nameEdit.visible = false
-                        devName.visible = true
-                        dccData.work().setAdapterAlias(model.id, nameEdit.text)
+                        updateAlias()
                     }
                 }
 
