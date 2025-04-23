@@ -2997,7 +2997,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
