@@ -3094,7 +3094,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>该名称已存在</translation>
     </message>
 </context>
 <context>
@@ -3900,7 +3900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>界面和效果、窗口圆角</translation>
     </message>
 </context>
 <context>
