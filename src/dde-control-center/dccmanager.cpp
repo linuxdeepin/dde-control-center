@@ -555,6 +555,7 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     if (m_plugins->isDeleting() || !obj) {
         return;
     }
+    qCInfo(dccLog) << "ShowPage:" << obj << " have cmd:" << !cmd.isEmpty();
     // 禁用首页
     if (obj == m_root) {
         if (m_root->getChildren().isEmpty()) {

@@ -69,12 +69,6 @@ Flickable {
         visible: false
         border.color: this.palette.highlight
         border.width: 2
-        anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: root.margin
-            rightMargin: root.margin
-        }
     }
     Timer {
         interval: 100
@@ -95,8 +89,10 @@ Flickable {
                     root.contentY = panel.item.mapToItem(groupView, 0, 0).y
                 }
 
+                panel.x = panel.item.mapToItem(root, 0, 0).x
                 panel.y = panel.item.mapToItem(root, 0, 0).y + root.contentY
                 panel.height = panel.item.height
+                panel.width = panel.item.width
                 panel.visible = panel.cnt & 1
                 panel.cnt++
             }
