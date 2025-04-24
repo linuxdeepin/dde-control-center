@@ -2342,6 +2342,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>Search</source>
         <translation>Iskanje</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
