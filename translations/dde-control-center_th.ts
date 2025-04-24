@@ -2341,6 +2341,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Search</source>
         <translation>ค้นหา</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
