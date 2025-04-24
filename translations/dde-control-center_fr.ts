@@ -2368,6 +2368,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
