@@ -290,9 +290,18 @@ DccObject {
                     flags: Qt.Dialog | Qt.WindowCloseButtonHint
                     modality: Qt.ApplicationModal
 
-                    // 弹窗关闭时触发的事件
-                    onClosing: function(close) {
+                    onVisibleChanged: {
+                        if (visible) {
+                            newPasswordEdit.text = ""
+                            repeatPasswordEdit.text = ""
+                            newPasswordEdit.showAlert = false
+                            repeatPasswordEdit.showAlert = false
+                            submitbtn.enabled = false
+                            dlgStatus = passwordDlgStatus.Init
+                        }
+                    }
 
+                    onClosing: function(close) {
                         close.accepted = true
                         if (dlgStatus !== passwordDlgStatus.Sure) {
                             dlgStatus = passwordDlgStatus.Init
@@ -351,13 +360,26 @@ DccObject {
                             height: 30
                             showAlert: false
 
+                            Timer {
+                                id: newPasswordAlertTimer
+                                interval: 3000
+                                repeat: false
+                                onTriggered: {
+                                    newPasswordEdit.showAlert = false
+                                }
+                            }
+
                             onTextChanged: {
+                                newPasswordAlertTimer.stop()
                                 console.log(" newPasswordEdit text changed ", newPasswordEdit.text)
                                 if (newPasswordEdit.text.length === 0) {
                                     submitbtn.enabled = false
                                     if (repeatPasswordEdit.text.length !== 0) {
                                         newPasswordEdit.alertText = qsTr("Password cannot be empty")
                                         newPasswordEdit.showAlert = true
+                                        newPasswordAlertTimer.start()
+                                    } else {
+                                        newPasswordEdit.showAlert = false
                                     }
                                     return
                                 }
@@ -367,18 +389,23 @@ DccObject {
                                 if (errorText.length !== 0) {
                                     newPasswordEdit.alertText = errorText
                                     newPasswordEdit.showAlert = true
+                                    newPasswordAlertTimer.start()
                                     submitbtn.enabled = false
                                 } else {
-                                    if (repeatPasswordEdit.text !== newPasswordEdit.text) {
-                                        newPasswordEdit.alertText = qsTr("Passwords do not match")
+                                    newPasswordEdit.showAlert = false
+                                    if (repeatPasswordEdit.text.length > 0) {
+                                        if (repeatPasswordEdit.text !== newPasswordEdit.text) {
+                                            repeatPasswordEdit.alertText = qsTr("Passwords do not match")
+                                            repeatPasswordEdit.showAlert = true
+                                            repeatPasswordAlertTimer.start()
+                                            submitbtn.enabled = false
+                                        } else {
+                                            repeatPasswordEdit.showAlert = false
+                                            submitbtn.enabled = true
+                                        }
+                                    } else {
+                                         submitbtn.enabled = false
                                     }
-                                    var isAlert = (repeatPasswordEdit.text.length !== 0 && repeatPasswordEdit.text === newPasswordEdit.text)
-
-                                    if (isAlert) {
-                                        repeatPasswordEdit.showAlert = false
-                                    }
-                                    newPasswordEdit.showAlert = isAlert
-                                    submitbtn.enabled = isAlert
                                 }
                             }
                         }
@@ -401,14 +428,26 @@ DccObject {
                             placeholderText: qsTr("Required")
                             height: 30
 
+                            Timer {
+                                id: repeatPasswordAlertTimer
+                                interval: 3000
+                                repeat: false
+                                onTriggered: {
+                                    repeatPasswordEdit.showAlert = false
+                                }
+                            }
+
                             onTextChanged: {
-                                console.log(" repeatPasswordEdit text changed ",
-                                    repeatPasswordEdit.text)
+                                repeatPasswordAlertTimer.stop()
+                                console.log(" repeatPasswordEdit text changed ", repeatPasswordEdit.text)
                                 if (repeatPasswordEdit.text.length === 0) {
                                     submitbtn.enabled = false
                                     if (newPasswordEdit.text.length !== 0) {
                                         repeatPasswordEdit.alertText = qsTr("Password cannot be empty")
                                         repeatPasswordEdit.showAlert = true
+                                        repeatPasswordAlertTimer.start()
+                                    } else {
+                                        repeatPasswordEdit.showAlert = false
                                     }
                                     return
                                 }
@@ -418,19 +457,25 @@ DccObject {
                                 if (errorText.length !== 0) {
                                     repeatPasswordEdit.alertText = errorText
                                     repeatPasswordEdit.showAlert = true
+                                    repeatPasswordAlertTimer.start()
                                     submitbtn.enabled = false
                                 } else {
                                     if (repeatPasswordEdit.text !== newPasswordEdit.text) {
                                         repeatPasswordEdit.alertText = qsTr("Passwords do not match")
+                                        repeatPasswordEdit.showAlert = true
+                                        repeatPasswordAlertTimer.start()
+                                        submitbtn.enabled = false
+                                    } else {
+                                        repeatPasswordEdit.showAlert = false
+                                        if (newPasswordEdit.text.length > 0 && !newPasswordEdit.showAlert) {
+                                             submitbtn.enabled = true
+                                        } else {
+                                             submitbtn.enabled = false
+                                        }
+                                        if (newPasswordEdit.alertText === qsTr("Passwords do not match")) {
+                                            newPasswordEdit.showAlert = false
+                                        }
                                     }
-
-                                    var isAlert = (repeatPasswordEdit.text.length !== 0 && repeatPasswordEdit.text === newPasswordEdit.text)
-
-                                    if (isAlert) {
-                                        newPasswordEdit.showAlert = false
-                                    }
-                                    repeatPasswordEdit.showAlert = !isAlert
-                                    submitbtn.enabled = isAlert
                                 }
                             }
                         }
