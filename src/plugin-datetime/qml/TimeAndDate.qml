@@ -423,17 +423,16 @@ DccObject {
                 ColumnLayout {
                     Layout.topMargin: 8
                     Layout.leftMargin: 60
-                    Layout.maximumWidth: 160
 
                     Label {
                         id: display
-                        Layout.maximumWidth: 160
+                        Layout.fillWidth: true
                         text: dccObj.displayName
                         elide: Text.ElideRight
                     }
                     Label {
                         id: description
-                        Layout.maximumWidth: 160
+                        Layout.fillWidth: true
                         visible: text !== ""
                         font: D.DTK.fontManager.t10
                         text: dccObj.description
