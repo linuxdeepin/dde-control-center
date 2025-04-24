@@ -2352,7 +2352,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Ei hakutuloksia</translation>
     </message>
 </context>
 <context>
