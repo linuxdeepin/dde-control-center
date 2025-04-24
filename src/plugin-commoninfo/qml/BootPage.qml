@@ -354,6 +354,7 @@ DccObject {
                             onTextChanged: {
                                 console.log(" newPasswordEdit text changed ", newPasswordEdit.text)
                                 if (newPasswordEdit.text.length === 0) {
+                                    submitbtn.enabled = false
                                     if (repeatPasswordEdit.text.length !== 0) {
                                         newPasswordEdit.alertText = qsTr("Password cannot be empty")
                                         newPasswordEdit.showAlert = true
@@ -404,6 +405,7 @@ DccObject {
                                 console.log(" repeatPasswordEdit text changed ",
                                     repeatPasswordEdit.text)
                                 if (repeatPasswordEdit.text.length === 0) {
+                                    submitbtn.enabled = false
                                     if (newPasswordEdit.text.length !== 0) {
                                         repeatPasswordEdit.alertText = qsTr("Password cannot be empty")
                                         repeatPasswordEdit.showAlert = true
