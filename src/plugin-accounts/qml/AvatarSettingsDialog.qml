@@ -10,6 +10,7 @@ import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
+import Qt.labs.platform 1.1
 
 D.DialogWindow {
     id: dialog
@@ -34,6 +35,7 @@ D.DialogWindow {
             id: fileDialog
             nameFilters: [ qsTr("Images") + "(*.png *.bmp *.jpg *.jpeg)" ]
             title: "Please choose an image"
+            folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
             onAccepted: {
                 dialog.currentAvatar = fileDialog.selectedFile
                 // 23 dcc 选中自定义就会出发设置图标
