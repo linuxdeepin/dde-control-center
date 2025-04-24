@@ -2355,7 +2355,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Brak wyników wyszukiwania</translation>
     </message>
 </context>
 <context>
