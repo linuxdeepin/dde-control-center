@@ -27,7 +27,17 @@ Control {
         ShapePath {
             strokeStyle: ShapePath.DashLine
             strokeWidth: 1
-            fillColor: palette.window
+            fillColor: {
+                if (dropArea.containsDrag) {
+                    Qt.rgba(0, 0, 0, 0.08)
+                } else if (mouseArea.pressed) {
+                    Qt.rgba(0, 0, 0, 0.10)
+                } else if (hovered) {
+                    Qt.rgba(0, 0, 0, 0.05)
+                } else {
+                    palette.window
+                }
+            }
             strokeColor: "gray"
             startX: control.radius
             startY: 0
@@ -43,12 +53,15 @@ Control {
         }
 
         MouseArea {
+            id: mouseArea
             anchors.fill: parent
+            hoverEnabled: true
             onClicked: {
                 requireFileDialog()
             }
         }
         DropArea {
+            id: dropArea
             anchors.fill: parent
             enabled: true
             onDropped: function (drop) {
