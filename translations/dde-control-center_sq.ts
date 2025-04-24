@@ -2355,7 +2355,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>S’ka përfundime kërkimi</translation>
     </message>
 </context>
 <context>
