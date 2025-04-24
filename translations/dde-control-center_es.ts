@@ -2354,6 +2354,10 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
