@@ -1238,7 +1238,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Wybierz program domyślny do otwierania &apos;%1&apos;</translation>
+        <translation>Wybierz program domyślny do otworzenia &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
@@ -2917,7 +2917,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>items</source>
-        <translation>Przedmioty</translation>
+        <translation>przedmiotów</translation>
     </message>
     <message>
         <source>Set lock screen</source>
