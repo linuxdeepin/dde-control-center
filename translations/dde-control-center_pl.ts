@@ -2292,7 +2292,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>preview</source>
-        <translation>preview</translation>
+        <translation>Podgląd</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
@@ -2300,7 +2300,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>setting</source>
-        <translation>Ustawienia</translation>
+        <translation>Ustaw</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -2336,7 +2336,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Wymagane jest hasło do przywracania</translation>
+        <translation>Wymagaj hasło po wybudzeniu</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -2344,7 +2344,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Systemowy wygaszacz ekranu</translation>
+        <translation>Systemowe wygaszacze ekranu</translation>
     </message>
 </context>
 <context>
