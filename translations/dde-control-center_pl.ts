@@ -3426,7 +3426,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Urządzenie</translation>
+        <translation>Urządzenia</translation>
     </message>
 </context>
 <context>
@@ -4121,7 +4121,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Wrażliwość nacisku</translation>
+        <translation>Czułość nacisku</translation>
     </message>
     <message>
         <source>Light</source>
