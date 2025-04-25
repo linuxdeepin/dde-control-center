@@ -1466,7 +1466,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Własna godzina</translation>
+        <translation>Własna data</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -2064,11 +2064,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosowana do zapotrzebowania</translation>
+        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosuje się do zapotrzebowania</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Wysoki priorytet oszczędzania baterii, zmniejszenie poboru energii kosztem wydajności</translation>
+        <translation>Wysoki priorytet oszczędzania baterii, zmniejszy poboru energii kosztem wydajności</translation>
     </message>
 </context>
 <context>
@@ -2079,7 +2079,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Hour</source>
-        <translation>Godziny</translation>
+        <translation>Godzinie</translation>
     </message>
     <message>
         <source>Never</source>
