@@ -711,7 +711,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Short</source>
-        <translation>Krótkie</translation>
+        <translation>Krótka</translation>
     </message>
     <message>
         <source>Long</source>
@@ -1787,7 +1787,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Wyłącz touchpad po podłączeniu myszy</translation>
+        <translation>Wyłącz panel dotykowy po podłączeniu myszy</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2749,7 +2749,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Panel dotykowy</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
@@ -2765,7 +2765,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Wyłącz touchpad podczas pisania</translation>
+        <translation>Wyłącz panel dotykowy podczas pisania</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -3536,7 +3536,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Ekran i układ</translation>
+        <translation>Ekran i układ ekranów</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -3755,11 +3755,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Mysz i touchpad</translation>
+        <translation>Mysz i panel dotykowy</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Ogólne, mysz, touchpad</translation>
+        <translation>Ogólne, mysz, panel dotykowy</translation>
     </message>
 </context>
 <context>
@@ -3774,7 +3774,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Panel dotykowy</translation>
     </message>
 </context>
 <context>
