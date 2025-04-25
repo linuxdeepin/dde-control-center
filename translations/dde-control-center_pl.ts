@@ -3800,7 +3800,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Włącz Nie przeszkadzać</translation>
+        <translation>Włącz tryb Nie przeszkadzać</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
