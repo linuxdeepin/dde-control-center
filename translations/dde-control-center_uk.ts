@@ -3091,7 +3091,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Запис і з такою назвою вже існує</translation>
     </message>
 </context>
 <context>
