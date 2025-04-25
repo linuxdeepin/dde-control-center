@@ -715,7 +715,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Long</source>
-        <translation>Długie</translation>
+        <translation>Długa</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -2060,11 +2060,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Wysoki priorytet wydajności, znacznie zwiększy to pobór energii i generowanie ciepła</translation>
+        <translation>Wysoki priorytet wydajności, znacznie zwiększy pobór energii i generowanie ciepła</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosowuje się do zapotrzebowania</translation>
+        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosowana do zapotrzebowania</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
@@ -3920,7 +3920,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzania i wyłączania</translation>
+        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzenie i wyłączanie</translation>
     </message>
     <message>
         <source>Plugged In</source>
