@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Usuń bieżące konto</translation>
+        <translation>Usuń wybrane konto</translation>
     </message>
     <message>
         <source>Group setting</source>
