@@ -638,7 +638,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Камеру зайнято!</translation>
     </message>
 </context>
 <context>
@@ -2354,7 +2354,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Нічого не знайдено</translation>
     </message>
 </context>
 <context>
