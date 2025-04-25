@@ -3866,7 +3866,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalizuj swoją tapetę i wygaszacz ekranu</translation>
+        <translation>Ustaw swoją tapetę i wygaszacz ekranu</translation>
     </message>
     <message>
         <source>Screensaver</source>
