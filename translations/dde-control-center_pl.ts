@@ -2553,7 +2553,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Jeśli głośność jest większa niż 100%, może to zniekształcić dźwięk i być szkodliwe dla urządzeń wyjściowych</translation>
+        <translation>Jeśli głośność przekracza 100%, może to zniekształcić dźwięk i być szkodliwe dla głośnika</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2589,7 +2589,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>Dźwięk zostanie automatycznie zatrzymany, gdy używane urządzenie audio zostanie odłączone.</translation>
+        <translation>Dźwięk zostanie automatycznie zatrzymany, gdy używane urządzenie audio zostanie odłączone</translation>
     </message>
     <message>
         <source>Output Devices</source>
