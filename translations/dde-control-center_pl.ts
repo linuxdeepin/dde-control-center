@@ -3631,7 +3631,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Ustaw ekran i rozmiar ikon na pulpicie</translation>
+        <translation>Ustaw wygląd i rozmiar ikon na pulpicie</translation>
     </message>
 </context>
 <context>
