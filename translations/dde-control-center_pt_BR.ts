@@ -625,7 +625,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Câmera ocupada!</translation>
     </message>
 </context>
 <context>
@@ -2340,7 +2340,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum resultado de pesquisa</translation>
     </message>
 </context>
 <context>
@@ -3077,7 +3077,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Este nome já existe</translation>
     </message>
 </context>
 <context>
