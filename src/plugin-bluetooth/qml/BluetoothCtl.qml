@@ -222,16 +222,45 @@ DccObject{
         pageType: DccObject.Item
         weight: 30
         visible: dccData.model().airplaneEnable
-        page: Label {
+        page: Item {
             height: 25
-            text: qsTr("To use the Bluetooth function, please turn off") + "<a href=\"飞行模式\">" + qsTr("Airplane Mode") +"</a>"
-            horizontalAlignment: Qt.AlignLeft
-            verticalAlignment: Qt.AlignTop
-            font.pointSize: 8
-            // 超链接点击事件
-            onLinkActivated: function(url) {
-                console.log("点击的链接是: " + url)
-                dccData.work().jumpToAirPlaneMode()
+
+            Label {
+                id: airplaneModeTextLabel
+                text: qsTr("To use the Bluetooth function, please turn off")
+                anchors.left: parent.left
+                anchors.top: parent.top
+                font.pointSize: 8
+                width: implicitWidth
+            }
+            Label {
+                id: airplaneModeLinkLabel
+                text: "<a href=\"airplaneMode\">" + qsTr("Airplane Mode") +"</a>"
+                anchors.left: airplaneModeTextLabel.right
+                anchors.top: parent.top
+                font.pointSize: 8
+                textFormat: Text.RichText
+                width: implicitWidth
+
+                // 超链接点击事件
+                onLinkActivated: function(url) {
+                    console.log("点击的链接是: " + url)
+                    dccData.work().jumpToAirPlaneMode()
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.ArrowCursor
+                    acceptedButtons: Qt.NoButton
+
+                    onEntered: {
+                        cursorShape = Qt.PointingHandCursor;
+                    }
+                    onExited: {
+                        cursorShape = Qt.ArrowCursor;
+                    }
+                }
             }
         }
     }
