@@ -820,6 +820,7 @@ void DatetimeModel::setCurrentFormat(int format, int index)
         m_work->setConfigValue(firstDayOfWeek_key, index + 1);
         // dbus
         m_work->setWeekStartDayFormat(index + 1);
+        setFirstDayOfWeek(index + 1);
         break;
     }
     case LongDate: {
