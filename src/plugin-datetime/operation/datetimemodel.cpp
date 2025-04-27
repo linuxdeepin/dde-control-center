@@ -965,7 +965,7 @@ void DatetimeModel::addUserTimeZone(const ZoneInfo &zone)
 {
     const QString zoneName = zone.getZoneName();
 
-    if (!m_userZoneIds.contains(zoneName) && zoneName != QTimeZone::systemTimeZoneId()) {
+    if (!m_userZoneIds.contains(zoneName) && zoneName != m_currentSystemTimeZone.getZoneName()) {
         m_userZoneIds.append(zoneName);
         m_userTimeZones.append(zone);
         Q_EMIT userTimeZoneAdded(zone);
