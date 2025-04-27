@@ -620,12 +620,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>Tefed tefed tefed tefed</translation>
     </message>
     <message>
-        <source>Device crashed, please scan again!</source>
-        <translation>Tefed tefed tefed, sii tefed tefed tefed tefed</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Annule</translation>
+    </message>
+    <message>
+        <source>Camera occupied!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2342,6 +2342,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Search</source>
         <translation>Tefit itefen</translation>
     </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
@@ -3074,6 +3078,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new </source>
         <translation>Ajouti un nwe </translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1659,7 +1659,7 @@
     </message>
     <message>
         <source>Polish</source>
-        <translation>Polski</translation>
+        <translation>Polish</translation>
     </message>
     <message>
         <source>Portuguese</source>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -29,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Usuń bieżące konto</translation>
+        <translation>Usuń wybrane konto</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -188,7 +186,7 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -641,7 +639,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera zajęta!</translation>
     </message>
 </context>
 <context>
@@ -713,11 +711,11 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Short</source>
-        <translation>Krótkie</translation>
+        <translation>Krótka</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Długie</translation>
+        <translation>Długa</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -1240,7 +1238,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Wybierz program domyślny do otwierania &apos;%1&apos;</translation>
+        <translation>Wybierz program domyślny do otworzenia &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
@@ -1468,7 +1466,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Własna godzina</translation>
+        <translation>Własna data</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -1789,7 +1787,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Wyłącz touchpad po podłączeniu myszy</translation>
+        <translation>Wyłącz panel dotykowy po podłączeniu myszy</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2062,15 +2060,15 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Wysoki priorytet wydajności, znacznie zwiększy to pobór energii i generowanie ciepła</translation>
+        <translation>Wysoki priorytet wydajności, znacznie zwiększy pobór energii i generowanie ciepła</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosowuje się do zapotrzebowania</translation>
+        <translation>Zbalansowana wydajność i zużycie baterii, automatycznie dostosuje się do zapotrzebowania</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Wysoki priorytet oszczędzania baterii, zmniejszenie poboru energii kosztem wydajności</translation>
+        <translation>Wysoki priorytet oszczędzania baterii, zmniejszy poboru energii kosztem wydajności</translation>
     </message>
 </context>
 <context>
@@ -2081,7 +2079,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Hour</source>
-        <translation>Godziny</translation>
+        <translation>Godzinie</translation>
     </message>
     <message>
         <source>Never</source>
@@ -2294,7 +2292,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>preview</source>
-        <translation>preview</translation>
+        <translation>Podgląd</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
@@ -2302,7 +2300,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>setting</source>
-        <translation>Ustawienia</translation>
+        <translation>Ustaw</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -2338,7 +2336,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Wymagane jest hasło do przywracania</translation>
+        <translation>Wymagaj hasło po wybudzeniu</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -2346,7 +2344,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Systemowy wygaszacz ekranu</translation>
+        <translation>Systemowe wygaszacze ekranu</translation>
     </message>
 </context>
 <context>
@@ -2357,7 +2355,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak wyników wyszukiwania</translation>
     </message>
 </context>
 <context>
@@ -2555,7 +2553,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Jeśli głośność jest większa niż 100%, może to zniekształcić dźwięk i być szkodliwe dla urządzeń wyjściowych</translation>
+        <translation>Jeśli głośność przekracza 100%, może to zniekształcić dźwięk i być szkodliwe dla głośnika</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2591,7 +2589,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>Dźwięk zostanie automatycznie zatrzymany, gdy używane urządzenie audio zostanie odłączone.</translation>
+        <translation>Dźwięk zostanie automatycznie zatrzymany, gdy używane urządzenie audio zostanie odłączone</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -2751,7 +2749,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Panel dotykowy</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
@@ -2767,7 +2765,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Wyłącz touchpad podczas pisania</translation>
+        <translation>Wyłącz panel dotykowy podczas pisania</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -2919,7 +2917,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>items</source>
-        <translation>Przedmioty</translation>
+        <translation>przedmiotów</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -3094,7 +3092,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Taka nazwa już istnieje</translation>
     </message>
 </context>
 <context>
@@ -3428,7 +3426,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Urządzenie</translation>
+        <translation>Urządzenia</translation>
     </message>
 </context>
 <context>
@@ -3538,7 +3536,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Ekran i układ</translation>
+        <translation>Ekran i układ ekranów</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -3633,7 +3631,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
-        <translation>Ustaw ekran i rozmiar ikon na pulpicie</translation>
+        <translation>Ustaw wygląd i rozmiar ikon na pulpicie</translation>
     </message>
 </context>
 <context>
@@ -3757,11 +3755,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Mysz i touchpad</translation>
+        <translation>Mysz i panel dotykowy</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Ogólne, mysz, touchpad</translation>
+        <translation>Ogólne, mysz, panel dotykowy</translation>
     </message>
 </context>
 <context>
@@ -3776,7 +3774,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Panel dotykowy</translation>
     </message>
 </context>
 <context>
@@ -3802,7 +3800,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Włącz Nie przeszkadzać</translation>
+        <translation>Włącz tryb Nie przeszkadzać</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -3868,7 +3866,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalizuj swoją tapetę i wygaszacz ekranu</translation>
+        <translation>Ustaw swoją tapetę i wygaszacz ekranu</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -3922,7 +3920,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzania i wyłączania</translation>
+        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzenie i wyłączanie</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -4123,7 +4121,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Wrażliwość nacisku</translation>
+        <translation>Czułość nacisku</translation>
     </message>
     <message>
         <source>Light</source>
