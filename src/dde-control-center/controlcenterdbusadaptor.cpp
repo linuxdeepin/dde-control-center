@@ -170,7 +170,7 @@ QString DBusControlCenterGrandSearchService::Search(const QString &json)
         return QString();
     }
     m_jsonCache = json;
-    QString val = parent()->search(json);
+    const QString &val = parent()->searchProxy(json);
     m_autoExitTimer->start();
     return val;
 }

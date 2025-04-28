@@ -69,7 +69,8 @@ public Q_SLOTS:
     void show();
     void showHelp();
     // DBus Search
-    QString search(const QString &json);
+    QString search(const QString &json) const;
+    QString searchProxy(const QString &json) const;
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
