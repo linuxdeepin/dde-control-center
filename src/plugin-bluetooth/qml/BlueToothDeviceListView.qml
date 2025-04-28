@@ -149,6 +149,11 @@ Rectangle {
                                 dccData.work().setDeviceAlias(model.id, nameEdit.text)
 
                             }
+                            onVisibleChanged: {
+                                if (visible) {
+                                    text = model.name
+                                }
+                            }
                             Keys.onPressed: {
                                 if (event.key === Qt.Key_Return) {
                                     hostNameEdit.forceActiveFocus(false); // 结束编辑
