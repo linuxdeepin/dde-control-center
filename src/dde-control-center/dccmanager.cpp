@@ -272,7 +272,7 @@ void DccManager::showHelp()
     QDBusConnection::sessionBus().asyncCall(message);
 }
 
-QString DccManager::search(const QString &json)
+QString DccManager::search(const QString &json) const
 {
     QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
     if (!jsonDocument.isNull()) {
@@ -311,6 +311,25 @@ QString DccManager::search(const QString &json)
     }
 
     return QString();
+}
+
+QString DccManager::searchProxy(const QString &json) const
+{
+    if (this->calledFromDBus()) {
+        if (!m_plugins->loadFinished()) {
+            qDebug(dccLog) << "Delay to get searching due to plugins unloaded.";
+            auto message = this->message();
+            setDelayedReply(true);
+            QObject::connect(m_plugins, &PluginManager::loadAllFinished, this, [this, json, message] () {
+                const auto &ret = this->search(json);
+                qDebug(dccLog) << "Searching finished, result size:" << ret.size();
+                QDBusConnection::sessionBus().send(message.createReply(ret));
+            }, Qt::SingleShotConnection);
+
+            return {};
+        }
+    }
+    return search(json);
 }
 
 bool DccManager::stop(const QString &)
