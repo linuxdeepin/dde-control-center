@@ -104,8 +104,8 @@ DccObject {
                             visible: (itemDelegate.isCurrentLang && dccObj.enabled) ||
                                      languageListTiltle.isEditing
                             icon.name: itemDelegate.isCurrentLang ? "item_checked" : "list_delete"
-                            icon.width: 24
-                            icon.height: 24
+                            icon.width: 16
+                            icon.height: 16
                             implicitWidth: 36
                             implicitHeight: 36
                             anchors {
