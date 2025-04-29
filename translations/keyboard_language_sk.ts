@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sk">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -7,7 +9,7 @@
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>አማርኛ</source>
@@ -31,7 +33,7 @@
     </message>
     <message>
         <source>Biełaruskaja łacinka</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Български</source>
@@ -139,7 +141,7 @@
     </message>
     <message>
         <source>Gaeilge</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gàidhlig</source>
@@ -159,7 +161,7 @@
     </message>
     <message>
         <source>هَوُسَ</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>עברית</source>
@@ -211,7 +213,7 @@
     </message>
     <message>
         <source>日本語</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ქართული</source>
@@ -275,11 +277,11 @@
     </message>
     <message>
         <source>Maithili</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ebon</source>
@@ -291,7 +293,7 @@
     </message>
     <message>
         <source>Македонски</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>മലയാളം</source>
@@ -299,7 +301,7 @@
     </message>
     <message>
         <source>Монгол</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>मराठी</source>
@@ -307,15 +309,15 @@
     </message>
     <message>
         <source>Bahasa Melayu</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Malti</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Myanmasa</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ekakairũ Naoero</source>
@@ -323,7 +325,7 @@
     </message>
     <message>
         <source>Norsk (bokmål)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Plattdüütsch</source>
@@ -335,11 +337,11 @@
     </message>
     <message>
         <source>Nederlands</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Norsk (nynorsk)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IsiNdebele</source>
@@ -351,7 +353,7 @@
     </message>
     <message>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Oromoo</source>
@@ -363,7 +365,7 @@
     </message>
     <message>
         <source>Иронау</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ਪੰਜਾਬੀ</source>
@@ -375,7 +377,7 @@
     </message>
     <message>
         <source>پښتو</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Português</source>
@@ -391,7 +393,7 @@
     </message>
     <message>
         <source>Русский</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Kinyarwanda</source>
@@ -427,19 +429,19 @@
     </message>
     <message>
         <source>Soomaaliga</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shqip</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Српски</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>srpski (latinica)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SiSwati</source>
@@ -451,7 +453,7 @@
     </message>
     <message>
         <source>Svenska</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swahili</source>
@@ -535,11 +537,11 @@
     </message>
     <message>
         <source>isixhosa</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ייִדיש</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yorùbá</source>
@@ -551,15 +553,39 @@
     </message>
     <message>
         <source>繁體中文(中國香港)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>繁體中文</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>isiZulu</source>
         <translation>isiZulu</translation>
+    </message>
+    <message>
+        <source>Català (Valencià)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Esperanto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Interlingua</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kabyle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Azerbaijani</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filipino</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

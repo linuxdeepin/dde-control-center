@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -560,6 +562,30 @@
     <message>
         <source>isiZulu</source>
         <translation>祖鲁语</translation>
+    </message>
+    <message>
+        <source>Català (Valencià)</source>
+        <translation>加泰罗尼亚语（巴伦西亚语）</translation>
+    </message>
+    <message>
+        <source>Esperanto</source>
+        <translation>世界语</translation>
+    </message>
+    <message>
+        <source>Interlingua</source>
+        <translation>国际语</translation>
+    </message>
+    <message>
+        <source>Kabyle</source>
+        <translation>卡拜尔语</translation>
+    </message>
+    <message>
+        <source>Azerbaijani</source>
+        <translation>阿塞拜疆语</translation>
+    </message>
+    <message>
+        <source>Filipino</source>
+        <translation>菲律宾语</translation>
     </message>
 </context>
 </TS>
