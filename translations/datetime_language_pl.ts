@@ -147,7 +147,7 @@
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation>Azerbejdżan</translation>
+        <translation>Azerski</translation>
     </message>
     <message>
         <source>Azerbaijani (Arabic)</source>
