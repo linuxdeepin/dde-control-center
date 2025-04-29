@@ -102,6 +102,11 @@ Loader {
     onLoaded: {
         item.show()
     }
+    onActiveChanged: {
+        if (!active) {
+            viewModel.setFilterWildcard("");
+        }
+    }
 }
 
 
