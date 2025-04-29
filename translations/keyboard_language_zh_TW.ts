@@ -563,27 +563,27 @@
     </message>
     <message>
         <source>Català (Valencià)</source>
-        <translation type="unfinished"/>
+        <translation>加泰隆尼亞語（瓦倫西亞語）</translation>
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>世界語</translation>
     </message>
     <message>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>國際語</translation>
     </message>
     <message>
         <source>Kabyle</source>
-        <translation type="unfinished"/>
+        <translation>卡拜爾語</translation>
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>亞塞拜然語</translation>
     </message>
     <message>
         <source>Filipino</source>
-        <translation type="unfinished"/>
+        <translation>菲律賓語</translation>
     </message>
 </context>
 </TS>
