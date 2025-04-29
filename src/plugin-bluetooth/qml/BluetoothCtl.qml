@@ -24,21 +24,33 @@ DccObject{
 
             property bool isSwitching: false
 
-            Component.onCompleted: {
-                deviceSwitch.checked = model.powered
-            }
-
             Connections {
                 target: model
                 function onPoweredChanged(poweredState, discoveringState) {
-                    if (deviceSwitch.checked === model.powered) {
+                    if (!dccData.model().airplaneEnable) {
+                        if (deviceSwitch.checked !== model.powered) {
+                            deviceSwitch.checked = model.powered;
+                        }
+                    } else {
+                        if (deviceSwitch.checked) {
+                            deviceSwitch.checked = false;
+                        }
+                    }
+
+                    if (deviceSwitch.checked === model.powered || dccData.model().airplaneEnable) {
+                       if (isSwitching) {
+                           if (model.powered && !dccData.model().airplaneEnable) {
+                               dccData.work().setAdapterDiscovering(model.id, true);
+                               dccData.work().setAdapterDiscoverable(model.id);
+                           } else {
+                               dccData.work().setAdapterDiscovering(model.id, false);
+                           }
+                       }
                         isSwitching = false;
-                        deviceSwitch.enabled = true;
                     } else {
                         isSwitching = true;
-                        deviceSwitch.enabled = false;
                     }
-                }
+               }
             }
 
             DciIcon {
@@ -178,15 +190,32 @@ DccObject{
                 id: deviceSwitch
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
-                onCheckedChanged: {
-                    enabled = false;
-                    isSwitching = true;
-                    dccData.work().setAdapterPowered(model.id ,checked);
-                    if (checked) {
-                        dccData.work().setAdapterDiscovering(model.id, true);
-                        dccData.work().setAdapterDiscoverable(model.id);
+
+                enabled: !dccData.model().airplaneEnable && !isSwitching
+
+                Component.onCompleted: {
+                    if (dccData.model().airplaneEnable) {
+                        checked = false;
                     } else {
-                        dccData.work().setAdapterDiscovering(model.id, false);
+                        checked = model.powered;
+                    }
+                }
+
+                Connections {
+                    target: dccData.model()
+                    function onAirplaneEnableChanged(airplaneModeEnabled) {
+                        if (airplaneModeEnabled) {
+                            checked = false;
+                        } else {
+                            checked = model.powered;
+                        }
+                    }
+                }
+
+                onClicked: {
+                    if (enabled) {
+                        isSwitching = true;
+                        dccData.work().setAdapterPowered(model.id, checked);
                     }
                 }
             }
