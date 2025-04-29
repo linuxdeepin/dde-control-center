@@ -1,3 +1,33 @@
+dde-control-center (6.1.23) unstable; urgency=medium
+
+  * fix: Add new language translation
+  * fix: The issue of abnormal mouse style is fixed
+  * fix: clear filter wildcard in LangsChooserDialog when deactivated
+  * fix: failed to retrieve search results for grand searching
+  * fix: Fixed the issue that the test content was not cleared
+  * fix: adjust icon size in LangAndFormat component
+  * fix: update locale in currentTime()
+  * fix: Fixed the error of opening the default path
+  * i18n: Updates for project Deepin Desktop Environment (#2218)
+  * fix: update system time zone check in addUserTimeZone method
+  * fix: Fixed the issue that the error content did not disappear
+  * fix: add setFirstDayOfWeek call in setCurrentFormat
+  * fix: Fixed the background exception of mouse operation
+  * fix: resolve display issues in TimeAndDate component
+  * fix: Modify the width of the strong reminder box
+  * fix: Update Chinese translation
+  * fix: Fixed that the password was empty and could still be determined
+  * feat: DccCheckIcon defaults to checked status
+  * fix: Modify search term configuration
+  * fix: enhance SearchableListViewPopup and TimeAndDate components
+  * fix: Fixed the issue that Bluetooth was renamed to empty
+  * fix: Fixed the error issue of changing the full name
+  * fix: Fixed the issue of waiting for Bluetooth to be turned on and
+    off
+  * fix: The issue of setting the background of grub startup is fixed
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Tue, 29 Apr 2025 13:16:21 +0800
+
 dde-control-center (6.1.22) unstable; urgency=medium
 
   * fix: Display window only when DBus calls ShowPage
