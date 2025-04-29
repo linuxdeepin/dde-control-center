@@ -637,7 +637,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>攝像頭被佔用！</translation>
     </message>
 </context>
 <context>
@@ -2353,7 +2353,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>無搜尋結果</translation>
     </message>
 </context>
 <context>
@@ -3090,7 +3090,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>該名稱已存在</translation>
     </message>
 </context>
 <context>
@@ -3896,7 +3896,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>介面和效果、視窗圓角</translation>
     </message>
 </context>
 <context>

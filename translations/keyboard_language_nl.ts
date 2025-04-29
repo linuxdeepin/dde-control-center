@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="nl">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -553,11 +551,11 @@
     </message>
     <message>
         <source>繁體中文(中國香港)</source>
-        <translation type="unfinished"></translation>
+        <translation>繁體中文(中國香港)</translation>
     </message>
     <message>
         <source>繁體中文</source>
-        <translation type="unfinished"></translation>
+        <translation>繁體中文</translation>
     </message>
     <message>
         <source>isiZulu</source>
@@ -565,27 +563,27 @@
     </message>
     <message>
         <source>Català (Valencià)</source>
-        <translation type="unfinished"></translation>
+        <translation>Catalaans (Valencià)</translation>
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"></translation>
+        <translation>Esperanto</translation>
     </message>
     <message>
         <source>Interlingua</source>
-        <translation type="unfinished"></translation>
+        <translation>Interlingua</translation>
     </message>
     <message>
         <source>Kabyle</source>
-        <translation type="unfinished"></translation>
+        <translation>Kabylisch</translation>
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation type="unfinished"></translation>
+        <translation>Azerbeidjaans</translation>
     </message>
     <message>
         <source>Filipino</source>
-        <translation type="unfinished"></translation>
+        <translation>Filipijns</translation>
     </message>
 </context>
 </TS>
