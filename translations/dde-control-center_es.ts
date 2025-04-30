@@ -3200,19 +3200,19 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Su host no se pudo remover del servidor de dominio</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Su host no pudo unirse al servidor de dominio</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de dominio AD</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no coincide</translation>
     </message>
 </context>
 <context>
