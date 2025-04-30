@@ -3161,15 +3161,15 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario ha sido utilizado por otra cuenta de usuario</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo es muy largo</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo ha sido utilizado por otra cuenta de usuario</translation>
     </message>
     <message>
         <source>Wrong password</source>
