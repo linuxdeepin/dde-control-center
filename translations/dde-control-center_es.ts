@@ -3081,11 +3081,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Use solo letras, números y guiones bajos</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>No más de 15 caracteres</translation>
     </message>
     <message>
         <source>Add a new </source>
