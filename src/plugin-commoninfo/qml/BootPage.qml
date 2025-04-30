@@ -231,7 +231,7 @@ DccObject {
                     font: DTK.fontManager.t6
                     horizontalAlignment: Qt.AlignLeft
                     verticalAlignment: Qt.AlignVCenter
-                    leftPadding: 0
+                    leftPadding: 15
                 }
 
                 Row {
@@ -242,7 +242,7 @@ DccObject {
                         font: DTK.fontManager.t8
                         horizontalAlignment: Qt.AlignLeft
                         verticalAlignment: Qt.AlignVCenter
-                        leftPadding: 0
+                        leftPadding: 15
                         opacity: 0.5
                     }
 
@@ -268,6 +268,7 @@ DccObject {
                 Switch {
                     id: verificationSwitch
 
+                    rightPadding: 7
                     checked: dccData.mode().grubEditAuthEnabled
                     onCheckedChanged: {
                         if (checked && !dccData.mode().grubEditAuthEnabled) {
