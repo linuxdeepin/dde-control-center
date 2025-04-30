@@ -3274,7 +3274,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Coloque los bordes de su huella dactilar en el sensor</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -3285,14 +3285,14 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Este atajo entra en conflicto con [%1]</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no puede estar vacía</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
