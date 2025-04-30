@@ -592,7 +592,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Suelte su dedico y colóquelo en el sensor de nuevo</translation>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
@@ -3254,23 +3254,23 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escanee los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste la posición para escanear los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar añadida</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo suspendido</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
@@ -3278,7 +3278,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
 </context>
 <context>
