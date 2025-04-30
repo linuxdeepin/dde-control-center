@@ -32,6 +32,7 @@ Control {
     contentItem: RowLayout {
         Label {
             Layout.leftMargin: DS.Style.keySequenceEdit.margin
+            font: D.DTK.fontManager.t6
             text: control.text
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter

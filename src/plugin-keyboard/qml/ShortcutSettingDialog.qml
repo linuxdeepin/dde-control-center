@@ -30,13 +30,18 @@ D.DialogWindow {
         width: parent.width
         Label {
             Layout.alignment: Qt.AlignHCenter
-            font.bold: true
+            font {
+                family: D.DTK.fontManager.t5.family
+                pixelSize: D.DTK.fontManager.t5.pixelSize
+                weight: Font.Bold
+            }
             text: qsTr("Add custom shortcut")
         }
 
         Label {
             Layout.alignment: Qt.AlignLeft
             Layout.leftMargin: 4
+            font: D.DTK.fontManager.t6
             text: qsTr("Name:")
         }
 
@@ -44,12 +49,14 @@ D.DialogWindow {
             id: nameEdit
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
+            font: D.DTK.fontManager.t6
             placeholderText: qsTr("Required")
         }
 
         Label {
             Layout.alignment: Qt.AlignLeft
             Layout.leftMargin: 4
+            font: D.DTK.fontManager.t6
             text: qsTr("Command:")
         }
 
@@ -57,6 +64,7 @@ D.DialogWindow {
             id: commandEdit
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
+            font: D.DTK.fontManager.t6
             clearButton.visible: false
             placeholderText: qsTr("Required")
             D.ActionButton {
@@ -111,6 +119,7 @@ D.DialogWindow {
                 id: conflictText
                 elide: Text.ElideRight
                 clip: true
+                font: D.DTK.fontManager.t6
                 visible: text.length > 0
             }
         }
@@ -122,6 +131,7 @@ D.DialogWindow {
             Button {
                 Layout.bottomMargin: 14
                 Layout.fillWidth: true
+                font: D.DTK.fontManager.t6
                 Layout.leftMargin: 4
                 text: qsTr("Cancel")
                 onClicked: {
@@ -132,6 +142,7 @@ D.DialogWindow {
                 Layout.bottomMargin: 14
                 Layout.fillWidth: true
                 Layout.rightMargin: 24
+                font: D.DTK.fontManager.t6
                 text: qsTr("Add")
                 enabled: commandEdit.text.length > 0 && nameEdit.text.length >0
                 onClicked: {
