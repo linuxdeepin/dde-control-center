@@ -3142,22 +3142,22 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Idioma del sistema, formato regional</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario debe tener entre 3 y 32 caracteres</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>El primer carácter debe ser una letra o número</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario no puede tener solo números</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
