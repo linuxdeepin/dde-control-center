@@ -3219,18 +3219,18 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Dimensional</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Plano</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Usar su cara para desbloquear el dispositivo y hacer ajustes más tarde</translation>
     </message>
     <message>
         <source>Faceprint</source>
