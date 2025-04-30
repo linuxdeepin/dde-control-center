@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>Add group</source>
-        <translation>Agregar grupo</translation>
+        <translation>Añadir grupo</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
@@ -1626,7 +1626,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>add</source>
-        <translation>añadir</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Region</source>
@@ -1684,7 +1684,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
 </context>
 <context>
@@ -2395,7 +2395,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
