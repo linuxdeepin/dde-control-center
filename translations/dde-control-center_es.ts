@@ -3115,30 +3115,30 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Configurar el menú de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Configurar los permisos root para desarrolladores</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones para desarrolladores</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de fecha, hora y zona horaria</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma y región</translation>
     </message>
     <message>
         <source>System language, region format</source>
