@@ -134,7 +134,9 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignTop
                 model: listModel
                 delegate: D.ItemDelegate {
+                    id: itemDelegate
                     text: model.name
+                    hoverEnabled: true
                     icon {
                         name: model.icon
                         width: 16
@@ -143,7 +145,21 @@ D.DialogWindow {
                     implicitHeight: 30
                     implicitWidth: leftView.width - 10
                     checked: model.checked
-                    normalBackgroundVisible: false
+                    background: Rectangle {
+                        color: {
+                            if (itemDelegate.checked) {
+                                return parent.palette.highlight
+                            } else if (itemDelegate.hovered) {
+                                if (D.DTK.themeType == D.ApplicationHelper.LightType)
+                                    return Qt.rgba(0, 0, 0, 0.1)
+                                else
+                                    return Qt.rgba(1, 1, 1, 0.1)
+                            } else {
+                                return "transparent"
+                            }
+                        }
+                        radius: DS.Style.control.radius
+                    }
                     onCheckedChanged: {
                         if (checked) {
                             let sections = model.sections.split('/')
