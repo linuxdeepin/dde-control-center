@@ -86,7 +86,7 @@
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Asegúrate de que ninguna parte de tu rostro esté cubierta por objetos y sea claramente visible. Tu rostro también debe estar bien iluminado.</translation>
+        <translation>Asegúrese de que ninguna parte de su rostro esté cubierta por objetos y sea claramente visible. Su rostro también debe estar bien iluminado.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
