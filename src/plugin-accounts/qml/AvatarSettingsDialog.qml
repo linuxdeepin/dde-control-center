@@ -140,6 +140,7 @@ D.DialogWindow {
                         width: 16
                         height: 16
                     }
+                    implicitHeight: 30
                     implicitWidth: leftView.width - 10
                     checked: model.checked
                     normalBackgroundVisible: false
