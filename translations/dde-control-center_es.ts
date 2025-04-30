@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Agregar nuevo usuario</translation>
+        <translation>Añadir nuevo usuario</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -1243,7 +1243,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
@@ -1626,7 +1626,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>add</source>
-        <translation>agregar</translation>
+        <translation>añadir</translation>
     </message>
     <message>
         <source>Region</source>
@@ -2399,7 +2399,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation>Haga clic en Agregar para reemplazar</translation>
+        <translation>Haga clic en añadir para reemplazar</translation>
     </message>
 </context>
 <context>
@@ -3089,7 +3089,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"/>
+        <translation>Añadir uno nuevo</translation>
     </message>
     <message>
         <source>This name already exists</source>
