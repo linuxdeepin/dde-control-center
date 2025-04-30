@@ -3234,23 +3234,23 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella facial</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo firmemente en el sensor hasta que le pida que lo levante</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
