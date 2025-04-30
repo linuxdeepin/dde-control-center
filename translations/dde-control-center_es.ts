@@ -2356,7 +2356,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Sin resultados</translation>
     </message>
 </context>
 <context>
