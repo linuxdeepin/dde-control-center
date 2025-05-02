@@ -3296,19 +3296,19 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe tener al menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no debe tener más de %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras latinas (sensible a mayúsculas), números o símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres palíndromos</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
