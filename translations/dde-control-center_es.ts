@@ -3343,15 +3343,15 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Ventana</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Espacio de trabajo</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
