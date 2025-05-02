@@ -3654,7 +3654,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Distribución del teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
@@ -3756,11 +3756,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ratón y panel táctil</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, ratón, panel táctil</translation>
     </message>
 </context>
 <context>
@@ -3771,7 +3771,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -4016,7 +4016,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales</translation>
     </message>
     <message>
         <source>System</source>
