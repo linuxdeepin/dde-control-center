@@ -2114,7 +2114,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>No más de %1 caracteres de palíndromo, por favor</translation>
+        <translation>No más de %1 caracteres palíndromos</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
@@ -3312,23 +3312,23 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres monótonos</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres repetidos</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras mayúsculas, minúsculas, números y símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no debe contener más de 4 caracteres palíndromos</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>No use palabras y combinaciones comunes como contraseña</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
