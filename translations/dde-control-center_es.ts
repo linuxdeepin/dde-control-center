@@ -3593,15 +3593,15 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Configura la pantalla para mostrar colores más cálidos, reduciendo la luz azúl</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Horario</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Todo el día</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
