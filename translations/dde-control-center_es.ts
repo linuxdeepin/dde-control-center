@@ -704,7 +704,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Común</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Repeat delay</source>
@@ -3643,14 +3643,14 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, distribución de teclado, método de entrada, atajos</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -3767,7 +3767,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -4088,7 +4088,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
 </context>
 <context>
