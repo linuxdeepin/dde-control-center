@@ -2142,7 +2142,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>No cumple con las reglas de la contraseña</translation>
+        <translation>No cumple con las reglas de contraseñas</translation>
     </message>
 </context>
 <context>
@@ -3332,11 +3332,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, cree una contraseña fuerte</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>No cumple con las reglas de contraseñas</translation>
     </message>
 </context>
 <context>
