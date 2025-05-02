@@ -2134,7 +2134,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>No use palabras y combinaciones simples como contraseña</translation>
+        <translation>No use palabras o combinaciones comunes como contraseña</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
@@ -3328,7 +3328,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>No use palabras y combinaciones comunes como contraseña</translation>
+        <translation>No use palabras o combinaciones comunes como contraseña</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
