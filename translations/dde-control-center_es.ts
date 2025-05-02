@@ -1467,7 +1467,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Hora personalizada</translation>
+        <translation>Horario personalizado</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -3605,11 +3605,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Del atardecer al amanecer</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Horario personalizado</translation>
     </message>
     <message>
         <source>from</source>
