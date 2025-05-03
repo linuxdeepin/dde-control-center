@@ -4009,7 +4009,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activar y desactivar dispositivos de audio</translation>
     </message>
 </context>
 <context>
@@ -4020,29 +4020,29 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Información adicional</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Acerca del equipo</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versión del sistema e información del hardware</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción del software de código abierto</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
