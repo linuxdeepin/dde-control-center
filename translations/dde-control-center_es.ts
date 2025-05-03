@@ -311,7 +311,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Gestor de la Bateria</translation>
+        <translation>Administración de la bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -365,7 +365,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Select file</source>
-        <translation>Seleccionar Archivo</translation>
+        <translation>Seleccionar archivo</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>theme</source>
-        <translation>tema</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
@@ -4126,7 +4126,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Ligera</translation>
     </message>
 </context>
 </TS>
