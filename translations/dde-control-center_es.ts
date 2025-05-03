@@ -3658,7 +3658,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la distribución de teclado predeterminada</translation>
     </message>
 </context>
 <context>
@@ -3793,11 +3793,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de no molestar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones no se mostrarán en el escritorio y los sonidos se silenciarán, pero puede ver todos los mensajes en el centro de notificaciones.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -3821,7 +3821,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones se mostrarán en el escritorio o en mensajes sin leer en el centro de notificaciones</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -3833,7 +3833,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro de notificaciones</translation>
     </message>
     <message>
         <source>Show message preview</source>
