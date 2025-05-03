@@ -1385,7 +1385,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>folder</source>
-        <translation>carpeta</translation>
+        <translation>Carpeta</translation>
     </message>
 </context>
 <context>
