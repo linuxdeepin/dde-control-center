@@ -2914,7 +2914,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>show all</source>
-        <translation>mostrar todo</translation>
+        <translation>Mostrar todo</translation>
     </message>
     <message>
         <source>items</source>
@@ -3875,7 +3875,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Colores e iconos</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
