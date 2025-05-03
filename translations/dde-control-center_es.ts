@@ -142,8 +142,8 @@ In order to better use of face recognition, please pay attention to the followin
 Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al registrar los datos faciales:
 
 1.Manténgase en un entorno bien iluminado, evite la luz solar directa y la aparición de otras personas en la pantalla de registro.
-2.Preste atención al estado de su rostro al ingresar los datos y evite que sombreros, cabello, gafas de sol, mascarillas, maquillaje excesivo y otros factores cubran sus rasgos faciales.
-3.Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de su rostro, y asegúrese de que su rostro frontal aparezca clara y completamente en el cuadro de aviso.</translation>
+2.Preste atención al estado de su cara al ingresar los datos y evite que sombreros, cabello, gafas de sol, mascarillas, maquillaje excesivo y otros factores cubran sus rasgos faciales.
+3.Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de su cara, y asegúrese de que su cara frontal aparezca clara y completamente en el cuadro de aviso.</translation>
     </message>
     <message>
         <source>Agree</source>
@@ -600,7 +600,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Cara inscrita</translation>
+        <translation>Cara registrada</translation>
     </message>
     <message>
         <source>Position a human face please</source>
@@ -624,7 +624,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>No se inscriba en ambientes oscuros, brillantes o a contraluz</translation>
+        <translation>No se registre en ambientes oscuros, brillantes o a contraluz</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
@@ -655,7 +655,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Tema de íconos</translation>
+        <translation>Tema de iconos</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -1020,7 +1020,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Page size</source>
-        <translation>Tamaño de la Página</translation>
+        <translation>Tamaño de la página</translation>
     </message>
 </context>
 <context>
