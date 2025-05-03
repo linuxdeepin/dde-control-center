@@ -2293,7 +2293,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>preview</source>
-        <translation>vista previa</translation>
+        <translation>Vista previa</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
@@ -2301,7 +2301,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>setting</source>
-        <translation>ajuste</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>idle time</source>
@@ -2333,7 +2333,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>never</source>
-        <translation>nunca</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
@@ -2859,7 +2859,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>never</source>
-        <translation>nunca</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <source>30 second</source>
@@ -2887,11 +2887,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>login</source>
-        <translation>iniciar sesión</translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation>despertar</translation>
+        <translation>Despertar</translation>
     </message>
     <message>
         <source>System Wallapers</source>
@@ -2910,7 +2910,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>desplegar</translation>
+        <translation>Desplegar</translation>
     </message>
     <message>
         <source>show all</source>
