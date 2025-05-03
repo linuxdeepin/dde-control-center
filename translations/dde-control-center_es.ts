@@ -500,47 +500,47 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>huella dactilar1</translation>
+        <translation>Huella dactilar 1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>huella dactilar2</translation>
+        <translation>Huella dactilar 2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>huella dactilar3</translation>
+        <translation>Huella dactilar 3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>huella dactilar4</translation>
+        <translation>Huella dactilar 4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>huella dactilar5</translation>
+        <translation>Huella dactilar 5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>huella dactilar6</translation>
+        <translation>Huella dactilar 6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>huella dactilar7</translation>
+        <translation>Huella dactilar 7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>huella dactilar8</translation>
+        <translation>Huella dactilar 8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>huella dactilar9</translation>
+        <translation>Huella dactilar 9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>huella dactilar10</translation>
+        <translation>Huella dactilar 10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Escaneo fallido</translation>
+        <translation>El escaneo falló</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
