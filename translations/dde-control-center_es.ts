@@ -3,7 +3,7 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Add new user</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>Group name</source>
@@ -1591,11 +1591,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
@@ -1614,11 +1614,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Other languages</source>
@@ -2422,11 +2422,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>finalizar</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
