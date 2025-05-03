@@ -3883,19 +3883,19 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fuente y tamaño de fuente</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Cambie la fuente y el tamaño de fuente del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione tema claro, oscuro o automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
