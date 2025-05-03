@@ -2511,7 +2511,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícono del lanzador al escritorio</translation>
+        <translation>Enviar icono del lanzador al escritorio</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -3879,7 +3879,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste el color de resaltado y tema de iconos</translation>
     </message>
     <message>
         <source>Font and font size</source>
