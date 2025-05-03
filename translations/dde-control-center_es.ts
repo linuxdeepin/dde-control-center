@@ -4046,7 +4046,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Declaración del software de código abierto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
