@@ -2297,7 +2297,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Protector de pantalla personalizado</translation>
+        <translation>Salvapantallas personalizado</translation>
     </message>
     <message>
         <source>setting</source>
@@ -2305,7 +2305,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>idle time</source>
-        <translation>tiempo de inactividad</translation>
+        <translation>Tiempo de inactividad</translation>
     </message>
     <message>
         <source>1 minute</source>
@@ -2341,11 +2341,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Protector de pantalla con presentación de diapositivas de imágenes</translation>
+        <translation>Salvapantallas de presentación de imágenes</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Protector de pantalla del sistema</translation>
+        <translation>Salvapantallas del sistema</translation>
     </message>
 </context>
 <context>
@@ -3867,7 +3867,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalize el fondo de pantalla y salvapantallas</translation>
+        <translation>Personalice el fondo de pantalla y salvapantallas</translation>
     </message>
     <message>
         <source>Screensaver</source>
