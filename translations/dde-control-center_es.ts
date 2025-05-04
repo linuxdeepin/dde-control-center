@@ -3396,7 +3396,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Página web</translation>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Mail</source>
