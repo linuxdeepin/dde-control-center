@@ -1760,7 +1760,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -2716,7 +2716,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Zona Horaria</translation>
+        <translation>Zona horaria:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
@@ -2754,7 +2754,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Slow</source>
