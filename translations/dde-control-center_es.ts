@@ -1599,7 +1599,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>Agregue el método de entrada correspondiente en &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Administración de métodos de entrada&lt;/a&gt; para garantizar que la distribución del teclado funcione cuando se agregue o cambie.</translation>
+        <translation>Añada el método de entrada correspondiente en &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Administración de métodos de entrada&lt;/a&gt; para garantizar que la distribución del teclado funcione cuando se agregue o cambie.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
