@@ -446,7 +446,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Nombre de usuario</translation>
+        <translation>Nombre de usuario:</translation>
     </message>
     <message>
         <source>root</source>
@@ -2851,7 +2851,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>fill style</source>
-        <translation>estilo de relleno</translation>
+        <translation>Estilo de relleno</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
@@ -2910,7 +2910,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>Desplegar</translation>
+        <translation>Contraer</translation>
     </message>
     <message>
         <source>show all</source>
