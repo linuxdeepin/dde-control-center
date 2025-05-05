@@ -279,7 +279,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender la computadora después</translation>
+        <translation>Suspender el equipo después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -1431,7 +1431,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Se requiere contraseña para reactivar la computadora</translation>
+        <translation>Se requiere contraseña para reactivar el equipo</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
@@ -2026,7 +2026,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender la computadora después</translation>
+        <translation>Suspender el equipo después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
