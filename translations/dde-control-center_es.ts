@@ -205,7 +205,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>El &quot;Inicio de sesión automático&quot; se puede habilitar solo para una cuenta, desactívelo primero para la cuenta &quot;%1&quot;</translation>
+        <translation>El &quot;Inicio de sesión automático&quot; se puede activar solo para una cuenta, desactívelo primero para la cuenta &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -2465,7 +2465,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation>Seleccione para habilitar los dispositivos</translation>
+        <translation>Seleccione para activar los dispositivos</translation>
     </message>
     <message>
         <source>Input Devices</source>
