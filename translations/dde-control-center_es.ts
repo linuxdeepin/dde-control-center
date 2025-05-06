@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Eliminar cuenta actual</translation>
+        <translation>Borrar cuenta actual</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -686,7 +686,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Delete</source>
-        <translation>Eliminar</translation>
+        <translation>Borrar</translation>
     </message>
 </context>
 <context>
