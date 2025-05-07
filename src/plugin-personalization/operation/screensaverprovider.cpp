@@ -81,8 +81,8 @@ void ScreensaverProvider::setScreensaver(const QList<WallpaperItemPtr> &items)
 
 ScreensaverProvider::ScreensaverProvider(PersonalizationDBusProxy *proxy, PersonalizationModel *model, QObject *parent)
     : QObject(parent)
-    , m_proxy(proxy)
     , m_model(model)
+    , m_proxy(proxy)
 {
     workThread = new QThread(this);
     worker = new ScreensaverWorker(proxy);

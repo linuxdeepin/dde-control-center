@@ -111,6 +111,13 @@ void WallpaperModel::insertItem(int pos, WallpaperItemPtr it)
     endInsertRows();
 }
 
+void WallpaperModel::appendItem(WallpaperItemPtr it)
+{
+    if (it.isNull())
+        return;
+    insertItem(rowCount(), it);
+}
+
 void WallpaperModel::removeItem(const QString &item)
 {
     auto idx = itemIndex(item);
@@ -119,6 +126,13 @@ void WallpaperModel::removeItem(const QString &item)
 
     beginRemoveRows(QModelIndex(), idx.row(), idx.row());
     items.removeAt(idx.row());
+    endRemoveRows();
+}
+
+void WallpaperModel::removeItem(WallpaperItemPtr item)
+{
+    beginRemoveRows(QModelIndex(), itemIndex(item).row(), itemIndex(item).row());
+    items.removeOne(item);
     endRemoveRows();
 }
 
@@ -141,6 +155,11 @@ QModelIndex WallpaperModel::itemIndex(const QString &item) const
         return QModelIndex();
     auto row = items.indexOf(*it);
     return index(row, 0);
+}
+
+QModelIndex WallpaperModel::itemIndex(WallpaperItemPtr item) const
+{
+    return index(items.indexOf(item), 0);
 }
 
 void WallpaperModel::resetData(const QList<WallpaperItemPtr> &list)

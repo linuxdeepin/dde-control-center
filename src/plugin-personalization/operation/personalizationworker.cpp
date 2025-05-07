@@ -487,7 +487,6 @@ void PersonalizationWorker::addCustomWallpaper(const QString &url)
     } else {
         lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url);
     }
-    m_wallpaperWorker->fetchData(Wallpaper_Custom);
     setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, false, PersonalizationExport::Option_All);
 }
 
@@ -510,7 +509,6 @@ void PersonalizationWorker::addSolidWallpaper(const QColor &color)
 
     //set to dde, and prefix solid:: to tell dde this is a solid color wallpaper.
     const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), SOLID_PREFIX + file.fileName());
-    m_wallpaperWorker->fetchData(Wallpaper_Solid);
     setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, false, PersonalizationExport::Option_All);
 }
 
@@ -522,7 +520,6 @@ void PersonalizationWorker::deleteWallpaper(const QString &str)
     } else {
         m_personalizationDBusProxy->deleteCustomWallpaper(currentUserName(), str);
     }
-    m_wallpaperWorker->fetchData();
 }
 
 void PersonalizationWorker::setScreenSaver(const QString &value)
