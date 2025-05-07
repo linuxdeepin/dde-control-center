@@ -3,11 +3,11 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Agregar nuevo usuario</translation>
+        <translation>Añadir nuevo usuario</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>Eliminar cuenta actual</translation>
+        <translation>Borrar cuenta actual</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>Group name</source>
@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>Add group</source>
-        <translation>Agregar grupo</translation>
+        <translation>Añadir grupo</translation>
     </message>
     <message>
         <source>Auto login, login without password</source>
@@ -86,7 +86,7 @@
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Asegúrate de que ninguna parte de tu rostro esté cubierta por objetos y sea claramente visible. Tu rostro también debe estar bien iluminado.</translation>
+        <translation>Asegúrese de que ninguna parte de su cara esté cubierta por objetos y sea claramente visible. Su cara también debe estar bien iluminada.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -102,11 +102,11 @@
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Rostro registrado</translation>
+        <translation>Cara registrada</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Fallo al registrar el rostro</translation>
+        <translation>Fallo al registrar la cara</translation>
     </message>
     <message>
         <source>Done</source>
@@ -142,8 +142,8 @@ In order to better use of face recognition, please pay attention to the followin
 Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al registrar los datos faciales:
 
 1.Manténgase en un entorno bien iluminado, evite la luz solar directa y la aparición de otras personas en la pantalla de registro.
-2.Preste atención al estado de su rostro al ingresar los datos y evite que sombreros, cabello, gafas de sol, mascarillas, maquillaje excesivo y otros factores cubran sus rasgos faciales.
-3.Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de su rostro, y asegúrese de que su rostro frontal aparezca clara y completamente en el cuadro de aviso.</translation>
+2.Preste atención al estado de su cara al ingresar los datos y evite que sombreros, cabello, gafas de sol, mascarillas, maquillaje excesivo y otros factores cubran sus rasgos faciales.
+3.Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de su cara, y asegúrese de que su cara frontal aparezca clara y completamente en el cuadro de aviso.</translation>
     </message>
     <message>
         <source>Agree</source>
@@ -205,7 +205,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>El &quot;Inicio de sesión automático&quot; se puede habilitar solo para una cuenta, desactívelo primero para la cuenta &quot;%1&quot;</translation>
+        <translation>El &quot;Inicio de sesión automático&quot; se puede activar solo para una cuenta, desactívelo primero para la cuenta &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -279,7 +279,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender la computadora después</translation>
+        <translation>Suspender el equipo después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -311,7 +311,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Gestor de la Bateria</translation>
+        <translation>Administración de la bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -365,7 +365,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Select file</source>
-        <translation>Seleccionar Archivo</translation>
+        <translation>Seleccionar archivo</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>theme</source>
-        <translation>tema</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
@@ -446,7 +446,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>User Name :</source>
-        <translation>Nombre de usuario</translation>
+        <translation>Nombre de usuario:</translation>
     </message>
     <message>
         <source>root</source>
@@ -500,47 +500,47 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>CharaMangerModel</name>
     <message>
         <source>Fingerprint1</source>
-        <translation>huella dactilar1</translation>
+        <translation>Huella dactilar 1</translation>
     </message>
     <message>
         <source>Fingerprint2</source>
-        <translation>huella dactilar2</translation>
+        <translation>Huella dactilar 2</translation>
     </message>
     <message>
         <source>Fingerprint3</source>
-        <translation>huella dactilar3</translation>
+        <translation>Huella dactilar 3</translation>
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation>huella dactilar4</translation>
+        <translation>Huella dactilar 4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation>huella dactilar5</translation>
+        <translation>Huella dactilar 5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation>huella dactilar6</translation>
+        <translation>Huella dactilar 6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation>huella dactilar7</translation>
+        <translation>Huella dactilar 7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation>huella dactilar8</translation>
+        <translation>Huella dactilar 8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation>huella dactilar9</translation>
+        <translation>Huella dactilar 9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation>huella dactilar10</translation>
+        <translation>Huella dactilar 10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Escaneo fallido</translation>
+        <translation>El escaneo falló</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
@@ -592,7 +592,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Suelte su dedico y colóquelo en el sensor de nuevo</translation>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
@@ -600,7 +600,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Cara inscrita</translation>
+        <translation>Cara registrada</translation>
     </message>
     <message>
         <source>Position a human face please</source>
@@ -624,7 +624,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation>No se inscriba en ambientes oscuros, brillantes o a contraluz</translation>
+        <translation>No se registre en ambientes oscuros, brillantes o a contraluz</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
@@ -655,7 +655,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation>Tema de íconos</translation>
+        <translation>Tema de iconos</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
@@ -686,7 +686,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Delete</source>
-        <translation>Eliminar</translation>
+        <translation>Borrar</translation>
     </message>
 </context>
 <context>
@@ -704,7 +704,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Común</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Repeat delay</source>
@@ -1020,7 +1020,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Page size</source>
-        <translation>Tamaño de la Página</translation>
+        <translation>Tamaño de la página</translation>
     </message>
 </context>
 <context>
@@ -1243,7 +1243,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
@@ -1385,7 +1385,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>folder</source>
-        <translation>carpeta</translation>
+        <translation>Carpeta</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1431,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Se requiere contraseña para reactivar la computadora</translation>
+        <translation>Se requiere contraseña para reactivar el equipo</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
@@ -1467,7 +1467,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Hora personalizada</translation>
+        <translation>Horario personalizado</translation>
     </message>
     <message>
         <source>Monday</source>
@@ -1591,15 +1591,15 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>Agregue el método de entrada correspondiente en &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Administración de métodos de entrada&lt;/a&gt; para garantizar que la distribución del teclado funcione cuando se agregue o cambie.</translation>
+        <translation>Añada el método de entrada correspondiente en &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Administración de métodos de entrada&lt;/a&gt; para garantizar que la distribución del teclado funcione cuando se agregue o cambie.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
@@ -1614,11 +1614,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>Completado</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Other languages</source>
@@ -1626,7 +1626,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>add</source>
-        <translation>agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Region</source>
@@ -1684,7 +1684,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
 </context>
 <context>
@@ -1760,7 +1760,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -2026,7 +2026,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Suspender la computadora después</translation>
+        <translation>Suspender el equipo después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2114,7 +2114,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>No más de %1 caracteres de palíndromo, por favor</translation>
+        <translation>No más de %1 caracteres palíndromos</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
@@ -2134,7 +2134,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>No use palabras y combinaciones simples como contraseña</translation>
+        <translation>No use palabras o combinaciones comunes como contraseña</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
@@ -2142,7 +2142,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>No cumple con las reglas de la contraseña</translation>
+        <translation>No cumple con las reglas de contraseñas</translation>
     </message>
 </context>
 <context>
@@ -2293,19 +2293,19 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>preview</source>
-        <translation>vista previa</translation>
+        <translation>Vista previa</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Protector de pantalla personalizado</translation>
+        <translation>Salvapantallas personalizado</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation>ajuste</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation>tiempo de inactividad</translation>
+        <translation>Tiempo de inactividad</translation>
     </message>
     <message>
         <source>1 minute</source>
@@ -2333,7 +2333,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>never</source>
-        <translation>nunca</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
@@ -2341,11 +2341,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Protector de pantalla con presentación de diapositivas de imágenes</translation>
+        <translation>Salvapantallas de presentación de imágenes</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Protector de pantalla del sistema</translation>
+        <translation>Salvapantallas del sistema</translation>
     </message>
 </context>
 <context>
@@ -2356,7 +2356,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Sin resultados</translation>
     </message>
 </context>
 <context>
@@ -2395,11 +2395,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation>Agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation>Haga clic en Agregar para reemplazar</translation>
+        <translation>Haga clic en añadir para reemplazar</translation>
     </message>
 </context>
 <context>
@@ -2422,11 +2422,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>done</source>
-        <translation>finalizar</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation>editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
@@ -2465,7 +2465,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation>Seleccione para habilitar los dispositivos</translation>
+        <translation>Seleccione para activar los dispositivos</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -2511,7 +2511,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícono del lanzador al escritorio</translation>
+        <translation>Enviar icono del lanzador al escritorio</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -2716,7 +2716,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>Zona Horaria</translation>
+        <translation>Zona horaria:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
@@ -2754,7 +2754,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -2851,7 +2851,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>fill style</source>
-        <translation>estilo de relleno</translation>
+        <translation>Estilo de relleno</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
@@ -2859,7 +2859,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>never</source>
-        <translation>nunca</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <source>30 second</source>
@@ -2887,11 +2887,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>login</source>
-        <translation>iniciar sesión</translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation>despertar</translation>
+        <translation>Despertar</translation>
     </message>
     <message>
         <source>System Wallapers</source>
@@ -2910,11 +2910,11 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>desplegar</translation>
+        <translation>Contraer</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation>mostrar todo</translation>
+        <translation>Mostrar todo</translation>
     </message>
     <message>
         <source>items</source>
@@ -3057,305 +3057,305 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Se pueden ingresar hasta 5 registros faciales</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificar al usuario escaneando la huella dactilar</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Identificar escaneando el iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Use solo letras, números y guión bajo, y no más de 15 caracteres</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Use solo letras, números y guiones bajos</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>No más de 15 caracteres</translation>
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"/>
+        <translation>Añadir uno nuevo</translation>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Este nombre ya existe</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Bluetooth, dispositivos</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de arranque</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Configurar el menú de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Configurar los permisos root para desarrolladores</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones para desarrolladores</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de fecha, hora y zona horaria</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma y región</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Idioma del sistema, formato regional</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario debe tener entre 3 y 32 caracteres</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>El primer carácter debe ser una letra o número</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario no puede tener solo números</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario ha sido utilizado por otra cuenta de usuario</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo es muy largo</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo ha sido utilizado por otra cuenta de usuario</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña incorrecta </translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Usuario estándar</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Personalizado</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Su host se removió del servidor de dominio exitosamente.</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Su host se unió al servidor de dominio exitosamente</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Su host no se pudo remover del servidor de dominio</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Su host no pudo unirse al servidor de dominio</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de dominio AD</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no coincide</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Dimensional</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Plano</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Usar su cara para desbloquear el dispositivo y hacer ajustes más tarde</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella facial</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo firmemente en el sensor hasta que le pida que lo levante</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escanee los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste la posición para escanear los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar añadida</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo suspendido</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Coloque los bordes de su huella dactilar en el sensor</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Este atajo entra en conflicto con [%1]</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no puede estar vacía</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe tener al menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no debe tener más de %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras latinas (sensible a mayúsculas), números o símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres palíndromos</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres monótonos</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>No más de %1 caracteres repetidos</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras mayúsculas, minúsculas, números y símbolos (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no debe contener más de 4 caracteres palíndromos</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>No use palabras o combinaciones comunes como contraseña</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, cree una contraseña fuerte</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>No cumple con las reglas de contraseñas</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Ventana</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Espacio de trabajo</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>Herramientas de asistencia</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -3378,25 +3378,25 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Servicios en la nube</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicación predeterminada</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la aplicación predeterminada para abrir varios tipos de archivos</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Mail</source>
@@ -3521,107 +3521,107 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificar</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>La reorganización de la pantalla tendrá efecto en %1s después de los cambios</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Visualización y diseño</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillo</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolución</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar tamaño del escritorio</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Tasa de refresco</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotación</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estándar</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalado de pantalla</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>El monitor solo soporta escalado del 100%</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Descanso visual</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Activar descanso visual</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Configura la pantalla para mostrar colores más cálidos, reduciendo la luz azúl</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Horario</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Todo el día</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Del atardecer al amanecer</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Horario personalizado</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>De</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperatura del color</translation>
     </message>
 </context>
 <context>
@@ -3639,26 +3639,26 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, distribución de teclado, método de entrada, atajos</translation>
     </message>
 </context>
 <context>
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Distribución del teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la distribución de teclado predeterminada</translation>
     </message>
 </context>
 <context>
@@ -3756,377 +3756,377 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ratón y panel táctil</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, ratón, panel táctil</translation>
     </message>
 </context>
 <context>
     <name>mouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Panel táctil</translation>
     </message>
 </context>
 <context>
     <name>notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo no molestar, notificaciones de aplicaciones</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones</translation>
     </message>
 </context>
 <context>
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de no molestar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones no se mostrarán en el escritorio y los sonidos se silenciarán, pero puede ver todos los mensajes en el centro de notificaciones.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Activar no molestar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la pantalla está bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificaciones mostradas en el escritorio</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de las aplicaciones</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permitir notificaciones</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones se mostrarán en el escritorio o en mensajes sin leer en el centro de notificaciones</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro de notificaciones</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar vista previa del mensaje</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reproducir un sonido</translation>
     </message>
 </context>
 <context>
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personalización</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de ventana</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalice el fondo de pantalla y salvapantallas</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Salvapantallas</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Colores e iconos</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste el color de resaltado y tema de iconos</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fuente y tamaño de fuente</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Cambie la fuente y el tamaño de fuente del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione tema claro, oscuro o automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Ajute los effetos de ventana y esquinas redondeadas</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de energía, pantalla y suspención</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energía</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planes de energía y ajustes de energía, encendido y apagado</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Conectado</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y suspención</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Con batería</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla, suspensión, batería baja y ajustes de la batería</translation>
     </message>
 </context>
 <context>
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privacidad y seguridad</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Cámara, permisos de carpetas</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Cámara</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Selecione cuáles aplicaciones pueden acceder a la cámara</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Archivos y carpetas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Selecione cuáles aplicaciones pueden acceder a sus archivos y carpetas</translation>
     </message>
 </context>
 <context>
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Sonido</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Entradas y salidas de audio, efectos de sonido y dispositivos de audio</translation>
     </message>
 </context>
 <context>
     <name>soundMain</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Salida</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Activar y desactivar efectos de sonido</translation>
     </message>
     <message>
         <source>DevicesManger</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de audio</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activar y desactivar dispositivos de audio</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Información adicional</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Acerca del equipo</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versión del sistema e información del hardware</translation>
     </message>
     <message>
         <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción del software de código abierto</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Declaración del software de código abierto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Experiencia de usuario</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Unase al programa de experiencia de usuario para ayudar a mejorar este producto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Muestra el acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Muestra información sobre la política de seguridad</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla táctil</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Wacom</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo lápiz</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo ratón</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidad de la presión</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Ligera</translation>
     </message>
 </context>
 </TS>
