@@ -22,7 +22,7 @@ D.SpinBox {
     font: D.DTK.fontManager.t7
     signal timeChanged()
 
-    function valueChanged() {
+    function updateValue() {
         if (curInput === hourInput) {
             hour = value
         } else {
@@ -119,6 +119,6 @@ D.SpinBox {
     }
     onValueChanged: {
         // onValueChanged early than onCurInputChanged
-        Qt.callLater(valueChanged)
+        Qt.callLater(updateValue)
     }
 }

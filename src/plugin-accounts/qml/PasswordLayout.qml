@@ -222,13 +222,6 @@ ColumnLayout {
 
             let alertText = ""
             // pwcheck verifyPassword
-            if (currentPwd.visible) {
-                let alertText = dccData.checkPassword(pwdLayout.name, currentPwd.edit.text)
-                if (alertText.length > 0) {
-                    edit0.showAlertText(alertText)
-                    return false
-                }
-            }
             alertText = dccData.checkPassword(pwdLayout.name, edit0.text)
             if (alertText.length > 0) {
                 edit0.showAlertText(alertText)
