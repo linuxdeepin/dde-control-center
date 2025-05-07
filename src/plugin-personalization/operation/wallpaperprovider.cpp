@@ -42,8 +42,11 @@ WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDB
     m_workThread->start();
 
     connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
+    connect(m_worker, &InterfaceWorker::pushOneBackground, this, &WallpaperProvider::pushWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::listFinished, this, &WallpaperProvider::fetchFinish);
     connect(m_worker, &InterfaceWorker::thumbnailFinished, this, &WallpaperProvider::setThumbnail);
+
+    connect(m_personalizationProxy, &PersonalizationDBusProxy::WallpaperChanged, this, &WallpaperProvider::onWallpaperChangedFromDaemon);
 }
 
 WallpaperProvider::~WallpaperProvider()
@@ -79,17 +82,43 @@ void WallpaperProvider::setWallpaper(const QList<WallpaperItemPtr> &items, Wallp
 
     switch (type) {
         case WallpaperType::Wallpaper_Sys:
+            m_wallpaperList[WallpaperType::Wallpaper_Sys] = items;
             m_model->getSysWallpaperModel()->resetData(items);
             break;
         case WallpaperType::Wallpaper_Custom:
+            m_wallpaperList[WallpaperType::Wallpaper_Custom] = items;
             m_model->getCustomWallpaperModel()->resetData(items);
             break;
         case WallpaperType::Wallpaper_Solid:
+            m_wallpaperList[WallpaperType::Wallpaper_Solid] = items;
             m_model->getSolidWallpaperModel()->resetData(items);
             break;
         default:
             break;
     }
+}
+
+void WallpaperProvider::pushWallpaper(WallpaperItemPtr item, WallpaperType type)
+{
+    qCDebug(DdcPersonalizationWallpaperWorker) << "push wallpaper" << item->url<< "type:" << type;
+
+    switch (type) {
+        case WallpaperType::Wallpaper_Sys:
+            m_wallpaperList[WallpaperType::Wallpaper_Sys].append(item);
+            m_model->getSysWallpaperModel()->appendItem(item);
+            break;
+        case WallpaperType::Wallpaper_Custom:
+            m_wallpaperList[WallpaperType::Wallpaper_Custom].append(item);
+            m_model->getCustomWallpaperModel()->appendItem(item);
+            break;
+        case WallpaperType::Wallpaper_Solid:
+            m_wallpaperList[WallpaperType::Wallpaper_Solid].append(item);
+            m_model->getSolidWallpaperModel()->appendItem(item);
+            break;
+        default:
+            break;
+    }
+    emit fetchFinish();
 }
 
 void WallpaperProvider::setThumbnail(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail)
@@ -106,6 +135,97 @@ void WallpaperProvider::setThumbnail(WallpaperItemPtr item, const WallpaperType 
             break;
         default:
             break;
+    }
+}
+
+WallpaperType WallpaperProvider::getWallpaperType(const QString &path)
+{
+    for(auto iter = m_wallpaperList.begin(); iter != m_wallpaperList.end(); ++iter) {
+        for (const auto &item : iter.value()) {
+            if (item->url == path) {
+                return iter.key();
+            }
+        }
+    }
+
+    if (path.startsWith(SYS_WALLPAPER_DIR)) {
+        return WallpaperType::Wallpaper_Sys;
+    } else if (path.startsWith(CUSTOM_WALLPAPER_DIR)) {
+        return WallpaperType::Wallpaper_Custom;
+    } else if (path.startsWith(CUSTOM_SOLIDE_WALLPAPER_DIR)) {
+        return WallpaperType::Wallpaper_Solid;
+    } else if (path.startsWith(SYS_SOLIDE_WALLPAPER_DIR)) {
+        return WallpaperType::Wallpaper_Solid;
+    }
+
+    return WallpaperType::Wallpaper_Unknown;
+}
+
+void WallpaperProvider::removeWallpaper(const QString &url)
+{
+    qCDebug(DdcPersonalizationWallpaperWorker) << "remove wallpaper" << url;
+
+    auto type = getWallpaperType(url);
+
+    WallpaperItemPtr removeItem = nullptr;
+    for(auto iter = m_wallpaperList.begin(); iter!= m_wallpaperList.end(); ++iter) {
+        for (const auto &item : iter.value()) {
+            if (item->url == url) {
+                removeItem = item;
+                break;
+            }
+        }
+    }
+
+    if (!removeItem) {
+        return;
+    }
+
+    switch (type) {
+        case WallpaperType::Wallpaper_Sys:
+            m_model->getSysWallpaperModel()->removeItem(removeItem);
+            m_wallpaperList[WallpaperType::Wallpaper_Sys].removeAll(removeItem);
+            break;
+        case WallpaperType::Wallpaper_Custom:
+            m_model->getCustomWallpaperModel()->removeItem(removeItem);
+            m_wallpaperList[WallpaperType::Wallpaper_Custom].removeAll(removeItem);
+            break;
+        case WallpaperType::Wallpaper_Solid:
+            m_model->getSolidWallpaperModel()->removeItem(removeItem);
+            m_wallpaperList[WallpaperType::Wallpaper_Solid].removeAll(removeItem);
+            break;
+        default:
+            break;
+    }
+}
+
+void WallpaperProvider::addWallpaper(const QString &url)
+{
+    qCDebug(DdcPersonalizationWallpaperWorker) << "add wallpaper" << url;
+
+    const auto path = deCodeURI(url);
+    WallpaperType type = getWallpaperType(path);
+    if (type == WallpaperType::Wallpaper_Unknown) {
+        qCWarning(DdcPersonalizationWallpaperWorker) << "add wallpaper type unknown" << path;
+        return;
+    }
+    QMetaObject::invokeMethod(m_worker, "startListOne", Qt::QueuedConnection, Q_ARG(QString, path), Q_ARG(WallpaperType, type));
+}
+
+void WallpaperProvider::onWallpaperChangedFromDaemon(const QString &user, uint mode, const QStringList &paths)
+{
+    if (user != currentUserName()) {
+        return;
+    }
+
+    if (mode == 0) { // remove wallpaper
+        for (const auto &path : paths) {
+            removeWallpaper(enCodeURI(path, "file://"));
+        }
+    } else if (mode == 1) { // add wallpaper
+        for (const auto &path : paths) {
+            addWallpaper(enCodeURI(path, "file://"));
+        }
     }
 }
 
@@ -196,8 +316,24 @@ void InterfaceWorker::startListBackground(WallpaperType type)
         case WallpaperType::Wallpaper_Solid:
             getSolodBackground();
             break;
+        default:
+            break;
     }
     Q_EMIT listFinished();
+}
+
+void InterfaceWorker::startListOne(const QString &path, WallpaperType type)
+{
+    CHECK_RETURN_RUNNING
+    bool canDel = type == WallpaperType::Wallpaper_Custom;
+    if (type == WallpaperType::Wallpaper_Solid) {
+        canDel = path.startsWith(CUSTOM_SOLIDE_WALLPAPER_DIR);
+    }
+
+    WallpaperItemPtr ptr = createItem(path, canDel, type);
+    if (ptr) {
+        Q_EMIT pushOneBackground(ptr, type);
+    }
 }
 
 void InterfaceWorker::getSysBackground()

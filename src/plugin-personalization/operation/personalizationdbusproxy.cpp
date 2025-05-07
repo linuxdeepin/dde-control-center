@@ -58,6 +58,7 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
     connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
+    connect(m_DaemonInter, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)), this, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)));
 }
 
 // Appearance

@@ -153,6 +153,8 @@ signals:
     void lockScreenAtAwakeChanged(bool value);
     void linePowerScreenSaverTimeoutChanged(int value);
     void batteryScreenSaverTimeoutChanged(int value);
+    // daemon
+    void WallpaperChanged(const QString &value, uint mode, const QStringList &urls);
 
 public slots:
     // Appearance

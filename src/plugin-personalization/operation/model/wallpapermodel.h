@@ -65,7 +65,7 @@ public:
     }
 
     Q_INVOKABLE bool hasWallpaper(const QString &url) const {
-        for (size_t i = 0; i < sourceModel()->rowCount(); i++) {
+        for (int i = 0; i < sourceModel()->rowCount(); i++) {
             if (url == sourceModel()->data(sourceModel()->index(i, 0), Item_Url_Role).toString()) {
                 return true;
             }
@@ -106,9 +106,12 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     void insertItem(int pos, WallpaperItemPtr it);
+    void appendItem(WallpaperItemPtr it);
     void removeItem(const QString &item);
+    void removeItem(WallpaperItemPtr item);
     WallpaperItemPtr itemNode(const QModelIndex &idx) const;
     QModelIndex itemIndex(const QString &item) const;
+    QModelIndex itemIndex(WallpaperItemPtr item) const;
     void resetData(const QList<WallpaperItemPtr> &list);
     void updateSelected(const QStringList &selectedLists);
     void setThumbnail(WallpaperItemPtr item, const QString &thumbnail);

@@ -8,7 +8,7 @@
 #include <QObject>
 #include <QPixmap>
 #include <QMutex>
-#include <QMap>
+#include <QHash>
 #include <atomic>
 
 #include "operation/personalizationdbusproxy.h"
@@ -20,6 +20,7 @@ enum WallpaperType{
     Wallpaper_Sys,
     Wallpaper_Custom,
     Wallpaper_Solid,
+    Wallpaper_Unknown
 };
 
 class InterfaceWorker : public QObject
@@ -36,10 +37,12 @@ public:
 
 signals:
     void pushBackground(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
+    void pushOneBackground(const WallpaperItemPtr items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void thumbnailFinished(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail);
     void listFinished();
 public slots:
     void startListBackground(WallpaperType type = WallpaperType::Wallpaper_all);
+    void startListOne(const QString &path, WallpaperType type = WallpaperType::Wallpaper_all);
 private:
     WallpaperItemPtr createItem(const QString &path, bool del, WallpaperType type);
 private:
@@ -56,7 +59,9 @@ public:
     ~WallpaperProvider();
     void fetchData(WallpaperType type = WallpaperType::Wallpaper_all);
     static bool isColor(const QString &path);
-    static WallpaperType getWallpaperType(const QString &path);
+    WallpaperType getWallpaperType(const QString &path);
+    void removeWallpaper(const QString &url);
+    void addWallpaper(const QString &url);
 
 signals:
     void fetchFinish();
@@ -64,6 +69,8 @@ signals:
 private slots:
     void setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void setThumbnail(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail);
+    void pushWallpaper(WallpaperItemPtr item, WallpaperType type = WallpaperType::Wallpaper_Sys);
+    void onWallpaperChangedFromDaemon(const QString &user, uint mode, const QStringList &paths);
 
 private:
     QThread *m_workThread = nullptr;
@@ -71,8 +78,7 @@ private:
     PersonalizationModel *m_model = nullptr;
     PersonalizationDBusProxy *m_personalizationProxy = nullptr;
 
-    QList<WallpaperItemPtr> m_wallpaperList;
-    QList<WallpaperItemPtr> m_solidWallpaperList;
+    QHash<WallpaperType, QList<WallpaperItemPtr>> m_wallpaperList;
 };
 
 #endif // WALLPAPERPROVIDER_H
