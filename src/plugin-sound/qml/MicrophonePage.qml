@@ -88,8 +88,8 @@ DccObject {
                     stepSize: 0.00001
                     to: 1
                     value: dccData.model().microphoneVolume
-                    onValueChanged: {
-                        if (voiceTipsSlider1.value != dccData.model().microphoneVolume) {
+                    onPressedChanged: {
+                        if (!pressed && voiceTipsSlider1.value != dccData.model().microphoneVolume) {
                             dccData.worker().setSourceVolume(voiceTipsSlider1.value)
                         }
                     }
