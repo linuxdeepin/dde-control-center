@@ -2093,7 +2093,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати адресу посилання</translation>
     </message>
 </context>
 <context>
