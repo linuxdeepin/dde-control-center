@@ -1,3 +1,24 @@
+dde-control-center (6.1.24) unstable; urgency=medium
+
+  * fix: optimize slider behavior in sound control center
+  * fix: improve country name translation in datetime module
+  * fix: update mouse double-click speed slider labels
+  * fix: Fixed the issue that hyperlinks did not have context menus
+  * fix: Fixed the Bluetooth switch issue in airplane mode
+  * fix: Fixed the lack of hover effect for list items
+  * fix: Modify the height of the sidebar item
+  * fix: improve time format handling in datetime model
+  * feat:  adapt to WallpaperChanged signal
+  * fix: Modify and check password strength issues
+  * fix: Add keyboard_language generation script
+  * i18n: Updates for project Deepin Desktop Environment (#2233)
+  * fix: Fix layout errors
+  * fix: update font in ShortcutSettingDialog
+  * fix: Fixed the issue that the rename was empty
+  * i18n: Updates for project Deepin Desktop Environment (#2229)
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 08 May 2025 16:44:23 +0800
+
 dde-control-center (6.1.23) unstable; urgency=medium
 
   * fix: Add new language translation
