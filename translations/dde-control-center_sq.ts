@@ -2094,7 +2094,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Kopjo Adresë Lidhjeje</translation>
     </message>
 </context>
 <context>
