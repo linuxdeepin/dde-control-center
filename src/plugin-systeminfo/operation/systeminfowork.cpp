@@ -16,6 +16,7 @@
 #include <QDateTime>
 #include <QFutureWatcher>
 #include <QtConcurrent/qtconcurrentrun.h>
+#include <QClipboard>
 
 #include <qregularexpression.h>
 #include <qtimezone.h>
@@ -209,6 +210,15 @@ void SystemInfoWork::initUserLicenseData()
     w->setFuture(QtConcurrent::run([this] {
         return getEndUserAgreementText();
     }));
+}
+
+// Removed the placeholder comment
+void SystemInfoWork::copyTextToClipboard(const QString &text)
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (clipboard) {
+        clipboard->setText(text);
+    }
 }
 
 void SystemInfoWork::initSystemCopyright()

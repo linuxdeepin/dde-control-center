@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE void setUeProgram(bool enabled);
     Q_INVOKABLE void showActivatorDialog();
     Q_INVOKABLE void showDetail();
+    Q_INVOKABLE void copyTextToClipboard(const QString &text); // Add new invokable method
 
     bool isUeProgramEnabled();
     void setUeProgramEnabled(bool enabled);

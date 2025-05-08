@@ -31,6 +31,7 @@ DccObject {
         weight: 30
         page:
             Label {
+                id: policyLabel
                 textFormat: Text.RichText
                 font: DTK.fontManager.t6
                 horizontalAlignment: Text.AlignLeft
@@ -38,10 +39,57 @@ DccObject {
                 wrapMode: Text.WordWrap
                 opacity: 0.7
 
+                property string currentLinkUrl: ""
+
                 // 超链接点击事件
                 onLinkActivated: function(url) {
                     console.log("点击的链接是: " + url)
                     Qt.openUrlExternally(url) // 使用默认浏览器打开链接
+                }
+
+                MouseArea {
+                    id: labelMouseArea
+                    anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    hoverEnabled: true
+
+                    cursorShape: policyLabel.linkAt(mouseX, mouseY) ? Qt.PointingHandCursor : Qt.ArrowCursor // Change cursor over links
+
+                    onPressed: (mouse)=> {
+                        if (mouse.button === Qt.RightButton) {
+                            var link = policyLabel.linkAt(mouse.x, mouse.y)
+                            if (link) {
+                                console.log("Right-clicked on link: " + link)
+                                policyLabel.currentLinkUrl = link
+                                contextMenu.popup()
+                            }
+                            mouse.accepted = true
+                        } else {
+                            mouse.accepted = false
+                        }
+                    }
+                }
+
+                Menu {
+                    id: contextMenu
+                    MenuItem {
+                        id: copyLinkMenuItem
+                        text: qsTr("Copy Link Address") + "(L)"
+                        onTriggered: {
+                            console.log("Copying link: " + policyLabel.currentLinkUrl)
+                            dccData.systemInfoWork().copyTextToClipboard(policyLabel.currentLinkUrl)
+                        }
+                    }
+                    Shortcut {
+                         sequence: "L"
+                         onActivated: {
+                             console.log("Shortcut L activated to select copy link")
+                             if (contextMenu.visible) {
+                                 contextMenu.currentIndex = 0
+                                 contextMenu.focus = true
+                             }
+                         }
+                     }
                 }
             }
     }
