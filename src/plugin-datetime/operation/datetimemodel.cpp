@@ -221,6 +221,8 @@ static QString translate(const QString &localeName, const QString &langRegion)
         QString country = langRegions.at(1).toUtf8().data();
         if (country == "Taiwan") {
             country = GetChinaTaiWanName();
+        } else {
+            country = QCoreApplication::translate("dcc::datetime::Country", langRegions.at(1).toUtf8().data());
         }
 
         QString langCountry = QString("%1(%2)").arg(lang).arg(country);
