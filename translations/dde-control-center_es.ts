@@ -2095,7 +2095,7 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Copiar dirección del enlace</translation>
     </message>
 </context>
 <context>
