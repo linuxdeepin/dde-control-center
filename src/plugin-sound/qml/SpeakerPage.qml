@@ -82,8 +82,8 @@ DccObject {
                     highlightedPassedGroove: true
                     value: dccData.model().speakerVolume
                     to: dccData.model().increaseVolume ? 1.5 : 1.0
-                    onValueChanged: {
-                        if (voiceTipsSlider.value != dccData.model().speakerVolume) {
+                    onPressedChanged: {
+                        if (!pressed && voiceTipsSlider.value != dccData.model().speakerVolume) {
                             dccData.worker().setSinkVolume(voiceTipsSlider.value)
                         }
                     }
@@ -143,8 +143,8 @@ DccObject {
                     to: 1
                     value: dccData.model().speakerBalance
 
-                    onValueChanged: {
-                        if (balanceSlider.value != dccData.model().speakerBalance) {
+                    onPressedChanged: {
+                        if (!pressed && balanceSlider.value != dccData.model().speakerBalance) {
                             dccData.worker().setSinkBalance(balanceSlider.value)
                         }
                     }
