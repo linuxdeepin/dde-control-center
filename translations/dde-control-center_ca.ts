@@ -2094,7 +2094,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Copia l&apos;adreça de l&apos;enllaç</translation>
     </message>
 </context>
 <context>
