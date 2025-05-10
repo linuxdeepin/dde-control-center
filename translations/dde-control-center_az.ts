@@ -110,7 +110,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Tamamlandı</translation>
     </message>
     <message>
         <source>Cancel</source>
