@@ -383,7 +383,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation>如需使用蓝牙功能，请关闭</translation>
+        <translation>若要使用蓝牙功能，请先关闭</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
