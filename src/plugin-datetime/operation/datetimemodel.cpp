@@ -832,8 +832,8 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     case DayOfWeek: {
         // dconfig
         m_work->setConfigValue(firstDayOfWeek_key, index + 1);
-        // dbus
-        m_work->setWeekStartDayFormat(index + 1);
+        // dbus (from 0 to 6)
+        m_work->setWeekStartDayFormat(index);
         setFirstDayOfWeek(index + 1);
         break;
     }
