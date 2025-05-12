@@ -33,6 +33,7 @@ protected:
 
 private:
     QList<dccV25::MetaData> m_datas;
+    QList<dccV25::MetaData> m_originalDatas;
     QStringList m_localLangs;
 };
 }
