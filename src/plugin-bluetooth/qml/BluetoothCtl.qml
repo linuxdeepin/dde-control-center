@@ -103,10 +103,24 @@ DccObject{
                         anchors.top: nameDetail.top
                         font.pointSize: 8
                         text: qsTr("Edit")
+                        background: null
 
-                        hoverEnabled: false
+                        hoverEnabled: true
                         implicitHeight: 20
-                        textColor: DS.Style.highlightedButton.text
+                        textColor: Palette {
+                            normal {
+                                common: DTK.makeColor(Color.Highlight)
+                            }
+                            normalDark: normal
+                            hovered {
+                                common: DTK.makeColor(Color.Highlight).lightness(+10)
+                            }
+                            hoveredDark: hovered
+                            pressed {
+                                common: DTK.makeColor(Color.Highlight).lightness(-10)
+                            }
+                            pressedDark: pressed
+                        }
 
                         onClicked: {
                             nameEdit.visible = true
@@ -264,7 +278,7 @@ DccObject{
             }
             Label {
                 id: airplaneModeLinkLabel
-                text: "<a href=\"airplaneMode\">" + qsTr("Airplane Mode") +"</a>"
+                text: "<a href=\"airplaneMode\" style=\"text-decoration:none;\">" + qsTr("Airplane Mode") +"</a>"
                 anchors.left: airplaneModeTextLabel.right
                 anchors.top: parent.top
                 font.pointSize: 8
