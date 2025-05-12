@@ -362,10 +362,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished">Editare</translation>
     </message>
     <message>
-        <source>Length greater than or equal to 64</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation type="unfinished">Permiteți altor dispozitive Bluetooth să găsească acest dispozitiv</translation>
     </message>
@@ -375,6 +371,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bluetooth name cannot exceed 64 characters</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
