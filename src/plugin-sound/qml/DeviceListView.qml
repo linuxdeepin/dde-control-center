@@ -62,6 +62,7 @@ Rectangle {
                             implicitWidth: 20
                             icon.width: 16
                             icon.height: 16
+                            background: null
                             onClicked: {
                                 console.log("play_back has clicked ")
                                 root.playbtnClicked(index)
