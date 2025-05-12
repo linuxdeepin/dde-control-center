@@ -66,6 +66,7 @@ void LanguageListModel::setMetaData(const QList<dccV25::MetaData> &data)
 {
     if (m_datas != data) {
         beginResetModel();
+        m_originalDatas = data;
         m_datas = data;
         removeLocalLangs();
         endResetModel();
@@ -77,6 +78,7 @@ void LanguageListModel::setLocalLang(const QStringList &langs)
     if (m_localLangs != langs) {
         beginResetModel();
         m_localLangs = langs;
+        m_datas = m_originalDatas;
         removeLocalLangs();
         endResetModel();
     }
