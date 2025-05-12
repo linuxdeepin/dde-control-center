@@ -362,10 +362,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>Redaguoti</translation>
     </message>
     <message>
-        <source>Length greater than or equal to 64</source>
-        <translation>Dydis lygus ar didesnis 64</translation>
-    </message>
-    <message>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Leisti kitoms Bluetooth įrenginėms rasti šią įrenginį</translation>
     </message>
@@ -376,6 +372,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Airplane Mode</source>
         <translation>Aviacijos režimas</translation>
+    </message>
+    <message>
+        <source>Bluetooth name cannot exceed 64 characters</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

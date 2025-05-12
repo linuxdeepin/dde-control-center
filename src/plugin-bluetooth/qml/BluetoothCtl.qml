@@ -148,7 +148,7 @@ DccObject{
                 onTextChanged: {
                     if (text.length > 64) {
                         text = text.substr(0, 64);  // 截断到31个字符
-                        nameEdit.alertText = qsTr("Length greater than or equal to 64")
+                        nameEdit.alertText = qsTr("Bluetooth name cannot exceed 64 characters")
                         nameEdit.showAlert = true
                         dccData.work().playErrorSound()
                         alertTimer.start()
