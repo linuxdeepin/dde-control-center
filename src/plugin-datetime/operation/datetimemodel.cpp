@@ -493,10 +493,22 @@ QAbstractListModel *DatetimeModel::timeDateModel()
     QStringList names = { tr("Week"), tr("First day of week"), tr("Short date"),
                           tr("Long date"), tr("Short time"), tr("Long time") };
 
-    initModes(names, DayAbbreviations, LongTime, model);
-    connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
-        if (format >= DayAbbreviations && format <= LongTime || format < 0)
-            initModes(names, DayAbbreviations, LongTime, model);
+    auto initFormattedModes = [this, model](const QStringList &names) {
+        QStringList nameList = names;
+        int indexBegin = DayAbbreviations;
+        QStringList langRegions = langRegion().split(":");
+        if (langRegions.size() >= 2 && !langRegions.first().contains("Chinese", Qt::CaseInsensitive)) {
+            indexBegin += 1;
+            nameList.removeFirst();
+        }
+        initModes(nameList, indexBegin, LongTime, model);
+    };
+
+    initFormattedModes(names);
+    connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this, initFormattedModes](int format){
+        if (format >= DayAbbreviations && format <= LongTime || format < 0) {
+            initFormattedModes(names);
+        }
     });
 
     m_timeDateModel = model;
