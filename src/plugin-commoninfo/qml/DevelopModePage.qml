@@ -145,7 +145,6 @@ DccObject {
                                     }
                                     developDlg.currentStackIndex = 0;
                                     stackView.replace(page1Component);
-                                    confirmBtn.text = qsTr("Login UOS ID")
                                 }
                             }
 
@@ -160,7 +159,6 @@ DccObject {
 
                                     developDlg.currentStackIndex = 1;
                                     stackView.replace(page2Component);
-                                    confirmBtn.text = qsTr("Import Certificate")
                                 }
                             }
                         }
@@ -175,7 +173,7 @@ DccObject {
 
                         D.RecommandButton {
                             id: confirmBtn
-                            text: dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID")
+                            text: developDlg.currentStackIndex === 1 ? qsTr("Import Certificate") : (dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID"))
                             font: D.DTK.fontManager.t7
 
                             Layout.fillWidth: true
