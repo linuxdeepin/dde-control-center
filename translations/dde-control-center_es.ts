@@ -2799,6 +2799,10 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <source>Join User Experience Program</source>
         <translation>Unirme al programa de experiencia de usuario</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
