@@ -61,6 +61,7 @@ DccObject {
         parentName: "system/userExperienceProgram/userExperienceProgramGrp"
         pageType: DccObject.Item
         page: D.Label {
+            id: userExperienceLabel
             anchors.fill: parent
             anchors.margins: 10
             font: DTK.fontManager.t6
@@ -69,10 +70,53 @@ DccObject {
             opacity: 0.7
             text: dccData.systemInfoMode().userExperienceProgramText
 
+            property string currentLinkUrl: ""
+
             // 超链接点击事件
             onLinkActivated: function(url) {
                 console.log("点击的链接是: " + url)
                 Qt.openUrlExternally(url) // 使用默认浏览器打开链接
+            }
+
+            MouseArea {
+                id: labelMouseArea
+                anchors.fill: parent
+                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                hoverEnabled: true
+
+                cursorShape: userExperienceLabel.linkAt(mouseX, mouseY) ? Qt.PointingHandCursor : Qt.ArrowCursor
+
+                onPressed: (mouse)=> {
+                    if (mouse.button === Qt.RightButton) {
+                        var link = userExperienceLabel.linkAt(mouse.x, mouse.y)
+                        if (link) {
+                            userExperienceLabel.currentLinkUrl = link
+                            contextMenu.popup()
+                        }
+                        mouse.accepted = true
+                    } else {
+                        mouse.accepted = false
+                    }
+                }
+            }
+
+            Menu {
+                id: contextMenu
+                MenuItem {
+                    text: qsTr("Copy Link Address") + "(L)" 
+                    onTriggered: {
+                        dccData.systemInfoWork().copyTextToClipboard(userExperienceLabel.currentLinkUrl)
+                    }
+                }
+                Shortcut {
+                    sequence: "L"
+                    onActivated: {
+                        if (contextMenu.visible) {
+                            contextMenu.currentIndex = 0
+                            contextMenu.focus = true
+                        }
+                    }
+                }
             }
         }
     }

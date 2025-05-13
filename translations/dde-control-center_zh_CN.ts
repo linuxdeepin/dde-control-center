@@ -2800,6 +2800,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Join User Experience Program</source>
         <translation>加入用户体验计划</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished">复制链接地址</translation>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
