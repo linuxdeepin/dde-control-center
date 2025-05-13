@@ -25,6 +25,7 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_allowEnableMultiScaleRatio(false)
     , m_resolutionRefreshEnable(true)
     , m_brightnessEnable(true)
+    , m_monitorModeChanging(true)
 {
 }
 
@@ -256,4 +257,9 @@ void DisplayModel::checkAllSupportFillModes()
         }
     }
     m_allSupportFillModes = true;
+}
+
+void DisplayModel::setmodeChanging(bool changing)
+{
+    m_monitorModeChanging = changing;
 }

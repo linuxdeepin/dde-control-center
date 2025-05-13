@@ -69,7 +69,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
         //display redSfit/autoLight
         connect(m_displayInter, &DisplayDBusProxy::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
-        connect(m_timer, &QTimer::timeout, this, [=] {
+        connect(m_timer, &QTimer::timeout, this, [this] {
             m_displayInter->ApplyChanges().waitForFinished();
             m_displayInter->Save().waitForFinished();
         });
@@ -318,6 +318,7 @@ constexpr static int dccRotate2wl(int dccRotate) {
 
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
+    m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
@@ -469,6 +470,7 @@ void DisplayWorker::resetBackup()
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
+    m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
         auto res = mon->getResolutionById(mode);
@@ -910,6 +912,7 @@ void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QStr
 
 void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, const int height)
 {
+    m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
