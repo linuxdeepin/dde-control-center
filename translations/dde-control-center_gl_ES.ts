@@ -2813,6 +2813,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Join User Experience Program</source>
         <translation>Únete ao Programa de Experiencia do Usuario</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
