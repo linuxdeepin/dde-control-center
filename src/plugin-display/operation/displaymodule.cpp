@@ -543,6 +543,11 @@ void DisplayModule::applySettings(QList<QObject *> listItems, qreal scale)
 
 void DisplayModule::applyChanged()
 {
+    Q_D(DisplayModule);
+    if (!d->m_model->monitorModeChanging()) {
+        return;
+    }
+    d->m_model->setmodeChanging(false);
     DccScreen *tmpPw = qobject_cast<DccScreen *>(sender());
     if (!tmpPw || d_ptrDisplayModule->m_model->displayMode() != EXTEND_MODE) {
         return;
@@ -563,7 +568,6 @@ void DisplayModule::applyChanged()
     }
     ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
     concatScreen->executemultiScreenAlgo(false);
-    Q_D(DisplayModule);
     d->setScreenPosition(tmpListItems);
     delete concatScreen;
     qDeleteAll(tmpListItems);
