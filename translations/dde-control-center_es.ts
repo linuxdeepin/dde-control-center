@@ -388,7 +388,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de Bluetooth no puede exceder los 64 caracteres</translation>
     </message>
 </context>
 <context>
