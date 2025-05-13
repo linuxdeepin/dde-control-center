@@ -33,6 +33,7 @@ Control {
         Label {
             Layout.leftMargin: DS.Style.keySequenceEdit.margin
             font: D.DTK.fontManager.t6
+            textFormat: Text.PlainText
             text: control.text
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter
