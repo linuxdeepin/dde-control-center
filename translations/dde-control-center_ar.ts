@@ -2790,6 +2790,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Join User Experience Program</source>
         <translation>Присоединиться к программе опыта пользователей</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>

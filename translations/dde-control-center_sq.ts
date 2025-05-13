@@ -2800,6 +2800,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Join User Experience Program</source>
         <translation>Merrni Pjesë te “User Experience Program”</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished">Kopjo Adresë Lidhjeje</translation>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
