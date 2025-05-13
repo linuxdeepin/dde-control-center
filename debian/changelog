@@ -1,3 +1,18 @@
+dde-control-center (6.1.25) unstable; urgency=medium
+
+  * fix: Modifying settings for copying mode issues
+  * fix: Fix the hyperlink issue in the user interface
+  * fix: Fix Bluetooth rename prompt error
+  * fix: correct week start day format index
+  * fix: Fix text style
+  * fix: Fix the button text display issue
+  * fix: hide play button background
+  * fix: improve datetime format handling for non-Chinese locales
+  * i18n: Updates for project Deepin Desktop Environment (#2244)
+  * fix: preserve original language data in LanguageListModel
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Tue, 13 May 2025 16:28:40 +0800
+
 dde-control-center (6.1.24) unstable; urgency=medium
 
   * fix: optimize slider behavior in sound control center
