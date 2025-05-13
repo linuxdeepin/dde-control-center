@@ -2787,6 +2787,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>Join User Experience Program</source>
         <translation>Pridruži se programu za izkušnje uporabnikov</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
