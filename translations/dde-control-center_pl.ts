@@ -2798,6 +2798,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Join User Experience Program</source>
         <translation>Dołącz do programu doświadczeń użytkownika</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
