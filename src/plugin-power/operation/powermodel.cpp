@@ -493,3 +493,12 @@ void PowerModel::setEnableScheduledShutdown(const QString &value)
         Q_EMIT enableScheduledShutdownChanged(value);
     }
 }
+
+void PowerModel::setIsVirtualEnvironment(bool isVirtualEnvironment)
+{
+    if (m_isVirtualEnvironment != isVirtualEnvironment) {
+        m_isVirtualEnvironment = isVirtualEnvironment;
+
+        Q_EMIT isVirtualEnvironmentChanged(isVirtualEnvironment);
+    }
+}

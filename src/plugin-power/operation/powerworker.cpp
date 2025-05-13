@@ -214,6 +214,7 @@ void PowerWorker::active()
 
     m_powerModel->setAutoPowerSaveMode(m_powerDBusProxy->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_powerDBusProxy->powerSavingModeEnabled());
+    m_powerModel->setIsVirtualEnvironment(isVirtualEnvironment());
 
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);

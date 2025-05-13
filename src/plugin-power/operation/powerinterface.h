@@ -27,6 +27,9 @@ public:
     Q_INVOKABLE int indexByValueOnMap(const QVariantList& dataMap, int targetValue);
     Q_INVOKABLE QString platformName();
 
+private:
+    void setPowerActionsVisible(QList<PowerOperatorModel*> actionModels, QList<PowerOperatorType> type,  bool visible);
+
 signals:
     void powerModelChanged(PowerModel *model);
     void powerWorkerChanged(PowerWorker *worker);

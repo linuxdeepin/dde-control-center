@@ -9,6 +9,7 @@
 
 #include <QVariant>
 #include <QSettings>
+#include <QProcess>
 
 DCORE_USE_NAMESPACE
 
@@ -38,5 +39,21 @@ inline const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::
 inline const static bool IsServerSystem =
         (Dtk::Core::DSysInfo::UosServer == UosType); // 是否是服务器版
 
+inline static bool isVirtualEnvironment()
+{
+    static bool cached = false;
+    static bool result = false;
+    
+    if (!cached) {
+        QProcess proc;
+        proc.start("systemd-detect-virt");
+        proc.waitForFinished(1000);
+        QString output = proc.readAllStandardOutput();
+        result = !output.contains("none");
+        cached = true;
+    }
+    
+    return result;
+}
 
 #endif // UTILS_H

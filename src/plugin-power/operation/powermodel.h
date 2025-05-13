@@ -53,6 +53,7 @@ class PowerModel : public QObject
     Q_PROPERTY(int weekBegins READ weekBegins WRITE setWeekBegins NOTIFY weekBeginsChanged)
     Q_PROPERTY(int lowPowerAction READ lowPowerAction WRITE setLowPowerAction NOTIFY lowPowerActionChanged)
     Q_PROPERTY(QVariantList customShutdownWeekDays READ customShutdownWeekDays WRITE setCustomShutdownWeekDays NOTIFY customShutdownWeekDaysChanged)
+    Q_PROPERTY(bool isVirtualEnvironment READ isVirtualEnvironment WRITE setIsVirtualEnvironment NOTIFY isVirtualEnvironmentChanged)
 
     Q_PROPERTY(QVariantList batteryLockDelayModel READ batteryLockDelayModel WRITE setBatteryLockDelayModel NOTIFY batteryLockDelayModelChanged)
     Q_PROPERTY(QVariantList batteryScreenBlackDelayModel READ batteryScreenBlackDelayModel WRITE setBatteryScreenBlackDelayModel NOTIFY batteryScreenBlackDelayModelChanged)
@@ -222,6 +223,9 @@ public:
     inline QString enableScheduledShutdown() const { return m_enableScheduledShutdown; };
     void setEnableScheduledShutdown(const QString &value);
 
+    inline bool isVirtualEnvironment() const { return m_isVirtualEnvironment; }
+    void setIsVirtualEnvironment(bool isVirtualEnvironment);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -272,6 +276,7 @@ Q_SIGNALS:
     void shutdownRepetitionChanged(int repetition);
     void weekBeginsChanged(int value);
     void customShutdownWeekDaysChanged(const QVariantList &value);
+    void isVirtualEnvironmentChanged(bool isVirtualEnvironment);
 
     void batteryLockDelayModelChanged(const QVariantList &value);
     void batteryScreenBlackDelayModelChanged(const QVariantList &value);
@@ -321,6 +326,7 @@ private:
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
     bool m_isBalancePerformanceSupported;
+    bool m_isVirtualEnvironment;
 
     // Account
     bool m_noPasswdLogin;

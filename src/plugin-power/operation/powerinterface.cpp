@@ -6,7 +6,10 @@
 #include "dccfactory.h"
 #include "poweroperatormodel.h"
 #include <QGuiApplication>
+#include <QLoggingCategory>
 #include "utils.h"
+
+Q_LOGGING_CATEGORY(DdcPowerInterface, "dcc-power-interface")
 
 PowerInterface::PowerInterface(QObject *parent) 
 : QObject(parent)
@@ -17,27 +20,32 @@ PowerInterface::PowerInterface(QObject *parent)
 , m_batteryLidClosedOperatorModel(new PowerOperatorModel(this))
 , m_batteryPressedOperatorModel(new PowerOperatorModel(this))
 {
-    m_powerLidClosedOperatorModel->setVisible(POT_ShutDown, false);
-    m_batteryLidClosedOperatorModel->setVisible(POT_ShutDown, false);
-    m_batteryLidClosedOperatorModel->setVisible(POT_ShowShutDownInter, false);
-    m_powerLidClosedOperatorModel->setVisible(POT_ShowShutDownInter, false);
+    setPowerActionsVisible({m_powerLidClosedOperatorModel, m_batteryLidClosedOperatorModel}, 
+        {POT_ShutDown, POT_ShowShutDownInter}, false);
 
     connect(m_model, &PowerModel::hibernateChanged, this, [this](bool value){
-        m_powerLidClosedOperatorModel->setVisible(POT_Hibernate, value);
-        m_powerPressedOperatorModel->setVisible(POT_Hibernate, value);
-        m_batteryLidClosedOperatorModel->setVisible(POT_Hibernate, value);
-        m_batteryPressedOperatorModel->setVisible(POT_Hibernate, value);
+        setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Hibernate}, value &&!isVirtualEnvironment());
     });
     connect(m_model, &PowerModel::suspendChanged, this, [this](bool value){
-        m_powerLidClosedOperatorModel->setVisible(POT_Suspend, value);
-        m_powerPressedOperatorModel->setVisible(POT_Suspend, value);
-        m_batteryLidClosedOperatorModel->setVisible(POT_Suspend, value);
-        m_batteryPressedOperatorModel->setVisible(POT_Suspend, value);
+        setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Suspend}, value &&!isVirtualEnvironment());
     });
     connect(m_model, &PowerModel::shutdownChanged, this, [this](bool value){
-        m_powerPressedOperatorModel->setVisible(POT_ShutDown, value);
-        m_batteryPressedOperatorModel->setVisible(POT_ShutDown, value);
+        setPowerActionsVisible(
+            {m_powerPressedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_ShutDown}, value);
     });
+
+    if (isVirtualEnvironment()) {
+        qCInfo(DdcPowerInterface) << "virtual environment, disable suspend and hibernate";
+        setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Hibernate, POT_Suspend}, false);
+    }
+
     m_worker->active();
 }
 
@@ -86,6 +94,18 @@ int PowerInterface::indexByValueOnMap(const QVariantList& dataMap, int targetVal
 QString PowerInterface::platformName()
 {
     return qApp->platformName();
+}
+
+void PowerInterface::setPowerActionsVisible(QList<PowerOperatorModel*> actionModels, QList<PowerOperatorType> type,  bool visible)
+{
+    for (auto model : actionModels) {
+        if (!model) {
+            continue;
+        }
+        for (auto t : type) {
+            model->setVisible(t, visible);
+        }
+    }
 }
 
 DCC_FACTORY_CLASS(PowerInterface)
