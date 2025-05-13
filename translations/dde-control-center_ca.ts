@@ -387,7 +387,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nom del Bluetooth no pot superar els 64 caràcters.</translation>
     </message>
 </context>
 <context>
@@ -2800,7 +2800,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Copia l&apos;adreça de l&apos;enllaç</translation>
     </message>
 </context>
 <context>
