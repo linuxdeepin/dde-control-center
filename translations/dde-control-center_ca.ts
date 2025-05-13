@@ -2798,6 +2798,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Join User Experience Program</source>
         <translation>Uniu-vos al programa d&apos;experiència de l&apos;usuari</translation>
     </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VerifyDialog</name>
