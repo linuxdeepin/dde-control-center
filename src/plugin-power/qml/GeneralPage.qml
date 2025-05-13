@@ -158,7 +158,7 @@ DccObject {
             parentName: "power/general/wakeupSettingsGroup"
             displayName: qsTr("Password is required to wake up the computer")
             weight: 1
-            visible: dccData.model.canSuspend && dccData.model.isSuspend
+            visible: dccData.model.canSuspend && dccData.model.isSuspend && !dccData.model.isVirtualEnvironment
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.model.sleepLock && !dccData.model.isNoPasswdLogin

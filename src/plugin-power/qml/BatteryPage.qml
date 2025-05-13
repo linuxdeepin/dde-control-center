@@ -122,7 +122,7 @@ DccObject {
         parentName: "power/onBattery"
         weight: 300
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
+        visible: dccData.platformName() !== "wayland" && !dccData.model.isVirtualEnvironment
         page: DccGroupView {}
 
         DccObject {
