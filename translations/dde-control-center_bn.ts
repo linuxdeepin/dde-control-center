@@ -4026,12 +4026,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সোন্দ ফ্যাক্টস চালু/অ্যাস্টিং</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>ডিভাইস ম্যানেজার</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>সোন্ড ডিভাইস চালু/অ্যাস্টিং</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
