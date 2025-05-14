@@ -3997,12 +3997,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Дол аракеттерин алуу/башкаруу</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Касиеттер менеджери</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Дол касиеттерин алуу/башкаруу</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
