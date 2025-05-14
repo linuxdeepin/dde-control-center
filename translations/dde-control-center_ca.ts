@@ -4016,7 +4016,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositius</translation>
     </message>
 </context>
 <context>
