@@ -99,6 +99,7 @@ SoundModel::SoundModel(QObject *parent)
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
     }
+    qmlRegisterType<SoundDeviceModel>("SoundDeviceModel", 1, 0, "SoundDeviceModel");
 }
 
 SoundModel::~SoundModel()
