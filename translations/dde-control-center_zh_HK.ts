@@ -4009,12 +4009,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>開啓/關閉系統音效</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>設備管理</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>啓用/禁用音頻設備</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
