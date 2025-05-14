@@ -3998,12 +3998,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Ativar/desativar efeitos sonoros</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Gerenciador de dispositivos</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Habilitar/desabilitar dispositivos de áudio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

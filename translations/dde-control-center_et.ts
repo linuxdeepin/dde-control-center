@@ -4006,12 +4006,12 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Lisa/kustuta soovitused</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Seadehallinur</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Lisa/kustuta soovituse pered</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

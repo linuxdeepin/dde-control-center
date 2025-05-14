@@ -3990,10 +3990,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enable/disable sound effects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4003,6 +3999,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

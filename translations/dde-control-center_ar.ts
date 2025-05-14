@@ -4003,12 +4003,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>تفعيل أو تعطيل التأثيرات الصوتية</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>مدير الأجهزة</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>تفعيل أو تعطيل أجهزة الصوت</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

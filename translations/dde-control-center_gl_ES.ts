@@ -4028,12 +4028,12 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Activar/desactivar os efectos de son</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Gestor de Dispositivos</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Activar/desactivar os dispositivos de son</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

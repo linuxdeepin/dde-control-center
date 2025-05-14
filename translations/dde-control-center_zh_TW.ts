@@ -4011,12 +4011,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>開啟/關閉系統音效</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>裝置管理</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>啟用/停用音訊裝置</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation>裝置管理</translation>
     </message>
 </context>
 <context>

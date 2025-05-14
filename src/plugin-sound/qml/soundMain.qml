@@ -62,9 +62,9 @@ DccObject {
         SoundEffectsPage {}
     }
     DccObject {
-        name: "deviceManger"
+        name: "deviceManager"
         parentName: "sound"
-        displayName: qsTr("DevicesManger")
+        displayName: qsTr("Devices")
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
         visible: dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0

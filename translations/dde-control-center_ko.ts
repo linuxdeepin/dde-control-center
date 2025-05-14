@@ -4050,12 +4050,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>소리 효과를 활성화/비활성화</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>장치 관리</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>음성 장치를 활성화/비활성화</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

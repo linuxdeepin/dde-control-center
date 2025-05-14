@@ -4013,12 +4013,12 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Włącz/wyłącz dźwięki systemu</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Zarządzaj urządzeniami</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Włącz/wyłącz urządzenia audio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

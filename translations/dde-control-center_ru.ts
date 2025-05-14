@@ -4012,12 +4012,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Включить/отключить звуковые эффекты</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Управление устройствами</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Включить/отключить аудио устройства</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

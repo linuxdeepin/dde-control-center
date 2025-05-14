@@ -4013,12 +4013,12 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Activa / desactiva els efectes de so</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Gestor de dispositius</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Activa / desactiva els dispositius d&apos;àudio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

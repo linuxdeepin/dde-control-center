@@ -4013,12 +4013,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>开启/关闭系统音效</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>设备管理</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>启用/禁用音频设备</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation>设备管理</translation>
     </message>
 </context>
 <context>

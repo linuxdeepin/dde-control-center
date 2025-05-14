@@ -4003,12 +4003,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>संगीत प्रभावहरूलाई खोल्न सक्नुहोस्/बन्द गर्न सक्नुहोस्</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>डिवाइस मनाजर</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>सुन्न डिवाइसहरूलाई खोल्न सक्नुहोस्/बन्द गर्न सक्नुहोस्</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
