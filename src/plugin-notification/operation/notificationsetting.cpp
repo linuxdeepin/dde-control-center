@@ -242,7 +242,7 @@ QList<NotificationSetting::AppItem> NotificationSetting::appItemsImpl() const
     for (int i = 0; i < apps.count(); i++) {
         const auto desktopId = apps[i]->appId;
         const auto icon = apps[i]->iconName;
-        const auto name = apps[i]->name;
+        const auto name = apps[i]->displayName;
 
         NotificationSetting::AppItem item;
         item.id = desktopId;
