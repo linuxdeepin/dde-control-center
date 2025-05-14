@@ -3999,12 +3999,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>เปิด/ปิดเสียงพิเศษ</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>จัดการอุปกรณ์</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>เปิด/ปิดอุปกรณ์เสียง</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
