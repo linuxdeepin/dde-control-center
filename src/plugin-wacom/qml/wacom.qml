@@ -11,7 +11,7 @@ DccObject {
     description: qsTr("Configuring wacom")
     icon: "dcc_nav_wacom"
     visible: false
-    weight: 50
+    weight: 60
     DccDBusInterface {
         property var exist
         service: "org.deepin.dde.InputDevices1"

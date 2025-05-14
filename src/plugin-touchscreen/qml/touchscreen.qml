@@ -10,7 +10,7 @@ DccObject {
     description: qsTr("Configuring Touchscreen")
     icon: "device_touchscreen"
     visible: false
-    weight: 60
+    weight: 50
     DccDBusInterface {
         property var touchscreensV2
         service: "org.deepin.dde.Display1"
