@@ -4010,12 +4010,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Вмикає або вимикає звукові ефекти.</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Керування пристроями</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Увімкнути/Вимкнути звукові пристрої</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
