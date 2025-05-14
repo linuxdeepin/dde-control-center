@@ -13,7 +13,7 @@ DccObject {
     description: qsTr("Bluetooth settings, devices")
     visible: false
     icon: "bluetoothNomal"
-    weight: 70
+    weight: 10
 
     DccDBusInterface {
         id: bluetoothDbus
