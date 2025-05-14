@@ -385,7 +385,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-nimi ei saa ylittää 64 merkkiä</translation>
     </message>
 </context>
 <context>
@@ -2797,7 +2797,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi linkin osoite</translation>
     </message>
 </context>
 <context>
@@ -4013,7 +4013,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Laitteet</translation>
     </message>
 </context>
 <context>
