@@ -3996,12 +3996,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>הפעלתToFפעות קול/הסרתToFפעות קול</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>מנהל מכשירים</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>הפעלת/Fסירת מכשירי קול</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
