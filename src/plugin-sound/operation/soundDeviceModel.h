@@ -17,11 +17,12 @@ class SoundDeviceModel: public QAbstractListModel {
 
     Q_OBJECT
 public:
-    enum soundEffectsRoles{
+    enum SoundEffectsRoles{
         NameRole = Qt::UserRole + 1,
         IsEnabled,
         IsActive,
     };
+    Q_ENUM(SoundEffectsRoles)
 
     explicit SoundDeviceModel(QObject *parent = nullptr);
 

@@ -9,6 +9,8 @@ import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
 
+import SoundDeviceModel 1.0
+
 DccObject {
     id: root
     function toPercent(value: string) {
@@ -19,6 +21,9 @@ DccObject {
         parentName: "sound/outPut"
         displayName: qsTr("Output")
         weight: 10
+    }
+    FontMetrics {
+        id: fm
     }
 
     DccObject {
@@ -197,10 +202,32 @@ DccObject {
                 Layout.rightMargin: 10
                 flat: true
                 textRole: "name"
-
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
                 enabled: dccData.model().outPutPortComboEnable
+                property real maxTextWidth: DS.Style.control.implicitWidth(control)
+                implicitWidth: maxTextWidth
+
+                function calculateMaxWidth() {
+                    var minWidth = DS.Style.control.implicitWidth(control);
+                    var calculatedWidth = 0;
+                    for (var i = 0; i < model.rowCount(); i++) {
+                        var nameData = model.data(model.index(i, 0), SoundDeviceModel.NameRole);
+                        var textWidth = fm.advanceWidth(nameData);
+                        calculatedWidth = Math.max(calculatedWidth, textWidth);
+                    }
+                    maxTextWidth = Math.max(minWidth,
+                        calculatedWidth + DS.Style.comboBox.iconSize + DS.Style.comboBox.spacing *3 + Layout.rightMargin * 2);
+                }
+
+                Component.onCompleted: {
+                    calculateMaxWidth();
+                }
+
+                Connections {
+                    target: model
+                    onDataChanged: calculateMaxWidth()
+                }
 
                 property bool isInitialized: false
 
