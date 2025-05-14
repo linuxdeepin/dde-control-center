@@ -4015,12 +4015,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Aktivera/inaktivera ljudeffekter</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>EnheterMänager</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Aktivera/inaktivera ljudenheter</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

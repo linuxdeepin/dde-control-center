@@ -4002,12 +4002,12 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Omogoči/inaktive zvokovne efekte</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Uredilnik uredev</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Omogoči/inaktive zvočne uredeva</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -4023,12 +4023,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation> įjungti/apyvartinti garso priežiūrų</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation> Įrenginių valdymas</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation> įjungti/apyvartinti garso įrenginius</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

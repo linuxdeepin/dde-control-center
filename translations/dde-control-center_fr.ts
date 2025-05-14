@@ -4029,12 +4029,12 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Activer/désactiver les effets sonores</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Gestion des appareils</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Activer/désactiver les appareils audio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

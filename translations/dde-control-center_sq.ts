@@ -4013,12 +4013,12 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Aktivizoni/çaktivizoni efekte zanore</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Aktivizoni/çaktivizoni pajisje audio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

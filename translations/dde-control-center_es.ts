@@ -4014,12 +4014,12 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <translation>Activar y desactivar efectos de sonido</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Dispositivos de audio</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Activar y desactivar dispositivos de audio</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

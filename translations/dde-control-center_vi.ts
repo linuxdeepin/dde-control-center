@@ -4025,12 +4025,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Bật/tắt hiệu ứng âm thanh</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Quản lý thiết bị</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Bật/tắt thiết bị âm thanh</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

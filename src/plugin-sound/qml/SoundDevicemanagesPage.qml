@@ -11,7 +11,7 @@ import org.deepin.dcc 1.0
 DccObject {
     DccTitleObject {
         name: "outputDevice"
-        parentName: "sound/deviceManger"
+        parentName: "sound/deviceManager"
         displayName: qsTr("Output Devices")
         description: qsTr("Select whether to enable the devices")
         visible: dccData.model().outPutCount !== 0
@@ -19,7 +19,7 @@ DccObject {
     }
     DccObject {
         name: "outputDeviceList"
-        parentName: "sound/deviceManger"
+        parentName: "sound/deviceManager"
         weight: 20
         visible: dccData.model().outPutCount !== 0
         backgroundType: DccObject.Normal
@@ -38,7 +38,7 @@ DccObject {
     }
     DccTitleObject {
         name: "inputDevice"
-        parentName: "sound/deviceManger"
+        parentName: "sound/deviceManager"
         displayName: qsTr("Input Devices")
         description: qsTr("Select whether to enable the devices")
         visible: dccData.model().inPutPortCount !== 0
@@ -46,7 +46,7 @@ DccObject {
     }
     DccObject {
         name: "inputDeviceList"
-        parentName: "sound/deviceManger"
+        parentName: "sound/deviceManager"
         weight: 40
         visible: dccData.model().inPutPortCount !== 0
         backgroundType: DccObject.Normal
