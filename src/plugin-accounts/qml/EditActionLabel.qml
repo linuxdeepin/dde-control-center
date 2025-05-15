@@ -11,6 +11,8 @@ D.LineEdit {
     property alias editBtn: editButton
     property alias alertText: panel.alertText
     property alias showAlert: panel.showAlert
+    property alias metrics: fontMetrics
+    property var completeText: ""
     signal finished()
 
     readOnly: true
@@ -38,6 +40,23 @@ D.LineEdit {
         edit.readOnly = true
 
         finished()
+    }
+
+    FontMetrics {
+        id: fontMetrics
+        font: edit.font
+    }
+
+    onReadOnlyChanged: {
+        if (!readOnly) {
+            text = completeText
+        }
+    }
+
+    Component.onCompleted: {
+        completeText = text
+        var elidedText = fontMetrics.elidedText(completeText, Text.ElideRight, width - rightPadding - 10)
+        text = elidedText
     }
 
     D.ActionButton {
