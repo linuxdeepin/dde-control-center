@@ -123,6 +123,7 @@ void DisplayWorker::active()
         m_model->setAdjustCCTmode(m_displayInter->colorTemperatureMode());
         m_model->setColorTemperatureEnabled(m_displayInter->colorTemperatureEnabled());
         m_model->setColorTemperature(m_displayInter->colorTemperatureManual());
+        m_model->setCustomColorTempTimePeriod(m_displayInter->customColorTempTimePeriod());
         m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
         m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
 

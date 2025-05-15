@@ -87,6 +87,7 @@ void DisplayModulePrivate::init()
     });
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
+    q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
     q_ptr->connect(m_model, &DisplayModel::adjustCCTmodeChanged, q_ptr, &DisplayModule::colorTemperatureModeChanged);
     updateMonitorList();
     updatePrimary();
@@ -449,6 +450,10 @@ QString DisplayModule::customColorTempTimePeriod() const
 
 void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
 {
+    QString oldTimePeriod = customColorTempTimePeriod();
+    if (oldTimePeriod == timePeriod) {
+        return;
+    }
     QRegularExpression re("^((2[0-3]|[01][0-9]):[0-5][0-9])-((2[0-3]|[01][0-9]):[0-5][0-9])$");
     QRegularExpressionMatch match = re.match(timePeriod);
     if (!match.hasMatch()) {
@@ -456,6 +461,23 @@ void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
     }
     QTime startTime = QTime::fromString(match.captured(1), "hh:mm");
     QTime endTime = QTime::fromString(match.captured(3), "hh:mm");
+    int dSecs = startTime.secsTo(endTime);
+    if (dSecs < 0) {
+        dSecs = endTime.secsTo(startTime);
+    }
+    if (dSecs < 300) {
+        QRegularExpressionMatch oldMatch = re.match(oldTimePeriod);
+        if (!oldMatch.hasMatch()) {
+            return;
+        }
+        QTime oldStartTime = QTime::fromString(oldMatch.captured(1), "hh:mm");
+        if (oldStartTime == startTime) {
+            startTime = endTime.addSecs(-300);
+        } else {
+            endTime = startTime.addSecs(300);
+        }
+    }
+
     Q_D(DisplayModule);
     d->m_worker->setCustomColorTempTimePeriod(startTime.toString(DEFAULT_TIME_FORMAT) + "-" + endTime.toString(DEFAULT_TIME_FORMAT));
 }

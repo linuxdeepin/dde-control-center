@@ -470,7 +470,10 @@ bool DccManager::eventFilter(QObject *watched, QEvent *event)
                     QPointF point = focusItem->mapFromGlobal(e->globalPosition());
                     QRectF rect(0, 0, focusItem->width(), focusItem->height());
                     if (!rect.contains(point)) {
-                        focusItem->setFocus(false);
+                        QQuickItem *item = w->property("sidebarPage").value<QQuickItem *>();
+                        if (item) {
+                            item->forceActiveFocus();
+                        }
                     }
                 }
             }
