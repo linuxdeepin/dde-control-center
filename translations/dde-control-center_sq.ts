@@ -4016,7 +4016,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje</translation>
     </message>
 </context>
 <context>
