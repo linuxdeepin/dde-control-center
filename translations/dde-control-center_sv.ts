@@ -147,10 +147,6 @@ För att använda ansiktsidentifiering på ett bättre sätt, vänligen notera f
 2. Vänligen notera ansiktsstadiet när du mata in data, och undvik att dina hattar, hår, solglasögon, masker, tunga make-up och andra faktorer för att dölja dina ansiktsdrag.
 3. Vänligen undvik att böja eller senkra huvudet, sluta ögonen eller visa bara en sida av ansiktet, och se till att din framsida ansiktsdrag uppträder tydligt och komplett i promptrutan.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Godkänna</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -197,10 +193,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Vänligen notera att UnionTech Software Technology Co., Ltd. kommer inte att samla in eller åtkomst till dina biometriska data, vilka kommer att lagras på din lokala enhet. Vänligen aktivera endast biometrisk autentisering i ditt personliga enhet och använd dina egna biometriska data för relaterade operationer, och ta bort eller ta bort andra personers biometriska data på enheten på ett snabbt och effektivt sätt, annars kommer du att ta på risken som uppstår därifrån.
 
 UnionTech Software Technology Co., Ltd. är engagerat att forskar och förbättra säkerheten, noggrannheten och stabiliteten för biometrisk autentisering. Eftersom det finns faktorer och riskkontroll som miljö, utrustning, teknik och andra faktorer, kan det inte garanteras att du kommer att lyckas med biometrisk autentisering i viss mån. Därför vänligen inte ta biometrisk autentisering som den enda sättet att logga in på UOS. Om du har några frågor eller förslag när du använder biometrisk autentisering, kan du ge feedback genom </translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Godkänna</translation>
     </message>
 </context>
 <context>
@@ -1352,6 +1344,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Ändring av inställningen kan ta upp till en minut att bearbeta. Efter att ha mottagit ett lyckat inställningsmeddelande, starta om enheten för att åtgärden ska börja gälla.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
