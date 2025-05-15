@@ -839,6 +839,16 @@ DccObject {
                     minute: dccData.customColorTempTimePeriod.split("-")[1].split(":")[1]
                     onTimeChanged: dccData.customColorTempTimePeriod = startTimeRange.timeString + "-" + endTimeRange.timeString
                 }
+                Connections {
+                    target: dccData
+                    function onCustomColorTempTimePeriodChanged() {
+                        var period = dccData.customColorTempTimePeriod.split("-")
+                        startTimeRange.hour = period[0].split(":")[0]
+                        startTimeRange.minute = period[0].split(":")[1]
+                        endTimeRange.hour = period[1].split(":")[0]
+                        endTimeRange.minute = period[1].split(":")[1]
+                    }
+                }
             }
         }
         DccObject {
