@@ -67,6 +67,68 @@ Loader {
                     text: model.display
                     hoverEnabled: true
                     ButtonGroup.group: langGroup
+                    contentItem: RowLayout {
+                        Loader {
+                            id: labelLoader
+                            property string text: checkDelegate.text
+                            property bool shouldSplit: text.split("-").length === 2
+                            Layout.fillWidth: !checkDelegate.content
+                            sourceComponent: shouldSplit ? splitComponent : singleComponent
+
+                            Component {
+                                id: singleComponent
+                                IconLabel {
+                                    spacing: checkDelegate.spacing
+                                    mirrored: checkDelegate.mirrored
+                                    display: checkDelegate.display
+                                    alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                    text: labelLoader.text
+                                    font: checkDelegate.font
+                                    color: checkDelegate.palette.windowText
+                                    icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.D.DciIcon)
+                                    Layout.fillWidth: !checkDelegate.content
+                                }
+                            }
+
+                            Component {
+                                id: splitComponent
+                                RowLayout {
+                                    spacing: 0
+                                    IconLabel {
+                                        mirrored: checkDelegate.mirrored
+                                        display: checkDelegate.display
+                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                        text: labelLoader.text.split("-")[0] || ""
+                                        font: checkDelegate.font
+                                        color: checkDelegate.palette.windowText
+                                    }
+                                    IconLabel {
+                                        mirrored: checkDelegate.mirrored
+                                        display: checkDelegate.display
+                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                        text: "-"
+                                        font: checkDelegate.font
+                                        color: checkDelegate.palette.windowText
+                                    }
+                                    IconLabel {
+                                        mirrored: checkDelegate.mirrored
+                                        display: checkDelegate.display
+                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                        text: labelLoader.text.split("-")[1] || ""
+                                        font: checkDelegate.font
+                                        color: checkDelegate.palette.windowText
+                                        icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.D.DciIcon)
+                                        Layout.fillWidth: !checkDelegate.content
+                                    }
+                                }
+                            }
+                        }
+                        Loader {
+                            active: checkDelegate.content
+                            sourceComponent: checkDelegate.content
+                            Layout.fillWidth: true
+                        }
+                    }
                     onCheckedChanged: {
                         if (checked)
                             itemsView.checkedLang = model.key
