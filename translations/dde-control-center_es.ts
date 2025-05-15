@@ -145,10 +145,6 @@ Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al reg
 2.Preste atención al estado de su cara al ingresar los datos y evite que sombreros, cabello, gafas de sol, mascarillas, maquillaje excesivo y otros factores cubran sus rasgos faciales.
 3.Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de su cara, y asegúrese de que su cara frontal aparezca clara y completamente en el cuadro de aviso.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Aceptar</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -195,10 +191,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Tenga en cuenta que UnionTech Software Technology Co., Ltd. no recopilará ni accederá a su información biométrica, que se almacenará en su dispositivo local. Active la autenticación biométrica únicamente en su dispositivo personal y utilice su propia información biométrica para las operaciones relacionadas. Desactive o elimine de inmediato la información biométrica de otras personas en dicho dispositivo; de lo contrario, usted asumirá los riesgos derivados.
 
 UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la seguridad, precisión y estabilidad de la autenticación biométrica. Sin embargo, debido a factores ambientales, de equipo, técnicos y de otro tipo, y al control de riesgos, no se garantiza que supere temporalmente la autenticación biométrica. Por lo tanto, no considere la autenticación biométrica como la única forma de iniciar sesión en UOS. Si tiene alguna pregunta o sugerencia al utilizar la autenticación biométrica, puede enviar sus comentarios a través de &quot;Servicio y soporte&quot; en el UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Aceptar</translation>
     </message>
 </context>
 <context>
@@ -1351,6 +1343,21 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>El cambio de opción puede tardar hasta un minuto en procesarse. Después de recibir un mensaje de configuración exitosa, reinicie el dispositivo para que surta efecto.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
