@@ -70,6 +70,9 @@ AccountsController::AccountsController(QObject *parent)
         this->groupsUpdate();
     });
     connect(m_worker, &AccountsWorker::updateGroupFailed, this, &AccountsController::groupsUpdateFailed);
+    connect(m_worker, &AccountsWorker::createGroupFailed, this, [this]() {
+        requestClearEmptyGroup(currentUserId());
+    });
     connect(m_worker, &AccountsWorker::updateGroupFinished, this, [this]() {
         updateAllGroups();
         this->groupsUpdate();
