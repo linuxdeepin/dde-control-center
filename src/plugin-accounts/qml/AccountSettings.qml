@@ -275,10 +275,14 @@ DccObject {
                     placeholderText: qsTr("Set fullname")
                     horizontalAlignment: TextInput.AlignRight
                     editBtn.visible: readOnly
+                    ToolTip {
+                        visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
+                        text: parent.completeText
+                    }
                     onReadOnlyChanged: {
                         // Store the original text when editing starts
                         if (!readOnly) {
-                            originalFullName = text
+                            originalFullName = completeText
                         }
                     }
                     onTextEdited: {
@@ -299,6 +303,9 @@ DccObject {
                     onFinished: function () {
                         // If text hasn't changed, do nothing
                         if (text === originalFullName) {
+                            var elidedText = fullNameEdit.metrics.elidedText(fullNameEdit.completeText, Text.ElideRight, 
+                            fullNameEdit.width - fullNameEdit.rightPadding - 10)
+                            fullNameEdit.text = elidedText
                             return;
                         }
 
@@ -324,7 +331,10 @@ DccObject {
                         target: dccData
                         function onFullnameChanged(userId, fullname) {
                             if (userId === settings.userId) {
-                                fullNameEdit.text = dccData.fullName(settings.userId)
+                                fullNameEdit.completeText = dccData.fullName(settings.userId)
+                                var elidedText = fullNameEdit.metrics.elidedText(fullNameEdit.completeText, Text.ElideRight, 
+                                fullNameEdit.width - fullNameEdit.rightPadding - 10)
+                                fullNameEdit.text = elidedText
                             }
                         }
                     }
