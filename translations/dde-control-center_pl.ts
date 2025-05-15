@@ -144,10 +144,6 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
 2. Podczas wprowadzania danych zwróć uwagę na stan twarzy i nie pozwól, aby nakrycia głowy, włosy, okulary przeciwsłoneczne, maski, mocny makijaż i inne czynniki zakrywały rysy twarzy.
 3. Unikaj przechylania lub opuszczania głowy, zamykania oczu lub pokazywania tylko jednej strony twarzy. Upewnij się, że przedni profil twarzy jest wyraźnie i całkowicie widoczny na ekranie.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Zgadzam się</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -194,10 +190,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Należy pamiętać, że UnionTech Software Technology Co., Ltd. nie będzie gromadzić, ani uzyskiwać dostępu do żadnych danych biometrycznych użytkownika, które będą przechowywane lokalnie na urządzeniu. Aktywuj uwierzytelnienie biometryczne wyłącznie na swoim urządzeniu osobistym i posługuj się wyłącznie swoimi informacjami biometrycznymi. Pamiętaj również, aby usunąć dane innych użytkowników, by uniknąć potencjalnych problemów w przyszłości.
 
 Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i poprawę jakości bezpieczeństwa, dokładności i stabilności uwierzytelniania biometrycznego. Jednak ze względu na czynniki środowiskowe, sprzętowe, techniczne i tym podobne oraz kontrole ryzyka związanego z tą technologią, nie możemy zagwarantować, że to rozwiązanie będzie działać za każdym razem. Dlatego nie należy traktować uwierzytelniania biometrycznego jako jedyny sposób logowania do systemu UOS. Jeśli masz jakiekolwiek pytania lub sugestie dotyczące uwierzytelniania biometrycznego, możesz przekazać opinię poprzez „Serwis i wsparcie” w systemie UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Zgadzam się</translation>
     </message>
 </context>
 <context>
@@ -1350,6 +1342,21 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Zmiana tej opcji może zając parę minut, gdy zmiany zostaną wprowadzone pomyślnie, uruchom ponownie urządzenie.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
