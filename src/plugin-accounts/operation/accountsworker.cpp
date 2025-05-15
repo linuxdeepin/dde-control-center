@@ -249,7 +249,7 @@ void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSyst
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, group, gid] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
             qWarning() << "Create group, gid: " << gid << ", created group `" << group << "` failed, error:" << call->error().message();
-            Q_EMIT updateGroupFailed(group);
+            Q_EMIT createGroupFailed(group);
             return;
         }
 

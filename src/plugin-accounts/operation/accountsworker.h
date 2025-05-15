@@ -53,6 +53,7 @@ Q_SIGNALS:
     void showSafetyPage(const QString &errorTips);
     void updateGroupFinished(OperateType operation, bool successfully, const QString& groupName = QString());
     void updateGroupFailed(const QString& groupName = QString());
+    void createGroupFailed(const QString& groupName = QString());
 public Q_SLOTS:
     void randomUserIcon(User *user);
     void createAccount(const User *user);
