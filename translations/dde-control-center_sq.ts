@@ -146,10 +146,6 @@ Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni 
 2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
 3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Pajtohem</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -196,10 +192,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Ju lutemi, kini parasysh se UnionTech Software Technology Co., Ltd. s’do të grumbullojë apo përdorë informacion biometrik tuajin,, i cili do të depozitohet në pajisjen tuaj vendore. Ju lutemi, aktivizojeni mirëfilltësimin biometrik në pajisjen tuaj personale dhe përdorni të dhëna tuajat biometrike vetëm për veprimet përkatëse dhe çaktivizojeni pa humbur kohë, ose fshini në atë pajisje të dhëna biometrike personash të tjerë, ndryshme do të jeni përballë rrezikut të rrjedhur prej tyre.
 
 UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe përmirësojë sigurinë, përpikërinë dhe qëndrueshmërinë e mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjeje, teknikë dhe të tjerë, si dhe kontrolli rreziku, s’ka garanci se do të kaloni mirëfilltësimin biometrik përkohësisht. Ndaj, ju lutemi, mos e merrni mirëfilltësimin biometrik si të vetmen rrugë për të bërë hyrjen në UOS. Nëse keni pyetje apo sugjerime, kur përdorni mirëfilltësimin biometrik, mund të jepni idetë tuaja përmes “Shërbim dhe Asistencë” te UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Pajtohem</translation>
     </message>
 </context>
 <context>
@@ -1352,6 +1344,21 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Ndryshimi i mundësisë mund të dojë deri në një minutë që të kryhet, pas marrjes së pohimit për rregullim të suksesshëm, ju lutemi, rinisni pajisjen, që të hyjë në fuqi.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Anuloje</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished">Pajtohem</translation>
     </message>
 </context>
 <context>

@@ -136,10 +136,6 @@ In order to better use of face recognition, please pay attention to the followin
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation>Antes de usar o reconhecimento facial, observe que: 1. Seu dispositivo pode ser desbloqueado por pessoas ou objetos que se parecem ou parecem semelhantes a você.2. O reconhecimento facial é menos seguro do que senhas digitais e senhas mistas.3. A taxa de sucesso do desbloqueio do seu dispositivo por meio do reconhecimento facial será reduzida em cenários de pouca luz, muita luz, luz de fundo, ângulo grande e outros cenários.4. Não dê seu dispositivo a outras pessoas aleatoriamente, para evitar o uso malicioso do reconhecimento facial.5. Além dos cenários acima, você deve prestar atenção a outras situações que podem afetar o uso normal do reconhecimento facial.Para melhor uso do reconhecimento facial, preste atenção aos seguintes assuntos ao inserir os dados faciais:1. Fique em um ambiente bem iluminado, evite luz solar direta e outras pessoas aparecendo na tela gravada.2. Preste atenção ao estado facial ao inserir dados e não deixe seus chapéus, cabelos, óculos de sol,  máscaras, maquiagem pesada e outros fatores para cobrir suas características faciais.3. Evite inclinar ou abaixar a cabeça, fechar os olhos ou mostrar apenas um lado do rosto e certifique-se de que sua face frontal apareça clara e completamente na caixa de prompt.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Concordar</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -182,10 +178,6 @@ Please be noted that UnionTech Software Technology Co., Ltd. will not collect or
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Aceitar</translation>
     </message>
 </context>
 <context>
@@ -1337,6 +1329,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>A alteração da opção pode levar até um minuto para ser processada. Após receber um prompt de configuração bem-sucedida, reinicie o dispositivo para que a configuração tenha efeito.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">Isenção de responsabilidade</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

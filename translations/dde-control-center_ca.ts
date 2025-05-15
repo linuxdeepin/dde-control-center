@@ -146,10 +146,6 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
 2. Si us plau, presteu atenció a l&apos;estat de la cara quan introduïu dades i no deixeu que els barrets, cabells, ulleres de sol, màscares, maquillatge pesat i altres factors cobreixin els trets facials.
 3. Si us plau, eviteu inclinar o abaixar el cap, tancar els ulls o mostrar només un costat de la cara, i assegureu-vos que la cara frontal aparegui clarament i completament al quadre.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Hi estic d&apos;acord</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -196,10 +192,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Tingueu en compte que UnionTech Software Technology Co., Ltd. no recopilarà ni accedirà a la vostra informació biomètrica, que s&apos;emmagatzemarà al vostre dispositiu local. Si us plau, habiliteu l&apos;autenticació biomètrica només al dispositiu personal i useu la pròpia informació biomètrica per a les operacions relacionades, i desactiveu o suprimiu immediatament la informació biomètrica d&apos;altres persones en aquest dispositiu, en cas contrari assumiu el risc que se&apos;n derivi.
 
 UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la seguretat, la precisió i l&apos;estabilitat de l&apos;autenticació biomètrica. No obstant això, a causa de factors ambientals, d&apos;equipament, tècnics i d&apos;altres, i control de riscos, no hi ha cap garantia que es passi l&apos;autenticació biomètrica temporalment. Per tant, no useu l&apos;autenticació biomètrica com a única manera d&apos;iniciar sessió a UOS. Si teniu cap pregunta o suggeriment quan useu l&apos;autenticació biomètrica, podeu fer comentaris mitjançant Servei i assistència a UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Hi estic d&apos;acord</translation>
     </message>
 </context>
 <context>
@@ -1352,6 +1344,21 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>El canvi d&apos;opció pot trigar fins a un minut a processar-se; després de rebre una sol·licitud de configuració correcta, reinicieu el dispositiu perquè tingui efecte.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">Exempció de responsabilitat</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancel·la</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished">Hi estic d&apos;acord</translation>
     </message>
 </context>
 <context>

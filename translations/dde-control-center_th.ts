@@ -136,10 +136,6 @@ In order to better use of face recognition, please pay attention to the followin
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -181,10 +177,6 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Agree</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1340,6 +1332,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>การเปลี่ยนตัวเลือกอาจใช้เวลาถึง 1 นาทีในการประมวลผล หลังจากได้รับคำแนะนำการตั้งค่าที่สำเร็จ กรุณาทำการรีสตาร์ทอุปกรณ์เพื่อให้ผลการตั้งค่ามีผล</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">คำเตือน</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">ยกเลิก</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

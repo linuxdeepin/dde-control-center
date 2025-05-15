@@ -156,10 +156,6 @@ In order to better use of face recognition, please pay attention to the followin
 
 3. 머리를 기울이거나 낮추지 않으며, 눈을 감거나 얼굴의 한 쪽만 보이도록 하지 않고, 강조 상자에 앞면이 명확하게 보이도록 합니다.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>동의</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -206,10 +202,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 유닉스테크 소프트웨어 기술 주식회사는 생체 정보를 수집하거나 접근하지 않으며, 해당 정보는 로컬 장치에 저장됩니다. 개인 장치에서 생체 인증을 활성화하고 관련 작업을 수행하려면 자신의 생체 정보만 사용하고, 다른 사람의 생체 정보를 즉시 비활성화 또는 삭제하십시오. 그렇지 않으면 그로 인해 발생하는 위험을 부담해야 합니다.
 
 유닉스테크 소프트웨어 기술 주식회사는 생체 인증의 보안, 정확성 및 안정성을 연구하고 개선하고 있습니다. 하지만 환경, 장비, 기술 등 다양한 요인과 위험 관리로 인해 일시적으로 생체 인증을 통과할 수 없다는 보장이 없습니다. 따라서 유닉스에서 &quot;서비스와 지원&quot;을 통해 생체 인증 사용 시 질문이나 제안을 제공하지 않아 UOS에 로그인하는 유일한 방법으로 생체 인증을 사용하지 마십시오.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>동의</translation>
     </message>
 </context>
 <context>
@@ -1364,6 +1356,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>옵션 변경은 성공 메시지를 받은 후 최대 1분 동안 처리될 수 있습니다. 적용을 위해서는 장치를 재부팅해야 합니다.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">免责声明</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">취소</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished">동의</translation>
     </message>
 </context>
 <context>

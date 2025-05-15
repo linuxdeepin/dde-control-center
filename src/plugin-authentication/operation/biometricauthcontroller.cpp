@@ -13,7 +13,7 @@
 
 #define FACEID_NUM    5
 #define IRISID_NUM 5
-#define Faceimg_SIZE 200
+#define Faceimg_SIZE 210
 
 DGUI_USE_NAMESPACE
 

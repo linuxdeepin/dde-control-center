@@ -146,10 +146,6 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
 2. Kiinnitä huomiota kasvojen asentoon, kun tallennat tietoja, äläkä anna hattujen, hiusten, aurinkolasien, raskaan meikin ja muiden tekijöiden peittää piirteitäsi.
 3. Vältä kallistamasta tai laskemasta päätäsi, sulkemasta silmiä tai kuvaamasta vain toista kasvon puolta. Varmista, että kasvosi näkyvät selvästi ja kokonaan kuvausalueella.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Hyväksyn</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -194,10 +190,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
 Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
 UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Hyväksyn</translation>
     </message>
 </context>
 <context>
@@ -1349,6 +1341,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Asetuksen muuttaminen voi kestää minuutin. Kun olet saanut ilmoituksen valmistumisesta, käynnistä tietokone uudelleen, jotta asetus tulee voimaan.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">Vastuuvapauslauseke</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Peruuta</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished">Hyväksyn</translation>
     </message>
 </context>
 <context>
