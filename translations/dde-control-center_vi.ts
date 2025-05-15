@@ -154,10 +154,6 @@ In order to better use of face recognition, please pay attention to the followin
 
 3. Hãy tránh nghiêng hoặc hạ thấp đầu, nhắm mắt hoặc chỉ để mặt một bên, và đảm bảo khuôn mặt trước của bạn xuất hiện rõ ràng và đầy đủ trong khung nhắc.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Đồng ý</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -204,10 +200,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Vui lòng chú ý rằng UnionTech Software Technology Co., Ltd. sẽ không thu thập hoặc truy cập thông tin sinh trắc học của bạn, dữ liệu này sẽ được lưu trữ trên thiết bị của bạn. Vui lòng chỉ kích hoạt biometric authentication trên thiết bị cá nhân của bạn và sử dụng thông tin sinh trắc học của riêng bạn cho các hoạt động liên quan, và nhanh chóng vô hiệu hóa hoặc xóa thông tin sinh trắc học của người khác trên thiết bị đó, nếu không bạn sẽ phải chịu rủi ro do đó.
 
 UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiện an toàn, chính xác và ổn định của biometric authentication. Tuy nhiên, do các yếu tố môi trường, thiết bị, kỹ thuật và các yếu tố khác và kiểm soát rủi ro, không có đảm bảo bạn sẽ thông qua kiểm tra sinh trắc học tạm thời. Vì vậy, vui lòng không coi biometric authentication là cách duy nhất để đăng nhập vào UOS. Nếu bạn có bất kỳ câu hỏi hoặc ý kiến ​​khi sử dụng biometric authentication, bạn có thể cung cấp phản hồi thông qua &apos;Service and Support&apos; trong UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Đồng ý</translation>
     </message>
 </context>
 <context>
@@ -1362,6 +1354,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Thay đổi tùy chọn có thể mất tới một phút để xử lý, sau khi nhận được thông báo thiết lập thành công, vui lòng khởi động lại thiết bị để có hiệu lực.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
