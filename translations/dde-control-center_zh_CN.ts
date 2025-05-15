@@ -145,10 +145,6 @@ In order to better use of face recognition, please pay attention to the followin
 3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
         </translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>同意</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -194,10 +190,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
         统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
         </translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>同意</translation>
     </message>
 </context>
 <context>
@@ -1350,6 +1342,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>更改选项处理可能需要一分钟，收到设置成功提示后，请重启设备方可生效。</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
