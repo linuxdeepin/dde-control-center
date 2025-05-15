@@ -145,10 +145,6 @@ In order to better use of face recognition, please pay attention to the followin
 3. Будь ласка, не нахиляйте голову і не дивіться униз, не закривайте очі і не робіть так, щоб було видно лише якусь частину вашого обличчя. Переконайтеся, що у області попереднього перегляду ясно і повністю показано усе обличчя.
 </translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Погоджуюсь</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -193,10 +189,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
 Будь ласка, зауважте, що UnionTech Software не збиратиме і не оброблятиме ваших біометричних даних, які зберігатимуться лише на вашому локальному пристрої. Будь ласка, вмикайте біометричне розпізнавання лише на вашому особистому пристрої і використовуйте ваші власні біометричні дані лише для відповідних операцій. Негайно вимикайте або вилучайте біометричні дані інших осіб на відповідному пристрої. Відповідальність за наслідки недотримання цих вимог покладається на вас. 
 UnionTech Software Technology Co, Ltd працює над вивченням і удосконаленням можливостей із захисту, точності і стабільності біометричного розпізнавання. Втім, через вплив факторів середовища, обладнання, технічних проблем та засобів керування ризиками немає гарантії безумовного проходження вами біометричного розпізнавання. Через це, не слід покладатися повністю на біометричне розпізнавання при вході до UOS. Якщо у вас є якісь питання та пропозиції щодо використання біометричного розпізнавання, ви можете надати ваш відгук за допомогою «Обслуговування і підтримки» у UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Погоджуюсь</translation>
     </message>
 </context>
 <context>
@@ -1349,6 +1341,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Зміна параметра може тривати до хвилини з моменту отримання успішного запиту на встановлення, будь ласка, перезавантажте пристрій, щоб зміни набули чинності.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
