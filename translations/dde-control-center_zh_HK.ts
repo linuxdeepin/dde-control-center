@@ -146,10 +146,6 @@ In order to better use of face recognition, please pay attention to the followin
 2.請注意錄入數據時的面部狀態，避免衣帽、頭髮、墨鏡、口罩、濃妝等遮擋面部信息。
 3.請避免仰頭、低頭、閉眼或僅露出側臉的情況，確保臉部正面清晰完整的出現在提示框內。</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>同意</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -194,10 +190,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>「生物認證」是統信軟件技術有限公司提供的一種對用户進行身份認證的功能。通過「生物認證」，將採集的生物識別數據與存儲在設備本地的生物識別數據進行比對，並根據比對結果來驗證用户身份。
         請您注意，統信軟件不會收集或訪問您的生物識別信息，此類信息將會存儲在您的本地設備中。請您僅在您的個人設備中開啓生物認證功能，並使用您本人的生物識別信息進行相關操作，並及時在該設備上禁用或清除他人的生物識別信息，否則由此給您帶來的風險將由您承擔。
         統信軟件致力於研究與提高生物認證功能的安全性、精確性、與穩定性，但是，受限於環境、設備、技術等因素和風險控制等原因，我們暫時無法保證您一定能通過生物認證，請您不要將生物認證作為登錄統信作業系統的唯一途徑。若您在使用生物認證時有任何問題或建議的，可以通過系統內的「服務與支持」進行反饋。</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>同意</translation>
     </message>
 </context>
 <context>
@@ -1350,6 +1342,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>更改選項處理可能需要一分鐘，收到設置成功提示後，請重啓設備方可生效。</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">《用户免責聲明》</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished">同意</translation>
     </message>
 </context>
 <context>

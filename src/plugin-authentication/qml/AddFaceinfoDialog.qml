@@ -30,7 +30,7 @@ D.DialogWindow {
     D.ListView {
         id: listview
         implicitWidth: dialog.width - DS.Style.dialogWindow.contentHMargin * 2
-        implicitHeight: 500 - DS.Style.dialogWindow.titleBarHeight - 10
+        implicitHeight: 500 - DS.Style.dialogWindow.titleBarHeight - DS.Style.dialogWindow.contentHMargin
         spacing: DS.Style.dialogWindow.contentHMargin
         model: itemModel
         orientation: ListView.Horizontal
@@ -43,6 +43,7 @@ D.DialogWindow {
 
         ObjectModel {
             id: itemModel
+            // 添加前
             ColumnLayout {
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
@@ -52,7 +53,6 @@ D.DialogWindow {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     text: dialog.title
-                    font.bold: true
                 }
 
                 Item {
@@ -71,10 +71,13 @@ D.DialogWindow {
                 Label {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignHCenter
+                    Layout.leftMargin: 5
+                    Layout.rightMargin: 5
                     font: D.DTK.fontManager.t8
                     wrapMode: Text.WordWrap
                     text: qsTr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.")
                     horizontalAlignment: Text.AlignHCenter
+                    color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
                 }
 
                 Item {
@@ -106,7 +109,7 @@ D.DialogWindow {
                             hoveredDark: hovered
                         }
                         onClicked: {
-                            listview.currentIndex = 2
+                            listview.currentIndex = 3
                         }
                     }
                 }
@@ -115,8 +118,8 @@ D.DialogWindow {
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: 0
-                    Layout.leftMargin: 6
-                    Layout.rightMargin: 6
+                    Layout.leftMargin: 0
+                    Layout.rightMargin: 0
                     Layout.fillWidth: true
                     text: qsTr("Next")
                     enabled: agreeCheckbox.checked
@@ -127,6 +130,7 @@ D.DialogWindow {
                 }
             }
 
+            // 添加中
             ColumnLayout {
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
@@ -134,7 +138,6 @@ D.DialogWindow {
 
                 Label {
                     text: dialog.title
-                    font.bold: true
                     Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
                 }
 
@@ -156,23 +159,6 @@ D.DialogWindow {
                         sourceSize: Qt.size(210, 210)
                     }
 
-                    D.DciIcon {
-                        id: statusImg
-                        anchors.centerIn: parent
-                        visible: dccData.addStage === CharaMangerModel.Success || dccData.addStage === CharaMangerModel.Fail
-                        name: dccData.enrollFaceSuccess ? "user_biometric_face_success" : "user_biometric_face_lose";
-                        sourceSize: Qt.size(210, 210)
-                    }
-
-                    Timer {
-                        repeat: true
-                        running: true
-                        interval: 50
-                        onTriggered: {
-                            loaderControl.rotation = loaderControl.rotation + 360 / 49
-                        }
-                    }
-
                     Control {
                         id: loaderControl
                         visible: dccData.addStage === CharaMangerModel.Processing 
@@ -184,6 +170,15 @@ D.DialogWindow {
                             palette: D.DTK.makeIconPalette(loaderControl.palette)
                         }
                     }
+
+                    Timer {
+                        repeat: true
+                        running: true
+                        interval: 50
+                        onTriggered: {
+                            loaderControl.rotation = loaderControl.rotation + 360 / 49
+                        }
+                    }
                 }
 
                 Item {
@@ -192,37 +187,63 @@ D.DialogWindow {
                 }
 
                 Label {
-                    visible: dccData.addStage === CharaMangerModel.Processing 
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
-                    font: D.DTK.fontManager.t8
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.")
-                    horizontalAlignment: Text.AlignHCenter
-                }
-
-                Item {
-                    Layout.fillHeight: true
-                }
-
-                Label {
-                    id: enrollResultLabel
-                    visible: dccData.addStage === CharaMangerModel.Success || dccData.addStage === CharaMangerModel.Fail
-                    Layout.fillWidth: true
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    wrapMode: Text.WordWrap
-                    text: dccData.addStage === CharaMangerModel.Success ? qsTr("Face enrolled") : qsTr("Failed to enroll your face")
-                }
-
-                Label {
-                    id: tips
                     text: dccData.enrollFaceTips
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    font: D.DTK.fontManager.t8
                     wrapMode: Text.WordWrap
+                    color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
+                }
+                Item {
+                    Layout.fillHeight: true
+                }
+            }
+
+            // 完成页面
+            ColumnLayout {
+                height: ListView.view.implicitHeight
+                width: ListView.view.implicitWidth
+
+                Label {
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    text: dialog.title
+                }
+
+                Item {
+                    Layout.preferredHeight: 50
+                }
+
+                D.DciIcon {
+                    name: dccData.enrollFaceSuccess ? "user_biometric_face_success" : "user_biometric_face_lose";
+                    Layout.alignment: Qt.AlignCenter
+                    sourceSize: Qt.size(150, 150)
+                }
+
+                Item {
+                    Layout.preferredHeight: 30
+                }
+
+                Label {
+                    visible: dccData.addStage === CharaMangerModel.Success || dccData.addStage === CharaMangerModel.Fail
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
+                    text: dccData.addStage === CharaMangerModel.Success ? qsTr("Face enrolled") : qsTr("Failed to enroll your face")
+                }
+
+                Label {
+                    text: dccData.enrollFaceTips
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font: D.DTK.fontManager.t8
+                    wrapMode: Text.WordWrap
+                    color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
                 }
 
                 Item {
@@ -234,9 +255,9 @@ D.DialogWindow {
                     visible: dccData.addStage === CharaMangerModel.Success
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.bottomMargin: 5
-                    Layout.leftMargin: 5
-                    Layout.rightMargin: 5
+                    Layout.bottomMargin: 0
+                    Layout.leftMargin: 0
+                    Layout.rightMargin: 0
 
                     Button {
                         Layout.fillWidth: true
@@ -253,9 +274,9 @@ D.DialogWindow {
                     visible: dccData.addStage === CharaMangerModel.Fail
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.bottomMargin: 5
-                    Layout.leftMargin: 5
-                    Layout.rightMargin: 5
+                    Layout.bottomMargin: 0
+                    Layout.leftMargin: 0
+                    Layout.rightMargin: 0
 
                     Button {
                         Layout.fillWidth: true
@@ -272,46 +293,13 @@ D.DialogWindow {
                         }
                     }
                 }
-
-
-                Connections {
-                    target: dccData
-                    function onFaceImgContentChanged() {
-                        faceImg.name = dccData.faceImgContent;
-                    }
-                }
-
-                Connections {
-                    target: dccData.model
-                    function onTryStartInputFace(res) {
-                        listview.currentIndex = 1
-                        dialog.show()
-                    }
-                }
             }
-            ColumnLayout {
+            // 免责声明
+            DisclaimerControl {
+                id: disclaimerControl
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
-                spacing: 5
-
-                Label {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    text: qsTr("Disclaimer")
-                    font.bold: true
-                }
-
-                ScrollView {
-                    id: scrollView
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                    D.Label {
-                        width: scrollView.availableWidth
-                        wrapMode: Text.WordWrap
-                        text: qsTr(`Before using face recognition, please note that: 
+                content: qsTr(`Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
 3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
@@ -322,34 +310,37 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.`)
-                    }
+                onCancelClicked: {
+                    listview.currentIndex = 0
+                    agreeCheckbox.checked = false
                 }
+                onAgreeClicked: {
+                    listview.currentIndex = 0
+                    agreeCheckbox.checked = true
+                }
+            }
+        }
+        Connections {
+            target: dccData
+            function onFaceImgContentChanged() {
+                faceImg.name = dccData.faceImgContent;
+            }
 
-                RowLayout {
-                    spacing: 10
-                    Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.leftMargin: 5
-                    Layout.rightMargin: 5
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: qsTr("Cancel")
-                        onClicked: {
-                            listview.currentIndex = 0
-                            agreeCheckbox.checked = false
-                        }
-                    }
-                    D.RecommandButton {
-                        Layout.fillWidth: true
-                        text: qsTr("Agree")
-                        onClicked: {
-                            listview.currentIndex = 0
-                            agreeCheckbox.checked = true
-                        }
-                    }
+            function onAddStageChanged() {
+                if (dccData.addStage === CharaMangerModel.Success) {
+                    listview.currentIndex = 2
+                } else if (dccData.addStage === CharaMangerModel.Fail) {
+                    listview.currentIndex = 2
                 }
             }
         }
 
+        Connections {
+            target: dccData.model
+            function onTryStartInputFace(res) {
+                listview.currentIndex = 1
+                dialog.show()
+            }
+        }
     }
 }
