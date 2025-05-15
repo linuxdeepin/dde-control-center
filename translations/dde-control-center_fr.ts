@@ -154,10 +154,6 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
 
 3. Évitez de pencher ou de baisser la tête, de fermer les yeux ou de montrer seulement un côté de votre visage, et assurez-vous que votre visage frontal apparaît clairement et complètement dans la boîte de prompt.</translation>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation>Accepter</translation>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -204,10 +200,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Veuillez noter que UnionTech Software Technology Co., Ltd. ne collectera ni ne consultera vos informations biométriques, qui seront stockées sur votre appareil local. Veuillez uniquement activer l&apos;authentification biométrique sur votre appareil personnel et utiliser vos propres informations biométriques pour les opérations pertinentes, et supprimez ou supprimez rapidement les informations biométriques d&apos;autres personnes sur cet appareil, sinon vous assumerez le risque qui en découlera.
 
 UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer la sécurité, l&apos;exactitude et la stabilité de l&apos;authentification biométrique. Cependant, en raison de divers facteurs environnementaux, matériels, techniques et autres et de la gestion des risques, il n&apos;y a aucune garantie que vous passerez l&apos;authentification biométrique temporairement. Par conséquent, veuillez ne pas considérer l&apos;authentification biométrique comme la seule méthode pour vous connecter à UOS. Si vous avez des questions ou des suggestions lors de l&apos;utilisation de l&apos;authentification biométrique, vous pouvez donner des retours via &apos;Service et Support&apos; dans UOS.</translation>
-    </message>
-    <message>
-        <source>Agree</source>
-        <translation>Accepter</translation>
     </message>
 </context>
 <context>
@@ -1365,6 +1357,21 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>La modification de l&apos;option peut prendre jusqu&apos;à une minute pour être traitée. Après avoir reçu un message de réussite de la configuration, redémarrez l&apos;appareil pour que les modifications prennent effet.</translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
