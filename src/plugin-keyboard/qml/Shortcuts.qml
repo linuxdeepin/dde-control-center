@@ -87,6 +87,7 @@ DccObject {
 
                     D.Button {
                         id: button
+                        focusPolicy: Qt.NoFocus
                         visible: parent.section === qsTr("Custom")
                         checkable: true
                         checked: shortcutSettingsBody.isEditing
