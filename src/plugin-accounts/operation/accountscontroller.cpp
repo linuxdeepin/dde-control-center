@@ -305,7 +305,7 @@ void AccountsController::updateGroups(const QString &id)
         bool isRightContains = groupContains(id, right);
 
         if (!(isLeftContains ^ isRightContains)) { // both true or both false
-            return left < right;
+            return left.compare(right, Qt::CaseInsensitive) < 0;
         } else {
             return isLeftContains ? true : false;
         }
