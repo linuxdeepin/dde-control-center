@@ -47,18 +47,6 @@ D.LineEdit {
         font: edit.font
     }
 
-    onReadOnlyChanged: {
-        if (!readOnly) {
-            text = completeText
-        }
-    }
-
-    Component.onCompleted: {
-        completeText = text
-        var elidedText = fontMetrics.elidedText(completeText, Text.ElideRight, width - rightPadding - 10)
-        text = elidedText
-    }
-
     D.ActionButton {
         id: editButton
         focusPolicy: Qt.NoFocus
@@ -67,6 +55,7 @@ D.LineEdit {
         icon.name: "dcc-edit"
         icon.width: DS.Style.edit.actionIconSize
         icon.height: DS.Style.edit.actionIconSize
+        hoverEnabled: true
         background: Rectangle {
             anchors.fill: parent
             property D.Palette pressedColor: D.Palette {
