@@ -279,9 +279,17 @@ DccObject {
                         visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
                         text: parent.completeText
                     }
+
+                    Component.onCompleted: {
+                        completeText = text
+                        var elidedText = metrics.elidedText(completeText, Text.ElideRight, width - rightPadding - 10)
+                        text = elidedText
+                    }
+
                     onReadOnlyChanged: {
                         // Store the original text when editing starts
                         if (!readOnly) {
+                            text = completeText
                             originalFullName = completeText
                         }
                     }
@@ -634,12 +642,15 @@ DccObject {
                         id: editLabel
                         property bool editAble: model.groupEditAble
                         text: model.display
+                        completeText: model.display
+                        rightPadding: editButton.width + 10
                         validator: RegularExpressionValidator {
                             // 仅使用字母、数字、下划线或短横线，并且以字母开头
                             regularExpression: /[a-zA-Z][a-zA-Z0-9-_]{0,31}$/
                         }
                         implicitHeight: 40
-                        implicitWidth: 200
+                        implicitWidth: Math.min(metrics.advanceWidth(completeText) + editButton.width + 20,
+                                        groupview.width - editButton.width - 30)
                         Layout.fillWidth: !readOnly
                         placeholderText: qsTr("Group name")
                         horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
@@ -647,7 +658,6 @@ DccObject {
                                          && !groupSettings.isEditing
                         readOnly: model.display.length > 0
                         background: null
-
                         onFinished: function () {
                             if (text.length < 1) {
                                 text = model.display
