@@ -1348,15 +1348,15 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Ostrzeżenie</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Akceptuj</translation>
     </message>
 </context>
 <context>
@@ -2807,7 +2807,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Kopiuj adres linka</translation>
     </message>
 </context>
 <context>
@@ -4023,7 +4023,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenia</translation>
     </message>
 </context>
 <context>
