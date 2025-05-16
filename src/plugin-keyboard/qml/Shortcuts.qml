@@ -188,9 +188,16 @@ DccObject {
                                     onClosing: {
                                         shortcutSettingsBody.isEditing = false
                                         dialogloader.active = false
+
+                                        conflictText.visible = false
+                                        shortcutSettingsBody.conflictAccels = ""
+                                        shortcutView.editItem = null
+                                        shortcutView.conflictText = null
                                     }
                                 }
                                 onLoaded: {
+                                    edit.restore()
+
                                     item.keyId = model.id
                                     item.keyName = model.display
                                     item.cmdName = model.command
