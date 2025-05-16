@@ -1345,15 +1345,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Vastuuvapauslauseke</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Hyväksyn</translation>
     </message>
 </context>
 <context>
