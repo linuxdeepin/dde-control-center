@@ -2456,7 +2456,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
@@ -2589,7 +2589,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
 </context>
 <context>
@@ -4015,7 +4015,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Configurações comuns</translation>
+        <translation>Configurações gerais</translation>
     </message>
     <message>
         <source>System</source>
