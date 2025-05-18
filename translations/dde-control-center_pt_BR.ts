@@ -2952,7 +2952,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Large</source>
@@ -3016,7 +3016,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Extremamente pequeno</translation>
+        <translation>Mínima</translation>
     </message>
 </context>
 <context>
