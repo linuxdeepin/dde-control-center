@@ -1945,7 +1945,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>Tema claro</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -1953,7 +1953,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>Tema escuro</translation>
     </message>
 </context>
 <context>
