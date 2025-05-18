@@ -2826,7 +2826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>papel de parede</translation>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -2854,7 +2854,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation>Troca automática de papel de parede</translation>
+        <translation>Alterar automaticamente o papel de parede</translation>
     </message>
     <message>
         <source>never</source>
@@ -2913,7 +2913,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all</source>
-        <translation>Mostrar tudo</translation>
+        <translation>Exibir tudo</translation>
     </message>
     <message>
         <source>items</source>
