@@ -252,7 +252,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>Bloquear tela após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -1418,7 +1418,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Configurações de ligar a tela</translation>
+        <translation>Configurações ao despertar</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
@@ -1990,7 +1990,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar tela</translation>
+        <translation>Desligar a tela</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
@@ -2013,7 +2013,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>Bloquear tela após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -3920,7 +3920,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Planos de energia, configurações de economia de energia, configurações de ligar o sistema, configurações de desligamento</translation>
+        <translation>Planos de energia, configurações de economia de energia, configurações ao despertar o sistema, configurações de desligamento</translation>
     </message>
     <message>
         <source>Plugged In</source>
