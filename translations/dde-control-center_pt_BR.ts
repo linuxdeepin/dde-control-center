@@ -2992,11 +2992,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Mostrar ao rolar</translation>
+        <translation>Exibir ao rolar</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Manter mostrado</translation>
+        <translation>Sempre exibir</translation>
     </message>
     <message>
         <source>Compact Display</source>
