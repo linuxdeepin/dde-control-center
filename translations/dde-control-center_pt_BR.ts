@@ -689,11 +689,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short</source>
-        <translation>Curto</translation>
+        <translation>Baixa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Longo</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -1767,11 +1767,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Short</source>
-        <translation>Pequeno</translation>
+        <translation>Baixa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Grande</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
