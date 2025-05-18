@@ -3672,11 +3672,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Modo clássico</translation>
+        <translation>Clássico</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Modo centralizado</translation>
+        <translation>Centralizado</translation>
     </message>
     <message>
         <source>Dock size</source>
@@ -3800,7 +3800,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Habilitar Não Perturbe</translation>
+        <translation>Não Perturbe</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -3862,7 +3862,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Efeito da janela</translation>
+        <translation>Efeitos visuais</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
