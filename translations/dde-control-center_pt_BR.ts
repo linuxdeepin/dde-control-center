@@ -2569,7 +2569,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>Balanço Esquerda e Direita</translation>
+        <translation>Balanço de áudio</translation>
     </message>
     <message>
         <source>Mono audio</source>
