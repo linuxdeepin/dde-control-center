@@ -1422,11 +1422,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>A senha é necessária para acessar o computador</translation>
+        <translation>Solicitar senha ao acordar o computador</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>A senha é necessária para ligar o monitor</translation>
+        <translation>Solicitar senha ao acordar o monitor</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
