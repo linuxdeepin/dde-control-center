@@ -3588,7 +3588,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Permitir conforto visual</translation>
+        <translation>Conforto ocular</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -3627,7 +3627,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Desktop e barra de tarefas</translation>
+        <translation>Área de trabalho e barra de tarefas</translation>
     </message>
     <message>
         <source>Set the display and size of icons on the desktop</source>
