@@ -729,11 +729,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Teste de clique duplo</translation>
+        <translation>Teste do clique duplo</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Modo Mão Esquerda</translation>
+        <translation>Mão Esquerda</translation>
     </message>
 </context>
 <context>
@@ -1502,7 +1502,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Diminuir o brilho da tela no modo de economia de energia</translation>
+        <translation>Reduzir o brilho da tela no modo de economia de energia em</translation>
     </message>
 </context>
 <context>
@@ -1783,7 +1783,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem Natural</translation>
+        <translation>Rolagem natural</translation>
     </message>
 </context>
 <context>
