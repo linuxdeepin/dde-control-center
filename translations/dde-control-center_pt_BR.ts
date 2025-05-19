@@ -248,11 +248,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar o monitor após</translation>
+        <translation>A tela será desligada após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>A tela será bloqueada após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -1994,7 +1994,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Mostrar interface de desligamento</translation>
+        <translation>Exibir a interface de desligamento</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2009,11 +2009,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar a tela após</translation>
+        <translation>A tela será desligada após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>A tela será bloqueada após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
