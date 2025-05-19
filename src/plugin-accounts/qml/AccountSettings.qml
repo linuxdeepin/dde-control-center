@@ -16,6 +16,14 @@ DccObject {
     property bool nopasswdLoginChecked: true
 
     Component.onCompleted: {
+        updateLoginSettings()
+    }
+    
+    onUserIdChanged: {
+        updateLoginSettings()
+    }
+    
+    function updateLoginSettings() {
         settings.autoLoginChecked = dccData.autoLogin(settings.userId)
         settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
     }
