@@ -1466,46 +1466,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished">ថ្ងៃចន្ទ</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished">ថ្ងៃអង្គារ</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished">ថ្ងៃពុធ</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished">ថ្ងៃព្រហស្បតិ៍</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished">ថ្ងៃសុក្រ</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished">ថ្ងៃសៅរ៍</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished">ថ្ងៃអាទិត្យ</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">បោះបង់</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished">រក្សាទុក</translation>
-    </message>
 </context>
 <context>
     <name>GestureModel</name>
@@ -2280,6 +2240,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">បោះបង់</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">រក្សាទុក</translation>
     </message>
 </context>
 <context>

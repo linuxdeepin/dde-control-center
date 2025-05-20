@@ -1463,46 +1463,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>זמן מותאם אישית</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>יום שני</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>יום שלישי</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>יום רביעי</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>יום חמישי</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>יום שישי</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>יום שבת</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>יום ראשון</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>הגדיר זמן חזרה</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>בטל</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>שמור</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>איבד את הנורמות של המסך בזמן שמירת האנרגיה</translation>
     </message>
@@ -2280,6 +2240,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>הסיסמאות לא תואמות</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">שמור</translation>
     </message>
 </context>
 <context>

@@ -245,23 +245,33 @@ DccObject {
             weight: 3
             pageType: DccObject.Editor
             page: D.ComboBox {
+                id: shutdownRepetitionCombobox
                 width: 100
                 model: [ qsTr("Once"), qsTr("Every day"), qsTr("Working days"), qsTr("Custom Time") ]
                 flat: true
                 currentIndex: dccData.model.shutdownRepetition
                 onCurrentIndexChanged: {
-                    if (currentIndex === dccData.model.shutdownRepetition) {
-                        return
+                    if (currentIndex === model.length - 1 && dccData.model.customShutdownWeekDays.length === 0) {
+                        selectDayDialogforCombobox.show()
+                    } else {
+                        if (currentIndex === dccData.model.shutdownRepetition) {
+                            return
+                        }
+                        dccData.worker.setShutdownRepetition(currentIndex)
+                    }
+                }
+                ScheduledShutdownDialog {
+                    id: selectDayDialogforCombobox
+
+                    onCancel: {
+                        shutdownRepetitionCombobox.currentIndex = dccData.model.shutdownRepetition
                     }
 
-                    dccData.worker.setShutdownRepetition(currentIndex)
-                    if (currentIndex === model.length - 1 && dccData.model.customShutdownWeekDays.length === 0) {
-                        repeatDaysEditObject.forceShow = true
-                        Qt.callLater(function() {
-                            repeatDaysEditObject.requestShowSelectDialog()
-                        })
-                    } else {
-                        repeatDaysEditObject.forceShow = false
+                    onAccept: {
+                        if (shutdownRepetitionCombobox.currentIndex === dccData.model.shutdownRepetition) {
+                            return
+                        }
+                        dccData.worker.setShutdownRepetition(shutdownRepetitionCombobox.currentIndex)
                     }
                 }
             }
@@ -271,18 +281,10 @@ DccObject {
             property bool forceShow: false
             name: "repeatDaysEdit"
             parentName: "power/general/shutdownGroup"
-            visible: (dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3) || forceShow
+            visible: (dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3)
             weight: 4
             pageType: DccObject.Editor
-            signal requestShowSelectDialog()
             page: RowLayout {
-                Connections {
-                    target: repeatDaysEditObject
-                    function onRequestShowSelectDialog() {
-                        selectDayDialog.show()
-                    }
-                }
-
                 Label {
                     text: {
                         var str = ""
@@ -311,105 +313,9 @@ DccObject {
                     onClicked: {
                         selectDayDialog.show()
                     }
-                }
-                D.DialogWindow {
-                    id: selectDayDialog
-                    modality: Qt.ApplicationModal
-                    width: 330
-                    height: 420
 
-                    // Copy is used here to prevent contamination of data in the original model when selecting items
-                    property var selectedDays: dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
-                    property var dateStr: [qsTr("Monday"), qsTr("Tuesday"), qsTr("Wednesday"), qsTr("Thursday"), qsTr("Friday"), qsTr("Saturday"), qsTr("Sunday")]
-                    property var dayModel: generateDayModel()
-
-                    function generateDayModel() {
-                        var array = []
-                        let weekBegin = dccData.model.weekBegins
-                        if (weekBegin < 1 || weekBegin > 7) {
-                            // default is monday
-                            weekBegin = 1
-                        }
-                        for (var i = dccData.model.weekBegins; i <= 7; i++) {
-                            array.push(i)
-                        }
-                        for (i = 1; i < dccData.model.weekBegins; i++) {
-                            array.push(i)
-                        }
-                        return array
-                    }
-
-                    // only accept close event , the app can quit normally
-                    onClosing: function(close) {
-                        close.accepted = true
-                    }
-
-                    ColumnLayout {
-                        implicitWidth: parent.width
-                        clip: true
-                        Text {
-                            anchors.fill: parent
-                            horizontalAlignment: Text.AlignHCenter
-                            text: qsTr("Customize repetition time")
-                        }
-                        ListView {
-                            Layout.fillWidth: true
-                            height: contentHeight
-                            clip: true
-                            model: selectDayDialog.dayModel
-                            spacing: 2
-                            delegate: D.ItemDelegate {
-                                width: ListView.view.width
-                                leftPadding: 10
-                                rightPadding: 10
-                                implicitHeight: 40
-                                checkable: false
-                                corners: getCornersForBackground(index, 7)
-                                cascadeSelected: true
-                                text: selectDayDialog.dateStr[modelData - 1]
-                                onClicked: handleSelected(modelData)
-                                content: DccCheckIcon {
-                                    checked: selectDayDialog.selectedDays.indexOf(modelData) !== -1
-                                    onClicked: handleSelected(modelData)
-                                }
-                                background: DccItemBackground {
-                                    separatorVisible: true
-                                }
-
-                                function handleSelected(index) {
-                                    if (selectDayDialog.selectedDays.indexOf(index) === -1) {
-                                        selectDayDialog.selectedDays.push(index);
-                                    } else {
-                                        selectDayDialog.selectedDays.splice(selectDayDialog.selectedDays.indexOf(index), 1);
-                                    }
-                                    selectDayDialog.selectedDays = selectDayDialog.selectedDays.slice();
-                                }
-                            }
-                        }
-
-                        RowLayout {
-                            Layout.fillHeight: true
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignHCenter
-                            spacing: 10
-                            D.Button {
-                                text: qsTr("Cancel")
-                                onClicked: {
-                                    selectDayDialog.close()
-                                    selectDayDialog.selectedDays = dccData.model.customShutdownWeekDays.slice()
-                                }
-                            }
-                            D.Button {
-                                text: qsTr("Save")
-                                enabled: selectDayDialog.selectedDays.length > 0
-                                onClicked: {
-                                    var days = selectDayDialog.selectedDays.sort()
-                                    console.log("Selected days: " + days);
-                                    dccData.worker.setCustomShutdownWeekDays(days)
-                                    selectDayDialog.close()
-                                }
-                            }
-                        }
+                    ScheduledShutdownDialog {
+                        id: selectDayDialog
                     }
                 }
             }

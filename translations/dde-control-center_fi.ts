@@ -1355,7 +1355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished">Hyväksyn</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1473,46 +1473,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Custom Time</source>
         <translation>Mukautettu aika</translation>
-    </message>
-    <message>
-        <source>Monday</source>
-        <translation>Maanantai</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Tiistai</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Keskiviikko</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Torstai</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Perjantai</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Lauantai</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Sunnuntai</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Muokkaa toistoaikaa</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Tallenna</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
@@ -2292,6 +2252,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>Salasanat eivät täsmää</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Peruuta</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Tallenna</translation>
     </message>
 </context>
 <context>
