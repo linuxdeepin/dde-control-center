@@ -387,7 +387,6 @@ void PowerModel::setShowBatteryTimeToFull(bool value)
 
 void PowerModel::setScheduledShutdownState(bool value)
 {
-    qWarning() << "------setScheduledShutdownState------" << value;
     if (m_scheduledShutdownState != value) {
         m_scheduledShutdownState = value;
 

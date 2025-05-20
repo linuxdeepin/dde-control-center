@@ -1466,46 +1466,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Custom Time</source>
         <translation type="unfinished">Benutzerdefinierte Zeit</translation>
     </message>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished">Montag</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished">Dienstag</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished">Mittwoch</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished">Donnerstag</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished">Freitag</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished">Samstag</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished">Sonntag</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">Abbrechen</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished">Speichern</translation>
-    </message>
 </context>
 <context>
     <name>GestureModel</name>
@@ -2280,6 +2240,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation type="unfinished">Passwörter stimmen nicht überein</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Abbrechen</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Speichern</translation>
     </message>
 </context>
 <context>

@@ -1471,46 +1471,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Mõnda aega</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Pühapäev</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Esmaspäev</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Teisipäev</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Kolmapäev</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Neljapäev</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Reede</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Laupäev</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Repetituse aega määrata</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Katkesta</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salvesta</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Vähendada ekraani kuumust põhjusega</translation>
     </message>
@@ -2288,6 +2248,49 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>Paroolid ei kattu</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Salvesta</translation>
     </message>
 </context>
 <context>

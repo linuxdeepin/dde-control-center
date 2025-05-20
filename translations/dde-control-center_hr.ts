@@ -1466,46 +1466,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished">Ponedjeljak</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished">Utorak</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished">Srijeda</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished">Četvrtak</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished">Petak</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished">Subota</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished">Nedjelja</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">Otkaži</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished">Spremi</translation>
-    </message>
 </context>
 <context>
     <name>GestureModel</name>
@@ -2280,6 +2240,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Otkaži</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Spremi</translation>
     </message>
 </context>
 <context>

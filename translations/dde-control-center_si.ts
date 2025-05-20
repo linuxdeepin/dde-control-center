@@ -1466,46 +1466,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished">සඳුදා</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished">අඟහරුවාදා</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished">බදාදා</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished">බ්‍රහස්පතින්දා</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished">සිකුරාදා</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished">සෙනසුරාදා</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished">ඉරිදා</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">අවලංගු කරන්න</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished">සුරකින්න</translation>
-    </message>
 </context>
 <context>
     <name>GestureModel</name>
@@ -2280,6 +2240,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">සුරකින්න</translation>
     </message>
 </context>
 <context>

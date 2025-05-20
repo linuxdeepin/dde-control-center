@@ -1467,46 +1467,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Vlastiti čas</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Ponedeljek</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Toreg</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Sreda</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Četrtek</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Petek</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Sobota</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Nedelja</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Spremenite čas ponovitve</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Prekliči</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Shrani</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Zmanjšaj osvetlitev zaslona v načinu ščitnice</translation>
     </message>
@@ -2284,6 +2244,49 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>Gesli se ne ujemata</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Prekliči</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Shrani</translation>
     </message>
 </context>
 <context>

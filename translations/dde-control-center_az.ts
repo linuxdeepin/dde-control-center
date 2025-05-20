@@ -1468,46 +1468,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>وقت مخصص</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>الأحد</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>الاثنين</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>الثلاثاء</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>الأربعاء</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>الخميس</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>الجمعة</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>السبت</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation> customization time of repetition</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>إلغاء</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>حفظ</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>خفض إضاءة الشاشة في وضع توفير الطاقة</translation>
     </message>
@@ -2285,6 +2245,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>كلمات المرور لا تتطابق</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">حفظ</translation>
     </message>
 </context>
 <context>
