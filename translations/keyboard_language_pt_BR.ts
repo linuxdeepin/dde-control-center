@@ -563,11 +563,11 @@
     </message>
     <message>
         <source>Català (Valencià)</source>
-        <translation type="unfinished"/>
+        <translation>Catalão (Valenciano)</translation>
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>Esperanto</translation>
     </message>
     <message>
         <source>Interlingua</source>
