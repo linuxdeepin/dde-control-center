@@ -23,8 +23,6 @@ DccObject {
     DccObject {
         name: "enableDoNotDisturb"
         parentName: "notification"
-        // displayName: qsTr("Enable Do Not Disturb")
-        // icon: "notification"
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -33,7 +31,6 @@ DccObject {
             parentName: "enableDoNotDisturb"
             description: qsTr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.")
             displayName: qsTr("Enable Do Not Disturb")
-            // icon: "notification"
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
@@ -73,7 +70,6 @@ DccObject {
                         if (dccData.sysItemModel.lockScreen !== checked) {
                             dccData.sysItemModel.lockScreen = checked
                         }
-                        // dccData.sysItemModel.lockScreen = checked
                     }
                 }
                 D.Label {
@@ -134,7 +130,6 @@ DccObject {
                 weight: 10 + index
                 icon: model.AppIcon
                 displayName: model.AppName
-                // pageType: DccObject.Item
                 backgroundType: DccObject.Normal
                 page: D.Switch {
                     checked: model.EnableNotification
@@ -147,7 +142,6 @@ DccObject {
                 DccObject{
                     name: "notificationItemDetails" + index
                     parentName: "applicationList/" + "notificationItem" + index
-                    // pageType: DccObject.Menu
                     DccObject{
                         backgroundType: DccObject.Normal
                         name: "allowNotifications" + index
