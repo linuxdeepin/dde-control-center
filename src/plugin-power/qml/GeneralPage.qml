@@ -23,8 +23,8 @@ DccObject {
         weight: 100
         pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
-        page: PowerPlansListview {
-        }
+        page: DccGroupView {}
+        PowerPlansListview {}
     }
 
     DccTitleObject {
@@ -110,7 +110,7 @@ DccObject {
                 font: D.DTK.fontManager.t6
                 text: dccObj.displayName
             }
-        
+
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [("10%"), ("20%"), ("30%"), ("40%")]
