@@ -1477,46 +1477,6 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <translation>Horario personalizado</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Lunes</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Martes</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Miércoles</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Jueves</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Viernes</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Sábado</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Domingo</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Tiempo de repetición personalizado</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Guardar</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminuir el brillo de la pantalla en el modo de ahorro de energía</translation>
     </message>
@@ -2294,6 +2254,49 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>Las contraseñas no coinciden</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
