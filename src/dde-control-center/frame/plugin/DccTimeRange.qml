@@ -7,7 +7,6 @@ import QtQuick.Window 2.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
-
 D.SpinBox {
     id: control
     readonly property string timeString: (hour < 10 ? "0" + Number(hour) : Number(hour)) + ":" + (minute < 10 ? "0" + Number(minute) : Number(minute))
@@ -20,15 +19,20 @@ D.SpinBox {
     value: 8
     editable: true
     font: D.DTK.fontManager.t7
-    signal timeChanged()
+    signal timeChanged
 
     function updateValue() {
-        if (curInput === hourInput) {
-            hour = value
-        } else {
-            minute = value
+        const isHourInput = (curInput === hourInput)
+        const targetProperty = isHourInput ? hour : minute
+
+        if (targetProperty !== value) {
+            if (isHourInput) {
+                hour = value
+            } else {
+                minute = value
+            }
+            control.timeChanged()
         }
-        control.timeChanged()
     }
 
     contentItem: RowLayout {
@@ -37,7 +41,7 @@ D.SpinBox {
             id: hourInput
             Layout.preferredWidth: 20
             Layout.alignment: Qt.AlignHCenter
-            text: control.hour
+            text: control.hour < 10 ? "0" + Number(control.hour) : control.hour
             font: control.font
             color: control.palette.text
             selectionColor: control.palette.highlight
@@ -47,42 +51,39 @@ D.SpinBox {
             leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
             validator: control.validator
+            maximumLength: 2
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
             onFocusChanged: {
                 if (focus) {
-                    curInput = hourInput
+                    curInput = this
                 }
                 if (0 === text.length || 0 === Number(text)) {
                     control.hour = 0
                 }
             }
-            onTextEdited: {
-                control.value = Number(text)
+            onTextChanged: {
+                if (curInput === this) {
+                    control.value = Number(text)
+                }
             }
         }
-        TextInput {
+        Label {
             Layout.preferredWidth: 10
             Layout.alignment: Qt.AlignHCenter
             text: ":"
             font: control.font
             color: control.palette.text
-            selectionColor: control.palette.highlight
-            selectedTextColor: control.palette.highlightedText
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter
             leftPadding: DS.Style.spinBox.spacing
-            readOnly: true
-            validator: control.validator
-            inputMethodHints: control.inputMethodHints
-            selectByMouse: false
         }
         TextInput {
             id: minuteInput
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: 20
-            text: control.minute === 0 ? "0" + Number(control.minute) : control.minute
+            text: control.minute < 10 ? "0" + Number(control.minute) : control.minute
             font: control.font
             color: control.palette.text
             selectionColor: control.palette.highlight
@@ -92,19 +93,22 @@ D.SpinBox {
             leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
             validator: control.validator
+            maximumLength: 2
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
             onFocusChanged: {
                 if (focus) {
-                    curInput = minuteInput
+                    curInput = this
                 }
                 if (0 === text.length || 0 === Number(text)) {
                     control.minute = 0
                 }
             }
-            onTextEdited: {
-                control.value = Number(text)
+            onTextChanged: {
+                if (curInput === this) {
+                    control.value = Number(text)
+                }
             }
         }
     }

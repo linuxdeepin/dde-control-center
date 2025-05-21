@@ -454,27 +454,47 @@ void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
     if (oldTimePeriod == timePeriod) {
         return;
     }
-    QRegularExpression re("^((2[0-3]|[01][0-9]):[0-5][0-9])-((2[0-3]|[01][0-9]):[0-5][0-9])$");
+    const QRegularExpression re("^((2[0-3]|[01][0-9]):[0-5][0-9])-((2[0-3]|[01][0-9]):[0-5][0-9])$");
     QRegularExpressionMatch match = re.match(timePeriod);
     if (!match.hasMatch()) {
         return;
     }
     QTime startTime = QTime::fromString(match.captured(1), "hh:mm");
     QTime endTime = QTime::fromString(match.captured(3), "hh:mm");
+    // 计算时间差（秒），自动处理跨天情况
     int dSecs = startTime.secsTo(endTime);
     if (dSecs < 0) {
-        dSecs = endTime.secsTo(startTime);
+        dSecs += 86400; // 加上一天的秒数
     }
-    if (dSecs < 300) {
+    // 确保最小时间差为5分钟
+    const int MIN_DURATION = 300;
+    if (dSecs == 0) {
+        QRegularExpressionMatch oldMatch = re.match(oldTimePeriod);
+        if (!oldMatch.hasMatch()) {
+            return;
+        }
+        dSecs = (oldMatch.captured(1) <= oldMatch.captured(3)) ? MIN_DURATION : -MIN_DURATION;
+    } else if (dSecs < MIN_DURATION) {
+        dSecs = MIN_DURATION;
+    } else {
+        // 反向计算时间差
+        dSecs = endTime.secsTo(startTime);
+        if (dSecs < 0) {
+            dSecs += 86400;
+        }
+        // 处理反向时间差
+        dSecs = (dSecs < MIN_DURATION) ? -MIN_DURATION : 0;
+    }
+    if (dSecs != 0) {
         QRegularExpressionMatch oldMatch = re.match(oldTimePeriod);
         if (!oldMatch.hasMatch()) {
             return;
         }
         QTime oldStartTime = QTime::fromString(oldMatch.captured(1), "hh:mm");
         if (oldStartTime == startTime) {
-            startTime = endTime.addSecs(-300);
+            startTime = endTime.addSecs(-dSecs);
         } else {
-            endTime = startTime.addSecs(300);
+            endTime = startTime.addSecs(dSecs);
         }
     }
 
