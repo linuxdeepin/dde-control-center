@@ -1466,46 +1466,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Hora personalizada</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Lunes</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Martes</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Miércoles</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Jueves</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Viernes</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Sábado</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Domingo</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Personaliza o tempo de repetición</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Gardar</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Reduzir a luminosidade da pantalla no modo ahorro de batería</translation>
     </message>
@@ -2308,6 +2268,49 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>Os contrasinals non coinciden</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
