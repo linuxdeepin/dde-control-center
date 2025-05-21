@@ -1476,46 +1476,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>自定义</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>周一</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>周二</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>周三</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>周四</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>周五</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>周六</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>周日</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>自定义重复时间</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>节能模式时降低屏幕亮度</translation>
     </message>
@@ -2293,6 +2253,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>两次密码输入不一致</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
