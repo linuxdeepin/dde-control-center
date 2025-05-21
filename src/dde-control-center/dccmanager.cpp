@@ -613,28 +613,43 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         tmpObj = p;
         p = DccObject::Private::FromObject(p)->getParent();
     }
-    while (!m_currentObjects.isEmpty()) {
-        DccObject *oldObj = m_currentObjects.takeLast();
+
+    auto animationMode = DccApp::AnimationPush;
+
+    // 处理旧对象
+    for (auto *oldObj : std::as_const(m_currentObjects)) {
         if (!modules.contains(oldObj)) {
             oldObj->setCurrentObject(nullptr);
+            animationMode = DccApp::AnimationPop;
         }
         if (oldObj != m_root && oldObj != modules.last()) {
             Q_EMIT oldObj->deactive();
         }
     }
+    setAnimationMode(animationMode);
+
+    // 触发新对象
     if (!cmd.isEmpty()) {
         Q_EMIT triggeredObj->active(cmd);
     }
+
+    // 更新当前对象
     m_currentObjects = modules;
-    if (m_currentObjects.last() != m_activeObject) {
-        m_activeObject = m_currentObjects.last();
+    if (auto *lastObj = m_currentObjects.last(); lastObj != m_activeObject) {
+        m_activeObject = lastObj;
         Q_EMIT activeObjectChanged(m_activeObject);
     }
 
+    // 更新导航模型和日志
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << (void *)(triggeredObj->parentItem());
-    if (!(triggeredObj->pageType() & DccObject::Menu) && triggeredObj->parentItem()) {
-        Q_EMIT activeItemChanged(triggeredObj->parentItem());
+    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() 
+                   << " active object:" << m_activeObject->name() 
+                   << " parent:" << (void *)triggeredObj->parentItem();
+
+    // 触发父项变更
+    if (auto *parentItem = triggeredObj->parentItem(); 
+        !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
+        Q_EMIT activeItemChanged(parentItem);
     }
 }
 
