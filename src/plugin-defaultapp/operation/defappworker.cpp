@@ -5,6 +5,7 @@
 
 #include "defappmodel.h"
 
+#include <QProcess>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDebug>
@@ -26,7 +27,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     : QObject(parent)
     , m_defAppModel(model)
     , m_dbusManager(new MimeDBusProxy(this))
-    // , m_defaultTerminal(new QGSettings(TerminalGSetting.toLocal8Bit()))
 {
     m_stringToCategory.insert("Browser", Browser);
     m_stringToCategory.insert("Mail", Mail);
@@ -50,7 +50,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
 
 DefAppWorker::~DefAppWorker()
 {
-    // m_defaultTerminal->deleteLater();
 }
 
 void DefAppWorker::active()
@@ -92,19 +91,44 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
     }
 }
 
+bool DefAppWorker::executeGsettingsCommand(const QStringList &args, const QString &errorMessage)
+{
+    QProcess process;
+    process.start("gsettings", args);
+    process.waitForStarted();
+    if (!process.waitForFinished(5000)) {
+        qCWarning(DdcDefaultWorker) << errorMessage << process.errorString();
+        return false;
+    }
+    return true;
+}
+
 void DefAppWorker::onSetDefaultTerminal(const App &item)
 {
-    Category *defaultTerinmalCategory = getCategory("Terminal");
+    Category *defaultTerminalCategory = getCategory("Terminal");
+    if (!defaultTerminalCategory) {
+        qCWarning(DdcDefaultWorker) << "Failed to get Terminal category";
+        return;
+    }
 
-    // m_defaultTerminal->set("app-id", item.Id);
-    // m_defaultTerminal->set(
-    //         "exec",
-    //         QString("gdbus call --session --dest org.desktopspec.ApplicationManager1 --object-path "
-    //                 "%1 --method org.desktopspec.ApplicationManager1.Application.Launch "
-    //                 "'' [] {}")
-    //                 .arg(item.dbusPath));
+    // Set app-id
+    if (!executeGsettingsCommand({"set", TerminalGSetting, "app-id", item.Id}, 
+                               "Failed to set terminal app-id:")) {
+        return;
+    }
 
-    defaultTerinmalCategory->setDefault(item);
+    // Set exec command
+    QString execCommand = QStringLiteral("gdbus call --session --dest org.desktopspec.ApplicationManager1 "
+                                       "--object-path '%1' --method org.desktopspec.ApplicationManager1.Application.Launch "
+                                       "'' [] {}").arg(item.dbusPath);
+    
+    if (!executeGsettingsCommand({"set", TerminalGSetting, "exec", execCommand},
+                               "Failed to set terminal exec:")) {
+        return;
+    }
+
+    defaultTerminalCategory->setDefault(item);
+    qCInfo(DdcDefaultWorker) << "Successfully set default terminal to:" << item.Id;
 }
 
 void DefAppWorker::onGetListApps()
@@ -193,6 +217,7 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
         return;
     }
     ObjectMap map = reply.value();
+    call->deleteLater();
     for (auto it = map.cbegin(); it != map.cend(); it++) {
         QString dbusPath = it.key().path();
         auto mapInterface = it.value();
@@ -268,16 +293,25 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
     }
     category->setCategory("Terminal");
 
-    // QString id = m_defaultTerminal->get("app-id").toString();
-    // auto it = std::find_if(list.cbegin(), list.cend(), [id](const App &app) {
-    //     return app.Id == id;
-    // });
+    QProcess process;
+    process.start("gsettings", {"get", TerminalGSetting, "app-id"});
+    if (!process.waitForFinished()) {
+        qCWarning(DdcDefaultWorker) << "Failed to get terminal app-id:" << process.errorString();
+        return;
+    }
+    QString id = process.readAllStandardOutput().trimmed().replace("\"", "");
+    if (id.isEmpty()) {
+        qCWarning(DdcDefaultWorker) << "Got empty terminal app-id";
+        return;
+    }
+    
+    auto it = std::find_if(list.cbegin(), list.cend(), [&id](const App &app) {
+        return app.Id.trimmed() == id.remove(QChar('\''), Qt::CaseInsensitive).trimmed();
+    });
 
-    // if (it != list.cend()) {
-    //     category->setDefault(*it);
-    // }
-
-    call->deleteLater();
+    if (it != list.cend()) {
+        category->setDefault(*it);
+    }
 }
 
 void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,

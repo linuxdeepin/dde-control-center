@@ -62,6 +62,7 @@ private:
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
     Category* getCategory(const QString &mime) const;
     // QGSettings *m_defaultTerminal;
+    bool executeGsettingsCommand(const QStringList &args, const QString &errorMessage);
 };
 
 #endif // DEFAPPWORKER_H
