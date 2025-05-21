@@ -1465,46 +1465,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Temps personnalisé</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Lahd</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Sebt</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Rabu</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Djeum</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Jumel</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Jumel</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Djellul</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Personnaliser le temps de répétition</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Annuler</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Enregistrer</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Diminuer l&apos;éclat de l&apos;écran en mode économiseur d&apos;énergie</translation>
     </message>
@@ -2282,6 +2242,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Passwords don&apos;t match</source>
         <translation>sifra t gser ntn</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
