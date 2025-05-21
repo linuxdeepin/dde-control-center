@@ -165,6 +165,15 @@ Rectangle {
                             id: rowCtl
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             spacing: 10
+                            D.BusyIndicator {
+                                id: connectBusyIndicator
+                                implicitHeight: 20
+                                implicitWidth: 20
+                                Layout.rightMargin: showMoreBtn ? 0 : 10
+                                Layout.alignment: Qt.AlignVCenter
+                                running: model.connectStatus === 1
+                                visible: model.connectStatus === 1
+                            }
                             D.ToolButton {
                                 id: connectBtn
                                 implicitHeight: 30
@@ -172,7 +181,7 @@ Rectangle {
                                 text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
                                 enabled: model.connectStatus === 2 || model.connectStatus === 0
                                 font: D.DTK.fontManager.t6
-                                visible: itemCtl.hovered
+                                visible: itemCtl.hovered && model.connectStatus !== 1
 
                                 Layout.alignment: Qt.AlignVCenter
                                 onClicked: {
