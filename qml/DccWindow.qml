@@ -27,7 +27,15 @@ D.ApplicationWindow {
     D.StyledBehindWindowBlur {
         anchors.fill: parent
         control: root
-        blendColor: DS.Style.control.selectColor(control ? control.palette.window : undefined, Qt.rgba(1, 1, 1, 0.8), Qt.rgba(0.06, 0.06, 0.06, 0.8))
+        blendColor: {
+            if (valid) {
+                return DS.Style.control.selectColor(control ? control.palette.window : undefined, Qt.rgba(1, 1, 1, 0.8), Qt.rgba(0.06, 0.06, 0.06, 0.8))
+            }
+                return DS.Style.control.selectColor(undefined,
+                                                    DS.Style.behindWindowBlur.lightNoBlurColor,
+                                                    DS.Style.behindWindowBlur.darkNoBlurColor)
+        }
+
     }
     Shortcut {
         context: Qt.ApplicationShortcut
