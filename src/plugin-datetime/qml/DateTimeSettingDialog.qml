@@ -47,6 +47,7 @@ D.DialogWindow {
                 locale: Qt.locale("C")
                 from: 1990
                 to: 2090
+                wrap: true
                 value: currentDate.getFullYear()
                 onValueChanged: ddialog.updateDateMax()
                 Component.onCompleted: {
@@ -60,6 +61,7 @@ D.DialogWindow {
                 unitText: qsTr("Month")
                 from: 1
                 to: 12
+                wrap: true
                 value: currentDate.getMonth() + 1 //  // January gives 0
                 onValueChanged: ddialog.updateDateMax()
             }
@@ -68,6 +70,7 @@ D.DialogWindow {
                 unitText: qsTr("Day")
                 from: 1
                 to: 31
+                wrap: true
                 value: currentDate.getDate()
             }
         }
@@ -82,12 +85,14 @@ D.DialogWindow {
                 id: spHour
                 from: 0
                 to: 23
+                wrap: true
                 value: currentDate.getHours()
             }
             SpinboxEx {
                 id: spMin
                 from: 0
                 to: 59
+                wrap: true
                 value: currentDate.getMinutes()
             }
         }
