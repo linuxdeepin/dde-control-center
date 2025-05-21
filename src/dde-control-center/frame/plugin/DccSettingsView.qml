@@ -11,6 +11,7 @@ Flickable {
     property real spacing: 0
     property bool isGroup: false
     property real margin: DccUtils.getMargin(width)
+    property bool initItem: false
 
     contentHeight: centralItem.height + bottomItem.height
     ScrollBar.vertical: ScrollBar {
@@ -125,8 +126,8 @@ Flickable {
             }
         }
     }
-    Component.onCompleted: {
-        if (dccObj.children.length === 2) {
+    function updateItem() {
+        if (!initItem && dccObj.children.length === 2) {
             if (!dccObj.children[0].page) {
                 dccObj.children[0].page = groupView
             }
@@ -135,8 +136,16 @@ Flickable {
                 dccObj.children[1].page = footer
             }
             bottomItem.contentItem = dccObj.children[1].getSectionItem(bottomItem)
-        } else {
-            console.warn(dccObj.name, " SettingsView must contain two sub items", dccObj.children.length)
+            initItem = true
+        }
+    }
+    Component.onCompleted: {
+        updateItem()
+    }
+    Connections {
+        target: dccObj
+        onChildrenChanged: {
+            updateItem()
         }
     }
 }
