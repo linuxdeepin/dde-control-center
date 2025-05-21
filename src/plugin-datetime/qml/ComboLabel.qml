@@ -9,7 +9,7 @@ Item {
     property var comboModel: [""]
     property int comboCurrentIndex: -1
     // property string textRole
-    implicitHeight: 36
+    implicitHeight: 30
     implicitWidth: item.comboModel.length > 1 ? 280 : 80
     signal comboBoxActivated(int index)
 
@@ -23,6 +23,9 @@ Item {
         hoverEnabled: true
         onActivated: function (index) {
             item.comboBoxActivated(index)
+        }
+        anchors {
+            verticalCenter: parent.verticalCenter
         }
     }
 

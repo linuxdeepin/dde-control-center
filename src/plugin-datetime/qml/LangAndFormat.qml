@@ -83,7 +83,7 @@ DccObject {
                         property bool isCurrentLang: dccData.currentLang === dccObj.displayName
                         visible: dccObj
                         hoverEnabled: true
-                        implicitHeight: 50
+                        implicitHeight: 40
                         icon.name: dccObj.icon
                         checkable: false
 
@@ -190,6 +190,7 @@ DccObject {
                     languageListTiltle.isEditing = false
                 }
             }
+            onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
         }
     }
 
@@ -346,6 +347,7 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
+                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
             }
         }
     }
@@ -378,6 +380,7 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
+                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
             }
         }
     }
@@ -410,6 +413,7 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
+                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
             }
         }
     }
