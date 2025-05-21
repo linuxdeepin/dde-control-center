@@ -13,12 +13,21 @@ DccApp *DccApp::instance()
 
 DccApp::DccApp(QObject *parent)
     : QObject(parent)
+    , m_animationMode(AnimationPop)
 {
     Q_ASSERT(!dccApp);
     dccApp = this;
 }
 
 DccApp::~DccApp() { }
+
+void DccApp::setAnimationMode(AnimationMode mode)
+{
+    if (m_animationMode != mode) {
+        m_animationMode = mode;
+        Q_EMIT animationModeChanged(mode);
+    }
+}
 
 int DccApp::width() const
 {

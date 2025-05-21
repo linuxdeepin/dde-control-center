@@ -225,7 +225,9 @@ Item {
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        rightView.replace(activeObj.getSectionItem(rightView))
+        rightView.replace(activeObj.getSectionItem(rightView), DccApp.animationMode === DccApp.AnimationPush
+                          ? StackView.PushTransition
+                          : StackView.PopTransition)
     }
     Connections {
         target: DccApp
