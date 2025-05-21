@@ -99,14 +99,34 @@ DccObject {
                 clip: true
 
                 Label {
+                    id: grubSettingText
                     width: grublist.implicitWidth
                     topPadding: 10
                     bottomPadding: 10
                     leftPadding: 5
+                    rightPadding: 25
+                    elide: Text.ElideRight
                     text: qsTr("You can click the menu to change the default startup items, or drag the image to the window to change the background image.")
                     font: DTK.fontManager.t8
                     color: "white"
                     opacity: 0.7
+
+                    TextMetrics {
+                        id: textMetrics
+                        font: grubSettingText.font
+                        text: grubSettingText.text
+                    }
+
+                    ToolTip {
+                        text: grubSettingText.text
+                        visible: grubSettingMouseArea.containsMouse && textMetrics.width > grubSettingText.width
+                    }
+
+                    MouseArea {
+                        id: grubSettingMouseArea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                    }
                 }
 
                 // 在图片背景上使用Repeater
@@ -285,7 +305,7 @@ DccObject {
                 DialogWindow {
                     id: passwordDlg
                     width: 360
-                    height: 350
+                    height: columnLayout.implicitHeight + 50
 
                     icon: "preferences-system"
                     flags: Qt.Dialog | Qt.WindowCloseButtonHint
@@ -310,6 +330,7 @@ DccObject {
                         }
                     }
                     ColumnLayout {
+                        id: columnLayout
                         width: parent.width
                         spacing: 0
 
@@ -483,6 +504,7 @@ DccObject {
 
                         RowLayout {
                             Layout.topMargin: 15
+                            Layout.bottomMargin: 6
                             Layout.preferredWidth: parent.width
                             Layout.fillWidth: true
 
