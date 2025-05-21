@@ -10,6 +10,8 @@ test_build:
         repositories:
           - name: deepin_develop
             paths:
+              - target_project: deepin:Develop:dde
+                target_repository: deepin_develop
               - target_project: deepin:CI
                 target_repository: deepin_develop
               - target_project: deepin:CI:dodconfig
@@ -17,20 +19,6 @@ test_build:
             architectures:
               - x86_64
               - aarch64
-
-          - name: debian
-            paths:
-              - target_project: deepin:CI
-                target_repository: debian_sid
-            architectures:
-              - x86_64
-
-          - name: archlinux
-            paths:
-              - target_project: deepin:CI
-                target_repository: archlinux
-            architectures:
-              - x86_64
 
   filters:
     event: pull_request
