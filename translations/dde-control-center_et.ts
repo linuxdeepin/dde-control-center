@@ -1522,24 +1522,24 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Optimaalne tootlus</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimaalne tootlus: Laheta kõik põhivälimu ja akna mõjutused, et saavutada toimetlikult toimivust.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Keskmine</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Keskmine: Piirata mõned akna mõjutused suurepärast vaates, samas kui säilitatakse toimetlikult toimivust.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Parim vaade</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Parim vaade: Sisestage kõik põhivälimu ja akna mõjutused parimate vaateks.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3641,8 +3641,8 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Töölaual ja ülesandepealkiri</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Seadista töölaual näidet kuvamise ja suuruse</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
