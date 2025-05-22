@@ -1515,24 +1515,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Түзімді артыру</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Түзімді артыру: Системаның ерекше артыруы үшін барлық интерфейс және панель түзімдерін деактивласыз.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Негізделген</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Негізделген: Негізделген түзімдерді қолданып, жаңылыстарды жетілдіріп, системаның жақсы артыруы үшін бірнеше панель түзімдерін қатыстырыңыз.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Түзімді артыру</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Түзімді артыру: Түзімді артыру үшін барлық интерфейс және панель түзімдерін активласыз.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3634,8 +3634,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Компьютер экраны және қаралудың жолы</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Компьютер экранында иконкалардын жалғыздануы және өлшемін айту</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
