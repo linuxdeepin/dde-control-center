@@ -423,7 +423,7 @@ void DeepinWorker::getLicenseState()
         qCWarning(DeepinIDWorker) << "com.deepin.license error ,"<< licenseInfo.lastError().name();
     } else {
         quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
-        m_model->setActivation(reply >= 1 && reply <= 3);
+        m_model->setActivation(reply == 1 || reply == 3);
     }
 }
 
