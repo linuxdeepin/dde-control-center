@@ -25,6 +25,7 @@ DccObject {
             weight: 1
             parentName: "privacy/camera/cameraAppViewGroup"
             pageType: DccObject.Editor
+            canSearch: false
             displayName: qsTr("Allow below apps to access your camera:")
         }
 
@@ -37,6 +38,7 @@ DccObject {
                 icon: model.iconName
                 displayName: model.name
                 pageType: DccObject.Editor
+                canSearch: false
                 page: D.Switch {
                     checked: model.cameraPermission
                     onCheckedChanged: {
