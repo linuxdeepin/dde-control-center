@@ -31,6 +31,7 @@ D.DialogWindow {
         Label {
             text: dialog.title
             font.bold: true
+            font.pixelSize: cancelButton.font.pixelSize
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
         }
         Label {
@@ -40,6 +41,7 @@ D.DialogWindow {
                 else
                     return qsTr("Resetting the password will clear the data stored in the keyring.")
             }
+            font: D.DTK.fontManager.t8
             wrapMode: Text.WordWrap
             rightPadding: 10
             leftPadding: 10
@@ -68,8 +70,10 @@ D.DialogWindow {
             Layout.rightMargin: 20
 
             Button {
+                id: cancelButton
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
+                font: D.DTK.fontManager.t7
                 onClicked: {
                     close()
                 }
@@ -77,6 +81,7 @@ D.DialogWindow {
             D.RecommandButton {
                 Layout.fillWidth: true
                 text: qsTr("Modify password")
+                font: D.DTK.fontManager.t7
                 onClicked: {
                     if (!pwdLayout.checkPassword())
                         return
