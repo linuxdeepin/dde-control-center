@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
+import QtQuick.Templates as T
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
@@ -62,7 +63,7 @@ DccObject {
 
                 Label {
                     Layout.alignment: Qt.AlignVCenter
-                    font: DTK.fontManager.t7
+                    font: D.DTK.fontManager.t7
                     text: root.toPercent(voiceTipsSlider1.value)
                 }
 
@@ -185,6 +186,73 @@ DccObject {
                 textRole: "name"
                 model: dccData.model().soundInputDeviceModel()
                 enabled: dccData.model().inPutPortComboEnable
+                implicitWidth: 300
+
+                contentItem: RowLayout {
+                    spacing: DS.Style.comboBox.spacing
+
+                    Loader {
+                        property string iconName: (control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined)
+                                                  ? model.get(control.currentIndex)[control.iconNameRole] : null
+                        active: iconName
+
+                        sourceComponent: D.DciIcon {
+                            palette: DTK.makeIconPalette(control.palette)
+                            mode: control.D.ColorSelector.controlState
+                            theme: control.D.ColorSelector.controlTheme
+                            name: iconName
+                            sourceSize: Qt.size(DS.Style.comboBox.iconSize, DS.Style.comboBox.iconSize)
+                            fallbackToQIcon: true
+                        }
+                    }
+
+                    T.TextField {
+                        id: textField
+
+                        function getDisplayText() {
+                            return control.editable ? control.editText : fm.elidedText(control.displayText,
+                                                Text.ElideRight, control.implicitWidth - DS.Style.comboBox.iconSize - DS.Style.comboBox.spacing * 4)
+                        }
+
+                        FontMetrics {
+                            id: fm
+                            font: textField.font
+                            onFontChanged: {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+                        Connections {
+                            target: control
+                            function onDisplayTextChanged() {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.rightMargin: DS.Style.comboBox.spacing
+                        text: getDisplayText()
+
+                        enabled: control.editable
+                        autoScroll: control.editable
+                        readOnly: control.down
+                        inputMethodHints: control.inputMethodHints
+                        validator: control.validator
+                        selectByMouse: true
+
+                        color: control.editable ? control.palette.text : control.palette.buttonText
+                        selectionColor: control.palette.highlight
+                        selectedTextColor: control.palette.highlightedText
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: control.horizontalAlignment
+
+                        ToolTip {
+                            visible: !control.editable && textField.text !== control.displayText && textField.hovered
+                            text: control.displayText
+                            delay: 500
+                        }
+                    }
+                }
 
                 delegate: MenuItem {
                     id: menuItem
