@@ -1519,24 +1519,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>أداء مثالي</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>أداء مثالي: إلغاء تفعيل جميع تأثيرات واجهة المستخدم ونوافذ البيئة المعروضة لتحسين أداء النظام.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>قراءة متناسقة</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>قراءة متناسقة: تقييد بعض تأثيرات نوافذ البيئة للحصول على تصوير ممتاز بينما يحافظ على أداء النظام السلس.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation> أفضل الألوان</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>أفضل الألوان: تفعيل جميع تأثيرات واجهة المستخدم ونوافذ البيئة للحصول على تجربة رؤية أفضل.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3638,8 +3638,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>الطاولة وال barr إلى أجنحة المهام</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>تثبيت العرض والحجم للأيقونات على الطاولة</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
