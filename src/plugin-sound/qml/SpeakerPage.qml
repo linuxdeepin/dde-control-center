@@ -4,6 +4,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
+import QtQuick.Templates as T
 import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 
@@ -21,9 +22,6 @@ DccObject {
         parentName: "sound/outPut"
         displayName: qsTr("Output")
         weight: 10
-    }
-    FontMetrics {
-        id: fm
     }
 
     DccObject {
@@ -205,28 +203,72 @@ DccObject {
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
                 enabled: dccData.model().outPutPortComboEnable
-                property real maxTextWidth: DS.Style.control.implicitWidth(control)
-                implicitWidth: maxTextWidth
+                implicitWidth: 300
 
-                function calculateMaxWidth() {
-                    var minWidth = DS.Style.control.implicitWidth(control);
-                    var calculatedWidth = 0;
-                    for (var i = 0; i < model.rowCount(); i++) {
-                        var nameData = model.data(model.index(i, 0), SoundDeviceModel.NameRole);
-                        var textWidth = fm.advanceWidth(nameData);
-                        calculatedWidth = Math.max(calculatedWidth, textWidth);
+                contentItem: RowLayout {
+                    spacing: DS.Style.comboBox.spacing
+
+                    Loader {
+                        property string iconName: (control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined)
+                                                  ? model.get(control.currentIndex)[control.iconNameRole] : null
+                        active: iconName
+
+                        sourceComponent: DciIcon {
+                            palette: DTK.makeIconPalette(control.palette)
+                            mode: control.D.ColorSelector.controlState
+                            theme: control.D.ColorSelector.controlTheme
+                            name: iconName
+                            sourceSize: Qt.size(DS.Style.comboBox.iconSize, DS.Style.comboBox.iconSize)
+                            fallbackToQIcon: true
+                        }
                     }
-                    maxTextWidth = Math.max(minWidth,
-                        calculatedWidth + DS.Style.comboBox.iconSize + DS.Style.comboBox.spacing *3 + Layout.rightMargin * 2);
-                }
 
-                Component.onCompleted: {
-                    calculateMaxWidth();
-                }
+                    T.TextField {
+                        id: textField
 
-                Connections {
-                    target: model
-                    onDataChanged: calculateMaxWidth()
+                        function getDisplayText() {
+                            return control.editable ? control.editText : fm.elidedText(control.displayText,
+                                                Text.ElideRight, control.implicitWidth - DS.Style.comboBox.iconSize - DS.Style.comboBox.spacing * 4)
+                        }
+
+                        FontMetrics {
+                            id: fm
+                            font: textField.font
+                            onFontChanged: {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+                        Connections {
+                            target: control
+                            function onDisplayTextChanged() {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.rightMargin: DS.Style.comboBox.spacing
+                        text: getDisplayText()
+
+                        enabled: control.editable
+                        autoScroll: control.editable
+                        readOnly: control.down
+                        inputMethodHints: control.inputMethodHints
+                        validator: control.validator
+                        selectByMouse: true
+
+                        color: control.editable ? control.palette.text : control.palette.buttonText
+                        selectionColor: control.palette.highlight
+                        selectedTextColor: control.palette.highlightedText
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: control.horizontalAlignment
+
+                        ToolTip {
+                            visible: !control.editable && textField.text !== control.displayText && textField.hovered
+                            text: control.displayText
+                            delay: 500
+                        }
+                    }
                 }
 
                 property bool isInitialized: false
