@@ -1516,24 +1516,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Optimalus įpročio efekto performance</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimalus performance: išjungti visus interfežio ir langų efektus, kad būtų efektyvus sistemos performance.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Balansas</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Balansas: užtikrinti gerus vaizdus, grįždamas į neatidėliotų sistemos performance, apribojant viskai ar dažniai naudojamus langų efektus.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Geriausias visuomenės efekto visuomenės efektas</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Geriausias visuomenės efektas: įjungti visus interfežio ir langų efektus, kad būtų geriausias visuomenės efekto pristatymas.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3660,8 +3660,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Darbo stalo ir užduoties juosta</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Nustatykite ekrano ir ikonų dydį darbo stale</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

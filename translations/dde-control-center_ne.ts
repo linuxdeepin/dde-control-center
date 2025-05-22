@@ -1521,24 +1521,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>[optimal performance]</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>अनुकूलित प्रदर्शन: प्रतिलिपि और विंडो प्रभाव को लगातार अक्षम प्रणाली के लिए बंद करें.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>विश्वस्त</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>विश्वस्त: कुछ विंडो प्रभावों को नियंत्रित करके शुद्ध प्रणाली के साथ विचित्र दृश्य प्रदान करें.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>विश्वस्त प्रदर्शन</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>विश्वस्त प्रदर्शन: सब कुछ प्रतिलिपि और विंडो प्रभावों को व्यवस्थित करके सर्वोत्तम दृश्य अनुभव के लिए विकास करें.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3640,8 +3640,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>डेस्कटॉप र नियंत्रण बार</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>डेस्कटॉपमा दिखाइका र इक्नो आकार निर्धारण</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

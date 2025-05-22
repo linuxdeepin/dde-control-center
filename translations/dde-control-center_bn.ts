@@ -1522,24 +1522,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সুস্থাপিত পরিকল্পনা</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>সুস্থাপিত পরিকল্পনা: সিস্টেমের সুস্থাপিত পরিকল্পনা জন্য সব পরিকল্পনা ও বারের অর্থনীতি বন্ধ করুন।</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>খাড়াবার্ষিকি</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>খাড়াবার্ষিকি: সুবিধাজনক দৃশ্য পাওয়ার সাথে সুস্থাপিত পরিকল্পনা জন্য কিছু বারের অর্থনীতি সীমিত রাখুন।</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>সুন্দর দৃশ্য</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>সুন্দর দৃশ্য: সুন্দর দৃশ্য অভিজ্ঞতার জন্য সব পরিকল্পনা ও বারের অর্থনীতি সকল সক্রিয় করুন।</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3666,8 +3666,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>ডেস্কটপ এবং সাইন্স বার</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>ডেস্কটপের চিহ্ন দেখানো এবং আকার নির্ধারণ</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

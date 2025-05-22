@@ -14,7 +14,7 @@ DccObject {
     name: "dock"
     parentName: "personalization"
     displayName: qsTr("Desktop and taskbar")
-    description: qsTr("Set the display and size of icons on the desktop")
+    description: qsTr("Desktop organization, taskbar mode, plugin area settings")
     icon: "dock"
     weight: 100
 }

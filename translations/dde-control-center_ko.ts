@@ -1543,24 +1543,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>최적의 성능</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>최적의 성능: 효율적인 시스템 성능을 위해 모든 인터페이스 및 창 효과를 비활성화합니다.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>균형</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>균형: 탁월한 시각 효과를 유지하면서 일부 창 효과를 제한합니다.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>최적의 시각적 효과</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>최적의 시각 효과: 최적의 시각 경험을 위해 모든 인터페이스 및 창 효과를 활성화합니다.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3687,8 +3687,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>데스크톱 및 작업 표시줄</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>데스크톱 상의 아이콘의 표시 및 크기를 설정합니다</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

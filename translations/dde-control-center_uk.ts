@@ -1530,24 +1530,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Оптимальна швидкодія</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Оптимальна швидкодія: вимкнути усі ефекти інтерфейсу та вікон для ефективної швидкодії системи.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Баланс</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Баланс: обмежити деякі ефекти вікон для забезпечення ідеальних візуальних ефектів, але з підтримкою належної швидкодії системи.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Найкращі візуальні ефекти</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Найкращі візуальні ефекти: усі ефекти інтерфейсу та вікон з найкращою візуальною складовою.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3649,8 +3649,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Стільниця і панель задач</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Встановити параметри показу і розміру піктограм на стільниці</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

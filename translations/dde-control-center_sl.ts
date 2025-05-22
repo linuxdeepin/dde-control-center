@@ -1520,24 +1520,24 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Optimalna zmogljivost</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimalna zmogljivost: Onemogočite vse efekte vsebovanskega okraja in prozorov, da bo sistema zmogljivost boljša.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Začetek</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Začetek: Omejite nekatere efekte prozorov, da bo zmožnost viditve preučenja boljša, zato da bo sistema zmogljivost še vedno pravilna.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Najboljše vizualne</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Najboljše vizualne: Omogočite vse efekte vsebovanskega okraja in prozorov za najboljšo vizualno izkušnjo.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3639,8 +3639,8 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Namizde in plošča za naloge</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Nastavite prikaz in velikost ikon na namizju</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

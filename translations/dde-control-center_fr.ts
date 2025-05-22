@@ -1546,24 +1546,24 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Performances optimales</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Performances optimales : désactiver tous les effets d&apos;interface et de fenêtres pour une performance système efficace.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Équilibre</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Équilibre : limiter certains effets de fenêtres pour des visuels excellents tout en maintenant une performance système fluide.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Meilleures visuels</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Meilleures visuels : activer tous les effets d&apos;interface et de fenêtres pour la meilleure expérience visuelle.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3666,8 +3666,8 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Bureau et barre des tâches</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Définir l&apos;affichage et la taille des icônes sur le bureau</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

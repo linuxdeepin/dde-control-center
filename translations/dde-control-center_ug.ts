@@ -1516,24 +1516,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished">يۇقىرى ئىقتىدار ھالىتى</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished">يۇقىرى ئىقتىدار ھالىتى: بارلىق كۆرۈنمە يۈز ۋە كۆزنەك ئالاھىدە ئۈنۈمىنى ئېتىۋېتىپ، سىستېمىنىڭ يۇقىرى ئۈنۈملۈك ئايلىنىشىغا كاپالەتلىك قىلىدۇ</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation type="unfinished">تەڭپۇڭ ھالەت</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished">تەڭپۇڭ ھالەت: بىر قىسىم كۆزنەك ئالاھىدە ئۈنۈمىنى چەكلەپ، كۆرۈش ئۈنۈمىنىڭ ياخشى بولۇشىغا كاپالەتلىك قىلىش بىلەن بىر ۋاقىتتا، سىستېمىنىڭ راۋان يۈرۈشۈشىنى ساقلايدۇ</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation type="unfinished">ئەڭ ياخشى كۆرۈش تۇيغۇسى ھالىتى</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished">ئەڭ ياخشى كۆرۈش تۇيغۇسى ھالىتى: بارلىق كۆرۈنمە يۈز ۋە كۆزنەك ئالاھىدە ئۈنۈمىنى قوزغىتىپ، ئەڭ ياخشى كۆرۈش ئۈنۈمىنى ھېس قىلغىلى بولىدۇ</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3635,7 +3635,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

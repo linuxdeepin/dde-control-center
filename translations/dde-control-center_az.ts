@@ -1521,24 +1521,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation> أداء оптимальное</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation> الأداء الأمثل: تعطيل جميع تأثيرات واجهة المستخدم والنوافذ لتحسين أداء النظام.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation> 균형</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation> 균형: تحديد بعض تأثيرات النافذة للحصول على رؤية ممتازة مع الحفاظ على أداء نظام سلس.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>أفضل الرؤية</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>أفضل الرؤية: تفعيل جميع تأثيرات واجهة المستخدم والنوافذ لتحسين تجربة الرؤية.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3644,8 +3644,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>سطح المكتب وقائمة المهام</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>تحديد العرض وحجم الأيقونات على سطح المكتب</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
