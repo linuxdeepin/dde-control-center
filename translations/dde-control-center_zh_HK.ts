@@ -1529,24 +1529,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>最佳性能</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>最佳性能：關閉所有界面和窗口特效，保障系統高效運行.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>均衡</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>均衡：限制部分窗口特效，保障出色的視覺效果，同時維持系統流暢運行</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>最佳視覺</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>最佳視覺：啓用所有界面和窗口特效，體驗最佳視覺效果</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3648,8 +3648,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>桌面和任務欄</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>設置桌面上圖標的顯示以及圖標大小等</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

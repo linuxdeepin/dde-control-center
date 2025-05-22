@@ -1531,24 +1531,24 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Funksionim Optimal</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Funksionim optimal: Çaktivizo krejt efektet e ndërfaqes dhe dritareve, për funksionim efikas të sistemit.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Baraspeshim</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Baraspeshim: Kufizo disa efekte dritaresh, për anë pamore të shkëlqyera, teksa mirëmbahet funksionim i rrjedhshëm i sistemit.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Anë Pamore Më të Mirat</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Anë pamore më të mirat: Aktivizo krejt efektet e ndërfaqes dhe dritareve, për më të mirat e anëve pamore.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3650,8 +3650,8 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Desktop dhe panel punësh</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Caktoni shfaqjen dhe madhësinë e ikonave në desktop</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

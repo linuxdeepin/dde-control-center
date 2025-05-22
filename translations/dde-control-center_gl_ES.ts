@@ -1521,15 +1521,7 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1537,7 +1529,15 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3665,8 +3665,8 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Escritorio e barra de tarefas</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Establece a visualización e o tamaño dos iconas no escritorio</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

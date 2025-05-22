@@ -1516,24 +1516,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished">Optimale prestaties</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished">Optimale prestaties: alle programma- en vensteranimaties worden uitgeschakeld voor zoveel mogelijk efficiëntie.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation type="unfinished">Balans</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished">Balans: sommige vensteranimaties worden uitgeschakeld zonder het systeem minder vloeiend te maken.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation type="unfinished">Meeste animaties</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished">Meeste animaties: alle programma- en vensteranimaties worden ingeschakeld voor zoveel mogelijk oogstreling.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3635,7 +3635,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1531,24 +1531,24 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Rendiment òptim</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Rendiment òptim: desactiva tots els efectes de la interfície i les finestres per obtenir un rendiment eficient del sistema.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Equilibrat</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Equilibrat: limita alguns efectes de les finestres per obtenir una visualització excel·lent i mantenir un bon rendiment del sistema.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>La millor visualització</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>La millor visualització: habilita tots els efectes de la interfície i les finestres per obtenir la millor experiència visual.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3650,8 +3650,8 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Escriptori i barra de tasques</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Establiu la visualització i la mida de les icones a l&apos;escriptori.</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

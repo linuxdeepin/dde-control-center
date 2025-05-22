@@ -1532,24 +1532,24 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <translation>Optimizar rendimiento</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optimizar rendimiento: Desactiva todos los efectos de ventana para mejorar rendimiento del sistema.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Equilibrado</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Equilibrado: Limita algunos efectos de ventana manteniendo buenos efectos visuales y una experiencia fluida del sistema.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Optimizar efectos visuales</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Optimizar efectos visuales: Activa todos los efectos de ventana para tener la mejor experiencia visual.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3651,8 +3651,8 @@ Inicie sesión en deepin ID para obtener funciones y servicios personalizados de
         <translation>Escritorio y barra de tareas</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Establecer la visualización y el tamaño de los iconos en el escritorio</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
