@@ -308,6 +308,7 @@ DccObject {
                 model: dccData.model().bluetoothModeOpts
                 currentIndex: indexOfValue(dccData.model().currentBluetoothAudioMode)
                 property bool isInitialized: false
+                implicitWidth: 300
                 // 等待组件加载完成后，设置 isInitialized 为 true
                 Component.onCompleted: {
                     console.log("bluetoothModeCombo onCompleted:", isInitialized)
