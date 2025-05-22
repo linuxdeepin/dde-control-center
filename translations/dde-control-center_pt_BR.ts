@@ -1514,24 +1514,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Desempenho ideal</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Desempenho ideal: desative todos os efeitos de interface e janela para obter um desempenho eficiente do sistema.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Balanceado</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Balanceado: Limite alguns efeitos de janela para obter excelentes visuais, mantendo o desempenho suave do sistema</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Melhores visuais</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Recursos visuais: ative todos os efeitos de interface e janela para obter a melhor experiência visual.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3633,8 +3633,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Área de trabalho e barra de tarefas</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Defina a exibição e o tamanho dos ícones na área de trabalho</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
