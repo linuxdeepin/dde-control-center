@@ -1529,24 +1529,24 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Optymalna wydajność</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>Optymalna wydajność: Wyłącz wszystkie efekty interfejsu i okien dla wydajnego działania systemu.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>Zrównoważony</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Zrównoważony: Ogranicz niektóre animacje okien, aby zachować optymalną wydajność systemu.</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>Najlepsze efekty wizualne</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>Najlepsze efekty wizualne: Włącz wszystkie efekty interfejsu i okien dla najlepszych doświadczeń wizualnych.</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3648,8 +3648,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Pulpit i pasek zadań</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Ustaw wygląd i rozmiar ikon na pulpicie</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
