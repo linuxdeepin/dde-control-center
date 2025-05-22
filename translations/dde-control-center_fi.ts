@@ -1535,15 +1535,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Poista käytöstä kaikki tehosteet järjestelmän tehokkaan suorituskyvyn takaamiseksi.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita joitain tehosteita saadaksesi visuaalista sisältöä, säilyttäen samalla järjestelmän sujuvan suorituskyvyn.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Tehoa riittää, ota kaikki tehosteet käyttöön parhaalla visuaalisella käyttökokemuksella.</translation>
     </message>
 </context>
 <context>
@@ -2256,19 +2256,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Maanantai</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Tiistai</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Keskiviikko</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Torstai</translation>
     </message>
     <message>
         <source>Friday</source>
