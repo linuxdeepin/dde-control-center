@@ -2272,27 +2272,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Perjantai</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Lauantai</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Sunnuntai</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa toistoaikaa</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
 </context>
 <context>
@@ -3646,7 +3646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organisointi, tehtäväpalkin tila, laajennusalueen asetukset</translation>
     </message>
 </context>
 <context>
