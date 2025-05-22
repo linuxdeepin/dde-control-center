@@ -25,6 +25,7 @@ DccObject {
             weight: 1
             parentName: "privacy/filefolder/filefolderViewGroup"
             pageType: DccObject.Editor
+            canSearch: false
             displayName: qsTr("Allow below apps to access these files and folders:")
         }
 
@@ -40,6 +41,7 @@ DccObject {
                 weight: 10 + index * 10
                 pageType: DccObject.Item
                 visible: !model.noDisplay
+                canSearch: false
 
                 Connections {
                     target: parentItem
