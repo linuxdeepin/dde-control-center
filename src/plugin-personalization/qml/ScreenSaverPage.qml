@@ -64,6 +64,14 @@ DccObject {
                     }
                 }
 
+                Rectangle {
+                    anchors.fill: parent
+                    radius: 6
+                    color: "transparent"
+                    border.color: Qt.rgba(0, 0, 0, 0.1)
+                    border.width: 1
+                }
+
                 D.Button {
                     id: previewBtn
                     anchors.bottom: parent.bottom
