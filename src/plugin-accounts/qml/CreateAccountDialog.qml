@@ -30,6 +30,7 @@ D.DialogWindow {
             font.bold: true
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             Layout.bottomMargin: 10
+            font.pixelSize: accountTypeLabel.font.pixelSize
         }
 
         RowLayout {
@@ -39,10 +40,12 @@ D.DialogWindow {
             Layout.bottomMargin: 20
 
             Label {
+                id: accountTypeLabel
                 text: qsTr("Account type")
                 Layout.preferredWidth: 120
                 Layout.alignment: Qt.AlignVCenter
                 Layout.leftMargin: 10
+                font: D.DTK.fontManager.t7
             }
 
             ComboBox {
@@ -51,6 +54,7 @@ D.DialogWindow {
                 Layout.rightMargin: 10
                 Layout.fillWidth: true
                 model: dccData.userTypes(true)
+                font: D.DTK.fontManager.t7
             }
         }
 
@@ -184,6 +188,7 @@ D.DialogWindow {
             Button {
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
+                font: D.DTK.fontManager.t7
                 onClicked: {
                     close()
                 }
@@ -191,6 +196,7 @@ D.DialogWindow {
             D.RecommandButton {
                 Layout.fillWidth: true
                 text: qsTr("Create account")
+                font: D.DTK.fontManager.t7
                 onClicked: {
                     if (!namesContainter.checkNames())
                         return

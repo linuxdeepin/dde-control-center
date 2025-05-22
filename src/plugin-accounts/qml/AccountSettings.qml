@@ -747,7 +747,7 @@ DccObject {
                     Button {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Add group")
-                        implicitWidth: fm.advanceWidth(text) + 12
+                        implicitWidth: fm.advanceWidth(text) + 20
                         implicitHeight: 30
                         onClicked: {
                             dccData.requestCreateGroup(settings.userId)

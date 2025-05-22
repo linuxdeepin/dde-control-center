@@ -290,6 +290,7 @@ ColumnLayout {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 Layout.leftMargin: 0
+                font: D.DTK.fontManager.t7
             }
         }
     }
