@@ -1527,24 +1527,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>最佳效能</translation>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation>最佳效能：關閉所有介面和視窗特效，保障系統高效執行.</translation>
-    </message>
-    <message>
         <source>Balance</source>
         <translation>均衡</translation>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>均衡：限制部分視窗特效，保障出色的視覺效果，同時維持系統流暢執行</translation>
     </message>
     <message>
         <source>Best Visuals</source>
         <translation>最佳視覺</translation>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
-        <translation>最佳視覺：啟用所有介面和視窗特效，體驗最佳視覺效果</translation>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3646,8 +3646,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>桌面和工作列</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>設定桌面上圖示的顯示以及圖示大小等</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
