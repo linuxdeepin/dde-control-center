@@ -315,6 +315,7 @@ RegionAvailableData RegionProxy::allTextData(const QLocale &locale)
     allTextData += RegionProxy::defaultTextData(locale);
     allTextData += RegionProxy::customTextData(locale);
 
+    m_allFormat.clear();
     m_allFormat += m_defaultFormat;
     m_allFormat += m_customFormat;
 

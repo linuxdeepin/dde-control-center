@@ -85,6 +85,13 @@ struct RegionAvailableData {
         }
         return *this;
     }
+    void clear() {
+        daysAvailable.clear();
+        shortDatesAvailable.clear();
+        longDatesAvailable.clear();
+        shortTimesAvailable.clear();
+        longTimesAvailable.clear();
+    }
 };
 
 using Regions = QMap<QString, QLocale>;
