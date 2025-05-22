@@ -303,12 +303,14 @@ ColumnLayout {
 
         Label {
             id: leftItem
+            font: D.DTK.fontManager.t7
             Layout.preferredWidth: 120
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
         }
 
         D.PasswordEdit {
             id: rightItem
+            font: D.DTK.fontManager.t7
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
