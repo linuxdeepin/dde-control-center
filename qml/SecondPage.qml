@@ -79,6 +79,9 @@ Item {
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
             activeFocusOnTab: true
             clip: true
+            ScrollBar.vertical: ScrollBar {
+                width: 10
+            }
             model: DccModel {
                 id: dccModel
                 root: dccObj
