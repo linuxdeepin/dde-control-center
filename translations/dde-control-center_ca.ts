@@ -1538,15 +1538,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Inhabilita tots els efectes de la interfície i de les finestres per obtenir un rendiment eficient del sistema.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Limita alguns efectes de les finestres per obtenir una visualització excel·lent i mantenir un bon rendiment del sistema.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Habilita tots els efectes de la interfície i les finestres per obtenir la millor experiència visual.</translation>
     </message>
 </context>
 <context>
@@ -3649,7 +3649,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organització de l&apos;escriptori, mode de la barra de tasques, configuració de l&apos;àrea de connectors</translation>
     </message>
 </context>
 <context>
