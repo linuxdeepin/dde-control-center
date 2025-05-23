@@ -9,39 +9,69 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.SpinBox {
     id: control
-    readonly property string timeString: (hour < 10 ? "0" + Number(hour) : Number(hour)) + ":" + (minute < 10 ? "0" + Number(minute) : Number(minute))
+    readonly property string timeString: textFromValue(value)
     property int hour: 0
     property int minute: 0
-    property var curInput: hourInput
-    Layout.maximumWidth: 110
-    from: 0
-    to: 23
-    value: 8
-    editable: true
-    font: D.DTK.fontManager.t7
     signal timeChanged
 
-    function updateValue() {
-        const isHourInput = (curInput === hourInput)
-        const targetProperty = isHourInput ? hour : minute
+    Layout.maximumWidth: 110
+    from: 0
+    to: 1380 // 23 hours * 60 minutes
+    stepSize: 60
+    value: hour * 60 + minute
+    editable: true
+    font: D.DTK.fontManager.t7
+    inputMethodHints: Qt.ImhDigitsOnly
 
-        if (targetProperty !== value) {
-            if (isHourInput) {
-                hour = value
-            } else {
-                minute = value
-            }
-            control.timeChanged()
+    function formatText(value) {
+        return value < 10 ? "0" + value : value
+    }
+    onHourChanged: {
+        var m = value % 60
+        if (stepSize === 1) {
+            from = hour * 60
+            to = hour * 60 + 59
         }
+        value = hour * 60 + m
+    }
+    onMinuteChanged: {
+        var h = Math.floor(value / 60)
+        if (stepSize === 60) {
+            from = minute
+            to = 23 * 60 + minute
+        }
+        value = h * 60 + minute
     }
 
+    textFromValue: function (value) {
+        var hours = Math.floor(value / 60)
+        var minutes = value % 60
+        return (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes)
+    }
+    valueFromText: function (text) {
+        var parts = text.split(":")
+        var hours = parseInt(parts[0], 10)
+        var minutes = parseInt(parts[1], 10)
+        switch (stepSize) {
+        case 1:
+            control.from = hours * 60
+            control.to = hours * 60 + 59
+            break
+        case 60:
+            control.from = minutes
+            control.to = 23 * 60 + minutes
+            break
+        }
+        return hours * 60 + minutes
+    }
     contentItem: RowLayout {
+        property string text: hourInput.text + ":" + minuteInput.text
         spacing: 0
         TextInput {
             id: hourInput
             Layout.preferredWidth: 20
             Layout.alignment: Qt.AlignHCenter
-            text: control.hour < 10 ? "0" + Number(control.hour) : control.hour
+            text: control.formatText(Math.floor(value / 60))
             font: control.font
             color: control.palette.text
             selectionColor: control.palette.highlight
@@ -50,22 +80,19 @@ D.SpinBox {
             verticalAlignment: Qt.AlignVCenter
             leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
-            validator: control.validator
+            validator: RegularExpressionValidator {
+                regularExpression: /^(?:[0-1]?[0-9]|2[0-3])$/
+            }
             maximumLength: 2
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
             onFocusChanged: {
                 if (focus) {
-                    curInput = this
-                }
-                if (0 === text.length || 0 === Number(text)) {
-                    control.hour = 0
-                }
-            }
-            onTextChanged: {
-                if (curInput === this) {
-                    control.value = Number(text)
+                    control.stepSize = 60
+                    var minutes = value % 60
+                    control.from = minutes
+                    control.to = 23 * 60 + minutes
                 }
             }
         }
@@ -83,7 +110,7 @@ D.SpinBox {
             id: minuteInput
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: 20
-            text: control.minute < 10 ? "0" + Number(control.minute) : control.minute
+            text: control.formatText(Math.floor(value % 60))
             font: control.font
             color: control.palette.text
             selectionColor: control.palette.highlight
@@ -92,37 +119,25 @@ D.SpinBox {
             verticalAlignment: Qt.AlignVCenter
             leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
-            validator: control.validator
+            validator: RegularExpressionValidator {
+                regularExpression: /^(?:[0-5]?[0-9])$/
+            }
             maximumLength: 2
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
             onFocusChanged: {
                 if (focus) {
-                    curInput = this
-                }
-                if (0 === text.length || 0 === Number(text)) {
-                    control.minute = 0
-                }
-            }
-            onTextChanged: {
-                if (curInput === this) {
-                    control.value = Number(text)
+                    control.stepSize = 1
+                    var hours = Math.floor(value / 60)
+                    control.from = hours * 60
+                    control.to = hours * 60 + 59
                 }
             }
-        }
-    }
-    onCurInputChanged: {
-        if (curInput === hourInput) {
-            to = 23
-            value = hour
-        } else {
-            to = 59
-            value = minute
         }
     }
     onValueChanged: {
         // onValueChanged early than onCurInputChanged
-        Qt.callLater(updateValue)
+        Qt.callLater(control.timeChanged)
     }
 }
