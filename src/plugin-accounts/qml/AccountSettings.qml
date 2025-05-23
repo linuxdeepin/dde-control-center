@@ -294,6 +294,15 @@ DccObject {
                         text = elidedText
                     }
 
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.RightButton
+                        enabled: parent.completeText === ""
+                        onClicked: function(mouse) {
+                            mouse.accepted = true
+                        }
+                    }
+
                     onReadOnlyChanged: {
                         // Store the original text when editing starts
                         if (!readOnly) {
