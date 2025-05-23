@@ -229,9 +229,12 @@ void ShortcutModel::onParseInfo(const QString &info)
         ShortcutInfo *info = new ShortcutInfo();
         info->type         = type;
         info->accels       = obj["Accels"].toArray().first().toString();
-        info->name    = obj["Name"].toString();
-        info->pinyin =  toPinyin(info->name);
         info->id      = obj["Id"].toString();
+        info->name    = obj["Name"].toString();
+        if (systemShortKeys.contains(info->id)) {
+            info->name    = info->name.trimmed();
+        }
+        info->pinyin  =  toPinyin(info->name);
         info->command = obj["Exec"].toString();
 
         m_infos << info;

@@ -34,7 +34,7 @@ DccObject {
                 id: timer
                 interval: 100
                 onTriggered: {
-                    shortcutView.model.setFilterWildcard(searchEdit.text);
+                    shortcutView.model.setFilterFixedString(searchEdit.text);
                 }
             }
 
