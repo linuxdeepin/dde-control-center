@@ -190,8 +190,8 @@ DccObject {
             background: null
             horizontalAlignment: Text.AlignHCenter
             font: D.DTK.fontManager.t5
-            onFocusChanged: {
-                if (!focus) {
+            onActiveFocusChanged: {
+                if (!activeFocus) {
                     text = ""
                 }
             }
