@@ -208,7 +208,7 @@ DccObject {
                     text: qsTr("Add new user")
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     Layout.rightMargin: 10
-                    implicitWidth: fm.advanceWidth(text) + 12
+                    implicitWidth: implicitContentWidth + 20
                     implicitHeight: 30
                     onClicked: {
                         cadLoader.active = true
@@ -522,11 +522,13 @@ DccObject {
                 Layout.alignment: groupSettingsBtn.visible ? Qt.AlignLeft : Qt.AlignRight
                 text: qsTr("Delete current account")
                 enabled: dccData.isDeleteAble(settings.userId)
-                implicitWidth: fm.advanceWidth(text) + 12
+                implicitWidth: implicitContentWidth + 20
                 implicitHeight: 30
                 contentItem: Text {
                     text: deleteBtn.text
                     color: "#FF5736"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
                 }
                 Loader {
                     id: cfdLoader
@@ -559,7 +561,7 @@ DccObject {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Group setting")
                 visible: dccData.needShowGroups()
-                implicitWidth: fm.advanceWidth(text) + 12
+                implicitWidth: implicitContentWidth + 20
                 implicitHeight: 30
                 onClicked: {
                     DccApp.showPage(groupSettings)
@@ -747,7 +749,7 @@ DccObject {
                     Button {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Add group")
-                        implicitWidth: fm.advanceWidth(text) + 20
+                        implicitWidth: implicitContentWidth + 20
                         implicitHeight: 30
                         onClicked: {
                             dccData.requestCreateGroup(settings.userId)
