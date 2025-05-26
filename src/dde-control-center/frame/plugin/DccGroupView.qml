@@ -4,7 +4,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
-import Qt.labs.qmlmodels 1.2
+import QtQml.Models //Delegatechoice for Qt >= 6.9
+import Qt.labs.qmlmodels //DelegateChooser
 
 import org.deepin.dtk 1.0 as D
 
