@@ -3107,7 +3107,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add a new </source>
-        <translation>Añadir uno nuevo</translation>
+        <translation>Añadir un nuevo </translation>
     </message>
     <message>
         <source>This name already exists</source>
