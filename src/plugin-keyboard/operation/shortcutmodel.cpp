@@ -199,10 +199,6 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemFilterServer.removeOne("wm-switcher");
         systemFilterServer.removeOne("preview-workspace");
         systemShortKeys = systemFilterServer;
-    } else if (false == m_windowSwitchState) {
-        QStringList systemFilterServer = systemFilter;
-        systemFilterServer.removeOne("preview-workspace");
-        systemShortKeys = systemFilterServer;
     } else {
         systemShortKeys = systemFilter;
     }
@@ -270,6 +266,18 @@ void ShortcutModel::onParseInfo(const QString &info)
     std::sort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemShortKeys.indexOf(s1->id) < systemShortKeys.indexOf(s2->id);
     });
+    // More efficient implementation using std::find_if
+    auto it = std::find_if(m_systemInfos.begin(), m_systemInfos.end(),
+        [](const ShortcutInfo* info) { return info->id == "preview-workspace"; });
+    m_windowSwitchStateInfos.clear();
+    if (it != m_systemInfos.end()) {
+        int index = std::distance(m_systemInfos.begin(), it);
+        (*it)->index = index;
+        m_windowSwitchStateInfos << *it;
+        if (!m_windowSwitchState) {
+            m_systemInfos.erase(it);  // More efficient than removeOne
+        }
+    }
 
     std::sort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
@@ -332,6 +340,16 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
 {
     if (m_windowSwitchState != value) {
         m_windowSwitchState = value;
+        if (m_windowSwitchState) {
+            for (int i = m_windowSwitchStateInfos.size() - 1; i >= 0; i--) {
+                m_systemInfos.insert(m_windowSwitchStateInfos.at(i)->index, m_windowSwitchStateInfos.at(i));
+            }
+        } else {
+            for (int i = 0; i < m_windowSwitchStateInfos.size(); i++) {
+                m_systemInfos.removeOne(m_windowSwitchStateInfos.at(i));
+            }
+        }
+        Q_EMIT windowSwitchChanged(m_windowSwitchState);
     }
 }
 
