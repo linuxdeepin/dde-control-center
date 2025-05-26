@@ -71,8 +71,7 @@ void KeyboardWorker::resetAll() {
 
 void KeyboardWorker::onGetWindowWM(bool value)
 {
-    if (m_shortcutModel)
-        m_shortcutModel->onWindowSwitchChanged(value);
+    windowSwitch();
 }
 
 void KeyboardWorker::setShortcutModel(ShortcutModel *model)

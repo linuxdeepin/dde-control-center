@@ -25,6 +25,7 @@ struct ShortcutInfo
     ShortcutItem *item = nullptr;
     QString sectionName;
     QString pinyin;
+    int index = 0;
 
     ShortcutInfo()
         : type(0)
@@ -113,6 +114,7 @@ private:
     QList<ShortcutInfo *> m_assistiveToolsInfos;
     QList<ShortcutInfo *> m_customInfos;
     QList<ShortcutInfo *> m_searchList;
+    QList<ShortcutInfo *> m_windowSwitchStateInfos;
     ShortcutInfo *m_currentInfo = nullptr;
     bool m_windowSwitchState;
     //dcc::display::DisplayModel m_dis;
