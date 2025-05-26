@@ -1124,7 +1124,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation>Administre su Deepin ID y sincronice sus datos personales entre dispositivos.
-Inicie sesión en deepin ID para obtener funciones y servicios personalizados del navegador, tienda de aplicaciones, soporte y más.</translation>
+Inicie sesión en Deepin ID para obtener funciones y servicios personalizados del navegador, tienda de aplicaciones, soporte y más.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
