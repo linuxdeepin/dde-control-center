@@ -1107,7 +1107,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>deepin</translation>
+        <translation>Deepin</translation>
     </message>
     <message>
         <source>UOS</source>
