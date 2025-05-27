@@ -2274,27 +2274,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>П&apos;ятниця</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Субота</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Неділя</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Нетиповий час повторення</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Зберегти</translation>
     </message>
 </context>
 <context>
@@ -2809,7 +2809,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати адресу посилання</translation>
     </message>
 </context>
 <context>
@@ -3648,7 +3648,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Упорядковування стільниці, режим панелі задач, параметри області додатків</translation>
     </message>
 </context>
 <context>
@@ -4025,7 +4025,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Пристрої</translation>
     </message>
 </context>
 <context>
