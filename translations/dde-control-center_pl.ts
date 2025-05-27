@@ -2931,11 +2931,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>show all</source>
-        <translation>Pokaż wszystkie</translation>
+        <translation>Pokaż wszystkie </translation>
     </message>
     <message>
         <source>items</source>
-        <translation>przedmiotów</translation>
+        <translation> przedmiotów</translation>
     </message>
     <message>
         <source>Set lock screen</source>
