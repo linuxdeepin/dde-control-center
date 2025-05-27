@@ -398,9 +398,8 @@ void AccountsWorker::createAccount(const User *user)
     qDebug() << "create account";
 
     QFutureWatcher<CreationResult *> *watcher = new QFutureWatcher<CreationResult *>(this);
-    connect(watcher, &QFutureWatcher<CreationResult *>::finished, [this, watcher] {
+    connect(watcher, &QFutureWatcher<CreationResult *>::finished, [this, watcher, user] {
         CreationResult *result = watcher->result();
-        m_userModel->setAllGroups(m_accountsInter->GetGroups());
         Q_EMIT accountCreationFinished(result);
         Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();

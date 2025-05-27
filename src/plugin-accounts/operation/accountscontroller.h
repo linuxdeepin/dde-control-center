@@ -85,6 +85,8 @@ public slots:
     QVariantMap checkPasswordResult(int code, const QString &msg, const QString &name, const QString &pwd);
     void showDefender();
 
+    void updateSingleUserGroups(const QString &id);
+
 signals:
     void currentUserNameChanged();
     void userIdListChanged();
@@ -115,6 +117,7 @@ private:
     QAbstractListModel    *m_accountsModel = nullptr;
     QHash<QString, QStringList> m_groups;
     QAbstractListModel    *m_groupsModel = nullptr;
+    bool m_isCreatingUser = false;
 };
 
 }
