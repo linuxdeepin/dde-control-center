@@ -320,11 +320,16 @@ QString DccManager::searchProxy(const QString &json) const
             qDebug(dccLog) << "Delay to get searching due to plugins unloaded.";
             auto message = this->message();
             setDelayedReply(true);
-            QObject::connect(m_plugins, &PluginManager::loadAllFinished, this, [this, json, message] () {
-                const auto &ret = this->search(json);
-                qDebug(dccLog) << "Searching finished, result size:" << ret.size();
-                QDBusConnection::sessionBus().send(message.createReply(ret));
-            }, Qt::SingleShotConnection);
+            QObject::connect(
+                    m_plugins,
+                    &PluginManager::loadAllFinished,
+                    this,
+                    [this, json, message]() {
+                        const auto &ret = this->search(json);
+                        qDebug(dccLog) << "Searching finished, result size:" << ret.size();
+                        QDBusConnection::sessionBus().send(message.createReply(ret));
+                    },
+                    Qt::SingleShotConnection);
 
             return {};
         }
@@ -375,7 +380,7 @@ QSortFilterProxyModel *DccManager::searchModel() const
 
 void DccManager::show()
 {
-    QWindow *w = mainWindow();
+    QWindow *w = DccManager::mainWindow();
     if (w->windowStates() == Qt::WindowMinimized || !w->isVisible())
         w->showNormal();
     w->requestActivate();
@@ -396,10 +401,43 @@ void DccManager::initConfig()
 bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
 {
     for (auto &&url : urls) {
-        if (isEqual(url, obj))
+        if (isMatch(url, obj)) {
             return true;
+        }
     }
     return false;
+}
+
+bool DccManager::isMatch(const QString &url, const DccObject *obj)
+{
+    QString objPath = "/" + obj->parentName() + "/" + obj->name();
+    int urlPos = url.size() - 1;
+    int objPos = objPath.size() - 1;
+    bool inWildcard = false; //  包含*
+    while (urlPos >= 0 && objPos >= 0) {
+        if (url[urlPos] == objPath[objPos]) {
+            urlPos--;
+            objPos--;
+            inWildcard = false;
+        } else if (url[urlPos] == '*') {
+            inWildcard = true;
+            urlPos--;
+        } else if (inWildcard && objPath[objPos] != '/') {
+            objPos--;
+        } else {
+            return false;
+        }
+    }
+    if (inWildcard) {
+        return true;
+    }
+    if (urlPos >= 0) {
+        return url[urlPos] == '/';
+    }
+    if (objPos >= 0) {
+        return objPath[objPos] == '/';
+    }
+    return true;
 }
 
 bool DccManager::isEqual(const QString &url, const DccObject *obj)
@@ -439,6 +477,37 @@ DccObject *DccManager::findObject(const QString &url, bool onlyRoot)
         }
     }
     return nullptr;
+}
+
+QVector<DccObject *> DccManager::findObjects(const QString &url, bool onlyRoot, bool one)
+{
+    if (!m_root) {
+        return {};
+    }
+    QString path = url;
+    if (path.startsWith("/")) {
+        path = path.mid(1);
+    }
+    QVector<DccObject *> rets;
+    QVector<QVector<DccObject *>> objs;
+    objs.append({ m_root });
+    if (!onlyRoot) {
+        objs.append(m_hideObjects->getChildren());
+    }
+    while (!objs.isEmpty()) {
+        QVector<DccObject *> subObjs = objs.takeFirst();
+        while (!subObjs.isEmpty()) {
+            DccObject *obj = subObjs.takeFirst();
+            if (isMatch(path, obj)) {
+                rets.append(obj);
+                if (one) {
+                    return rets;
+                }
+            }
+            subObjs.append(obj->getChildren());
+        }
+    }
+    return rets;
 }
 
 DccObject *DccManager::findParent(const DccObject *obj)
@@ -501,14 +570,15 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
     QString cmd;
     if (url.isEmpty()) {
         obj = m_root;
-        showPage(obj, QString());
+        DccManager::showPage(obj, QString());
     } else {
         int i = url.indexOf('?');
         cmd = i != -1 ? url.mid(i + 1) : QString();
         QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
-        obj = findObject(path, true);
+        auto objs = findObjects(path, true, true);
+        obj = objs.isEmpty() ? nullptr : objs.first();
         if (obj) {
-            showPage(obj, cmd);
+            DccManager::showPage(obj, cmd);
         } else if (!m_plugins->loadFinished()) {
             m_showUrl = url;
             m_showMessage = message;
@@ -642,13 +712,10 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 
     // 更新导航模型和日志
     m_navModel->setNavigationObject(m_currentObjects);
-    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() 
-                   << " active object:" << m_activeObject->name() 
-                   << " parent:" << (void *)triggeredObj->parentItem();
+    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << " parent:" << (void *)triggeredObj->parentItem();
 
     // 触发父项变更
-    if (auto *parentItem = triggeredObj->parentItem(); 
-        !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
+    if (auto *parentItem = triggeredObj->parentItem(); !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
         Q_EMIT activeItemChanged(parentItem);
     }
 }
@@ -681,18 +748,37 @@ void DccManager::updateModuleConfig(const QString &key)
         return;
     }
     const auto &list = m_dconfig->value(key).toStringList();
-    *newModuleConfig = QSet<QString>(list.begin(), list.end());
+    // 预处理，去掉首尾空格项，去多通配符项
+    newModuleConfig->clear();
+    for (auto &&config : list) {
+        if (config.isEmpty()       // 空
+            || config.at(0) == ' ' // 首尾空格
+            || config.at(config.length() - 1) == ' ') {
+            continue;
+        }
+        bool isValid = false;
+        for (auto &c : config) {
+            if (c == '/') {
+                isValid = false;
+            } else {
+                isValid |= c.isLetterOrNumber();
+            }
+        }
+        if (isValid) {
+            newModuleConfig->insert(config);
+        }
+    }
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {
-        DccObject *obj = findObject(url);
-        if (obj) {
+        QVector<DccObject *> objs = findObjects(url);
+        for (auto &&obj : objs) {
             DccObject::Private::FromObject(obj)->setFlagState(type, true);
         }
     }
     for (auto &&url : removeModuleConfig) {
-        DccObject *obj = findObject(url);
-        if (obj) {
+        QVector<DccObject *> objs = findObjects(url);
+        for (auto &&obj : objs) {
             DccObject::Private::FromObject(obj)->setFlagState(type, false);
         }
     }
