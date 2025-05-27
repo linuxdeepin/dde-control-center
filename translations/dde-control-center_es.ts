@@ -1349,15 +1349,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso legal</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar</translation>
     </message>
 </context>
 <context>
@@ -1539,15 +1539,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Desactiva todos los efectos de ventana para mejorar rendimiento del sistema.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Limita algunos efectos de ventana manteniendo buenos efectos visuales y una experiencia fluida del sistema.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Activa todos los efectos de ventana para tener la mejor experiencia visual.</translation>
     </message>
 </context>
 <context>
@@ -2260,43 +2260,43 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Lunes</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Martes</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Miércoles</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Jueves</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>Viernes</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>Sábado</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Domingo</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo de repetición personalizado</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -2811,7 +2811,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Copiar dirección del enlace</translation>
     </message>
 </context>
 <context>
@@ -3650,7 +3650,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organización del escritorio, modo de barra de tareas, ajustes del área de complementos</translation>
     </message>
 </context>
 <context>
@@ -4027,7 +4027,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos</translation>
     </message>
 </context>
 <context>
