@@ -331,6 +331,7 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
         QMap<QString, QString> nameMap;
         QMap<QString, QString> execMap;
         QMap<QString, QString> iconMap;
+        QMap<QString, QString> genericNameMap;
         const QStringList keys = { "Type", "Version", "Path", "Terminal", "Categories" };
         if (file.open(QFile::ReadOnly)) {
             QTextStream in(&file);
@@ -356,6 +357,15 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
                             } else {
                                 nameMap.insert(key.mid(nameIndex + 1, key.length() - nameIndex - 2), value);
                             }
+                        } else if (key.startsWith("GenericName")) {
+                            int genericNameIndex = key.indexOf('[');
+                            if (genericNameIndex < 0) {
+                                appInfo.insert("default", value);
+                            } else {
+                                genericNameMap.insert(key.mid(genericNameIndex + 1, key.length() - genericNameIndex - 2), value);
+                            }
+                        } else if (key == "X-Deepin-Vendor") {
+                            appInfo.insert("X-Deepin-Vendor", value);
                         } else if (keys.contains(key)) {
                             appInfo.insert(key, value);
                         }
@@ -368,10 +378,12 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
             appInfo.insert("MimeType", getTypeListByCategory(m_stringToCategory.value(mime)));
             appInfo.insert("Name", QVariant::fromValue(nameMap));
             appInfo.insert("Exec", QVariant::fromValue(execMap));
+            appInfo.insert("GenericName", QVariant::fromValue(genericNameMap));
             if (iconMap.isEmpty()) {
                 iconMap.insert("default-icon", "application-default-icon");
             }
             appInfo.insert("Icon", QVariant::fromValue(iconMap));
+            appInfo.insert("NoDisplay", true);
             QDBusPendingReply<QString> reply = m_dbusManager->addUserApplication(appInfo, name);
             reply.waitForFinished();
         }
@@ -389,6 +401,7 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
         QMap<QString, QString> iconMap;
         iconMap.insert("default-icon", "application-default-icon");
         appInfo.insert("Icon", QVariant::fromValue(iconMap));
+        appInfo.insert("NoDisplay", true);
         appInfo.insert("Terminal", false);
         appInfo.insert("Categories", mime);
         appInfo.insert("MimeType", getTypeListByCategory(m_stringToCategory.value(mime)));
@@ -418,7 +431,7 @@ void DefAppWorker::getListAppFinished(const QString &mimeKey, const ObjectMap &m
                 continue;
             }
 
-            if (auto nodisplay = mapInter.value("NoDisplay"); !nodisplay.isNull()) {
+            if (auto nodisplay = mapInter.value("NoDisplay"); !nodisplay.isNull() && !mapInter.value("ID").toString().contains("deepin-custom-")) {
                 if (qdbus_cast<bool>(nodisplay)) {
                     continue;
                 }
