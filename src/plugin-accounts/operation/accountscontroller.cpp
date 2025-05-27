@@ -15,6 +15,7 @@
 #include <QRegularExpression>
 #include <QPainterPath>
 #include <QBuffer>
+#include <QTimer>
 
 #include <DSysInfo>
 
@@ -56,7 +57,7 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::autoLoginChanged, this, &AccountsController::autoLoginChanged);
     connect(m_model, &UserModel::nopasswdLoginChanged, this, &AccountsController::nopasswdLoginChanged);
     connect(m_model, &UserModel::groupsChanged, this, [this](const QString &userId, const QStringList &groups) {
-        updateGroups(userId);
+        updateSingleUserGroups(userId);
         Q_EMIT groupsChanged(userId, groups);
     });
     connect(m_model, &UserModel::passwordModifyFinished, this, &AccountsController::passwordModifyFinished);
@@ -66,7 +67,9 @@ AccountsController::AccountsController(QObject *parent)
 
     connect(m_worker, &AccountsWorker::showSafetyPage, this, &AccountsController::showSafetyPage);
     connect(m_model, &UserModel::allGroupsChange, this, [this]() {
-        updateAllGroups();
+        if (!m_isCreatingUser) {
+            updateAllGroups();
+        }
         this->groupsUpdate();
     });
     connect(m_worker, &AccountsWorker::updateGroupFailed, this, &AccountsController::groupsUpdateFailed);
@@ -76,6 +79,17 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_worker, &AccountsWorker::updateGroupFinished, this, [this]() {
         updateAllGroups();
         this->groupsUpdate();
+    });
+    
+    connect(m_worker, &AccountsWorker::accountCreationFinished, this, [this](CreationResult *result) {
+        m_isCreatingUser = false;
+        if (result->type() == CreationResult::NoError) {
+            QTimer::singleShot(100, this, [this]() {
+                if (!m_model->userList().isEmpty()) {
+                    updateSingleUserGroups(m_model->userList().last()->id());
+                }
+            });
+        }
     });
 
     QMetaObject::invokeMethod(m_worker, "active", Qt::QueuedConnection);
@@ -300,9 +314,15 @@ QStringList AccountsController::groups(const QString &id)
 void AccountsController::updateGroups(const QString &id)
 {
     QStringList ag = allGroups();
-    std::sort(ag.begin(), ag.end(), [this, id](const QString &left, const QString &right){
-        bool isLeftContains = groupContains(id, left);
-        bool isRightContains = groupContains(id, right);
+    
+    QHash<QString, bool> containsCache;
+    for (const QString &group : ag) {
+        containsCache[group] = groupContains(id, group);
+    }
+    
+    std::sort(ag.begin(), ag.end(), [&containsCache](const QString &left, const QString &right){
+        bool isLeftContains = containsCache.value(left);
+        bool isRightContains = containsCache.value(right);
 
         if (!(isLeftContains ^ isRightContains)) { // both true or both false
             return left.compare(right, Qt::CaseInsensitive) < 0;
@@ -317,17 +337,65 @@ void AccountsController::updateAllGroups()
 {
     if (!m_model)
         return;
-
+    
+    QSet<QString> existingUserIds;
     QList<User *> userList = m_model->userList();
+    
+    QStringList allGroupsList = allGroups();
+    int totalGroups = allGroupsList.size();
+    
     for (const auto user : userList) {
-        updateGroups(user->id());
+        QString id = user->id();
+        existingUserIds.insert(id);
+        
+        QHash<QString, bool> containsCache;
+        for (const QString &group : allGroupsList) {
+            containsCache[group] = groupContains(id, group);
+        }
+        
+        QStringList containedGroups;
+        QStringList notContainedGroups;
+        
+        for (const QString &group : allGroupsList) {
+            if (containsCache.value(group)) {
+                containedGroups.append(group);
+            } else {
+                notContainedGroups.append(group);
+            }
+        }
+        
+        std::sort(containedGroups.begin(), containedGroups.end(), [](const QString &a, const QString &b) {
+            return a.compare(b, Qt::CaseInsensitive) < 0;
+        });
+        
+        std::sort(notContainedGroups.begin(), notContainedGroups.end(), [](const QString &a, const QString &b) {
+            return a.compare(b, Qt::CaseInsensitive) < 0;
+        });
+        
+        QStringList sortedGroups = containedGroups;
+        sortedGroups.append(notContainedGroups);
+        
+        m_groups[id] = sortedGroups;
     }
-
-    for (const auto id : m_groups.keys()) {
-        if (!m_model->getUser(id)) {
-            m_groups.remove(id);
+    
+    QStringList keysToRemove;
+    for (const auto &id : m_groups.keys()) {
+        if (!existingUserIds.contains(id)) {
+            keysToRemove.append(id);
         }
     }
+    
+    for (const auto &id : keysToRemove) {
+        m_groups.remove(id);
+    }
+}
+
+void AccountsController::updateSingleUserGroups(const QString &id)
+{
+    if (!m_model || !m_model->getUser(id))
+        return;
+        
+    updateGroups(id);
 }
 
 bool AccountsController::groupContains(const QString &id, const QString &name) const
@@ -436,6 +504,8 @@ void AccountsController::setGroup(const QString &id, const QString &group, bool 
 
 void AccountsController::addUser(const QVariantMap &info)
 {
+    m_isCreatingUser = true;
+    
     const int type = info["type"].toInt();
     const QString name = info["name"].toString().simplified();
     const QString fullname = info["fullname"].toString().simplified();
