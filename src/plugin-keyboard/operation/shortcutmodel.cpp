@@ -207,6 +207,12 @@ void ShortcutModel::onParseInfo(const QString &info)
     systemFilterServer.removeOne("deepin-screen-recorder");
     systemShortKeys = systemFilterServer;
 #endif
+    // Save custom info IDs before clearing
+    QStringList customInfoIds;
+    for (auto info : m_customInfos) {
+        customInfoIds << info->id;
+    }
+
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -290,6 +296,23 @@ void ShortcutModel::onParseInfo(const QString &info)
     std::sort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return assistiveToolsFilter.indexOf(s1->id) < assistiveToolsFilter.indexOf(s2->id);
     });
+
+    // Rebuild m_customInfos in original order first
+    QList<ShortcutInfo*> orderedCustomInfos;
+    for (const QString &id : customInfoIds) {
+        auto it = std::find_if(m_customInfos.begin(), m_customInfos.end(),
+            [id](ShortcutInfo *info) { return info->id == id && info->type == 1; });
+        if (it != m_customInfos.end()) {
+            orderedCustomInfos << *it;
+        }
+    }
+    // Add new custom infos that weren't in original list
+    for (auto info : m_customInfos) {
+        if (info->type == 1 && !customInfoIds.contains(info->id)) {
+            orderedCustomInfos << info;
+        }
+    }
+    m_customInfos = orderedCustomInfos;
 
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
