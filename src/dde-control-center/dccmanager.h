@@ -82,8 +82,10 @@ Q_SIGNALS:
 private:
     void initConfig();
     bool contains(const QSet<QString> &urls, const DccObject *obj);
+    bool isMatch(const QString &url, const DccObject *obj);
     bool isEqual(const QString &url, const DccObject *obj);
     DccObject *findObject(const QString &url, bool onlyRoot = false);
+    QVector<DccObject *> findObjects(const QString &url, bool onlyRoot = false, bool one = false);
     DccObject *findParent(const DccObject *obj);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
