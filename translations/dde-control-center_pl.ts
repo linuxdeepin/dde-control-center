@@ -1538,15 +1538,15 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz wszystkie efekty interfejsu i okien dla wydajnego działania systemu.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Ogranicz niektóre animacje okien, aby zachować optymalną wydajność systemu.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Włącz wszystkie efekty interfejsu i okien dla najlepszych doświadczeń wizualnych.</translation>
     </message>
 </context>
 <context>
@@ -3649,7 +3649,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organizacja pulpitu, tryb paska zadań, ustawienia obszaru wtyczek</translation>
     </message>
 </context>
 <context>
