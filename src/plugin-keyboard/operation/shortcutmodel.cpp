@@ -57,8 +57,7 @@ const QStringList &workspaceFilter = {"switch-to-workspace-left",
                                       "move-to-workspace-left",
                                       "move-to-workspace-right"};
 
-const QStringList &assistiveToolsFilter = {"ai-assistant",
-                                           "text-to-speech",
+const QStringList &assistiveToolsFilter = {"text-to-speech",
                                            "speech-to-text",
                                            "translation",
                                             "view-zoom-in",
