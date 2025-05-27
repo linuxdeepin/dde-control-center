@@ -378,7 +378,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Довжин назви Bluetooth не може перевищувати 64 символів</translation>
     </message>
 </context>
 <context>
@@ -1347,15 +1347,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Попередження</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Погоджуюсь</translation>
     </message>
 </context>
 <context>
@@ -1537,15 +1537,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Вимкнути усі ефекти інтерфейсу і вікон для пришвидшення системи.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Обмежити деякі ефекти вікон для забезпечення ідеальних візуальних ефектів, але з підтримкою належної швидкодії системи.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути усі ефекти інтерфейсу та вікон для удосконалення візуальної складової.</translation>
     </message>
 </context>
 <context>
@@ -2258,19 +2258,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>Понеділок</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>Вівторок</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>Середа</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>Четвер</translation>
     </message>
     <message>
         <source>Friday</source>
