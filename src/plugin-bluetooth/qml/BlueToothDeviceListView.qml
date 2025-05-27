@@ -292,7 +292,7 @@ Rectangle {
                                     console.log(" contextMenu 单击事件 ");
                                     // 在点击位置下方显示菜单
                                     // 获取按钮的全局位置，确保菜单在按钮的正下方显示
-                                    var buttonGlobalX = moreBtn.x + moreBtn.width / 2
+                                    var buttonGlobalX = moreBtn.x + moreBtn.width / 2 - contextMenu.width
                                     var buttonGlobalY = moreBtn.y + moreBtn.height + 5
                                     contextMenu.popup(buttonGlobalX, buttonGlobalY)
                                 }
