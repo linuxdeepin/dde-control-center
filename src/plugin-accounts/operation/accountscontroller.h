@@ -84,6 +84,7 @@ public slots:
     QString checkPassword(const QString &name, const QString &pwd);
     QVariantMap checkPasswordResult(int code, const QString &msg, const QString &name, const QString &pwd);
     void showDefender();
+    void playSystemSound(int soundType);
 
     void updateSingleUserGroups(const QString &id);
 

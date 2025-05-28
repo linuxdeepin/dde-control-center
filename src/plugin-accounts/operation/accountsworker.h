@@ -92,6 +92,7 @@ public Q_SLOTS:
     SecurityLever getSecUserLeverbyname(QString userName);
     void checkPwdLimitLevel(int level);
     void showDefender();
+    void playSystemSound(int soundType);
 
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);

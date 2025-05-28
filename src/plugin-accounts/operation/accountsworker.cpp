@@ -9,6 +9,7 @@
 #include "securitydbusproxy.h"
 
 #include <ddbussender.h>
+#include <DDesktopServices>
 
 #include <QtConcurrent>
 #include <QFutureWatcher>
@@ -29,6 +30,7 @@ using namespace PolkitQt1;
 
 using namespace dccV25;
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -927,4 +929,9 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
     else
         result.error = m_syncInter->lastError();
     return result;
+}
+
+void AccountsWorker::playSystemSound(int soundType)
+{
+    DDesktopServices::playSystemSoundEffect(static_cast<DDesktopServices::SystemSoundEffect>(soundType));
 }

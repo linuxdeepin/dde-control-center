@@ -41,6 +41,10 @@ ColumnLayout {
         return pwdContainter.checkPassword()
     }
 
+    function playErrorSound() {
+        dccData.playSystemSound(14)
+    }
+
     PasswordItem {
         id: currentPwd
         visible: pwdLayout.currentPwdVisible
@@ -319,6 +323,12 @@ ColumnLayout {
                 if (showAlert)
                     showAlert = false
 
+                if (!echoButtonVisible && text.length > 14) {
+                    rightItem.text = text.substring(0, 14)
+                    playErrorSound()
+                    return
+                }
+                
                 pwdItem.textChanged(text)
             }
 
