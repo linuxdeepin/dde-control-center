@@ -91,6 +91,7 @@ DccObject {
                             id: langName
                             text: dccObj.displayName
                             elide: Text.ElideRight
+                            font: DTK.fontManager.t6
                             anchors {
                                 left: itemDelegate.left
                                 leftMargin: 20
