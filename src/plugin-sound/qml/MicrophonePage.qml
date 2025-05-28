@@ -166,7 +166,9 @@ DccObject {
 
                 checked: dccData.model().reduceNoise
                 onCheckedChanged: {
-                    dccData.worker().setReduceNoise(checked)
+                    if (dccData.model().reduceNoise !== checked) {
+                        dccData.worker().setReduceNoise(checked)
+                    }
                 }
             }
         }

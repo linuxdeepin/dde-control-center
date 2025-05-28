@@ -441,7 +441,9 @@ DccObject {
                 }
                 currentIndex: indexOfMode(dccData.displayMode)
                 onActivated: {
-                    dccData.displayMode = currentValue
+                    if (dccData.displayMode !== currentValue) {
+                        dccData.displayMode = currentValue
+                    }
                 }
             }
         }
@@ -467,7 +469,9 @@ DccObject {
 
                 currentIndex: dccData.primaryScreen ? indexOfScreen(dccData.primaryScreen) : -1
                 onActivated: {
-                    dccData.primaryScreen = currentValue
+                    if (dccData.primaryScreen !== currentValue) {
+                        dccData.primaryScreen = currentValue
+                    }
                 }
             }
         }
@@ -485,7 +489,7 @@ DccObject {
         visible: dccData.virtualScreens.length > 1
         pageType: DccObject.Item
         Component {
-            id: itmeoutDialog
+            id: timeoutDialog
             TimeoutDialog {}
         }
 
@@ -607,9 +611,12 @@ DccObject {
 
                 currentIndex: indexOfSize(model, screen.currentResolution)
                 onActivated: {
+                    if (screen.currentResolution === currentValue) {
+                        return
+                    }
                     screen.currentResolution = currentValue
                     if (dccData.isX11) {
-                        itmeoutDialog.createObject(this, {
+                        timeoutDialog.createObject(this, {
                                                        "screenX": root.screen.x,
                                                        "screenY": root.screen.y,
                                                        "screenWidth": root.screen.currentResolution.width,
@@ -644,9 +651,12 @@ DccObject {
                 }
                 currentIndex: indexOfFill(this.model, screen.currentFillMode)
                 onActivated: {
+                    if (screen.currentFillMode === currentValue) {
+                        return
+                    }
                     screen.currentFillMode = currentValue
                     if (dccData.isX11) {
-                        itmeoutDialog.createObject(this, {
+                        timeoutDialog.createObject(this, {
                                                        "screenX": root.screen.x,
                                                        "screenY": root.screen.y,
                                                        "screenWidth": root.screen.currentResolution.width,
@@ -678,9 +688,12 @@ DccObject {
                 }
                 currentIndex: indexOfRate(model, screen.currentRate)
                 onActivated: {
+                    if (screen.currentRate === currentValue) {
+                        return
+                    }
                     screen.currentRate = currentValue
                     if (dccData.isX11) {
-                        itmeoutDialog.createObject(this, {
+                        timeoutDialog.createObject(this, {
                                                        "screenX": root.screen.x,
                                                        "screenY": root.screen.y,
                                                        "screenWidth": root.screen.currentResolution.width,
@@ -726,7 +739,9 @@ DccObject {
 
                 currentIndex: indexOfRotate(screen.rotate)
                 onActivated: {
-                    screen.rotate = currentValue
+                    if (screen.rotate !== currentValue) {
+                        screen.rotate = currentValue
+                    }
                 }
             }
         }
@@ -746,9 +761,13 @@ DccObject {
                 currentIndex: dccData.isX11 ? root.indexOfScale(model, dccData.globalScale) : root.indexOfScale(model, screen.scale)
                 onActivated: {
                     if (dccData.isX11) {
-                        dccData.globalScale = currentValue
+                        if (dccData.globalScale !== currentValue) {
+                            dccData.globalScale = currentValue
+                        }
                     } else {
-                        screen.scale = currentValue
+                        if (screen.scale !== currentValue) {
+                            screen.scale = currentValue
+                        }
                     }
                 }
             }
@@ -770,7 +789,9 @@ DccObject {
             model: root.getScaleModel(dccData.maxGlobalScale, dccData.globalScale)
             currentIndex: root.indexOfScale(model, dccData.globalScale)
             onActivated: {
-                dccData.globalScale = currentValue
+                if (dccData.globalScale !== currentValue) {
+                    dccData.globalScale = currentValue
+                }
             }
         }
     }

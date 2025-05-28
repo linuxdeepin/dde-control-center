@@ -116,9 +116,10 @@ DccObject {
             page: Switch {
                 Layout.alignment: Qt.AlignRight
                 checked: dccData.model().increaseVolume
-
                 onCheckedChanged: {
-                    dccData.worker().setIncreaseVolume(checked)
+                    if (dccData.model().increaseVolume !== checked) {
+                        dccData.worker().setIncreaseVolume(checked)
+                    }
                 }
             }
         }
@@ -170,7 +171,9 @@ DccObject {
             page: Switch {
                 checked: dccData.model().audioMono
                 onCheckedChanged: {
-                    dccData.worker().setAudioMono(checked)
+                    if (dccData.model().audioMono !== checked) {
+                        dccData.worker().setAudioMono(checked)
+                    }
                 }
             }
         }
@@ -184,7 +187,9 @@ DccObject {
             page: Switch {
                 checked: dccData.model().pausePlayer
                 onCheckedChanged: {
-                    dccData.worker().setPausePlayer(checked)
+                    if (dccData.model().pausePlayer !== checked) {
+                        dccData.worker().setPausePlayer(checked)
+                    }
                 }
             }
         }

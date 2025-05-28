@@ -544,6 +544,7 @@ void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitor
 
 void DisplayWorker::setUiScale(const double value)
 {
+    qDebug() << "set display scale:" << value;
     double rv = value;
     if (rv < 0)
         rv = m_model->uiScale();
