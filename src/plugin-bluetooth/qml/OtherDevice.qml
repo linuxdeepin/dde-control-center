@@ -8,6 +8,31 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0
 
 DccObject{
+    property bool refreshEnable: true
+
+    Connections {
+        target: DccApp
+        function onActiveObjectChanged(object) {
+           if (object.name === "bluetooth") {
+                refreshEnable = true
+                if (model.powered && !model.discovering) {
+                    dccData.work().setAdapterDiscoverable(model.id)
+                }
+           }
+        }
+    }
+
+    Timer {
+        id: autoRefreshTimer
+        interval: 5000
+        repeat: false
+        onTriggered: {
+            if (model.powered && refreshEnable && !model.discovering) {
+                dccData.work().setAdapterDiscoverable(model.id)
+            }
+        }
+    }
+
     DccObject {
         name: "OtherDeviceTitle"
         parentName: "otherDevice" + model.name
@@ -71,6 +96,14 @@ DccObject{
         }
     }
 
+    Connections {
+        target: model
+        function onDiscoveringChanged() {
+            if (!model.discovering && model.powered && refreshEnable) {
+                autoRefreshTimer.restart()
+            }
+        }
+    }
 
     DccObject {
         name: "otherDeviceList"
@@ -86,6 +119,10 @@ DccObject{
             deviceModel: model.otherDevice
 
             onClicked: function (index, checked) {
+            }
+
+            onVisibleChanged: {
+                refreshEnable = visible
             }
         }
     }
