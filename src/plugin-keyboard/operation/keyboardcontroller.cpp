@@ -188,15 +188,15 @@ QSortFilterProxyModel *KeyboardController::shortcutSearchModel()
     return m_shortcutSearchModel;
 }
 
-void KeyboardController::updateKey(const QString &id)
+void KeyboardController::updateKey(const QString &id, const int &type)
 {
     ShortcutInfo *shortcut = nullptr;
     if (!id.isEmpty()) { // new shortcuts
-        shortcut = m_shortcutModel->findInfoIf([id](ShortcutInfo *info){
-            return id == info->id;
+        shortcut = m_shortcutModel->findInfoIf([id, type](ShortcutInfo *info){
+            return id == info->id && type == info->type;
         });
         if (!shortcut) {
-            qWarning() << "shortcut not found..." << id;
+            qWarning() << "shortcut not found..." << id << type;
             return;
         }
     }
@@ -250,11 +250,11 @@ void KeyboardController::deleteCustomShortcut(const QString &id)
     m_worker->delShortcut(shortcut);
 }
 
-void KeyboardController::modifyShortcut(const QString &id, const QString &accels)
+void KeyboardController::modifyShortcut(const QString &id, const QString &accels, const int &type)
 {
-    ShortcutInfo *shortcut = m_shortcutModel->findInfoIf([id](ShortcutInfo *info){ return id == info->id; });
+    ShortcutInfo *shortcut = m_shortcutModel->findInfoIf([id, type](ShortcutInfo *info){ return id == info->id && type == info->type; });
     if (!shortcut) {
-        qWarning() << "shortcut not found..." << id;
+        qWarning() << "shortcut not found..." << id << type;
         return;
     }
 

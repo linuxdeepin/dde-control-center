@@ -153,7 +153,7 @@ DccObject {
                                 }
 
                                 edit.keys = ""
-                                dccData.updateKey(model.id)
+                                dccData.updateKey(model.id, model.type)
                                 shortcutView.editItem = edit
                                 shortcutView.conflictText = conflictText
                                 shortcutSettingsBody.isEditing = false
@@ -167,9 +167,9 @@ DccObject {
                             }
 
                             function modifyShortcut(accels) {
-                                console.log("modifyShortcut", model.id, accels)
+                                console.log("modifyShortcut", model.id, accels, model.type)
                                 if (accels.length > 0)
-                                    dccData.modifyShortcut(model.id, accels)
+                                    dccData.modifyShortcut(model.id, accels, model.type)
                             }
 
                             function restore() {

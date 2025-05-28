@@ -57,12 +57,12 @@ public Q_SLOTS:
     QSortFilterProxyModel *layoutSearchModel();
     QSortFilterProxyModel *shortcutSearchModel();
 
-    void updateKey(const QString &id);
+    void updateKey(const QString &id, const int &type);
     QStringList formatKeys(const QString &shortcuts);
 
     void addCustomShortcut(const QString &name, const QString &cmd, const QString &accels);
     void modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels);
-    void modifyShortcut(const QString &id, const QString &accels);
+    void modifyShortcut(const QString &id, const QString &accels, const int &type);
     void deleteCustomShortcut(const QString &id);
 
     void resetAllShortcuts();
