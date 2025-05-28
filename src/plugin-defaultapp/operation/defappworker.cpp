@@ -325,6 +325,15 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
 {
     const bool isDesktop = info.suffix() == "desktop";
     if (isDesktop) {
+        // 获取相同mime类型的应用列表
+        QList<App> appList = getCategory(mime)->getappItem();
+        // 检查是否存在与应用ID一致的文件名称（去掉后缀）
+        for (const App &app : appList) {
+            if (app.Id == info.completeBaseName()) {
+                qCDebug(DdcDefaultWorker) << "File name matches app ID, skipping:" << info.completeBaseName();
+                return;
+            }
+        }
         QFile file(info.filePath());
         QString name = "deepin-custom-" + mime + "-" + info.completeBaseName() + ".desktop";
         QVariantMap appInfo;
@@ -367,6 +376,9 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
                         } else if (key == "X-Deepin-Vendor") {
                             appInfo.insert("X-Deepin-Vendor", value);
                         } else if (keys.contains(key)) {
+                            if ("Terminal" != mime && "Categories" == key) {
+                                value.remove("TerminalEmulator;");
+                            }
                             appInfo.insert(key, value);
                         }
                     }
@@ -378,7 +390,9 @@ void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_un
             appInfo.insert("MimeType", getTypeListByCategory(m_stringToCategory.value(mime)));
             appInfo.insert("Name", QVariant::fromValue(nameMap));
             appInfo.insert("Exec", QVariant::fromValue(execMap));
-            appInfo.insert("GenericName", QVariant::fromValue(genericNameMap));
+            if (!genericNameMap.isEmpty()) {
+                appInfo.insert("GenericName", QVariant::fromValue(genericNameMap));
+            }
             if (iconMap.isEmpty()) {
                 iconMap.insert("default-icon", "application-default-icon");
             }
