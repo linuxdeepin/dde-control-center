@@ -795,6 +795,11 @@ void AccountsController::showDefender()
     m_worker->showDefender();
 }
 
+void AccountsController::playSystemSound(int soundType)
+{
+    m_worker->playSystemSound(soundType);
+}
+
 QString AccountsController::currentUserName() const
 {
     return m_model->getCurrentUserName();
