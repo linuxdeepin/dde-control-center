@@ -191,6 +191,7 @@ DccObject {
                         right: editBtn.left
                         verticalCenter: parent.verticalCenter
                     }
+                    rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 0)
                     onReadOnlyChanged: {
                         addr.background.visible = !addr.readOnly
                         addr.clearButton.visible = !addr.readOnly && text.length > 0
@@ -211,6 +212,24 @@ DccObject {
                     enabled: addr.text.length > 0
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
+                    hoverEnabled: true
+                    background: Rectangle {
+                        anchors.fill: parent
+                        property D.Palette pressedColor: D.Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.2)
+                            normalDark: Qt.rgba(1, 1, 1, 0.25)
+                        }
+                        property D.Palette hoveredColor: D.Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.1)
+                            normalDark: Qt.rgba(1, 1, 1, 0.1)
+                        }
+                        radius: DS.Style.control.radius
+                        color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                        border {
+                            color: parent.palette.highlight
+                            width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                        }
+                    }
                     icon {
                         name: addr.readOnly ? "edit" : "ok"
                         width: 16
