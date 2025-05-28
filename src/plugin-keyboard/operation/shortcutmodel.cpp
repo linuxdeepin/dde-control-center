@@ -344,8 +344,9 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
 {
     const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
     const QString     &update_id = obj["Id"].toString();
+    const int     &update_type = obj["Type"].toInt();
     auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-        return info->id == update_id;
+        return info->id == update_id && info->type == update_type;
     });
 
     if (res != m_infos.end()) {
@@ -569,6 +570,8 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
         return info->name + info->pinyin + "_" + displayKeys.join("_");
     case IdRole:
         return info->id;
+    case TypeRole:
+        return info->type;
     case KeySequenceRole:
         return displayKeys;
     case CommandRole:
@@ -593,6 +596,7 @@ QHash<int, QByteArray> ShortcutListModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractListModel::roleNames();
     names[SearchedTextRole] = "searchedText";
     names[IdRole] = "id";
+    names[TypeRole] = "type";
     names[KeySequenceRole] = "keySequence";
     names[CommandRole] = "command";
     names[SectionNameRole] = "section";

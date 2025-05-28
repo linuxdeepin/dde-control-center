@@ -127,6 +127,7 @@ public:
     enum ShortcutRole {
         SearchedTextRole = Qt::UserRole + 1,
         IdRole,
+        TypeRole,
         CommandRole,
         KeySequenceRole,
         AccelsRole,

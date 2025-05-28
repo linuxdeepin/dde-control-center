@@ -109,7 +109,7 @@ D.DialogWindow {
             }
             onRequestKeys: {
                 keys = []
-                dccData.updateKey("")
+                dccData.updateKey("", 1)
             }
         }
 
