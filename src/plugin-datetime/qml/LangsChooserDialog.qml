@@ -67,6 +67,29 @@ Loader {
                     text: model.display
                     hoverEnabled: true
                     ButtonGroup.group: langGroup
+
+                    indicator: Loader {
+                        x: checkDelegate.mirrored ? checkDelegate.leftPadding : checkDelegate.width - width - checkDelegate.rightPadding
+                        y: checkDelegate.topPadding + (checkDelegate.availableHeight - height) / 2
+                        active: indicatorVisible
+
+                        sourceComponent: DciIcon {
+                            palette: checkDelegate.DTK.makeIconPalette(checkDelegate.palette)
+                            mode: checkDelegate.ColorSelector.controlState
+                            theme: checkDelegate.ColorSelector.controlTheme
+                            name: indicatorIcon
+                            sourceSize: Qt.size(16, 16)
+                            fallbackToQIcon: false
+                            onNameChanged: {
+                                play(DTK.NormalState);
+                            }
+                            Component.onCompleted: {
+                                if (indicatorVisible)
+                                    play(DTK.NormalState);
+                            }
+                        }
+                    }
+
                     contentItem: RowLayout {
                         Loader {
                             id: labelLoader
@@ -85,7 +108,7 @@ Loader {
                                     text: labelLoader.text
                                     font: checkDelegate.font
                                     color: checkDelegate.palette.windowText
-                                    icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.D.DciIcon)
+                                    icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
                                     Layout.fillWidth: !checkDelegate.content
                                 }
                             }
@@ -117,7 +140,7 @@ Loader {
                                         text: labelLoader.text.split("-")[1] || ""
                                         font: checkDelegate.font
                                         color: checkDelegate.palette.windowText
-                                        icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.D.DciIcon)
+                                        icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
                                         Layout.fillWidth: !checkDelegate.content
                                     }
                                 }
