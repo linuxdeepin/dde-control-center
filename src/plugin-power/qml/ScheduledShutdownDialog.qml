@@ -18,7 +18,15 @@ D.DialogWindow {
 
     // Copy is used here to prevent contamination of data in the original model when selecting items
     property var selectedDays: dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
-    property var dateStr: [qsTr("Monday"), qsTr("Tuesday"), qsTr("Wednesday"), qsTr("Thursday"), qsTr("Friday"), qsTr("Saturday"), qsTr("Sunday")]
+    property var dateStr: {
+        var locale = Qt.locale();
+        var days = [];
+        for (var i = 1; i <= 7; i++) {
+            var dayEnum = Qt.Monday + (i - 1) % 7;
+            days.push(locale.standaloneDayName(dayEnum, "long"));
+        }
+        return days;
+    }
     property var dayModel: generateDayModel()
 
     function generateDayModel() {
