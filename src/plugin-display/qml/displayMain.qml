@@ -5,7 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0 as D
-
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 DccObject {
@@ -636,6 +636,17 @@ DccObject {
                 textRole: "text"
                 valueRole: "value"
                 iconNameRole: "icon"
+                contentItem: D.IconLabel {
+                    rightPadding: DS.Style.comboBox.spacing
+                    alignment: control.horizontalAlignment
+                    icon.name: (control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined) ? model.get(control.currentIndex)[control.iconNameRole] : null
+                    icon.height: DS.Style.comboBox.iconSize
+                    icon.width: DS.Style.comboBox.iconSize
+                    text: control.editable ? control.editText : control.displayText
+                    font: control.font
+                    color: control.palette.windowText
+                    spacing: DS.Style.comboBox.spacing
+                }
                 model: root.getFillModel(screen.availableFillModes)
                 function indexOfFill(model, currentFill) {
                     for (var i = 0; i < model.count; i++) {
