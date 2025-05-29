@@ -1,3 +1,65 @@
+dde-control-center (6.1.27) unstable; urgency=medium
+
+  * fix: Edit compilation warning
+  * fix: Modify the style of the ComboBox
+  * fix: Modify confirmation window coordinate error
+  * fix: Fixed the computer name error message
+  * chore: use day name from Locale.standaloneDayName()
+  * fix: Modify duplicate settings issue
+  * fix: enhance clear button UI and padding in TimeAndDate
+  * fix: Fixed the issue that Bluetooth did not refresh automatically
+  * fix: Add password hint restrictions
+  * fix: Duplicate applications can be added in the default program
+  * fix: improve text visibility in TimeAndDate component
+  * fix: resolve con loading in LangsChooserDialog
+  * feat: Add URL fuzzy matching function
+  * fix: resolve shortcut conflicts by adding type parameter
+  * fix: Fixed the issue that the menu position was abnormal
+  * fix: remove ai-assistant from assistive tools filter
+  * fix: The default program appears in recent installations
+  * fix: Fixed the issue of slow creation of multiple accounts
+  * fix: preserve custom shortcut order in ShortcutModel
+  * fix: optimize window switch handling in keyboard plugin
+  * chore: Update QML imports for compatibility with Qt >= 6.9
+  * fix: Fix the blank context menu issue
+  * fix: Fixed the issue that the button text was not displayed
+    completely
+  * fix: optimize text filtering in keyboard shortcuts
+  * fix: The scrollbar does not display
+  * fix: Modify time input control
+  * fix: Same page return and item animation
+  * fix: update focus handling in Common
+  * chore: update UI text descriptions and translations
+  * feat: disables search in privacy plugin settings
+  * fix: Fixed the issue that the font size did not change with the
+    change
+  * fix: optimize input field widths on Sound page
+  * fix: Modify custom time rules
+  * style: add subtle borders to preview containers
+  * fix: adjust sound name width with ellipsis in TimeAndDate
+  * fix: Fixed the issue that the font size did not change with the
+    change
+  * fix: Modify the text ellipsis effect
+  * style: improve window blur color handling
+  * fix: prevent duplicate format in TimeAndDate component
+  * chore: Update obs workflows.yml
+  * fix: update numberKeepList with Arabic thousands separator
+  * fix: update time format strings in RegionProxy
+  * fix: Add Bluetooth connection animation
+  * fix: add wrap support for datetime spinboxes
+  * fix: Fixed the issue that other account status was abnormal
+  * fix: adjust component heights and vertical alignment for
+    localization
+  * refactor: improve scheduled shutdown dialog handling
+  * fix: Fix the issue of user group name not displaying completely
+  * fix: The following is fixed for the user group sorting error
+  * fix: improve text visibility in Label components
+  * fix: The default program of the terminal cannot be set
+  * fix: No search results related to performance mode
+  * fix: Tab key cannot traverse application notifications
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 29 May 2025 17:31:02 +0800
+
 dde-control-center (6.1.26) unstable; urgency=medium
 
   * fix: ensure plain text format in KeySequenceDisplay
