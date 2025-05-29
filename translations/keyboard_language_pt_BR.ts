@@ -563,27 +563,27 @@
     </message>
     <message>
         <source>Català (Valencià)</source>
-        <translation type="unfinished"/>
+        <translation>Catalão (Valenciano)</translation>
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>Esperanto</translation>
     </message>
     <message>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>Interlíngua</translation>
     </message>
     <message>
         <source>Kabyle</source>
-        <translation type="unfinished"/>
+        <translation>Cabila</translation>
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>Azerbaijano</translation>
     </message>
     <message>
         <source>Filipino</source>
-        <translation type="unfinished"/>
+        <translation>Filipino</translation>
     </message>
 </context>
 </TS>
