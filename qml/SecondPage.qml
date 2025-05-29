@@ -87,7 +87,7 @@ Item {
                 root: dccObj
             }
 
-            delegate: ItemDelegate {
+            delegate: D.ItemDelegate {
                 implicitHeight: 40
                 width: parent ? parent.width : 300
                 checked: dccObj.currentObject === model.item

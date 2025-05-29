@@ -617,10 +617,7 @@ DccObject {
                     screen.currentResolution = currentValue
                     if (dccData.isX11) {
                         timeoutDialog.createObject(this, {
-                                                       "screenX": root.screen.x,
-                                                       "screenY": root.screen.y,
-                                                       "screenWidth": root.screen.currentResolution.width,
-                                                       "screenHeight": root.screen.currentResolution.height
+                                                       "screen": getQtScreen(root.screen)
                                                    }).show()
                     }
                 }
@@ -657,10 +654,7 @@ DccObject {
                     screen.currentFillMode = currentValue
                     if (dccData.isX11) {
                         timeoutDialog.createObject(this, {
-                                                       "screenX": root.screen.x,
-                                                       "screenY": root.screen.y,
-                                                       "screenWidth": root.screen.currentResolution.width,
-                                                       "screenHeight": root.screen.currentResolution.height
+                                                       "screen": getQtScreen(root.screen)
                                                    }).show()
                     }
                 }
@@ -694,10 +688,7 @@ DccObject {
                     screen.currentRate = currentValue
                     if (dccData.isX11) {
                         timeoutDialog.createObject(this, {
-                                                       "screenX": root.screen.x,
-                                                       "screenY": root.screen.y,
-                                                       "screenWidth": root.screen.currentResolution.width,
-                                                       "screenHeight": root.screen.currentResolution.height
+                                                       "screen": getQtScreen(root.screen)
                                                    }).show()
                     }
                 }
