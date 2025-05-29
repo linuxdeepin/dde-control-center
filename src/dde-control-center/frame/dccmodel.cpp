@@ -10,7 +10,7 @@
 #include <QLoggingCategory>
 
 namespace dccV25 {
-static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.model");
+// static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.model");
 
 enum DccModelRole {
     DccItemRole = Qt::UserRole + 300,

@@ -37,6 +37,8 @@ public:
         }
     }
 
+public:
+    DccRepeater *q_ptr = nullptr;
     QPointer<QQmlInstanceModel> model;
     QVariant dataSource;
     QPointer<QObject> dataSourceAsObject;
@@ -47,7 +49,6 @@ public:
 
     QVector<QPointer<DccObject> > deletables;
 
-    DccRepeater *q_ptr = nullptr;
     Q_DECLARE_PUBLIC(DccRepeater)
 };
 
@@ -173,7 +174,7 @@ void DccRepeater::resetModel()
     modelUpdated(QQmlChangeSet(), true);
 }
 
-void DccRepeater::createdItem(int index, QObject *obj)
+void DccRepeater::createdItem(int index, QObject *)
 {
     Q_D(DccRepeater);
     QObject *object = d->model->object(index, QQmlIncubator::AsynchronousIfNested);
