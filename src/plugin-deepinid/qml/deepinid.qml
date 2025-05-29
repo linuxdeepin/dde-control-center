@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick 2.15
+import QtQuick.Controls 2.3
 import org.deepin.dcc 1.0
 
 DccObject {
@@ -12,7 +14,13 @@ DccObject {
     description: qsTr("Cloud services")
     icon: "deepinid"
     weight: 70
-    
+
+    page: Control {
+        id: control
+        anchors.fill: parent
+        contentItem: dccObj.children.length > 0 ? dccObj.children[0].getSectionItem(control) : null
+    }
+
     visible: false
     DccDBusInterface {
         property var isLogin
