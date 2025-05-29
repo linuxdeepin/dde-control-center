@@ -134,10 +134,6 @@ In order to better use of face recognition, please pay attention to the followin
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Agree</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -179,10 +175,6 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Agree</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -360,10 +352,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>Tefrirt</translation>
     </message>
     <message>
-        <source>Length greater than or equal to 64</source>
-        <translation>Lenghda 64 w 64</translation>
-    </message>
-    <message>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Tawen dëyj Bluetooth tawen nifuzi dëyj nis</translation>
     </message>
@@ -374,6 +362,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Airplane Mode</source>
         <translation>Mode Airplane</translation>
+    </message>
+    <message>
+        <source>Bluetooth name cannot exceed 64 characters</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1342,6 +1334,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DisclaimerControl</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -1458,46 +1465,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Temps personnalisé</translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation>Lahd</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Sebt</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Rabu</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Djeum</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Jumel</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Jumel</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Djellul</translation>
-    </message>
-    <message>
-        <source>Customize repetition time</source>
-        <translation>Personnaliser le temps de répétition</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Annuler</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Enregistrer</translation>
-    </message>
-    <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Diminuer l&apos;éclat de l&apos;écran en mode économiseur d&apos;énergie</translation>
     </message>
@@ -1551,15 +1518,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Optimal performance: Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Balance: Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1567,7 +1526,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Best visuals: Enable all interface and window effects for the best visual experience.</source>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2278,6 +2245,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Monday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
@@ -2786,6 +2796,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Join User Experience Program</source>
         <translation>Join Program Experience User</translation>
+    </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3623,8 +3637,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Deshabta s-n-tafasir</translation>
     </message>
     <message>
-        <source>Set the display and size of icons on the desktop</source>
-        <translation>Wadawus zilal s-n-ikona d-eshabta</translation>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3996,12 +4010,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tatgarni/tatgarni afassas tafassen</translation>
     </message>
     <message>
-        <source>DevicesManger</source>
-        <translation>Xifren as-salet</translation>
-    </message>
-    <message>
         <source>Enable/disable audio devices</source>
         <translation>Tatgarni/tatgarni as-salet tafassen</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
