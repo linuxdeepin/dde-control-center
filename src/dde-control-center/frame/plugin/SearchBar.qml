@@ -4,6 +4,7 @@ import QtQuick 2.15
 import org.deepin.dtk 1.0
 import QtQuick.Layouts 1.15
 
+import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 Rectangle {
@@ -99,7 +100,7 @@ Rectangle {
             clip: true
             anchors.fill: parent
             spacing: 0
-            delegate: ItemDelegate {
+            delegate: D.ItemDelegate {
                 implicitWidth: parent ? parent.width : 0
                 implicitHeight: 32
                 topInset: 0

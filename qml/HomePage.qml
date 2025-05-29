@@ -5,7 +5,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.15
 
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 import org.deepin.dcc 1.0
@@ -119,7 +119,7 @@ Control {
             id: dccModel
             root: dccObj
         }
-        delegate: ItemDelegate {
+        delegate: D.ItemDelegate {
             width: root.cellWidth
             height: root.cellHeight
             padding: 12
