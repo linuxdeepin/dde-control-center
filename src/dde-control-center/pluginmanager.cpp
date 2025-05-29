@@ -506,6 +506,7 @@ void PluginManager::onVisibleToAppChanged(bool visibleToApp)
 
 void PluginManager::loadModules(DccObject *root, bool async, const QStringList &dirs)
 {
+    Q_UNUSED(async)
     if (!root)
         return;
     m_rootModule = root;

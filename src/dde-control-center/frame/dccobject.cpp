@@ -450,7 +450,7 @@ void DccObject::setPageType(quint8 type)
     }
 }
 
-QQuickItem *DccObject::getSectionItem(QObject *parent)
+QQuickItem *DccObject::getSectionItem(QObject *)
 {
     p_ptr->deleteSectionItem();
     if (p_ptr->m_page) {

@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
 
     dccV25::ControlCenterDBusAdaptor *adaptor = new dccV25::ControlCenterDBusAdaptor(dccManager);
     dccV25::DBusControlCenterGrandSearchService *grandSearchadAptor = new dccV25::DBusControlCenterGrandSearchService(dccManager);
-
+    Q_UNUSED(grandSearchadAptor)
     if (!conn.registerObject(DccDBusPath, dccManager)) {
         qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
         return -1;

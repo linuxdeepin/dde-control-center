@@ -506,7 +506,7 @@ QAbstractListModel *DatetimeModel::timeDateModel()
 
     initFormattedModes(names);
     connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this, initFormattedModes](int format){
-        if (format >= DayAbbreviations && format <= LongTime || format < 0) {
+        if ((format >= DayAbbreviations && format <= LongTime) || format < 0) {
             initFormattedModes(names);
         }
     });
@@ -525,7 +525,7 @@ QAbstractListModel *DatetimeModel::currencyModel()
 
     initModes(names, CurrencySymbol, NegativeCurrency, model);
     connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
-        if (format >= CurrencySymbol && format <= NegativeCurrency || format < 0)
+        if ((format >= CurrencySymbol && format <= NegativeCurrency) || format < 0)
             initModes(names, CurrencySymbol, NegativeCurrency, model);
     });
     m_currencyModel = model;
@@ -543,7 +543,7 @@ QAbstractListModel *DatetimeModel::decimalModel()
 
     initModes(names, DecimalSymbol, PageSize, model);
     connect(this, &DatetimeModel::currentFormatChanged, model, [model, names, this](int format){
-        if (format >= DecimalSymbol && format <= PageSize || format < 0)
+        if ((format >= DecimalSymbol && format <= PageSize) || format < 0)
             initModes(names, DecimalSymbol, PageSize, model);
     });
     m_decimalModel = model;
