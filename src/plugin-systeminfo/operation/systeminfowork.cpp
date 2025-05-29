@@ -21,8 +21,10 @@
 #include <qregularexpression.h>
 #include <qtimezone.h>
 #include <signal.h>
+#include <DDesktopServices>
 
 DCORE_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 const QString USER_EXPERIENCE_SERVICE = "com.deepin.userexperience.Daemon";
 
@@ -219,6 +221,11 @@ void SystemInfoWork::copyTextToClipboard(const QString &text)
     if (clipboard) {
         clipboard->setText(text);
     }
+}
+
+void SystemInfoWork::playSystemSound(int soundType)
+{
+    DDesktopServices::playSystemSoundEffect(static_cast<DDesktopServices::SystemSoundEffect>(soundType));
 }
 
 void SystemInfoWork::initSystemCopyright()

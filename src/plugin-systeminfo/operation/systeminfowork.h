@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE void showActivatorDialog();
     Q_INVOKABLE void showDetail();
     Q_INVOKABLE void copyTextToClipboard(const QString &text); // Add new invokable method
+    Q_INVOKABLE void playSystemSound(int soundType);
 
     bool isUeProgramEnabled();
     void setUeProgramEnabled(bool enabled);

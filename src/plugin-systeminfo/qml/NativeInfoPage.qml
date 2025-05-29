@@ -120,11 +120,26 @@ DccObject {
                     text: dccData.systemInfoMode().hostName
                     visible: false
                     showAlert: false
-                    validator: RegularExpressionValidator {
-                        regularExpression: /^[A-Za-z0-9-]{0,64}$/ // 允许的输入模式
+                    
+                    onTextChanged: {
+                        if (showAlert)
+                            showAlert = false
+                            
+                        if (!/^[A-Za-z0-9-]{0,64}$/.test(text)) {
+                            var cursorPos = cursorPosition
+                            var filteredText = text.replace(/[^A-Za-z0-9-]/g, "")
+                            
+                            filteredText = filteredText.slice(0, 64)
+                            
+                            if (filteredText !== text) {
+                                text = filteredText
+                                cursorPosition = Math.min(cursorPos, text.length)
+                                dccData.systemInfoWork().playSystemSound(14)
+                            }
+                        }
                     }
+                    
                     onEditingFinished: {
-
                         if (hostNameEdit.text.length === 0) {
                             editBtn.visible = true
                             hostNameLabel.visible = true
@@ -145,15 +160,11 @@ DccObject {
                         hostNameEdit.visible = false
                         hostNameEdit.showAlert = false
                         dccData.systemInfoWork().onSetHostname(hostNameEdit.text)
-
                     }
                     Keys.onPressed: {
                         if (event.key === Qt.Key_Return) {
                             hostNameEdit.forceActiveFocus(false); // 结束编辑
                         }
-                    }
-                    onFocusChanged: {
-                        console.log(" =============== hostNameEdit Focus " )
                     }
                 }
             }
