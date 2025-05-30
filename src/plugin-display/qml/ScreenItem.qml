@@ -50,7 +50,7 @@ Rectangle {
         color: "white"
     }
     D.DciIcon {
-        visible: screen && (screen.name === dccData.primaryScreen.name)
+        visible: screen && dccData.primaryScreen && (screen.name === dccData.primaryScreen.name)
         name: "home_screen"
         anchors.bottom: parent.bottom
         anchors.right: parent.right

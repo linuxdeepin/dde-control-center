@@ -40,68 +40,6 @@ DccObject {
             "value": 3.0
         }]
 
-    ListModel {
-        id: modeModel
-        ListElement {
-            text: qsTr("Duplicate")
-            value: "MERGE" // 1
-        }
-        ListElement {
-            text: qsTr("Extend")
-            value: "EXTEND" // 2
-        }
-    }
-    ListModel {
-        id: fillModel
-    }
-    function getFillModel(availableFillModes) {
-        fillModel.clear()
-        for (let fillmode of availableFillModes) {
-            switch (fillmode) {
-            case "None":
-                fillModel.append({
-                                     "text": qsTr("Default"),
-                                     "icon": "DisplayDefault",
-                                     "value": fillmode
-                                 })
-                break
-            case "Full aspect":
-                fillModel.append({
-                                     "text": qsTr("Fit"),
-                                     "icon": "DisplayFit",
-                                     "value": fillmode
-                                 })
-                break
-            case "Full":
-                fillModel.append({
-                                     "text": qsTr("Stretch"),
-                                     "icon": "DisplayStretch",
-                                     "value": fillmode
-                                 })
-                break
-            case "Center":
-                fillModel.append({
-                                     "text": qsTr("Center"),
-                                     "icon": "DisplayCenter",
-                                     "value": fillmode
-                                 })
-                break
-            }
-        }
-        return fillModel
-    }
-    function getModeModel(screens) {
-        if (modeModel.count > 2) {
-            modeModel.remove(2, modeModel.count - 2)
-        }
-        for (let screen of screens) {
-            modeModel.append({
-                                 "text": qsTr("Only on %1").arg(screen.name),
-                                 "value": screen.name
-                             })
-        }
-        return modeModel
-    }
     function getResolutionModel(resolutionList, bestResolution) {
         var resolutionModel = []
         for (let resolution of resolutionList) {
@@ -329,6 +267,9 @@ DccObject {
                         var itemMaxH = gy2 - gy
                         for (var i = 1; i < monitorRepeater.count; i++) {
                             let otherItem = monitorRepeater.itemAt(i)
+                            if (!otherItem) {
+                                return
+                            }
                             var ox = (otherItem.x - monitorsGround.translationX) / monitorsGround.scale
                             var oy = (otherItem.y - monitorsGround.translationY) / monitorsGround.scale
                             var ox2 = otherItem.width / monitorsGround.scale + ox
@@ -426,11 +367,28 @@ DccObject {
             weight: 10
             visible: dccData.screens.length > 1 && dccData.isX11
             pageType: DccObject.Editor
-            page: ComboBox {
-                flat: true
-                textRole: "text"
-                valueRole: "value"
-                model: getModeModel(dccData.screens)
+            page: D.ComboBox {
+                ListModel {
+                    id: modeModel
+                }
+                function getModeModel(screens) {
+                    modeModel.clear()
+                    modeModel.append({
+                                         "text": qsTr("Duplicate"),
+                                         "value": "MERGE" // 1
+                                     })
+                    modeModel.append({
+                                         "text": qsTr("Extend"),
+                                         "value": "EXTEND" // 2
+                                     })
+                    for (let screen of screens) {
+                        modeModel.append({
+                                             "text": qsTr("Only on %1").arg(screen.name),
+                                             "value": screen.name
+                                         })
+                    }
+                    return modeModel
+                }
                 function indexOfMode(mode) {
                     for (var i = 0; i < model.count; i++) {
                         if (model.get(i).value === mode) {
@@ -439,6 +397,10 @@ DccObject {
                     }
                     return -1
                 }
+                flat: true
+                textRole: "text"
+                valueRole: "value"
+                model: getModeModel(dccData.screens)
                 currentIndex: indexOfMode(dccData.displayMode)
                 onActivated: {
                     if (dccData.displayMode !== currentValue) {
@@ -632,22 +594,43 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 id: control
-                flat: true
-                textRole: "text"
-                valueRole: "value"
-                iconNameRole: "icon"
-                contentItem: D.IconLabel {
-                    rightPadding: DS.Style.comboBox.spacing
-                    alignment: control.horizontalAlignment
-                    icon.name: (control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined) ? model.get(control.currentIndex)[control.iconNameRole] : null
-                    icon.height: DS.Style.comboBox.iconSize
-                    icon.width: DS.Style.comboBox.iconSize
-                    text: control.editable ? control.editText : control.displayText
-                    font: control.font
-                    color: control.palette.windowText
-                    spacing: DS.Style.comboBox.spacing
+                ListModel {
+                    id: fillmodellist
+                    ListElement {
+                        text: qsTr("Default")
+                        icon: "DisplayDefault"
+                        value: "None"
+                    }
+                    ListElement {
+                        text: qsTr("Stretch")
+                        icon: "DisplayStretch"
+                        value: "Full"
+                    }
+                    ListElement {
+                        text: qsTr("Center")
+                        icon: "DisplayCenter"
+                        value: "Center"
+                    }
+                    ListElement {
+                        text: qsTr("Fit")
+                        icon: "DisplayFit"
+                        value: "Full aspect"
+                    }
                 }
-                model: root.getFillModel(screen.availableFillModes)
+                ListModel {
+                    id: fillModel
+                }
+                function getFillModel(availableFillModes, currentFillMode) {
+                    fillModel.clear()
+                    for (var i = 0; i < fillmodellist.count; i++) {
+                        let fillmode = fillmodellist.get(i)
+                        let value = fillmode.value
+                        if (value === currentFillMode || availableFillModes.indexOf(value) >= 0) {
+                            fillModel.append(fillmode)
+                        }
+                    }
+                    return fillModel
+                }
                 function indexOfFill(model, currentFill) {
                     for (var i = 0; i < model.count; i++) {
                         let v = model.get(i)
@@ -657,6 +640,22 @@ DccObject {
                     }
                     return -1
                 }
+                flat: true
+                textRole: "text"
+                valueRole: "value"
+                iconNameRole: "icon"
+                contentItem: D.IconLabel {
+                    rightPadding: DS.Style.comboBox.spacing
+                    alignment: control.horizontalAlignment
+                    icon.name: (control.currentIndex >= 0 && control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined) ? model.get(control.currentIndex)[control.iconNameRole] : null
+                    icon.height: DS.Style.comboBox.iconSize
+                    icon.width: DS.Style.comboBox.iconSize
+                    text: control.editable ? control.editText : control.displayText
+                    font: control.font
+                    color: control.palette.windowText
+                    spacing: DS.Style.comboBox.spacing
+                }
+                model: getFillModel(screen.availableFillModes, screen.currentFillMode)
                 currentIndex: indexOfFill(this.model, screen.currentFillMode)
                 onActivated: {
                     if (screen.currentFillMode === currentValue) {
