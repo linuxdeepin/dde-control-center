@@ -104,7 +104,7 @@ Control {
 
         highlight: Item {
             z: 2
-            FocusBoxBorder {
+            D.FocusBoxBorder {
                 anchors {
                     fill: parent
                     margins: 5
