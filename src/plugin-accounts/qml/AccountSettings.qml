@@ -1,4 +1,3 @@
-
 // SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
@@ -591,6 +590,9 @@ DccObject {
             id: groupview
             property int lrMargin: DccUtils.getMargin(width)
             spacing: 0
+            currentIndex: -1
+            activeFocusOnTab: false
+            keyNavigationEnabled: false
             anchors {
                 left: parent ? parent.left : undefined
                 right: parent ? parent.right : undefined
