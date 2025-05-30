@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -174,7 +172,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -250,11 +248,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar o monitor após</translation>
+        <translation>A tela será desligada após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>A tela será bloqueada após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -367,7 +365,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>O nome do Bluetooth não pode exceder 64 caracteres</translation>
     </message>
 </context>
 <context>
@@ -691,11 +689,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short</source>
-        <translation>Curto</translation>
+        <translation>Baixa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Longo</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <source>Repeat rate</source>
@@ -731,11 +729,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation>Teste de clique duplo</translation>
+        <translation>Teste do clique duplo</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Modo Mão Esquerda</translation>
+        <translation>Mão Esquerda</translation>
     </message>
 </context>
 <context>
@@ -1335,15 +1333,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished">Isenção de responsabilidade</translation>
+        <translation>Aviso legal</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Concordo</translation>
     </message>
 </context>
 <context>
@@ -1420,15 +1418,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation>Configurações de ligar a tela</translation>
+        <translation>Configurações ao despertar</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>A senha é necessária para acessar o computador</translation>
+        <translation>Solicitar senha ao acordar o computador</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>A senha é necessária para ligar o monitor</translation>
+        <translation>Solicitar senha ao acordar o monitor</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
@@ -1464,7 +1462,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>Diminuir o brilho da tela no modo de economia de energia</translation>
+        <translation>Reduzir o brilho da tela no modo de economia de energia em</translation>
     </message>
 </context>
 <context>
@@ -1525,15 +1523,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1729,11 +1727,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Short</source>
-        <translation>Pequeno</translation>
+        <translation>Baixa</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Grande</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
@@ -1745,7 +1743,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Rolagem Natural</translation>
+        <translation>Rolagem natural</translation>
     </message>
 </context>
 <context>
@@ -1907,7 +1905,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>Tema claro</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -1915,7 +1913,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dark</source>
-        <translation>Escuro</translation>
+        <translation>Tema escuro</translation>
     </message>
 </context>
 <context>
@@ -1952,11 +1950,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation>Desligar tela</translation>
+        <translation>Desligar a tela</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Mostrar interface de desligamento</translation>
+        <translation>Exibir a interface de desligamento</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -1971,11 +1969,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Desligar a tela após</translation>
+        <translation>A tela será desligada após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>Após bloquear a tela</translation>
+        <translation>A tela será bloqueada após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -2048,7 +2046,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar endereço do link</translation>
     </message>
 </context>
 <context>
@@ -2246,43 +2244,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Salvar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2461,7 +2459,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
@@ -2574,7 +2572,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>Balanço Esquerda e Direita</translation>
+        <translation>Balanço de áudio</translation>
     </message>
     <message>
         <source>Mono audio</source>
@@ -2594,7 +2592,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output Devices</source>
-        <translation>Dispositivos de saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
 </context>
 <context>
@@ -2797,7 +2795,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar endereço do link</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2829,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation>papel de parede</translation>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
@@ -2859,7 +2857,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation>Troca automática de papel de parede</translation>
+        <translation>Alterar automaticamente o papel de parede</translation>
     </message>
     <message>
         <source>never</source>
@@ -2918,7 +2916,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all</source>
-        <translation>Mostrar tudo</translation>
+        <translation>Exibir tudo</translation>
     </message>
     <message>
         <source>items</source>
@@ -2957,7 +2955,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Large</source>
@@ -2997,11 +2995,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation>Mostrar ao rolar</translation>
+        <translation>Exibir ao rolar</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Manter mostrado</translation>
+        <translation>Sempre exibir</translation>
     </message>
     <message>
         <source>Compact Display</source>
@@ -3021,7 +3019,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Extremamente pequeno</translation>
+        <translation>Mínima</translation>
     </message>
 </context>
 <context>
@@ -3593,7 +3591,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Permitir conforto visual</translation>
+        <translation>Conforto ocular</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -3632,11 +3630,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Desktop e barra de tarefas</translation>
+        <translation>Área de trabalho e barra de tarefas</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3677,11 +3675,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Modo clássico</translation>
+        <translation>Clássico</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Modo centralizado</translation>
+        <translation>Centralizado</translation>
     </message>
     <message>
         <source>Dock size</source>
@@ -3805,7 +3803,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Habilitar Não Perturbe</translation>
+        <translation>Não Perturbe</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -3867,7 +3865,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Efeito da janela</translation>
+        <translation>Efeitos visuais</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
@@ -3925,7 +3923,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Planos de energia, configurações de economia de energia, configurações de ligar o sistema, configurações de desligamento</translation>
+        <translation>Planos de energia, configurações de economia de energia, configurações ao despertar o sistema, configurações de desligamento</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -4013,14 +4011,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivos</translation>
     </message>
 </context>
 <context>
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation>Configurações comuns</translation>
+        <translation>Configurações gerais</translation>
     </message>
     <message>
         <source>System</source>
