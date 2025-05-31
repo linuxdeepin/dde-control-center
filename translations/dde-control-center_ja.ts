@@ -161,15 +161,15 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>登録したい指を指紋センサーに置き、下から上にスワイプしてください。操作が完了したら、指を離してください。</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>次を読みこれに同意します</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>免責事項</translation>
     </message>
     <message>
         <source>Next</source>
