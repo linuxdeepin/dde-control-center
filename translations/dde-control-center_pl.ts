@@ -3034,7 +3034,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Bardzo mały</translation>
+        <translation>Bardzo mała</translation>
     </message>
 </context>
 <context>
