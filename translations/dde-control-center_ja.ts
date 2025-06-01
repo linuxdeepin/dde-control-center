@@ -2867,74 +2867,74 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>表示方法</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>壁紙を自動で切り替える</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>なし</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30秒</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1分</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5分</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10分</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15分</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30分</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>ログイン時</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>起動時</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation>システム壁紙</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ライブ壁紙</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1時間</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>ひらく</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation>すべて表示</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation>アイテム</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -3348,11 +3348,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>もっと強いパスワードを作成してください</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのルールに適合していません</translation>
     </message>
 </context>
 <context>
@@ -3371,7 +3371,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>アシストツール</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4115,7 +4115,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacomを構成しています</translation>
     </message>
 </context>
 <context>
@@ -4142,7 +4142,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>軽い</translation>
     </message>
 </context>
 </TS>
