@@ -1448,7 +1448,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>時刻</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -1479,42 +1479,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>３本指</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>４本指</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>上</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>下</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>右</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>タップ</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
