@@ -196,7 +196,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;自動ログイン&quot;は１つのアカウントでのみ利用できます。このアカウントで行う場合は、&quot;%1&quot;で無効にしてください。</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -1180,11 +1180,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>サインアウト</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Web設定に移動</translation>
     </message>
 </context>
 <context>
@@ -1362,35 +1362,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>ファイルとフォルダへのアクセスを許可するアプリケーション:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>ドキュメント</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップ</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>ピクチャー</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>ビデオ</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>ミュージック</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>フォルダ</translation>
     </message>
 </context>
 <context>
