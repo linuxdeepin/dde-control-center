@@ -1397,15 +1397,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>サイズ</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>標準フォント</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>等幅フォント</translation>
     </message>
 </context>
 <context>
@@ -1424,7 +1424,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>バッテリー残量低下とみなす閾値</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
@@ -1552,15 +1552,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>キーボードレイアウト</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>完了</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
@@ -1568,7 +1568,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>キーボードレイアウトを追加</translation>
     </message>
 </context>
 <context>
@@ -1579,11 +1579,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>完了</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Other languages</source>
@@ -1591,7 +1591,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Region</source>
@@ -1622,15 +1622,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>追加</translation>
     </message>
 </context>
 <context>
@@ -1641,34 +1641,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>追加</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>ログイン方法</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>パスワード,WeChat,生体認証,セキュリティキー</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワード</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを変更</translation>
     </message>
     <message>
         <source>Validity days</source>
@@ -1676,7 +1676,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>いつも</translation>
     </message>
 </context>
 <context>
@@ -1706,7 +1706,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>入力</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
