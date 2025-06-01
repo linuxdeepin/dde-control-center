@@ -3228,7 +3228,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません</translation>
     </message>
 </context>
 <context>
