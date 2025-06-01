@@ -185,7 +185,11 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>「生体認証」とは、UnionTech Software Technology Co., Ltd.が提供するユーザー本人認証機能です。「生体認証」では、収集した生体データとデバイスに保存されている生体データを照合し、その照合結果に基づいてユーザーの本人確認を行います。
+
+UnionTech Software Technology Co., Ltd.は、お客様の生体認証情報を収集またはアクセスすることはありません。生体認証情報はお客様のローカルデバイスに保存されます。個人用デバイスでのみ生体認証を有効にし、関連する操作にはご自身の生体認証情報を使用してください。また、当該デバイス上の他者の生体認証情報は速やかに無効化または削除してください。そうしないと、当該情報に起因するリスクを負うことになります。
+
+UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ、精度、安定性の向上に尽力しております。しかしながら、環境、設備、技術、その他の要因やリスク管理上の理由により、生体認証が一時的に成功するという保証はございません。そのため、生体認証をUOSへのログインの唯一の方法としないでください。生体認証のご利用に関してご質問やご提案がございましたら、UOSの「サービスとサポート」からフィードバックをお寄せください。</translation>
     </message>
 </context>
 <context>
@@ -877,7 +881,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;当社は、お客様の個人情報がお客様にとって極めて重要であることを深く認識しております。そのため、個人情報の収集・利用・共有・移転・公開・保管に関する方針を定めたプライバシーポリシーを策定しております。&lt;/p&gt;&lt;p&gt;最新のプライバシーポリシーは、&lt;a href=&quot;%1&quot;&gt;こちら&lt;/a&gt;から、もしくは&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;にアクセスすることでご覧いただけます。当社のお客様のプライバシーに関する取り組みと方針を注意深くお読みいただき、十分にご理解いただきますよう、お願いいたします。本件に関するご質問は、こちらにご連絡ください: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -1047,7 +1051,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>リンクを解除しました</translation>
     </message>
     <message>
         <source>Unbinding</source>
@@ -1055,7 +1059,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>リンク</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
@@ -1102,18 +1106,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>クラウド同期</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
