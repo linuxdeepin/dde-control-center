@@ -1991,11 +1991,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターをサスペンドするまでの時間</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>カバーを閉じたときの動作</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
@@ -2041,26 +2041,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>分</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>時間</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>なし</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>プライバシーポリシー</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>リンクアドレスをコピー</translation>
     </message>
 </context>
 <context>
@@ -2071,7 +2071,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>パスワードは %1 文字以上にする必要があります</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
@@ -2079,7 +2079,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>パスワードには英字 (大文字と小文字を区別します)、数字、特殊記号 (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/) のみを使用できます</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
@@ -2150,7 +2150,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2162,7 +2162,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>このシステム壁紙は無効化されています。詳細はシステム管理者にお問い合わせください。</translation>
     </message>
 </context>
 <context>
@@ -2173,11 +2173,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトの形式</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -2185,23 +2185,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>日付(短縮形式)</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>日付</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>時刻(短縮形式)</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>時刻</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>通貨記号</translation>
     </message>
     <message>
         <source>Digit</source>
@@ -2209,49 +2209,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>紙のサイズ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを設定</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64文字</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを再入力</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>確認</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません</translation>
     </message>
 </context>
 <context>
@@ -2286,26 +2286,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>カスタムの繰り返し時間</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>スクリーンセーバー</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>プレビュー</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
@@ -2313,23 +2313,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>設定</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>アイドル時間</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 分</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 分</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 分</translation>
     </message>
     <message>
         <source>15 minute</source>
