@@ -1460,7 +1460,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>毎日</translation>
     </message>
     <message>
         <source>Working days</source>
@@ -2177,7 +2177,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>週最初の曜日</translation>
     </message>
     <message>
         <source>Short date</source>
@@ -2254,31 +2254,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>月曜日</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>火曜日</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>水曜日</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>木曜日</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>金曜日</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>土曜日</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>日曜日</translation>
     </message>
     <message>
         <source>Customize repetition time</source>
