@@ -1408,15 +1408,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>電源プラン</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>省電力設定</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>低バッテリー残量時に自動で省電力モードにする</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -1424,7 +1424,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>バッテリー駆動時に自動で省電力モードにする</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -1472,7 +1472,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>省電力モード使用時に画面の明るさを減らす</translation>
     </message>
 </context>
 <context>
@@ -1995,7 +1995,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>電源ボタンを押したときの動作</translation>
     </message>
 </context>
 <context>
@@ -2018,11 +2018,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>エコモード</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>パフォーマンスを優先します。消費電力と発熱が最も大きくなります。</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
@@ -2030,7 +2030,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>バッテリー使用可能時間を優先します。消費電力を削減しますが、パフォーマンスも低下します。</translation>
     </message>
 </context>
 <context>
