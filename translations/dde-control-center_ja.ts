@@ -3112,41 +3112,41 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>blueTooth</name>
     <message>
         <source>bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth設定、デバイス</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>起動メニュー</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>起動メニューを管理</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けroot権限管理</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けオプション</translation>
     </message>
 </context>
 <context>
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>時刻と日付</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>時刻と日付、タイムゾーン設定</translation>
     </message>
     <message>
         <source>Language and region</source>
@@ -3161,11 +3161,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名は3文字以上32文字以下にする必要があります</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>最初の文字は英数字にする必要があります</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
@@ -3173,19 +3173,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>このユーザー名は他のアカウントによって使用されています</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>フルネームが長すぎます</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>このフルネームは他のアカウントによって使用されています</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが間違っています</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -3355,7 +3355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>システム</translation>
     </message>
     <message>
         <source>Window</source>
