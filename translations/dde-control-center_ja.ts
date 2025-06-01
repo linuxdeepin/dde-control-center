@@ -1195,7 +1195,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>ログインエラー回数が本日の上限に達しました。パスワードをリセットして、やり直すことができます。</translation>
     </message>
     <message>
         <source>Operation Successful</source>
@@ -1464,11 +1464,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>平日</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>カスタム時刻</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
@@ -1521,15 +1521,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>パフォーマンス優先</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>バランス</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>ビジュアル優先</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -1668,7 +1668,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>有効日数</translation>
     </message>
     <message>
         <source>Always</source>
@@ -2006,7 +2006,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>バランスパフォーマンス</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
