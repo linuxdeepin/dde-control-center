@@ -2778,92 +2778,92 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>入力中はタッチパッドを無効にする</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>タップしてクリック</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>ナチュラル・スクロール</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>ジェスチャー</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>３本指のジェスチャー</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>４本指のジェスチャー</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーエクスペリエンスプログラムに参加</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>リンクアドレスをコピー</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>セキュリティ認証</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>本人確認ため、まずはログインパスワードを入力してください。</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64文字</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>パスワードをお忘れですか？</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>確認</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>壁紙</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>ウィンドウの角の丸み</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>独自の画像</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>システム壁紙</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>単色壁紙</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>カスタム可能な壁紙</translation>
     </message>
     <message>
         <source>fill style</source>
