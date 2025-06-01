@@ -2321,31 +2321,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1 minute</source>
-        <translation>1 分</translation>
+        <translation>1分</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation>5 分</translation>
+        <translation>5分</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation>10 分</translation>
+        <translation>10分</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15分</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30分</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1時間</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>なし</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
@@ -2364,50 +2364,50 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>検索結果はありません</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>カスタムショートカットを追加</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>名前:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>コマンド:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>無し</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>新しいショートカットを入力してください</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
@@ -2418,62 +2418,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>システムショートカット、カスタムショートカット</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ショートカットを検索</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>カスタム</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>完了</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>新しいショートカットを入力してください</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>クリック</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>または</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>置き換える</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトを復元</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>カスタムショートカットを追加</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>出力デバイス</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
@@ -2481,7 +2481,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>入力デバイス</translation>
     </message>
 </context>
 <context>
@@ -2566,7 +2566,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>音量を100%以上にすると、音声が歪んだりスピーカーに悪影響を及ぼしたりする可能性があります</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2720,7 +2720,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>タイムゾーンを追加</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
@@ -2728,26 +2728,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>タイムゾーン</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>最も近い都市:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>タッチスクリーン</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
@@ -2758,23 +2758,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>基本設定</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>タッチパッド</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>ポインターの速度</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>遅い</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>速い</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
