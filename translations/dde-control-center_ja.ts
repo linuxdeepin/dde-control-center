@@ -1771,7 +1771,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation>コンピューター名</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -1779,19 +1779,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>OS名</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>バージョン</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>エディション</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>タイプ</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1807,19 +1807,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>カーネル</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>グラフィックスプラットフォーム</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>プロセッサ</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>メモリ</translation>
     </message>
 </context>
 <context>
