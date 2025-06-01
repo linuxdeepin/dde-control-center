@@ -1428,23 +1428,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>復帰時の動作</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターの復帰時にパスワードを要求</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>モニターの復帰時にパスワードを要求</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>シャットダウンの設定</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>シャットダウンのスケジュール</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1452,11 +1452,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>繰り返し</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>１回</translation>
     </message>
     <message>
         <source>Every day</source>
@@ -2002,7 +2002,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>高パフォーマンス</translation>
     </message>
     <message>
         <source>Balance Performance</source>
@@ -2014,7 +2014,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>バランス</translation>
     </message>
     <message>
         <source>Power Saver</source>
@@ -2026,7 +2026,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>パフォーマンスとバッテリー使用可能時間のバランスを使用状況により自動で調節します。</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
@@ -3933,7 +3933,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>電源プラン、電力節約の設定、起動時の設定、シャットダウンの設定</translation>
+        <translation>電源プラン、電力節約の設定、復帰時の設定、シャットダウンの設定</translation>
     </message>
     <message>
         <source>Plugged In</source>
