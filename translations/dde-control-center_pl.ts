@@ -751,7 +751,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Włącz klawiaturę</translation>
     </message>
 </context>
 <context>
