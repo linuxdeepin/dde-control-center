@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
@@ -69,6 +70,7 @@ DccObject {
                    bottomPadding: bottomInset
                    leftPadding: 10
                    rightPadding: 8
+                   hoverEnabled: true
                    icon {
                        name: model.avatar
                        width: menuItemDelegate.iconSize
@@ -78,6 +80,7 @@ DccObject {
                        Item {
                            implicitWidth: icon.width + 10
                            implicitHeight: icon.height + 10
+                           
                            D.IconLabel {
                                id: iconLabel
                                anchors.centerIn: parent
@@ -86,15 +89,24 @@ DccObject {
                                display: menuItemDelegate.display
                                alignment: Qt.AlignLeft | Qt.AlignVCenter
                                icon: D.DTK.makeIcon(menuItemDelegate.icon, menuItemDelegate.D.DciIcon)
+                               visible: false
                            }
 
-                           D.BoxShadow {
-                               hollow: true
-                               anchors.fill: iconLabel
-                               shadowBlur: 10
-                               spread: 10
-                               shadowColor: palette.base
-                               cornerRadius: menuItemDelegate.iconRadius
+                           Rectangle {
+                               id: mask
+                               width: menuItemDelegate.iconSize
+                               height: menuItemDelegate.iconSize
+                               radius: menuItemDelegate.iconRadius
+                               visible: false
+                               anchors.centerIn: parent
+                           }
+
+                           OpacityMask {
+                               anchors.centerIn: parent
+                               width: menuItemDelegate.iconSize
+                               height: menuItemDelegate.iconSize
+                               source: iconLabel
+                               maskSource: mask
                            }
 
                            Rectangle {
@@ -158,6 +170,7 @@ DccObject {
                    background: DccItemBackground {
                        id: background
                        separatorVisible: true
+                       backgroundType: DccObject.Hover
                    }
                    onClicked: {
                        otherSettings.displayName = model.display
