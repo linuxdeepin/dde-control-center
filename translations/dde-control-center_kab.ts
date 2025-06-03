@@ -735,6 +735,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Left Hand Mode</source>
         <translation>Mode t tiskal t xef</translation>
     </message>
+    <message>
+        <source>Enable Keyboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
@@ -2246,34 +2250,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Customize repetition time</source>
         <translation type="unfinished"/>
@@ -3989,14 +3965,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 </context>
 <context>
     <name>soundMain</name>
-    <message>
-        <source>Output</source>
-        <translation>Xalqas</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation>Dëgë</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Xifren</translation>
