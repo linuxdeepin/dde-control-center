@@ -41,6 +41,8 @@ public:
     uint repeatInterval() const;
     void setRepeatInterval(const uint &repeatInterval);
 
+    bool keyboardEnabled() const;
+
     uint repeatDelay() const;
     void setRepeatDelay(const uint &repeatDelay);
 
@@ -57,6 +59,7 @@ Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString &layout);
 #endif
+    void keyboardEnabledChanged(bool value);
     void curLangChanged(const QString &lang);
     void capsLockChanged(bool value);
     void numLockChanged(bool value);
@@ -78,9 +81,11 @@ public Q_SLOTS:
     void setLocaleList(const QList<MetaData> &langList);
     void setCapsLock(bool value);
     void setAllShortcut(const QMap<QStringList, int> &map);
+    void setKeyboardEnabled(bool keyboardEnabled);
 private:
     QStringList convertLang(const QStringList &langList);
 private:
+    bool m_keyboardEnabled;
     bool m_capsLock;
     bool m_numLock;
     uint m_repeatInterval;
