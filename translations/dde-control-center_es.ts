@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -183,7 +185,7 @@ Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al reg
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de autenticación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se compararán con los almacenados en el dispositivo y la identidad del usuario se verificará con base en el resultado de la comparación.
@@ -749,6 +751,10 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Left Hand Mode</source>
         <translation>Modo mano izquierda</translation>
+    </message>
+    <message>
+        <source>Enable Keyboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2258,34 +2264,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
-    <message>
-        <source>Monday</source>
-        <translation>Lunes</translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation>Martes</translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation>Miércoles</translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation>Jueves</translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation>Viernes</translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation>Sábado</translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation>Domingo</translation>
-    </message>
     <message>
         <source>Customize repetition time</source>
         <translation>Tiempo de repetición personalizado</translation>
@@ -4001,14 +3979,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 </context>
 <context>
     <name>soundMain</name>
-    <message>
-        <source>Output</source>
-        <translation>Salida</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation>Entrada</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Ajustes</translation>
