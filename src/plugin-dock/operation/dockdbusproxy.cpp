@@ -59,7 +59,8 @@ DockDBusProxy::DockDBusProxy(QObject *parent)
     QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeEfficientChanged", this, SIGNAL(WindowSizeEfficientChanged(uint)));
     QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeFashionChanged", this, SIGNAL(WindowSizeFashionChanged(uint)));
     QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "showRecentChanged", this, SIGNAL(showRecentChanged(bool)));
-
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "LockedChanged", this, SIGNAL(LockedChanged(bool)));
+    
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
 
@@ -124,6 +125,16 @@ bool DockDBusProxy::showInPrimary()
 void DockDBusProxy::setShowInPrimary(bool value)
 {
     m_dockInter->setProperty("showInPrimary", QVariant::fromValue(value));
+}
+
+bool DockDBusProxy::locked()
+{
+    return qvariant_cast<bool>(m_daemonDockInter->property("Locked"));
+}
+
+void DockDBusProxy::setLocked(bool value)
+{
+    m_daemonDockInter->setProperty("Locked", QVariant::fromValue(value));
 }
 
 bool DockDBusProxy::showRecent()

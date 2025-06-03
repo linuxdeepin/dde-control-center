@@ -154,7 +154,20 @@ DccObject {
                 }
             }
         }
-
+        DccObject {
+            name: "lockedDock"
+            parentName: "personalization/dock/dockSettingsGroup"
+            displayName: qsTr("Lock the Dock")
+            weight: 20
+            pageType: DccObject.Editor
+            page: Switch {
+                checked: dccData.dockInter.locked 
+                onCheckedChanged: {
+                    if (dccData.dockInter.locked != checked)
+                        dccData.dockInter.setLocked(checked)
+                }
+            }
+        }
         DccObject {
             name: "positionInScreen"
             parentName: "personalization/dock/dockSettingsGroup"

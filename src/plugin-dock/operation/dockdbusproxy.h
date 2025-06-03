@@ -49,6 +49,10 @@ public:
     bool showInPrimary();
     Q_INVOKABLE void setShowInPrimary(bool value);
 
+    Q_PROPERTY(bool locked READ locked WRITE setLocked NOTIFY LockedChanged)
+    bool locked();
+    Q_INVOKABLE void setLocked(bool value);
+
     Q_PROPERTY(bool ShowRecent READ showRecent NOTIFY showRecentChanged)
     bool showRecent();
 
@@ -70,6 +74,7 @@ Q_SIGNALS:
     void WindowSizeEfficientChanged(uint windowSizeEfficient) const;
     void WindowSizeFashionChanged(uint windowSizeFashion) const;
     void ShowInPrimaryChanged(bool showInPrimary) const;
+    void LockedChanged(bool locked) const;
 
     // real singals
     void pluginVisibleChanged(const QString &pluginName, bool visible) const;
