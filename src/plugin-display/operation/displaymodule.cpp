@@ -81,9 +81,8 @@ void DisplayModulePrivate::init()
         updatePrimary();
     });
     q_ptr->connect(m_model, &DisplayModel::displayModeChanged, q_ptr, [this]() {
-        updateDisplayMode();
         updateVirtualScreens();
-        Q_EMIT q_ptr->displayModeChanged();
+        updateDisplayMode();
     });
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
@@ -182,6 +181,9 @@ void DisplayModulePrivate::updateMonitorList()
         q_ptr->connect(monitor, &Monitor::wChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::hChanged, q_ptr, updateVirtualScreensFun);
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateVirtualScreensFun);
+        q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, [this]() {
+            updateDisplayMode();
+        });
         q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxGlobalScaleFun);
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxGlobalScaleFun);
     }
@@ -212,23 +214,28 @@ void DisplayModulePrivate::updatePrimary()
 
 void DisplayModulePrivate::updateDisplayMode()
 {
+    QString displayMode = m_displayMode;
     switch (m_model->displayMode()) {
     case MERGE_MODE:
-        m_displayMode = "MERGE";
+        displayMode = "MERGE";
         break;
     case EXTEND_MODE:
-        m_displayMode = "EXTEND";
+        displayMode = "EXTEND";
         break;
     case SINGLE_MODE:
         for (auto screen : m_screens) {
             if (screen->enable()) {
-                m_displayMode = screen->name();
+                displayMode = screen->name();
                 break;
             }
         }
         break;
     default:
         break;
+    }
+    if (displayMode != m_displayMode) {
+        m_displayMode = displayMode;
+        Q_EMIT q_ptr->displayModeChanged();
     }
 }
 
