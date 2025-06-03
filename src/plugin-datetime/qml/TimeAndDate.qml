@@ -187,18 +187,18 @@ DccObject {
                     alertDuration: 3000
                     horizontalAlignment: TextInput.AlignRight
                     anchors{
-                        rightMargin: 10
+                        rightMargin: 0
                         right: editBtn.left
                         verticalCenter: parent.verticalCenter
                     }
-                    rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 0)
+                    rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 10)
                     onReadOnlyChanged: {
                         addr.background.visible = !addr.readOnly
                         addr.clearButton.visible = !addr.readOnly && text.length > 0
                         addr.focus = !addr.readOnly
                     }
                     onTextChanged: {
-                        if (addr.showAlert && addr.text.trim().length > 0) {
+                        if (addr.showAlert && addr.text.length > 0) {
                             addr.showAlert = false
                         }
                     }
@@ -209,7 +209,6 @@ DccObject {
                 }
                 D.IconButton {
                     id: editBtn
-                    enabled: addr.text.length > 0
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     hoverEnabled: true
@@ -236,7 +235,7 @@ DccObject {
                         height: 16
                     }
                     onClicked: {
-                        if (addr.text.trim().length === 0) {
+                        if (addr.text.length === 0) {
                             addr.showAlert = true
                             return
                         }
