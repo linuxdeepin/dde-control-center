@@ -11,7 +11,6 @@ DccObject {
     DccObject {
         name: "outPut"
         parentName: "sound"
-        displayName: qsTr("Output")
         icon: "system"
         weight: 10
         pageType: DccObject.Item
@@ -28,7 +27,6 @@ DccObject {
     DccObject {
         name: "inPut"
         parentName: "sound"
-        displayName: qsTr("Input")
         icon: "system"
         weight: 20
         pageType: DccObject.Item
