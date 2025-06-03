@@ -14,7 +14,7 @@ import org.deepin.dcc 1.0
 DccObject {
     id: root
 
-    function toPercent(value: string) {
+    function toPercent(value) {
         return Number(value * 100).toFixed(0) + "%"
     }
 
@@ -86,7 +86,7 @@ DccObject {
                     handleType: Slider.HandleType.NoArrowHorizontal
                     highlightedPassedGroove: true
                     from: 0
-                    stepSize: 0.00001
+                    stepSize: 0.01
                     to: 1
                     value: dccData.model().microphoneVolume
                     onPressedChanged: {

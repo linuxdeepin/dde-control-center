@@ -14,7 +14,7 @@ import SoundDeviceModel 1.0
 
 DccObject {
     id: root
-    function toPercent(value: string) {
+    function toPercent(value) {
         return Number(value * 100).toFixed(0) + "%"
     }
     DccTitleObject {
@@ -85,6 +85,7 @@ DccObject {
                     highlightedPassedGroove: true
                     value: dccData.model().speakerVolume
                     to: dccData.model().increaseVolume ? 1.5 : 1.0
+                    stepSize: 0.01
                     onPressedChanged: {
                         if (!pressed && voiceTipsSlider.value != dccData.model().speakerVolume) {
                             dccData.worker().setSinkVolume(voiceTipsSlider.value)
@@ -143,7 +144,7 @@ DccObject {
                     from: -1
                     handleType: Slider.HandleType.ArrowBottom
                     highlightedPassedGroove: true
-                    stepSize: 0.00001
+                    stepSize: 0.01
                     to: 1
                     value: dccData.model().speakerBalance
 
