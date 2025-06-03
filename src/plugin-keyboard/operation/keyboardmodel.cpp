@@ -9,6 +9,7 @@
 using namespace dccV25;
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
+    , m_keyboardEnabled(true)
     , m_capsLock(true)
     , m_numLock(true)
     , m_repeatInterval(1)
@@ -151,6 +152,19 @@ void KeyboardModel::setRepeatInterval(const uint &repeatInterval)
     if (m_repeatInterval != repeatInterval) {
         m_repeatInterval = repeatInterval;
         Q_EMIT repeatIntervalChanged(repeatInterval);
+    }
+}
+
+bool KeyboardModel::keyboardEnabled() const
+{
+    return m_keyboardEnabled;
+}
+
+void KeyboardModel::setKeyboardEnabled(bool keyboardEnabled)
+{
+    if (m_keyboardEnabled != keyboardEnabled) {
+        m_keyboardEnabled = keyboardEnabled;
+        Q_EMIT keyboardEnabledChanged(m_keyboardEnabled);
     }
 }
 

@@ -23,6 +23,7 @@ KeyboardController::KeyboardController(QObject *parent)
     connect(m_model, &KeyboardModel::capsLockChanged, this, &KeyboardController::capsLockChanged);
     connect(m_model, &KeyboardModel::userLayoutChanged, this, &KeyboardController::layoutCountChanged);
     connect(m_model, &KeyboardModel::curLayoutChanged, this, &KeyboardController::currentLayoutChanged);
+    connect(m_model, &KeyboardModel::keyboardEnabledChanged, this, &KeyboardController::keyboardEnabledChanged);
 
     connect(m_shortcutModel, &ShortcutModel::keyEvent, this, [this](bool press, const QString &shortcut){
         ShortcutInfo *current = m_shortcutModel->currentInfo();
@@ -92,6 +93,19 @@ void KeyboardController::setRepeatDelay(uint newRepeatDelay)
         return;
 
     m_worker->setRepeatDelay(newRepeatDelay);
+}
+
+bool KeyboardController::keyboardEnabled() const
+{
+    return m_model->keyboardEnabled();
+}
+
+void KeyboardController::setKeyboardEnabled(bool enabled)
+{
+    if (keyboardEnabled() == enabled)
+        return;
+
+    m_worker->setKeyboardEnabled(enabled);
 }
 
 bool KeyboardController::numLock() const

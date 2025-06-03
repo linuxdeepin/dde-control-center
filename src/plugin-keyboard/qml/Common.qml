@@ -27,11 +27,26 @@ DccObject {
         }
     }
     DccObject {
+        name: "enableKeyboard"
+        parentName: "KeyboardCommon"
+        displayName: qsTr("Enable Keyboard")
+        weight: 20
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Editor
+        page: D.Switch {
+            checked: dccData.keyboardEnabled
+            onCheckedChanged: {
+                dccData.keyboardEnabled = checked
+            }
+        }
+    }
+    DccObject {
         name: "RepeatDelay"
         parentName: "KeyboardCommon"
         displayName: qsTr("Repeat delay")
         backgroundType: DccObject.Normal
-        weight: 20
+        weight: 30
+        visible: dccData.keyboardEnabled
         pageType: DccObject.Item
         page: ColumnLayout {
             Layout.fillHeight: true
@@ -96,7 +111,8 @@ DccObject {
     DccObject {
         name: "RepeatRateGroup"
         parentName: "KeyboardCommon"
-        weight: 30
+        weight: 40
+        visible: dccData.keyboardEnabled
         pageType: DccObject.Item
         page: DccGroupView {
             height: implicitHeight + 20
@@ -107,7 +123,8 @@ DccObject {
         name: "RepeatRate"
         parentName: "RepeatRateGroup"
         displayName: qsTr("Repeat rate")
-        weight: 30
+        weight: 50
+        visible: dccData.keyboardEnabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: Rectangle {
@@ -182,7 +199,8 @@ DccObject {
         name: "EditTesting"
         parentName: "RepeatRateGroup"
         displayName: qsTr("Numeric Keypad")
-        weight: 40
+        weight: 60
+        visible: dccData.keyboardEnabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: TextField {
@@ -202,7 +220,8 @@ DccObject {
         name: "KeypadSettings"
         parentName: "KeyboardCommon"
         displayName: qsTr("Numeric Keypad")
-        weight: 40
+        weight: 70
+        visible: dccData.keyboardEnabled
         pageType: DccObject.Item
         page: DccGroupView {
             height: implicitHeight + 20
@@ -212,7 +231,8 @@ DccObject {
         name: "EnableNumLock"
         parentName: "KeypadSettings"
         displayName: qsTr("Numeric Keypad")
-        weight: 40
+        weight: 80
+        visible: dccData.keyboardEnabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
@@ -226,7 +246,8 @@ DccObject {
         name: "CapsLockPrompt"
         parentName: "KeypadSettings"
         displayName: qsTr("Caps lock prompt")
-        weight: 50
+        weight: 90
+        visible: dccData.keyboardEnabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {

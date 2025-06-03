@@ -18,6 +18,7 @@
 #include <QDBusPendingCallWatcher>
 #include <QTranslator>
 
+using namespace DTK_NAMESPACE::Core;
 using namespace dccV25;
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
@@ -34,6 +35,7 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     , m_model(model)
     , m_keyboardDBusProxy(new KeyboardDBusProxy(this))
     , m_translatorLanguage(nullptr)
+    , m_inputDevCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.inputdevices", QString(), this))
 {
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
@@ -142,6 +144,16 @@ void KeyboardWorker::active()
     refreshLang();
     windowSwitch();
     refreshShortcut();
+    if (m_inputDevCfg->isValid()) {
+        QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value("keyboardEnabled").toBool()));
+        connect(m_inputDevCfg, &DConfig::valueChanged, this, [=](QString key) {
+            if (key == "keyboardEnabled") {
+                QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value(key).toBool()));
+            }
+        });
+    } else {
+        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_inputDevCfg->name(), m_inputDevCfg->subpath());
+    }
 }
 
 void KeyboardWorker::deactive()
@@ -306,6 +318,13 @@ void KeyboardWorker::setNumLock(bool value)
 void KeyboardWorker::setCapsLock(bool value)
 {
     m_keyboardDBusProxy->setCapslockToggle(value);
+}
+
+void KeyboardWorker::setKeyboardEnabled(bool value)
+{
+    if (m_inputDevCfg->isValid()) {
+        m_inputDevCfg->setValue("keyboardEnabled", value);
+    }
 }
 
 void KeyboardWorker::addUserLayout(const QString &value)

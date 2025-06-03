@@ -18,6 +18,7 @@ class KeyboardController : public QObject
     Q_OBJECT
     Q_PROPERTY(uint repeatInterval READ repeatInterval WRITE setRepeatInterval NOTIFY repeatIntervalChanged FINAL)
     Q_PROPERTY(uint repeatDelay READ repeatDelay WRITE setRepeatDelay NOTIFY repeatDelayChanged FINAL)
+    Q_PROPERTY(bool keyboardEnabled READ keyboardEnabled WRITE setKeyboardEnabled NOTIFY keyboardEnabledChanged FINAL)
     Q_PROPERTY(bool numLock READ numLock WRITE setNumLock NOTIFY numLockChanged FINAL)
     Q_PROPERTY(bool capsLock READ capsLock WRITE setCapsLock NOTIFY capsLockChanged FINAL)
     Q_PROPERTY(int layoutCount READ layoutCount NOTIFY layoutCountChanged FINAL)
@@ -32,6 +33,9 @@ public:
 
     uint repeatDelay() const;
     void setRepeatDelay(uint newRepeatDelay);
+
+    bool keyboardEnabled() const;
+    void setKeyboardEnabled(bool enabled);
 
     bool numLock() const;
     void setNumLock(bool newNumLock);
@@ -82,6 +86,7 @@ signals:
     void keyEvent(const QString &accels);
 
     void conflictTextChanged();
+    void keyboardEnabledChanged();
 
 private:
     uint m_repeatInterval;

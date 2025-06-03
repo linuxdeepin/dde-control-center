@@ -10,6 +10,8 @@
 #include "keyboardmodel.h"
 #include "keyboarddbusproxy.h"
 
+#include <DConfig>
+
 #include <QObject>
 
 class QDBusPendingCallWatcher;
@@ -54,6 +56,7 @@ public:
 
     void setNumLock(bool value);
     void setCapsLock(bool value);
+    void setKeyboardEnabled(bool value);
     Q_INVOKABLE void active();
     void deactive();
     bool keyOccupy(const QStringList &list);
@@ -117,6 +120,7 @@ private:
     KeyboardDBusProxy *m_keyboardDBusProxy;
     ShortcutModel *m_shortcutModel = nullptr;
     QTranslator *m_translatorLanguage;
+    Dtk::Core::DConfig *m_inputDevCfg;
 };
 }
 #endif // KEYBOARDWORK_H
