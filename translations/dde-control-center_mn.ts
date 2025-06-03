@@ -2245,34 +2245,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>ScheduledShutdownDialog</name>
     <message>
-        <source>Monday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Customize repetition time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4045,10 +4017,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4074,6 +4042,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
