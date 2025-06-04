@@ -1820,6 +1820,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Memory</source>
         <translation>Memoria</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
