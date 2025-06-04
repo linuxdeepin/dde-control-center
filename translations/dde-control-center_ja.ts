@@ -4025,10 +4025,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>システムバージョン、デバイス情報</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>オープンソースライセンス</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>オープンソースソフトウェアに関する通知を表示</translation>
     </message>
@@ -4055,6 +4051,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>プライバシーポリシーに関する情報を表示</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
