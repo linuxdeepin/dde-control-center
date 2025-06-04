@@ -133,11 +133,21 @@ DccObject {
                         if (showAlert)
                             showAlert = false
                             
-                        if (!/^[A-Za-z0-9-]{0,64}$/.test(text)) {
+                        if (text.length > 63) {
+                            var cursorPos = cursorPosition
+                            text = text.slice(0, 63)
+                            cursorPosition = Math.min(cursorPos, text.length)
+                            showAlert = true
+                            alertText = qsTr("1~63 characters please")
+                            dccData.systemInfoWork().playSystemSound(14)
+                            return
+                        }
+                        
+                        if (!/^[A-Za-z0-9-]{0,63}$/.test(text)) {
                             var cursorPos = cursorPosition
                             var filteredText = text.replace(/[^A-Za-z0-9-]/g, "")
                             
-                            filteredText = filteredText.slice(0, 64)
+                            filteredText = filteredText.slice(0, 63)
                             
                             if (filteredText !== text) {
                                 text = filteredText

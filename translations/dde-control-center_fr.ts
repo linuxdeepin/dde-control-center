@@ -1847,6 +1847,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Memory</source>
         <translation>Mémoire</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
