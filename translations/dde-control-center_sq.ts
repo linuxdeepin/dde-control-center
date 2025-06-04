@@ -751,7 +751,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizo Tastierë</translation>
     </message>
 </context>
 <context>
@@ -1832,7 +1832,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, 1~63 shenja</translation>
     </message>
 </context>
 <context>
@@ -4059,7 +4059,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Shënim Mbi Software Me Burim të Hapët</translation>
     </message>
 </context>
 <context>
