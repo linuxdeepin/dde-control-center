@@ -16,12 +16,14 @@ if (BUILD_PLUGIN)
     set(keyboard_Includes
         src/plugin-keyboard/operation
     )
+    find_package(PolkitQt6-1 REQUIRED)
     set(keyboard_Libraries
         ${DCC_FRAME_Library}
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Gui
         ${QT_NS}::Qml
+        PolkitQt6-1::Agent
     )
     target_include_directories(${Plugin_Name} PUBLIC
         ${keyboard_Includes}

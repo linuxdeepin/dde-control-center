@@ -6,6 +6,8 @@
 #include "dccfactory.h"
 #include "layoutsmodel.h"
 
+#include <PolkitQt1/Authority>
+
 namespace dccV25 {
 DCC_FACTORY_CLASS(KeyboardController)
 
@@ -105,7 +107,15 @@ void KeyboardController::setKeyboardEnabled(bool enabled)
     if (keyboardEnabled() == enabled)
         return;
 
-    m_worker->setKeyboardEnabled(enabled);
+    connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, this, [this, enabled](PolkitQt1::Authority::Result authenticationResult) {
+        disconnect(PolkitQt1::Authority::instance(), nullptr, this, nullptr);
+        if (PolkitQt1::Authority::Result::Yes == authenticationResult) {
+            m_worker->setKeyboardEnabled(enabled);
+        } else {
+            Q_EMIT keyboardEnabledChanged();
+        }
+    });
+    PolkitQt1::Authority::instance()->checkAuthorization("org.deepin.dde.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()), PolkitQt1::Authority::AllowUserInteraction);
 }
 
 bool KeyboardController::numLock() const
