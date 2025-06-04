@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>El nom complet és massa llarg.</translation>
     </message>
 </context>
 <context>
@@ -755,7 +755,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Habilita el teclat</translation>
     </message>
 </context>
 <context>
@@ -1836,7 +1836,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>D&apos;1 a 63 caràcters, si us plau.</translation>
     </message>
 </context>
 <context>
@@ -4063,7 +4063,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Avís de programari de codi obert</translation>
     </message>
 </context>
 <context>
