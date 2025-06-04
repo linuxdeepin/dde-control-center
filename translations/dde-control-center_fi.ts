@@ -4023,10 +4023,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Versio, järjestelmätiedot</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Avoimen lähdekoodin ohjelmistokuvaus</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
     </message>
@@ -4053,6 +4049,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Katso tietoja tietosuojakäytännöstä</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
