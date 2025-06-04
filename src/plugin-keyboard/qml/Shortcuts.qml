@@ -15,7 +15,22 @@ DccObject {
     description: qsTr("System shortcut, custom shortcut")
     icon: "keyboard_fn"
     weight: parent.weight // 300
+    property var viewScrollbar: ScrollBar {
+        width: 10
+    }
+
+    PropertyAnimation {
+        id: scrollbarAnimation
+        target: viewScrollbar
+        property: "opacity"
+        duration: 200
+        from: 0
+        to: 1
+        onFinished: viewScrollbar.increase()
+    }
+
     page: DccSettingsView {
+        ScrollBar.vertical: viewScrollbar
     }
 
     DccObject {
@@ -216,6 +231,12 @@ DccObject {
                             implicitWidth: row.implicitWidth
                             Layout.alignment: Qt.AlignRight
                             Layout.rightMargin: 20
+
+                            onVisibleChanged : {
+                                if (visible && model.index === (shortcutView.count - 1)) {
+                                    scrollbarAnimation.start()
+                                }
+                            }
 
                             Row {
                                 id: row
