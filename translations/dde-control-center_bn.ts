@@ -77,6 +77,10 @@
         <source>Account type</source>
         <translation>অ্যাকাউন্ট টাইপ</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
