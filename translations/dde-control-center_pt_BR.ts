@@ -1815,6 +1815,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Memory</source>
         <translation>Memória</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
