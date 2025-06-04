@@ -4015,10 +4015,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Sistema tawen, xifren as-salet</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Xifren as-salet tafassen tawens tafassen</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Tafassas xifren as-salet tafassen tawens tafassen</translation>
     </message>
@@ -4045,6 +4041,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Afišeš nissegartut ulewiz wizartut</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
