@@ -1825,6 +1825,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Memory</source>
         <translation>Muist</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>

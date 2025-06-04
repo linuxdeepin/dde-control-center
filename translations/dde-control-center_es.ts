@@ -1833,6 +1833,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Memory</source>
         <translation>Memoria</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>

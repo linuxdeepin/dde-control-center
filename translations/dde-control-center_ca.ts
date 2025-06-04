@@ -1832,6 +1832,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Memory</source>
         <translation>Memòria</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
