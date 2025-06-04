@@ -4014,10 +4014,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>เวอร์ชันระบบ, ข้อมูลอุปกรณ์</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>คำอธิบายโปรแกรมฟรีและเปิดแหล่ง</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>ดูคำประกาศของโปรแกรมฟรีและเปิดแหล่ง</translation>
     </message>
@@ -4044,6 +4040,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>ดูข้อมูลเกี่ยวกับนโยบายความเป็นส่วนตัว</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
