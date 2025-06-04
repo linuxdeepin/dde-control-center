@@ -129,6 +129,18 @@ DccObject {
                         }
                     }
                     
+                    onVisibleChanged: {
+                        if (!visible && showAlert) {
+                            showAlert = false
+                        }
+                    }
+                    
+                    onActiveFocusChanged: {
+                        if (!activeFocus && showAlert) {
+                            showAlert = false
+                        }
+                    }
+                    
                     onTextChanged: {
                         if (showAlert)
                             showAlert = false
