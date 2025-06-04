@@ -4026,10 +4026,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>系统版本、设备信息</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>开源软件声明</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>查看开源软件声明</translation>
     </message>
@@ -4056,6 +4052,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>查看隐私政策相关信息</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
