@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Tilin tyyppi</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Nimesi on liian pitkä</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Fióktípus</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">A teljes nev túl hosszú</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

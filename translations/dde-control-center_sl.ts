@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Vrsta računa</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Ime je preprosto dolgo</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

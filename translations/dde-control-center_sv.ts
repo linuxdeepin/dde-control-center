@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Kontotyp</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Komplettera namnet är för långt</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

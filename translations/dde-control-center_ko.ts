@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>계정 유형</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">전체 이름이 너무 길�습니다</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

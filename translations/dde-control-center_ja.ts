@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>アカウントの種類</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">フルネームが長すぎます</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

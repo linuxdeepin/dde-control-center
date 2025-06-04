@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Lloj llogarie</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Emri i plotë është shumë i gjatë</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

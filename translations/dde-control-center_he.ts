@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>סוג חשבון</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">שם מלא הוא מדי ארוך</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

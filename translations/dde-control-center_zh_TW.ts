@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>帳戶型別</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">全名太長了</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

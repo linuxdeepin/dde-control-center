@@ -79,6 +79,10 @@
         <source>Add group</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">O nome completo é muito comprido</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

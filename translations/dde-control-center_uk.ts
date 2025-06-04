@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Тип облікового запису</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Ім&apos;я повністю є надто довгим</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

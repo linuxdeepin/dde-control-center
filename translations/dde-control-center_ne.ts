@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>खाताको प्रकार</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

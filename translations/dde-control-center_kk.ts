@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Сметанын түрі</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Толық аты-жөні толған</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
