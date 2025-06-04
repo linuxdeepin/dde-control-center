@@ -4041,10 +4041,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Versión do sistema, información do dispositivo</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Descripción do Software de Orixe Aberta</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Ver a noticia do software de orixe aberta</translation>
     </message>
@@ -4071,6 +4067,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>View information about privacy policy</source>
         <translation>Ver información sobre a política de privacidade</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
