@@ -1830,6 +1830,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Memory</source>
         <translation>Kujtesë</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
