@@ -1819,6 +1819,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>Memory</source>
         <translation>Pomnilnik</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
