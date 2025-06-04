@@ -4024,10 +4024,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>系統版本、裝置資訊</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>開源軟體宣告</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>檢視開源軟體宣告</translation>
     </message>
@@ -4054,6 +4050,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>檢視隱私政策相關資訊</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
