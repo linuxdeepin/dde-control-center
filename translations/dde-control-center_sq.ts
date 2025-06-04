@@ -4026,10 +4026,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Version sistemi, hollësi pajisjesh</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Përshkrim Software-i Me Burim të Hapët</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Shihni shënimin për “software” me burim të hapët</translation>
     </message>
@@ -4056,6 +4052,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>View information about privacy policy</source>
         <translation>Shihni informacion rreth rregullash privatësie</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
