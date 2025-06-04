@@ -1830,6 +1830,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Memory</source>
         <translation>Pamięć</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
