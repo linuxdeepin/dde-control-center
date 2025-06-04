@@ -50,12 +50,11 @@ DccObject {
     DccObject {
         name: "KeyboardLayoutTips"
         parentName: "KeyboardLayout"
-        displayName: qsTr("Add the corresponding input method in <a style='text-decoration: none;' href='Manage Input Methods'>Input Method Management</a> to ensure the keyboard layout works when added or switched.")
         weight: 12
         pageType: DccObject.Item
         page: D.Label {
             textFormat: Text.RichText
-            text: dccObj.displayName
+            text: qsTr("Add the corresponding input method in <a style='text-decoration: none;' href='Manage Input Methods'>Input Method Management</a> to ensure the keyboard layout works when added or switched.")
             leftPadding: 10
             rightPadding: 10
             wrapMode: Text.WordWrap
@@ -140,6 +139,7 @@ DccObject {
         DccObject {
             name: "KeyboardLayoutLastItem"
             parentName: "KeyboardLayoutGroup"
+            displayName: qsTr("Add new keyboard layout...")
             weight: 999
             pageType: DccObject.Item
             backgroundType: DccObject.Normal
@@ -148,7 +148,7 @@ DccObject {
                 D.Button {
                     id: addButton
                     implicitHeight: 40
-                    text: qsTr("Add new keyboard layout...")
+                    text: dccObj.displayName
                     background: null
                     textColor: D.Palette {
                         normal {
