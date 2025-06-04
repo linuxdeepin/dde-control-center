@@ -77,7 +77,9 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::currentScreenSaverChanged, this, &PersonalizationWorker::onCurrentScreenSaverChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::lockScreenAtAwakeChanged, this, &PersonalizationWorker::onLockScreenAtAwakeChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::linePowerScreenSaverTimeoutChanged, this, &PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::batteryScreenSaverTimeoutChanged, this, &PersonalizationWorker::onBatteryScreenSaverTimeoutChanged);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WallpaperSlideShowChanged, this, &PersonalizationWorker::onWallpaperSlideShowChanged);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::OnBatteryChanged, m_model, &PersonalizationModel::setOnBattery);
 
     connect(m_wallpaperWorker, &WallpaperProvider::fetchFinish, this, &PersonalizationWorker::updateWallpaperSelected);
 
@@ -136,7 +138,9 @@ void PersonalizationWorker::active()
     }
 
     m_model->setLockScreenAtAwake(m_personalizationDBusProxy->getLockScreenAtAwake());
-    m_model->setScreenSaverIdleTime(m_personalizationDBusProxy->getLinePowerScreenSaverTimeout());
+    m_model->setOnBattery(m_personalizationDBusProxy->OnBattery());
+    m_model->setBatteryScreenSaverIdleTime(m_personalizationDBusProxy->getBatteryScreenSaverTimeout());
+    m_model->setLinePowerScreenSaverIdleTime(m_personalizationDBusProxy->getLinePowerScreenSaverTimeout());
 
     QString scrollbarConfig = m_personalizationConfig->value(SCROLLBAR_POLICY_CONFIG_KEY).toString();
     m_model->setScrollBarPolicyConfig(scrollbarConfig);
@@ -290,7 +294,12 @@ void PersonalizationWorker::onLockScreenAtAwakeChanged(bool value)
 
 void PersonalizationWorker::onLinePowerScreenSaverTimeoutChanged(int value)
 {
-    m_model->setScreenSaverIdleTime(value);
+    m_model->setLinePowerScreenSaverIdleTime(value);
+}
+
+void PersonalizationWorker::onBatteryScreenSaverTimeoutChanged(int value)
+{
+    m_model->setBatteryScreenSaverIdleTime(value);
 }
 
 void PersonalizationWorker::onWallpaperSlideShowChanged()
@@ -556,13 +565,11 @@ void PersonalizationWorker::stopScreenSaverPreview()
 
 void PersonalizationWorker::setLockScreenAtAwake(bool value)
 {
-    m_model->setLockScreenAtAwake(value);
     m_personalizationDBusProxy->setLockScreenAtAwake(value);
 }
 
 void PersonalizationWorker::setScreenSaverIdleTime(int value)
 {
-    m_model->setScreenSaverIdleTime(value);
     m_personalizationDBusProxy->setLinePowerScreenSaverTimeout(value);
     m_personalizationDBusProxy->setBatteryScreenSaverTimeout(value);
 }

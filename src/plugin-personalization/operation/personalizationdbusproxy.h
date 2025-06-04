@@ -117,6 +117,9 @@ public:
 
     QString GetScreenSaverCover(const QString &name);
 
+    // power
+    bool OnBattery();
+
 signals:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
@@ -156,6 +159,9 @@ signals:
     // daemon
     void WallpaperChanged(const QString &value, uint mode, const QStringList &urls);
 
+    // power
+    void OnBatteryChanged(bool value);
+
 public slots:
     // Appearance
     QString List(const QString &ty);
@@ -183,6 +189,7 @@ private:
     QDBusInterface *m_DaemonInter = nullptr;
     QDBusInterface *m_screenSaverInter = nullptr;
     QDBusInterface *m_wallpaperSlideshowInter = nullptr;
+    QDBusInterface *m_powerInter = nullptr;
 };
 
 #endif // PERSONALIZATIONDBUSPROXY_H
