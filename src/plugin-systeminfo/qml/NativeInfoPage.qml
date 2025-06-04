@@ -121,6 +121,14 @@ DccObject {
                     visible: false
                     showAlert: false
                     
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.RightButton
+                        onClicked: function(mouse) {
+                            mouse.accepted = true
+                        }
+                    }
+                    
                     onTextChanged: {
                         if (showAlert)
                             showAlert = false
@@ -161,9 +169,14 @@ DccObject {
                         hostNameEdit.showAlert = false
                         dccData.systemInfoWork().onSetHostname(hostNameEdit.text)
                     }
-                    Keys.onPressed: {
+                    
+                    Keys.onPressed: function(event) {
                         if (event.key === Qt.Key_Return) {
-                            hostNameEdit.forceActiveFocus(false); // 结束编辑
+                            hostNameEdit.forceActiveFocus(false);
+                        }
+                        else if ((event.modifiers & Qt.ControlModifier) && 
+                                (event.key === Qt.Key_C || event.key === Qt.Key_V || event.key === Qt.Key_X)) {
+                            event.accepted = true
                         }
                     }
                 }
