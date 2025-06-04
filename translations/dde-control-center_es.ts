@@ -4027,10 +4027,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Versión del sistema e información del hardware</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Descripción del software de código abierto</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Declaración del software de código abierto</translation>
     </message>
@@ -4057,6 +4053,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>View information about privacy policy</source>
         <translation>Muestra información sobre la política de seguridad</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
