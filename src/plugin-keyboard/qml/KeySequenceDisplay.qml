@@ -114,7 +114,10 @@ Control {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
+                onClicked: (mouse) => {
+                    if (control.showEditButtons && mouse.x >= editButton.x) {
+                        return
+                    }
                     control.requestKeys()
                 }
             }
