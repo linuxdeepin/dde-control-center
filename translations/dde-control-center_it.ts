@@ -4009,10 +4009,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4042,6 +4038,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4018,10 +4018,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>सिस्टम संस्करण, डिवाइस जानकारी</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>क्रान्तिकारी सॉफ्टवेयरको वर्णन</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>क्रान्तिकारी सॉफ्टवेयरको नोटिस देख्नुहोस्</translation>
     </message>
@@ -4048,6 +4044,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>प्राइवेची नीतिमा तहर देख्नुहोस्</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

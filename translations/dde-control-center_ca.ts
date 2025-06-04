@@ -4028,10 +4028,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Versió del sistema, informació del dispositiu</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Descripció de programari de codi obert</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Vegeu l&apos;avís del programari de codi obert</translation>
     </message>
@@ -4058,6 +4054,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>View information about privacy policy</source>
         <translation>Vegeu informació sobre la política de privadesa</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

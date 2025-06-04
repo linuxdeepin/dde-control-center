@@ -4065,10 +4065,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>시스템 버전, 장치 정보</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>오픈 소스 소프트웨어 설명</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>오픈 소스 소프트웨어에 대한 공지를 확인하세요</translation>
     </message>
@@ -4095,6 +4091,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>개인 정보 보호 정책에 대한 정보 확인</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

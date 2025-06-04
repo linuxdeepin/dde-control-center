@@ -4028,10 +4028,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Wersja systemu, informacje o urządzeniu</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Informacja oprogramowania open-source</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Wyświetl notatkę oprogramowania open-source</translation>
     </message>
@@ -4058,6 +4054,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>View information about privacy policy</source>
         <translation>Wyświetl informacje o polityce prywatności</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

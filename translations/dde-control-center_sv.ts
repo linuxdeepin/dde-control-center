@@ -4030,10 +4030,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Systemversion, enhetsinformation</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Beskrivning av öppen källkod</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Visa meddelandet om öppen källkod</translation>
     </message>
@@ -4060,6 +4056,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Visa information om intimskyldighetspolicy</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

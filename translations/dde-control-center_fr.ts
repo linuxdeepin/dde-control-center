@@ -4044,10 +4044,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Versión del sistema, información del dispositivo</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Descripción del software de código abierto</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Ver la notificación de software de código abierto</translation>
     </message>
@@ -4074,6 +4070,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>View information about privacy policy</source>
         <translation>Ver información sobre la política de privacidad</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
