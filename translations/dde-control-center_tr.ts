@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Hesap Türü</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Tam isim çok uzun</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

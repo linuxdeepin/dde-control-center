@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>账户类型</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation>名称过长</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

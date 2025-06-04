@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Vartotojo tipas</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">Vardas yra per ilgas</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>Tipo de conta</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">O nome completo é moi lonxe</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

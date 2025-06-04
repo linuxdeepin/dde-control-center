@@ -79,6 +79,10 @@
         <source>Account type</source>
         <translation>نوع الحساب</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished">اسم المستخدم طويل جدًا</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

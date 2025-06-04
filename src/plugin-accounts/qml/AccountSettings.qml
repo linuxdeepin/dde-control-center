@@ -318,6 +318,12 @@ DccObject {
                             var filteredText = text
                             filteredText = filteredText.replace(":", "")
 
+                            if (filteredText.length > 32) {
+                                showAlert = true
+                                alertText = qsTr("The full name is too long")
+                                dccData.playSystemSound(14)
+                            }
+
                             // 长度 32
                             filteredText = filteredText.slice(0, 32)
                             text = filteredText
