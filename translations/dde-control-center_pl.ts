@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Imię i nazwisko jest za długie</translation>
     </message>
 </context>
 <context>
@@ -1836,7 +1836,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1-63 znaków</translation>
     </message>
 </context>
 <context>
@@ -4063,7 +4063,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Informacja oprogramowania open-source</translation>
     </message>
 </context>
 <context>
