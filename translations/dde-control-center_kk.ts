@@ -4014,10 +4014,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Система мүнөтү, касиеттер</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Комплекттүү программалык өнүктүрмөлөрдүн түзүлүшү</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Комплекттүү программалык өнүктүрмөлөрдүн айтымчысын көрүү</translation>
     </message>
@@ -4044,6 +4040,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Тақырыптың мағынасын түзүү аbout privacy policy</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

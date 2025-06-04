@@ -4044,10 +4044,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সিস্টেম ভার্সন, ডিভাইস তথ্য</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>অপেন সোর্স সোফটওয়্যার বর্ণনা</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>অপেন সোর্স সোফটওয়্যারের নীতি দেখুন</translation>
     </message>
@@ -4074,6 +4070,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>خصوصতি তথ্য দেখুন</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

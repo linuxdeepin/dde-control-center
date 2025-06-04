@@ -4013,10 +4013,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Versão do sistema, informações do dispositivo</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Descrição do software de código aberto</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Ver aviso de software de código aberto</translation>
     </message>
@@ -4043,6 +4039,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Ver informações sobre a política de privacidade</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

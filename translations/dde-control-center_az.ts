@@ -4022,10 +4022,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>إصدار النظام، معلومات الجهاز</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>وصف البرمجيات المفتوحة المصدر</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>عرض ملاحظة البرمجيات المفتوحة المصدر</translation>
     </message>
@@ -4052,6 +4048,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>عرض المعلومات حول سياسة الخصوصية</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

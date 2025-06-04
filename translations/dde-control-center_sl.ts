@@ -4017,10 +4017,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Vrstica sistema, informacije o napravi</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Opis programske opreme s otvorenim kodo</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Pogledaj opozorilo o programskem opremi s otvorenim kodo</translation>
     </message>
@@ -4047,6 +4043,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>View information about privacy policy</source>
         <translation>Pogled na informacije o zaščiti osebnih podatkov</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

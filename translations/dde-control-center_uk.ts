@@ -4027,10 +4027,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Версія системи, відомості щодо пристроїв</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Опис програмного забезпечення з відкритим кодом</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Переглянути зауваження щодо вільного програмного забезпечення</translation>
     </message>
@@ -4057,6 +4053,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Переглянути відомості щодо правил конфіденційності</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -20,7 +20,7 @@ DccObject {
     DccObject {
         name: "versionProtocol"
         parentName: "system"
-        displayName: qsTr("Open Source Software Description")
+        displayName: qsTr("Open Source Software Notice")
         description: qsTr("View the notice of open source software")
         icon: "software_declaration"
         weight: 1020
