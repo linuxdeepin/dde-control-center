@@ -4019,10 +4019,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Süsteemversioon, pereteadused</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Avatud läningarülesande kirjeldus</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Vaata avatud läningarülesande pööre</translation>
     </message>
@@ -4049,6 +4045,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>View information about privacy policy</source>
         <translation>Vaata priivaatsipoliitika teaveid</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
