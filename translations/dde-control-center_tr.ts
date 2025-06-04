@@ -4011,10 +4011,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Sistem sürümü, cihaz bilgileri</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation type="unfinished"/>
     </message>
@@ -4040,6 +4036,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
 </context>
