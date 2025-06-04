@@ -89,6 +89,7 @@ private Q_SLOTS:
     void onCurrentScreenSaverChanged(const QString &value);
     void onLockScreenAtAwakeChanged(bool value);
     void onLinePowerScreenSaverTimeoutChanged(int value);
+    void onBatteryScreenSaverTimeoutChanged(int value);
     void onWallpaperSlideShowChanged();
     void updateWallpaperSelected();
 

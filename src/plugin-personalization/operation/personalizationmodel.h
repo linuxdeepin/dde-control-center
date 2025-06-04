@@ -33,9 +33,11 @@ class PersonalizationModel : public QObject
     Q_PROPERTY(QString currentSelectScreen READ getCurrentSelectScreen WRITE setCurrentSelectScreen NOTIFY currentSelectScreenChanged)
     Q_PROPERTY(QStringList screens READ getScreens WRITE setScreens NOTIFY screensChanged)
     Q_PROPERTY(bool lockScreenAtAwake WRITE setLockScreenAtAwake READ getLockScreenAtAwake NOTIFY lockScreenAtAwakeChanged)
-    Q_PROPERTY(int screenSaverIdleTime WRITE setScreenSaverIdleTime READ getScreenSaverIdleTime NOTIFY screenSaverIdleTimeChanged)
+    Q_PROPERTY(int linePowerScreenSaverIdleTime WRITE setLinePowerScreenSaverIdleTime READ getLinePowerScreenSaverIdleTime NOTIFY linePowerScreenSaverIdleTimeChanged)
+    Q_PROPERTY(int batteryScreenSaverIdleTime WRITE setBatteryScreenSaverIdleTime READ getBatteryScreenSaverIdleTime NOTIFY batteryScreenSaverIdleTimeChanged)
     Q_PROPERTY(QString currentScreenSaverPicMode WRITE setCurrentScreenSaverPicMode READ getCurrentScreenSaverPicMode NOTIFY currentScreenSaverPicModeChanged)
     Q_PROPERTY(QVariantMap wallpaperSlideShowMap WRITE setWallpaperSlideShowMap READ getWallpaperSlideShowMap NOTIFY wallpaperSlideShowMapChanged)
+    Q_PROPERTY(bool onBattery READ getOnBattery WRITE setOnBattery NOTIFY onBatteryChanged)
 
     Q_PROPERTY(FontSizeModel *fontSizeModel MEMBER m_fontSizeModel CONSTANT)
     Q_PROPERTY(FontModel *standardFontModel MEMBER m_standFontModel CONSTANT)
@@ -119,11 +121,17 @@ public:
     inline bool getLockScreenAtAwake() const { return m_lockScreenAtAwake; }
     void setLockScreenAtAwake(bool value);
 
-    inline int getScreenSaverIdleTime() const { return m_screenSaverIdleTime; };
-    void setScreenSaverIdleTime(int value);
+    inline int getLinePowerScreenSaverIdleTime() const { return m_linePowerScreenSaverIdleTime; };
+    void setLinePowerScreenSaverIdleTime(int value);
+
+    inline int getBatteryScreenSaverIdleTime() const { return m_batteryScreenSaverIdleTime; };
+    void setBatteryScreenSaverIdleTime(int value);
 
     inline QString getCurrentScreenSaverPicMode() const { return m_currentScreenSaverPicMode; }
     void setCurrentScreenSaverPicMode(const QString &mode);
+
+    inline bool getOnBattery() const { return m_onBattery; }
+    void setOnBattery(bool value);
 
 Q_SIGNALS:
     void wmChanged(const bool is3d);
@@ -145,10 +153,11 @@ Q_SIGNALS:
     void currentScreenSaverChanged(const QString &current);
     void screensChanged(const QStringList &screens);
     void lockScreenAtAwakeChanged(bool value);
-    void screenSaverIdleTimeChanged(int value);
+    void linePowerScreenSaverIdleTimeChanged(int value);
+    void batteryScreenSaverIdleTimeChanged(int value);
     void currentScreenSaverPicModeChanged(const QString &value);
     void wallpaperSlideShowMapChanged(const QVariantMap &value);
-
+    void onBatteryChanged(bool value);
 private:
     ThemeModel *m_windowModel;
     ThemeModel *m_iconModel;
@@ -189,7 +198,9 @@ private:
     QString m_currentScreenSaver;
     QStringList m_screens;
     bool m_lockScreenAtAwake;
-    int m_screenSaverIdleTime;
+    int m_linePowerScreenSaverIdleTime;
+    int m_batteryScreenSaverIdleTime;
     QString m_currentScreenSaverPicMode;
+    bool m_onBattery;
 };
 #endif // PERSONALIZATIONMODEL_H

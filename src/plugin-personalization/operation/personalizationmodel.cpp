@@ -193,12 +193,22 @@ void PersonalizationModel::setLockScreenAtAwake(bool value)
     Q_EMIT lockScreenAtAwakeChanged(value);
 }
 
-void PersonalizationModel::setScreenSaverIdleTime(int value)
+void PersonalizationModel::setLinePowerScreenSaverIdleTime(int value)
 {
-    if (m_screenSaverIdleTime == value)
+    if (m_linePowerScreenSaverIdleTime == value)
         return;
-    m_screenSaverIdleTime = value;
-    Q_EMIT screenSaverIdleTimeChanged(value);
+
+    m_linePowerScreenSaverIdleTime = value;
+    qWarning() << "model: setLinePowerScreenSaverIdleTime" << value << m_linePowerScreenSaverIdleTime;
+    Q_EMIT linePowerScreenSaverIdleTimeChanged(value);
+}
+
+void PersonalizationModel::setBatteryScreenSaverIdleTime(int value)
+{
+    if (m_batteryScreenSaverIdleTime == value)
+        return;
+    m_batteryScreenSaverIdleTime = value;
+    Q_EMIT batteryScreenSaverIdleTimeChanged(value);
 }
 
 void PersonalizationModel::setCurrentScreenSaverPicMode(const QString &value)
@@ -207,4 +217,13 @@ void PersonalizationModel::setCurrentScreenSaverPicMode(const QString &value)
         return;
     m_currentScreenSaverPicMode = value;
     Q_EMIT currentScreenSaverPicModeChanged(value);
+}
+
+void PersonalizationModel::setOnBattery(bool value)
+{
+    if (m_onBattery == value)
+        return;
+
+    m_onBattery = value;
+    Q_EMIT onBatteryChanged(value);
 }

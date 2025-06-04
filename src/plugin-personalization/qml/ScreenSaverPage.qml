@@ -138,7 +138,7 @@ DccObject {
                     flat: true
                     textRole: "text"
                     currentIndex: {
-                        let value = dccData.model.screenSaverIdleTime
+                        let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
                         return indexByValue(value)
                     }
                     model: ListModel {
@@ -151,7 +151,10 @@ DccObject {
                         ListElement { text: qsTr("never"); value: 0 }
                     }
                     onCurrentIndexChanged: {
-                        dccData.worker.setScreenSaverIdleTime(model.get(currentIndex).value)
+                        let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
+                        if (value !== model.get(currentIndex).value) {
+                            dccData.worker.setScreenSaverIdleTime(model.get(currentIndex).value)
+                        }
                     }
                 }
             }

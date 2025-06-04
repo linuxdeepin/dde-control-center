@@ -33,6 +33,10 @@ const QString WallpaperSlideshowService = QStringLiteral("org.deepin.dde.Wallpap
 const QString WallpaperSlideshowPath = QStringLiteral("/org/deepin/dde/WallpaperSlideshow");
 const QString WallpaperSlideshowInterface = QStringLiteral("org.deepin.dde.WallpaperSlideshow");
 
+const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
+
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
@@ -45,16 +49,17 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     m_DaemonInter = new QDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
     m_screenSaverInter = new QDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
     m_wallpaperSlideshowInter = new QDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
+    m_powerInter = new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
 
         QDBusConnection::sessionBus().connect(WMService, WMPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     }
-    
     QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     QDBusConnection::sessionBus().connect(ScreenSaverServive, ScreenSaverPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     QDBusConnection::sessionBus().connect(WallpaperSlideshowService, WallpaperSlideshowPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
     connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
@@ -462,6 +467,12 @@ QString PersonalizationDBusProxy::activeColors()
 void PersonalizationDBusProxy::setActiveColors(const QString &activeColors)
 {
     m_AppearanceInter->asyncCall(QStringLiteral("SetActiveColors"), QVariant::fromValue(activeColors));
+}
+
+// power
+bool PersonalizationDBusProxy::OnBattery()
+{
+    return qvariant_cast<bool>(m_powerInter->property("OnBattery"));
 }
 
 void PersonalizationDBusProxy::onPropertiesChanged(const QDBusMessage &message)
