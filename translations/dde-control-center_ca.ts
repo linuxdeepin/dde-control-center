@@ -52,10 +52,6 @@
         <translation>Afegeix-hi un grup</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Entrada automàtica, inici de sessió sense contrasenya</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Entrada automàtica</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3775,6 +3779,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Seleccioneu quines icones apareixen a l&apos;acoblador.</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

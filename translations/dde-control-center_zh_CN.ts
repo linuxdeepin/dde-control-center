@@ -52,10 +52,6 @@
         <translation>添加用户组</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>自动登录, 免密登录</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>自动登录</translation>
     </message>
@@ -98,6 +94,14 @@
     <message>
         <source>The group name has been used</source>
         <translation>组名与其他组名重复</translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation>快速登录，自动登录，免密登录</translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
+        <translation>使用登录信息快速载入桌面</translation>
     </message>
 </context>
 <context>
@@ -3775,6 +3779,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>选择显示在任务栏插件区域的图标</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>禁用自由调节</translation>
     </message>
 </context>
 <context>

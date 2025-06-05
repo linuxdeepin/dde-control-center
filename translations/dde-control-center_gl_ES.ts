@@ -52,10 +52,6 @@
         <translation>Engadir grupo</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Iniciar sesión automático, iniciar sesión sen contrasinal</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Iniciar sesión automático</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3790,6 +3794,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Selecciona que ícones aparecen no Dock</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
