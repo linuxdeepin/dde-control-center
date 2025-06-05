@@ -753,7 +753,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>鍵盤</translation>
     </message>
 </context>
 <context>
