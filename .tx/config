@@ -1,36 +1,32 @@
 [main]
 host = https://www.transifex.com
-minimum_perc = 80
-mode = developer
 
-[o:linuxdeepin:p:deepin-desktop-environment:r:dde-control-center]
+[o:linuxdeepin:p:deepin-desktop-environment:r:332dacad18d2b1a048dba06b5c1f0293]
 file_filter = translations/dde-control-center_<lang>.ts
-minimum_perc = 0
 source_file = translations/dde-control-center_en.ts
-source_lang = en
+source_lang = en_US
 type = QT
 
-[o:linuxdeepin:p:deepin-desktop-environment:r:dde-control-center-desktop]
+[o:linuxdeepin:p:deepin-desktop-environment:r:4ea171636f1b3b620948addfb330f0d9]
 file_filter = translations/desktop/desktop_<lang>.ts
 source_file = translations/desktop/desktop.ts
-source_lang = en
+source_lang = en_US
 type = QT
 
-[o:linuxdeepin:p:deepin-desktop-environment:r:dde-control-center-keyboard_language]
+[o:linuxdeepin:p:deepin-desktop-environment:r:09fb6462e5f74e720875a8bc02c8e3ab]
 file_filter = translations/keyboard_language_<lang>.ts
 source_file = translations/keyboard_language_en.ts
-source_lang = en
+source_lang = en_US
 type = QT
 
-[o:linuxdeepin:p:deepin-desktop-environment:r:datetime_language]
+[o:linuxdeepin:p:deepin-desktop-environment:r:f36a590ee78fdf786aa8e4324a9fe090]
 file_filter = translations/datetime_language_<lang>.ts
 source_file = translations/datetime_language_en.ts
-source_lang = en
+source_lang = en_US
 type = QT
 
-
-[o:linuxdeepin:p:deepin-desktop-environment:r:datetime_country]
+[o:linuxdeepin:p:deepin-desktop-environment:r:221f00280dc088592ed4096a7fb595ae]
 file_filter = translations/datetime_country_<lang>.ts
 source_file = translations/datetime_country_en.ts
-source_lang = en
+source_lang = en_US
 type = QT
