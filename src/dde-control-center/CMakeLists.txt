@@ -88,7 +88,7 @@ file(GLOB_RECURSE qmlFiles  "${DCC_PROJECT_ROOT_DIR}/qml/*.*")
 add_custom_target(${Control_Center_Name}_qml ALL
     SOURCES ${qmlFiles}
 )
-add_custom_command(TARGET ${Control_Center_Name}_qml
+add_custom_command(TARGET ${Control_Center_Name}_qml POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${DCC_PROJECT_ROOT_DIR}/qml" ${DCC_LIBDIR}
 )
 
