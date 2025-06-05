@@ -95,11 +95,11 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>hyrje e shpejtë, Hyrje vetvetiu, hyrje pa fjalëkalim</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Ngarkoni shpejt DDE-në, me kredencialet tuaja të hyrjes</translation>
     </message>
 </context>
 <context>
@@ -719,7 +719,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Hollësi të Rëndomta</translation>
     </message>
     <message>
         <source>Repeat delay</source>
