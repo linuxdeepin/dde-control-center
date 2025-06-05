@@ -15,6 +15,7 @@ User::User(QObject *parent)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
     , m_securityLever(SecurityLever::Standard)
+    , m_quickLogin(false)
 {
 }
 
@@ -55,6 +56,16 @@ void User::setAutoLogin(const bool autoLogin)
     m_autoLogin = autoLogin;
 
     Q_EMIT autoLoginChanged(m_autoLogin);
+}
+
+void User::setQuickLogin(const bool quickLogin)
+{
+    if (m_quickLogin == quickLogin)
+        return;
+
+    m_quickLogin = quickLogin;
+
+    Q_EMIT quickLoginChanged(m_quickLogin);
 }
 
 void User::setAvatars(const QList<QString> &avatars)

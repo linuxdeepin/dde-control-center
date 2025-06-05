@@ -11,6 +11,7 @@ using namespace dccV25;
 UserModel::UserModel(QObject *parent)
     : QObject(parent)
     , m_autoLoginVisable(true)
+    , m_quickLoginVisible(true)
     , m_noPassWordLoginVisable(true)
     , m_bCreateUserValid(false)
     , m_isJoinADDomain(false)
@@ -51,6 +52,9 @@ void UserModel::addUser(const QString &id, User *user)
     });
     connect(user, &User::autoLoginChanged, this, [this, user](const bool enable){
         Q_EMIT autoLoginChanged(user->id(), enable);
+    });
+    connect(user, &User::quickLoginChanged, this, [this, user](const bool enable){
+        Q_EMIT quickLoginChanged(user->id(), enable);
     });
     connect(user, &User::nopasswdLoginChanged, this, [this, user](const bool enable){
         Q_EMIT nopasswdLoginChanged(user->id(), enable);
@@ -102,6 +106,15 @@ void UserModel::setAutoLoginVisable(const bool visable)
 
     m_autoLoginVisable = visable;
     Q_EMIT autoLoginVisableChanged(m_autoLoginVisable);
+}
+
+void UserModel::setQuickLoginVisible(const bool visible)
+{
+    if (m_quickLoginVisible == visible)
+        return;
+
+    m_quickLoginVisible = visible;
+    Q_EMIT quickLoginVisibleChanged(m_quickLoginVisible);
 }
 
 void UserModel::setCreateUserValid(bool bValid)

@@ -27,6 +27,9 @@ public:
     inline bool isAutoLoginVisable() const { return m_autoLoginVisable; }
     void setAutoLoginVisable(const bool visable);
 
+    inline bool isQuickLoginVisible() const { return m_quickLoginVisible; }
+    void setQuickLoginVisible(const bool visible);
+
     inline bool isCreateUserValid() const { return m_bCreateUserValid; }
     void setCreateUserValid(bool bValid);
 
@@ -63,6 +66,7 @@ Q_SIGNALS:
     void userRemoved(User *user);
     void avatarChanged(const QString &userId, const QString &avatar);
     void autoLoginChanged(const QString &userId, bool enable);
+    void quickLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void groupsChanged(const QString &userId, const QStringList &groups);
     void passwordModifyFinished(const QString &userId, const int exitCode, const QString &errorTxt);
@@ -75,12 +79,14 @@ Q_SIGNALS:
     void allGroupsChange(const QStringList &groups);
     void deleteUserSuccess();
     void autoLoginVisableChanged(bool autoLogin);
+    void quickLoginVisibleChanged(bool quickLogin);
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
     void adminCntChange(const int adminCnt);
 
 private:
     bool m_autoLoginVisable;
+    bool m_quickLoginVisible;
     bool m_noPassWordLoginVisable;
     bool m_bCreateUserValid;
     QMap<QString, User *> m_userList;
