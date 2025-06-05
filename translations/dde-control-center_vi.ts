@@ -83,6 +83,22 @@
         <source>The full name is too long</source>
         <translation type="unfinished">Tên đầy đủ quá dài</translation>
     </message>
+    <message>
+        <source>Group names should be no more than 32 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group names cannot only have numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -3033,12 +3049,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trung bình中</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trung bình中</translation>
     </message>
 </context>
 <context>
