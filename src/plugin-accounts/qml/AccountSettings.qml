@@ -694,6 +694,14 @@ DccObject {
                     rightMargin: groupview.lrMargin
                 }
 
+                MouseArea {
+                    anchors.fill: parent
+                    enabled: !groupSettings.isEditing && !editLabel.focus
+                    onClicked: {
+                        dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                    }
+                }
+
                 contentItem: RowLayout {
                     Item {
                         id: editContainer
