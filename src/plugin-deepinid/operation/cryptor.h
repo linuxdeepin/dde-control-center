@@ -5,7 +5,7 @@
 #ifndef CRYPTOR_H
 #define CRYPTOR_H
 #include <openssl/bio.h>
-#include <openssl/rsa.h>
+#include <openssl/evp.h>
 #include <openssl/pem.h>
 #include <QString>
 
