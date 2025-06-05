@@ -245,6 +245,8 @@ DccObject {
             property int dlgStatus: passwordDlgStatus.Init
             Column {
                 spacing: 0
+                Layout.topMargin: 4
+                Layout.bottomMargin: 4
                 Label {
                     height: 20
                     text: dccObj.displayName
@@ -259,7 +261,7 @@ DccObject {
                     Label {
                         height: 20
                         text: dccObj.description
-                        font: DTK.fontManager.t8
+                        font: DTK.fontManager.t10
                         horizontalAlignment: Qt.AlignLeft
                         verticalAlignment: Qt.AlignVCenter
                         leftPadding: 15
@@ -272,6 +274,7 @@ DccObject {
                         visible: dccData.mode().grubEditAuthEnabled
                         horizontalAlignment: Qt.AlignLeft
                         verticalAlignment: Qt.AlignVCenter
+                        font: DTK.fontManager.t10
                         color:"#5A000000"
                         // 超链接点击事件
                         onLinkActivated: function(url) {
