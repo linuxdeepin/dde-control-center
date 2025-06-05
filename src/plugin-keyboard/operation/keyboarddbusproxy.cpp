@@ -78,14 +78,16 @@ void KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished(QDBusPendingCa
 }
 
 //Keyboard
-bool KeyboardDBusProxy::capslockToggle()
+int KeyboardDBusProxy::capslockToggle()
 {
-    return qvariant_cast<bool>(m_dBusKeyboardInter->property("CapslockToggle"));
+    return QDBusPendingReply<int>(m_dBusKeybingdingInter->asyncCall(QStringLiteral("GetCapsLockState")));
 }
 
-void KeyboardDBusProxy::setCapslockToggle(bool value)
+void KeyboardDBusProxy::setCapslockToggle(int value)
 {
-    m_dBusKeyboardInter->setProperty("CapslockToggle", QVariant::fromValue(value));
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(value);
+    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SetCapsLockState"), argumentList);
 }
 
 QString KeyboardDBusProxy::currentLayout()

@@ -2983,10 +2983,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Nhỏ</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Trung bình</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Lớn</translation>
     </message>
@@ -3049,6 +3045,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>Rất nhỏ</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

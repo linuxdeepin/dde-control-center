@@ -2987,10 +2987,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Petit</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Moyen</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Grand</translation>
     </message>
@@ -3053,6 +3049,16 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Extremely small</source>
         <translation>Muy pequeño</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">Moyen</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">Moyen</translation>
     </message>
 </context>
 <context>

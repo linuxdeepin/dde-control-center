@@ -773,7 +773,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivizo Tastierë</translation>
     </message>
 </context>
 <context>
@@ -1733,7 +1733,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished">Në Hyrje</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No input device for sound found</source>
@@ -1854,7 +1854,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>Ju lutemi, 1~63 shenja</translation>
     </message>
 </context>
 <context>
@@ -2971,10 +2971,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation type="unfinished">E vogël</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation type="unfinished">Çka</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation type="unfinished">E madhe</translation>
     </message>
@@ -3037,6 +3033,16 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Extremely small</source>
         <translation>Tejet e vockël</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">Çka</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">Çka</translation>
     </message>
 </context>
 <context>
@@ -4081,7 +4087,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Shënim Mbi Software Me Burim të Hapët</translation>
     </message>
 </context>
 <context>

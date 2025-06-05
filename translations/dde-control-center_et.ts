@@ -2964,10 +2964,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Väikne</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Keskmine</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Suur</translation>
     </message>
@@ -3030,6 +3026,16 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Extremely small</source>
         <translation>Üllatavalt väikse</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

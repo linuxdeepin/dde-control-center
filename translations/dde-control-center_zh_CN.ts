@@ -2971,10 +2971,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>小</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>中</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>大</translation>
     </message>
@@ -3037,6 +3033,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>极小</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation>中</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation>中</translation>
     </message>
 </context>
 <context>

@@ -125,9 +125,6 @@ bool KeyboardController::numLock() const
 
 void KeyboardController::setNumLock(bool newNumLock)
 {
-    if (numLock() == newNumLock)
-        return;
-
     m_worker->setNumLock(newNumLock);
 }
 
@@ -138,9 +135,6 @@ bool KeyboardController::capsLock() const
 
 void KeyboardController::setCapsLock(bool newCapsLock)
 {
-    if (capsLock() == newCapsLock)
-        return;
-
     m_worker->setCapsLock(newCapsLock);
 }
 

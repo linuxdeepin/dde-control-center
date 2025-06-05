@@ -2960,10 +2960,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Malo</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Srednje</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Veliko</translation>
     </message>
@@ -3026,6 +3022,16 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Extremely small</source>
         <translation>Preprosto malo</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

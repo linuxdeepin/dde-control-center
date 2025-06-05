@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished">El nom complet és massa llarg.</translation>
+        <translation>El nom complet és massa llarg.</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
@@ -773,7 +773,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilita el teclat</translation>
     </message>
 </context>
 <context>
@@ -1854,7 +1854,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>D&apos;1 a 63 caràcters, si us plau.</translation>
     </message>
 </context>
 <context>
@@ -2971,10 +2971,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Petita</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Mitjana</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Grossa</translation>
     </message>
@@ -3037,6 +3033,16 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Extremely small</source>
         <translation>Extremadament petita</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">Mitjana</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">Mitjana</translation>
     </message>
 </context>
 <context>
@@ -4081,7 +4087,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Avís de programari de codi obert</translation>
     </message>
 </context>
 <context>

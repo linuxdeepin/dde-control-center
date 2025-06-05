@@ -2961,10 +2961,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>कम</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>मध्यम</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>बडा</translation>
     </message>
@@ -3027,6 +3023,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>कामपन्न बहिरून कम</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">मध्यम</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">मध्यम</translation>
     </message>
 </context>
 <context>

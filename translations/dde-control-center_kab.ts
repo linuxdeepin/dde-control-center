@@ -77,6 +77,10 @@
         <source>Account type</source>
         <translation>ttaghadam akun</translation>
     </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -734,6 +738,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Left Hand Mode</source>
         <translation>Mode t tiskal t xef</translation>
+    </message>
+    <message>
+        <source>Enable Keyboard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1815,6 +1823,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Memory</source>
         <translation>Mémoire</translation>
     </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>OtherDevice</name>
@@ -2246,34 +2258,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
-    <message>
-        <source>Monday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Customize repetition time</source>
         <translation type="unfinished"/>
@@ -3990,14 +3974,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>soundMain</name>
     <message>
-        <source>Output</source>
-        <translation>Xalqas</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation>Dëgë</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Xifren</translation>
     </message>
@@ -4047,10 +4023,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Sistema tawen, xifren as-salet</translation>
     </message>
     <message>
-        <source>Open Source Software Description</source>
-        <translation>Xifren as-salet tafassen tawens tafassen</translation>
-    </message>
-    <message>
         <source>View the notice of open source software</source>
         <translation>Tafassas xifren as-salet tafassen tawens tafassen</translation>
     </message>
@@ -4077,6 +4049,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>View information about privacy policy</source>
         <translation>Afišeš nissegartut ulewiz wizartut</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

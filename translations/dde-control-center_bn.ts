@@ -2987,10 +2987,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>ক্ষুদ্র</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>মধ্যম</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>ভারী</translation>
     </message>
@@ -3053,6 +3049,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>অত্যন্ত ক্ষুদ্র</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2986,10 +2986,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Pequeño</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Mediano</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Grande</translation>
     </message>
@@ -3052,6 +3048,16 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Extremely small</source>
         <translation>Extremadamente pequeno</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

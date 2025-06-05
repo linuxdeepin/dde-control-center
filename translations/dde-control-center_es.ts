@@ -2972,10 +2972,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Pequeño</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Mediano</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Grande</translation>
     </message>
@@ -3038,6 +3034,16 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Extremely small</source>
         <translation>Extremadamente pequeño</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

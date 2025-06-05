@@ -2959,10 +2959,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>เล็ก</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>กลาง</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>ใหญ่</translation>
     </message>
@@ -3025,6 +3021,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>เล็กมาก</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">กลาง</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">กลาง</translation>
     </message>
 </context>
 <context>

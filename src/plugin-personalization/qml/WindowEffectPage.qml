@@ -62,7 +62,7 @@ DccObject {
                     Layout.fillWidth: true
                     Layout.bottomMargin: 10
                     Layout.leftMargin: 10
-                    property var tips: [qsTr("None"), qsTr("Small"), qsTr("Medium"), qsTr("Large")]
+                    property var tips: [qsTr("None"), qsTr("Small"), qsTr("Medium", "describe size of window rounded corners"), qsTr("Large")]
                     property var icons: ["corner_none", "corner_small", "corner_middle", "corner_big"]
                     spacing: 8
                     Repeater {
@@ -278,7 +278,7 @@ DccObject {
                     value: 32
                 },
                 {
-                    text: qsTr("Medium"),
+                    text: qsTr("Medium", "describe height of window title bar"),
                     value: 40
                 },
                 {

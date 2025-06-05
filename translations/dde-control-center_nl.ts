@@ -2969,10 +2969,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished">Klein</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation type="unfinished">Groot</translation>
     </message>
@@ -3034,6 +3030,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extremely small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>

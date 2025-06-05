@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished">Imię i nazwisko jest za długie</translation>
+        <translation>Imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
@@ -773,7 +773,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz klawiaturę</translation>
     </message>
 </context>
 <context>
@@ -1854,7 +1854,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>1-63 znaków</translation>
     </message>
 </context>
 <context>
@@ -2971,10 +2971,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Małe</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Średnie</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Duże</translation>
     </message>
@@ -3037,6 +3033,16 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Extremely small</source>
         <translation>Bardzo mała</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">Średnie</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">Średnie</translation>
     </message>
 </context>
 <context>
@@ -4081,7 +4087,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacja oprogramowania open-source</translation>
     </message>
 </context>
 <context>
