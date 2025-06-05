@@ -48,6 +48,9 @@ public:
     inline bool autoLogin() const { return m_autoLogin; }
     void setAutoLogin(const bool autoLogin);
 
+    inline bool quickLogin() const { return m_quickLogin; }
+    void setQuickLogin(const bool quickLogin);
+
     inline const QList<QString> &avatars() const { return m_avatars; }
     void setAvatars(const QList<QString> &avatars);
 
@@ -105,6 +108,7 @@ Q_SIGNALS:
     void fullnameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;
     void autoLoginChanged(const bool autoLogin) const;
+    void quickLoginChanged(const bool quickLogin) const;
     void avatarListChanged(const QList<QString> &avatars) const;
     void groupsChanged(const QStringList &groups) const;
     void onlineChanged(const bool &online) const;
@@ -124,6 +128,7 @@ Q_SIGNALS:
 private:
     bool m_isCurrentUser;
     bool m_autoLogin;
+    bool m_quickLogin;
     bool m_online;
     bool m_nopasswdLogin;
     int m_userType;

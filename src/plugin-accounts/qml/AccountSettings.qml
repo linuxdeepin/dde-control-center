@@ -13,6 +13,7 @@ DccObject {
     property string papaName
     property bool autoLoginChecked: true
     property bool nopasswdLoginChecked: true
+    property bool noQuickLoginChecked: true
 
     Component.onCompleted: {
         updateLoginSettings()
@@ -25,6 +26,7 @@ DccObject {
     function updateLoginSettings() {
         settings.autoLoginChecked = dccData.autoLogin(settings.userId)
         settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
+        settings.noQuickLoginChecked = dccData.quickLogin(settings.userId)
     }
 
     FontMetrics {
@@ -87,6 +89,11 @@ DccObject {
                         function onNopasswdLoginChanged(userId, enable) {
                             if (userId === settings.userId) {
                                 settings.nopasswdLoginChecked = enable
+                            }
+                        }
+                        function onQuickLoginChanged(userId, enable) {
+                            if (userId === settings.userId) {
+                                settings.noQuickLoginChecked = enable
                             }
                         }
                         function onUserRemoved(userId) {
@@ -412,12 +419,32 @@ DccObject {
         name: settings.papaName + "acountSettings"
         parentName: settings.papaName
         displayName: qsTr("Login Settings")
-        description: qsTr("Auto login, login without password")
+        description: qsTr("quick login, Auto login, login without password")
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
         visible: (autoLongin.visible || noPassword.visible) && !DccApp.isTreeland()
 
+        DccObject {
+            id: quickLogin
+            name: settings.papaName + "quickLogin"
+            parentName: settings.papaName + "acountSettings"
+            displayName: qsTr("Quickly load DDE with your login information")
+            weight: 20
+            pageType: DccObject.Editor
+            visible: dccData.isQuickLoginVisible()
+            enabled: dccData.currentUserId() === settings.userId
+            page: Switch {
+                checked: settings.noQuickLoginChecked
+                onCheckedChanged: {
+                    if (settings.noQuickLoginChecked != checked)
+                        settings.noQuickLoginChecked = checked
+
+                    dccData.setQuickLogin(settings.userId, checked)
+                }
+            }
+        }
+        
         DccObject {
             id: autoLongin
             name: settings.papaName + "autoLongin"

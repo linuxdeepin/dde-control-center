@@ -483,6 +483,21 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     });
 }
 
+void AccountsWorker::setQuickLogin(User *user, const bool quickLogin)
+{
+    UserDBusProxy *ui = m_userInters[user];
+    Q_ASSERT(ui);
+
+    QDBusPendingCall call = ui->SetQuickLogin(quickLogin);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            Q_EMIT user->quickLoginChanged(user->quickLogin());
+        }
+        watcher->deleteLater();
+    });
+}
+
 //切换账户权限
 void AccountsWorker::setAdministrator(User *user, const bool asAdministrator)
 {
@@ -591,6 +606,7 @@ void AccountsWorker::addUser(const QString &userPath)
     });
 
     connect(userInter, &UserDBusProxy::AutomaticLoginChanged, user, &User::setAutoLogin);
+    connect(userInter, &UserDBusProxy::QuickLoginChanged, user, &User::setQuickLogin);
     connect(userInter, &UserDBusProxy::IconListChanged, user, &User::setAvatars);
     connect(userInter, &UserDBusProxy::IconFileChanged, user, &User::setCurrentAvatar);
     connect(userInter, &UserDBusProxy::FullNameChanged, user, &User::setFullname);
@@ -620,6 +636,7 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
     user->setAutoLogin(userInter->automaticLogin());
+    user->setQuickLogin(userInter->quickLogin());
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
     user->setNopasswdLogin(userInter->noPasswdLogin());

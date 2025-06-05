@@ -62,6 +62,7 @@ public Q_SLOTS:
     void setFullname(User *user, const QString &fullname);
     void deleteAccount(User *user, const bool deleteHome);
     void setAutoLogin(User *user, const bool autoLogin);
+    void setQuickLogin(User *user, const bool quickLogin);
     void setAdministrator(User *user, const bool asAdministrator);
     void onUserListChanged(const QStringList &userList);
     void onGroupListChanged(const QStringList &groupList);

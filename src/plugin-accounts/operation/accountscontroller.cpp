@@ -55,6 +55,7 @@ AccountsController::AccountsController(QObject *parent)
 
     connect(m_model, &UserModel::avatarChanged, this, &AccountsController::avatarChanged);
     connect(m_model, &UserModel::autoLoginChanged, this, &AccountsController::autoLoginChanged);
+    connect(m_model, &UserModel::quickLoginChanged, this, &AccountsController::quickLoginChanged);
     connect(m_model, &UserModel::nopasswdLoginChanged, this, &AccountsController::nopasswdLoginChanged);
     connect(m_model, &UserModel::groupsChanged, this, [this](const QString &userId, const QStringList &groups) {
         updateSingleUserGroups(userId);
@@ -236,10 +237,21 @@ bool AccountsController::isAutoLoginVisable() const
     return m_model->isAutoLoginVisable();
 }
 
+bool AccountsController::isQuickLoginVisible() const
+{
+    return m_model->isQuickLoginVisible();
+}
+
 bool AccountsController::autoLogin(const QString &id) const
 {
     User *user = m_model->getUser(id);
     return user ? user->autoLogin() : false;
+}
+
+bool AccountsController::quickLogin(const QString &id) const
+{
+    User *user = m_model->getUser(id);
+    return user ? user->quickLogin() : false;
 }
 
 void AccountsController::setAutoLogin(const QString &id, const bool enable)
@@ -247,6 +259,13 @@ void AccountsController::setAutoLogin(const QString &id, const bool enable)
     if (User *user = m_model->getUser(id))
         if (user->autoLogin() != enable)
             m_worker->setAutoLogin(user, enable);
+}
+
+void AccountsController::setQuickLogin(const QString &id, const bool enable)
+{
+    if (User *user = m_model->getUser(id))
+        if (user->quickLogin() != enable)
+            m_worker->setQuickLogin(user, enable);
 }
 
 QString AccountsController::getOtherUserAutoLogin() const

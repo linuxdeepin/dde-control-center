@@ -165,7 +165,7 @@ signals:
     void WeekdayFormatChanged(int  value) const;
     void XSessionChanged(const QString & value) const;
 
-    void QuickLoginChanged();
+    void QuickLoginChanged(bool value) const;
     void WechatAuthChanged();
 
 public slots:

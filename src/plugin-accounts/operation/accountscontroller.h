@@ -48,6 +48,9 @@ public slots:
     bool autoLogin(const QString &id) const;
     void setAutoLogin(const QString &id, const bool enable);
     QString getOtherUserAutoLogin() const;
+    bool isQuickLoginVisible() const;
+    bool quickLogin(const QString &id) const;
+    void setQuickLogin(const QString &id, const bool enable);
     bool isNoPassWordLoginVisable() const;
     bool nopasswdLogin(const QString &id);
     void setNopasswdLogin(const QString &id, const bool enable);
@@ -97,6 +100,7 @@ signals:
     void userTypeChanged(const QString &userId, const int userType);
     void fullnameChanged(const QString &userId, const QString &fullname);
     void autoLoginChanged(const QString &userId, bool enable);
+    void quickLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void passwordAgeChanged(const QString &userId, const int age);
     void passwordModifyFinished(const QString &userId, const int exitCode, const QString &msg);
