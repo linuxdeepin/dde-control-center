@@ -469,6 +469,12 @@ bool AccountsController::groupEditAble(const QString &id, const QString &name) c
     return true;
 }
 
+bool AccountsController::groupExists(const QString &name) const
+{
+    QStringList existingGroups = allGroups();
+    return existingGroups.contains(name);
+}
+
 void AccountsController::createGroup(const QString &name)
 {
     m_worker->createGroup(name, 0, false);

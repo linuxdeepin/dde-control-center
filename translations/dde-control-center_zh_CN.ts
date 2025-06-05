@@ -83,6 +83,22 @@
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
+    <message>
+        <source>Group names should be no more than 32 characters</source>
+        <translation>组名不允许超出32个字符</translation>
+    </message>
+    <message>
+        <source>Group names cannot only have numbers</source>
+        <translation>组名不能使用纯数字</translation>
+    </message>
+    <message>
+        <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
+        <translation>仅使用字母、数字、下划线和破折号，并且必需以字母开头</translation>
+    </message>
+    <message>
+        <source>The group name has been used</source>
+        <translation>组名与其他组名重复</translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>

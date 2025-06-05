@@ -599,6 +599,7 @@ DccObject {
             currentIndex: -1
             activeFocusOnTab: false
             keyNavigationEnabled: false
+            clip: false
             anchors {
                 left: parent ? parent.left : undefined
                 right: parent ? parent.right : undefined
@@ -653,6 +654,8 @@ DccObject {
                 implicitHeight: 50
                 checkable: false
                 enabled: model.groupEnabled
+                clip: false
+                z: editLabel.showAlert ? 100 : 1
                 background: DccItemBackground {
                     backgroundType: DccObject.Normal
                     separatorVisible: true
@@ -665,38 +668,103 @@ DccObject {
                 }
 
                 contentItem: RowLayout {
-                    EditActionLabel {
-                        id: editLabel
-                        property bool editAble: model.groupEditAble
-                        text: model.display
-                        completeText: model.display
-                        rightPadding: editButton.width + 10
-                        validator: RegularExpressionValidator {
-                            // 仅使用字母、数字、下划线或短横线，并且以字母开头
-                            regularExpression: /[a-zA-Z][a-zA-Z0-9-_]{0,31}$/
-                        }
+                    Item {
+                        id: editContainer
+                        Layout.fillWidth: !editLabel.readOnly
                         implicitHeight: 40
-                        implicitWidth: Math.min(metrics.advanceWidth(completeText) + editButton.width + 20,
+                        implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.completeText) + editButton.width + 20,
                                         groupview.width - editButton.width - 30)
-                        Layout.fillWidth: !readOnly
-                        placeholderText: qsTr("Group name")
-                        horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
-                        editBtn.visible: readOnly && editAble
-                                         && !groupSettings.isEditing
-                        readOnly: model.display.length > 0
-                        background: null
-                        onFinished: function () {
-                            if (text.length < 1) {
-                                text = model.display
+                        
+                        EditActionLabel {
+                            id: editLabel
+                            property bool editAble: model.groupEditAble
+                            property string lastValidText: ""
+                            property bool isRestoring: false
+                            anchors.fill: parent
+                            text: model.display
+                            completeText: model.display
+                            rightPadding: editButton.width + 10
+                            placeholderText: qsTr("Group name")
+                            horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
+                            editBtn.visible: readOnly && editAble
+                                             && !groupSettings.isEditing
+                            readOnly: model.display.length > 0
+                        
+                        onReadOnlyChanged: {
+                            if (!readOnly) {
+                                lastValidText = model.display
+                            }
+                        }
+                        
+                        onTextChanged: {
+                            if (isRestoring) {
+                                isRestoring = false
                                 return
                             }
+                            
+                            if (showAlert)
+                                showAlert = false
+                            
+                            var isNewGroup = (model.display.length === 0)
+                            
+                            if (text.length > 32) {
+                                showAlert = true
+                                alertText = qsTr("Group names should be no more than 32 characters")
+                                dccData.playSystemSound(14)
+                                isRestoring = true
+                                text = lastValidText
+                                return
+                            }
+                            
+                            if (isNewGroup) {
+                                var numbersOnlyRegex = /^[0-9]+$/
+                                if (text.length > 0 && numbersOnlyRegex.test(text)) {
+                                    showAlert = true
+                                    alertText = qsTr("Group names cannot only have numbers")
+                                    dccData.playSystemSound(14)
+                                    isRestoring = true
+                                    text = lastValidText
+                                    return
+                                }
+                                
+                                var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
+                                if (text.length > 0 && !validFormatRegex.test(text)) {
+                                    showAlert = true
+                                    alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
+                                    dccData.playSystemSound(14)
+                                    isRestoring = true
+                                    text = lastValidText
+                                    return
+                                }
+                            }
+                            
+                            lastValidText = text
+                        }
+                        
+                        onFinished: function () {
+                            if (text.length < 1) {
+                                if (model.display.length < 1) {
+                                    dccData.requestClearEmptyGroup(settings.userId)
+                                } else {
+                                    text = model.display
+                                }
+                                return
+                            }
+                            
+                            if (dccData.groupExists(text) && text !== model.display) {
+                                showAlert = true
+                                alertText = qsTr("The group name has been used")
+                                readOnly = false
+                                return
+                            }
+                            
                             if (model.display.length < 1)
                                 dccData.createGroup(text)
                             else
                                 dccData.modifyGroup(model.display, text)
                         }
                         onFocusChanged: {
-                            if (focus || text.length > 0 || editLabel.readonly)
+                            if (focus || text.length > 0 || editLabel.readOnly)
                                 return
 
                             if (model.display.length < 1) {
@@ -707,6 +775,8 @@ DccObject {
                             text = model.display
                         }
                         Component.onCompleted: {
+                            lastValidText = model.display
+                            
                             if (editLabel.readOnly)
                                 return
 
@@ -714,6 +784,7 @@ DccObject {
                                 editLabel.focus = true
                             })
                         }
+                    }
                     }
 
                     ActionButton {

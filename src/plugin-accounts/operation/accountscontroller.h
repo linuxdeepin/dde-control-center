@@ -62,6 +62,7 @@ public slots:
     bool groupContains(const QString &id, const QString &name) const;
     bool groupEnabled(const QString &id, const QString &name) const;
     bool groupEditAble(const QString &id, const QString &name) const;
+    bool groupExists(const QString &name) const;
     void createGroup(const QString &name);
     void deleteGroup(const QString &name);
     void modifyGroup(const QString &oldName, const QString &newName);
