@@ -81,6 +81,22 @@
         <source>The full name is too long</source>
         <translation>Imię i nazwisko jest za długie</translation>
     </message>
+    <message>
+        <source>Group names should be no more than 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group names cannot only have numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The group name has been used</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
