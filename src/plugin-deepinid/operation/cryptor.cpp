@@ -5,6 +5,7 @@
 #include "cryptor.h"
 #include <QDebug>
 #include <openssl/err.h>
+#include <openssl/rsa.h>
 
 Cryptor::Cryptor()
 {
@@ -12,35 +13,64 @@ Cryptor::Cryptor()
 
 bool Cryptor::RSAPublicEncryptData(const std::string &rsakey, const QString &strin, QByteArray &strout)
 {
-    RSA *rsa = nullptr;
     BIO *bio = BIO_new_mem_buf(rsakey.c_str(), rsakey.length());
-    rsa = PEM_read_bio_RSA_PUBKEY(bio, &rsa, nullptr, nullptr);// PEM_read_bio_RSAPublicKey(bio, &rsa, nullptr, nullptr);
-    if(rsa == nullptr)
+    EVP_PKEY *pkey = PEM_read_bio_PUBKEY(bio, nullptr, nullptr, nullptr);
+    if(pkey == nullptr)
     {
         QString strerror = QString::fromLocal8Bit(ERR_error_string(ERR_get_error(), nullptr));
         qWarning() << "read rsa public key failed, error:" << strerror;
         qWarning() << "RSA pubkey:" << QString::fromStdString(rsakey);
         qWarning() << "length:" << rsakey.length();
+        if(bio) BIO_free(bio);
         return false;
     }
 
-    int length = RSA_size(rsa);
-    unsigned char *outbuff = new unsigned char[length];
-    memset(outbuff, 0, length);
-    int ret = RSA_public_encrypt(strin.length(), (const unsigned char*)strin.toLocal8Bit().data(), outbuff, rsa, RSA_PKCS1_PADDING);
-    //strout = QString::fromLocal8Bit((char*)outbuff, length + 1);
-    strout.append((char*)outbuff, length);
-    delete [] outbuff;
-    outbuff = nullptr;
-    if(bio)
-    {
-        BIO_free(bio);
+    EVP_PKEY_CTX *ctx = EVP_PKEY_CTX_new(pkey, nullptr);
+    if (!ctx || EVP_PKEY_encrypt_init(ctx) <= 0) {
+        qWarning() << "Failed to initialize encryption context";
+        if(ctx) EVP_PKEY_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        if(bio) BIO_free(bio);
+        return false;
     }
 
-    if(rsa)
-    {
-        RSA_free(rsa);
+    if (EVP_PKEY_CTX_set_rsa_padding(ctx, RSA_PKCS1_PADDING) <= 0) {
+        qWarning() << "Failed to set RSA padding";
+        EVP_PKEY_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        if(bio) BIO_free(bio);
+        return false;
     }
+
+    QByteArray inputData = strin.toLocal8Bit();
+    const unsigned char *input = (const unsigned char*)inputData.constData();
+    size_t inlen = inputData.length();
+
+    size_t outlen;
+    if (EVP_PKEY_encrypt(ctx, nullptr, &outlen, input, inlen) <= 0) {
+        qWarning() << "Failed to determine output length";
+        EVP_PKEY_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        if(bio) BIO_free(bio);
+        return false;
+    }
+
+    unsigned char *outbuff = new unsigned char[outlen];
+    if (EVP_PKEY_encrypt(ctx, outbuff, &outlen, input, inlen) <= 0) {
+        qWarning() << "Encryption failed";
+        delete[] outbuff;
+        EVP_PKEY_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        if(bio) BIO_free(bio);
+        return false;
+    }
+
+    strout.append((char*)outbuff, outlen);
+    delete[] outbuff;
+
+    EVP_PKEY_CTX_free(ctx);
+    EVP_PKEY_free(pkey);
+    if(bio) BIO_free(bio);
 
     return true;
 }
