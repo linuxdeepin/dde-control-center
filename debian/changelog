@@ -1,3 +1,40 @@
+dde-control-center (6.1.28) unstable; urgency=medium
+
+  * refactor: migrate RSA encryption to EVP API
+  * style: add unused parameter markers and fix member order
+  * feat: add battery power state awareness to screensaver
+  * fix: add POST_BUILD to custom commands
+  * fix: update translation with QuickLogin and Lock Dock
+  * fix: Add a user group error message
+  * feat: add Lock the height of dock.
+  * feat: add quick login.
+  * fix: improve caps lock and num lock toggle functionality
+  * fix: add disambiguation context for "Medium" copywriting
+  * i18n: Updates for project Deepin Desktop Environment (#2352)
+  * fix: prevent key sequence recording when edit button is clicked
+  * fix: Add a full name error message
+  * fix: Fixed the issue that the error message was displayed
+  * fix: Fix text length limit
+  * fix: adjust text handling in KeyboardLayout component
+  * feat: Implement keyboard on/off authentication
+  * feat: The mode is not updated when only one screen is switched
+  * fix: optimize scrolling experience in Shortcuts component
+  * fix: Mask input field copy operations
+  * fix: Modify menu translations
+  * fix: optimize input field layout and validation in TimeAndDate
+  * feat: update moudle translation
+  * feat: Implement keyboard on/off function
+  * fix: remove redundant displayName properties in sound component
+  * fix: Fixed the issue of the background color of the list item hover
+  * fix: Optimized the focus of the user group list
+  * fix: optimize volume control step size for better usability
+  * fix: improve deepinid plugin initialization and activation logic
+  * i18n: Updates for project Deepin Desktop Environment (#2329)
+  * fix: Modifying desktop display without options issue
+  * i18n: Updates for project Deepin Desktop Environment (#2326)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Jun 2025 21:38:17 +0800
+
 dde-control-center (6.1.27) unstable; urgency=medium
 
   * fix: Edit compilation warning
