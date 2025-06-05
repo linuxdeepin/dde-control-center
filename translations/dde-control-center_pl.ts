@@ -79,19 +79,19 @@
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa grupy nie powinna przekraczać 32 znaków</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Nazwy grup nie mogą składać się wyłącznie z cyfr</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącznie litery, cyfry, podkreślenia i myślniki. Musi zaczynać się od litery.</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa grupy już istnieje</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Załaduj szybko DDE z uzupełnionymi danymi logowania</translation>
     </message>
 </context>
 <context>
@@ -3039,12 +3039,12 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Średnie</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Średnia</translation>
     </message>
 </context>
 <context>
@@ -3780,7 +3780,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Zablokuj dok</translation>
     </message>
 </context>
 <context>
