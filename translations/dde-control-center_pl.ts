@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Szybkie logowanie, automatyczne logowanie, logowanie bez hasła</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
