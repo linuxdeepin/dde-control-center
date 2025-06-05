@@ -12,7 +12,7 @@ macro(dcc_build_plugin)
         SOURCES ${qml_files}
     )
     set(plugin_dirs ${PROJECT_BINARY_DIR}/lib/${DDE_CONTROL_CENTER_PLUGIN_DIR}/${_config_NAME}/)
-    add_custom_command(TARGET ${_config_NAME}_qml
+    add_custom_command(TARGET ${_config_NAME}_qml POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${qml_root_dir} ${plugin_dirs}
     )
 
