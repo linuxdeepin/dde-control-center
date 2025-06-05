@@ -338,7 +338,7 @@ private:
     bool m_scheduledShutdownState;
     QString m_shutdownTime;
     QVariantList m_customShutdownWeekDays;
-    uint32_t m_shutdownRepetition;
+    int m_shutdownRepetition;
     int m_weekBegins;
     int m_lowPowerAction;
     QString m_enableScheduledShutdown;

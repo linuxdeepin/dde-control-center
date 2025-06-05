@@ -199,6 +199,7 @@ void BiometricAuthController::requestRenameFinger(const QString &id, const QStri
 
 void BiometricAuthController::onThumbsListChanged(const QStringList &thumbs)
 {
+    Q_UNUSED(thumbs)
     // TODO
 }
 
@@ -343,12 +344,13 @@ void BiometricAuthController::requestStopIrisEnroll()
 
 void BiometricAuthController::requestRemoveIris(const QString &id)
 {
-
+    Q_UNUSED(id)
 }
 
 void BiometricAuthController::requestRenameIris(const QString &id, const QString &newName)
 {
-
+    Q_UNUSED(id)
+    Q_UNUSED(newName)
 }
 } // namespace dccV25
 

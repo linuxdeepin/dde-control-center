@@ -226,6 +226,8 @@ void CharaMangerModel::onFingerEnrollStatusChanged(int code, const QString& msg)
 
 void CharaMangerModel::onTouch(const QString &id, bool pressed)
 {
+    Q_UNUSED(id)
+    Q_UNUSED(pressed)
 }
 
 void CharaMangerModel::refreshEnrollResult(CharaMangerModel::EnrollResult enrollRes)

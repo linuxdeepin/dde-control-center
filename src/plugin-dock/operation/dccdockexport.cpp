@@ -34,8 +34,8 @@ DGUI_USE_NAMESPACE;
 
 DccDockExport::DccDockExport(QObject *parent) 
 : QObject(parent)
-, m_pluginModel(new DockPluginModel(this))
 , m_dockDbusProxy(new DockDBusProxy(this))
+, m_pluginModel(new DockPluginModel(this))
 {
     initData();
 }
