@@ -2942,10 +2942,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Xeuwa</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Xeuwa Midda</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Xeuwa Guday</translation>
     </message>
@@ -3008,6 +3004,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>Dëgg bëdd</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
