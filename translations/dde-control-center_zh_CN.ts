@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>名称过长</translation>
     </message>
 </context>
 <context>
@@ -755,7 +755,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>键盘</translation>
     </message>
 </context>
 <context>
@@ -1836,7 +1836,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>计算机名长度必须介于1到63个字符之间</translation>
     </message>
 </context>
 <context>
@@ -4063,7 +4063,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>开源软件声明</translation>
     </message>
 </context>
 <context>
