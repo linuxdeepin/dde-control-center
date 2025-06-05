@@ -52,10 +52,6 @@
         <translation>Shto grup</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Hyrje vetvetiu, hyni pa fjalëkalim</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Hyrje e automatizuar</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3775,6 +3779,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -52,10 +52,6 @@
         <translation>Añadir grupo</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Inicio de sesión automático, inicio de sesión sin contraseña</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Inicio de sesión automático</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3776,6 +3780,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Seleccione los iconos que aparecerán en el muelle</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -52,10 +52,6 @@
         <translation>Dodaj grupę</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Automatyczne logowanie bez hasła</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Automatyczne logowanie</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3775,6 +3779,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Wybierz, które ikony pojawią się w doku</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

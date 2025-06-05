@@ -52,10 +52,6 @@
         <translation>Ajouter un groupe</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Se connecter automatiquement, se connecter sans mot de passe</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Se connecter automatiquement</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3791,6 +3795,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Sélectionnez les icônes qui apparaissent dans la barre des tâches</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

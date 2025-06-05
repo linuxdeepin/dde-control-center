@@ -52,10 +52,6 @@
         <translation>그룹 추가</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>자동 로그인, 비밀번호 없이 로그인</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>자동 로그인</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3812,6 +3816,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>选择哪些图标出现在 Dock 中</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
