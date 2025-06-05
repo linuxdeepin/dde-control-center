@@ -52,10 +52,6 @@
         <translation>Lisa grup</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Automaatne sisselogimine, sisselogimine salasõna vaba</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Automaatne sisselogimine</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3768,6 +3772,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Vali, mida ikonna punkte kuvatakse</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

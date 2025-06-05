@@ -52,10 +52,6 @@
         <translation>Dodaj skupino</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Samodejni prijavo, prijavi se brez gesla</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Samodejni prijavo</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3764,6 +3768,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Izberi, kateri ikone pojavejo se v Docku</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

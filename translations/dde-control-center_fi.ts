@@ -52,10 +52,6 @@
         <translation>Lisää ryhmä</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>Kirjaudu ilman salasanaa</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>Automaattinen kirjautuminen</translation>
     </message>
@@ -97,6 +93,14 @@
     </message>
     <message>
         <source>The group name has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3772,6 +3776,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

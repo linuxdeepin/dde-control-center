@@ -52,10 +52,6 @@
         <translation>添加用户組</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>自動登錄, 免密登錄</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>自動登錄</translation>
     </message>
@@ -85,19 +81,27 @@
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>組名不允許超出32個字符</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>組名不能使用純數字</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"></translation>
+        <translation>僅使用字母、數字、下劃線和破折號，並且必需以字母開頭</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"></translation>
+        <translation>組名與其他組名重複</translation>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation>快速登錄，自動登錄，免密登錄</translation>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
+        <translation>使用登錄信息快速載入桌面</translation>
     </message>
 </context>
 <context>
@@ -3644,7 +3648,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation> （推薦）</translation>
     </message>
 </context>
 <context>
@@ -3773,6 +3777,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>選擇顯示在任務欄插件區域的圖標</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>禁用自由調節</translation>
     </message>
 </context>
 <context>
