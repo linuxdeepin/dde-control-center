@@ -79,7 +79,23 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Emri i plotë është shumë i gjatë</translation>
+    </message>
+    <message>
+        <source>Group names should be no more than 32 characters</source>
+        <translation>Emrat e grupeve s’duhet të jenë më tepër se 32 shenja</translation>
+    </message>
+    <message>
+        <source>Group names cannot only have numbers</source>
+        <translation>Emrat e grupit s’mund të kenë vetëm numra</translation>
+    </message>
+    <message>
+        <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
+        <translation>Përdorni vetëm shkronja, numra, nënvija dhe vija ndarëse në mes, si dhe duhet të fillojë me një shkronjë</translation>
+    </message>
+    <message>
+        <source>The group name has been used</source>
+        <translation>Emri i grupit është përdorur</translation>
     </message>
 </context>
 <context>
